@@ -1,0 +1,52 @@
+SerialWombat	KEYWORD1
+begin	KEYWORD2
+sendPacket	KEYWORD2
+readVersion	KEYWORD2
+readPublicData	KEYWORD2
+writePublicData	KEYWORD2
+readSupplyVoltage_mV	KEYWORD2
+hardwareReset	KEYWORD2
+pinMode	KEYWORD2
+digitalWrite	KEYWORD2
+digitalRead	KEYWORD2
+analogRead	KEYWORD2
+analogWrite	KEYWORD2
+
+SW_LOW	LITERAL1
+SW_HIGH	LITERAL1
+SW_INPUT	LITERAL1
+
+SerialWombatServo	KEYWORD1
+write	KEYWORD2
+write16bit	KEYWORD2
+
+SerialWombatAnalogInput	KEYWORD1
+readVoltage_mV	KEYWORD2
+readCounts	KEYWORD2
+readFilteredCounts	KEYWORD2
+readFiltered_mV	KEYWORD2
+readAveraged_mV	KEYWORD2
+readAveragedCounts	KEYWORD2
+updateSupplyVoltage	KEYWORD2
+
+SerialWombatPulseTimer	KEYWORD1
+refresh	KEYWORD2
+refreshHighCountsLowCounts	KEYWORD2
+refreshHighCountsPulses	KEYWORD2
+readHighCounts	KEYWORD2
+readLowCounts	KEYWORD2
+readPulses	KEYWORD2
+
+SerialWombatPWM	KEYWORD1
+writeDutyCycle	KEYWORD2
+
+SerialWombatUART	KEYWORD1
+
+SerialWombatProtectedOutput	KEYWORD1
+isInSafeState	KEYWORD2
+configure	KEYWORD2
+makeInput	KEYWORD2
+PO_FAULT_IF_NOT_EQUAL	LITERAL1
+PO_FAULT_IF_FEEDBACK_LESS_THAN_EXPECTED	LITERAL1
+PO_FAULT_IF_FEEDBACK_GREATER_THAN_EXPECTED	LITERAL1
+
