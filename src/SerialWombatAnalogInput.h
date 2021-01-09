@@ -22,7 +22,7 @@ public:
 private:
 	SerialWombat &_sw ;
 	
-	uint8_t _pin = 0;
+	uint8_t _pin = 255;
 	uint16_t supplyVoltagemV = 0;
 	
 };

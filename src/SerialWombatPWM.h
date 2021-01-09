@@ -17,6 +17,6 @@ public:
 
 private:
 	SerialWombat* _sw;
-	uint8_t _pin;
+	uint8_t _pin = 255;
 };
 

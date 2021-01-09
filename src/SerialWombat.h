@@ -89,7 +89,7 @@ public:
 	int sendPacket(uint8_t tx[]);
 	char* readVersion(void);
 	uint16_t readPublicData(uint8_t pin);
-	void writePublicData(uint8_t pin, uint16_t value);
+	uint16_t writePublicData(uint8_t pin, uint16_t value);
 	uint16_t readSupplyVoltage_mV(void);
 	void hardwareReset();
 	void pinMode(uint8_t pin, uint8_t mode);
@@ -117,6 +117,7 @@ private:
 #include "SerialWombatServo.h"
 #include "SerialWombatPWM.h"
 #include "SerialWombatAnalogInput.h"
+#include "SerialWombatDebouncedInput.h"
 #include "SerialWombatQuadEnc.h"
 #include "SerialWombatProtectedOutput.h"
 #include "SerialWombatPulseTimer.h"

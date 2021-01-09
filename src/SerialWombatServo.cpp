@@ -15,6 +15,13 @@ void SerialWombatServo::attach(uint8_t pin)
 
 }
 
+void SerialWombatServo::attach(uint8_t pin, bool reverse)
+{
+	_pin = pin;
+	_reverse = reverse;
+	initializeServo();
+}
+
 void SerialWombatServo::initializeServo()
 {
 	uint8_t tx[] = { 200,_pin,PIN_MODE_SERVO,_pin,SW_LE16(_position), _reverse,0x55 };
@@ -42,7 +49,14 @@ void SerialWombatServo::attach(uint8_t pin, uint16_t min, uint16_t max, bool rev
 }
 void SerialWombatServo::write(uint8_t angle)
 {
-	write16bit( (uint16_t)(65536uL * angle / 180));
+	if (angle < 180)
+	{
+		write16bit((uint16_t)(65536uL * angle / 180));
+	}
+	else
+	{
+		write16bit(65535uL);
+	}
 
 }
 uint8_t SerialWombatServo::read(void)

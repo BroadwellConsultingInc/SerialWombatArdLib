@@ -18,7 +18,7 @@ public:
 
 private:
     SerialWombat& _sw;
-    uint8_t _pin;
+    uint8_t _pin = 255;
     uint8_t _monitoredPin = 255;
     PO_COMPARE_t _compareMode = PO_FAULT_IF_NOT_EQUAL;
     uint8_t _debounceTime = 0;

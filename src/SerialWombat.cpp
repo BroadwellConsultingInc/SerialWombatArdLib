@@ -273,9 +273,10 @@ uint16_t SerialWombat::readPublicData(uint8_t pin)
 	return(rx[2] + (uint16_t)rx[3] * 256);
 }
 
-void SerialWombat::writePublicData(uint8_t pin, uint16_t value)
+uint16_t SerialWombat::writePublicData(uint8_t pin, uint16_t value)
 {
 	uint8_t tx[] = { 0x82,pin,(uint8_t)(value & 0xFF),(uint8_t)(value >> 8) ,255,0x55,0x55,0x55 };
 	uint8_t rx[8];
 	sendPacket(tx, rx);
+	return (rx[2] + rx[3] * 256);
 }

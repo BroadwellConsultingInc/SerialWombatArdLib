@@ -4,7 +4,6 @@
 SerialWombatAnalogInput::SerialWombatAnalogInput( SerialWombat& serialWombat):_sw(serialWombat)
 {
 	_sw = serialWombat;
-
 }
 
 void SerialWombatAnalogInput::begin(uint8_t pin)

@@ -13,7 +13,7 @@ public:
 	void updateResetCountdown(uint16_t time_mS);
 private:
 	SerialWombat& _sw;
-	uint8_t _pin;
+	uint8_t _pin = 255;
 	uint16_t _resetStateTime = 10;
 
 };
