@@ -99,6 +99,10 @@ public:
 	int digitalRead(uint8_t pin);
 	int analogRead(uint8_t pin);
 	void analogWrite(uint8_t pin, int val);
+	bool queryVersion();
+	uint16_t _supplyVoltagemV = 0;
+	uint8_t model[4] = { 0 };
+	uint8_t fwVersion[4] = { 0 };
 private:
 
 	uint8_t address = 0;
@@ -110,6 +114,8 @@ private:
 	bool _openDrain[WOMBAT_MAXIMUM_PINS]={};
 	void configureDigitalPin(uint8_t pin, uint8_t highLow);
 	unsigned long sendReadyTime = 0;
+	void initialize();
+	
 };
 
 #define SW_LE16(_a)  (uint8_t)(_a & 0xFF), (uint8_t)(_a >>8)  // Convert a uint16_t to two bytes in little endian format for array initialization

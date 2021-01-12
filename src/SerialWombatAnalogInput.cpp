@@ -23,17 +23,16 @@ void SerialWombatAnalogInput::begin(uint8_t pin, uint16_t averageSamples, uint16
 }
 
 
-int16_t SerialWombatAnalogInput::readVoltage_mV()
+uint16_t SerialWombatAnalogInput::readVoltage_mV()
 {
 	
-	uint32_t x = _sw.readPublicData(_pin); // Counts ranging from 0 to 65535
-
-	if (supplyVoltagemV == 0)
-	{
-		supplyVoltagemV = _sw.readSupplyVoltage_mV();
-	}
-	x *= supplyVoltagemV;
-	return ((int16_t) (x >> 16));
+	uint16_t reading = _sw.readPublicData(_pin);
+	
+	uint32_t x = ((uint32_t) reading ) * _sw._supplyVoltagemV;
+	
+	uint16_t returnval = x >> 16;
+	
+	return (returnval);
 }
 
 uint16_t SerialWombatAnalogInput::readCounts()
@@ -41,10 +40,53 @@ uint16_t SerialWombatAnalogInput::readCounts()
 	return (_sw.readPublicData(_pin));
 }
 
+uint16_t SerialWombatAnalogInput::readFiltered_mV()
+{
+	uint32_t x = readFilteredCounts(); // Counts ranging from 0 to 65535
+
+	
+	
+	return ((uint16_t)(x >> 16));
+}
+
+uint16_t SerialWombatAnalogInput::readFilteredCounts()
+{
+	uint8_t tx[] = { 204,_pin,PIN_MODE_ANALOGINPUT,0x55,0x55,0x55,0x55,0x55 };
+	uint8_t rx[8];
+
+	_sw.sendPacket(tx, rx);
+
+	return(rx[5] + rx[6] * 256);
+}
+
+uint16_t SerialWombatAnalogInput::readAveraged_mV()
+{
+	uint32_t x = readAveragedCounts(); // Counts ranging from 0 to 65535
+
+	x *= _sw._supplyVoltagemV;
+	return ((uint16_t)(x >> 16));
+}
+
+uint16_t SerialWombatAnalogInput::readAveragedCounts()
+{
+	uint8_t tx[] = { 204,_pin,PIN_MODE_ANALOGINPUT,0x55,0x55,0x55,0x55,0x55 };
+	uint8_t rx[8];
+
+	_sw.sendPacket(tx, rx);
+
+	return(rx[3] + rx[4] * 256);
+}
 
 
 
+
+
+uint16_t SerialWombatAnalogInput::updateSupplyVoltage_mV()
+{
+	return  _sw.readSupplyVoltage_mV();
+}
 
 SerialWombatAnalogInput::~SerialWombatAnalogInput()
 {
+
 }

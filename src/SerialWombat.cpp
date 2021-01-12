@@ -24,13 +24,20 @@ void SerialWombat::begin(HardwareSerial& serial, bool reset)
 	if (reset)
 	{
 		hardwareReset();
+		sendReadyTime = millis() + 1000;
 	}
-	sendReadyTime = millis() + 1000;
+	else
+	{
+		initialize();
+	}
+	
+	
 }
 
 void SerialWombat::begin(TwoWire& wire, uint8_t i2cAddress)
 {
 	begin(wire, i2cAddress, true);
+
 }
 void SerialWombat::begin(TwoWire& wire, uint8_t i2cAddress, bool reset)
 {
@@ -39,8 +46,14 @@ void SerialWombat::begin(TwoWire& wire, uint8_t i2cAddress, bool reset)
 	if (reset)
 	{
 		hardwareReset();
+		sendReadyTime = millis() + 1000;
 	}
-	sendReadyTime = millis() + 1000;
+	else
+	{
+		sendReadyTime = 0;
+		initialize();
+		
+	}
 }
 
 void SerialWombat::begin(uint8_t i2cAddress)
@@ -49,6 +62,10 @@ void SerialWombat::begin(uint8_t i2cAddress)
 	address = i2cAddress;
 }
 
+void SerialWombat::initialize()
+{
+	readSupplyVoltage_mV();
+}
 
 int SerialWombat::sendPacket(uint8_t tx[], uint8_t rx[])
 {
@@ -58,8 +75,10 @@ int SerialWombat::sendPacket(uint8_t tx[], uint8_t rx[])
 		if (currentTime < sendReadyTime)
 		{
 			delay(sendReadyTime - currentTime);
+
 		}
 		sendReadyTime = 0;
+		initialize();
 	}
 
 	if (Serial != NULL)
@@ -88,6 +107,7 @@ int SerialWombat::sendPacket(uint8_t tx[], uint8_t rx[])
 		i2cInterface->write(tx, 8);
 		i2cInterface->endTransmission();
 		//delay(3);
+		delayMicroseconds(20);
 		i2cInterface->requestFrom(address, (uint8_t)8);
 
 		count = 0;
@@ -113,8 +133,10 @@ int SerialWombat::sendPacket(uint8_t tx[])
 		if (currentTime < sendReadyTime)
 		{
 			delay(sendReadyTime - currentTime);
+			
 		}
 		sendReadyTime = 0;
+		initialize();
 	}
 
 	if (Serial != NULL)
@@ -152,8 +174,8 @@ uint16_t SerialWombat::readSupplyVoltage_mV()
 {
 	uint16_t counts = readPublicData(66); // Get FVR counts (1.024 v)
 	uint32_t mv = 1024 * 65536 / counts;
-
-	return((uint16_t)mv);
+	_supplyVoltagemV = (uint16_t) mv;
+	return(_supplyVoltagemV);
 }
 
 void SerialWombat::hardwareReset()
@@ -170,9 +192,6 @@ void SerialWombat::pinMode(uint8_t pin, uint8_t mode)
 
 void SerialWombat::pinMode(uint8_t pin, uint8_t mode, bool pullDown, bool openDrain)
 {
-	
-	
-
 	if (pin >= WOMBAT_MAXIMUM_PINS)
 	{
 		return;
@@ -219,6 +238,26 @@ void SerialWombat::analogWrite(uint8_t pin, int val)
 	uint8_t tx[] = { CMD_SET_PIN_MODE0,pin,PIN_MODE_PWM,pin,dutyCycleLow,val,false,0x55 };
 	uint8_t rx[8];
 	sendPacket(tx, rx);
+}
+
+bool SerialWombat::queryVersion()
+{
+	uint8_t tx[8] = { 'V',0x55,0x55,0x55,0x55,0x55,0x55,0x55 };
+	uint8_t rx[8];
+	sendPacket(tx, rx);
+	if (rx[0] == 'V' && rx[1] == 'S')
+	{
+		model[0] = rx[2];
+		model[1] = rx[3];
+		model[2] = rx[4];
+		model[3] = 0;
+		fwVersion[0] = rx[5];
+		fwVersion[1] = rx[6];
+		fwVersion[2] = rx[7];
+		fwVersion[3] = 0;
+		return (true);
+	}
+	return (false);
 }
 
 void SerialWombat::configureDigitalPin(uint8_t pin,uint8_t highLow)
