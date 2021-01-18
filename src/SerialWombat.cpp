@@ -1,5 +1,8 @@
 #include "serialWombat.h"
 
+/*! \file SerialWombat.cpp
+*/
+
 
 SerialWombat::SerialWombat()
 {
@@ -10,6 +13,7 @@ SerialWombat::SerialWombat()
 SerialWombat::~SerialWombat()
 {
 }
+
 
 void SerialWombat::begin(HardwareSerial& serial)
 {
@@ -199,7 +203,7 @@ void SerialWombat::pinMode(uint8_t pin, uint8_t mode, bool pullDown, bool openDr
 	_pullDown[pin] = openDrain;
 	_openDrain[pin] = openDrain;
 	_pinmode[pin] = mode;
-	configureDigitalPin(pin, LOW);
+	configureDigitalPin(pin, mode);
 }
 
 void SerialWombat::digitalWrite(uint8_t pin, uint8_t val)
@@ -258,6 +262,12 @@ bool SerialWombat::queryVersion()
 		return (true);
 	}
 	return (false);
+}
+
+void SerialWombat::jumpToBoot()
+{
+	uint8_t tx[] = "BoOtLoAd";
+	sendPacket(tx);
 }
 
 void SerialWombat::configureDigitalPin(uint8_t pin,uint8_t highLow)

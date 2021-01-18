@@ -70,24 +70,41 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Combine and input and output pin for a protected output.  
+ <a href="class_serial_wombat_protected_output.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="serial_wombat_protected_output_8h_source.html">serialWombatProtectedOutput.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a11ed4ffdd03b852e36bf3ec10deeef6b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_protected_output.html#a11ed4ffdd03b852e36bf3ec10deeef6b">SerialWombatProtectedOutput</a> (<a class="el" href="class_serial_wombat.html">SerialWombat</a> &amp;serialWombat)</td></tr>
+<tr class="memdesc:a11ed4ffdd03b852e36bf3ec10deeef6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_serial_wombat_protected_output.html" title="Combine and input and output pin for a protected output.">SerialWombatProtectedOutput</a>.  <a href="class_serial_wombat_protected_output.html#a11ed4ffdd03b852e36bf3ec10deeef6b">More...</a><br /></td></tr>
 <tr class="separator:a11ed4ffdd03b852e36bf3ec10deeef6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23961b686d06723660003ad5abb63caf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_protected_output.html#a23961b686d06723660003ad5abb63caf">begin</a> (uint8_t pin, uint8_t monitoredPin)</td></tr>
 <tr class="separator:a23961b686d06723660003ad5abb63caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a10228b100ff7aa845154c5c4a49773"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_protected_output.html#a3a10228b100ff7aa845154c5c4a49773">configure</a> (<a class="el" href="serial_wombat_protected_output_8h.html#a8951f00892c21a02eaae15882604daa3">PO_COMPARE_t</a> compareMode, uint16_t compareValue, uint8_t debounceTime, <a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a> activeState, <a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a> safeState)</td></tr>
 <tr class="separator:a3a10228b100ff7aa845154c5c4a49773"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb8e46e44dd34a8a652911c55377ddb2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_protected_output.html#adb8e46e44dd34a8a652911c55377ddb2">isInSafeState</a> ()</td></tr>
+<tr class="memdesc:adb8e46e44dd34a8a652911c55377ddb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the Serial Wombat to see if the protected output has entered safe mode due to a fault.  <a href="class_serial_wombat_protected_output.html#adb8e46e44dd34a8a652911c55377ddb2">More...</a><br /></td></tr>
 <tr class="separator:adb8e46e44dd34a8a652911c55377ddb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bd9a8945905388f98fdefb03b1da24e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_protected_output.html#a7bd9a8945905388f98fdefb03b1da24e">makeInput</a> ()</td></tr>
+<tr class="memdesc:a7bd9a8945905388f98fdefb03b1da24e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn off protection features and make the protected pin an input.  <a href="class_serial_wombat_protected_output.html#a7bd9a8945905388f98fdefb03b1da24e">More...</a><br /></td></tr>
 <tr class="separator:a7bd9a8945905388f98fdefb03b1da24e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f42b1ded9869c7f971887afa9ba10d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_protected_output.html#a4f42b1ded9869c7f971887afa9ba10d4">digitalWrite</a> (uint8_t state)</td></tr>
+<tr class="memdesc:a4f42b1ded9869c7f971887afa9ba10d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn off the protection features and make the protected pin an unprotected output.  <a href="class_serial_wombat_protected_output.html#a4f42b1ded9869c7f971887afa9ba10d4">More...</a><br /></td></tr>
 <tr class="separator:a4f42b1ded9869c7f971887afa9ba10d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Combine and input and output pin for a protected output. </p>
+<p>The SerialWombtProtectedOutput class is assigned to a Serial Wombat output. It monitors another previously configured pin's public data, such as a digital I/O value or an Analog input. If the monitored value does not meet expectations, then the protected pin changes values to a configured state. This allows the Serial Wombat to constantly verify a condition without the need for constant polling from the host device.</p>
+<dl class="section warning"><dt>Warning</dt><dd>The <a class="el" href="class_serial_wombat_protected_output.html" title="Combine and input and output pin for a protected output.">SerialWombatProtectedOutput</a> is intended to help prevent accidental damage to hobby circuitry. The Serial Wombat and its associated libraries are not designed for use in Safety Critical applications. The Serial Wombat should not be used in situations where a malfunction or design defect could result in damage to property, economic loss, or harm to living people or creatures.</dd></dl>
+<p>The period of time that a mismatch must occur before going to the safeState is configurable.</p>
+<p>Video Tutorial</p>
+<p> 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/p8CO04C1q_Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<p><a href="https://youtu.be/p8CO04C1q_Y">https://youtu.be/p8CO04C1q_Y</a> </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a11ed4ffdd03b852e36bf3ec10deeef6b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a11ed4ffdd03b852e36bf3ec10deeef6b">&#9670;&nbsp;</a></span>SerialWombatProtectedOutput()</h2>
 
@@ -103,6 +120,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructor for <a class="el" href="class_serial_wombat_protected_output.html" title="Combine and input and output pin for a protected output.">SerialWombatProtectedOutput</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">serialWombat</td><td>The serial Wombat on which the Protected Output runs </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -132,6 +157,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Initialize the Protected Output. No pin state changes happen with this function </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>The output pin of the Protected output Valid values for SW4A: 0-3 SW4B: 1-3 </td></tr>
+    <tr><td class="paramname">monitoredPin</td><td>The input pin for the Protected Output. Must be initialized before this call </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -178,6 +210,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Configure a protected output. This function will change the pin output to activeState unless fault conditions are met </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">compareMode</td><td>Enumerated type of PO_COMPARE_t . </td></tr>
+    <tr><td class="paramname">compareValue</td><td>A 16 bit unsigned value that will be compared with the public data from the monitored pin and compared based on compareMode </td></tr>
+    <tr><td class="paramname">debounceTime</td><td>How long, in mS the compareMode fault condition must exist before transitioning to safeState </td></tr>
+    <tr><td class="paramname">activeState</td><td>The initial, pre-fault state for the output (SW_LOW, SW_HIGH, SW_INPUT). Do not use Arduino HIGH or LOW or INPUT constants. </td></tr>
+    <tr><td class="paramname">safeState</td><td>The safe, post-fault state for the output (SW_LOW, SW_HIGH, SW_INPUT). Do not use Arduino HIGH or LOW or INPUT constants. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -197,6 +239,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Turn off the protection features and make the protected pin an unprotected output. </p>
+<p>This function is compatible with the Arduino digital write, and therefore uses HIGH and LOW as parameters rather than SW_HIGH or SW_LOW /param state HIGH or LOW </p>
+
 </div>
 </div>
 <a id="adb8e46e44dd34a8a652911c55377ddb2"></a>
@@ -214,6 +259,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Queries the Serial Wombat to see if the protected output has entered safe mode due to a fault. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if in safe state, false if in openState </dd></dl>
+
 </div>
 </div>
 <a id="a7bd9a8945905388f98fdefb03b1da24e"></a>
@@ -230,6 +278,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Turn off protection features and make the protected pin an input. </p>
 
 </div>
 </div>

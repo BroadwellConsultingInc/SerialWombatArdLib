@@ -70,26 +70,59 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A class that uses two Serial Wombat input pins to read quadrature encoder input.  
+ <a href="class_serial_wombat_quad_enc.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="serial_wombat_quad_enc_8h_source.html">serialWombatQuadEnc.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a61c83f53b7d29745acbf72c16d8efbed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_quad_enc.html#a61c83f53b7d29745acbf72c16d8efbed">SerialWombatQuadEnc</a> (<a class="el" href="class_serial_wombat.html">SerialWombat</a> &amp;serialWombat)</td></tr>
+<tr class="memdesc:a61c83f53b7d29745acbf72c16d8efbed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input.">SerialWombatQuadEnc</a> class.  <a href="class_serial_wombat_quad_enc.html#a61c83f53b7d29745acbf72c16d8efbed">More...</a><br /></td></tr>
 <tr class="separator:a61c83f53b7d29745acbf72c16d8efbed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e2f3cfb2cfda204f955ed190e0d45f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_quad_enc.html#a0e2f3cfb2cfda204f955ed190e0d45f2">begin</a> (uint8_t pin, uint8_t secondPin)</td></tr>
+<tr class="memdesc:a0e2f3cfb2cfda204f955ed190e0d45f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple initialization for <a class="el" href="class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input.">SerialWombatQuadEnc</a>.  <a href="class_serial_wombat_quad_enc.html#a0e2f3cfb2cfda204f955ed190e0d45f2">More...</a><br /></td></tr>
 <tr class="separator:a0e2f3cfb2cfda204f955ed190e0d45f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4668bee7f36e6099d4ce325f7452bce8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_quad_enc.html#a4668bee7f36e6099d4ce325f7452bce8">begin</a> (uint8_t pin, uint8_t secondPin, uint16_t debounce_mS, bool pullUpsEnabled)</td></tr>
+<tr class="memdesc:a4668bee7f36e6099d4ce325f7452bce8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization for <a class="el" href="class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input.">SerialWombatQuadEnc</a> that allows configuration of debounce time and pullUps.  <a href="class_serial_wombat_quad_enc.html#a4668bee7f36e6099d4ce325f7452bce8">More...</a><br /></td></tr>
 <tr class="separator:a4668bee7f36e6099d4ce325f7452bce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb8381def3282556e88153bad0aaeead"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_quad_enc.html#afb8381def3282556e88153bad0aaeead">begin</a> (uint8_t pin, uint8_t secondPin, uint16_t debounce_mS, bool pullUpsEnabled, <a class="el" href="serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5db">QE_READ_MODE_t</a> readState)</td></tr>
+<tr class="memdesc:afb8381def3282556e88153bad0aaeead"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization for <a class="el" href="class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input.">SerialWombatQuadEnc</a> that allows configuration of debounce time, pullUps and transition detection mode.  <a href="class_serial_wombat_quad_enc.html#afb8381def3282556e88153bad0aaeead">More...</a><br /></td></tr>
 <tr class="separator:afb8381def3282556e88153bad0aaeead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e70f5277e922b1f4e3590c2c189e9ee"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_quad_enc.html#a7e70f5277e922b1f4e3590c2c189e9ee">read</a> ()</td></tr>
+<tr class="memdesc:a7e70f5277e922b1f4e3590c2c189e9ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the quadrature encoder position from the Serial Wombat.  <a href="class_serial_wombat_quad_enc.html#a7e70f5277e922b1f4e3590c2c189e9ee">More...</a><br /></td></tr>
 <tr class="separator:a7e70f5277e922b1f4e3590c2c189e9ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03d7a95c9d363ac4f51c2a22dd182b3d"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_quad_enc.html#a03d7a95c9d363ac4f51c2a22dd182b3d">read</a> (uint16_t replacementValue)</td></tr>
+<tr class="memdesc:a03d7a95c9d363ac4f51c2a22dd182b3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the quadrature encoder position from the Serial Wombat then set the position value.  <a href="class_serial_wombat_quad_enc.html#a03d7a95c9d363ac4f51c2a22dd182b3d">More...</a><br /></td></tr>
 <tr class="separator:a03d7a95c9d363ac4f51c2a22dd182b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad638f505d113848414f3fa0b9d728d9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_quad_enc.html#ad638f505d113848414f3fa0b9d728d9f">write</a> (uint16_t value)</td></tr>
+<tr class="memdesc:ad638f505d113848414f3fa0b9d728d9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes the position of the encoder.  <a href="class_serial_wombat_quad_enc.html#ad638f505d113848414f3fa0b9d728d9f">More...</a><br /></td></tr>
 <tr class="separator:ad638f505d113848414f3fa0b9d728d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class that uses two Serial Wombat input pins to read quadrature encoder input. </p>
+<p>The <a class="el" href="class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input.">SerialWombatQuadEnc</a> class configures two pins on the Serial Wombat to work together to read quadrature encoder inputs. <br  />
+</p>
+<p>By offloading the reading of an encoder to the Serial Wombat, it makes it easy for the host to track multiple encoders at once. The host need only periodically retreive the net change in rotary encoder position from the Serial Wombat rather than monitoring for every signal change.</p>
+<p>Video Tutorial:</p>
+<p> 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_wO8cOada3w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<p><a href="https://youtu.be/_wO8cOada3w">https://youtu.be/_wO8cOada3w</a></p>
+<p>An instance of the <a class="el" href="class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input.">SerialWombatQuadEnc</a> class should be declared for each encoder (2 pins) connected to the Serial Wombat.</p>
+<p>The quadrature encoder is capable of running in either polled or interrupt driven modes. <br  />
+</p>
+<p>Polled mode is recommended for manual inputs such as rotary encoder knobs. It polls at 1 kHz which is fast enough for most applications.</p>
+<p>Interrupt driven mode is capable of correctly decoding very fast signals. However, the signals need to be properly filtered in order to eliminate any bouncing.</p>
+<p>The <a class="el" href="class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input.">SerialWombatQuadEnc</a> can make use of the Serial Wombat's built in pull-up resistors to make connecting a rotary encoder knob very simple. Debouncing is available which prevents additional transitions from being measured for a specified number of mS after a transition.</p>
+<p>Rotational direction measurement can be changed by switching the "pin" and "second pin" parameters in the begin call.</p>
+<p>The reported position can be changed on low to high transitions of "pin", high to low transitions, or both transitions. This allows knobs that make and break connection on each click/detent and knobs that either make or break connection on each detent to report one change per detent to the host. <br  />
+</p>
+<p>The default mode for simple initialization is to measure both, which will result in 2 increments per detent for encoders that make and break connection on each detent.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Care must be taken in interrupt mode when using this pinmode with high frequency ( &gt; 5 kHz) signals or pins that may be left floating on the Serial Wombat 4A / 4B because the Serial Wombat uses an interrupt internally to capture transitions between state machine updates. Excessively frequent pin transitions may cause the interrupt handler to starve the main processing loop, impacting function of all pin modes and communications.</dd></dl>
+<p>The Serial Wombat can be queried for overflow frames. If overflow frames are occuring, then the system is overloaded.</p>
+<p>The Serial Wombat 4A and 4B can measure a maxium of 8 transitions per mS across all pulse input pins. More frequent transitions than this may result pin mode malfunction. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a61c83f53b7d29745acbf72c16d8efbed"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a61c83f53b7d29745acbf72c16d8efbed">&#9670;&nbsp;</a></span>SerialWombatQuadEnc()</h2>
 
@@ -105,6 +138,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructor for the <a class="el" href="class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input.">SerialWombatQuadEnc</a> class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">serialWombat</td><td>The Serial Wombat running the quadrature encoder </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -134,6 +175,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Simple initialization for <a class="el" href="class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input.">SerialWombatQuadEnc</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>The first pin to be used as a Quadrature Encoder input. All 4 pins on the SW4A/SW4B may be used. </td></tr>
+    <tr><td class="paramname">secondPin</td><td>The second pin to be used as a Quadrature Encoder input. All 4 pins on the SW4A/SW4B may be used, except the first specified pin.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This initialization assumes a simple Rotary Encoder knob that is connected to ground. Polling mode is used, and both transitions generate increments. Pull ups are enabled, and 10ms of debouncing is used. Position is initialized to 0. </p>
 
 </div>
 </div>
@@ -174,6 +225,18 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialization for <a class="el" href="class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input.">SerialWombatQuadEnc</a> that allows configuration of debounce time and pullUps. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>The first pin to be used as a Quadrature Encoder input. All 4 pins on the SW4A/SW4B may be used. </td></tr>
+    <tr><td class="paramname">secondPin</td><td>The second pin to be used as a Quadrature Encoder input. All 4 pins on the SW4A/SW4B may be used, except the first specified pin. </td></tr>
+    <tr><td class="paramname">debounce_mS</td><td>The number of mS after a transition is detected and increment occurs before another increment is allowed. </td></tr>
+    <tr><td class="paramname">pullUpsEnabled</td><td>TRUE: both pins have weak pull ups enabled. FALSE: Neither pin has weak pull up enabled.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Polling mode is used, and both transitions generate increments. Position is initialized to 0. </p>
 
 </div>
 </div>
@@ -221,6 +284,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialization for <a class="el" href="class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input.">SerialWombatQuadEnc</a> that allows configuration of debounce time, pullUps and transition detection mode. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>The first pin to be used as a Quadrature Encoder input. All 4 pins on the SW4A/SW4B may be used. </td></tr>
+    <tr><td class="paramname">secondPin</td><td>The second pin to be used as a Quadrature Encoder input. All 4 pins on the SW4A/SW4B may be used, except the first specified pin. </td></tr>
+    <tr><td class="paramname">debounce_mS</td><td>The number of mS after a transition is detected and increment occurs before another increment is allowed. </td></tr>
+    <tr><td class="paramname">pullUpsEnabled</td><td>TRUE: both pins have weak pull ups enabled. FALSE: Neither pin has weak pull up enabled. </td></tr>
+    <tr><td class="paramname">readState</td><td><a class="el" href="serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5db">QE_READ_MODE_t</a> determine if Polling or Interrupt mode is used, and which transitions cause increments.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Position is initialized to 0. </p>
+
 </div>
 </div>
 <a id="a7e70f5277e922b1f4e3590c2c189e9ee"></a>
@@ -237,6 +313,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Read the quadrature encoder position from the Serial Wombat. </p>
+<dl class="section return"><dt>Returns</dt><dd>a 16 bit unsigned value indicating position. Rolls from 0 to 65535 when decrementing below 0 </dd></dl>
 
 </div>
 </div>
@@ -256,6 +335,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Read the quadrature encoder position from the Serial Wombat then set the position value. </p>
+<dl class="section return"><dt>Returns</dt><dd>a 16 bit unsigned value indicating position. Rolls from 0 to 65535 when decrementing below 0 </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">replacementValue</td><td>The 16 bit value to set the position to after read.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This method is useful when looking for relative change since last call. By setting the position to center (32768) after each read, the net postion change can easily be measured. This is conceptually simplier than using <a class="el" href="class_serial_wombat_quad_enc.html#a7e70f5277e922b1f4e3590c2c189e9ee" title="Read the quadrature encoder position from the Serial Wombat.">read()</a> and adjusting for rollover between 65535 and 0. </p>
+
 </div>
 </div>
 <a id="ad638f505d113848414f3fa0b9d728d9f"></a>
@@ -273,6 +362,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>This function initializes the position of the encoder. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>A starting value between 0 and 65535 for the encoder </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

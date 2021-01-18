@@ -210,7 +210,7 @@ Public Attributes</h2></td></tr>
 <p>Configures pin as analog input and does an immediate A/D conversion. <br  />
  </p>
 <p>This function is compatible with the Arduino Uno analogRead function. <br  />
- It does not make use of advanced Serial Wombat functionality such as averaging and filtering. Consider declaring a <a class="el" href="class_serial_wombat_analog_input.html">SerialWombatAnalogInput</a> instead. </p><dl class="params"><dt>Parameters</dt><dd>
+ It does not make use of advanced Serial Wombat functionality such as averaging and filtering. Consider declaring a <a class="el" href="class_serial_wombat_analog_input.html" title="A class to make analog measurements with the Serial Wombat.">SerialWombatAnalogInput</a> instead. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pin</td><td>The Serial Wombat pin to set. Valid values for SW4A: 0-3 SW4B: 1-3 </td></tr>
   </table>
@@ -247,7 +247,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set a pin to PWM output. </p>
-<p>This function is compatible with the Arduino Uno analogWrite function, but will output a PWM with a different frequency. Consider declaring a <a class="el" href="class_serial_wombat_p_w_m.html">SerialWombatPWM</a> instead. It has higher resolution and the ability to choose frequency.</p>
+<p>This function is compatible with the Arduino Uno analogWrite function, but will output a PWM with a different frequency. Consider declaring a <a class="el" href="class_serial_wombat_p_w_m.html" title="A class representing a Serial Wombat PWM output.">SerialWombatPWM</a> instead. It has higher resolution and the ability to choose frequency.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pin</td><td>The Serial Wombat pin to set. Valid values for SW4A: 0-3 SW4B: 1-3 </td></tr>
@@ -829,7 +829,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Stores the last value retreived by <a class="el" href="class_serial_wombat.html#a5c02ba116cdf692bc790fa7fbd315a1f" title="Measure the Serial Wombat&#39;s Supply voltage.">readSupplyVoltage_mV()</a>. Used by <a class="el" href="class_serial_wombat_analog_input.html">SerialWombatAnalogInput</a> class to calculate mV outputs from retreived A/D counts. Don't access this member, as it may become private and SerialWombatAnalog input be made a friend of <a class="el" href="class_serial_wombat.html">SerialWombat</a> in the future. Call readSupplyVoltage_mV instead. </p>
+<p>Stores the last value retreived by <a class="el" href="class_serial_wombat.html#a5c02ba116cdf692bc790fa7fbd315a1f" title="Measure the Serial Wombat&#39;s Supply voltage.">readSupplyVoltage_mV()</a>. Used by <a class="el" href="class_serial_wombat_analog_input.html" title="A class to make analog measurements with the Serial Wombat.">SerialWombatAnalogInput</a> class to calculate mV outputs from retreived A/D counts. Don't access this member, as it may become private and SerialWombatAnalog input be made a friend of <a class="el" href="class_serial_wombat.html">SerialWombat</a> in the future. Call readSupplyVoltage_mV instead. </p>
 
 </div>
 </div>

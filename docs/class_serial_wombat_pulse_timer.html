@@ -71,41 +71,71 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time.  
+ <a href="class_serial_wombat_pulse_timer.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="serial_wombat_pulse_timer_8h_source.html">serialWombatPulseTimer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aad7e33f1c29606c44e7d9f1ac548b75b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_timer.html#aad7e33f1c29606c44e7d9f1ac548b75b">SerialWombatPulseTimer</a> (<a class="el" href="class_serial_wombat.html">SerialWombat</a> &amp;serialWombat)</td></tr>
+<tr class="memdesc:aad7e33f1c29606c44e7d9f1ac548b75b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor for <a class="el" href="class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time.">SerialWombatPulseTimer</a>.  <a href="class_serial_wombat_pulse_timer.html#aad7e33f1c29606c44e7d9f1ac548b75b">More...</a><br /></td></tr>
 <tr class="separator:aad7e33f1c29606c44e7d9f1ac548b75b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7f9b69f629d71b99a72178e6f2140ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_timer.html#ae7f9b69f629d71b99a72178e6f2140ce">begin</a> (uint8_t pin)</td></tr>
+<tr class="memdesc:ae7f9b69f629d71b99a72178e6f2140ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple initialization.  <a href="class_serial_wombat_pulse_timer.html#ae7f9b69f629d71b99a72178e6f2140ce">More...</a><br /></td></tr>
 <tr class="separator:ae7f9b69f629d71b99a72178e6f2140ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29c7aa2046ab036256ca63df0e2812ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_timer.html#a29c7aa2046ab036256ca63df0e2812ba">begin</a> (uint8_t pin, <a class="el" href="serial_wombat_pulse_timer_8h.html#a91de844e5c122887a9c012cf16fb5961">SerialWombatPulseTimerUnits</a> units, bool pullUpsEnabled)</td></tr>
-<tr class="separator:a29c7aa2046ab036256ca63df0e2812ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a990ead0784f11ad55477a08d40671b9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_timer.html#a990ead0784f11ad55477a08d40671b9c">begin</a> (uint8_t pin, <a class="el" href="serial_wombat_pulse_timer_8h.html#a91de844e5c122887a9c012cf16fb5961">SerialWombatPulseTimerUnits</a> units, bool pullUpEnabled)</td></tr>
+<tr class="memdesc:a990ead0784f11ad55477a08d40671b9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization routine for <a class="el" href="class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time.">SerialWombatPulseTimer</a>.  <a href="class_serial_wombat_pulse_timer.html#a990ead0784f11ad55477a08d40671b9c">More...</a><br /></td></tr>
+<tr class="separator:a990ead0784f11ad55477a08d40671b9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1528974b4eef9ab9e0135d356551840e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_timer.html#a1528974b4eef9ab9e0135d356551840e">refresh</a> ()</td></tr>
+<tr class="memdesc:a1528974b4eef9ab9e0135d356551840e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreive the latest values for HighCounts, LowCounts, Pulses, and MeasurementOverflowOccured.  <a href="class_serial_wombat_pulse_timer.html#a1528974b4eef9ab9e0135d356551840e">More...</a><br /></td></tr>
 <tr class="separator:a1528974b4eef9ab9e0135d356551840e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5550f518772f8fc8c9a2909131637585"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_timer.html#a5550f518772f8fc8c9a2909131637585">refreshHighCountsLowCounts</a> ()</td></tr>
+<tr class="memdesc:a5550f518772f8fc8c9a2909131637585"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreive the High and Low counts from the Serial Wombat in a single transaction.  <a href="class_serial_wombat_pulse_timer.html#a5550f518772f8fc8c9a2909131637585">More...</a><br /></td></tr>
 <tr class="separator:a5550f518772f8fc8c9a2909131637585"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e9642aa6b4bd4df4426e9fea9257b92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_timer.html#a0e9642aa6b4bd4df4426e9fea9257b92">refreshHighCountsPulses</a> ()</td></tr>
+<tr class="memdesc:a0e9642aa6b4bd4df4426e9fea9257b92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreive the High counts and number of pulses Serial Wombat in a single transaction.  <a href="class_serial_wombat_pulse_timer.html#a0e9642aa6b4bd4df4426e9fea9257b92">More...</a><br /></td></tr>
 <tr class="separator:a0e9642aa6b4bd4df4426e9fea9257b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb4157fac26d7edb69b6f8c7c9490153"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_timer.html#aeb4157fac26d7edb69b6f8c7c9490153">readHighCounts</a> ()</td></tr>
+<tr class="memdesc:aeb4157fac26d7edb69b6f8c7c9490153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreives the most recent Counts in the configured units for the most recent high pulse.  <a href="class_serial_wombat_pulse_timer.html#aeb4157fac26d7edb69b6f8c7c9490153">More...</a><br /></td></tr>
 <tr class="separator:aeb4157fac26d7edb69b6f8c7c9490153"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ba9b0c378a81e994db8ad06ee72c354"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_timer.html#a4ba9b0c378a81e994db8ad06ee72c354">readLowCounts</a> ()</td></tr>
+<tr class="memdesc:a4ba9b0c378a81e994db8ad06ee72c354"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreives the most recent Counts in the configured units for the most recent low pulse.  <a href="class_serial_wombat_pulse_timer.html#a4ba9b0c378a81e994db8ad06ee72c354">More...</a><br /></td></tr>
 <tr class="separator:a4ba9b0c378a81e994db8ad06ee72c354"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9a115d61abfe4837402dee38b28fcc5"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_timer.html#ab9a115d61abfe4837402dee38b28fcc5">readPulses</a> ()</td></tr>
+<tr class="memdesc:ab9a115d61abfe4837402dee38b28fcc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreives the number of pulses.  <a href="class_serial_wombat_pulse_timer.html#ab9a115d61abfe4837402dee38b28fcc5">More...</a><br /></td></tr>
 <tr class="separator:ab9a115d61abfe4837402dee38b28fcc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aa6120417cebec86fd6966a2460f9d12d"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_timer.html#aa6120417cebec86fd6966a2460f9d12d">HighCounts</a> = 0</td></tr>
+<tr class="memdesc:aa6120417cebec86fd6966a2460f9d12d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count in selected units of last retreived high pulse.  <a href="class_serial_wombat_pulse_timer.html#aa6120417cebec86fd6966a2460f9d12d">More...</a><br /></td></tr>
 <tr class="separator:aa6120417cebec86fd6966a2460f9d12d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca08404791dc6a5afa31fa64656b366f"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_timer.html#aca08404791dc6a5afa31fa64656b366f">LowCounts</a> = 0</td></tr>
+<tr class="memdesc:aca08404791dc6a5afa31fa64656b366f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count in selected units of last retreived low pulse.  <a href="class_serial_wombat_pulse_timer.html#aca08404791dc6a5afa31fa64656b366f">More...</a><br /></td></tr>
 <tr class="separator:aca08404791dc6a5afa31fa64656b366f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9de1749ff92d51e20c28076f26661914"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_timer.html#a9de1749ff92d51e20c28076f26661914">Pulses</a> = 0</td></tr>
+<tr class="memdesc:a9de1749ff92d51e20c28076f26661914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count of last retreived pulses.  <a href="class_serial_wombat_pulse_timer.html#a9de1749ff92d51e20c28076f26661914">More...</a><br /></td></tr>
 <tr class="separator:a9de1749ff92d51e20c28076f26661914"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb4f92437f247249b5361142f1756577"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_timer.html#abb4f92437f247249b5361142f1756577">MeasurementOverflowOccurred</a> = false</td></tr>
 <tr class="separator:abb4f92437f247249b5361142f1756577"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time. </p>
+<p>This class is used to measure the length of pulses in mS or in uS. On the Serial Wombat 4A/B the precision is about 8uS in uS mode, with an accuracy of +/- 2% because of variation in the Serial Wombat's internal oscillator.</p>
+<p>One <a class="el" href="class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time.">SerialWombatPulseTimer</a> should be declared per Serial Wombat pin in this mode.</p>
+<p>A video Tutorial on this pin mode is available:</p>
+<p> 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YtQWUub9gYw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<p><a href="https://youtu.be/YtQWUub9gYw">https://youtu.be/YtQWUub9gYw</a></p>
+<p>This pinmode is useful for measuring RC Servo outputs, PWM frequency and duty cycle, or any other signal where the pulse width is relevant. It is designed to measure repetitive signals. It is not intended to read a number of differing independent pulse widths that come one after another, such as WS2812 or similar output.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Care must be taken when using this pinmode with high frequency ( &gt; 5 kHz) signals or pins that may be left floating on the Serial Wombat 4A / 4B because the Serial Wombat uses an interrupt internally to capture transition timestamps. Excessively frequent pin transitions may cause the interrupt handler to starve the main processing loop, impacting function of all pin modes and communications.</dd></dl>
+<p>The Serial Wombat can be queried for overflow frames. If overflow frames are occuring, then the system is overloaded.</p>
+<p>The Serial Wombat 4A and 4B can measure a maxium of 8 transitions per mS across all pulse input pins. More frequent transitions than this may result in incorrect measurements. The MeasurementOverflowOccurred flag is set if at any time more than 8 transitions occured without processing.</p>
+<p>The number of pulses over time can be used for rough frequency measurements.</p>
+<p>Consecutive High and low periods can be used to calculate duty cycle, although there is no indication whether high or low was most recent. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aad7e33f1c29606c44e7d9f1ac548b75b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aad7e33f1c29606c44e7d9f1ac548b75b">&#9670;&nbsp;</a></span>SerialWombatPulseTimer()</h2>
 
@@ -121,6 +151,14 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Class constructor for <a class="el" href="class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time.">SerialWombatPulseTimer</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">serialWombat</td><td>The Serial Wombat on which the <a class="el" href="class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time.">SerialWombatPulseTimer</a> pinmode will be run </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -141,10 +179,18 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Simple initialization. </p>
+<p>This initialization takes a Serial Wombat pin as a parameter, sets units to uS and disables pull-ups </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>The Serial Wombat pin used for pulse measurments. All 4 pins on the SW4A/SW4B may be used. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a29c7aa2046ab036256ca63df0e2812ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29c7aa2046ab036256ca63df0e2812ba">&#9670;&nbsp;</a></span>begin() <span class="overload">[2/2]</span></h2>
+<a id="a990ead0784f11ad55477a08d40671b9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a990ead0784f11ad55477a08d40671b9c">&#9670;&nbsp;</a></span>begin() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -165,7 +211,7 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>pullUpsEnabled</em>&#160;</td>
+          <td class="paramname"><em>pullUpEnabled</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -174,6 +220,16 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialization routine for <a class="el" href="class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time.">SerialWombatPulseTimer</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>The Serial Wombat pin used for pulse measurments. All 4 pins on the SW4A/SW4B may be used. </td></tr>
+    <tr><td class="paramname">units</td><td>SW_PULSETIMER_uS or SW_PULSETIMER_mS </td></tr>
+    <tr><td class="paramname">pullUpEnabled</td><td>TRUE = Pull Up Enabled, FALSE = Pull Up Disabled </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -192,6 +248,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retreives the most recent Counts in the configured units for the most recent high pulse. </p>
+<dl class="section return"><dt>Returns</dt><dd>Counts in mS or uS depending on configuration. </dd></dl>
+
 </div>
 </div>
 <a id="a4ba9b0c378a81e994db8ad06ee72c354"></a>
@@ -208,6 +267,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Retreives the most recent Counts in the configured units for the most recent low pulse. </p>
+<dl class="section return"><dt>Returns</dt><dd>Counts in mS or uS depending on configuration. </dd></dl>
 
 </div>
 </div>
@@ -226,6 +288,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retreives the number of pulses. </p>
+<p>This value overflows at 65535. Reading this value does not clear it. This function has a side effect of reading MeasurementOverflowOccured from the Serial Wombat, which clears it for future readings. </p><dl class="section return"><dt>Returns</dt><dd>Number of pulses counted (1 count per high/low cycle). Rolls over at 65535 to 0 </dd></dl>
+
 </div>
 </div>
 <a id="a1528974b4eef9ab9e0135d356551840e"></a>
@@ -242,6 +307,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Retreive the latest values for HighCounts, LowCounts, Pulses, and MeasurementOverflowOccured. </p>
+<p>This happens in two packets to the Serial Wombat, so data may not be coherent </p>
 
 </div>
 </div>
@@ -260,6 +328,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retreive the High and Low counts from the Serial Wombat in a single transaction. </p>
+<p>This command will retreive consecutive high and low periods from the serial Wombat. It it not guaranteed which is the most recent. </p>
+
 </div>
 </div>
 <a id="a0e9642aa6b4bd4df4426e9fea9257b92"></a>
@@ -277,6 +348,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retreive the High counts and number of pulses Serial Wombat in a single transaction. </p>
+<p>This command will retreive consecutive high and low periods from the serial Wombat. It it not guaranteed which is the most recent. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -292,6 +366,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Count in selected units of last retreived high pulse. </p>
+<p>This value is updated by refresh, refreshHighCountsLowCounts, refreshHighCountsPulses, readHighCounts, readLowCounts </p>
+
 </div>
 </div>
 <a id="aca08404791dc6a5afa31fa64656b366f"></a>
@@ -305,6 +382,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Count in selected units of last retreived low pulse. </p>
+<p>This value is updated by refresh, refreshHighCountsLowCounts, readHighCounts, readLowCounts </p>
 
 </div>
 </div>
@@ -333,6 +413,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Count of last retreived pulses. </p>
+<p>This value is updated by refresh, and refreshHighCountsPulses </p>
 
 </div>
 </div>
