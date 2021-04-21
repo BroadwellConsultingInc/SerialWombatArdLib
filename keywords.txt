@@ -56,6 +56,9 @@ readTimeInFalseState	KEYWORD2
 transitions	KEYWORD2
 readTransitionsState	KEYWORD2
 
+SerialWombatWatchdog	KEYWORD1
+updateResetCountdown	KEYWORD2
+
 SerialWombatButtonCounter	KEYWORD1
 
 SerialWombatQuadEnc	KEYWORD1
