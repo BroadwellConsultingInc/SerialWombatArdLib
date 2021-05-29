@@ -111,7 +111,7 @@ int SerialWombat::sendPacket(uint8_t tx[], uint8_t rx[])
 		i2cInterface->write(tx, 8);
 		i2cInterface->endTransmission();
 		//delay(3);
-		delayMicroseconds(20);
+		delayMicroseconds(50);
 		i2cInterface->requestFrom(address, (uint8_t)8);
 
 		count = 0;
@@ -131,6 +131,10 @@ int SerialWombat::sendPacket(uint8_t tx[], uint8_t rx[])
 
 int SerialWombat::sendPacket(uint8_t tx[])
 {
+	uint8_t rx[8];
+
+	return(sendPacket(tx,rx));
+
 	if (sendReadyTime != 0)
 	{
 		unsigned long currentTime = millis();

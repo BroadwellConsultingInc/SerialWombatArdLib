@@ -13,6 +13,12 @@ void SerialWombatWatchdog::begin(uint8_t pin, SerialWombatPinState_t normalState
 	_sw.sendPacket(tx);
 
 	uint8_t tx1[8] = { 201,pin,7,0,0,0,0,0x55 };
+	if (! ResetWombatAfterTimeout)
+	{
+		tx1[5] = 0xFF; // No return to normal
+		tx1[6] = 0xFF;
+	}
+
 	_sw.sendPacket(tx1);
 }
 

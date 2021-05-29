@@ -12,6 +12,8 @@ void SerialWombatAnalogInput::begin(uint8_t pin)
 	uint8_t tx[] = { 200,_pin,PIN_MODE_ANALOGINPUT,0,0,0,0,0 };
 	uint8_t rx[8];
 	_sw.sendPacket(tx, rx);
+	uint8_t tx1[] = { 201,_pin,PIN_MODE_ANALOGINPUT,64,0,0xFF,0x80,0 };
+	_sw.sendPacket(tx1, rx);
 }
 
 void SerialWombatAnalogInput::begin(uint8_t pin, uint16_t averageSamples, uint16_t filterConstant)
