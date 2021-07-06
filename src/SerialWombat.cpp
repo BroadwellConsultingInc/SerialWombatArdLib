@@ -166,7 +166,7 @@ int SerialWombat::sendPacket(uint8_t tx[])
 {
 	uint8_t rx[8];
 
-	//return(sendPacket(tx,rx));
+	return(sendPacket(tx,rx));
 
 	if (sendReadyTime != 0)
 	{
