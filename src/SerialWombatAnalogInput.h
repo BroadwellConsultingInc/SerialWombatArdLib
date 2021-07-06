@@ -135,6 +135,42 @@ public:
 
 	~SerialWombatAnalogInput();
 
+	/// \brief Retreive the maximum single sample A/D value in mV
+	///  
+	/// The maximum value the Serial Wombat chip has seen on that pin since last reset of Min/Max
+	///
+	/// \param resetAfterRead If True, maximum value is set to 0 after read so that subsequent values become maximum.  Also resets minimum to next sample.
+	/// 
+	/// \return A 16 bit unsigned value indicating measurement in mV
+	uint16_t readMaximum_mV(bool resetAfterRead);
+
+	/// \brief Retreive the maximum single sample A/D value in counts
+	///  
+	/// The maximum value the Serial Wombat chip has seen on that pin since last reset of Min/Max
+	///
+	/// \param resetAfterRead If True, maximum value is set to 0 after read so that subsequent values become maximum.  Also resets minimum to next sample.
+	/// 
+	/// \return A 16 bit unsigned value indicating maximum A/D Counts
+	uint16_t readMaximumCounts(bool resetAfterRead);
+
+	/// \brief Retreive the minimum single sample A/D value in mV
+	///  
+	/// The minimum value the Serial Wombat chip has seen on that pin since last reset of Min/Max
+	///
+	/// \param resetAfterRead If True, minimum value is set to 0 after read so that subsequent values become minimum.  Also resets maximum to next sample.
+	/// 
+	/// \return A 16 bit unsigned value indicating measurement in mV
+	uint16_t readMinimum_mV(bool resetAfterRead);
+
+	/// \brief Retreive the maximum single sample A/D value in counts
+	///  
+	/// The maximum value the Serial Wombat chip has seen on that pin since last reset of Min/Max
+	///
+	/// \param resetAfterRead If True, maximum value is set to 0 after read so that subsequent values become maximum.  Also resets minimum to next sample.
+	/// 
+	/// \return A 16 bit unsigned value indicating maximum A/D Counts
+	uint16_t readMinimumCounts(bool resetAfterRead);
+
 private:
 	SerialWombat &_sw ;
 	

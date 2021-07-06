@@ -78,9 +78,9 @@ Overview</h1>
 <p>This library is designed for use with the Arduio platform. <br  />
  The <a class="el" href="class_serial_wombat.html">SerialWombat</a> class is the basis for all sketches. Include <a class="el" href="_serial_wombat_8h.html">SerialWombat.h</a> to access all Serial Wombat classes.</p>
 <p>One Serial Wombat instance should be declared for each Serial Wombat attached to the host. This is typically done by declaring it globally: </p><pre class="fragment">SerialWombat sw;
-</pre><p>Once the Serial Wombat is declared, it must be initialized using the <a class="el" href="class_serial_wombat.html#a30a1a1bc0a2ccc9352db75b1b8fff594" title="initialize a Serial Wombat to use a Serial Interface.">SerialWombat.begin()</a> method. There are separate begin methods for I2C (Wire) and Uart (Serial): </p><pre class="fragment">sw.begin(Serial);
+</pre><p>Once the Serial Wombat is declared, it must be initialized using the <a class="el" href="class_serial_wombat.html#a30a1a1bc0a2ccc9352db75b1b8fff594" title="initialize a Serial Wombat chip to use a Serial Interface.">SerialWombat.begin()</a> method. There are separate begin methods for I2C (Wire) and Uart (Serial): </p><pre class="fragment">sw.begin(Serial);
 </pre><p>or </p><pre class="fragment">sw.begin(Wire, 0x6C);  //I2C initialization with address 6C
-</pre><p>Presense of a Serial wombat can be determined by testing the return value of the <a class="el" href="class_serial_wombat.html#a9de39b2b667e2d0b213d59f186fb2837" title="Send a version request to the Serial Wombat.">SerialWombat.queryVersion()</a> method: </p><pre class="fragment">if (sw.queryVersion())
+</pre><p>Presense of a Serial wombat can be determined by testing the return value of the <a class="el" href="class_serial_wombat.html#a9de39b2b667e2d0b213d59f186fb2837" title="Send a version request to the Serial Wombat chip.">SerialWombat.queryVersion()</a> method: </p><pre class="fragment">if (sw.queryVersion())
 {
     //Serial Wombat detected.
 }
@@ -114,8 +114,8 @@ The following Pin Modes are avaialble on pins 1,2,3 of the Serial Wombat 4B and 
 <dl class="section warning"><dt>Warning</dt><dd>Due to hardware initializations unexpected side effects may occur if the same pin is configured multiple times to different pin modes after Serial Wombat initialization</dd></dl>
 <h2><a class="anchor" id="autotoc_md5"></a>
 Additional Capabilities:</h2>
-<p>The Serial Wombat can measure its own source voltage with the <a class="el" href="class_serial_wombat.html#a5c02ba116cdf692bc790fa7fbd315a1f" title="Measure the Serial Wombat&#39;s Supply voltage.">SerialWombat.readSupplyVoltage_mV</a> method.</p>
-<p>The Serial Wombat can report its Model and Firmware revision with the <a class="el" href="class_serial_wombat.html#a9de39b2b667e2d0b213d59f186fb2837" title="Send a version request to the Serial Wombat.">SerialWombat.queryVersion</a> method. </p>
+<p>The Serial Wombat can measure its own source voltage with the <a class="el" href="class_serial_wombat.html#a5c02ba116cdf692bc790fa7fbd315a1f" title="Measure the Serial Wombat chip&#39;s Supply voltage.">SerialWombat.readSupplyVoltage_mV</a> method.</p>
+<p>The Serial Wombat can report its Model and Firmware revision with the <a class="el" href="class_serial_wombat.html#a9de39b2b667e2d0b213d59f186fb2837" title="Send a version request to the Serial Wombat chip.">SerialWombat.queryVersion</a> method. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

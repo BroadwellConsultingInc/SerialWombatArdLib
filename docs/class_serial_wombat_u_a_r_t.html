@@ -114,6 +114,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae83b4b9d45d3afcc2749cddd334c6dd1"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#ae83b4b9d45d3afcc2749cddd334c6dd1">readBytes</a> (char *buffer, size_t length)</td></tr>
 <tr class="memdesc:ae83b4b9d45d3afcc2749cddd334c6dd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a specified number of bytes from the Serial Wombat RX queue.  <a href="class_serial_wombat_u_a_r_t.html#ae83b4b9d45d3afcc2749cddd334c6dd1">More...</a><br /></td></tr>
 <tr class="separator:ae83b4b9d45d3afcc2749cddd334c6dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c42fbc679f63767a794f48d691cae12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a0c42fbc679f63767a794f48d691cae12">setTimeout</a> (uint32_t timeout_mS)</td></tr>
+<tr class="separator:a0c42fbc679f63767a794f48d691cae12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class for the Serial Wombat 4B which creates an I2C to UART Bridge. </p>
@@ -367,6 +369,24 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the number of bytes written to buffer</dd></dl>
 <p>This function will read bytes from the Serial Wombat RX queue into buffer. If 'length' characters are not available to read then the value returned will be less than length. </p>
+
+</div>
+</div>
+<a id="a0c42fbc679f63767a794f48d691cae12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c42fbc679f63767a794f48d691cae12">&#9670;&nbsp;</a></span>setTimeout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialWombatUART::setTimeout </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>timeout_mS</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

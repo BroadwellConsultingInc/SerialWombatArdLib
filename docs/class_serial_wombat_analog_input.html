@@ -109,6 +109,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afeb273e29e19400632a03f0bd18c487e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a027167928f770d20745e33b2d3edaa89"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_analog_input.html#a027167928f770d20745e33b2d3edaa89">~SerialWombatAnalogInput</a> ()</td></tr>
 <tr class="separator:a027167928f770d20745e33b2d3edaa89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a897bc94984c4540d39451018998b13b8"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_analog_input.html#a897bc94984c4540d39451018998b13b8">readMaximum_mV</a> (bool resetAfterRead)</td></tr>
+<tr class="memdesc:a897bc94984c4540d39451018998b13b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreive the maximum single sample A/D value in mV.  <a href="class_serial_wombat_analog_input.html#a897bc94984c4540d39451018998b13b8">More...</a><br /></td></tr>
+<tr class="separator:a897bc94984c4540d39451018998b13b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d59c9361a5b161d74cb2ee406f1b28b"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_analog_input.html#a8d59c9361a5b161d74cb2ee406f1b28b">readMaximumCounts</a> (bool resetAfterRead)</td></tr>
+<tr class="memdesc:a8d59c9361a5b161d74cb2ee406f1b28b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreive the maximum single sample A/D value in counts.  <a href="class_serial_wombat_analog_input.html#a8d59c9361a5b161d74cb2ee406f1b28b">More...</a><br /></td></tr>
+<tr class="separator:a8d59c9361a5b161d74cb2ee406f1b28b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c412815048450a0415462fe24291e73"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_analog_input.html#a9c412815048450a0415462fe24291e73">readMinimum_mV</a> (bool resetAfterRead)</td></tr>
+<tr class="memdesc:a9c412815048450a0415462fe24291e73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreive the minimum single sample A/D value in mV.  <a href="class_serial_wombat_analog_input.html#a9c412815048450a0415462fe24291e73">More...</a><br /></td></tr>
+<tr class="separator:a9c412815048450a0415462fe24291e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf409687f9ac83d64a0bd6b36f5e640a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_analog_input.html#acf409687f9ac83d64a0bd6b36f5e640a">readMinimumCounts</a> (bool resetAfterRead)</td></tr>
+<tr class="memdesc:acf409687f9ac83d64a0bd6b36f5e640a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreive the maximum single sample A/D value in counts.  <a href="class_serial_wombat_analog_input.html#acf409687f9ac83d64a0bd6b36f5e640a">More...</a><br /></td></tr>
+<tr class="separator:acf409687f9ac83d64a0bd6b36f5e640a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class to make analog measurements with the Serial Wombat. </p>
@@ -265,7 +277,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retreive an averaged A/D measurement and convert it to mV. </p>
-<p>Conversion is based on the most recent averaged A/D result taken by the Serial Wombat at the command time and the last reference measurement made on the Serial Wombat using the <a class="el" href="class_serial_wombat.html#a5c02ba116cdf692bc790fa7fbd315a1f" title="Measure the Serial Wombat&#39;s Supply voltage.">SerialWombat.readSupplyVoltage_mV()</a> method. <br  />
+<p>Conversion is based on the most recent averaged A/D result taken by the Serial Wombat at the command time and the last reference measurement made on the Serial Wombat using the <a class="el" href="class_serial_wombat.html#a5c02ba116cdf692bc790fa7fbd315a1f" title="Measure the Serial Wombat chip&#39;s Supply voltage.">SerialWombat.readSupplyVoltage_mV()</a> method. <br  />
  </p><dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating measurement in mV </dd></dl>
 
 </div>
@@ -331,7 +343,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retreive a filtered A/D measurement and convert it to mV. </p>
-<p>Conversion is based on the most recent filtered A/D result taken by the Serial Wombat at the command time and the last reference measurement made on the Serial Wombat using the <a class="el" href="class_serial_wombat.html#a5c02ba116cdf692bc790fa7fbd315a1f" title="Measure the Serial Wombat&#39;s Supply voltage.">SerialWombat.readSupplyVoltage_mV()</a> method. <br  />
+<p>Conversion is based on the most recent filtered A/D result taken by the Serial Wombat at the command time and the last reference measurement made on the Serial Wombat using the <a class="el" href="class_serial_wombat.html#a5c02ba116cdf692bc790fa7fbd315a1f" title="Measure the Serial Wombat chip&#39;s Supply voltage.">SerialWombat.readSupplyVoltage_mV()</a> method. <br  />
  </p><dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating measurement in mV </dd></dl>
 
 </div>
@@ -357,6 +369,118 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a897bc94984c4540d39451018998b13b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a897bc94984c4540d39451018998b13b8">&#9670;&nbsp;</a></span>readMaximum_mV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t SerialWombatAnalogInput::readMaximum_mV </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>resetAfterRead</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retreive the maximum single sample A/D value in mV. </p>
+<p>The maximum value the Serial Wombat chip has seen on that pin since last reset of Min/Max</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">resetAfterRead</td><td>If True, maximum value is set to 0 after read so that subsequent values become maximum. Also resets minimum to next sample.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating measurement in mV </dd></dl>
+
+</div>
+</div>
+<a id="a8d59c9361a5b161d74cb2ee406f1b28b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d59c9361a5b161d74cb2ee406f1b28b">&#9670;&nbsp;</a></span>readMaximumCounts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t SerialWombatAnalogInput::readMaximumCounts </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>resetAfterRead</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retreive the maximum single sample A/D value in counts. </p>
+<p>The maximum value the Serial Wombat chip has seen on that pin since last reset of Min/Max</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">resetAfterRead</td><td>If True, maximum value is set to 0 after read so that subsequent values become maximum. Also resets minimum to next sample.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating maximum A/D Counts </dd></dl>
+
+</div>
+</div>
+<a id="a9c412815048450a0415462fe24291e73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c412815048450a0415462fe24291e73">&#9670;&nbsp;</a></span>readMinimum_mV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t SerialWombatAnalogInput::readMinimum_mV </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>resetAfterRead</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retreive the minimum single sample A/D value in mV. </p>
+<p>The minimum value the Serial Wombat chip has seen on that pin since last reset of Min/Max</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">resetAfterRead</td><td>If True, minimum value is set to 0 after read so that subsequent values become minimum. Also resets maximum to next sample.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating measurement in mV </dd></dl>
+
+</div>
+</div>
+<a id="acf409687f9ac83d64a0bd6b36f5e640a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf409687f9ac83d64a0bd6b36f5e640a">&#9670;&nbsp;</a></span>readMinimumCounts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t SerialWombatAnalogInput::readMinimumCounts </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>resetAfterRead</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retreive the maximum single sample A/D value in counts. </p>
+<p>The maximum value the Serial Wombat chip has seen on that pin since last reset of Min/Max</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">resetAfterRead</td><td>If True, maximum value is set to 0 after read so that subsequent values become maximum. Also resets minimum to next sample.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating maximum A/D Counts </dd></dl>
+
+</div>
+</div>
 <a id="ab2c7a9154241e26805d0d36f77324a90"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab2c7a9154241e26805d0d36f77324a90">&#9670;&nbsp;</a></span>readVoltage_mV()</h2>
 
@@ -373,7 +497,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retreive a raw A/D measurement and convert it to mV. </p>
-<p>Conversion is based on the most recent A/D conversion taken by the Serial Wombat at the command time and the last reference measurement made on the Serial Wombat using the <a class="el" href="class_serial_wombat.html#a5c02ba116cdf692bc790fa7fbd315a1f" title="Measure the Serial Wombat&#39;s Supply voltage.">SerialWombat.readSupplyVoltage_mV()</a> method. <br  />
+<p>Conversion is based on the most recent A/D conversion taken by the Serial Wombat at the command time and the last reference measurement made on the Serial Wombat using the <a class="el" href="class_serial_wombat.html#a5c02ba116cdf692bc790fa7fbd315a1f" title="Measure the Serial Wombat chip&#39;s Supply voltage.">SerialWombat.readSupplyVoltage_mV()</a> method. <br  />
  </p><dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating measurement in mV </dd></dl>
 
 </div>

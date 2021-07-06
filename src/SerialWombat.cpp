@@ -62,13 +62,46 @@ void SerialWombat::begin(TwoWire& wire, uint8_t i2cAddress, bool reset)
 
 void SerialWombat::begin(uint8_t i2cAddress)
 {
-	i2cInterface = &Wire;
-	address = i2cAddress;
+	//i2cInterface = &Wire;
+	//address = i2cAddress;
+	begin(Wire, i2cAddress);
 }
 
 void SerialWombat::initialize()
 {
 	readSupplyVoltage_mV();
+	readUniqueIdentifier();
+	readDeviceIdentifier();
+}
+
+void SerialWombat::readUniqueIdentifier()
+{
+	//TODO add model check for future models on different micros.
+	{ //16F15214
+		uniqueIdentifierLength = 0;
+		for (uint32_t address = 0x8100; address <= 0x8108; ++address)
+		{
+			uint32_t data = readFlashAddress(address);
+			uniqueIdentifier[uniqueIdentifierLength] = (uint8_t)data;
+			++uniqueIdentifierLength;
+			/* Always zero... leave out
+			uniqueIdentifier[uniqueIdentifierLength] = (uint8_t)(data>>8);
+			++uniqueIdentifierLength;
+			*/
+		}
+	}
+}
+
+void SerialWombat::readDeviceIdentifier()
+{
+	//TODO add model check for future models on different micros.
+	{ //16F15214
+		
+			uint32_t data = readFlashAddress(0x8006);
+			deviceIdentifier = (uint16_t)data;
+			data = readFlashAddress(0x8005);
+			deviceRevision = (uint16_t)data;
+	}
 }
 
 int SerialWombat::sendPacket(uint8_t tx[], uint8_t rx[])
@@ -133,7 +166,7 @@ int SerialWombat::sendPacket(uint8_t tx[])
 {
 	uint8_t rx[8];
 
-	return(sendPacket(tx,rx));
+	//return(sendPacket(tx,rx));
 
 	if (sendReadyTime != 0)
 	{
@@ -243,7 +276,7 @@ void SerialWombat::analogWrite(uint8_t pin, int val)
 	{
 		dutyCycleLow = 255;
 	}
-	uint8_t tx[] = { CMD_SET_PIN_MODE0,pin,PIN_MODE_PWM,pin,dutyCycleLow,val,false,0x55 };
+	uint8_t tx[] = { CMD_SET_PIN_MODE0,pin,PIN_MODE_PWM,pin,dutyCycleLow,(uint8_t) val,false,0x55 };
 	uint8_t rx[8];
 	sendPacket(tx, rx);
 }
@@ -268,10 +301,46 @@ bool SerialWombat::queryVersion()
 	return (false);
 }
 
+uint32_t SerialWombat::readFramesExecuted()
+{
+	uint8_t tx[8] = { 0x81,67,68,0x55,0x55,0x55,0x55,0x55 };
+	uint8_t rx[8];
+	sendPacket(tx, rx);
+	uint32_t returnval = rx[2] + (((uint32_t)rx[3]) << 8) + (((uint32_t)rx[4]) << 16) + (((uint32_t)rx[5]) << 24);
+		return (returnval);
+}
+
+uint16_t SerialWombat::readOverflowFrames()
+{
+	return readPublicData(69);
+}
+
 void SerialWombat::jumpToBoot()
 {
 	uint8_t tx[] = "BoOtLoAd";
 	sendPacket(tx);
+}
+
+uint8_t SerialWombat::readRamAddress(uint16_t address)
+{
+	uint8_t tx[8] = { 0xA0,SW_LE16(address),0x55,0x55,0x55,0x55,0x55 };
+	uint8_t rx[8];
+	sendPacket(tx, rx);
+	return(rx[3]);
+}
+
+void SerialWombat::writeRamAddress(uint16_t address, uint8_t value)
+{
+	uint8_t tx[8] = { 0xA3,SW_LE16(address),0,0,value,0x55,0x55};
+	sendPacket(tx);
+}
+
+uint32_t SerialWombat::readFlashAddress(uint32_t address)
+{
+	uint8_t tx[8] = { 0xA1,SW_LE16(address),0,0,0x55,0x55,0x55 };
+	uint8_t rx[8];
+	sendPacket(tx, rx);
+	return(rx[4] + (rx[5] <<8));
 }
 
 void SerialWombat::configureDigitalPin(uint8_t pin,uint8_t highLow)

@@ -18,11 +18,11 @@ void SerialWombatProtectedOutput::configure(PO_COMPARE_t compareMode, uint16_t c
 	_compareMode = compareMode;
 	_activeState = activeState;
 	{
-		uint8_t tx[] = { 200,_pin,PIN_MODE_PROTECTED_OUTPUT,SW_LE16(compareValue), _debounceTime,_monitoredPin,_safeState };
+		uint8_t tx[] = { 200,_pin,PIN_MODE_PROTECTED_OUTPUT,SW_LE16(compareValue), _debounceTime,_monitoredPin,(uint8_t)_safeState };
 		_sw.sendPacket(tx);
 	}
 	{
-		uint8_t tx1[] = { 201,_pin,PIN_MODE_PROTECTED_OUTPUT,_compareMode,_activeState,0x55,0x55,0x55 };
+		uint8_t tx1[] = { 201,_pin,PIN_MODE_PROTECTED_OUTPUT,(uint8_t) _compareMode,(uint8_t)_activeState,0x55,0x55,0x55 };
 		_sw.sendPacket(tx1);
 	}
 

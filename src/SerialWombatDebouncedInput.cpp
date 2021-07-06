@@ -100,6 +100,7 @@ bool SerialWombatButtonCounter::update()
 	uint16_t pressDuration = _debouncedInput->readDurationInTrueState_mS();
 	int increments = 0;
 	bool incremented = false;
+	bool pressed = false;
 	if (pressDuration > 0)
 	{
 		if (_lastPressDuration >= pressDuration)
@@ -133,6 +134,7 @@ bool SerialWombatButtonCounter::update()
 		{
 			_debouncedInput->transitions = 0;  // Get rid of false->true transition so that final release doesn't cause and increment
 		}
+		pressed = true;
 	}
 	else 
 	{
@@ -141,7 +143,6 @@ bool SerialWombatButtonCounter::update()
 		int presses = _debouncedInput->transitions / 2;
 		 *_variableToIncrement += _slowIncrement * presses;
 		 _debouncedInput->transitions -= presses * 2;
-
 	}
 
 	if (*_variableToIncrement > highLimit)
@@ -152,4 +153,6 @@ bool SerialWombatButtonCounter::update()
 	{
 		*_variableToIncrement = lowLimit;
 	}
+
+	return (pressed);
 }

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['lowcounts_271',['LowCounts',['../class_serial_wombat_pulse_timer.html#aca08404791dc6a5afa31fa64656b366f',1,'SerialWombatPulseTimer']]],
-  ['lowlimit_272',['lowLimit',['../class_serial_wombat_button_counter.html#abf25f340281f375589badde02a9d0ee7',1,'SerialWombatButtonCounter']]]
+  ['highcounts_294',['HighCounts',['../class_serial_wombat_pulse_timer.html#aa6120417cebec86fd6966a2460f9d12d',1,'SerialWombatPulseTimer']]],
+  ['highlimit_295',['highLimit',['../class_serial_wombat_button_counter.html#a5d70e0ffb4af29834193f0a0cbe0f54b',1,'SerialWombatButtonCounter']]]
 ];

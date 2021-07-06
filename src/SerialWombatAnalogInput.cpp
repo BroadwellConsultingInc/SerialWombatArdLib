@@ -92,3 +92,51 @@ SerialWombatAnalogInput::~SerialWombatAnalogInput()
 {
 
 }
+
+
+uint16_t SerialWombatAnalogInput::readMaximumCounts(bool resetAfterRead)
+{
+	uint8_t tx[] = { 203,_pin,PIN_MODE_ANALOGINPUT,0,0x55,0x55,0x55,0x55 };
+	uint8_t rx[8];
+
+	if (resetAfterRead)
+	{
+		tx[3] = 1;
+	}
+	_sw.sendPacket(tx, rx);
+
+	return(rx[5] + rx[6] * 256);
+}
+
+uint16_t SerialWombatAnalogInput::readMinimumCounts(bool resetAfterRead)
+{
+	uint8_t tx[] = { 203,_pin,PIN_MODE_ANALOGINPUT,0,0x55,0x55,0x55,0x55 };
+	uint8_t rx[8];
+
+	if (resetAfterRead)
+	{
+		tx[3] = 1;
+	}
+	_sw.sendPacket(tx, rx);
+
+	return(rx[3] + rx[4] * 256);
+}
+
+
+uint16_t SerialWombatAnalogInput::readMaximum_mV(bool resetAfterRead)
+{
+	uint32_t x = readMaximumCounts(resetAfterRead); // Counts ranging from 0 to 65535
+
+	x *= _sw._supplyVoltagemV;
+	return ((uint16_t)(x >> 16));
+}
+
+
+uint16_t SerialWombatAnalogInput::readMinimum_mV(bool resetAfterRead)
+{
+	uint32_t x = readMinimumCounts(resetAfterRead); // Counts ranging from 0 to 65535
+
+	x *= _sw._supplyVoltagemV;
+	return ((uint16_t)(x >> 16));
+}
+

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['transitions_278',['transitions',['../class_serial_wombat_debounced_input.html#a9fa13a6acb8d7fcd3ea4a86467fba1a5',1,'SerialWombatDebouncedInput']]],
-  ['tx_279',['tx',['../class_wombat_packet.html#afd61617baf360962a24e2fc6ba8cb3b8',1,'WombatPacket']]]
+  ['uniqueidentifier_302',['uniqueIdentifier',['../class_serial_wombat.html#adfbf406b33f4517eda066c9a31f5681b',1,'SerialWombat']]],
+  ['uniqueidentifierlength_303',['uniqueIdentifierLength',['../class_serial_wombat.html#a046eff55933e47642306e06fec56aea0',1,'SerialWombat']]]
 ];

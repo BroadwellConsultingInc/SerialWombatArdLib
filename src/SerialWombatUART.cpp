@@ -110,17 +110,24 @@ size_t SerialWombatUART::write(const uint8_t* buffer, size_t size)
 {
 	size_t bytesAvailable = 0;
 	size_t bytesSent;
-	for (bytesSent = 0; bytesSent < size ;)
+	uint32_t timeoutMillis = millis() + timeout;
+	
+	for (bytesSent = 0; bytesSent  < size ;)
 	{
 
 		while (bytesAvailable < 4)
 		{
-			//TODO Add Timeout
 			uint8_t peektx[8] = { 203, _pin,PIN_MODE_UART_RX_TX,0x55,0x55,0x55,0x55,0x55 };
 			uint8_t peekrx[8];
 			_sw.sendPacket(peektx, peekrx);
 			bytesAvailable = peekrx[3];
+			if (timeoutMillis < millis())
+			{
+//			       Serial.printf("UART TX TIMEOUT!\r\n");
+				return (bytesSent);
+			}
 		}
+		timeoutMillis = millis() + timeout;
 
 		while (bytesSent < size && bytesAvailable > 0)
 		{
@@ -166,15 +173,27 @@ int SerialWombatUART::availableForWrite()
 	return peekrx[3];
 }
 
+void SerialWombatUART::setTimeout(uint32_t timeout_mS)
+{
+	if (timeout_mS == 0)
+	{
+		timeout = 0x80000000;
+	}
+	else
+	{
+		timeout = timeout_mS;
+	}
+}
+
 size_t SerialWombatUART::readBytes(char* buffer, size_t length)
 {
 	int index = 0;
 	int bytesAvailable = 0;
-	uint8_t timeout = 10;
 	uint8_t debugBuffer[200];
 	uint8_t debuglengthBuffer[200];
 	uint8_t debuglengthCount = 0;
-	while (length > 0)
+	uint32_t timeoutMillis = millis() + timeout;
+	while (length > 0 && timeoutMillis > millis())
 	{
 		int bytecount = 4;
 		if (length < 4)
@@ -188,14 +207,13 @@ size_t SerialWombatUART::readBytes(char* buffer, size_t length)
 			_sw.sendPacket(tx, rx);
 			bytesAvailable = rx[3];
 			
-			if (bytesAvailable == 0) //TODO add timeout
+			if (bytesAvailable == 0) 
 			{
-				--timeout;
-				if (timeout == 0)
-				{
-				//	return (index);
-				}
 				continue;
+			}
+			else
+			{
+				timeoutMillis = millis() + timeout;
 			}
 			uint8_t bytesReturned = bytecount;
 			if (rx[3] < bytecount)
@@ -230,5 +248,11 @@ size_t SerialWombatUART::readBytes(char* buffer, size_t length)
 		}
 
 	}
+	/*
+	if (timeoutMillis < millis()) //TODO Remove
+	{
+	       Serial.printf("UART READ TIMEOUT!\r\n");
+	}
+	*/
 	return (index);
 }

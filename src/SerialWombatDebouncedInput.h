@@ -81,9 +81,13 @@ public:
 
 	/// \brief return the number of mS that the debounced input has been in true state
 	/// 
+	/// Note that this value starts incrementing after the debounce period, not after the physical pin transition.
+	/// 
 	/// \return returns a value in mS which saturates at 65535.  Returns 0 if currently false.
 	uint16_t readDurationInTrueState_mS();
 	/// \brief return the number of mS that the debounced input has been in false state
+	/// 
+	/// Note that this value starts incrementing after the debounce period, not after the physical pin transition.
 	/// 
 	/// \return returns a value in mS which saturates at 65535.  Returns 0 if currently true.
 	uint16_t readDurationInFalseState_mS();

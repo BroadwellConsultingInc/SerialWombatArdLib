@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['pulses_275',['Pulses',['../class_serial_wombat_pulse_timer.html#a9de1749ff92d51e20c28076f26661914',1,'SerialWombatPulseTimer']]]
+  ['measurementoverflowoccurred_298',['MeasurementOverflowOccurred',['../class_serial_wombat_pulse_timer.html#abb4f92437f247249b5361142f1756577',1,'SerialWombatPulseTimer']]],
+  ['model_299',['model',['../class_serial_wombat.html#a2c0787c026ab6dbfbf95cd66f1f07338',1,'SerialWombat']]]
 ];

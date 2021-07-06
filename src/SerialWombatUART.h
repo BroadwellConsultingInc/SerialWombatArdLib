@@ -122,11 +122,14 @@ public:
     /// will be less than length.
     size_t readBytes(char* buffer, size_t length);
 
+
+    void setTimeout(uint32_t timeout_mS);
 private:
      SerialWombat& _sw;
      uint8_t _rxPin  = 255;
      uint8_t _txPin = 255;
      uint8_t _pin = 255;
      uint8_t _baudMarker = 0;
+     uint32_t timeout = 5000;
 };
 

@@ -21,7 +21,7 @@ void SerialWombatQuadEnc::begin(uint8_t pin, uint8_t secondPin, uint16_t debounc
 {
 	_pin = pin;
 	_secondPin = secondPin;
-	uint8_t tx[] = { 200,_pin,PIN_MODE_QUADRATUREENCODER,SW_LE16(debounce_mS), _secondPin,readState,pullUpsEnabled };
+	uint8_t tx[] = { 200,_pin,PIN_MODE_QUADRATUREENCODER,SW_LE16(debounce_mS), _secondPin,(uint8_t)readState,pullUpsEnabled };
 	uint8_t rx[8];
 	_sw.sendPacket(tx, rx);
 }

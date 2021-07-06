@@ -11,6 +11,9 @@ digitalWrite	KEYWORD2
 digitalRead	KEYWORD2
 analogRead	KEYWORD2
 analogWrite	KEYWORD2
+writeRamAddress	KEYWORD2
+readRamAddress	KEYWORD2
+readFlashAddress	KEYWORD2
 
 SW_LOW	LITERAL1
 SW_HIGH	LITERAL1

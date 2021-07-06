@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['isinsafestate_209',['isInSafeState',['../class_serial_wombat_protected_output.html#adb8e46e44dd34a8a652911c55377ddb2',1,'SerialWombatProtectedOutput']]]
+  ['jumptoboot_229',['jumpToBoot',['../class_serial_wombat.html#a2d6c9cf5b9115a55120f5b8426605e84',1,'SerialWombat']]]
 ];
