@@ -1,5 +1,7 @@
 #include <SerialWombat.h>
 
+
+// A video tutorial on this example is available at: https://youtu.be/UZOnq2FdrvU 
 SerialWombat sw;
 
 void setup() {

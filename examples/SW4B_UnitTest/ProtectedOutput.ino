@@ -26,7 +26,9 @@ void protectedOutputTest()
       else
       {
         fail(0);
+        #ifdef PRINT_FAILURES
         Serial.printf("Pin %d: Expected pin read low, got high at test 0\n", pin);
+        #endif
       }
       PO_WRITE_VALUE(1);
       delay(2);
@@ -37,7 +39,9 @@ void protectedOutputTest()
       else
       {
         fail(1);
+        #ifdef PRINT_FAILURES
         Serial.printf("Pin %d: Expected pin read low, got high at test 1\n", pin);
+        #endif
       }
       delay(110);
 
@@ -50,7 +54,9 @@ void protectedOutputTest()
       else
       {
         fail(2);
+        #ifdef PRINT_FAILURES
         Serial.printf("Pin %d: Expected pin read High, got low at test 2\n", pin);
+        #endif
       }
     }
 
@@ -67,7 +73,9 @@ void protectedOutputTest()
       else
       {
         fail(3);
+        #ifdef PRINT_FAILURES
         Serial.printf("Pin %d: Expected pin read high, got low at test 3\n", pin);
+        #endif
       }
       PO_WRITE_VALUE(1);
       delay(2);
@@ -78,7 +86,9 @@ void protectedOutputTest()
       else
       {
         fail(4);
+        #ifdef PRINT_FAILURES
         Serial.printf("Pin %d: Expected pin read high, got low at test 4\n", pin);
+        #endif
       }
       delay(110);
 
@@ -91,7 +101,9 @@ void protectedOutputTest()
       else
       {
         fail(5);
+        #ifdef PRINT_FAILURES
         Serial.printf("Pin %d: Expected pin read High, got low at test 5\n", pin);
+        #endif
       }
     }
 
@@ -108,7 +120,9 @@ void protectedOutputTest()
       else
       {
         fail(6);
+        #ifdef PRINT_FAILURES
         Serial.printf("Pin %d: Expected pin read high, got low at test 6\n", pin);
+        #endif
       }
       PO_WRITE_VALUE(0x9000);
       delay(2);
@@ -119,7 +133,9 @@ void protectedOutputTest()
       else
       {
         fail(7);
+        #ifdef PRINT_FAILURES
         Serial.printf("Pin %d: Expected pin read high, got low at test 7\n", pin);
+        #endif
       }
       delay(110);
 
@@ -132,7 +148,9 @@ void protectedOutputTest()
       else
       {
         fail(8);
+        #ifdef PRINT_FAILURES
         Serial.printf("Pin %d: Expected pin read High, got low at test 8\n", pin);
+        #endif
       }
     }
 
@@ -149,7 +167,9 @@ void protectedOutputTest()
       else
       {
         fail(9);
+        #ifdef PRINT_FAILURES
         Serial.printf("Pin %d: Expected pin read high, got low at test 9\n", pin);
+        #endif
       }
       PO_WRITE_VALUE(0x7000);
       delay(2);
@@ -160,7 +180,9 @@ void protectedOutputTest()
       else
       {
         fail(10);
+        #ifdef PRINT_FAILURES
         Serial.printf("Pin %d: Expected pin read high, got low at test 10\n", pin);
+        #endif
       }
       delay(110);
 
@@ -173,7 +195,9 @@ void protectedOutputTest()
       else
       {
         fail(11);
+        #ifdef PRINT_FAILURES
         Serial.printf("Pin %d: Expected pin read High, got low at test 11\n", pin);
+        #endif
       }
     }
   }

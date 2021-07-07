@@ -22,7 +22,9 @@ void watchdogTest()
     else
     {
       fail(pin);
+      #ifdef PRINT_FAILURES
       Serial.printf("pin %d: expected %d, got %d\n",pin,100,duration);
+      #endif
     }
     watchdogs[pin].begin(pinMatches[pin],SW_HIGH,SW_HIGH,200,false);
     watchdogs[pin].begin(pinMatches[pin],SW_LOW,SW_HIGH,200,false);
@@ -35,7 +37,9 @@ void watchdogTest()
     else
     {
       fail(pin);
+      #ifdef PRINT_FAILURES
       Serial.printf("pin %d: expected %d, got %d\n",pin,100,duration);
+      #endif
     }
     watchdogs[pin].begin(pinMatches[pin],SW_LOW,SW_LOW,100,false);
     watchdogs[pin].begin(pinMatches[pin],SW_HIGH,SW_LOW,100,false);
@@ -50,9 +54,10 @@ void watchdogTest()
     else
     {
       fail(pin);
-      Serial.printf("pin %d: expected %d, got %d\n",pin,100,duration);
+      #ifdef PRINT_FAILURES
+        Serial.printf("pin %d: expected %d, got %d\n",pin,100,duration);
+      #endif
     }
    
-    
   }
 }

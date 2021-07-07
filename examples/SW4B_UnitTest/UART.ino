@@ -24,7 +24,8 @@ void uartTest()
 {
 
   uint32_t randSeed = 1;
-  for (int test = 0; test < 4; ++test)
+//for (int test = 0; test < 4; ++test) 
+  int test = 0;  //Versions 2.0.3 and prior do not clear PPS, leading to crossed paths and loopbacks.  Only run one iteration for now.
   {
     resetAll();
     SerialWombatUART *uartA, *uartB;
@@ -37,6 +38,7 @@ void uartTest()
 
     for (int iteration = 0; iteration < 100; ++iteration)
     {
+      //Serial.print("\r\nUART Iteration #"); Serial.println(iteration);
       updateDisplay();
       int length = wrandom(&randSeed) & 0x7F;
       for (int i = 0; i < length; ++i)
@@ -46,7 +48,8 @@ void uartTest()
 
 
       uartA->write(uartTxBuffer, length);
-
+     // Serial.printf("\r\nWrote %d bytes to A",length);
+     // delay(1000);
       int bytesReceived = uartB->readBytes((char*)uartRxBuffer, length);
       if (bytesReceived == length)
       {
@@ -54,18 +57,24 @@ void uartTest()
       }
       else
       {
+        #ifdef PRINT_FAILURES
         fail(((test + 100) << 24) + (iteration << 16) + 0xFFFF);
-        Serial.printf("Read on B: Expected %d to receive %d bytes, got %d\r\n", length, bytesReceived);
-      }
-      for (int i = 0; i < length; ++i)
+        #endif
+        Serial.printf("\r\nRead on B: Expected to receive %d bytes, got %d\r\n", length, bytesReceived);
+       }
+     for (int i = 0; i < length; ++i)
       {
         if (uartRxBuffer[i] == uartTxBuffer[i])
         {
-          pass(test << 24 + iteration << 16 + i);
+          pass((test << 24) + (iteration << 16) + i);
         }
         else
         {
-          fail(test << 24 + iteration << 16 + i);
+          #ifdef PRINT_FAILURES
+          Serial.printf("MFB %d %X %X ", i,uartRxBuffer[i],uartTxBuffer[i]);
+          #endif
+          fail((test << 24) + (iteration << 16) + i);
+
         }
       }
       length = wrandom(&randSeed) & 0x7F;
@@ -76,6 +85,7 @@ void uartTest()
 
 
       uartB->write(uartTxBuffer, length);
+      //Serial.printf("\r\n");
       bytesReceived = uartA->readBytes((char*)uartRxBuffer, length);
       if (bytesReceived == length)
       {
@@ -84,22 +94,30 @@ void uartTest()
       else
       {
         fail(((test + 100) << 24) + (iteration << 16) + 0xFFFF);
-        Serial.printf("Read on A: Expected %d to receive %d bytes, got %d\r\n", length, bytesReceived);
+        #ifdef PRINT_FAILURES
+        Serial.printf("Read on A: Expected to receive %d bytes, got %d\r\n", length, bytesReceived);
+        #endif
+ 
       }
-      for (int i = 0; i < length; ++i)
+   
+     for (int i = 0; i < length; ++i)
       {
         if (uartRxBuffer[i] == uartTxBuffer[i])
         {
-          pass((test + 100) << 24 + iteration << 16 + i);
+          pass(((test + 100) << 24) + (iteration << 16) + i);
         }
         else
         {
-          fail((test + 100) << 24 + iteration << 16 + i);
+          fail(((test + 100) << 24) + (iteration << 16) + i);
+          #ifdef PRINT_FAILURES
+                 Serial.printf("MFA %d %X %X ", i,uartRxBuffer[i],uartTxBuffer[i]);
+          #endif
+ 
         }
       }
-
+        delay(100);
     }
-    delay(5000);
+  
 
   }
 

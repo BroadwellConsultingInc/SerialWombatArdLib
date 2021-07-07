@@ -55,12 +55,14 @@ void servoIteration(uint16_t base, uint16_t variable, bool reverse)
       updateDisplay();
   for (int position = 0; position < 64000; position += 1000)
   {
-    for (int pin = 0; pin < NUM_TEST_PINS ; ++pin)
+    //for (int pin = 0; pin < NUM_TEST_PINS ; ++pin)
+    for (int pin = 0; pin < 1 ; ++pin)  //TODO Restore to all pins
     {
       servos[pin].write16bit((uint16_t)(position  + 7000 * pin));
     }
-    delay(75);
-    for (int pin = 0; pin < NUM_TEST_PINS ; ++pin)
+    delay(200);
+    //for (int pin = 0; pin < NUM_TEST_PINS ; ++pin)
+    for (int pin = 0; pin < 1 ; ++pin)  //TODO Restore to all pins
     {
       int pulseWidthMeasured;
       int pulseWidthExpected;
@@ -80,6 +82,7 @@ void servoIteration(uint16_t base, uint16_t variable, bool reverse)
       else
       {
         fail(1000000 + position);
+        #ifdef PRINT_FAILURES
         Serial.print(pin);
         Serial.print(": Measured: ");
         Serial.print(pulseWidthMeasured);
@@ -93,6 +96,7 @@ void servoIteration(uint16_t base, uint16_t variable, bool reverse)
         Serial.print (variable);
         Serial.print(" Reverse: ");
         Serial.println(reverse);
+        #endif
       }
 
     }

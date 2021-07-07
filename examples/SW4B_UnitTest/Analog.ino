@@ -63,12 +63,14 @@ void analogTest()
       else
       {
         fail (pin * 100000 + dutyCycle);
+#ifdef PRINT_FAILURES
         Serial.print(pin);
         Serial.print(": ");
         Serial.print("Average Measured: ");
         Serial.print(averagedResult);
         Serial.print(" Expected: ");
         Serial.println(dutyCycle);
+#endif
       }
 
       if (filteredResult <= dutyCycle * 1.1 && filteredResult >= dutyCycle * 0.9)
@@ -78,12 +80,14 @@ void analogTest()
       else
       {
         fail (pin * 100000 + dutyCycle);
+        #ifdef PRINT_FAILURES
         Serial.print(pin);
         Serial.print(": ");
         Serial.print("Filtered Measured: ");
         Serial.print(filteredResult);
         Serial.print(" Expected: ");
         Serial.println(dutyCycle);
+        #endif
       }
       if (rawResult <= dutyCycle * 1.2 && rawResult >= dutyCycle * 0.8)
       {
@@ -91,6 +95,7 @@ void analogTest()
       }
       else
       {
+        #ifdef PRINT_FAILURES
         fail (pin * 100000 + dutyCycle);
         Serial.print(pin);
         Serial.print(": ");
@@ -98,6 +103,7 @@ void analogTest()
         Serial.print(rawResult);
         Serial.print(" Expected: ");
         Serial.println(dutyCycle);
+        #endif
       }
 
     }

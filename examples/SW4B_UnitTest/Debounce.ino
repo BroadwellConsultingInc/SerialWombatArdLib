@@ -16,7 +16,9 @@ void debounceTest()
       }
       else
       {
+        #ifdef PRINT_FAILURES
         Serial.printf("Fail debounce 1 pin %d, %d\r\n", pin, invert);
+        #endif
         fail(1);
       }
       MATCH_HIGH();
@@ -27,7 +29,9 @@ void debounceTest()
       }
       else
       {
+        #ifdef PRINT_FAILURES
         Serial.printf("Fail debounce 2 pin %d, %d\r\n", pin, invert);
+        #endif
 
         fail(2);
       }
@@ -38,7 +42,9 @@ void debounceTest()
       }
       else
       {
+        #ifdef PRINT_FAILURES
         Serial.printf("Fail debounce 3 pin %d, %d\r\n", pin, invert);
+        #endif
 
         fail(3);
       }
@@ -49,8 +55,9 @@ void debounceTest()
       }
       else
       {
+        #ifdef PRINT_FAILURES
         Serial.printf("Fail debounce 4 pin %d, %d\r\n", pin, invert);
-
+        #endif
         fail(4);
       }
       if (invert)
@@ -79,7 +86,9 @@ void debounceTest()
       }
       else
       {
+        #ifdef PRINT_FAILURES
         Serial.printf("Fail debounce 1 pin %d, %d\r\n", pin, invert);
+        #endif
 
         fail(5);
       }
@@ -90,7 +99,9 @@ void debounceTest()
       }
       else
       {
+        #ifdef PRINT_FAILURES
         Serial.printf("Fail debounce 6 pin %d, %d\r\n", pin, invert);
+        #endif
 
         fail(6);
       }
@@ -101,7 +112,9 @@ void debounceTest()
       }
       else
       {
+        #ifdef PRINT_FAILURES
         Serial.printf("Fail debounce 7 pin %d, invert %d.  %d transitions\r\n", pin, invert, debounces[pin].transitions);
+        #endif
 
         fail(7);
       }

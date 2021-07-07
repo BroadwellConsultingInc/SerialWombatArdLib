@@ -26,7 +26,9 @@ void dioTest()
     }
     else
     {
-      Serial.printf("Digital I/O expected: 0x%X, got 0x%X\r\n", i, result);
+      #ifdef PRINT_FAILURES
+      Serial.printf("Digital I/O expected (A): 0x%X, got 0x%X\r\n", i, result);
+      #endif
       fail(i);
     }
   }
@@ -40,7 +42,9 @@ void dioTest()
     }
     else
     {
-      Serial.printf("Digital I/O expected: 0x%X, got 0x%X\r\n", i, result);
+      #ifdef PRINT_FAILURES
+      Serial.printf("Digital I/O expected (B): 0x%X, got 0x%X\r\n", i, result);
+      #endif
       fail(i);
     }
   }

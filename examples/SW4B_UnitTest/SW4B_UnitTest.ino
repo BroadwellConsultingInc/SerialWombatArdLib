@@ -2,6 +2,8 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #define NUM_TEST_PINS 4
+#define USE_DISPLAY
+#define PRINT_FAILURES
 SerialWombat SW6C, SW6D, SW6E;
 
 SerialWombat* wombatsByPin[] = {&SW6C, &SW6C, &SW6C, &SW6C};
@@ -12,7 +14,7 @@ uint8_t pinMatches[] = {2, 3, 2, 1};
 #define MATCH_LOW() {MATCH->digitalWrite(pinMatches[pin],LOW);}
 #define MATCH_OUTPUT() {MATCH->pinMode(pinMatches[pin],OUTPUT);};
 
-
+ 
 SerialWombatDebouncedInput  debounce1(SW6C), debounce2(SW6C), debounce3(SW6C), debounce0(SW6C);
 SerialWombatDebouncedInput debounces[] = {debounce0, debounce1, debounce2, debounce3};
 
@@ -43,26 +45,44 @@ void echoTest();
 
 void setup() {
   // put your setup code here, to run once:
+
   Wire.begin();
-  Wire.setClock(100000);
+  //Turn off pull ups
+  digitalWrite(SCL,LOW);
+  digitalWrite(SDA,LOW);
+
+  
+  
+
   Serial.begin(115200);
   resetAll();
   Serial.println("Serial Wombat 4B Unit Test");
   Serial.print("0x6C Version: "); Serial.println(SW6C.readVersion());
+  Serial.print("0x6C UniqueIDLength: ");
+  Serial.println(SW6C.uniqueIdentifierLength);
+  Serial.print("0x6C UniqueID: "); 
+  for (int i = 0; i < SW6C.uniqueIdentifierLength; ++i)
+  Serial.printf("%X ",SW6C.uniqueIdentifier[i]);
+  Serial.println();
   Serial.print("0x6D Version: "); Serial.println(SW6D.readVersion());
   Serial.print("0x6E Version: "); Serial.println(SW6E.readVersion());
+  
  // pinMode(D3, OUTPUT);
   //digitalWrite(D3, LOW);
 
   // initialize with the I2C addr 0x3C
+ #ifdef USE_DISPLAY
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
   display.clearDisplay();
   display.println("SW4B Unit Test");
   display.display();
+#endif
+  Wire.setClock(100000UL);
 }
 
 void updateDisplay()
 {
+#ifdef USE_DISPLAY
   display.clearDisplay();
   display.setTextSize(2);
   display.setTextColor(WHITE);
@@ -75,7 +95,7 @@ void updateDisplay()
   display.print("Run time (s): ");
   display.println(millis() / 1000);
   display.display();
-
+#endif
 }
 
 uint32_t lastDisplayUpdate = 0;
@@ -105,7 +125,30 @@ void fail(int i)
 
 }
 void loop() {
-
+  Serial.print("0x6C UniqueIDLength: ");
+  Serial.println(SW6C.uniqueIdentifierLength);
+  Serial.print("0x6C UniqueID: "); 
+  for (int i = 0; i < SW6C.uniqueIdentifierLength; ++i)
+  Serial.printf("%X ",SW6C.uniqueIdentifier[i]);
+  Serial.println();
+  Serial.print("0x6C DeviceId: ");
+  Serial.println(SW6C.deviceIdentifier);
+   Serial.print("0x6C DeviceRevision: ");
+  Serial.println(SW6C.deviceRevision);
+  
+ Serial.print("0x6D UniqueIDLength: ");
+  Serial.println(SW6D.uniqueIdentifierLength);
+  Serial.print("0x6D UniqueID: "); 
+  for (int i = 0; i < SW6D.uniqueIdentifierLength; ++i)
+  Serial.printf("%X ",SW6D.uniqueIdentifier[i]);
+  Serial.println();
+    Serial.print("0x6E UniqueIDLength: ");
+  Serial.println(SW6E.uniqueIdentifierLength);
+  Serial.print("0x6E UniqueID: "); 
+  for (int i = 0; i < SW6E.uniqueIdentifierLength; ++i)
+  Serial.printf("%X ",SW6E.uniqueIdentifier[i]);
+  Serial.println();
+  
   Serial.println ("Starting Digital IO Test.  This test takes less than a minute");
   dioTest();
   Serial.print(millis() / 1000); Serial.print (": Digital I/O test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
@@ -113,7 +156,7 @@ void loop() {
   Serial.println ("Starting supply voltage test.  This test takes less than a minute");
   vSupplyTest();
   Serial.print ("vSupply test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
-
+/*
   // put your main code here, to run repeatedly:
   Serial.println ("Starting ECHO Test.  This test takes about 2 minutes");
   echoTest();
@@ -143,7 +186,7 @@ void loop() {
   Serial.println ("Starting Protected Output Test.  This test takes less than a minute");
   protectedOutputTest();
   Serial.print(millis() / 1000); Serial.print (": Protected Output test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
-
+*/
 }
 
 void resetAll()

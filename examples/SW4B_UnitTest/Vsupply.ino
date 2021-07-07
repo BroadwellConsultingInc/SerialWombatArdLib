@@ -7,8 +7,10 @@ void vSupplyTest()
   }
   else
   {
+    #ifdef PRINT_FAILURES
      Serial.print("VSupply Fail: Measured: ");
         Serial.println(supplyVoltage);
+    #endif
     fail(0);
   }
 }

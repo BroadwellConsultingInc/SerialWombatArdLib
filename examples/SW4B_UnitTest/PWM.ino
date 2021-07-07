@@ -25,15 +25,7 @@ void pwmIteration(Wombat4A_B_PWMFrequencyValues_t frequency, int period)
     pwms[i].begin(pinMatches[i], 0);
     pwms[i].setFrequency_SW4AB(frequency);
   }
-  /*
-    pwm1.begin(1,0);
-    pwm2.begin(2,0);
-    pwm3.begin(3,0);
-    pwm4.begin(2,0);
-
-    pwm1.setFrequency_SW4AB(frequency);
-    pwm4.setFrequency_SW4AB(frequency);
-  */
+  
   SerialWombatPulseTimerUnits units = SW_PULSETIMER_uS;
   if (period > 60000)
   {
@@ -43,29 +35,7 @@ void pwmIteration(Wombat4A_B_PWMFrequencyValues_t frequency, int period)
   for (int pin = 0; pin < NUM_TEST_PINS; ++pin)
   {
     pulses[pin].begin(pin, units, false);
-    /*
-      switch (pin)
-      {
-    	case 0:
-    		pulse1.begin(3,units,false);
-    		break;
-
-    	case 1:
-    		pulse2.begin(2,units,false);
-    		break;
-
-    	case 2:
-    		pulse3.begin(1,units,false);
-    		break;
-
-    	case 3:
-    		pulse4.begin(0,units,false);
-    		break;
-      }
-    */
-
-
-
+    
     for (int dutyCycle = 1000; dutyCycle < 64000; dutyCycle += 2500)
     {
       int pulseWidthMeasured;
@@ -106,52 +76,13 @@ void pwmIteration(Wombat4A_B_PWMFrequencyValues_t frequency, int period)
       {
         pwms[i].writeDutyCycle(0);
       }
-      /*
-        pwm1.writeDutyCycle(0);
-        pwm2.writeDutyCycle(0);
-        pwm3.writeDutyCycle(0);
-        pwm4.writeDutyCycle(0);
-      */
+      
       delay(75);
 
       pwms[pin].writeDutyCycle((uint16_t) dutyCycle);
       delay(period * 3 / 1000);
       delay(10);
       pulseWidthMeasured = pulses[pin].readHighCounts();
-
-      /*
-        switch(pin)
-        {
-      	case 0:
-
-      		pwm1.writeDutyCycle((uint16_t)dutyCycle);
-      		delay(period * 3 / 1000);
-      		delay(10);
-      		pulseWidthMeasured = pulse1.readHighCounts();
-      		break;
-
-      	case 1:
-      		pwm2.writeDutyCycle((uint16_t)dutyCycle);
-      		delay(period * 3 / 1000);
-      		delay(10);
-      		pulseWidthMeasured = pulse2.readHighCounts();
-      		break;
-
-      	case 2:
-      		pwm3.writeDutyCycle((uint16_t)dutyCycle);
-      		delay(period * 3 / 1000);
-      		delay(10);
-      		pulseWidthMeasured = pulse3.readHighCounts();
-      		break;
-
-      	case 3:
-      		pwm4.writeDutyCycle((uint16_t)dutyCycle);
-      		delay(period * 3 / 1000);
-      		delay(10);
-      		pulseWidthMeasured = pulse4.readHighCounts();
-      		break;
-        }
-      */
 
 
       int threshold = 3; // +/- 3 ms
@@ -172,6 +103,7 @@ void pwmIteration(Wombat4A_B_PWMFrequencyValues_t frequency, int period)
       else
       {
         fail(1000000 + dutyCycle);
+        #ifdef PRINT_FAILURES
         Serial.print(pin);
         Serial.print(": ");
         Serial.print("Measured: ");
@@ -183,6 +115,7 @@ void pwmIteration(Wombat4A_B_PWMFrequencyValues_t frequency, int period)
         Serial.print(" Period: ");
         Serial.println(period);
         Serial.println();
+        #endif
       }
     }
   }
