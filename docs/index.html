@@ -78,21 +78,21 @@ Overview</h1>
 <p>This library is designed for use with the Arduio platform. <br  />
  The <a class="el" href="class_serial_wombat.html">SerialWombat</a> class is the basis for all sketches. Include <a class="el" href="_serial_wombat_8h.html">SerialWombat.h</a> to access all Serial Wombat classes.</p>
 <p>One Serial Wombat instance should be declared for each Serial Wombat attached to the host. This is typically done by declaring it globally: </p><pre class="fragment">SerialWombat sw;
-</pre><p>Once the Serial Wombat is declared, it must be initialized using the <a class="el" href="class_serial_wombat.html#a30a1a1bc0a2ccc9352db75b1b8fff594" title="initialize a Serial Wombat chip to use a Serial Interface.">SerialWombat.begin()</a> method. There are separate begin methods for I2C (Wire) and Uart (Serial): </p><pre class="fragment">sw.begin(Serial);
+</pre><p>Once the Serial Wombat instance is declared, it must be initialized using the <a class="el" href="class_serial_wombat.html#a30a1a1bc0a2ccc9352db75b1b8fff594" title="initialize a Serial Wombat chip to use a Serial Interface.">SerialWombat.begin()</a> method. There are separate begin methods for I2C (Wire) and Uart (Serial): </p><pre class="fragment">sw.begin(Serial);
 </pre><p>or </p><pre class="fragment">sw.begin(Wire, 0x6C);  //I2C initialization with address 6C
 </pre><p>Presense of a Serial wombat can be determined by testing the return value of the <a class="el" href="class_serial_wombat.html#a9de39b2b667e2d0b213d59f186fb2837" title="Send a version request to the Serial Wombat chip.">SerialWombat.queryVersion()</a> method: </p><pre class="fragment">if (sw.queryVersion())
 {
-    //Serial Wombat detected.
+    //Serial Wombat chip detected.
 }
 else
 {
-    //Serial Wombat not detected.
+    //Serial Wombat  chip not detected.
 }
 </pre><h1><a class="anchor" id="autotoc_md2"></a>
 Pin Modes</h1>
 <p>Most Serial Wombat functionality is achieved through Pin Modes. Most pin modes are achieved by declaring an instance of a class for that pin mode with the Serial Wombat instance that pin mode will be attached to as a parameter. A .begin call with additional parameters is typically called during the Arduino setup() function.</p>
 <h2><a class="anchor" id="autotoc_md3"></a>
-The following Pin Modes are avaialble on all 4 pins of the Serial Wombat 4B:</h2>
+The following Pin Modes are avaialble on all 4 pins of the Serial Wombat 4B chip:</h2>
 <ul>
 <li>Button Debouncing ( <a class="el" href="class_serial_wombat_debounced_input.html" title="A pin mode class that debounces inputs.">SerialWombatDebouncedInput</a> class )</li>
 <li>Pulse Timing ( <a class="el" href="class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time.">SerialWombatPulseTimer</a> class )</li>
@@ -101,7 +101,7 @@ The following Pin Modes are avaialble on all 4 pins of the Serial Wombat 4B:</h2
 <li>UART Receive ( <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B which creates an I2C to UART Bridge.">SerialWombatUART</a> class)</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md4"></a>
-The following Pin Modes are avaialble on pins 1,2,3 of the Serial Wombat 4B and all 4 pins of the Serial Wombat 4A:</h2>
+The following Pin Modes are avaialble on pins 1,2,3 of the Serial Wombat 4B and all 4 pins of the Serial Wombat 4A chips:</h2>
 <ul>
 <li>Analog Input (<a class="el" href="class_serial_wombat_analog_input.html" title="A class to make analog measurements with the Serial Wombat.">SerialWombatAnalogInput</a> class)</li>
 <li>Protected Output (<a class="el" href="class_serial_wombat_protected_output.html" title="Combine and input and output pin for a protected output.">SerialWombatProtectedOutput</a> class)</li>
@@ -111,11 +111,15 @@ The following Pin Modes are avaialble on pins 1,2,3 of the Serial Wombat 4B and 
 <li>Watchdog (<a class="el" href="class_serial_wombat_watchdog.html" title="A class to wrap around a Serial Wombat Watchdog Pin.">SerialWombatWatchdog</a> class)</li>
 <li>Digital Output ( <a class="el" href="class_serial_wombat.html#a299b089e960cefff38bd4c3b28413b5a" title="Set an output pin High or Low.">SerialWombat.digitalWrite()</a> ) with optional Open Drain mode</li>
 </ul>
-<dl class="section warning"><dt>Warning</dt><dd>Due to hardware initializations unexpected side effects may occur if the same pin is configured multiple times to different pin modes after Serial Wombat initialization</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Due to hardware initializations unexpected side effects may occur if the same pin is configured multiple times to different pin modes after Serial Wombat chip initialization</dd></dl>
 <h2><a class="anchor" id="autotoc_md5"></a>
 Additional Capabilities:</h2>
-<p>The Serial Wombat can measure its own source voltage with the <a class="el" href="class_serial_wombat.html#a5c02ba116cdf692bc790fa7fbd315a1f" title="Measure the Serial Wombat chip&#39;s Supply voltage.">SerialWombat.readSupplyVoltage_mV</a> method.</p>
-<p>The Serial Wombat can report its Model and Firmware revision with the <a class="el" href="class_serial_wombat.html#a9de39b2b667e2d0b213d59f186fb2837" title="Send a version request to the Serial Wombat chip.">SerialWombat.queryVersion</a> method. </p>
+<p>The Serial Wombat chip can measure its own source voltage with the <a class="el" href="class_serial_wombat.html#a5c02ba116cdf692bc790fa7fbd315a1f" title="Measure the Serial Wombat chip&#39;s Supply voltage.">SerialWombat.readSupplyVoltage_mV</a> method.</p>
+<p>The Serial Wombat chip can report its Model and Firmware revision with the <a class="el" href="class_serial_wombat.html#a9de39b2b667e2d0b213d59f186fb2837" title="Send a version request to the Serial Wombat chip.">SerialWombat.queryVersion</a> method.</p>
+<p>The Serial Wombat chip can manage power consumption with the <a class="el" href="class_serial_wombat.html#a65e54ae6ae80715f46df9e9ef66d21ca" title="Shuts down most functions of the Serial Wombat chip reducing power consumption.">SerialWombat.sleep</a> and <a class="el" href="class_serial_wombat.html#a03aa1263dac822d2f74b94ca63a476b0" title="Called to send a dummy packet to the Serial Wombat chip to wake it from sleep and ready it for other ...">SerialWombat.wake</a> funcitons.</p>
+<p>The Serial Wombat chip has a unique ID available through the <a class="el" href="class_serial_wombat.html#adfbf406b33f4517eda066c9a31f5681b">SerialWombat.uniqueIdentifier</a> property.</p>
+<p>See: <a href="https://youtu.be/IHTcKyXT_2Q">https://youtu.be/IHTcKyXT_2Q</a> <br  />
+ </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

@@ -36,6 +36,21 @@ void SerialWombatPWM::setFrequency_SW4AB(Wombat4A_B_PWMFrequencyValues_t frequen
 	_sw->sendPacket(tx);
 }
 
+void SerialWombatPWM::setFrequency_SW18AB_Hz(uint16_t frequency_Hz)
+{
+	uint8_t tx[] = { 220,_pin,PIN_MODE_PWM,SW_LE16(1000000 / frequency_Hz),0x55,0x55,0x55 };
+	_sw->sendPacket(tx);
+
+}
+
+void SerialWombatPWM::setPeriod_SW18AB_uS(uint16_t period_uS)
+{
+	uint8_t tx[] = { 220,_pin,PIN_MODE_PWM,SW_LE16(period_uS),0x55,0x55,0x55 };
+	_sw->sendPacket(tx);
+}
+
+
+
 
 
 SerialWombatPWM::~SerialWombatPWM()

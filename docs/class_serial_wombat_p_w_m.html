@@ -97,6 +97,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0993b750305f02d7f35cdf191ff5f5b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_p_w_m.html#a0993b750305f02d7f35cdf191ff5f5b0">setFrequency_SW4AB</a> (<a class="el" href="_serial_wombat_p_w_m_8h.html#a2088b99b4668da0234cd4564f5a328ba">Wombat4A_B_PWMFrequencyValues_t</a> frequency)</td></tr>
 <tr class="memdesc:a0993b750305f02d7f35cdf191ff5f5b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PWM Frequency (Adjusts all PWM outputs' frequency on a <a class="el" href="class_serial_wombat.html">SerialWombat</a>)  <a href="class_serial_wombat_p_w_m.html#a0993b750305f02d7f35cdf191ff5f5b0">More...</a><br /></td></tr>
 <tr class="separator:a0993b750305f02d7f35cdf191ff5f5b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a4f5ee2645501c95e331e279acfa71b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_p_w_m.html#a1a4f5ee2645501c95e331e279acfa71b">setFrequency_SW18AB_Hz</a> (uint16_t frequency_Hz)</td></tr>
+<tr class="separator:a1a4f5ee2645501c95e331e279acfa71b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade6a3bf7298cff9e6b7301fcbad96a83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_p_w_m.html#ade6a3bf7298cff9e6b7301fcbad96a83">setPeriod_SW18AB_uS</a> (uint16_t period_uS)</td></tr>
+<tr class="separator:ade6a3bf7298cff9e6b7301fcbad96a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a4b1f75426894901b97ecccda218849"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_p_w_m.html#a1a4b1f75426894901b97ecccda218849">~SerialWombatPWM</a> ()</td></tr>
 <tr class="separator:a1a4b1f75426894901b97ecccda218849"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -261,6 +265,24 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a1a4f5ee2645501c95e331e279acfa71b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a4f5ee2645501c95e331e279acfa71b">&#9670;&nbsp;</a></span>setFrequency_SW18AB_Hz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialWombatPWM::setFrequency_SW18AB_Hz </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>frequency_Hz</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0993b750305f02d7f35cdf191ff5f5b0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0993b750305f02d7f35cdf191ff5f5b0">&#9670;&nbsp;</a></span>setFrequency_SW4AB()</h2>
 
@@ -286,6 +308,24 @@ Public Member Functions</h2></td></tr>
 </dl>
 <p>This function changes the Serial Wombat 4A and 4B PWM output frequncy by adjusting the clock divisor for the PWM generation hardware. By default the value is 31250Hz. Changing the frequency may reduce PWM resolution from 10 bits to 8 bits for some frequencies. However, the input value for duty cycle for methods of this class continue to be 0 to 65535 and are scaled accordingly.</p>
 <dl class="section warning"><dt>Warning</dt><dd>This function will likely not be compatible with other models in the Serial Wombat family based on other hardware that are released in the future because it is tightly coupled to the PIC16F15214 hardware. </dd></dl>
+
+</div>
+</div>
+<a id="ade6a3bf7298cff9e6b7301fcbad96a83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade6a3bf7298cff9e6b7301fcbad96a83">&#9670;&nbsp;</a></span>setPeriod_SW18AB_uS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialWombatPWM::setPeriod_SW18AB_uS </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>period_uS</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

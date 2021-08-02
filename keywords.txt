@@ -14,6 +14,8 @@ analogWrite	KEYWORD2
 writeRamAddress	KEYWORD2
 readRamAddress	KEYWORD2
 readFlashAddress	KEYWORD2
+sleep	KEYWORD2
+wake	KEYWORD2
 
 SW_LOW	LITERAL1
 SW_HIGH	LITERAL1

@@ -166,6 +166,14 @@ int SerialWombat::sendPacket(uint8_t tx[])
 {
 	uint8_t rx[8];
 
+	if (_asleep)
+	{
+		_asleep = false;
+		uint8_t txw[8] = { '!','!','!','!','!','!','!','!' };  //TODO adapt for UART
+		sendPacket(txw);
+		delayMicroseconds(200);
+	}
+
 	return(sendPacket(tx,rx));
 
 	if (sendReadyTime != 0)
@@ -341,6 +349,19 @@ uint32_t SerialWombat::readFlashAddress(uint32_t address)
 	uint8_t rx[8];
 	sendPacket(tx, rx);
 	return(rx[4] + (rx[5] <<8));
+}
+
+void SerialWombat::sleep()
+{
+	uint8_t tx[8] = { 'S','l','E','e','P','!','#','*'};
+	sendPacket(tx);
+	_asleep = true;
+}
+
+void SerialWombat::wake()
+{
+	uint8_t tx[8] = { '!','!','!','!','!','!','!','!' };
+	sendPacket(tx);
 }
 
 void SerialWombat::configureDigitalPin(uint8_t pin,uint8_t highLow)

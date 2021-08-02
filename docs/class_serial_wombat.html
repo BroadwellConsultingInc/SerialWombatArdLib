@@ -155,6 +155,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7faf5111c4e150ea2ca7e685e4f3de1a"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat.html#a7faf5111c4e150ea2ca7e685e4f3de1a">readFlashAddress</a> (uint32_t address)</td></tr>
 <tr class="memdesc:a7faf5111c4e150ea2ca7e685e4f3de1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read Address from Flash based on 32 bit address.  <a href="class_serial_wombat.html#a7faf5111c4e150ea2ca7e685e4f3de1a">More...</a><br /></td></tr>
 <tr class="separator:a7faf5111c4e150ea2ca7e685e4f3de1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65e54ae6ae80715f46df9e9ef66d21ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat.html#a65e54ae6ae80715f46df9e9ef66d21ca">sleep</a> ()</td></tr>
+<tr class="memdesc:a65e54ae6ae80715f46df9e9ef66d21ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shuts down most functions of the Serial Wombat chip reducing power consumption.  <a href="class_serial_wombat.html#a65e54ae6ae80715f46df9e9ef66d21ca">More...</a><br /></td></tr>
+<tr class="separator:a65e54ae6ae80715f46df9e9ef66d21ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03aa1263dac822d2f74b94ca63a476b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat.html#a03aa1263dac822d2f74b94ca63a476b0">wake</a> ()</td></tr>
+<tr class="memdesc:a03aa1263dac822d2f74b94ca63a476b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to send a dummy packet to the Serial Wombat chip to wake it from sleep and ready it for other commands.  <a href="class_serial_wombat.html#a03aa1263dac822d2f74b94ca63a476b0">More...</a><br /></td></tr>
+<tr class="separator:a03aa1263dac822d2f74b94ca63a476b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -907,6 +913,46 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip </dd></dl>
+
+</div>
+</div>
+<a id="a65e54ae6ae80715f46df9e9ef66d21ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65e54ae6ae80715f46df9e9ef66d21ca">&#9670;&nbsp;</a></span>sleep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialWombat::sleep </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shuts down most functions of the Serial Wombat chip reducing power consumption. </p>
+<p>This command stops the Serial Wombat chip's internal clock, greatly reducing power consumption. The host is responsible for configuring outputs to a safe state prior to calling sleep.</p>
+<dl class="section warning"><dt>Warning</dt><dd>This command does not cause any sort of shutdown routine to run. The chip just stops. \ Outputs, including PWM, Servo and Protected Outputs, may retain their logic levels \ at the moment the sleep command is processed. In other words, they may stay high or low as long as the chip is in sleep. </dd></dl>
+
+</div>
+</div>
+<a id="a03aa1263dac822d2f74b94ca63a476b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03aa1263dac822d2f74b94ca63a476b0">&#9670;&nbsp;</a></span>wake()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialWombat::wake </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Called to send a dummy packet to the Serial Wombat chip to wake it from sleep and ready it for other commands. </p>
 
 </div>
 </div>

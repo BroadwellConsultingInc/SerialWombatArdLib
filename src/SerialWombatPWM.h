@@ -57,14 +57,17 @@ public:
    /// \param pin The pin to become a PWM.  Valid values for SW4A: 0-3  SW4B: 1-3 
    /// \param dutyCycle A value from 0 to 65535 representing duty cycle
 	void begin(uint8_t pin, uint16_t dutyCycle);
+
     /// \brief Initialize a pin that has been declared as PWM. 
    /// \param pin The pin to become a PWM.  Valid values for SW4A: 0-3  SW4B: 1-3 
    /// \param dutyCycle A value from 0 to 65535 representing duty cycle
    /// \param invert if true, internally adjust duty cycle to 65535-duty cycle
     void begin(uint8_t pin, uint16_t dutyCycle,bool invert);
+
     /// \brief Set PWM duty cycle
     /// \param dutyCycle A value from 0 to 65535 representing duty cycle
 	void writeDutyCycle(uint16_t dutyCycle);
+
     /// \brief Set PWM Frequency (Adjusts all PWM outputs' frequency on a SerialWombat)
     /// \param frequency  A value of the #Wombat4A_B_PWMFrequencyValues_t enumeration
     /// 
@@ -78,6 +81,11 @@ public:
     /// family based on other hardware that are released in the future because it is tightly coupled to the
     /// PIC16F15214 hardware.
     void setFrequency_SW4AB(Wombat4A_B_PWMFrequencyValues_t frequency);
+
+
+    void setFrequency_SW18AB_Hz(uint16_t frequency_Hz);
+    void setPeriod_SW18AB_uS(uint16_t period_uS);
+
 	~SerialWombatPWM();
 
 private:

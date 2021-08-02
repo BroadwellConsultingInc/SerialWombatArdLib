@@ -24,7 +24,7 @@ attached to the host.  This is typically done by declaring it globally:
 
     SerialWombat sw;
 
-Once the Serial Wombat is declared, it must be initialized using the SerialWombat.begin()
+Once the Serial Wombat instance is declared, it must be initialized using the SerialWombat.begin()
 method.  There are separate begin methods for I2C (Wire) and Uart (Serial):
 
 	sw.begin(Serial);
@@ -38,11 +38,11 @@ of the SerialWombat.queryVersion() method:
 
 	if (sw.queryVersion())
 	{
-		//Serial Wombat detected.
+		//Serial Wombat chip detected.
 	}
 	else
 	{
-		//Serial Wombat not detected.
+		//Serial Wombat  chip not detected.
 	}
 
 Pin Modes
@@ -53,7 +53,7 @@ declaring an instance of a class for that pin mode with the Serial Wombat instan
 mode will be attached to as a parameter.  A .begin call with additional parameters is typically
 called during the Arduino setup() function.
 
-The following Pin Modes are avaialble on all 4 pins of the Serial Wombat 4B:
+The following Pin Modes are avaialble on all 4 pins of the Serial Wombat 4B chip:
 ---------------------------------
 
 - Button Debouncing ( SerialWombatDebouncedInput class )
@@ -62,7 +62,7 @@ The following Pin Modes are avaialble on all 4 pins of the Serial Wombat 4B:
 - Quadrature Encoder ( SerialWombatQuadEnc class)
 - UART Receive ( SerialWombatUART class)
 
-The following Pin Modes are avaialble on pins 1,2,3 of the Serial Wombat 4B and all 4 pins of the Serial Wombat 4A:
+The following Pin Modes are avaialble on pins 1,2,3 of the Serial Wombat 4B and all 4 pins of the Serial Wombat 4A chips:
 ---------------------------
 
 - Analog Input (SerialWombatAnalogInput class)
@@ -73,14 +73,19 @@ The following Pin Modes are avaialble on pins 1,2,3 of the Serial Wombat 4B and 
 - Watchdog (SerialWombatWatchdog class)
 - Digital Output ( SerialWombat.digitalWrite() ) with optional Open Drain mode
 
-\warning Due to hardware initializations unexpected side effects may occur if the same pin is configured multiple times to different pin modes after Serial Wombat initialization
+\warning Due to hardware initializations unexpected side effects may occur if the same pin is configured multiple times to different pin modes after Serial Wombat chip initialization
 
 Additional Capabilities:
 -----------------------
 
-The Serial Wombat can measure its own source voltage with the SerialWombat.readSupplyVoltage_mV method.
+The Serial Wombat chip can measure its own source voltage with the SerialWombat.readSupplyVoltage_mV method.
 
-The Serial Wombat can report its Model and Firmware revision with the SerialWombat.queryVersion method.
+The Serial Wombat chip can report its Model and Firmware revision with the SerialWombat.queryVersion method.
+
+The Serial Wombat chip can manage power consumption with the SerialWombat.sleep and SerialWombat.wake funcitons.
+
+The Serial Wombat chip has a unique ID available through the SerialWombat.uniqueIdentifier property.  See:
+https://youtu.be/IHTcKyXT_2Q  
 
 
 

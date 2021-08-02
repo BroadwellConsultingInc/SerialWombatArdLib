@@ -326,6 +326,18 @@ public:
 
 	uint32_t readFlashAddress(uint32_t address);
 
+	/// \brief Shuts down most functions of the Serial Wombat chip reducing power consumption
+	/// 
+	/// This command stops the Serial Wombat chip's internal clock, greatly reducing power consumption.
+	/// The host is responsible for configuring outputs to a safe state prior to calling sleep.
+	/// 
+	/// \warning This command does not cause any sort of shutdown routine to run.  The chip just stops.  \
+	/// Outputs, including PWM, Servo and Protected Outputs, may retain their logic levels \
+	/// at the moment the sleep command is processed.  In other words, they may stay high or low as long as the chip is in sleep.
+	void sleep();
+
+	/// \brief Called to send a dummy packet to the Serial Wombat chip to wake it from sleep and ready it for other commands
+	void wake();
 
 	/// Stores the last value retreived by readSupplyVoltage_mV().  Used by SerialWombatAnalogInput 
 	/// class to calculate mV outputs from retreived A/D counts.
@@ -360,6 +372,7 @@ private:
 	uint8_t _pinmode[WOMBAT_MAXIMUM_PINS]={}; // Includes Pullup
 	bool _pullDown[WOMBAT_MAXIMUM_PINS]={};
 	bool _openDrain[WOMBAT_MAXIMUM_PINS]={};
+	bool _asleep = false;
 	void configureDigitalPin(uint8_t pin, uint8_t highLow);
 	unsigned long sendReadyTime = 0;
 	void initialize();

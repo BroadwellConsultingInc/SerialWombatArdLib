@@ -15,10 +15,10 @@ See the example sw4b_ard_Debounce1 distributed with the Serial Wombat Arduino Li
 Video Tutorial
 
 \htmlonly
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_EKlrEVaEhg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/R1KM0J2Ug-M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 \endhtmlonly
 
-https://youtu.be/_EKlrEVaEhg
+https://youtu.be/R1KM0J2Ug-M
 
 One SerialWombatDebouncedInput instance should be declared per debounced input.
 

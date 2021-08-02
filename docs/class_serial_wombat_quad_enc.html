@@ -73,7 +73,7 @@ $(function() {
 <p>A class that uses two Serial Wombat input pins to read quadrature encoder input.  
  <a href="class_serial_wombat_quad_enc.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="serial_wombat_quad_enc_8h_source.html">serialWombatQuadEnc.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -86,7 +86,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4668bee7f36e6099d4ce325f7452bce8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_quad_enc.html#a4668bee7f36e6099d4ce325f7452bce8">begin</a> (uint8_t pin, uint8_t secondPin, uint16_t debounce_mS, bool pullUpsEnabled)</td></tr>
 <tr class="memdesc:a4668bee7f36e6099d4ce325f7452bce8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization for <a class="el" href="class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input.">SerialWombatQuadEnc</a> that allows configuration of debounce time and pullUps.  <a href="class_serial_wombat_quad_enc.html#a4668bee7f36e6099d4ce325f7452bce8">More...</a><br /></td></tr>
 <tr class="separator:a4668bee7f36e6099d4ce325f7452bce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb8381def3282556e88153bad0aaeead"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_quad_enc.html#afb8381def3282556e88153bad0aaeead">begin</a> (uint8_t pin, uint8_t secondPin, uint16_t debounce_mS, bool pullUpsEnabled, <a class="el" href="serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5db">QE_READ_MODE_t</a> readState)</td></tr>
+<tr class="memitem:afb8381def3282556e88153bad0aaeead"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_quad_enc.html#afb8381def3282556e88153bad0aaeead">begin</a> (uint8_t pin, uint8_t secondPin, uint16_t debounce_mS, bool pullUpsEnabled, <a class="el" href="_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5db">QE_READ_MODE_t</a> readState)</td></tr>
 <tr class="memdesc:afb8381def3282556e88153bad0aaeead"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization for <a class="el" href="class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input.">SerialWombatQuadEnc</a> that allows configuration of debounce time, pullUps and transition detection mode.  <a href="class_serial_wombat_quad_enc.html#afb8381def3282556e88153bad0aaeead">More...</a><br /></td></tr>
 <tr class="separator:afb8381def3282556e88153bad0aaeead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e70f5277e922b1f4e3590c2c189e9ee"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_quad_enc.html#a7e70f5277e922b1f4e3590c2c189e9ee">read</a> ()</td></tr>
@@ -273,7 +273,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5db">QE_READ_MODE_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5db">QE_READ_MODE_t</a>&#160;</td>
           <td class="paramname"><em>readState</em>&#160;</td>
         </tr>
         <tr>
@@ -291,7 +291,7 @@ Public Member Functions</h2></td></tr>
     <tr><td class="paramname">secondPin</td><td>The second pin to be used as a Quadrature Encoder input. All 4 pins on the SW4A/SW4B may be used, except the first specified pin. </td></tr>
     <tr><td class="paramname">debounce_mS</td><td>The number of mS after a transition is detected and increment occurs before another increment is allowed. </td></tr>
     <tr><td class="paramname">pullUpsEnabled</td><td>TRUE: both pins have weak pull ups enabled. FALSE: Neither pin has weak pull up enabled. </td></tr>
-    <tr><td class="paramname">readState</td><td><a class="el" href="serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5db">QE_READ_MODE_t</a> determine if Polling or Interrupt mode is used, and which transitions cause increments.</td></tr>
+    <tr><td class="paramname">readState</td><td><a class="el" href="_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5db">QE_READ_MODE_t</a> determine if Polling or Interrupt mode is used, and which transitions cause increments.</td></tr>
   </table>
   </dd>
 </dl>
