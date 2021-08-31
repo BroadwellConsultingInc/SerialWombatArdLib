@@ -1,4 +1,4 @@
-#include "serialWombatProtectedOutput.h"
+#include "SerialWombatProtectedOutput.h"
 
 SerialWombatProtectedOutput::SerialWombatProtectedOutput(SerialWombat& serialWombat):_sw(serialWombat)
 {

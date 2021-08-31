@@ -73,7 +73,7 @@ public:
     /// \param pin  The pin that will host the state machine.  This can be either the rxPin or txPin
     /// \param rxPin The pin that will receive.  All 4 pins on the SW4B may be used.  255 if no receive function is needed
     /// \param txPin The pin that will transmit.  Valid values for the SW4B are 1-3.  255 if no transmit function is needed
-    void begin(int baudRate,uint8_t pin, uint8_t rxPin, uint8_t txPin);
+    void begin(uint32_t baudRate,uint8_t pin, uint8_t rxPin, uint8_t txPin);
     /// \brief Queries the Serial Wombat for number bytes available to read
     /// \return Number of bytes available to read.
     int available();

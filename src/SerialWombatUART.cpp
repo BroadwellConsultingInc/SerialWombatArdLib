@@ -7,7 +7,7 @@ SerialWombatUART::SerialWombatUART(SerialWombat& serialWombat):_sw(serialWombat)
 	
 }
 
-void SerialWombatUART::begin(int baudRate, uint8_t pin, uint8_t rxPin, uint8_t txPin)
+void SerialWombatUART::begin(uint32_t baudRate, uint8_t pin, uint8_t rxPin, uint8_t txPin)
 {
 	_rxPin = rxPin;
 	_txPin = txPin;

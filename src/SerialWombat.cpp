@@ -1,4 +1,4 @@
-#include "serialWombat.h"
+#include "SerialWombat.h"
 
 /*! \file SerialWombat.cpp
 */
@@ -69,6 +69,7 @@ void SerialWombat::begin(uint8_t i2cAddress)
 
 void SerialWombat::initialize()
 {
+	readVersion();
 	readSupplyVoltage_mV();
 	readUniqueIdentifier();
 	readDeviceIdentifier();
@@ -76,9 +77,9 @@ void SerialWombat::initialize()
 
 void SerialWombat::readUniqueIdentifier()
 {
-	//TODO add model check for future models on different micros.
+	uniqueIdentifierLength = 0;
+	if (version[0] == 'S' && version[1] == '0' && version[2] == '4')
 	{ //16F15214
-		uniqueIdentifierLength = 0;
 		for (uint32_t address = 0x8100; address <= 0x8108; ++address)
 		{
 			uint32_t data = readFlashAddress(address);
@@ -94,7 +95,7 @@ void SerialWombat::readUniqueIdentifier()
 
 void SerialWombat::readDeviceIdentifier()
 {
-	//TODO add model check for future models on different micros.
+	if (version[0] == 'S' && version[1] == '0' && version[2] == '4')
 	{ //16F15214
 		
 			uint32_t data = readFlashAddress(0x8006);

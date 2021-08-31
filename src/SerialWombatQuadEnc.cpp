@@ -1,4 +1,4 @@
-#include "serialWombatQuadEnc.h"
+#include "SerialWombatQuadEnc.h"
 
 SerialWombatQuadEnc::SerialWombatQuadEnc(SerialWombat& serialWombat) :_sw(serialWombat)
 {

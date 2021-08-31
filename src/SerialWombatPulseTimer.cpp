@@ -1,4 +1,4 @@
-#include "serialWombatPulseTimer.h"
+#include "SerialWombatPulseTimer.h"
 
 SerialWombatPulseTimer::SerialWombatPulseTimer(SerialWombat& serialWombat):_sw(serialWombat)
 {

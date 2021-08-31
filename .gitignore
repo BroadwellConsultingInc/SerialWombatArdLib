@@ -6,3 +6,5 @@ library.properties~
 keywords.txt~
 examples/SW4B_UniqueID/SW4B_UniqueID/SW4B_UniqueID.ino~
 examples/SW4B_Ard_PowerManagement/SW4B_Ard_PowerManagement.ino~
+*.cpp~
+*.swp
