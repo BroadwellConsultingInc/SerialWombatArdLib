@@ -1,0 +1,132 @@
+#pragma once
+/*
+Copyright 2021 Broadwell Consulting Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+#include <stdint.h>
+#include "SerialWombat.h"
+
+enum SWTM1637Mode {
+	tm1637Decimal16 = 0,  ///< Get the number to display from a pin or data source and display in decimal
+	tm1637Hex16 = 1,	///< Get the number to display from a pin or data source and display in hex
+	tm1637CharArray = 2, ///< Display a string sent by the host
+	tm1637RawArray = 3, ///<Display raw LED segments sent by the host
+	tm1637Animation = 4, /// < Display an animation loaded by the host and clocked out by the Serial Wombat chip
+};
+
+/// \brief A Class representing a TM1637 Seven-Segment Display connected to two Serial Wombat pins
+///
+/// This class is only supported on the Serial Wombat SW18AB chip.  It is not supported on the
+/// Serial Wombat 4X line.
+/// 
+/// This class controls a State Machine driven driver for a TM1637 Seven Segment LED Display.
+/// 
+/// Each instance of this class uses an average of approximately 5% of the SW18's processing time.
+/// This varies by configuration options and usage.
+/// 
+/// The Serial Wombat TM1637 driver can be configured in a number of ways:
+/// * The Display shows the current value in Hex or decimal of a Pin's public data (including values written to the pin used to control the display)
+/// * The Display shows an array of characters (as best they can be shown on a seven segment display) commanded by the host
+/// * The Display shows raw 7-segment bitmaps commanded by the host
+/// * The Display shows an animation downloaded to the Serial Wombat chip by the host.
+/// 
+/// See the available examples in the Arduino Library for usage.
+/// 
+/// \warning Different TM1637 displays behave differently based on how the manufacturer routed the LED matrix pins to the 
+/// TM1637 outputs on the PCB.  This can cause digits to be displayed in the wrong order, or cause decimal points or 
+/// clock colons to malfunction.  This is a display issue, not an issue with this library or the Serial Wombat firmware.
+/// Display order issues can be corrected with the orderDigits() command.
+/// 
+/// 
+class SerialWombatTM1637
+{
+public:
+	/// \brief Constructor for SerialWombatTM1637 class
+   /// \param serialWombat SerialWombat on which the PWM will run
+	SerialWombatTM1637(SerialWombat& serialWombat);
+
+	/// \brief Initialize an instance of the TM1637 class
+	///
+	/// \return Returns a negative error code if initialization failed.
+	/// \param clkPin The primary pin for this pin mode, the Serial Wombat pin connected to the clk pin of the TM1637
+	/// \param dioPin The Serial Wombat pin connected to the DIO/data pin of the TM1637
+	/// \param digits The number of digits in the display.  This is used to optimze displays shorter than 6 digits
+	/// \param mode  The mode (decimal, hex, char array, raw or animation) of the display driver
+	/// \param dataSourcePin if in decimal or hex mode, the pin from which the 16 bit data will be read.  Set this to the clkPin setting if you want to be able to write 16 bit (5 digit) numbers using the SerialWombat.writePublicData() function.  Numbers larger than 65535 must be written as strings using the Character Mode
+	/// \param Brightness - a value from 0 (dimmest) to 7 (brightest) based on the TM1637 hardware.  This scale is not linear.
+	int begin(uint8_t clkPin, uint8_t dioPin, uint8_t digits, SWTM1637Mode mode, uint8_t dataSourcePin, uint8_t brightness0to7);
+
+	/// \brief Used to reorder the digits of the display to match display hardware.
+	///
+	/// TM1637 displays do not have a standardized wiring of LED module to the TM1637 driver pins.
+	/// This can cause numbers to appear in the wrong order.
+	/// This can be fixed by displaying the string "012345" on the display.  If it appears out of
+	/// order, then issue this command with the parameters matching what is displayed on the screen.
+	/// 
+	/// For instance, if a Six digit display showed 210543 when commanded to show "012345", calling
+	/// \code
+	/// orderDigits(2,1,0,5,4,3);
+	/// \endcode
+	/// after begin() would cause the driver to reorder the output to make the display appear in the desired order.
+	/// 
+	/// \return Returns a negative error code if errors occur during configuration
+	/// 
+    int orderDigits(uint8_t first, uint8_t second, uint8_t third, uint8_t fourth, uint8_t fifth, uint8_t sixth );
+
+	/// \brief Used to send data to the data array of the driver.  
+	///
+	/// \param data  A 6 byte array that is sent to the display driver
+	/// 
+	/// The meaning of this data varies based on mode.  See examples.
+	int setArray(uint8_t data[6]);
+	/// \brief Set a bitmap of the MSB of each digit to control decimal points
+	///
+	/// Note that TM1637 decimal point implementation varies greatly depending on the
+	/// display manufacturer.  Setting bits may or may not cause decimal points to display,
+	/// the clock colon to display, or other undefined behavior.  Unexpected behavior is likely
+	/// the result of display pcb implementation, not an issue with this library or the Serial Wombat
+	/// firmware.
+	/// \param decimalBitmapLSBleftDigit A bitmap indicating if the decimal for each digit should be lit.  LSB is first digit  Valid values are 0 - 0x3F
+	/// 
+	int setDecimalBitmap(uint8_t decimalBitmapLSBleftDigit);
+	///  \brief Changes the brightness of the display
+	/// 
+	/// \param Brightness - a value from 0 (dimmest) to 7 (brightest) based on the TM1637 hardware.  This scale is not linear.
+	int setBrightness(uint8_t brightness0to7);
+
+	/// \brief Loads an animation to the Serial Wombat user buffer area and initializes the animation
+	///
+	/// The pin should have previously been initialized with the begin() command an animation mode prior to
+	/// this call.
+	/// 
+	/// \param bufferIndex The index into the User Buffer where the data for the animation should be stored
+	/// \param delay How long the animation display driver should wait between loading new data
+	/// \param Number of Frames to be displayed before returning to the first frame.  This should be the number of lines in data
+	/// \param data A 2 dimensional array of width 6 and arbitrary length.
+	int setAnimation(uint16_t bufferIndex, uint16_t delay, uint8_t numberOfFrames, uint8_t data[][6]);
+	
+private:
+	SerialWombat* _sw;
+
+	uint8_t _pin = 255;
+	uint8_t _dioPin = 255;
+};
+

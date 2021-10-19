@@ -4,8 +4,6 @@
 SerialWombatPWM::SerialWombatPWM(SerialWombat& SerialWombat)
 {
 	_sw = &SerialWombat;
-	
-	
 }
 
 void SerialWombatPWM::begin(uint8_t pin)

@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['_7eserialwombat_271',['~SerialWombat',['../class_serial_wombat.html#a9b0ef232e6406467e7aadc9011f51fd7',1,'SerialWombat']]],
-  ['_7eserialwombatanaloginput_272',['~SerialWombatAnalogInput',['../class_serial_wombat_analog_input.html#a027167928f770d20745e33b2d3edaa89',1,'SerialWombatAnalogInput']]],
-  ['_7eserialwombatpwm_273',['~SerialWombatPWM',['../class_serial_wombat_p_w_m.html#a1a4b1f75426894901b97ecccda218849',1,'SerialWombatPWM']]],
-  ['_7eserialwombatservo_274',['~SerialWombatServo',['../class_serial_wombat_servo.html#a82175fb811173d4652785a9c66685f97',1,'SerialWombatServo']]]
+  ['update_360',['update',['../class_serial_wombat_button_counter.html#a339563bb65990487ba75a80d0a826fa1',1,'SerialWombatButtonCounter']]],
+  ['updateresetcountdown_361',['updateResetCountdown',['../class_serial_wombat_watchdog.html#aaefe4670731ac49995ab16f011c550f0',1,'SerialWombatWatchdog']]],
+  ['updatesupplyvoltage_5fmv_362',['updateSupplyVoltage_mV',['../class_serial_wombat_analog_input.html#afeb273e29e19400632a03f0bd18c487e',1,'SerialWombatAnalogInput']]]
 ];

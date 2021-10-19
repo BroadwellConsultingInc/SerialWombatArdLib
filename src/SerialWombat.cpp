@@ -1,4 +1,25 @@
 #include "SerialWombat.h"
+/*
+Copyright 2020-2021 Broadwell Consulting Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+*/
 
 /*! \file SerialWombat.cpp
 */
@@ -91,6 +112,19 @@ void SerialWombat::readUniqueIdentifier()
 			*/
 		}
 	}
+	else if (isSW18())
+	{
+		for (uint32_t address = 0x801600; address <= 0x801608; address += 2)
+		{
+			uint32_t data = readFlashAddress(address);
+			uniqueIdentifier[uniqueIdentifierLength] = data;
+			++uniqueIdentifierLength;
+			uniqueIdentifier[uniqueIdentifierLength] = data >> 8;
+			++uniqueIdentifierLength;
+			uniqueIdentifier[uniqueIdentifierLength] = data >> 16;
+			++uniqueIdentifierLength;
+		}
+	}
 }
 
 void SerialWombat::readDeviceIdentifier()
@@ -102,6 +136,13 @@ void SerialWombat::readDeviceIdentifier()
 			deviceIdentifier = (uint16_t)data;
 			data = readFlashAddress(0x8005);
 			deviceRevision = (uint16_t)data;
+	}
+	else if (isSW18())
+	{
+		uint32_t data = readFlashAddress(0xFF0000);
+		deviceIdentifier = (uint16_t)data;
+		data = readFlashAddress(0xFF0002);
+		deviceRevision = (uint16_t)data & 0xF;
 	}
 }
 
@@ -217,6 +258,8 @@ char* SerialWombat::readVersion()
 	sendPacket(tx, rx);
 	memcpy(version, &rx[1], 7);
 	version[7] = '\0';
+	memcpy(model, &rx[1], 3);
+	model[3] = '\0';
 	return (version);
 }
 
@@ -226,6 +269,18 @@ uint16_t SerialWombat::readSupplyVoltage_mV()
 	uint32_t mv = 1024 * 65536 / counts;
 	_supplyVoltagemV = (uint16_t) mv;
 	return(_supplyVoltagemV);
+}
+
+uint16_t SerialWombat::readTemperature_100thsDegC(void)
+{
+	if (isSW18())
+	{
+		return readPublicData(70);
+	}
+	else
+	{
+		return 2500;
+	}
 }
 
 void SerialWombat::hardwareReset()
@@ -295,16 +350,18 @@ bool SerialWombat::queryVersion()
 	uint8_t tx[8] = { 'V',0x55,0x55,0x55,0x55,0x55,0x55,0x55 };
 	uint8_t rx[8];
 	sendPacket(tx, rx);
-	if (rx[0] == 'V' && rx[1] == 'S')
+	if (rx[0] == 'V' && (rx[1] == 'S' || rx[1] == 'B'))
 	{
-		model[0] = rx[2];
-		model[1] = rx[3];
-		model[2] = rx[4];
+		model[0] = rx[1];
+		model[1] = rx[2];
+		model[2] = rx[3];
 		model[3] = 0;
 		fwVersion[0] = rx[5];
 		fwVersion[1] = rx[6];
 		fwVersion[2] = rx[7];
 		fwVersion[3] = 0;
+
+		inBoot = (rx[1] == 'B');
 		return (true);
 	}
 	return (false);
@@ -346,10 +403,10 @@ void SerialWombat::writeRamAddress(uint16_t address, uint8_t value)
 
 uint32_t SerialWombat::readFlashAddress(uint32_t address)
 {
-	uint8_t tx[8] = { 0xA1,SW_LE16(address),0,0,0x55,0x55,0x55 };
+	uint8_t tx[8] = { 0xA1,SW_LE32(address),0x55,0x55,0x55 };
 	uint8_t rx[8];
 	sendPacket(tx, rx);
-	return(rx[4] + (rx[5] <<8));
+	return(rx[4] + (rx[5] <<8) + (rx[6] <<16) + (rx[7] <<24));
 }
 
 void SerialWombat::sleep()
@@ -362,6 +419,29 @@ void SerialWombat::sleep()
 void SerialWombat::wake()
 {
 	uint8_t tx[8] = { '!','!','!','!','!','!','!','!' };
+	sendPacket(tx);
+}
+
+bool SerialWombat::isSW18()
+{
+	return ( model[1] == '1' && model[2] == '8');
+}
+
+void SerialWombat::eraseFlashPage(uint32_t address)
+{
+	uint8_t tx[8] = { 0xA4,0,SW_LE32(address),0x55,0x55 };
+	sendPacket(tx);
+}
+
+void SerialWombat::writeFlashRow(uint32_t address)
+{
+	uint8_t tx[8] = { 0xA4,1,SW_LE32(address),0x55,0x55 };
+	sendPacket(tx);
+}
+
+void SerialWombat::setThroughputPin(uint8_t pin)
+{
+	uint8_t tx[8] = { 200,pin,21,0x55,0x55,0x55,0x55,0x55 };
 	sendPacket(tx);
 }
 
@@ -423,4 +503,92 @@ uint16_t SerialWombat::writePublicData(uint8_t pin, uint16_t value)
 	uint8_t rx[8];
 	sendPacket(tx, rx);
 	return (rx[2] + rx[3] * 256);
+}
+
+int SerialWombat::writeUserBuffer(uint16_t address, uint8_t* buffer, uint16_t count)
+{
+	uint16_t bytesSent = 0;
+	if (count == 0)
+	{
+		return 0;
+	}
+
+	{ // Send first packet of up to 4 bytes
+		uint8_t bytesToSend = 4;
+		if (count < 4)
+		{
+			bytesToSend = count;
+			count = 0;
+		}
+		else
+		{
+			count -= 4;
+		}
+
+		uint8_t tx[8] = { 0x84,SW_LE16(address), bytesToSend,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+
+		uint8_t i;
+		for (i = 0; i < bytesToSend; ++i)
+		{
+			tx[4 + i] = buffer[i];
+		}
+		int result = sendPacket(tx, rx);
+		if (rx[0] == 'E')
+		{
+			return (result);
+		}
+		bytesSent = bytesToSend;
+	}
+	while (count >= 7)  // Continue sending
+	{
+		count -= 7;
+		uint8_t tx[8] = { 0x85,0x55,0x55,0x55,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+		uint8_t i;
+		for (i = 0; i < 7; ++i)
+		{
+			tx[1 + i] = buffer[bytesSent + i];
+		}
+		int result = sendPacket(tx, rx);
+		if (rx[0] == 'E')
+		{
+			return (result);
+		}
+		bytesSent += 7;
+	}
+	if (count > 0)
+	{
+		{ // Send first packet of up to 4 bytes
+			uint8_t bytesToSend = 4;
+			if (count < 4)
+			{
+				bytesToSend = count;
+				count = 0;
+			}
+			else
+			{
+				count -= 4;
+			}
+
+			uint8_t tx[8] = { 0x84,SW_LE16(address + bytesSent), bytesToSend,0x55,0x55,0x55,0x55 };
+			uint8_t rx[8];
+
+			uint8_t i;
+			for (i = 0; i < bytesToSend; ++i)
+			{
+				tx[4 + i] = buffer[i + bytesSent];
+			}
+			int result = sendPacket(tx, rx);
+			if (rx[0] == 'E')
+			{
+				return (result);
+			}
+			bytesSent += bytesToSend;
+		}
+		return (bytesSent);
+	}
+
+	
+
 }

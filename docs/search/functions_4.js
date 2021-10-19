@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['flush_230',['flush',['../class_serial_wombat_u_a_r_t.html#ae081ebfb4e2f9c77621745a1c9d748ae',1,'SerialWombatUART']]]
+  ['eraseflashpage_288',['eraseFlashPage',['../class_serial_wombat.html#a73199e883cebdf4dc183e6e427db4400',1,'SerialWombat']]]
 ];

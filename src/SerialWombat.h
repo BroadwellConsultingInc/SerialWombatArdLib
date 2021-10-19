@@ -1,5 +1,28 @@
 #ifndef SERIAL_WOMBAT_H__
 #define SERIAL_WOMBAT_H__
+
+/*
+Copyright 2020-2021 Broadwell Consulting Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+*/
+
 #include <stdint.h>
 #include "HardwareSerial.h" // Using "" rather than <> for compatibility with Visual C++ simulation project
 #include "Wire.h"// Using "" rather than <> for compatibility with Visual C++ simulation project
@@ -134,17 +157,16 @@ public:
 	/// 
 	/// \param tx address of an array of 8 bytes to send
 	/// \param rx address of an array of 8 bytes into which to put response.
-	/// \return The number of bytes received as a response, or a negative value if an error was returned
-	/// from the Serial Wombat chip
+	/// \return The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip
 	int sendPacket( uint8_t tx[], uint8_t rx[]);
 
 	/// \brief Send an 8 byte packet to the Serial Wombat chip.
 	/// 
-	/// This method sends 8 bytes via I2C and does not wait for a response.
-	/// When sending to UART, the Library waits for an 8 byte response.
+	/// This method sends 8 bytes and processes the response to check for errors.
+	/// 
 	/// 
 	/// \param tx address of an array of 8 bytes to send
-	/// \return The number of bytes sent
+	/// \return The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip
 	int sendPacket(uint8_t tx[]);
 
 	/// \brief Request version string (combined model and firmware) and return pointer to it
@@ -177,6 +199,16 @@ public:
 	/// 
 	/// \return The Serial Wombat chip's source voltage in mV
 	uint16_t readSupplyVoltage_mV(void);
+
+	/// \brief Measure the Serial Wombat chip's internal temperature
+	/// 
+	/// This command is only supported by the SerialWombat 18 Series.
+	/// The Arduino library will return 25 deg. C for other models
+	/// 
+	/// 
+	/// \return The Serial Wombat chip's temperature in 100ths deg C
+	uint16_t readTemperature_100thsDegC(void);
+
 
 	/// \brief Send a reset command to the Serial Wombat chip
 	/// 
@@ -339,6 +371,14 @@ public:
 	/// \brief Called to send a dummy packet to the Serial Wombat chip to wake it from sleep and ready it for other commands
 	void wake();
 
+	/// \brief Returns true if the instance received a model number corresponding to the Serial Wombat 18 series of chips at begin
+	bool isSW18();
+
+	/// \brief Erases a page in flash.  Intended for use with the Bootloader, not by end users outside of bootloading sketch
+	void eraseFlashPage(uint32_t address);
+	/// \brief Writes a row in flash.  Intended for use with the Bootloader, not by end users outside of bootloading sketc
+	void writeFlashRow(uint32_t address);
+
 	/// Stores the last value retreived by readSupplyVoltage_mV().  Used by SerialWombatAnalogInput 
 	/// class to calculate mV outputs from retreived A/D counts.
 	/// Don't access this member, as it may become private and SerialWombatAnalog input be made
@@ -362,6 +402,23 @@ public:
 	/// The last error number reported
 	uint32_t errorNum = 0;
 
+	bool inBoot = false;
+
+	/// \brief Set a pin to be a throughput monitoring pin. 
+	///
+	/// This pin goes high when pin processing begins in each 1mS frame, and goes low
+	/// after pin processing is complete.  This allows the CPU utilization of the Serial
+	/// Wombat chip to be measured using a logic analyzer.  This function can only be applied
+	/// to one pin, and is only disabled by resetting the chip.  This function is supported on
+	/// the SW18AB chip.  It is not supported on the SW4 series of chips.
+	void setThroughputPin(uint8_t pin);
+
+	/// \brief Write bytes to the User Memory Buffer in the Serial Wombat chip
+	/// \param index The index into the User Buffer array of bytes where the data should be loaded
+	/// \param buffer a pointer to an array of bytes to be loaded into the User Buffer array
+	/// \param number of bytes to load
+	/// \return Number of bytes written or error code.
+	int writeUserBuffer(uint16_t index, uint8_t* buffer, uint16_t count);
 
 private:
 
@@ -384,6 +441,9 @@ private:
 /// Convert a uint16_t to two bytes in little endian format for array initialization
 #define SW_LE16(_a)  (uint8_t)(_a & 0xFF), (uint8_t)(_a >>8)  
 
+/// Convert a uint32_t to four bytes in little endian format for array initialization
+#define SW_LE32(_a)  (uint8_t)(_a & 0xFF), (uint8_t)(_a >>8) , (uint8_t)(_a >>16), (uint8_t)(_a >>24)
+
 #include "SerialWombatServo.h"
 #include "SerialWombatPWM.h"
 #include "SerialWombatAnalogInput.h"
@@ -391,7 +451,10 @@ private:
 #include "SerialWombatQuadEnc.h"
 #include "SerialWombatProtectedOutput.h"
 #include "SerialWombatPulseTimer.h"
+#include "SerialWombatTM1637.h"
 #include "SerialWombatUART.h"
 #include "SerialWombatWatchdog.h"
+#include "SerialWombatWS2812.h"
+#include "SerialWombat18CapTouch.h"
 
 #endif

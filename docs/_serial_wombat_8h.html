@@ -85,6 +85,7 @@ $(function() {
 <code>#include &quot;<a class="el" href="_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_protected_output_8h_source.html">SerialWombatProtectedOutput.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_watchdog_8h_source.html">SerialWombatWatchdog.h</a>&quot;</code><br />
 </div>
@@ -117,6 +118,9 @@ Macros</h2></td></tr>
 <tr class="memitem:a4396b9493edc62907e2678a594988bad"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serial_wombat_8h.html#a4396b9493edc62907e2678a594988bad">SW_LE16</a>(_a)&#160;&#160;&#160;(uint8_t)(_a &amp; 0xFF), (uint8_t)(_a &gt;&gt;8)</td></tr>
 <tr class="memdesc:a4396b9493edc62907e2678a594988bad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a uint16_t to two bytes in little endian format for array initialization.  <a href="_serial_wombat_8h.html#a4396b9493edc62907e2678a594988bad">More...</a><br /></td></tr>
 <tr class="separator:a4396b9493edc62907e2678a594988bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a709a1620a50e4672605e50d74f3d7dab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serial_wombat_8h.html#a709a1620a50e4672605e50d74f3d7dab">SW_LE32</a>(_a)&#160;&#160;&#160;(uint8_t)(_a &amp; 0xFF), (uint8_t)(_a &gt;&gt;8) , (uint8_t)(_a &gt;&gt;16), (uint8_t)(_a &gt;&gt;24)</td></tr>
+<tr class="memdesc:a709a1620a50e4672605e50d74f3d7dab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a uint32_t to four bytes in little endian format for array initialization.  <a href="_serial_wombat_8h.html#a709a1620a50e4672605e50d74f3d7dab">More...</a><br /></td></tr>
+<tr class="separator:a709a1620a50e4672605e50d74f3d7dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -269,6 +273,26 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Convert a uint16_t to two bytes in little endian format for array initialization. </p>
+
+</div>
+</div>
+<a id="a709a1620a50e4672605e50d74f3d7dab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a709a1620a50e4672605e50d74f3d7dab">&#9670;&nbsp;</a></span>SW_LE32</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SW_LE32</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_a</td><td>)</td>
+          <td>&#160;&#160;&#160;(uint8_t)(_a &amp; 0xFF), (uint8_t)(_a &gt;&gt;8) , (uint8_t)(_a &gt;&gt;16), (uint8_t)(_a &gt;&gt;24)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert a uint32_t to four bytes in little endian format for array initialization. </p>
 
 </div>
 </div>

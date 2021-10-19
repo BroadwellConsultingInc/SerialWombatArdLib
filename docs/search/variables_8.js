@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['transitions_309',['transitions',['../class_serial_wombat_debounced_input.html#a9fa13a6acb8d7fcd3ea4a86467fba1a5',1,'SerialWombatDebouncedInput']]]
+  ['measurementoverflowoccurred_393',['MeasurementOverflowOccurred',['../class_serial_wombat_pulse_timer.html#abb4f92437f247249b5361142f1756577',1,'SerialWombatPulseTimer']]],
+  ['model_394',['model',['../class_serial_wombat.html#a2c0787c026ab6dbfbf95cd66f1f07338',1,'SerialWombat']]]
 ];

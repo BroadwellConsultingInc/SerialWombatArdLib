@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hardwarereset_231',['hardwareReset',['../class_serial_wombat.html#ab1c4afc8a44bf0797d0322371e2d736c',1,'SerialWombat']]]
+  ['flush_289',['flush',['../class_serial_wombat_u_a_r_t.html#ae081ebfb4e2f9c77621745a1c9d748ae',1,'SerialWombatUART']]]
 ];

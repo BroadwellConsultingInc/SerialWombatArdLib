@@ -8,7 +8,7 @@ SerialWombatWatchdog::SerialWombatWatchdog(SerialWombat& sw):_sw(sw)
 void SerialWombatWatchdog::begin(uint8_t pin, SerialWombatPinState_t normalState, SerialWombatPinState_t resetState, uint16_t timeout_mS, bool ResetWombatAfterTimeout)
 {
 	_pin = pin;
-	uint8_t tx[8] = {200,pin,7, normalState,resetState,SW_LE16(timeout_mS),ResetWombatAfterTimeout };
+	uint8_t tx[8] = {200,pin,7, (uint8_t)normalState,(uint8_t)resetState,SW_LE16(timeout_mS),ResetWombatAfterTimeout };
 
 	_sw.sendPacket(tx);
 
