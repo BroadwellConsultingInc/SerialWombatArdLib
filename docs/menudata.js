@@ -61,7 +61,6 @@ var menudata={children:[
 {text:"i",url:"functions_func.html#index_i"},
 {text:"j",url:"functions_func.html#index_j"},
 {text:"m",url:"functions_func.html#index_m"},
-{text:"o",url:"functions_func.html#index_o"},
 {text:"p",url:"functions_func.html#index_p"},
 {text:"q",url:"functions_func.html#index_q"},
 {text:"r",url:"functions_func.html#index_r"},
@@ -88,5 +87,6 @@ var menudata={children:[
 {text:"p",url:"globals_eval.html#index_p"},
 {text:"q",url:"globals_eval.html#index_q"},
 {text:"s",url:"globals_eval.html#index_s"},
-{text:"t",url:"globals_eval.html#index_t"}]},
+{text:"t",url:"globals_eval.html#index_t"},
+{text:"w",url:"globals_eval.html#index_w"}]},
 {text:"Macros",url:"globals_defs.html"}]}]}]}

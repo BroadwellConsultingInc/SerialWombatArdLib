@@ -64,6 +64,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_serial_wombat-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -173,12 +174,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a167d9a30300750e3f5c157a999cb6993"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat.html#a167d9a30300750e3f5c157a999cb6993">writeFlashRow</a> (uint32_t address)</td></tr>
 <tr class="memdesc:a167d9a30300750e3f5c157a999cb6993"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a row in flash. Intended for use with the Bootloader, not by end users outside of bootloading sketc.  <a href="class_serial_wombat.html#a167d9a30300750e3f5c157a999cb6993">More...</a><br /></td></tr>
 <tr class="separator:a167d9a30300750e3f5c157a999cb6993"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20188102cd5b1086c842c67229d8ffd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat.html#a20188102cd5b1086c842c67229d8ffd4">SetThroughputPin</a> (uint8_t pin)</td></tr>
-<tr class="memdesc:a20188102cd5b1086c842c67229d8ffd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a pin to be a throughput monitoring pin.  <a href="class_serial_wombat.html#a20188102cd5b1086c842c67229d8ffd4">More...</a><br /></td></tr>
-<tr class="separator:a20188102cd5b1086c842c67229d8ffd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d6f828ac2b437fd5e29697a6d501089"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat.html#a2d6f828ac2b437fd5e29697a6d501089">setThroughputPin</a> (uint8_t pin)</td></tr>
+<tr class="memdesc:a2d6f828ac2b437fd5e29697a6d501089"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a pin to be a throughput monitoring pin.  <a href="class_serial_wombat.html#a2d6f828ac2b437fd5e29697a6d501089">More...</a><br /></td></tr>
+<tr class="separator:a2d6f828ac2b437fd5e29697a6d501089"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a214234d49a618b16de6eaaca13f581b5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat.html#a214234d49a618b16de6eaaca13f581b5">writeUserBuffer</a> (uint16_t index, uint8_t *buffer, uint16_t count)</td></tr>
 <tr class="memdesc:a214234d49a618b16de6eaaca13f581b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write bytes to the User Memory Buffer in the Serial Wombat chip.  <a href="class_serial_wombat.html#a214234d49a618b16de6eaaca13f581b5">More...</a><br /></td></tr>
 <tr class="separator:a214234d49a618b16de6eaaca13f581b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ac9cfe4b6466fb29a5c1f0ecdcc23840f"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat.html#ac9cfe4b6466fb29a5c1f0ecdcc23840f">find</a> ()</td></tr>
+<tr class="separator:ac9cfe4b6466fb29a5c1f0ecdcc23840f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -564,6 +570,31 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Erases a page in flash. Intended for use with the Bootloader, not by end users outside of bootloading sketch. </p>
+
+</div>
+</div>
+<a id="ac9cfe4b6466fb29a5c1f0ecdcc23840f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9cfe4b6466fb29a5c1f0ecdcc23840f">&#9670;&nbsp;</a></span>find()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SerialWombat::find </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -997,14 +1028,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a20188102cd5b1086c842c67229d8ffd4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20188102cd5b1086c842c67229d8ffd4">&#9670;&nbsp;</a></span>SetThroughputPin()</h2>
+<a id="a2d6f828ac2b437fd5e29697a6d501089"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d6f828ac2b437fd5e29697a6d501089">&#9670;&nbsp;</a></span>setThroughputPin()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SerialWombat::SetThroughputPin </td>
+          <td class="memname">void SerialWombat::setThroughputPin </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>pin</em></td><td>)</td>

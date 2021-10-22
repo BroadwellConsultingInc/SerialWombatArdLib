@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['togglepin0_358',['togglePin0',['../class_serial_wombat_simulated_quad_enc.html#a5bece6f3b91156484927a15d38c55749',1,'SerialWombatSimulatedQuadEnc']]],
-  ['togglepin1_359',['togglePin1',['../class_serial_wombat_simulated_quad_enc.html#a02220394a7e918e89f2e31efe0f042aa',1,'SerialWombatSimulatedQuadEnc']]]
+  ['update_392',['update',['../class_serial_wombat18_cap_touch_counter.html#a693a05e9f377c4e4e370a30752b16707',1,'SerialWombat18CapTouchCounter::update()'],['../class_serial_wombat_button_counter.html#a339563bb65990487ba75a80d0a826fa1',1,'SerialWombatButtonCounter::update()']]],
+  ['updateresetcountdown_393',['updateResetCountdown',['../class_serial_wombat_watchdog.html#aaefe4670731ac49995ab16f011c550f0',1,'SerialWombatWatchdog']]],
+  ['updatesupplyvoltage_5fmv_394',['updateSupplyVoltage_mV',['../class_serial_wombat_analog_input.html#afeb273e29e19400632a03f0bd18c487e',1,'SerialWombatAnalogInput']]]
 ];

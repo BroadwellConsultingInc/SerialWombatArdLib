@@ -1,28 +1,5 @@
 var searchData=
 [
-  ['sendpacket_333',['sendPacket',['../class_serial_wombat.html#a25774bb07e763aef00dcda39ba297451',1,'SerialWombat::sendPacket(uint8_t tx[], uint8_t rx[])'],['../class_serial_wombat.html#abb1d85a8a139882f46b2c10a513bff5f',1,'SerialWombat::sendPacket(uint8_t tx[])']]],
-  ['serialwombat_334',['SerialWombat',['../class_serial_wombat.html#a4a33bcbe94573e4b650684172a14f417',1,'SerialWombat']]],
-  ['serialwombatanaloginput_335',['SerialWombatAnalogInput',['../class_serial_wombat_analog_input.html#a941e72c2144029c4c526c8685b62604f',1,'SerialWombatAnalogInput']]],
-  ['serialwombatbuttoncounter_336',['SerialWombatButtonCounter',['../class_serial_wombat_button_counter.html#a94b68df57f0c318883230e494dcf714c',1,'SerialWombatButtonCounter']]],
-  ['serialwombatdebouncedinput_337',['SerialWombatDebouncedInput',['../class_serial_wombat_debounced_input.html#a78156cd76b0fba3e7fd70d8a3d6d7dda',1,'SerialWombatDebouncedInput']]],
-  ['serialwombatprotectedoutput_338',['SerialWombatProtectedOutput',['../class_serial_wombat_protected_output.html#a11ed4ffdd03b852e36bf3ec10deeef6b',1,'SerialWombatProtectedOutput']]],
-  ['serialwombatpulsetimer_339',['SerialWombatPulseTimer',['../class_serial_wombat_pulse_timer.html#aad7e33f1c29606c44e7d9f1ac548b75b',1,'SerialWombatPulseTimer']]],
-  ['serialwombatpwm_340',['SerialWombatPWM',['../class_serial_wombat_p_w_m.html#a05f3a5b20197e8bcafc8ece30b52f3a0',1,'SerialWombatPWM']]],
-  ['serialwombatquadenc_341',['SerialWombatQuadEnc',['../class_serial_wombat_quad_enc.html#a61c83f53b7d29745acbf72c16d8efbed',1,'SerialWombatQuadEnc']]],
-  ['serialwombatservo_342',['SerialWombatServo',['../class_serial_wombat_servo.html#a6221160e6ca633bcb91e8a27cd2c6773',1,'SerialWombatServo']]],
-  ['serialwombatsimulatedquadenc_343',['SerialWombatSimulatedQuadEnc',['../class_serial_wombat_simulated_quad_enc.html#a0ee12e765ab370a56ddc679561b0a119',1,'SerialWombatSimulatedQuadEnc']]],
-  ['serialwombattm1637_344',['SerialWombatTM1637',['../class_serial_wombat_t_m1637.html#a86635740bff8fb429d5530b924e1bd65',1,'SerialWombatTM1637']]],
-  ['serialwombatuart_345',['SerialWombatUART',['../class_serial_wombat_u_a_r_t.html#a1fa701e1887c22beac2739a193d28620',1,'SerialWombatUART']]],
-  ['serialwombatwatchdog_346',['SerialWombatWatchdog',['../class_serial_wombat_watchdog.html#a21cd380b06f9fe3e14684b7aa3c98b19',1,'SerialWombatWatchdog']]],
-  ['service_347',['service',['../class_serial_wombat_simulated_quad_enc.html#ad7488ba545b367b534c5176759508a3c',1,'SerialWombatSimulatedQuadEnc']]],
-  ['setanimation_348',['setAnimation',['../class_serial_wombat_t_m1637.html#a32e67f223740891f5dab9c03561e8a3d',1,'SerialWombatTM1637']]],
-  ['setarray_349',['setArray',['../class_serial_wombat_t_m1637.html#ae5a0c9ffdbb093c276b711f3927b0f0b',1,'SerialWombatTM1637']]],
-  ['setbrightness_350',['setBrightness',['../class_serial_wombat_t_m1637.html#a7798365abd10529bb7e96de887dfeaaf',1,'SerialWombatTM1637']]],
-  ['setdecimalbitmap_351',['setDecimalBitmap',['../class_serial_wombat_t_m1637.html#a0ef11591e7ee12ae49337635d2470856',1,'SerialWombatTM1637']]],
-  ['setfrequency_5fsw18ab_5fhz_352',['setFrequency_SW18AB_Hz',['../class_serial_wombat_p_w_m.html#a1a4f5ee2645501c95e331e279acfa71b',1,'SerialWombatPWM']]],
-  ['setfrequency_5fsw4ab_353',['setFrequency_SW4AB',['../class_serial_wombat_p_w_m.html#a0993b750305f02d7f35cdf191ff5f5b0',1,'SerialWombatPWM']]],
-  ['setperiod_5fsw18ab_5fus_354',['setPeriod_SW18AB_uS',['../class_serial_wombat_p_w_m.html#ade6a3bf7298cff9e6b7301fcbad96a83',1,'SerialWombatPWM']]],
-  ['setthroughputpin_355',['SetThroughputPin',['../class_serial_wombat.html#a20188102cd5b1086c842c67229d8ffd4',1,'SerialWombat']]],
-  ['settimeout_356',['setTimeout',['../class_serial_wombat_u_a_r_t.html#a0c42fbc679f63767a794f48d691cae12',1,'SerialWombatUART']]],
-  ['sleep_357',['sleep',['../class_serial_wombat.html#a65e54ae6ae80715f46df9e9ef66d21ca',1,'SerialWombat']]]
+  ['togglepin0_390',['togglePin0',['../class_serial_wombat_simulated_quad_enc.html#a5bece6f3b91156484927a15d38c55749',1,'SerialWombatSimulatedQuadEnc']]],
+  ['togglepin1_391',['togglePin1',['../class_serial_wombat_simulated_quad_enc.html#a02220394a7e918e89f2e31efe0f042aa',1,'SerialWombatSimulatedQuadEnc']]]
 ];

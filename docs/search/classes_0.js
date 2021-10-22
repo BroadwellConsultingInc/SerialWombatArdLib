@@ -1,16 +1,19 @@
 var searchData=
 [
-  ['serialwombat_240',['SerialWombat',['../class_serial_wombat.html',1,'']]],
-  ['serialwombatanaloginput_241',['SerialWombatAnalogInput',['../class_serial_wombat_analog_input.html',1,'']]],
-  ['serialwombatbuttoncounter_242',['SerialWombatButtonCounter',['../class_serial_wombat_button_counter.html',1,'']]],
-  ['serialwombatdebouncedinput_243',['SerialWombatDebouncedInput',['../class_serial_wombat_debounced_input.html',1,'']]],
-  ['serialwombatprotectedoutput_244',['SerialWombatProtectedOutput',['../class_serial_wombat_protected_output.html',1,'']]],
-  ['serialwombatpulsetimer_245',['SerialWombatPulseTimer',['../class_serial_wombat_pulse_timer.html',1,'']]],
-  ['serialwombatpwm_246',['SerialWombatPWM',['../class_serial_wombat_p_w_m.html',1,'']]],
-  ['serialwombatquadenc_247',['SerialWombatQuadEnc',['../class_serial_wombat_quad_enc.html',1,'']]],
-  ['serialwombatservo_248',['SerialWombatServo',['../class_serial_wombat_servo.html',1,'']]],
-  ['serialwombatsimulatedquadenc_249',['SerialWombatSimulatedQuadEnc',['../class_serial_wombat_simulated_quad_enc.html',1,'']]],
-  ['serialwombattm1637_250',['SerialWombatTM1637',['../class_serial_wombat_t_m1637.html',1,'']]],
-  ['serialwombatuart_251',['SerialWombatUART',['../class_serial_wombat_u_a_r_t.html',1,'']]],
-  ['serialwombatwatchdog_252',['SerialWombatWatchdog',['../class_serial_wombat_watchdog.html',1,'']]]
+  ['serialwombat_262',['SerialWombat',['../class_serial_wombat.html',1,'']]],
+  ['serialwombat18captouch_263',['SerialWombat18CapTouch',['../class_serial_wombat18_cap_touch.html',1,'']]],
+  ['serialwombat18captouchcounter_264',['SerialWombat18CapTouchCounter',['../class_serial_wombat18_cap_touch_counter.html',1,'']]],
+  ['serialwombatanaloginput_265',['SerialWombatAnalogInput',['../class_serial_wombat_analog_input.html',1,'']]],
+  ['serialwombatbuttoncounter_266',['SerialWombatButtonCounter',['../class_serial_wombat_button_counter.html',1,'']]],
+  ['serialwombatdebouncedinput_267',['SerialWombatDebouncedInput',['../class_serial_wombat_debounced_input.html',1,'']]],
+  ['serialwombatprotectedoutput_268',['SerialWombatProtectedOutput',['../class_serial_wombat_protected_output.html',1,'']]],
+  ['serialwombatpulsetimer_269',['SerialWombatPulseTimer',['../class_serial_wombat_pulse_timer.html',1,'']]],
+  ['serialwombatpwm_270',['SerialWombatPWM',['../class_serial_wombat_p_w_m.html',1,'']]],
+  ['serialwombatquadenc_271',['SerialWombatQuadEnc',['../class_serial_wombat_quad_enc.html',1,'']]],
+  ['serialwombatservo_272',['SerialWombatServo',['../class_serial_wombat_servo.html',1,'']]],
+  ['serialwombatsimulatedquadenc_273',['SerialWombatSimulatedQuadEnc',['../class_serial_wombat_simulated_quad_enc.html',1,'']]],
+  ['serialwombattm1637_274',['SerialWombatTM1637',['../class_serial_wombat_t_m1637.html',1,'']]],
+  ['serialwombatuart_275',['SerialWombatUART',['../class_serial_wombat_u_a_r_t.html',1,'']]],
+  ['serialwombatwatchdog_276',['SerialWombatWatchdog',['../class_serial_wombat_watchdog.html',1,'']]],
+  ['serialwombatws2812_277',['SerialWombatWS2812',['../class_serial_wombat_w_s2812.html',1,'']]]
 ];
