@@ -77,34 +77,34 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a86635740bff8fb429d5530b924e1bd65"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#a86635740bff8fb429d5530b924e1bd65">SerialWombatTM1637</a> (<a class="el" href="class_serial_wombat.html">SerialWombat</a> &amp;serialWombat)</td></tr>
-<tr class="memdesc:a86635740bff8fb429d5530b924e1bd65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_serial_wombat_t_m1637.html" title="A Class representing a TM1637 Seven-Segment Display connected to two Serial Wombat pins.">SerialWombatTM1637</a> class.  <a href="class_serial_wombat_t_m1637.html#a86635740bff8fb429d5530b924e1bd65">More...</a><br /></td></tr>
-<tr class="separator:a86635740bff8fb429d5530b924e1bd65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a368686622cfbfc2a5ac2dcb310affa9b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#a368686622cfbfc2a5ac2dcb310affa9b">begin</a> (uint8_t clkPin, uint8_t dioPin, uint8_t digits, <a class="el" href="_serial_wombat_t_m1637_8h.html#ad90c9ba4941a8b78da88c392aace5255">SWTM1637Mode</a> mode, uint8_t dataSourcePin, uint8_t brightness0to7)</td></tr>
-<tr class="memdesc:a368686622cfbfc2a5ac2dcb310affa9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize an instance of the TM1637 class.  <a href="class_serial_wombat_t_m1637.html#a368686622cfbfc2a5ac2dcb310affa9b">More...</a><br /></td></tr>
-<tr class="separator:a368686622cfbfc2a5ac2dcb310affa9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1d30ad63d8f9ff365f950539e90bf1a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#ab1d30ad63d8f9ff365f950539e90bf1a">writeDigitOrder</a> (uint8_t first, uint8_t second, uint8_t third, uint8_t fourth, uint8_t fifth, uint8_t sixth)</td></tr>
-<tr class="memdesc:ab1d30ad63d8f9ff365f950539e90bf1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to reorder the digits of the display to match display hardware.  <a href="class_serial_wombat_t_m1637.html#ab1d30ad63d8f9ff365f950539e90bf1a">More...</a><br /></td></tr>
-<tr class="separator:ab1d30ad63d8f9ff365f950539e90bf1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a28b96d0611ea2cc82fe579d106fa38"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#a9a28b96d0611ea2cc82fe579d106fa38">writeArray</a> (uint8_t data[6])</td></tr>
-<tr class="memdesc:a9a28b96d0611ea2cc82fe579d106fa38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to send data to the data array of the driver. <br  />
-  <a href="class_serial_wombat_t_m1637.html#a9a28b96d0611ea2cc82fe579d106fa38">More...</a><br /></td></tr>
-<tr class="separator:a9a28b96d0611ea2cc82fe579d106fa38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6022f9a15bb86579ddd251e5ad323280"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#a6022f9a15bb86579ddd251e5ad323280">writeDecimalBitmap</a> (uint8_t decimalBitmapLSBleftDigit)</td></tr>
-<tr class="memdesc:a6022f9a15bb86579ddd251e5ad323280"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a bitmap of the MSB of each digit to control decimal points.  <a href="class_serial_wombat_t_m1637.html#a6022f9a15bb86579ddd251e5ad323280">More...</a><br /></td></tr>
-<tr class="separator:a6022f9a15bb86579ddd251e5ad323280"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc9a0aac18fc97ac1aafda8e40588706"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#afc9a0aac18fc97ac1aafda8e40588706">writeBrightness</a> (uint8_t brightness0to7)</td></tr>
-<tr class="memdesc:afc9a0aac18fc97ac1aafda8e40588706"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the brightness of the display.  <a href="class_serial_wombat_t_m1637.html#afc9a0aac18fc97ac1aafda8e40588706">More...</a><br /></td></tr>
-<tr class="separator:afc9a0aac18fc97ac1aafda8e40588706"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9da3835af403b01f80f549bbb3f87c37"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#a9da3835af403b01f80f549bbb3f87c37">writeAnimation</a> (uint16_t bufferIndex, uint16_t delay, uint8_t numberOfFrames, uint8_t data[][6])</td></tr>
-<tr class="memdesc:a9da3835af403b01f80f549bbb3f87c37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an animation to the Serial Wombat user buffer area and initializes the animation.  <a href="class_serial_wombat_t_m1637.html#a9da3835af403b01f80f549bbb3f87c37">More...</a><br /></td></tr>
-<tr class="separator:a9da3835af403b01f80f549bbb3f87c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaeed68df7c2d4a8b6730b0a4cfa1a6f0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#aaeed68df7c2d4a8b6730b0a4cfa1a6f0">suppressLeadingZeros</a> (bool suppress)</td></tr>
-<tr class="memdesc:aaeed68df7c2d4a8b6730b0a4cfa1a6f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not to suppress leading zeros in decimal mode.  <a href="class_serial_wombat_t_m1637.html#aaeed68df7c2d4a8b6730b0a4cfa1a6f0">More...</a><br /></td></tr>
-<tr class="separator:aaeed68df7c2d4a8b6730b0a4cfa1a6f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab217ae98733971c9573e2cddcdc427cf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#ab217ae98733971c9573e2cddcdc427cf">writeBlinkBitmap</a> (uint8_t blinkBitmapLSBleftDigit)</td></tr>
-<tr class="memdesc:ab217ae98733971c9573e2cddcdc427cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a bitmap of the digits that should blink at 2Hz with 7/8 duty cycle.  <a href="class_serial_wombat_t_m1637.html#ab217ae98733971c9573e2cddcdc427cf">More...</a><br /></td></tr>
-<tr class="separator:ab217ae98733971c9573e2cddcdc427cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebb3ad1145246989e8e9c0e4e94a582d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#aebb3ad1145246989e8e9c0e4e94a582d">SerialWombatTM1637</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat)</td></tr>
+<tr class="memdesc:aebb3ad1145246989e8e9c0e4e94a582d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_serial_wombat_t_m1637.html" title="A Class representing a TM1637 Seven-Segment Display connected to two Serial Wombat pins.">SerialWombatTM1637</a> class.  <a href="class_serial_wombat_t_m1637.html#aebb3ad1145246989e8e9c0e4e94a582d">More...</a><br /></td></tr>
+<tr class="separator:aebb3ad1145246989e8e9c0e4e94a582d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb7793949050f79da6f3cb55a73664d1"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#abb7793949050f79da6f3cb55a73664d1">begin</a> (uint8_t clkPin, uint8_t dioPin, uint8_t digits, <a class="el" href="_serial_wombat_t_m1637_8h.html#ad90c9ba4941a8b78da88c392aace5255">SWTM1637Mode</a> mode, uint8_t dataSourcePin, uint8_t brightness0to7)</td></tr>
+<tr class="memdesc:abb7793949050f79da6f3cb55a73664d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize an instance of the TM1637 class.  <a href="class_serial_wombat_t_m1637.html#abb7793949050f79da6f3cb55a73664d1">More...</a><br /></td></tr>
+<tr class="separator:abb7793949050f79da6f3cb55a73664d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29e21a0cf5e8ec84b7a046dc43275a8e"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#a29e21a0cf5e8ec84b7a046dc43275a8e">writeDigitOrder</a> (uint8_t first, uint8_t second, uint8_t third, uint8_t fourth, uint8_t fifth, uint8_t sixth)</td></tr>
+<tr class="memdesc:a29e21a0cf5e8ec84b7a046dc43275a8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to reorder the digits of the display to match display hardware.  <a href="class_serial_wombat_t_m1637.html#a29e21a0cf5e8ec84b7a046dc43275a8e">More...</a><br /></td></tr>
+<tr class="separator:a29e21a0cf5e8ec84b7a046dc43275a8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87a84159611f6255a3a102e348abbf8d"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#a87a84159611f6255a3a102e348abbf8d">writeArray</a> (uint8_t data[6])</td></tr>
+<tr class="memdesc:a87a84159611f6255a3a102e348abbf8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to send data to the data array of the driver. <br  />
+  <a href="class_serial_wombat_t_m1637.html#a87a84159611f6255a3a102e348abbf8d">More...</a><br /></td></tr>
+<tr class="separator:a87a84159611f6255a3a102e348abbf8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a968ca95fe1f2b5e116b789b7ae68bbfc"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#a968ca95fe1f2b5e116b789b7ae68bbfc">writeDecimalBitmap</a> (uint8_t decimalBitmapLSBleftDigit)</td></tr>
+<tr class="memdesc:a968ca95fe1f2b5e116b789b7ae68bbfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a bitmap of the MSB of each digit to control decimal points.  <a href="class_serial_wombat_t_m1637.html#a968ca95fe1f2b5e116b789b7ae68bbfc">More...</a><br /></td></tr>
+<tr class="separator:a968ca95fe1f2b5e116b789b7ae68bbfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a962e97645e1c2eb0458501018d692492"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#a962e97645e1c2eb0458501018d692492">writeBrightness</a> (uint8_t brightness0to7)</td></tr>
+<tr class="memdesc:a962e97645e1c2eb0458501018d692492"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the brightness of the display.  <a href="class_serial_wombat_t_m1637.html#a962e97645e1c2eb0458501018d692492">More...</a><br /></td></tr>
+<tr class="separator:a962e97645e1c2eb0458501018d692492"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a341db7230d0bd0d8da828d60b3714bff"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#a341db7230d0bd0d8da828d60b3714bff">writeAnimation</a> (uint16_t bufferIndex, uint16_t delay, uint8_t numberOfFrames, uint8_t data[][6])</td></tr>
+<tr class="memdesc:a341db7230d0bd0d8da828d60b3714bff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an animation to the Serial Wombat user buffer area and initializes the animation.  <a href="class_serial_wombat_t_m1637.html#a341db7230d0bd0d8da828d60b3714bff">More...</a><br /></td></tr>
+<tr class="separator:a341db7230d0bd0d8da828d60b3714bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22d99237e9b0c3d7b4c279e93ecc9e45"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#a22d99237e9b0c3d7b4c279e93ecc9e45">suppressLeadingZeros</a> (bool suppress)</td></tr>
+<tr class="memdesc:a22d99237e9b0c3d7b4c279e93ecc9e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not to suppress leading zeros in decimal mode.  <a href="class_serial_wombat_t_m1637.html#a22d99237e9b0c3d7b4c279e93ecc9e45">More...</a><br /></td></tr>
+<tr class="separator:a22d99237e9b0c3d7b4c279e93ecc9e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cadef4e708d816fde044dbb047f4858"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#a0cadef4e708d816fde044dbb047f4858">writeBlinkBitmap</a> (uint8_t blinkBitmapLSBleftDigit)</td></tr>
+<tr class="memdesc:a0cadef4e708d816fde044dbb047f4858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a bitmap of the digits that should blink at 2Hz with 7/8 duty cycle.  <a href="class_serial_wombat_t_m1637.html#a0cadef4e708d816fde044dbb047f4858">More...</a><br /></td></tr>
+<tr class="separator:a0cadef4e708d816fde044dbb047f4858"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A Class representing a TM1637 Seven-Segment Display connected to two Serial Wombat pins. </p>
@@ -120,8 +120,8 @@ Public Member Functions</h2></td></tr>
 <p>See the available examples in the Arduino Library for usage.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Different TM1637 displays behave differently based on how the manufacturer routed the LED matrix pins to the TM1637 outputs on the PCB. This can cause digits to be displayed in the wrong order, or cause decimal points or clock colons to malfunction. This is a display issue, not an issue with this library or the Serial Wombat firmware. Display order issues can be corrected with the orderDigits() command. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a86635740bff8fb429d5530b924e1bd65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86635740bff8fb429d5530b924e1bd65">&#9670;&nbsp;</a></span>SerialWombatTM1637()</h2>
+<a id="aebb3ad1145246989e8e9c0e4e94a582d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebb3ad1145246989e8e9c0e4e94a582d">&#9670;&nbsp;</a></span>SerialWombatTM1637()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -129,7 +129,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">SerialWombatTM1637::SerialWombatTM1637 </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_serial_wombat.html">SerialWombat</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;&#160;</td>
           <td class="paramname"><em>serialWombat</em></td><td>)</td>
           <td></td>
         </tr>
@@ -139,7 +139,7 @@ Public Member Functions</h2></td></tr>
 <p>Constructor for <a class="el" href="class_serial_wombat_t_m1637.html" title="A Class representing a TM1637 Seven-Segment Display connected to two Serial Wombat pins.">SerialWombatTM1637</a> class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">serialWombat</td><td><a class="el" href="class_serial_wombat.html">SerialWombat</a> on which the PWM will run </td></tr>
+    <tr><td class="paramname">serialWombat</td><td><a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> on which the PWM will run </td></tr>
   </table>
   </dd>
 </dl>
@@ -147,14 +147,14 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a368686622cfbfc2a5ac2dcb310affa9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a368686622cfbfc2a5ac2dcb310affa9b">&#9670;&nbsp;</a></span>begin()</h2>
+<a id="abb7793949050f79da6f3cb55a73664d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb7793949050f79da6f3cb55a73664d1">&#9670;&nbsp;</a></span>begin()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int SerialWombatTM1637::begin </td>
+          <td class="memname">int16_t SerialWombatTM1637::begin </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>clkPin</em>, </td>
@@ -205,7 +205,7 @@ Public Member Functions</h2></td></tr>
     <tr><td class="paramname">dioPin</td><td>The Serial Wombat pin connected to the DIO/data pin of the TM1637 </td></tr>
     <tr><td class="paramname">digits</td><td>The number of digits in the display. This is used to optimze displays shorter than 6 digits </td></tr>
     <tr><td class="paramname">mode</td><td>The mode (decimal, hex, char array, raw or animation) of the display driver </td></tr>
-    <tr><td class="paramname">dataSourcePin</td><td>if in decimal or hex mode, the pin from which the 16 bit data will be read. Set this to the clkPin setting if you want to be able to write 16 bit (5 digit) numbers using the <a class="el" href="class_serial_wombat.html#a3b007a6929ddbbba597e31fd1f682e67" title="Write a 16 bit value to a Serial Wombat pin Mode.">SerialWombat.writePublicData()</a> function. Numbers larger than 65535 must be written as strings using the Character Mode </td></tr>
+    <tr><td class="paramname">dataSourcePin</td><td>if in decimal or hex mode, the pin from which the 16 bit data will be read. Set this to the clkPin setting if you want to be able to write 16 bit (5 digit) numbers using the <a class="el" href="class_serial_wombat_chip.html#a99bcf77ea4c2ff0ff5ffd773e85b8ec3" title="Write a 16 bit value to a Serial Wombat pin Mode.">SerialWombat.writePublicData()</a> function. Numbers larger than 65535 must be written as strings using the Character Mode </td></tr>
     <tr><td class="paramname">Brightness</td><td>- a value from 0 (dimmest) to 7 (brightest) based on the TM1637 hardware. This scale is not linear. </td></tr>
   </table>
   </dd>
@@ -213,14 +213,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aaeed68df7c2d4a8b6730b0a4cfa1a6f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaeed68df7c2d4a8b6730b0a4cfa1a6f0">&#9670;&nbsp;</a></span>suppressLeadingZeros()</h2>
+<a id="a22d99237e9b0c3d7b4c279e93ecc9e45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22d99237e9b0c3d7b4c279e93ecc9e45">&#9670;&nbsp;</a></span>suppressLeadingZeros()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int SerialWombatTM1637::suppressLeadingZeros </td>
+          <td class="memname">int16_t SerialWombatTM1637::suppressLeadingZeros </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>suppress</em></td><td>)</td>
@@ -240,14 +240,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a9da3835af403b01f80f549bbb3f87c37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9da3835af403b01f80f549bbb3f87c37">&#9670;&nbsp;</a></span>writeAnimation()</h2>
+<a id="a341db7230d0bd0d8da828d60b3714bff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a341db7230d0bd0d8da828d60b3714bff">&#9670;&nbsp;</a></span>writeAnimation()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int SerialWombatTM1637::writeAnimation </td>
+          <td class="memname">int16_t SerialWombatTM1637::writeAnimation </td>
           <td>(</td>
           <td class="paramtype">uint16_t&#160;</td>
           <td class="paramname"><em>bufferIndex</em>, </td>
@@ -279,7 +279,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Loads an animation to the Serial Wombat user buffer area and initializes the animation. </p>
-<p>The pin should have previously been initialized with the <a class="el" href="class_serial_wombat_t_m1637.html#a368686622cfbfc2a5ac2dcb310affa9b" title="Initialize an instance of the TM1637 class.">begin()</a> command an animation mode prior to this call.</p>
+<p>The pin should have previously been initialized with the <a class="el" href="class_serial_wombat_t_m1637.html#abb7793949050f79da6f3cb55a73664d1" title="Initialize an instance of the TM1637 class.">begin()</a> command an animation mode prior to this call.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">bufferIndex</td><td>The index into the User Buffer where the data for the animation should be stored </td></tr>
@@ -293,14 +293,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a9a28b96d0611ea2cc82fe579d106fa38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a28b96d0611ea2cc82fe579d106fa38">&#9670;&nbsp;</a></span>writeArray()</h2>
+<a id="a87a84159611f6255a3a102e348abbf8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87a84159611f6255a3a102e348abbf8d">&#9670;&nbsp;</a></span>writeArray()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int SerialWombatTM1637::writeArray </td>
+          <td class="memname">int16_t SerialWombatTM1637::writeArray </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>data</em>[6]</td><td>)</td>
@@ -322,14 +322,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab217ae98733971c9573e2cddcdc427cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab217ae98733971c9573e2cddcdc427cf">&#9670;&nbsp;</a></span>writeBlinkBitmap()</h2>
+<a id="a0cadef4e708d816fde044dbb047f4858"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cadef4e708d816fde044dbb047f4858">&#9670;&nbsp;</a></span>writeBlinkBitmap()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int SerialWombatTM1637::writeBlinkBitmap </td>
+          <td class="memname">int16_t SerialWombatTM1637::writeBlinkBitmap </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>blinkBitmapLSBleftDigit</em></td><td>)</td>
@@ -350,14 +350,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afc9a0aac18fc97ac1aafda8e40588706"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc9a0aac18fc97ac1aafda8e40588706">&#9670;&nbsp;</a></span>writeBrightness()</h2>
+<a id="a962e97645e1c2eb0458501018d692492"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a962e97645e1c2eb0458501018d692492">&#9670;&nbsp;</a></span>writeBrightness()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int SerialWombatTM1637::writeBrightness </td>
+          <td class="memname">int16_t SerialWombatTM1637::writeBrightness </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>brightness0to7</em></td><td>)</td>
@@ -377,14 +377,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6022f9a15bb86579ddd251e5ad323280"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6022f9a15bb86579ddd251e5ad323280">&#9670;&nbsp;</a></span>writeDecimalBitmap()</h2>
+<a id="a968ca95fe1f2b5e116b789b7ae68bbfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a968ca95fe1f2b5e116b789b7ae68bbfc">&#9670;&nbsp;</a></span>writeDecimalBitmap()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int SerialWombatTM1637::writeDecimalBitmap </td>
+          <td class="memname">int16_t SerialWombatTM1637::writeDecimalBitmap </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>decimalBitmapLSBleftDigit</em></td><td>)</td>
@@ -404,14 +404,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab1d30ad63d8f9ff365f950539e90bf1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1d30ad63d8f9ff365f950539e90bf1a">&#9670;&nbsp;</a></span>writeDigitOrder()</h2>
+<a id="a29e21a0cf5e8ec84b7a046dc43275a8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29e21a0cf5e8ec84b7a046dc43275a8e">&#9670;&nbsp;</a></span>writeDigitOrder()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int SerialWombatTM1637::writeDigitOrder </td>
+          <td class="memname">int16_t SerialWombatTM1637::writeDigitOrder </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>first</em>, </td>
@@ -457,7 +457,7 @@ Public Member Functions</h2></td></tr>
 <p>Used to reorder the digits of the display to match display hardware. </p>
 <p>TM1637 displays do not have a standardized wiring of LED module to the TM1637 driver pins. This can cause numbers to appear in the wrong order. This can be fixed by displaying the string "012345" on the display. If it appears out of order, then issue this command with the parameters matching what is displayed on the screen.</p>
 <p>For instance, if a Six digit display showed 210543 when commanded to show "012345", calling </p><div class="fragment"><div class="line">orderDigits(2,1,0,5,4,3);</div>
-</div><!-- fragment --><p> after <a class="el" href="class_serial_wombat_t_m1637.html#a368686622cfbfc2a5ac2dcb310affa9b" title="Initialize an instance of the TM1637 class.">begin()</a> would cause the driver to reorder the output to make the display appear in the desired order.</p>
+</div><!-- fragment --><p> after <a class="el" href="class_serial_wombat_t_m1637.html#abb7793949050f79da6f3cb55a73664d1" title="Initialize an instance of the TM1637 class.">begin()</a> would cause the driver to reorder the output to make the display appear in the desired order.</p>
 <dl class="section return"><dt>Returns</dt><dd>Returns a negative error code if errors occur during configuration </dd></dl>
 
 </div>

@@ -50,10 +50,10 @@
 /// such as PID control.
 /// 
 /// 
-class SerialWombat18CapTouch
+class SerialWombat18CapTouch :public SerialWombatAbstractButton
 {
 public:
-	SerialWombat18CapTouch(SerialWombat& serialWombat);
+	SerialWombat18CapTouch(SerialWombatChip& serialWombat);
 
 	int16_t begin(uint8_t pin, uint16_t chargeTime);
 	int16_t begin(uint8_t pin, uint16_t chargeTime, uint16_t delay);
@@ -98,7 +98,7 @@ public:
 
 
 private:
-	SerialWombat& _sw;
+	SerialWombatChip& _sw;
 	uint8_t _pin = 255;
 	uint16_t _trueOutput = 1;
 	uint16_t _falseOutput = 1;

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wombat4a_5fb_5fpwmfrequencyvalues_5ft_454',['Wombat4A_B_PWMFrequencyValues_t',['../_serial_wombat_p_w_m_8h.html#a2088b99b4668da0234cd4564f5a328ba',1,'SerialWombatPWM.h']]]
+  ['resistanceinputpublicdataoutput_626',['ResistanceInputPublicDataOutput',['../_serial_wombat_resistance_input_8h.html#ac08b0b586869df2557fa063a42771e43',1,'SerialWombatResistanceInput.h']]]
 ];

@@ -1,6 +1,6 @@
 #include "SerialWombatWatchdog.h"
 
-SerialWombatWatchdog::SerialWombatWatchdog(SerialWombat& sw):_sw(sw)
+SerialWombatWatchdog::SerialWombatWatchdog(SerialWombatChip& sw):_sw(sw)
 {
 	_sw = sw;
 }

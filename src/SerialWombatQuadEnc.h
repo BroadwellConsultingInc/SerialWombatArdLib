@@ -2,7 +2,6 @@
 #include <stdint.h>
 #include "SerialWombat.h"
 
-class SerialWombat;
 
 /*! \file SerialWombatQuadEnc.h
 */
@@ -78,7 +77,7 @@ public:
 
 	/// \brief Constructor for the SerialWombatQuadEnc class
 	/// \param serialWombat The Serial Wombat running the quadrature encoder
-	SerialWombatQuadEnc(SerialWombat& serialWombat);
+	SerialWombatQuadEnc(SerialWombatChip& serialWombat);
 
 	/// \brief Simple initialization for SerialWombatQuadEnc
 	/// \param pin The first pin to be used as a Quadrature Encoder input. All 4 pins on the SW4A/SW4B may be used.
@@ -127,7 +126,7 @@ public:
 	/// \param value A starting value between 0 and 65535 for the encoder
 	void write(uint16_t value);
 private:
-	SerialWombat& _sw;
+	SerialWombatChip& _sw;
 	uint8_t _pin = 255;
 	uint8_t _secondPin;
 };

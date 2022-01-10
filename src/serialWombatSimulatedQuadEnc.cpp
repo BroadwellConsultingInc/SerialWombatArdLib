@@ -2,7 +2,7 @@
 #include "serialWombatSimulatedQuadEnc.h"
 #include <stdint.h>
 
-SerialWombatSimulatedQuadEnc::SerialWombatSimulatedQuadEnc(SerialWombat& serialWombat0, SerialWombat& serialWombat1, uint8_t _pin0, uint8_t _pin1, bool openDrain, bool doubleTransition) : sw0(serialWombat0), sw1(serialWombat1)
+SerialWombatSimulatedQuadEnc::SerialWombatSimulatedQuadEnc(SerialWombatChip& serialWombat0, SerialWombatChip& serialWombat1, uint8_t _pin0, uint8_t _pin1, bool openDrain, bool doubleTransition) : sw0(serialWombat0), sw1(serialWombat1)
 {
 	pin0State = true;
 	pin1State = true;

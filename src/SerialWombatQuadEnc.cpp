@@ -1,6 +1,6 @@
 #include "SerialWombatQuadEnc.h"
 
-SerialWombatQuadEnc::SerialWombatQuadEnc(SerialWombat& serialWombat) :_sw(serialWombat)
+SerialWombatQuadEnc::SerialWombatQuadEnc(SerialWombatChip& serialWombat) :_sw(serialWombat)
 {
 	_sw = serialWombat;
 	_pin = 255;

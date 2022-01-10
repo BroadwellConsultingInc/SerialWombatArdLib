@@ -1,23 +1,8 @@
 var searchData=
 [
-  ['cmd_5fascii_5fset_5fpin_455',['CMD_ASCII_SET_PIN',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244aea13e0812ab91d825af85ccc65658be0',1,'SerialWombat.h']]],
-  ['cmd_5fecho_456',['CMD_ECHO',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a629d266cd7f0823a8936fd71f92238d3',1,'SerialWombat.h']]],
-  ['cmd_5fread_5fbuffer_5fascii_457',['CMD_READ_BUFFER_ASCII',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a6836b7ed3410a039b395981de1a1f466',1,'SerialWombat.h']]],
-  ['cmd_5freadbufferbinary_458',['CMD_READBUFFERBINARY',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a996922a1cd5589b3b4761c60723be19a',1,'SerialWombat.h']]],
-  ['cmd_5freset_459',['CMD_RESET',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244ae71f12b62f9fca54c98ef9630f8fcad1',1,'SerialWombat.h']]],
-  ['cmd_5fresync_460',['CMD_RESYNC',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a7ec947a1d62075a368561652f18f4ed8',1,'SerialWombat.h']]],
-  ['cmd_5fset_5fbuffer_5fascii_461',['CMD_SET_BUFFER_ASCII',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244ac64c9b465f6b7066f5b6f728abd4d297',1,'SerialWombat.h']]],
-  ['cmd_5fset_5fpin_5fmode0_462',['CMD_SET_PIN_MODE0',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a0dfe26602d56931de49f230bffefb8ff',1,'SerialWombat.h']]],
-  ['cmd_5fset_5fpin_5fmode1_463',['CMD_SET_PIN_MODE1',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a4063fb7be3dad9c39a542ffb07ac5266',1,'SerialWombat.h']]],
-  ['cmd_5fset_5fpin_5fmode2_464',['CMD_SET_PIN_MODE2',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a74c234843cbce2f1180dc20b6c91a8d7',1,'SerialWombat.h']]],
-  ['cmd_5fset_5fpin_5fmode3_465',['CMD_SET_PIN_MODE3',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244ac54dda2a65ad70bcdacb8d8950703962',1,'SerialWombat.h']]],
-  ['cmd_5fset_5fpin_5fmode4_466',['CMD_SET_PIN_MODE4',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a00263fa4c1cad101370b89600d28f99b',1,'SerialWombat.h']]],
-  ['cmd_5fset_5fpin_5fmode5_467',['CMD_SET_PIN_MODE5',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244ac8bd2545723fe620d2d3a3de2d6c2672',1,'SerialWombat.h']]],
-  ['cmd_5fset_5fpin_5fmode6_468',['CMD_SET_PIN_MODE6',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a11cafeda09f99c5f8f0fefb872779303',1,'SerialWombat.h']]],
-  ['cmd_5fset_5fpin_5fmode7_469',['CMD_SET_PIN_MODE7',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244ac1e6575fefa76f183642b4c15be9cb10',1,'SerialWombat.h']]],
-  ['cmd_5fset_5fpin_5fmode8_470',['CMD_SET_PIN_MODE8',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244ad78a1189302652a899d563287481a4d7',1,'SerialWombat.h']]],
-  ['cmd_5fset_5fpin_5fmode9_471',['CMD_SET_PIN_MODE9',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a0dbdab50d3ffdf41e7025d7d5398d297',1,'SerialWombat.h']]],
-  ['cmd_5fsetbufferbinary_472',['CMD_SETBUFFERBINARY',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244afd5c006d092aed339ec87c1f62eb67cd',1,'SerialWombat.h']]],
-  ['cmd_5fsupplyvoltage_473',['CMD_SUPPLYVOLTAGE',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244add80cc6c04a61da4e317e4ef3266fede',1,'SerialWombat.h']]],
-  ['cmd_5fversion_474',['CMD_VERSION',['../_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a775afaef84c85d8173a20debb1a9e2ef',1,'SerialWombat.h']]]
+  ['analoginputpublicdataoutput_5faveraged_637',['AnalogInputPublicDataOutput_Averaged',['../_serial_wombat_analog_input_8h.html#a3459e6989ad6d1a41f2d7a1edd81f6b5a6f7258e24b2a08620823fce14d68d03f',1,'SerialWombatAnalogInput.h']]],
+  ['analoginputpublicdataoutput_5ffiltered_638',['AnalogInputPublicDataOutput_Filtered',['../_serial_wombat_analog_input_8h.html#a3459e6989ad6d1a41f2d7a1edd81f6b5a1f5721c3f69bf85879504e5abeb55719',1,'SerialWombatAnalogInput.h']]],
+  ['analoginputpublicdataoutput_5fmaximum_639',['AnalogInputPublicDataOutput_Maximum',['../_serial_wombat_analog_input_8h.html#a3459e6989ad6d1a41f2d7a1edd81f6b5a330e24b604f7c32adcbd190f297d237b',1,'SerialWombatAnalogInput.h']]],
+  ['analoginputpublicdataoutput_5fminimum_640',['AnalogInputPublicDataOutput_Minimum',['../_serial_wombat_analog_input_8h.html#a3459e6989ad6d1a41f2d7a1edd81f6b5a09c7db013ce2489fb18bf89c006f0543',1,'SerialWombatAnalogInput.h']]],
+  ['analoginputpublicdataoutput_5fraw_641',['AnalogInputPublicDataOutput_Raw',['../_serial_wombat_analog_input_8h.html#a3459e6989ad6d1a41f2d7a1edd81f6b5aa979d74dcf104792c572f6df84450e99',1,'SerialWombatAnalogInput.h']]]
 ];

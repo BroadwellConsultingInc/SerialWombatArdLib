@@ -25,23 +25,23 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 */
 
 
-SerialWombat::SerialWombat()
+SerialWombatChip::SerialWombatChip()
 {
 }
 
 
 
-SerialWombat::~SerialWombat()
+SerialWombatChip::~SerialWombatChip()
 {
 }
 
 
-void SerialWombat::begin(HardwareSerial& serial)
+int16_t SerialWombatChip::begin(HardwareSerial& serial)
 {
-	begin(serial, true);
+	return begin(serial, true);
 }
 
-void SerialWombat::begin(HardwareSerial& serial, bool reset)
+int16_t SerialWombatChip::begin(HardwareSerial& serial, bool reset)
 {
 	Serial = &serial;
 	Serial->begin(115200);
@@ -50,53 +50,73 @@ void SerialWombat::begin(HardwareSerial& serial, bool reset)
 	{
 		hardwareReset();
 		sendReadyTime = millis() + 1000;
+		return(1);
 	}
 	else
 	{
-		initialize();
+		return initialize();
 	}
 	
 	
 }
 
-void SerialWombat::begin(TwoWire& wire, uint8_t i2cAddress)
+int16_t SerialWombatChip::begin(TwoWire& wire, uint8_t i2cAddress)
 {
-	begin(wire, i2cAddress, true);
+	return begin(wire, i2cAddress, true);
 
 }
-void SerialWombat::begin(TwoWire& wire, uint8_t i2cAddress, bool reset)
+int16_t SerialWombatChip::begin(TwoWire& wire, uint8_t i2cAddress, bool reset)
 {
 	i2cInterface = &wire;
 	address = i2cAddress;
+
+	Wire.beginTransmission(i2cAddress);
+	int error = Wire.endTransmission();
+
+
+	if (error != 0)
+	{
+		return(-1);
+	}
+
 	if (reset)
 	{
 		hardwareReset();
 		sendReadyTime = millis() + 1000;
+		return(1);
 	}
 	else
 	{
 		sendReadyTime = 0;
-		initialize();
+		return initialize();
 		
 	}
 }
 
-void SerialWombat::begin(uint8_t i2cAddress)
+int16_t SerialWombatChip::begin(uint8_t i2cAddress)
 {
 	//i2cInterface = &Wire;
 	//address = i2cAddress;
-	begin(Wire, i2cAddress);
+	return begin(Wire, i2cAddress);
 }
 
-void SerialWombat::initialize()
+int16_t SerialWombatChip::initialize()
 {
+	int16_t retvalue = -1;
+	lastErrorCode = 0;
 	readVersion();
+	
 	readSupplyVoltage_mV();
+
 	readUniqueIdentifier();
+	
 	readDeviceIdentifier();
+	
+	return(lastErrorCode);
+
 }
 
-void SerialWombat::readUniqueIdentifier()
+void SerialWombatChip::readUniqueIdentifier()
 {
 	uniqueIdentifierLength = 0;
 	if (version[0] == 'S' && version[1] == '0' && version[2] == '4')
@@ -127,7 +147,7 @@ void SerialWombat::readUniqueIdentifier()
 	}
 }
 
-void SerialWombat::readDeviceIdentifier()
+void SerialWombatChip::readDeviceIdentifier()
 {
 	if (version[0] == 'S' && version[1] == '0' && version[2] == '4')
 	{ //16F15214
@@ -146,7 +166,7 @@ void SerialWombat::readDeviceIdentifier()
 	}
 }
 
-int SerialWombat::sendPacket(uint8_t tx[], uint8_t rx[])
+int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 {
 	if (sendReadyTime != 0 )
 	{
@@ -170,7 +190,8 @@ int SerialWombat::sendPacket(uint8_t tx[], uint8_t rx[])
 		}
 		if (rx[0] == 'E')
 		{
-			return (-1 * ((int)rx[1] * 256 + rx[2]));
+			lastErrorCode = -1 * ((int)rx[1] * 256 + rx[2]);
+			return (lastErrorCode);
 		}
 		return (8);
 	}
@@ -197,14 +218,15 @@ int SerialWombat::sendPacket(uint8_t tx[], uint8_t rx[])
 		}
 		if (rx[0] == 'E')
 		{
-			return (-1 * ((int)rx[1] * 256 + rx[2]));
+			lastErrorCode = -1 * ((int)rx[1] * 256 + rx[2]);
+			return (lastErrorCode);
 		}
 	}
 	return(0);
 
 }
 
-int SerialWombat::sendPacket(uint8_t tx[])
+int SerialWombatChip::sendPacket(uint8_t tx[])
 {
 	uint8_t rx[8];
 
@@ -251,7 +273,7 @@ int SerialWombat::sendPacket(uint8_t tx[])
 
 }
 
-char* SerialWombat::readVersion()
+char* SerialWombatChip::readVersion()
 {
 	uint8_t tx[] = { 'V',0x55,0x55,0x55,0x55,0x55,0x55,0x55 };
 	uint8_t rx[8];
@@ -260,18 +282,37 @@ char* SerialWombat::readVersion()
 	version[7] = '\0';
 	memcpy(model, &rx[1], 3);
 	model[3] = '\0';
+	fwVersion[0] = rx[5];
+	fwVersion[1] = rx[6];
+	fwVersion[2] = rx[7];
+
+
 	return (version);
 }
 
-uint16_t SerialWombat::readSupplyVoltage_mV()
+uint16_t SerialWombatChip::readSupplyVoltage_mV()
 {
-	uint16_t counts = readPublicData(66); // Get FVR counts (1.024 v)
-	uint32_t mv = 1024 * 65536 / counts;
-	_supplyVoltagemV = (uint16_t) mv;
+	if (isSW18())
+	{
+		_supplyVoltagemV = readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_VCC_mVOLTS);
+	}
+	else
+	{
+		uint16_t counts = readPublicData(66); // Get FVR counts (1.024 v)
+		if (counts > 0)
+		{
+			uint32_t mv = 1024 * 65536 / counts;
+			_supplyVoltagemV = (uint16_t)mv;
+		}
+		else
+		{
+			_supplyVoltagemV = 0;
+		}
+	}
 	return(_supplyVoltagemV);
 }
 
-uint16_t SerialWombat::readTemperature_100thsDegC(void)
+uint16_t SerialWombatChip::readTemperature_100thsDegC(void)
 {
 	if (isSW18())
 	{
@@ -283,19 +324,19 @@ uint16_t SerialWombat::readTemperature_100thsDegC(void)
 	}
 }
 
-void SerialWombat::hardwareReset()
+void SerialWombatChip::hardwareReset()
 {
 	uint8_t tx[9] = "ReSeT!#*";
 	uint8_t rx[8];
 	sendPacket(tx, rx);
 }
 
-void SerialWombat::pinMode(uint8_t pin, uint8_t mode)
+void SerialWombatChip::pinMode(uint8_t pin, uint8_t mode)
 {
 	pinMode(pin, mode, false, false);
 }
 
-void SerialWombat::pinMode(uint8_t pin, uint8_t mode, bool pullDown, bool openDrain)
+void SerialWombatChip::pinMode(uint8_t pin, uint8_t mode, bool pullDown, bool openDrain)
 {
 	if (pin >= WOMBAT_MAXIMUM_PINS)
 	{
@@ -307,13 +348,13 @@ void SerialWombat::pinMode(uint8_t pin, uint8_t mode, bool pullDown, bool openDr
 	configureDigitalPin(pin, mode);
 }
 
-void SerialWombat::digitalWrite(uint8_t pin, uint8_t val)
+void SerialWombatChip::digitalWrite(uint8_t pin, uint8_t val)
 {
 	configureDigitalPin(pin, val);
 }
 
 
-int SerialWombat::digitalRead(uint8_t pin)
+int SerialWombatChip::digitalRead(uint8_t pin)
 {
 	if (readPublicData(pin) > 0)
 	{
@@ -325,7 +366,7 @@ int SerialWombat::digitalRead(uint8_t pin)
 	}
 }
 
-int SerialWombat::analogRead(uint8_t pin)
+int SerialWombatChip::analogRead(uint8_t pin)
 {
 	uint8_t tx[] = { 200,pin,PIN_MODE_ANALOGINPUT,0,0,0,0,0 };
 	uint8_t rx[8];
@@ -333,19 +374,19 @@ int SerialWombat::analogRead(uint8_t pin)
 	return (readPublicData(pin) >> 6); // Scale from 16 bit value to 10 bit value.
 }
 
-void SerialWombat::analogWrite(uint8_t pin, int val)
+void SerialWombatChip::analogWrite(uint8_t pin, int val)
 {
 	uint8_t dutyCycleLow = 0;
 	if (val == 255)
 	{
 		dutyCycleLow = 255;
 	}
-	uint8_t tx[] = { CMD_SET_PIN_MODE0,pin,PIN_MODE_PWM,pin,dutyCycleLow,(uint8_t) val,false,0x55 };
+	uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE0,pin,PIN_MODE_PWM,pin,dutyCycleLow,(uint8_t) val,false,0x55 };
 	uint8_t rx[8];
 	sendPacket(tx, rx);
 }
 
-bool SerialWombat::queryVersion()
+bool SerialWombatChip::queryVersion()
 {
 	uint8_t tx[8] = { 'V',0x55,0x55,0x55,0x55,0x55,0x55,0x55 };
 	uint8_t rx[8];
@@ -367,7 +408,7 @@ bool SerialWombat::queryVersion()
 	return (false);
 }
 
-uint32_t SerialWombat::readFramesExecuted()
+uint32_t SerialWombatChip::readFramesExecuted()
 {
 	uint8_t tx[8] = { 0x81,67,68,0x55,0x55,0x55,0x55,0x55 };
 	uint8_t rx[8];
@@ -376,18 +417,18 @@ uint32_t SerialWombat::readFramesExecuted()
 		return (returnval);
 }
 
-uint16_t SerialWombat::readOverflowFrames()
+uint16_t SerialWombatChip::readOverflowFrames()
 {
 	return readPublicData(69);
 }
 
-void SerialWombat::jumpToBoot()
+void SerialWombatChip::jumpToBoot()
 {
 	uint8_t tx[] = "BoOtLoAd";
 	sendPacket(tx);
 }
 
-uint8_t SerialWombat::readRamAddress(uint16_t address)
+uint8_t SerialWombatChip::readRamAddress(uint16_t address)
 {
 	uint8_t tx[8] = { 0xA0,SW_LE16(address),0x55,0x55,0x55,0x55,0x55 };
 	uint8_t rx[8];
@@ -395,13 +436,13 @@ uint8_t SerialWombat::readRamAddress(uint16_t address)
 	return(rx[3]);
 }
 
-void SerialWombat::writeRamAddress(uint16_t address, uint8_t value)
+int16_t SerialWombatChip::writeRamAddress(uint16_t address, uint8_t value)
 {
 	uint8_t tx[8] = { 0xA3,SW_LE16(address),0,0,value,0x55,0x55};
-	sendPacket(tx);
+	return sendPacket(tx);
 }
 
-uint32_t SerialWombat::readFlashAddress(uint32_t address)
+uint32_t SerialWombatChip::readFlashAddress(uint32_t address)
 {
 	uint8_t tx[8] = { 0xA1,SW_LE32(address),0x55,0x55,0x55 };
 	uint8_t rx[8];
@@ -409,43 +450,92 @@ uint32_t SerialWombat::readFlashAddress(uint32_t address)
 	return(rx[4] + (rx[5] <<8) + (rx[6] <<16) + (rx[7] <<24));
 }
 
-void SerialWombat::sleep()
+void SerialWombatChip::sleep()
 {
 	uint8_t tx[8] = { 'S','l','E','e','P','!','#','*'};
 	sendPacket(tx);
 	_asleep = true;
 }
 
-void SerialWombat::wake()
+void SerialWombatChip::wake()
 {
 	uint8_t tx[8] = { '!','!','!','!','!','!','!','!' };
 	sendPacket(tx);
 }
 
-bool SerialWombat::isSW18()
+bool SerialWombatChip::isSW18()
 {
 	return ( model[1] == '1' && model[2] == '8');
 }
 
-void SerialWombat::eraseFlashPage(uint32_t address)
+int16_t SerialWombatChip::eraseFlashPage(uint32_t address)
 {
-	uint8_t tx[8] = { 0xA4,0,SW_LE32(address),0x55,0x55 };
-	sendPacket(tx);
+	uint8_t tx[8] = { (uint8_t)SerialWombatCommands::COMMAND_BINARY_WRITE_FLASH,
+		0, //Erase Page
+		SW_LE32(address),
+		0x55,0x55 };
+	return sendPacket(tx);
 }
 
-void SerialWombat::writeFlashRow(uint32_t address)
+int16_t SerialWombatChip::writeFlashRow(uint32_t address)
 {
-	uint8_t tx[8] = { 0xA4,1,SW_LE32(address),0x55,0x55 };
-	sendPacket(tx);
+	uint8_t tx[8] = { (uint8_t)SerialWombatCommands::COMMAND_BINARY_WRITE_FLASH,
+		1, // Write entire row
+		SW_LE32(address),0x55,0x55 };
+	return sendPacket(tx);
 }
 
-void SerialWombat::setThroughputPin(uint8_t pin)
+int16_t SerialWombatChip::setThroughputPin(uint8_t pin)
 {
-	uint8_t tx[8] = { 200,pin,21,0x55,0x55,0x55,0x55,0x55 };
-	sendPacket(tx);
+	uint8_t tx[8] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE0,pin,PIN_MODE_FRAME_TIMER,0x55,0x55,0x55,0x55,0x55 };
+	return sendPacket(tx);
 }
 
-void SerialWombat::configureDigitalPin(uint8_t pin,uint8_t highLow)
+uint8_t SerialWombatChip::find()
+{
+	return(find(false));
+}
+
+uint8_t SerialWombatChip::find(bool keepTrying)
+{
+	do
+	{
+		for (int i2cAddress = 0x68; i2cAddress <= 0x6F; ++i2cAddress)
+		{
+			Wire.beginTransmission(i2cAddress);
+			int error = Wire.endTransmission();
+
+
+			if (error == 0)
+			{
+				uint8_t tx[8] = { 'V',0x55,0x55,0x55,0x55,0x55,0x55,0x55 };
+				uint8_t rx[8];
+				Wire.beginTransmission(i2cAddress);
+				Wire.write(tx, 8);
+				Wire.endTransmission();
+				Wire.requestFrom((uint8_t)i2cAddress, (uint8_t)8);
+
+				int count = 0;
+				while (Wire.available() && count < 8)
+				{
+					rx[count] = Wire.read();
+					++count;
+				}
+				if (count == 8)
+				{
+					if (rx[0] = 'V' && rx[1] == 'S')
+					{
+						return(i2cAddress); // Found one.
+					}
+				}
+			}
+		}
+		delay(0);
+	}while (keepTrying);
+			return(0);  // Didn't find one.
+}
+
+void SerialWombatChip::configureDigitalPin(uint8_t pin,uint8_t highLow)
 {
 	uint8_t tx[8] = { 200,pin,0,0,0,0,0,0x55 };
 	uint8_t rx[8];
@@ -488,8 +578,12 @@ void SerialWombat::configureDigitalPin(uint8_t pin,uint8_t highLow)
 	sendPacket(tx, rx);
 }
 
+uint16_t SerialWombatChip::readPublicData(SerialWombatDataSource dataSource)
+{
+	return (readPublicData((uint8_t)dataSource));
+}
 
-uint16_t SerialWombat::readPublicData(uint8_t pin)
+uint16_t SerialWombatChip::readPublicData(uint8_t pin)
 {
 	uint8_t tx[] = { 0x81,pin,255,255,0x55,0x55,0x55,0x55 };
 	uint8_t rx[8];
@@ -497,7 +591,7 @@ uint16_t SerialWombat::readPublicData(uint8_t pin)
 	return(rx[2] + (uint16_t)rx[3] * 256);
 }
 
-uint16_t SerialWombat::writePublicData(uint8_t pin, uint16_t value)
+uint16_t SerialWombatChip::writePublicData(uint8_t pin, uint16_t value)
 {
 	uint8_t tx[] = { 0x82,pin,(uint8_t)(value & 0xFF),(uint8_t)(value >> 8) ,255,0x55,0x55,0x55 };
 	uint8_t rx[8];
@@ -505,7 +599,7 @@ uint16_t SerialWombat::writePublicData(uint8_t pin, uint16_t value)
 	return (rx[2] + rx[3] * 256);
 }
 
-int SerialWombat::writeUserBuffer(uint16_t address, uint8_t* buffer, uint16_t count)
+int SerialWombatChip::writeUserBuffer(uint16_t address, uint8_t* buffer, uint16_t count)
 {
 	uint16_t bytesSent = 0;
 	if (count == 0)
@@ -517,7 +611,7 @@ int SerialWombat::writeUserBuffer(uint16_t address, uint8_t* buffer, uint16_t co
 		uint8_t bytesToSend = 4;
 		if (count < 4)
 		{
-			bytesToSend = count;
+			bytesToSend = (uint8_t)count;
 			count = 0;
 		}
 		else
@@ -563,7 +657,7 @@ int SerialWombat::writeUserBuffer(uint16_t address, uint8_t* buffer, uint16_t co
 			uint8_t bytesToSend = 4;
 			if (count < 4)
 			{
-				bytesToSend = count;
+				bytesToSend = (uint8_t)count;
 				count = 0;
 			}
 			else
@@ -588,7 +682,19 @@ int SerialWombat::writeUserBuffer(uint16_t address, uint8_t* buffer, uint16_t co
 		}
 		return (bytesSent);
 	}
-
+	return(0);
 	
 
 }
+
+int16_t SerialWombatChip::enable2ndCommandInterface(bool enabled)
+{
+	uint8_t tx[] = { 0xA6,0,0xB2, 0xA5, 0x61, 0x73, 0xF8 ,0xA2 };
+	if (enabled)
+	{
+		tx[1] = 1;
+	}
+	return sendPacket(tx);
+}
+
+

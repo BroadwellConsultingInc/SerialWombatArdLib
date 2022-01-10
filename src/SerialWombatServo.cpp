@@ -2,7 +2,7 @@
 #include <stdint.h>
 
 
-SerialWombatServo::SerialWombatServo(SerialWombat& serialWombat):_sw(serialWombat)
+SerialWombatServo::SerialWombatServo(SerialWombatChip& serialWombat):_sw(serialWombat)
 {	
 	_sw = serialWombat;
 }

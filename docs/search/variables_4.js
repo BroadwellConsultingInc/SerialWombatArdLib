@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fwversion_429',['fwVersion',['../class_serial_wombat.html#a04684dfecbef299dcf7e6d442dfda2c5',1,'SerialWombat']]]
+  ['fwversion_601',['fwVersion',['../class_serial_wombat_chip.html#a5b594f10cc58ce7c34e9b51d04e3213e',1,'SerialWombatChip']]]
 ];

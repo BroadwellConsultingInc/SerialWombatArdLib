@@ -78,23 +78,29 @@ $(function() {
 <code>#include &quot;HardwareSerial.h&quot;</code><br />
 <code>#include &quot;Wire.h&quot;</code><br />
 <code>#include &quot;Arduino.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_serial_wombat_p_w_m_8h_source.html">SerialWombatPWM.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_wombat_abstract_button_8h_source.html">SerialWombatAbstractButton.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_wombat_queue_8h_source.html">SerialWombatQueue.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_wombat18_cap_touch_8h_source.html">SerialWombat18CapTouch.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_debounced_input_8h_source.html">SerialWombatDebouncedInput.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_protected_output_8h_source.html">SerialWombatProtectedOutput.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_wombat_p_w_m_8h_source.html">SerialWombatPWM.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_watchdog_8h_source.html">SerialWombatWatchdog.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_serial_wombat18_cap_touch_8h_source.html">SerialWombat18CapTouch.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_wombat_throughput_consumer_8h_source.html">SerialWombatThroughputConsumer.h</a>&quot;</code><br />
 </div>
 <p><a href="_serial_wombat_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat.html">SerialWombat</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -117,10 +123,10 @@ Macros</h2></td></tr>
 <tr class="separator:a51cc362ad9d679b13bf72f80011b766d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c559d57163986d0b836a6b4e5582253"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serial_wombat_8h.html#a2c559d57163986d0b836a6b4e5582253">WOMBAT_MAXIMUM_PINS</a>&#160;&#160;&#160;19</td></tr>
 <tr class="separator:a2c559d57163986d0b836a6b4e5582253"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4396b9493edc62907e2678a594988bad"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serial_wombat_8h.html#a4396b9493edc62907e2678a594988bad">SW_LE16</a>(_a)&#160;&#160;&#160;(uint8_t)(_a &amp; 0xFF), (uint8_t)(_a &gt;&gt;8)</td></tr>
+<tr class="memitem:a4396b9493edc62907e2678a594988bad"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serial_wombat_8h.html#a4396b9493edc62907e2678a594988bad">SW_LE16</a>(_a)&#160;&#160;&#160;(uint8_t)((_a) &amp; 0xFF), (uint8_t)((_a) &gt;&gt;8)</td></tr>
 <tr class="memdesc:a4396b9493edc62907e2678a594988bad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a uint16_t to two bytes in little endian format for array initialization.  <a href="_serial_wombat_8h.html#a4396b9493edc62907e2678a594988bad">More...</a><br /></td></tr>
 <tr class="separator:a4396b9493edc62907e2678a594988bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a709a1620a50e4672605e50d74f3d7dab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serial_wombat_8h.html#a709a1620a50e4672605e50d74f3d7dab">SW_LE32</a>(_a)&#160;&#160;&#160;(uint8_t)(_a &amp; 0xFF), (uint8_t)(_a &gt;&gt;8) , (uint8_t)(_a &gt;&gt;16), (uint8_t)(_a &gt;&gt;24)</td></tr>
+<tr class="memitem:a709a1620a50e4672605e50d74f3d7dab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serial_wombat_8h.html#a709a1620a50e4672605e50d74f3d7dab">SW_LE32</a>(_a)&#160;&#160;&#160;(uint8_t)((_a) &amp; 0xFF), (uint8_t)((_a) &gt;&gt;8) , (uint8_t)((_a) &gt;&gt;16), (uint8_t)((_a) &gt;&gt;24)</td></tr>
 <tr class="memdesc:a709a1620a50e4672605e50d74f3d7dab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a uint32_t to four bytes in little endian format for array initialization.  <a href="_serial_wombat_8h.html#a709a1620a50e4672605e50d74f3d7dab">More...</a><br /></td></tr>
 <tr class="separator:a709a1620a50e4672605e50d74f3d7dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -131,48 +137,141 @@ Enumerations</h2></td></tr>
 <a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8a43761b97d7133e77ef367253d394f344">SW_INPUT</a> = 2
  }</td></tr>
 <tr class="separator:ae7ce1d259b8322ef3c3d8ef1360c78c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13044075acfdd6bf24279d56769d2244"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244">SerialWombatCommand_t</a> { <br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a629d266cd7f0823a8936fd71f92238d3">CMD_ECHO</a> ='!', 
-<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a6836b7ed3410a039b395981de1a1f466">CMD_READ_BUFFER_ASCII</a> = 'G', 
-<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244aea13e0812ab91d825af85ccc65658be0">CMD_ASCII_SET_PIN</a> ='P', 
-<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244ae71f12b62f9fca54c98ef9630f8fcad1">CMD_RESET</a> = 'R', 
+<tr class="memitem:aa93a00ab6275924ab4d521604780f6fa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6fa">SerialWombatDataSource</a> { <br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faacc04d5303d8a6ceef7f6b25497caded4">SerialWombatDataSource::SW_DATA_SOURCE_PIN_0</a> = 0, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa2dc8b4d4125c2fd19aa2d84eb7d450a9">SerialWombatDataSource::SW_DATA_SOURCE_PIN_1</a> = 1, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faad26780929f5ef3298f648f5e23cef1d2">SerialWombatDataSource::SW_DATA_SOURCE_PIN_2</a> = 2, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faaf2f43641b9faff0f754690c1822ab63f">SerialWombatDataSource::SW_DATA_SOURCE_PIN_3</a> = 3, 
 <br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244ac64c9b465f6b7066f5b6f728abd4d297">CMD_SET_BUFFER_ASCII</a> = 'S', 
-<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a7ec947a1d62075a368561652f18f4ed8">CMD_RESYNC</a> = 'U', 
-<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a775afaef84c85d8173a20debb1a9e2ef">CMD_VERSION</a> = 'V', 
-<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244add80cc6c04a61da4e317e4ef3266fede">CMD_SUPPLYVOLTAGE</a> = 'V', 
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faaa8b70a481c88cdb1cf8c4cd27e0999e6">SerialWombatDataSource::SW_DATA_SOURCE_PIN_4</a> = 4, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa10743607904d68f50ad1667d5582a4b0">SerialWombatDataSource::SW_DATA_SOURCE_PIN_5</a> = 5, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa3fb1673854ff4abfb264bbbc818a2ea0">SerialWombatDataSource::SW_DATA_SOURCE_PIN_6</a> = 6, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faadff85d716151464b7729dd5db179f78e">SerialWombatDataSource::SW_DATA_SOURCE_PIN_7</a> = 7, 
 <br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a996922a1cd5589b3b4761c60723be19a">CMD_READBUFFERBINARY</a> = 129, 
-<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244afd5c006d092aed339ec87c1f62eb67cd">CMD_SETBUFFERBINARY</a> = 130, 
-<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a0dfe26602d56931de49f230bffefb8ff">CMD_SET_PIN_MODE0</a> = 200, 
-<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a4063fb7be3dad9c39a542ffb07ac5266">CMD_SET_PIN_MODE1</a> = 201, 
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa62ba3fd35bd938825b7c8ce1da1d8ef9">SerialWombatDataSource::SW_DATA_SOURCE_PIN_8</a> = 8, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa5990a30a30c616140e21c227fcb94a6f">SerialWombatDataSource::SW_DATA_SOURCE_PIN_9</a> = 9, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa00f1a2263e864cf88212c139fd4d68bb">SerialWombatDataSource::SW_DATA_SOURCE_PIN_10</a> = 10, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa352d935b3dac7f0957989ade362dcbb2">SerialWombatDataSource::SW_DATA_SOURCE_PIN_11</a> = 11, 
 <br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a74c234843cbce2f1180dc20b6c91a8d7">CMD_SET_PIN_MODE2</a> = 202, 
-<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244ac54dda2a65ad70bcdacb8d8950703962">CMD_SET_PIN_MODE3</a> = 203, 
-<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a00263fa4c1cad101370b89600d28f99b">CMD_SET_PIN_MODE4</a> = 204, 
-<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244ac8bd2545723fe620d2d3a3de2d6c2672">CMD_SET_PIN_MODE5</a> = 205, 
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa5bf4fef3bea06b119cce46338e48374b">SerialWombatDataSource::SW_DATA_SOURCE_PIN_12</a> = 12, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa1eb0da7492073fc7f158d8830c5f3d0f">SerialWombatDataSource::SW_DATA_SOURCE_PIN_13</a> = 13, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa153da21348f0dbbb188e786889f9811f">SerialWombatDataSource::SW_DATA_SOURCE_PIN_14</a> = 14, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa4b802b7c3d041e4d6fd3a340b0cca1ef">SerialWombatDataSource::SW_DATA_SOURCE_PIN_15</a> = 15, 
 <br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a11cafeda09f99c5f8f0fefb872779303">CMD_SET_PIN_MODE6</a> = 206, 
-<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244ac1e6575fefa76f183642b4c15be9cb10">CMD_SET_PIN_MODE7</a> = 207, 
-<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244ad78a1189302652a899d563287481a4d7">CMD_SET_PIN_MODE8</a> = 208, 
-<a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244a0dbdab50d3ffdf41e7025d7d5398d297">CMD_SET_PIN_MODE9</a> = 209
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faad59e6585ad9b7f128990e3228845c5ea">SerialWombatDataSource::SW_DATA_SOURCE_PIN_16</a> = 16, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faaf1ff521751d971761a15aab80a9d4d9e">SerialWombatDataSource::SW_DATA_SOURCE_PIN_17</a> = 17, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa6dbff0ac9ba3240648120a91d627d5fe">SerialWombatDataSource::SW_DATA_SOURCE_PIN_18</a> = 18, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faaec0b87a3914cbef117b642781859f191">SerialWombatDataSource::SW_DATA_SOURCE_PIN_19</a> = 19, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faaeb8fb690fd244e6e042630885f76179d">SerialWombatDataSource::SW_DATA_SOURCE_INCREMENTING_NUMBER</a> = 65, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa1f3248ee95e1ed3e7d82d590a1b4bddf">SerialWombatDataSource::SW_DATA_SOURCE_1024mvCounts</a> = 66, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa2f25f711cd0d7e800973fa268bfa6f1b">SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_LSW</a> = 67, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faae6bf3dba4228375560a330e53d13a533">SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_MSW</a> = 68, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa54cb4665e81bca0b7de78e93588c13fe">SerialWombatDataSource::SW_DATA_SOURCE_OVERRUN_FRAMES</a> = 69, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa29ca621f02f16c138f507030bf0d8c77">SerialWombatDataSource::SW_DATA_SOURCE_TEMPERATURE</a> = 70, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faaacef8bf137a25bec3d8fd61897ee1289">SerialWombatDataSource::SW_DATA_SOURCE_PACKETS_RECEIVED</a> = 71, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa9a7efca4a4f31ef7c691e2a22751e538">SerialWombatDataSource::SW_DATA_SOURCE_ERRORS</a> = 72, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faabfe2ca77227ef8e50d5f7bb094a70264">SerialWombatDataSource::SW_DATA_SOURCE_DROPPED_FRAMES</a> = 73, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faaab9f4285b303e184e3311ce1b868ddb5">SerialWombatDataSource::SW_DATA_SOURCE_SYSTEM_UTILIZATION</a> = 74, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa350080404c0fd407706d12d834063f3a">SerialWombatDataSource::SW_DATA_SOURCE_VCC_mVOLTS</a> = 75, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa041743828f52b290cae35aeac1950f71">SerialWombatDataSource::SW_DATA_SOURCE_VBG_COUNTS_VS_VREF</a> = 76, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faaa625c6fd6e7cffc2c36ea8bf5ed854a8">SerialWombatDataSource::SW_DATA_SOURCE_PIN_0_MV</a> = 100, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faabef30eb2b1547e81ce4bd8e1a65cf13d">SerialWombatDataSource::SW_DATA_SOURCE_PIN_1_MV</a> = 101, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faad4184bd0a69c1ec63c1d27e4ed903026">SerialWombatDataSource::SW_DATA_SOURCE_PIN_2_MV</a> = 102, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa5f28ef06c1f40fefbb5ef1c52ee74228">SerialWombatDataSource::SW_DATA_SOURCE_PIN_3_MV</a> = 103, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa3b5b87f24ac91ec32c38855e3d72b77f">SerialWombatDataSource::SW_DATA_SOURCE_PIN_4_MV</a> = 104, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faac10d7bc66f4874414d2d272999d96126">SerialWombatDataSource::SW_DATA_SOURCE_PIN_16_MV</a> = 116, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faabba57ceb4fa33ebf61310f06303abc5e">SerialWombatDataSource::SW_DATA_SOURCE_PIN_17_MV</a> = 117, 
+<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa90df1c9411a393ff283346959115ddf3">SerialWombatDataSource::SW_DATA_SOURCE_PIN_18_MV</a> = 118, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faad99b0b34889e4afa839ed3e6c7a98bcb">SerialWombatDataSource::SW_DATA_SOURCE_PIN_19_MV</a> = 119
 <br />
  }</td></tr>
-<tr class="separator:a13044075acfdd6bf24279d56769d2244"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:aa93a00ab6275924ab4d521604780f6fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a7ddba5bce899934c59634db4be3656"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656">SerialWombatCommands</a> { <br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656aecac85ca0353afcc00a7036b2ae970d1">SerialWombatCommands::CMD_ECHO</a> ='!', 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a48ab30b7923387eec65568aafb91d502">SerialWombatCommands::CMD_READ_BUFFER_ASCII</a> = 'G', 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a984e3b1ef54d88a32be0ebdeb8b2c6ef">SerialWombatCommands::CMD_ASCII_SET_PIN</a> ='P', 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a2a0ea1e5a85c9478b3a4df27e9943e37">SerialWombatCommands::CMD_RESET</a> = 'R', 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a7b5bf35d20f7223b215a40c1338dfcb7">SerialWombatCommands::CMD_SET_BUFFER_ASCII</a> = 'S', 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a56be73ce7682a21faa134b6e69a7024e">SerialWombatCommands::CMD_RESYNC</a> = 'U', 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a9433d3f9a647fa0e1011c23cb57b8698">SerialWombatCommands::CMD_VERSION</a> = 'V', 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a61fc5ff1d8d7164f5d5c411b01d16f55">SerialWombatCommands::CMD_SUPPLYVOLTAGE</a> = 'v', 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ad3ad76d02d3a56e12bf4a42584324b2d">SerialWombatCommands::COMMAND_BINARY_READ_PIN_BUFFFER</a> = 0x81, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a153f146de8da99ace9b1af45cb41bb41">SerialWombatCommands::COMMAND_BINARY_SET_PIN_BUFFFER</a> = 0x82, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a041df11cb1717f5063309353c18efc02">SerialWombatCommands::COMMAND_BINARY_READ_USER_BUFFER</a> = 0x83, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a20be95ace17e20c30df9d7adbaf29049">SerialWombatCommands::COMMAND_BINARY_WRITE_USER_BUFFER</a> = 0x84, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656aaeb7837000dab509d2e5bea0f0e0b9d7">SerialWombatCommands::COMMAND_BINARY_WRITE_USER_BUFFER_CONTINUE</a> = 0x85, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a0b7db709a3503e372118adef07797c50">SerialWombatCommands::COMMAND_BINARY_QUEUE_INITIALIZE</a> = 0x90, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a4d21e1bd55dc8c7ada159415e4710f05">SerialWombatCommands::COMMAND_BINARY_QUEUE_ADD_BYTES</a> = 0x91, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a69e65b64a1748b38cc7df7d83e6fee6d">SerialWombatCommands::COMMAND_BINARY_QUEUE_ADD_7BYTES</a> = 0x92, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a84e31a4bf35b4b5aae64917446ab3044">SerialWombatCommands::COMMAND_BINARY_QUEUE_READ_BYTES</a> = 0x93, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a09ca1c341116d0dddc52b0571b109591">SerialWombatCommands::COMMAND_BINARY_QUEUE_INFORMATION</a> = 0x94, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656afd34d09e24542c05c8d07fa3c45566e7">SerialWombatCommands::COMMAND_BINARY_CONFIGURE</a> = 0x9F, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac7e445e5413fca6ed7fa1a97a3c10f41">SerialWombatCommands::COMMAND_BINARY_READ_RAM</a> = 0xA0, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656adddbe618ff8a9de95a9ee65ffa7491e1">SerialWombatCommands::COMMAND_BINARY_READ_FLASH</a> = 0xA1, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a5fe71852d4351f67c0a3b997ae5cfc01">SerialWombatCommands::COMMAND_BINARY_READ_EEPROM</a> = 0xA2, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac60b38355d6cf534874ab1d6ce51ad1d">SerialWombatCommands::COMMAND_BINARY_WRITE_RAM</a> = 0xA3, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a02f1ca553c92bacd190021ae2ece33fc">SerialWombatCommands::COMMAND_BINARY_WRITE_FLASH</a> = 0xA4, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656aea60f554e3f34ae009afd9711b3921a4">SerialWombatCommands::COMMAND_CALIBRATE_ANALOG</a> = 0xA5, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a18e48c53b04ef91c44b2b8135b8c7974">SerialWombatCommands::COMMAND_ENABLE_2ND_UART</a> = 0xA6, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a804870d6054af17edf46f3c0d10d7635">SerialWombatCommands::COMMAND_UART0_TX_7BYTES</a> = 0xB0, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac306a5279bb13ad23d91eede098b2359">SerialWombatCommands::COMMAND_UART0_RX_7BYTES</a> = 0xB1, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656abcf96be96295605dd043a1f88e984fbf">SerialWombatCommands::COMMAND_UART1_TX_7BYTES</a> = 0xB2, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a1a827551d8fab9bb235dd02b7a16610e">SerialWombatCommands::COMMAND_UART1_RX_7BYTES</a> = 0xB3, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a0a5c29666fc22fc2b0800512658c15e0">SerialWombatCommands::CONFIGURE_PIN_MODE0</a> = 200, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656af03261d0311912591fcc92ed179f4176">SerialWombatCommands::CONFIGURE_PIN_MODE1</a> = 201, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a7e247b2751e006849b40fb2b8f7e316c">SerialWombatCommands::CONFIGURE_PIN_MODE2</a> = 202, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a2830ca104339fe5629462b36b95a3863">SerialWombatCommands::CONFIGURE_PIN_MODE3</a> = 203, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a399614445f12bd00e57f21c5389d5d84">SerialWombatCommands::CONFIGURE_PIN_MODE4</a> = 204, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a61fe64358e647486d32225c3d7ae9182">SerialWombatCommands::CONFIGURE_PIN_MODE5</a> = 205, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a71b2e1c36ec8a5bad3a0773ca0039057">SerialWombatCommands::CONFIGURE_PIN_MODE6</a> = 206, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656aef7b9f17c6c33d89706553607398752e">SerialWombatCommands::CONFIGURE_PIN_MODE7</a> = 207, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a6f0d11febb67968e0b668f8b844b7c31">SerialWombatCommands::CONFIGURE_PIN_MODE8</a> = 208, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656abcbc3edac6ae45c6ae170dc5998c74ad">SerialWombatCommands::CONFIGURE_PIN_MODE9</a> = 209, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a7140a1af2f75dbd9e99a362f6ad7ff48">SerialWombatCommands::CONFIGURE_PIN_MODE_HW_0</a> = 220, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ad8ad5e5ce6dedebc33ac78742ab5c095">SerialWombatCommands::CONFIGURE_CHANNEL_MODE_HW_1</a> = 221, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ad1db8637b0f5c303a1b8b239401d5054">SerialWombatCommands::CONFIGURE_CHANNEL_MODE_HW_2</a> = 222, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ae1b00f139a96c93649bb891e924ff2bd">SerialWombatCommands::CONFIGURE_CHANNEL_MODE_HW_3</a> = 223
+<br />
+ }</td></tr>
+<tr class="separator:a4a7ddba5bce899934c59634db4be3656"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9278a533e9aa8dc988bbcdd76ff043b8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8">SerialWombatPinMode_t</a> { <br />
 &#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8ae58698fde998379ee5828d8879dac616">PIN_MODE_DIGITALIO</a> = 0, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a59fb9b4b51a683ef9003c028ef78c1c1">PIN_MODE_CONTROLLED</a> = 1, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8aa883b9d8a53090978337b405b107acfa">PIN_MODE_ANALOGINPUT</a> = 2, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8adce997cb99b8050ba5aa3c37cdf8813e">PIN_MODE_SERVO</a> = 3, 
 <br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a800d600e3236c534eed6bd6fadc90bad">PIN_MODE_QUADRATUREENCODER</a> = 5, 
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8ae627b7ee28f5dd335ae087bed32fbadf">PIN_MODE_THROUGHPUT_CONSUMER</a> = 4, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a800d600e3236c534eed6bd6fadc90bad">PIN_MODE_QUADRATUREENCODER</a> = 5, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a8ee1fa6ebf82d5b84fc5ac42c5fca3fd">PIN_MODE_WATCHDOG</a> = 7, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8aa3e33fe94256c6c2efe2356dbcc7391f">PIN_MODE_PROTECTED_OUTPUT</a> = 8, 
-<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8abdce35ac73e5bc7e07d09d21ffddc54c">PIN_MODE_PWM</a> = 16, 
 <br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a8d2d9f25291ed9e89a430ad6d0095154">PIN_MODE_UART_RX_TX</a> = 17, 
-<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a389da8a100bf41e0e663cb4a98485ac9">PIN_MODE_PULSETIMER</a> = 18, 
-<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a2046afaf5bf267d81101eec029cdf5bc">PIN_MODE_UNKNOWN</a> = 255
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8af1c6a5a62a5d96efb80e7ae52ba43fce">PIN_MODE_SW_UART</a> = 13, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8aede8b4979a3ece80061a803adac4e312">PIN_MODE_MATRIX_KEYPAD</a> = 15, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8abdce35ac73e5bc7e07d09d21ffddc54c">PIN_MODE_PWM</a> = 16, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a8d2d9f25291ed9e89a430ad6d0095154">PIN_MODE_UART_RX_TX</a> = 17, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a389da8a100bf41e0e663cb4a98485ac9">PIN_MODE_PULSETIMER</a> = 18, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8abe8729f835dab7c809823e46e5d985b3">PIN_MODE_RESISTANCEINPUT</a> = 19, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a1fae8b037ba8bfe3d8b4401a38e90398">PIN_MODE_FRAME_TIMER</a> = 21, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8aaa8e07e4973e78a53794974a0a00d394">PIN_MODE_UART1_RX_TX</a> = 23, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a2046afaf5bf267d81101eec029cdf5bc">PIN_MODE_UNKNOWN</a> = 255
 <br />
  }</td></tr>
 <tr class="separator:a9278a533e9aa8dc988bbcdd76ff043b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -269,7 +368,7 @@ Enumerations</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">_a</td><td>)</td>
-          <td>&#160;&#160;&#160;(uint8_t)(_a &amp; 0xFF), (uint8_t)(_a &gt;&gt;8)</td>
+          <td>&#160;&#160;&#160;(uint8_t)((_a) &amp; 0xFF), (uint8_t)((_a) &gt;&gt;8)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -289,7 +388,7 @@ Enumerations</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">_a</td><td>)</td>
-          <td>&#160;&#160;&#160;(uint8_t)(_a &amp; 0xFF), (uint8_t)(_a &gt;&gt;8) , (uint8_t)(_a &gt;&gt;16), (uint8_t)(_a &gt;&gt;24)</td>
+          <td>&#160;&#160;&#160;(uint8_t)((_a) &amp; 0xFF), (uint8_t)((_a) &gt;&gt;8) , (uint8_t)((_a) &gt;&gt;16), (uint8_t)((_a) &gt;&gt;24)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -313,38 +412,148 @@ Enumerations</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a13044075acfdd6bf24279d56769d2244"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13044075acfdd6bf24279d56769d2244">&#9670;&nbsp;</a></span>SerialWombatCommand_t</h2>
+<a id="a4a7ddba5bce899934c59634db4be3656"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a7ddba5bce899934c59634db4be3656">&#9670;&nbsp;</a></span>SerialWombatCommands</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="_serial_wombat_8h.html#a13044075acfdd6bf24279d56769d2244">SerialWombatCommand_t</a></td>
+          <td class="memname">enum <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656">SerialWombatCommands</a></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244a629d266cd7f0823a8936fd71f92238d3"></a>CMD_ECHO&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244a6836b7ed3410a039b395981de1a1f466"></a>CMD_READ_BUFFER_ASCII&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244aea13e0812ab91d825af85ccc65658be0"></a>CMD_ASCII_SET_PIN&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244ae71f12b62f9fca54c98ef9630f8fcad1"></a>CMD_RESET&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244ac64c9b465f6b7066f5b6f728abd4d297"></a>CMD_SET_BUFFER_ASCII&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244a7ec947a1d62075a368561652f18f4ed8"></a>CMD_RESYNC&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244a775afaef84c85d8173a20debb1a9e2ef"></a>CMD_VERSION&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244add80cc6c04a61da4e317e4ef3266fede"></a>CMD_SUPPLYVOLTAGE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244a996922a1cd5589b3b4761c60723be19a"></a>CMD_READBUFFERBINARY&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244afd5c006d092aed339ec87c1f62eb67cd"></a>CMD_SETBUFFERBINARY&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244a0dfe26602d56931de49f230bffefb8ff"></a>CMD_SET_PIN_MODE0&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244a4063fb7be3dad9c39a542ffb07ac5266"></a>CMD_SET_PIN_MODE1&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244a74c234843cbce2f1180dc20b6c91a8d7"></a>CMD_SET_PIN_MODE2&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244ac54dda2a65ad70bcdacb8d8950703962"></a>CMD_SET_PIN_MODE3&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244a00263fa4c1cad101370b89600d28f99b"></a>CMD_SET_PIN_MODE4&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244ac8bd2545723fe620d2d3a3de2d6c2672"></a>CMD_SET_PIN_MODE5&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244a11cafeda09f99c5f8f0fefb872779303"></a>CMD_SET_PIN_MODE6&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244ac1e6575fefa76f183642b4c15be9cb10"></a>CMD_SET_PIN_MODE7&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244ad78a1189302652a899d563287481a4d7"></a>CMD_SET_PIN_MODE8&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a13044075acfdd6bf24279d56769d2244a0dbdab50d3ffdf41e7025d7d5398d297"></a>CMD_SET_PIN_MODE9&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656aecac85ca0353afcc00a7036b2ae970d1"></a>CMD_ECHO&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a48ab30b7923387eec65568aafb91d502"></a>CMD_READ_BUFFER_ASCII&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a984e3b1ef54d88a32be0ebdeb8b2c6ef"></a>CMD_ASCII_SET_PIN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a2a0ea1e5a85c9478b3a4df27e9943e37"></a>CMD_RESET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a7b5bf35d20f7223b215a40c1338dfcb7"></a>CMD_SET_BUFFER_ASCII&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a56be73ce7682a21faa134b6e69a7024e"></a>CMD_RESYNC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a9433d3f9a647fa0e1011c23cb57b8698"></a>CMD_VERSION&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a61fc5ff1d8d7164f5d5c411b01d16f55"></a>CMD_SUPPLYVOLTAGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656ad3ad76d02d3a56e12bf4a42584324b2d"></a>COMMAND_BINARY_READ_PIN_BUFFFER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a153f146de8da99ace9b1af45cb41bb41"></a>COMMAND_BINARY_SET_PIN_BUFFFER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a041df11cb1717f5063309353c18efc02"></a>COMMAND_BINARY_READ_USER_BUFFER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a20be95ace17e20c30df9d7adbaf29049"></a>COMMAND_BINARY_WRITE_USER_BUFFER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656aaeb7837000dab509d2e5bea0f0e0b9d7"></a>COMMAND_BINARY_WRITE_USER_BUFFER_CONTINUE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a0b7db709a3503e372118adef07797c50"></a>COMMAND_BINARY_QUEUE_INITIALIZE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a4d21e1bd55dc8c7ada159415e4710f05"></a>COMMAND_BINARY_QUEUE_ADD_BYTES&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a69e65b64a1748b38cc7df7d83e6fee6d"></a>COMMAND_BINARY_QUEUE_ADD_7BYTES&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a84e31a4bf35b4b5aae64917446ab3044"></a>COMMAND_BINARY_QUEUE_READ_BYTES&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a09ca1c341116d0dddc52b0571b109591"></a>COMMAND_BINARY_QUEUE_INFORMATION&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656afd34d09e24542c05c8d07fa3c45566e7"></a>COMMAND_BINARY_CONFIGURE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656ac7e445e5413fca6ed7fa1a97a3c10f41"></a>COMMAND_BINARY_READ_RAM&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656adddbe618ff8a9de95a9ee65ffa7491e1"></a>COMMAND_BINARY_READ_FLASH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a5fe71852d4351f67c0a3b997ae5cfc01"></a>COMMAND_BINARY_READ_EEPROM&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656ac60b38355d6cf534874ab1d6ce51ad1d"></a>COMMAND_BINARY_WRITE_RAM&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a02f1ca553c92bacd190021ae2ece33fc"></a>COMMAND_BINARY_WRITE_FLASH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656aea60f554e3f34ae009afd9711b3921a4"></a>COMMAND_CALIBRATE_ANALOG&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a18e48c53b04ef91c44b2b8135b8c7974"></a>COMMAND_ENABLE_2ND_UART&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a804870d6054af17edf46f3c0d10d7635"></a>COMMAND_UART0_TX_7BYTES&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656ac306a5279bb13ad23d91eede098b2359"></a>COMMAND_UART0_RX_7BYTES&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656abcf96be96295605dd043a1f88e984fbf"></a>COMMAND_UART1_TX_7BYTES&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a1a827551d8fab9bb235dd02b7a16610e"></a>COMMAND_UART1_RX_7BYTES&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a0a5c29666fc22fc2b0800512658c15e0"></a>CONFIGURE_PIN_MODE0&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656af03261d0311912591fcc92ed179f4176"></a>CONFIGURE_PIN_MODE1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a7e247b2751e006849b40fb2b8f7e316c"></a>CONFIGURE_PIN_MODE2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a2830ca104339fe5629462b36b95a3863"></a>CONFIGURE_PIN_MODE3&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a399614445f12bd00e57f21c5389d5d84"></a>CONFIGURE_PIN_MODE4&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a61fe64358e647486d32225c3d7ae9182"></a>CONFIGURE_PIN_MODE5&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a71b2e1c36ec8a5bad3a0773ca0039057"></a>CONFIGURE_PIN_MODE6&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656aef7b9f17c6c33d89706553607398752e"></a>CONFIGURE_PIN_MODE7&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a6f0d11febb67968e0b668f8b844b7c31"></a>CONFIGURE_PIN_MODE8&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656abcbc3edac6ae45c6ae170dc5998c74ad"></a>CONFIGURE_PIN_MODE9&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a7140a1af2f75dbd9e99a362f6ad7ff48"></a>CONFIGURE_PIN_MODE_HW_0&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656ad8ad5e5ce6dedebc33ac78742ab5c095"></a>CONFIGURE_CHANNEL_MODE_HW_1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656ad1db8637b0f5c303a1b8b239401d5054"></a>CONFIGURE_CHANNEL_MODE_HW_2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656ae1b00f139a96c93649bb891e924ff2bd"></a>CONFIGURE_CHANNEL_MODE_HW_3&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="aa93a00ab6275924ab4d521604780f6fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa93a00ab6275924ab4d521604780f6fa">&#9670;&nbsp;</a></span>SerialWombatDataSource</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6fa">SerialWombatDataSource</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faacc04d5303d8a6ceef7f6b25497caded4"></a>SW_DATA_SOURCE_PIN_0&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa2dc8b4d4125c2fd19aa2d84eb7d450a9"></a>SW_DATA_SOURCE_PIN_1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faad26780929f5ef3298f648f5e23cef1d2"></a>SW_DATA_SOURCE_PIN_2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faaf2f43641b9faff0f754690c1822ab63f"></a>SW_DATA_SOURCE_PIN_3&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faaa8b70a481c88cdb1cf8c4cd27e0999e6"></a>SW_DATA_SOURCE_PIN_4&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa10743607904d68f50ad1667d5582a4b0"></a>SW_DATA_SOURCE_PIN_5&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa3fb1673854ff4abfb264bbbc818a2ea0"></a>SW_DATA_SOURCE_PIN_6&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faadff85d716151464b7729dd5db179f78e"></a>SW_DATA_SOURCE_PIN_7&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa62ba3fd35bd938825b7c8ce1da1d8ef9"></a>SW_DATA_SOURCE_PIN_8&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa5990a30a30c616140e21c227fcb94a6f"></a>SW_DATA_SOURCE_PIN_9&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa00f1a2263e864cf88212c139fd4d68bb"></a>SW_DATA_SOURCE_PIN_10&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa352d935b3dac7f0957989ade362dcbb2"></a>SW_DATA_SOURCE_PIN_11&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa5bf4fef3bea06b119cce46338e48374b"></a>SW_DATA_SOURCE_PIN_12&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa1eb0da7492073fc7f158d8830c5f3d0f"></a>SW_DATA_SOURCE_PIN_13&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa153da21348f0dbbb188e786889f9811f"></a>SW_DATA_SOURCE_PIN_14&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa4b802b7c3d041e4d6fd3a340b0cca1ef"></a>SW_DATA_SOURCE_PIN_15&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faad59e6585ad9b7f128990e3228845c5ea"></a>SW_DATA_SOURCE_PIN_16&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faaf1ff521751d971761a15aab80a9d4d9e"></a>SW_DATA_SOURCE_PIN_17&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa6dbff0ac9ba3240648120a91d627d5fe"></a>SW_DATA_SOURCE_PIN_18&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faaec0b87a3914cbef117b642781859f191"></a>SW_DATA_SOURCE_PIN_19&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faaeb8fb690fd244e6e042630885f76179d"></a>SW_DATA_SOURCE_INCREMENTING_NUMBER&#160;</td><td class="fielddoc"><p>An number that increments each time it is accessed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa1f3248ee95e1ed3e7d82d590a1b4bddf"></a>SW_DATA_SOURCE_1024mvCounts&#160;</td><td class="fielddoc"><p>The number of ADC counts that result from a 1.024V reading. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa2f25f711cd0d7e800973fa268bfa6f1b"></a>SW_DATA_SOURCE_FRAMES_RUN_LSW&#160;</td><td class="fielddoc"><p>The number of frames run since reset, least significant 16 bits. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faae6bf3dba4228375560a330e53d13a533"></a>SW_DATA_SOURCE_FRAMES_RUN_MSW&#160;</td><td class="fielddoc"><p>The number of frames run since reset, most significant 16 bits. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa54cb4665e81bca0b7de78e93588c13fe"></a>SW_DATA_SOURCE_OVERRUN_FRAMES&#160;</td><td class="fielddoc"><p>The number of frames that ran more than 1mS. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa29ca621f02f16c138f507030bf0d8c77"></a>SW_DATA_SOURCE_TEMPERATURE&#160;</td><td class="fielddoc"><p>The internal core temperature expressed in 100ths deg C. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faaacef8bf137a25bec3d8fd61897ee1289"></a>SW_DATA_SOURCE_PACKETS_RECEIVED&#160;</td><td class="fielddoc"><p>The nubmer of incoming command packets that have been processed since reset (rolls over at 65535) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa9a7efca4a4f31ef7c691e2a22751e538"></a>SW_DATA_SOURCE_ERRORS&#160;</td><td class="fielddoc"><p>The number of incoming packets that have caused errors since reset (rolls over at 65535) <br  />
+ </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faabfe2ca77227ef8e50d5f7bb094a70264"></a>SW_DATA_SOURCE_DROPPED_FRAMES&#160;</td><td class="fielddoc"><p>The number of times since reset that a frame ran so far behind that it crossed two subsequent 1ms boundaries, causing a permanent lost frame. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faaab9f4285b303e184e3311ce1b868ddb5"></a>SW_DATA_SOURCE_SYSTEM_UTILIZATION&#160;</td><td class="fielddoc"><p>A number between 0 and 65535 that scales to the average length of pin processing frames between 0 and 1000mS. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa350080404c0fd407706d12d834063f3a"></a>SW_DATA_SOURCE_VCC_mVOLTS&#160;</td><td class="fielddoc"><p>The system source voltage in mV. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa041743828f52b290cae35aeac1950f71"></a>SW_DATA_SOURCE_VBG_COUNTS_VS_VREF&#160;</td><td class="fielddoc"><p>A/D conversion of VBG against VRef . Used for mfg calibration. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faaa625c6fd6e7cffc2c36ea8bf5ed854a8"></a>SW_DATA_SOURCE_PIN_0_MV&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faabef30eb2b1547e81ce4bd8e1a65cf13d"></a>SW_DATA_SOURCE_PIN_1_MV&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faad4184bd0a69c1ec63c1d27e4ed903026"></a>SW_DATA_SOURCE_PIN_2_MV&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa5f28ef06c1f40fefbb5ef1c52ee74228"></a>SW_DATA_SOURCE_PIN_3_MV&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa3b5b87f24ac91ec32c38855e3d72b77f"></a>SW_DATA_SOURCE_PIN_4_MV&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faac10d7bc66f4874414d2d272999d96126"></a>SW_DATA_SOURCE_PIN_16_MV&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faabba57ceb4fa33ebf61310f06303abc5e"></a>SW_DATA_SOURCE_PIN_17_MV&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faa90df1c9411a393ff283346959115ddf3"></a>SW_DATA_SOURCE_PIN_18_MV&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa93a00ab6275924ab4d521604780f6faad99b0b34889e4afa839ed3e6c7a98bcb"></a>SW_DATA_SOURCE_PIN_19_MV&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -365,12 +574,18 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a59fb9b4b51a683ef9003c028ef78c1c1"></a>PIN_MODE_CONTROLLED&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8aa883b9d8a53090978337b405b107acfa"></a>PIN_MODE_ANALOGINPUT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8adce997cb99b8050ba5aa3c37cdf8813e"></a>PIN_MODE_SERVO&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8ae627b7ee28f5dd335ae087bed32fbadf"></a>PIN_MODE_THROUGHPUT_CONSUMER&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a800d600e3236c534eed6bd6fadc90bad"></a>PIN_MODE_QUADRATUREENCODER&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a8ee1fa6ebf82d5b84fc5ac42c5fca3fd"></a>PIN_MODE_WATCHDOG&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8aa3e33fe94256c6c2efe2356dbcc7391f"></a>PIN_MODE_PROTECTED_OUTPUT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8af1c6a5a62a5d96efb80e7ae52ba43fce"></a>PIN_MODE_SW_UART&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8aede8b4979a3ece80061a803adac4e312"></a>PIN_MODE_MATRIX_KEYPAD&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8abdce35ac73e5bc7e07d09d21ffddc54c"></a>PIN_MODE_PWM&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a8d2d9f25291ed9e89a430ad6d0095154"></a>PIN_MODE_UART_RX_TX&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a389da8a100bf41e0e663cb4a98485ac9"></a>PIN_MODE_PULSETIMER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8abe8729f835dab7c809823e46e5d985b3"></a>PIN_MODE_RESISTANCEINPUT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a1fae8b037ba8bfe3d8b4401a38e90398"></a>PIN_MODE_FRAME_TIMER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8aaa8e07e4973e78a53794974a0a00d394"></a>PIN_MODE_UART1_RX_TX&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a2046afaf5bf267d81101eec029cdf5bc"></a>PIN_MODE_UNKNOWN&#160;</td><td class="fielddoc"></td></tr>
 </table>
 

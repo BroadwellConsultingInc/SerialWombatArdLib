@@ -5,7 +5,14 @@
 /*! \file SerialWombatAnalogInput.h
 */
 
-class SerialWombat;
+
+enum class AnalogInputPublicDataOutput {
+	AnalogInputPublicDataOutput_Raw = 0,  ///< The raw A/D reading is displayed as public data (default)
+	AnalogInputPublicDataOutput_Filtered = 1,	///< The Filtered A/D reading is displayed as public data (default)
+	AnalogInputPublicDataOutput_Averaged = 2,	///< The Averaged A/D reading is displayed as public data (default)
+	AnalogInputPublicDataOutput_Minimum = 3,	///< The Minimum A/D reading is displayed as public data (default)
+	AnalogInputPublicDataOutput_Maximum = 4,	///< The Maximum A/D reading is displayed as public data (default)
+};
 
 /*!
 
@@ -49,8 +56,8 @@ class SerialWombatAnalogInput
 public:
 	/// \brief Constructor for the SerialWombatAnalogInput class.
 	/// 
-	/// \param SerialWombat a reference to the Serial Wombat on which the Analog Input will be measured
-	SerialWombatAnalogInput(SerialWombat& SerialWombat);
+	/// \param SerialWombat a reference to the Serial Wombat chip on which the Analog Input will be measured
+	SerialWombatAnalogInput(SerialWombatChip& SerialWombat);
 
 	/// \brief Initialize an analog input on a given pin.
 	/// 
@@ -58,7 +65,9 @@ public:
 	/// turns on first order IIR filtering with a cutoff frequency of 0.5 Hz
 	/// 
 	/// \param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3 
-	void begin(uint8_t pin);
+	/// 
+	/// \return Returns a negative error code if initialization failed.
+	int16_t begin(uint8_t pin);
 
 	/// \brief Initialize an analog input on a given pin.
 	/// 
@@ -67,13 +76,25 @@ public:
 	/// All non-zero values will be treated as 64 on these platforms.
 	/// \param filterConstant First Order IIR filter constant, expressed as 1/65536ths .
 	/// Values closer to 65536 give heavier filtering.  Sample frequency is 1kHz.
-	void begin(uint8_t pin, uint16_t averageSamples, uint16_t filterConstant);
+	/// \return Returns a negative error code if initialization failed.
+	int16_t begin(uint8_t pin, uint16_t averageSamples, uint16_t filterConstant);
+
+	/// \brief Initialize an analog input on a given pin.
+	/// 
+	/// \param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3 
+	/// \param averageSamples Number of samples to average.  Valid values for SW4A and SW4B are 0 or 64.
+	/// All non-zero values will be treated as 64 on these platforms.
+	/// \param filterConstant First Order IIR filter constant, expressed as 1/65536ths .
+	/// Values closer to 65536 give heavier filtering.  Sample frequency is 1kHz.
+	/// \param publicDataOutput What to output as pin public data
+	/// \return Returns a negative error code if initialization failed.
+	int16_t begin(uint8_t pin, uint16_t averageSamples, uint16_t filterConstant, AnalogInputPublicDataOutput output);
 
 	/// \brief Retreive a raw A/D measurement and convert it to mV
 	/// 
 	/// Conversion is based on the most recent A/D conversion taken by the 
 	/// Serial Wombat at the command time and the last reference measurement made on the 
-	/// Serial Wombat using the SerialWombat.readSupplyVoltage_mV() method.  
+	/// Serial Wombat using the SerialWombatChip.readSupplyVoltage_mV() method.  
 	/// \return A 16 bit unsigned value indicating measurement in mV
 	uint16_t readVoltage_mV();
 
@@ -96,7 +117,7 @@ public:
 	/// 
 	/// Conversion is based on the most recent filtered A/D result taken by the 
 	/// Serial Wombat at the command time and the last reference measurement made on the 
-	/// Serial Wombat using the SerialWombat.readSupplyVoltage_mV() method.  
+	/// Serial Wombat using the SerialWombatChip.readSupplyVoltage_mV() method.  
 	/// \return A 16 bit unsigned value indicating measurement in mV
 	uint16_t readFiltered_mV();
 
@@ -113,7 +134,7 @@ public:
 	/// 
 	/// Conversion is based on the most recent averaged A/D result taken by the 
 	/// Serial Wombat at the command time and the last reference measurement made on the 
-	/// Serial Wombat using the SerialWombat.readSupplyVoltage_mV() method.  
+	/// Serial Wombat using the SerialWombatChip.readSupplyVoltage_mV() method.  
 	/// \return A 16 bit unsigned value indicating measurement in mV
 	uint16_t readAveraged_mV();
 
@@ -130,7 +151,7 @@ public:
 	/// \return A 16 bit unsigned value indicating the counts of the A/D conversion
 	uint16_t readAveragedCounts();
 
-	/// Provides a wrapper around the readSupplyVoltage_mV() method for the SerialWombat hosting this pin mode
+	/// Provides a wrapper around the readSupplyVoltage_mV() method for the SerialWombat chip hosting this pin mode
 	uint16_t updateSupplyVoltage_mV();
 
 	~SerialWombatAnalogInput();
@@ -171,8 +192,15 @@ public:
 	/// \return A 16 bit unsigned value indicating maximum A/D Counts
 	uint16_t readMinimumCounts(bool resetAfterRead);
 
+	/// \brief Set the pin to use another pin's public data instead of the A/D converter as input
+	/// 
+	/// \param inputSource the pin used as an input source.
+	int16_t setInputSource(uint8_t inputSource);
+
+
+	int16_t setQueue(uint16_t queueIndex, uint16_t msBetweenQueues);
 private:
-	SerialWombat &_sw ;
+	SerialWombatChip &_sw ;
 	
 	uint8_t _pin = 255;
 	

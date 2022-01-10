@@ -54,7 +54,7 @@ class SerialWombatPulseTimer
 public:
 	/// \brief Class constructor for SerialWombatPulseTimer
 	/// \param serialWombat The Serial Wombat on which the SerialWombatPulseTimer pinmode will be run
-	SerialWombatPulseTimer(SerialWombat& serialWombat);
+	SerialWombatPulseTimer(SerialWombatChip& serialWombat);
 
 	/// \brief Simple initialization
 	/// 
@@ -121,7 +121,7 @@ public:
 	bool MeasurementOverflowOccurred = false;
 
 private:
-	SerialWombat& _sw;
+	SerialWombatChip& _sw;
 	uint8_t _pin = 255;
 };
 

@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['tm1637animation_522',['tm1637Animation',['../_serial_wombat_t_m1637_8h.html#ad90c9ba4941a8b78da88c392aace5255aa501efbe07195ef4b1db06bc6e555fef',1,'SerialWombatTM1637.h']]],
-  ['tm1637chararray_523',['tm1637CharArray',['../_serial_wombat_t_m1637_8h.html#ad90c9ba4941a8b78da88c392aace5255aae4e3eac7649d917753b5dcebe754e64',1,'SerialWombatTM1637.h']]],
-  ['tm1637decimal16_524',['tm1637Decimal16',['../_serial_wombat_t_m1637_8h.html#ad90c9ba4941a8b78da88c392aace5255a0e1df3661cd27e0ca0c9ae923bdaf3a1',1,'SerialWombatTM1637.h']]],
-  ['tm1637hex16_525',['tm1637Hex16',['../_serial_wombat_t_m1637_8h.html#ad90c9ba4941a8b78da88c392aace5255ade19dac744b057713c7173c5dadfde82',1,'SerialWombatTM1637.h']]],
-  ['tm1637rawarray_526',['tm1637RawArray',['../_serial_wombat_t_m1637_8h.html#ad90c9ba4941a8b78da88c392aace5255aaf398fd0ed30f2ed3f4aa63a3c71312b',1,'SerialWombatTM1637.h']]]
+  ['resistanceinputpublicdataoutput_5faveraged_713',['ResistanceInputPublicDataOutput_Averaged',['../_serial_wombat_resistance_input_8h.html#ac08b0b586869df2557fa063a42771e43ab87773bdd65b3801b49a8f1c8b553eab',1,'SerialWombatResistanceInput.h']]],
+  ['resistanceinputpublicdataoutput_5ffiltered_714',['ResistanceInputPublicDataOutput_Filtered',['../_serial_wombat_resistance_input_8h.html#ac08b0b586869df2557fa063a42771e43aa7a2d76b20035ce73f6609a4ffd2983e',1,'SerialWombatResistanceInput.h']]],
+  ['resistanceinputpublicdataoutput_5fmaximum_715',['ResistanceInputPublicDataOutput_Maximum',['../_serial_wombat_resistance_input_8h.html#ac08b0b586869df2557fa063a42771e43a953c113b0e5aac8bbb5e69ac3a990a9b',1,'SerialWombatResistanceInput.h']]],
+  ['resistanceinputpublicdataoutput_5fminimum_716',['ResistanceInputPublicDataOutput_Minimum',['../_serial_wombat_resistance_input_8h.html#ac08b0b586869df2557fa063a42771e43a1823f41b6c0e82d2b266c45215fe7584',1,'SerialWombatResistanceInput.h']]],
+  ['resistanceinputpublicdataoutput_5fraw_717',['ResistanceInputPublicDataOutput_Raw',['../_serial_wombat_resistance_input_8h.html#ac08b0b586869df2557fa063a42771e43adb6b72a4a47ab3523d7ef98d4af89f0e',1,'SerialWombatResistanceInput.h']]]
 ];

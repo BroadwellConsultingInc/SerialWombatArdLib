@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['measurementoverflowoccurred_436',['MeasurementOverflowOccurred',['../class_serial_wombat_pulse_timer.html#abb4f92437f247249b5361142f1756577',1,'SerialWombatPulseTimer']]],
-  ['model_437',['model',['../class_serial_wombat.html#a2c0787c026ab6dbfbf95cd66f1f07338',1,'SerialWombat']]]
+  ['measurementoverflowoccurred_610',['MeasurementOverflowOccurred',['../class_serial_wombat_pulse_timer.html#abb4f92437f247249b5361142f1756577',1,'SerialWombatPulseTimer']]],
+  ['model_611',['model',['../class_serial_wombat_chip.html#adf237d8d91299b87067ec1ff83ea5cf0',1,'SerialWombatChip']]]
 ];

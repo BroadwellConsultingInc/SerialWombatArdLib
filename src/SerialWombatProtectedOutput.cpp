@@ -1,6 +1,6 @@
 #include "SerialWombatProtectedOutput.h"
 
-SerialWombatProtectedOutput::SerialWombatProtectedOutput(SerialWombat& serialWombat):_sw(serialWombat)
+SerialWombatProtectedOutput::SerialWombatProtectedOutput(SerialWombatChip& serialWombat):_sw(serialWombat)
 {
 	_sw = serialWombat;
 }

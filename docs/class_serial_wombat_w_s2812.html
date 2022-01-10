@@ -77,9 +77,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a05b026d331100871b3dbe21e182ae530"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_w_s2812.html#a05b026d331100871b3dbe21e182ae530">SerialWombatWS2812</a> (<a class="el" href="class_serial_wombat.html">SerialWombat</a> &amp;serialWombat)</td></tr>
-<tr class="memdesc:a05b026d331100871b3dbe21e182ae530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_serial_wombat_w_s2812.html" title="A Class representing a WS2812 or compatible RGB LED string connected to a Serial Wombat pin.">SerialWombatWS2812</a> class.  <a href="class_serial_wombat_w_s2812.html#a05b026d331100871b3dbe21e182ae530">More...</a><br /></td></tr>
-<tr class="separator:a05b026d331100871b3dbe21e182ae530"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07bd3bda13bfd01798645c7b817c7456"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_w_s2812.html#a07bd3bda13bfd01798645c7b817c7456">SerialWombatWS2812</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat)</td></tr>
+<tr class="memdesc:a07bd3bda13bfd01798645c7b817c7456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_serial_wombat_w_s2812.html" title="A Class representing a WS2812 or compatible RGB LED string connected to a Serial Wombat pin.">SerialWombatWS2812</a> class.  <a href="class_serial_wombat_w_s2812.html#a07bd3bda13bfd01798645c7b817c7456">More...</a><br /></td></tr>
+<tr class="separator:a07bd3bda13bfd01798645c7b817c7456"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa25700c6a038632790b93d65c28978ae"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_w_s2812.html#aa25700c6a038632790b93d65c28978ae">begin</a> (uint8_t pin, uint8_t numberOfLEDs, uint16_t userBufferIndex)</td></tr>
 <tr class="memdesc:aa25700c6a038632790b93d65c28978ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a WS2812 LED driver object.  <a href="class_serial_wombat_w_s2812.html#aa25700c6a038632790b93d65c28978ae">More...</a><br /></td></tr>
 <tr class="separator:aa25700c6a038632790b93d65c28978ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,6 +119,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a73bd7f0c288dfc77b7062da7be9cd230"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_w_s2812.html#a73bd7f0c288dfc77b7062da7be9cd230">writeMode</a> (<a class="el" href="_serial_wombat_w_s2812_8h.html#af60b041753fafc2c37d877430e1fcfe3">SWWS2812Mode</a> mode)</td></tr>
 <tr class="memdesc:a73bd7f0c288dfc77b7062da7be9cd230"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the mode of the WS2812 LED Driver.  <a href="class_serial_wombat_w_s2812.html#a73bd7f0c288dfc77b7062da7be9cd230">More...</a><br /></td></tr>
 <tr class="separator:a73bd7f0c288dfc77b7062da7be9cd230"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a995fd6fa6f552dca58544bab89784e44"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_w_s2812.html#a995fd6fa6f552dca58544bab89784e44">barGraph</a> (uint8_t sourcePin, uint32_t offRGB, uint32_t onRGB, uint16_t min, uint16_t max)</td></tr>
+<tr class="memdesc:a995fd6fa6f552dca58544bab89784e44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display a bargraph using the configured ws2812 class.  <a href="class_serial_wombat_w_s2812.html#a995fd6fa6f552dca58544bab89784e44">More...</a><br /></td></tr>
+<tr class="separator:a995fd6fa6f552dca58544bab89784e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A Class representing a WS2812 or compatible RGB LED string connected to a Serial Wombat pin. </p>
@@ -141,8 +144,8 @@ An array of WS2812 LEDs can pull lots of current. Lighting multiple LEDs at full
 <p>A number of frames to be shown in rotation with configurable delays inbetween can also be stored in the User Buffer. This is in additional to the rendering buffer. Each animation frame requires 2+3*NumberOfLEDs bytes.</p>
 <p>The Update rate is variable with the number of LEDs so that rendering of colors into the User Buffer is spread across multiple Serial Wombat 1mS execution frames. The LEDs will be updated approximately every X mS, where X is the number of LEDs plus 20. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a05b026d331100871b3dbe21e182ae530"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05b026d331100871b3dbe21e182ae530">&#9670;&nbsp;</a></span>SerialWombatWS2812()</h2>
+<a id="a07bd3bda13bfd01798645c7b817c7456"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07bd3bda13bfd01798645c7b817c7456">&#9670;&nbsp;</a></span>SerialWombatWS2812()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,7 +153,7 @@ An array of WS2812 LEDs can pull lots of current. Lighting multiple LEDs at full
         <tr>
           <td class="memname">SerialWombatWS2812::SerialWombatWS2812 </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_serial_wombat.html">SerialWombat</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;&#160;</td>
           <td class="paramname"><em>serialWombat</em></td><td>)</td>
           <td></td>
         </tr>
@@ -168,6 +171,64 @@ An array of WS2812 LEDs can pull lots of current. Lighting multiple LEDs at full
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a995fd6fa6f552dca58544bab89784e44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a995fd6fa6f552dca58544bab89784e44">&#9670;&nbsp;</a></span>barGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatWS2812::barGraph </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>sourcePin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>offRGB</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>onRGB</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Display a bargraph using the configured ws2812 class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sourcePin</td><td>The data source to use for the bargraph </td></tr>
+    <tr><td class="paramname">offRGB</td><td>The color to use for LEDs beyond the bargraph level </td></tr>
+    <tr><td class="paramname">onRGB</td><td>The color to use for LEDs lit by the bargraph </td></tr>
+    <tr><td class="paramname">min</td><td>The public data value (or below) to be treated as the beginning of the bargraph </td></tr>
+    <tr><td class="paramname">max</td><td>The public data value (or above) to be treated as the end of the bargraph </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aa25700c6a038632790b93d65c28978ae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa25700c6a038632790b93d65c28978ae">&#9670;&nbsp;</a></span>begin()</h2>
 

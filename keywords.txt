@@ -1,4 +1,4 @@
-SerialWombat	KEYWORD1
+SerialWombatChip	KEYWORD1
 begin	KEYWORD2
 sendPacket	KEYWORD2
 readVersion	KEYWORD2
@@ -74,3 +74,15 @@ QE_ONLOW_POLL	LITERAL1
 QE_ONHIGH_POLL	LITERAL1
 QE_ONBOTH_POLL	LITERAL1
 
+SerialWombat18CapTouch	KEYWORD1
+makeDigital	KEYWORD2
+SerialWombat18CapTouchCounter	KEYWORD1
+
+SerialWombatWS2812	KEYWORD1
+ws2812ModeChase	LITERAL1
+writeMode	KEYWORD2
+readBufferSize	KEYWORD2
+writeAnimationUserBufferIndex	KEYWORD2
+writeAnimationFrame	KEYWORD2
+writeAnimationFrameDelay	KEYWORD2
+ws2812ModeAnimation	LITERAL1

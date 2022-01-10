@@ -1,6 +1,6 @@
 #include "SerialWombatPulseTimer.h"
 
-SerialWombatPulseTimer::SerialWombatPulseTimer(SerialWombat& serialWombat):_sw(serialWombat)
+SerialWombatPulseTimer::SerialWombatPulseTimer(SerialWombatChip& serialWombat):_sw(serialWombat)
 {
 	_sw = serialWombat;
 

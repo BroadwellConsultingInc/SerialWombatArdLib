@@ -64,13 +64,14 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_serial_wombat_u_a_r_t-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SerialWombatUART Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A class for the Serial Wombat 4B which creates an I2C to UART Bridge.  
+<p>A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.  
  <a href="class_serial_wombat_u_a_r_t.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>&gt;</code></p>
@@ -78,65 +79,95 @@ $(function() {
 Inheritance diagram for SerialWombatUART:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="class_serial_wombat_u_a_r_t.png" alt=""/>
- </div></div>
+  <img src="class_serial_wombat_u_a_r_t.png" usemap="#SerialWombatUART_map" alt=""/>
+  <map id="SerialWombatUART_map" name="SerialWombatUART_map">
+<area href="class_serial_wombat_s_w_u_a_r_t.html" alt="SerialWombatSWUART" shape="rect" coords="0,112,140,136"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1fa701e1887c22beac2739a193d28620"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a1fa701e1887c22beac2739a193d28620">SerialWombatUART</a> (<a class="el" href="class_serial_wombat.html">SerialWombat</a> &amp;serialWombat)</td></tr>
-<tr class="memdesc:a1fa701e1887c22beac2739a193d28620"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B which creates an I2C to UART Bridge.">SerialWombatUART</a> class. Only one instance is allowed per <a class="el" href="class_serial_wombat.html">SerialWombat</a> 4B.  <a href="class_serial_wombat_u_a_r_t.html#a1fa701e1887c22beac2739a193d28620">More...</a><br /></td></tr>
-<tr class="separator:a1fa701e1887c22beac2739a193d28620"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a263d34af93aaf5a91a71eaeb7041db33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a263d34af93aaf5a91a71eaeb7041db33">begin</a> (uint32_t baudRate, uint8_t pin, uint8_t rxPin, uint8_t txPin)</td></tr>
-<tr class="memdesc:a263d34af93aaf5a91a71eaeb7041db33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalize the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B which creates an I2C to UART Bridge.">SerialWombatUART</a>. <br  />
-  <a href="class_serial_wombat_u_a_r_t.html#a263d34af93aaf5a91a71eaeb7041db33">More...</a><br /></td></tr>
-<tr class="separator:a263d34af93aaf5a91a71eaeb7041db33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e41a3894e6393d0041d6ba8d96fbd4e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a3e41a3894e6393d0041d6ba8d96fbd4e">SerialWombatUART</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat)</td></tr>
+<tr class="memdesc:a3e41a3894e6393d0041d6ba8d96fbd4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> class. Only one instance is allowed per <a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> 4B.  <a href="class_serial_wombat_u_a_r_t.html#a3e41a3894e6393d0041d6ba8d96fbd4e">More...</a><br /></td></tr>
+<tr class="separator:a3e41a3894e6393d0041d6ba8d96fbd4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9f4c4c63013111e4e443cb61969ad05"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#af9f4c4c63013111e4e443cb61969ad05">begin</a> (uint32_t baudRate, uint8_t pin, uint8_t rxPin, uint8_t txPin)</td></tr>
+<tr class="memdesc:af9f4c4c63013111e4e443cb61969ad05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalize the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a>. <br  />
+  <a href="class_serial_wombat_u_a_r_t.html#af9f4c4c63013111e4e443cb61969ad05">More...</a><br /></td></tr>
+<tr class="separator:af9f4c4c63013111e4e443cb61969ad05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3a6b06c3922eaeea58352defe163aad"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#ac3a6b06c3922eaeea58352defe163aad">begin</a> (uint32_t baudRate, uint8_t pin, uint8_t rxPin, uint8_t txPin, uint8_t HWinterface)</td></tr>
+<tr class="memdesc:ac3a6b06c3922eaeea58352defe163aad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalize the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a>. <br  />
+  <a href="class_serial_wombat_u_a_r_t.html#ac3a6b06c3922eaeea58352defe163aad">More...</a><br /></td></tr>
+<tr class="separator:ac3a6b06c3922eaeea58352defe163aad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02e26314e1223dbcec78be03433e45ad"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a02e26314e1223dbcec78be03433e45ad">available</a> ()</td></tr>
-<tr class="memdesc:a02e26314e1223dbcec78be03433e45ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the Serial Wombat for number bytes available to read.  <a href="class_serial_wombat_u_a_r_t.html#a02e26314e1223dbcec78be03433e45ad">More...</a><br /></td></tr>
+<tr class="memdesc:a02e26314e1223dbcec78be03433e45ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> for number bytes available to read.  <a href="class_serial_wombat_u_a_r_t.html#a02e26314e1223dbcec78be03433e45ad">More...</a><br /></td></tr>
 <tr class="separator:a02e26314e1223dbcec78be03433e45ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2386206c16c4c79cebca47e8a3f27f24"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a2386206c16c4c79cebca47e8a3f27f24">read</a> ()</td></tr>
-<tr class="memdesc:a2386206c16c4c79cebca47e8a3f27f24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a byte from the Serial Wombat.  <a href="class_serial_wombat_u_a_r_t.html#a2386206c16c4c79cebca47e8a3f27f24">More...</a><br /></td></tr>
+<tr class="memdesc:a2386206c16c4c79cebca47e8a3f27f24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a byte from the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a>.  <a href="class_serial_wombat_u_a_r_t.html#a2386206c16c4c79cebca47e8a3f27f24">More...</a><br /></td></tr>
 <tr class="separator:a2386206c16c4c79cebca47e8a3f27f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae081ebfb4e2f9c77621745a1c9d748ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#ae081ebfb4e2f9c77621745a1c9d748ae">flush</a> ()</td></tr>
 <tr class="memdesc:ae081ebfb4e2f9c77621745a1c9d748ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Discard all received bytes.  <a href="class_serial_wombat_u_a_r_t.html#ae081ebfb4e2f9c77621745a1c9d748ae">More...</a><br /></td></tr>
 <tr class="separator:ae081ebfb4e2f9c77621745a1c9d748ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a962360438125cbd5a82ce62e3ce49c60"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a962360438125cbd5a82ce62e3ce49c60">peek</a> ()</td></tr>
-<tr class="memdesc:a962360438125cbd5a82ce62e3ce49c60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query the Serial Wombat for the next avaialble byte, but don't remove it from the queue.  <a href="class_serial_wombat_u_a_r_t.html#a962360438125cbd5a82ce62e3ce49c60">More...</a><br /></td></tr>
+<tr class="memdesc:a962360438125cbd5a82ce62e3ce49c60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> for the next avaialble byte, but don't remove it from the queue.  <a href="class_serial_wombat_u_a_r_t.html#a962360438125cbd5a82ce62e3ce49c60">More...</a><br /></td></tr>
 <tr class="separator:a962360438125cbd5a82ce62e3ce49c60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b021de1e58d39b697617af8c2777569"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a7b021de1e58d39b697617af8c2777569">write</a> (uint8_t data)</td></tr>
-<tr class="memdesc:a7b021de1e58d39b697617af8c2777569"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a byte to the Serial Wombat UART for Transmit.  <a href="class_serial_wombat_u_a_r_t.html#a7b021de1e58d39b697617af8c2777569">More...</a><br /></td></tr>
+<tr class="memdesc:a7b021de1e58d39b697617af8c2777569"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a byte to the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> for Transmit.  <a href="class_serial_wombat_u_a_r_t.html#a7b021de1e58d39b697617af8c2777569">More...</a><br /></td></tr>
 <tr class="separator:a7b021de1e58d39b697617af8c2777569"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac32f54355fb9844bde26689f53a9b7e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#aac32f54355fb9844bde26689f53a9b7e">write</a> (const uint8_t *buffer, size_t size)</td></tr>
-<tr class="memdesc:aac32f54355fb9844bde26689f53a9b7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write bytes to the Serial Wombat UART for Transmit.  <a href="class_serial_wombat_u_a_r_t.html#aac32f54355fb9844bde26689f53a9b7e">More...</a><br /></td></tr>
+<tr class="memdesc:aac32f54355fb9844bde26689f53a9b7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write bytes to the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> for Transmit.  <a href="class_serial_wombat_u_a_r_t.html#aac32f54355fb9844bde26689f53a9b7e">More...</a><br /></td></tr>
 <tr class="separator:aac32f54355fb9844bde26689f53a9b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba95678294be6f0fc296891180883776"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#aba95678294be6f0fc296891180883776">availableForWrite</a> ()</td></tr>
-<tr class="memdesc:aba95678294be6f0fc296891180883776"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the Serial Wombat for the amount of free TX queue space.  <a href="class_serial_wombat_u_a_r_t.html#aba95678294be6f0fc296891180883776">More...</a><br /></td></tr>
+<tr class="memdesc:aba95678294be6f0fc296891180883776"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> for the amount of free TX queue space.  <a href="class_serial_wombat_u_a_r_t.html#aba95678294be6f0fc296891180883776">More...</a><br /></td></tr>
 <tr class="separator:aba95678294be6f0fc296891180883776"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae83b4b9d45d3afcc2749cddd334c6dd1"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#ae83b4b9d45d3afcc2749cddd334c6dd1">readBytes</a> (char *buffer, size_t length)</td></tr>
-<tr class="memdesc:ae83b4b9d45d3afcc2749cddd334c6dd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a specified number of bytes from the Serial Wombat RX queue.  <a href="class_serial_wombat_u_a_r_t.html#ae83b4b9d45d3afcc2749cddd334c6dd1">More...</a><br /></td></tr>
+<tr class="memdesc:ae83b4b9d45d3afcc2749cddd334c6dd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a specified number of bytes from the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> RX queue.  <a href="class_serial_wombat_u_a_r_t.html#ae83b4b9d45d3afcc2749cddd334c6dd1">More...</a><br /></td></tr>
 <tr class="separator:ae83b4b9d45d3afcc2749cddd334c6dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c42fbc679f63767a794f48d691cae12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a0c42fbc679f63767a794f48d691cae12">setTimeout</a> (uint32_t timeout_mS)</td></tr>
-<tr class="separator:a0c42fbc679f63767a794f48d691cae12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb74e943e2cb7e561e3d6fead702ce52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#adb74e943e2cb7e561e3d6fead702ce52">setTimeout</a> (long timeout_mS)</td></tr>
+<tr class="separator:adb74e943e2cb7e561e3d6fead702ce52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a7bb7e7b206ba006f14d9f1ed72249eeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a7bb7e7b206ba006f14d9f1ed72249eeb">_sw</a></td></tr>
+<tr class="separator:a7bb7e7b206ba006f14d9f1ed72249eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3185cbf9fb773917a3ca5bc3278e6887"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a3185cbf9fb773917a3ca5bc3278e6887">_rxPin</a> = 255</td></tr>
+<tr class="separator:a3185cbf9fb773917a3ca5bc3278e6887"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8775e7b983ebc7423bb73684a1ff1dd"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#ac8775e7b983ebc7423bb73684a1ff1dd">_txPin</a> = 255</td></tr>
+<tr class="separator:ac8775e7b983ebc7423bb73684a1ff1dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1832fef8e08de10a4f9112b9a033d908"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a1832fef8e08de10a4f9112b9a033d908">_pin</a> = 255</td></tr>
+<tr class="separator:a1832fef8e08de10a4f9112b9a033d908"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fd4a686a9abccf8513b8306176a2bb9"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a8fd4a686a9abccf8513b8306176a2bb9">_baudMarker</a> = 0</td></tr>
+<tr class="separator:a8fd4a686a9abccf8513b8306176a2bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a103a64da0425bbf628da9a498a751fdc"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a103a64da0425bbf628da9a498a751fdc">timeout</a> = 5000</td></tr>
+<tr class="separator:a103a64da0425bbf628da9a498a751fdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3a9248a6477dce41879c4f2a2a24399"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#aa3a9248a6477dce41879c4f2a2a24399">_pinMode</a> = <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a8d2d9f25291ed9e89a430ad6d0095154">PIN_MODE_UART_RX_TX</a></td></tr>
+<tr class="separator:aa3a9248a6477dce41879c4f2a2a24399"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72c265f2374266ff8e4528b74f2daee4"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a72c265f2374266ff8e4528b74f2daee4">_tx7Command</a> = (uint8_t)<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a804870d6054af17edf46f3c0d10d7635">SerialWombatCommands::COMMAND_UART0_TX_7BYTES</a></td></tr>
+<tr class="separator:a72c265f2374266ff8e4528b74f2daee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9bac383cb7df0093e30d5d96dea2787"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#ac9bac383cb7df0093e30d5d96dea2787">_rx7Command</a> = (uint8_t)<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac306a5279bb13ad23d91eede098b2359">SerialWombatCommands::COMMAND_UART0_RX_7BYTES</a></td></tr>
+<tr class="separator:ac9bac383cb7df0093e30d5d96dea2787"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A class for the Serial Wombat 4B which creates an I2C to UART Bridge. </p>
-<p>This class allows use of the Serial Wombat 4B's internal UART hardware to send and receive data at standard baud rates in 8-N-1 format.</p>
+<div class="textblock"><p>A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge. </p>
+<p>This class allows use of the Serial Wombat 4B chips's internal UART hardware to send and receive data at standard baud rates in 8-N-1 format.</p>
 <p>A Tutorial video is avaialble:</p>
 <p> 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/C1FjcaiBYZs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
 <p><a href="https://youtu.be/C1FjcaiBYZs">https://youtu.be/C1FjcaiBYZs</a></p>
 <p>The class inherits from the Arduino Sream class, so functions such as println() can be used once the UART is initialized.</p>
-<p>The Serial Wombat 4B has a 64 byte transmit buffer and 128 byte receive buffer. Therefore, up to 64 bytes can be sent to the Serial Wombat at a time. Attempts to send more than that will result in the write, print, etc command blocking until space is available on the Serial Wombat to buffer the data.</p>
-<p>Received data is buffered on the Serial Wombat until it is retreived from the host. <br  />
+<p>The Serial Wombat 4B chip has a 64 byte transmit buffer and 128 byte receive buffer. Therefore, up to 64 bytes can be sent to the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> at a time. Attempts to send more than that will result in the write, print, etc command blocking until space is available on the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> to buffer the data.</p>
+<p>Received data is buffered on the Serial Wombat chip until it is retreived from the host. <br  />
 </p>
-<dl class="section warning"><dt>Warning</dt><dd>Due to the overhead of querying and retreiving data from the Serial Wombat, data loss is likely when receiving streams of data greater than the buffer size at higher baud rates.</dd></dl>
-<p>To minimize this possiblity, read data frequently from the Serial Wombat, and set I2C frequency to 400kHz to maximize throughput.</p>
-<p>This class can Send, Receive, or both. A single instance of this class is allowed per Serial Wombat 4B due to the fact that it relies on the PIC16F15214's UART module, of which there is only one on the micro.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Due to the overhead of querying and retreiving data from the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a>, data loss is likely when receiving streams of data greater than the buffer size at higher baud rates.</dd></dl>
+<p>To minimize this possiblity, read data frequently from the Serial Wombat chip, and set I2C frequency to 400kHz to maximize throughput.</p>
+<p>This class can Send, Receive, or both. A single instance of this class is allowed per Serial Wombat 4B chip due to the fact that it relies on the PIC16F15214's UART module, of which there is only one on the micro.</p>
+<p>Two instances of this class can be used on the Serial Wombat 18AB chip by using the <a class="el" href="class_serial_wombat_u_a_r_t.html#af9f4c4c63013111e4e443cb61969ad05" title="Initalize the SerialWombatUART.">begin()</a> call which takes a hardware indicator of 0 or 1.</p>
 <p>A full Serial Wombat packet send / receive sequence (8 bytes in each direction) over I2C is necessary to query the status of the queues or to read or receive a byte of data. <br  />
 </p>
-<p>The protocol becomes more efficient if multiple bytes are read or written using the readBytes or <a class="el" href="class_serial_wombat_u_a_r_t.html#aac32f54355fb9844bde26689f53a9b7e" title="Write bytes to the Serial Wombat UART for Transmit.">write(const uint8_t* buffer, size_t size)</a> interfaces rather than <a class="el" href="class_serial_wombat_u_a_r_t.html#a2386206c16c4c79cebca47e8a3f27f24" title="Reads a byte from the Serial Wombat.">read()</a> or <a class="el" href="class_serial_wombat_u_a_r_t.html#a7b021de1e58d39b697617af8c2777569" title="Write a byte to the Serial Wombat UART for Transmit.">write(uint8_t data)</a>.</p>
+<p>The protocol becomes more efficient if multiple bytes are read or written using the readBytes or <a class="el" href="class_serial_wombat_u_a_r_t.html#aac32f54355fb9844bde26689f53a9b7e" title="Write bytes to the SerialWombatUART for Transmit.">write(const uint8_t* buffer, size_t size)</a> interfaces rather than <a class="el" href="class_serial_wombat_u_a_r_t.html#a2386206c16c4c79cebca47e8a3f27f24" title="Reads a byte from the SerialWombatUART.">read()</a> or <a class="el" href="class_serial_wombat_u_a_r_t.html#a7b021de1e58d39b697617af8c2777569" title="Write a byte to the SerialWombatUART for Transmit.">write(uint8_t data)</a>.</p>
 <p>The class must be assigned to a pin. This may be either the receive or transmit pin.</p>
 <p>Pin 0 on the Serial Wombat 4B is suggested as a receive pin as it has only input capability.</p>
+<p>Serial Wombat 18AB pins must be enhanced digital performance pins.</p>
 <p>Available baud rates are:</p><ul>
 <li>300 <br  />
 </li>
@@ -155,8 +186,8 @@ Public Member Functions</h2></td></tr>
 <li>115200 </li>
 </ul>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a1fa701e1887c22beac2739a193d28620"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fa701e1887c22beac2739a193d28620">&#9670;&nbsp;</a></span>SerialWombatUART()</h2>
+<a id="a3e41a3894e6393d0041d6ba8d96fbd4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e41a3894e6393d0041d6ba8d96fbd4e">&#9670;&nbsp;</a></span>SerialWombatUART()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,17 +195,17 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">SerialWombatUART::SerialWombatUART </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_serial_wombat.html">SerialWombat</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;&#160;</td>
           <td class="paramname"><em>serialWombat</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor for the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B which creates an I2C to UART Bridge.">SerialWombatUART</a> class. Only one instance is allowed per <a class="el" href="class_serial_wombat.html">SerialWombat</a> 4B. </p>
+<p>Constructor for the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> class. Only one instance is allowed per <a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> 4B. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">serialWombat</td><td>The Serial Wombat on which the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B which creates an I2C to UART Bridge.">SerialWombatUART</a> instance will run. </td></tr>
+    <tr><td class="paramname">serialWombat</td><td>The Serial Wombat chip on which the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> instance will run. </td></tr>
   </table>
   </dd>
 </dl>
@@ -197,7 +228,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Queries the Serial Wombat for number bytes available to read. </p>
+<p>Queries the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> for number bytes available to read. </p>
 <dl class="section return"><dt>Returns</dt><dd>Number of bytes available to read. </dd></dl>
 
 </div>
@@ -217,19 +248,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Queries the Serial Wombat for the amount of free TX queue space. </p>
+<p>Queries the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> for the amount of free TX queue space. </p>
 <dl class="section return"><dt>Returns</dt><dd>A value between 0 and 64 for the SW4B </dd></dl>
 
 </div>
 </div>
-<a id="a263d34af93aaf5a91a71eaeb7041db33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a263d34af93aaf5a91a71eaeb7041db33">&#9670;&nbsp;</a></span>begin()</h2>
+<a id="af9f4c4c63013111e4e443cb61969ad05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9f4c4c63013111e4e443cb61969ad05">&#9670;&nbsp;</a></span>begin() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SerialWombatUART::begin </td>
+          <td class="memname">int16_t SerialWombatUART::begin </td>
           <td>(</td>
           <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>baudRate</em>, </td>
@@ -260,7 +291,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initalize the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B which creates an I2C to UART Bridge.">SerialWombatUART</a>. <br  />
+<p>Initalize the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a>. <br  />
  </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -268,6 +299,65 @@ Public Member Functions</h2></td></tr>
     <tr><td class="paramname">pin</td><td>The pin that will host the state machine. This can be either the rxPin or txPin </td></tr>
     <tr><td class="paramname">rxPin</td><td>The pin that will receive. All 4 pins on the SW4B may be used. 255 if no receive function is needed </td></tr>
     <tr><td class="paramname">txPin</td><td>The pin that will transmit. Valid values for the SW4B are 1-3. 255 if no transmit function is needed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac3a6b06c3922eaeea58352defe163aad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3a6b06c3922eaeea58352defe163aad">&#9670;&nbsp;</a></span>begin() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatUART::begin </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>baudRate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>rxPin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>txPin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>HWinterface</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initalize the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a>. <br  />
+ </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">baudRate</td><td>300, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200 </td></tr>
+    <tr><td class="paramname">pin</td><td>The pin that will host the state machine. This can be either the rxPin or txPin </td></tr>
+    <tr><td class="paramname">rxPin</td><td>The pin that will receive. All 4 pins on the SW4B may be used. 255 if no receive function is needed </td></tr>
+    <tr><td class="paramname">txPin</td><td>The pin that will transmit. Valid values for the SW4B are 1-3. 255 if no transmit function is needed </td></tr>
+    <tr><td class="paramname">HWinterface</td><td>1 or 2 for HW UART 1 or 2 </td></tr>
   </table>
   </dd>
 </dl>
@@ -308,7 +398,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Query the Serial Wombat for the next avaialble byte, but don't remove it from the queue. </p>
+<p>Query the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> for the next avaialble byte, but don't remove it from the queue. </p>
 <dl class="section return"><dt>Returns</dt><dd>A byte from 0-255, or -1 if no bytes were avaialble </dd></dl>
 
 </div>
@@ -328,7 +418,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Reads a byte from the Serial Wombat. </p>
+<p>Reads a byte from the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>A byte from 0-255, or -1 if no bytes were avaialble </dd></dl>
 
 </div>
@@ -359,7 +449,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Reads a specified number of bytes from the Serial Wombat RX queue. </p>
+<p>Reads a specified number of bytes from the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> RX queue. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buffer</td><td>An array into which to put received bytes </td></tr>
@@ -368,12 +458,12 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the number of bytes written to buffer</dd></dl>
-<p>This function will read bytes from the Serial Wombat RX queue into buffer. If 'length' characters are not available to read then the value returned will be less than length. </p>
+<p>This function will read bytes from the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> RX queue into buffer. If 'length' characters are not available to read then the value returned will be less than length. </p>
 
 </div>
 </div>
-<a id="a0c42fbc679f63767a794f48d691cae12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c42fbc679f63767a794f48d691cae12">&#9670;&nbsp;</a></span>setTimeout()</h2>
+<a id="adb74e943e2cb7e561e3d6fead702ce52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb74e943e2cb7e561e3d6fead702ce52">&#9670;&nbsp;</a></span>setTimeout()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -381,7 +471,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void SerialWombatUART::setTimeout </td>
           <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramtype">long&#160;</td>
           <td class="paramname"><em>timeout_mS</em></td><td>)</td>
           <td></td>
         </tr>
@@ -416,7 +506,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Write bytes to the Serial Wombat UART for Transmit. </p>
+<p>Write bytes to the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> for Transmit. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buffer</td><td>An array of uint8_t bytes to send </td></tr>
@@ -425,7 +515,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the number of bytes sent</dd></dl>
-<p>This function queries the Serial Wombat for avaialble TX buffer space, and sends bytes as buffer space is avaialble. If avaialable buffer space is not sufficient to send the entire array then the function will block and continue trying until the entire message has been sent to the Serial Wombat transmit queue. </p>
+<p>This function queries the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> for avaialble TX buffer space, and sends bytes as buffer space is avaialble. If avaialable buffer space is not sufficient to send the entire array then the function will block and continue trying until the entire message has been sent to the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> transmit queue. </p>
 
 </div>
 </div>
@@ -445,7 +535,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Write a byte to the Serial Wombat UART for Transmit. </p>
+<p>Write a byte to the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> for Transmit. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>Byte to write </td></tr>
@@ -454,6 +544,205 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Number of bytes written</dd></dl>
 <p>This does not check to see if space is avaialble in order to improve perfomance . This isn't an issue at high baud rates, as overhead to transmit one byte at a time allows sufficent time for queuing data to be sent by the UART. This could be a problem at very low baud rates and high I2C bus speeds. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a8fd4a686a9abccf8513b8306176a2bb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fd4a686a9abccf8513b8306176a2bb9">&#9670;&nbsp;</a></span>_baudMarker</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SerialWombatUART::_baudMarker = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1832fef8e08de10a4f9112b9a033d908"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1832fef8e08de10a4f9112b9a033d908">&#9670;&nbsp;</a></span>_pin</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SerialWombatUART::_pin = 255</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3a9248a6477dce41879c4f2a2a24399"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3a9248a6477dce41879c4f2a2a24399">&#9670;&nbsp;</a></span>_pinMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SerialWombatUART::_pinMode = <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a8d2d9f25291ed9e89a430ad6d0095154">PIN_MODE_UART_RX_TX</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac9bac383cb7df0093e30d5d96dea2787"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9bac383cb7df0093e30d5d96dea2787">&#9670;&nbsp;</a></span>_rx7Command</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SerialWombatUART::_rx7Command = (uint8_t)<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac306a5279bb13ad23d91eede098b2359">SerialWombatCommands::COMMAND_UART0_RX_7BYTES</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3185cbf9fb773917a3ca5bc3278e6887"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3185cbf9fb773917a3ca5bc3278e6887">&#9670;&nbsp;</a></span>_rxPin</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SerialWombatUART::_rxPin = 255</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7bb7e7b206ba006f14d9f1ed72249eeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bb7e7b206ba006f14d9f1ed72249eeb">&#9670;&nbsp;</a></span>_sw</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a>&amp; SerialWombatUART::_sw</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a72c265f2374266ff8e4528b74f2daee4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72c265f2374266ff8e4528b74f2daee4">&#9670;&nbsp;</a></span>_tx7Command</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SerialWombatUART::_tx7Command = (uint8_t)<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a804870d6054af17edf46f3c0d10d7635">SerialWombatCommands::COMMAND_UART0_TX_7BYTES</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac8775e7b983ebc7423bb73684a1ff1dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8775e7b983ebc7423bb73684a1ff1dd">&#9670;&nbsp;</a></span>_txPin</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SerialWombatUART::_txPin = 255</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a103a64da0425bbf628da9a498a751fdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a103a64da0425bbf628da9a498a751fdc">&#9670;&nbsp;</a></span>timeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t SerialWombatUART::timeout = 5000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

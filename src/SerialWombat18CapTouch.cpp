@@ -1,13 +1,13 @@
 #include "SerialWombat18CapTouch.h"
 
-SerialWombat18CapTouch::SerialWombat18CapTouch(SerialWombat& serialWombat) :_sw(serialWombat)
+SerialWombat18CapTouch::SerialWombat18CapTouch(SerialWombatChip& serialWombat) :_sw(serialWombat)
 {
     _sw = serialWombat;
 }
 
 int16_t SerialWombat18CapTouch::begin(uint8_t pin, uint16_t chargeTime)
 {
-    begin(pin, chargeTime, 10);
+    return begin(pin, chargeTime, 10);
 }
 
 int16_t SerialWombat18CapTouch::begin(uint8_t pin, uint16_t chargeTime, uint16_t delay)
@@ -41,7 +41,7 @@ int16_t SerialWombat18CapTouch::makeDigital(uint16_t touchLimit, uint16_t noTouc
     {
         return (result);
     }
-    uint8_t tx3[8] = { 203,_pin,22,1, invert?1:0,SW_LE16(debounceCount),0x55 };
+    uint8_t tx3[8] = { 203,_pin,22,1, invert? (uint8_t)1: (uint8_t)0,SW_LE16(debounceCount),0x55 };
     result = _sw.sendPacket(tx3);
     if (result < 0)
     {

@@ -20,7 +20,7 @@ This class describes the capabilties of a Serial Wombat Chip that are not Pin Mo
 class SerialWombatSimulatedQuadEnc
 {
 public:
-	SerialWombatSimulatedQuadEnc(SerialWombat& serialWombat0, SerialWombat& serialWombat1, uint8_t pin0, uint8_t pin1, bool openDrain, bool doubleTransition);
+	SerialWombatSimulatedQuadEnc(SerialWombatChip& serialWombat0, SerialWombatChip& serialWombat1, uint8_t pin0, uint8_t pin1, bool openDrain, bool doubleTransition);
 
 	void bothPinsHigh();
 	void togglePin0();
@@ -48,8 +48,8 @@ public:
 private:
 	bool pin0State = true;
 	bool pin1State = true;
-	SerialWombat& sw0;
-	SerialWombat& sw1;
+	SerialWombatChip& sw0;
+	SerialWombatChip& sw1;
 	uint8_t pin0;
 	uint8_t pin1;
 

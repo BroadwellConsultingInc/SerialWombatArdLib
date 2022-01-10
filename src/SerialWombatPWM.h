@@ -3,7 +3,6 @@
 #include "SerialWombat.h"
 /*! \file SerialWombatPWM.h
 */
-class SerialWombat;
 
 typedef enum 
 {
@@ -46,8 +45,8 @@ class SerialWombatPWM
 {
 public:
     /// \brief Constructor for SerialWombatPWM class
-    /// \param serialWombat SerialWombat on which the PWM will run
-	SerialWombatPWM(SerialWombat& serialWombat );
+    /// \param serialWombat SerialWombat  chip on which the PWM will run
+	SerialWombatPWM(SerialWombatChip& serialWombat );
 
     /// \brief Initialize a pin that has been declared as PWM.  Starts with 0 duty cycle
     /// \param pin The pin to become a PWM.  Valid values for SW4A: 0-3  SW4B: 1-3 
@@ -68,7 +67,7 @@ public:
     /// \param dutyCycle A value from 0 to 65535 representing duty cycle
 	void writeDutyCycle(uint16_t dutyCycle);
 
-    /// \brief Set PWM Frequency (Adjusts all PWM outputs' frequency on a SerialWombat)
+    /// \brief Set PWM Frequency (Adjusts all PWM outputs' frequency on a SerialWombat 4A/B chip)
     /// \param frequency  A value of the #Wombat4A_B_PWMFrequencyValues_t enumeration
     /// 
     /// This function changes the Serial Wombat 4A and 4B PWM output frequncy by adjusting
@@ -83,13 +82,13 @@ public:
     void setFrequency_SW4AB(Wombat4A_B_PWMFrequencyValues_t frequency);
 
 
-    void setFrequency_SW18AB_Hz(uint16_t frequency_Hz);
-    void setPeriod_SW18AB_uS(uint16_t period_uS);
+    void setFrequency_SW18AB_Hz(uint32_t frequency_Hz);
+    void setPeriod_SW18AB_uS(uint32_t period_uS);
 
 	~SerialWombatPWM();
 
 private:
-	SerialWombat* _sw;
+	SerialWombatChip* _sw;
 	uint8_t _pin = 255;
 };
 

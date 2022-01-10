@@ -2,7 +2,6 @@
 #define SERIAL_WOMBAT_SERVO_H__
 #include "SerialWombat.h"
 
-class SerialWombat;
 
 /*! \file SerialWombatServo.h
 */
@@ -35,13 +34,13 @@ class SerialWombatServo
 public:
 	/// \brief Constructor for the SerialWombatServo Class
 	/// 
-	/// \param sw A reference to a previously declared SerialWombat to which the Servo is connected.
-	SerialWombatServo(SerialWombat& sw);
+	/// \param sw A reference to a previously declared SerialWombatChip to which the Servo is connected.
+	SerialWombatServo(SerialWombatChip& sw);
 	~SerialWombatServo();
 
 	/// \brief Initialize a servo on the specified pin
 	/// 
-	/// This function must be called after the SerialWombat instance specified in the constructor
+	/// This function must be called after the SerialWombatChip  instance specified in the constructor
 	/// has been initialized with a begin call.
 	/// 
 	/// This function initializes a servo with a minimum pulse of 544 uS and a maximum pulse of 2400uS
@@ -51,7 +50,7 @@ public:
 	
 	/// \brief Initialize a servo on the specified pin
 	/// 
-	/// This function must be called after the SerialWombat instance specified in the constructor
+	/// This function must be called after the SerialWombatChip instance specified in the constructor
 	/// has been initialized with a begin call.
 	/// 
 	/// This function initializes a servo with a minimum pulse of 544 uS and a maximum pulse of 2400uS
@@ -61,7 +60,7 @@ public:
 	void attach(uint8_t pin, bool reverse);
 	/// \brief Initialize a servo on the specified pin
 	/// 
-	/// This function must be called after the SerialWombat instance specified in the constructor
+	/// This function must be called after the SerialWombatChip instance specified in the constructor
 	/// has been initialized with a begin call.
 	/// 
 	/// \param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3
@@ -70,7 +69,7 @@ public:
 	void attach(uint8_t pin, uint16_t min, uint16_t max);
 	/// \brief Initialize a servo on the specified pin
 	/// 
-	/// This function must be called after the SerialWombat instance specified in the constructor
+	/// This function must be called after the SerialWombatChip instance specified in the constructor
 	/// has been initialized with a begin call.
 	/// 
 	/// \param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3
@@ -100,7 +99,7 @@ public:
 	uint8_t read(void);
 
 private:
-	SerialWombat& _sw;
+	SerialWombatChip& _sw;
 	uint8_t _pin = 255;
 	uint16_t _position = 0;
 	uint16_t _min = 544;  // Default for Arduino Servo library

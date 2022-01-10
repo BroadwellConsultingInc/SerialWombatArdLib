@@ -1,7 +1,7 @@
 #include "SerialWombatDebouncedInput.h"
 
 
-SerialWombatDebouncedInput::SerialWombatDebouncedInput(SerialWombat& serialWombat):_sw(serialWombat)
+SerialWombatDebouncedInput::SerialWombatDebouncedInput(SerialWombatChip& serialWombat):_sw(serialWombat)
 {
 	_sw = serialWombat;
 }
@@ -69,7 +69,7 @@ bool SerialWombatDebouncedInput::readTransitionsState()
 	return (rx[3] > 0);
 }
 
-SerialWombatButtonCounter::SerialWombatButtonCounter( SerialWombatDebouncedInput* serialWombatDebouncedInput)
+SerialWombatButtonCounter::SerialWombatButtonCounter( SerialWombatAbstractButton& serialWombatDebouncedInput):_debouncedInput(serialWombatDebouncedInput)
 {
 	_debouncedInput = serialWombatDebouncedInput;
 }
@@ -97,7 +97,7 @@ void SerialWombatButtonCounter::begin(long* variableToIncrement, long slowIncrem
 
 bool SerialWombatButtonCounter::update()
 {
-	uint16_t pressDuration = _debouncedInput->readDurationInTrueState_mS();
+	uint16_t pressDuration = _debouncedInput.readDurationInTrueState_mS();
 	int increments = 0;
 	bool incremented = false;
 	bool pressed = false;
@@ -132,7 +132,7 @@ bool SerialWombatButtonCounter::update()
 		}
 		if (incremented)
 		{
-			_debouncedInput->transitions = 0;  // Get rid of false->true transition so that final release doesn't cause and increment
+			_debouncedInput.transitions = 0;  // Get rid of false->true transition so that final release doesn't cause and increment
 		}
 		pressed = true;
 	}
@@ -140,9 +140,9 @@ bool SerialWombatButtonCounter::update()
 	{
 		// Button isn't currently pressed.  if there were other transitions, add them
 		_lastPressDuration = 0;
-		int presses = _debouncedInput->transitions / 2;
+		int presses = _debouncedInput.transitions / 2;
 		 *_variableToIncrement += _slowIncrement * presses;
-		 _debouncedInput->transitions -= presses * 2;
+		 _debouncedInput.transitions -= presses * 2;
 	}
 
 	if (*_variableToIncrement > highLimit)

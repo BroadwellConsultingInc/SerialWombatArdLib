@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['state_440',['state',['../class_serial_wombat_simulated_quad_enc.html#a30a13b2e60fcc74f1c7096ad73fee908',1,'SerialWombatSimulatedQuadEnc']]]
+  ['rxqueue_614',['rxQueue',['../class_serial_wombat_s_w_u_a_r_t.html#a8be0cc314847e56db724ba53fe7c83f6',1,'SerialWombatSWUART']]]
 ];

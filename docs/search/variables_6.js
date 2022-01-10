@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inboot_432',['inBoot',['../class_serial_wombat.html#ae4c6c7956ccda51c2e9d080b47d8c60d',1,'SerialWombat']]]
+  ['inboot_604',['inBoot',['../class_serial_wombat_chip.html#a35a3eec0a7ab1043ddc572d4f90cbd9c',1,'SerialWombatChip']]]
 ];

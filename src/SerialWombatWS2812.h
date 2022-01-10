@@ -78,7 +78,7 @@ class SerialWombatWS2812
 public:
 	/// \brief Constructor for SerialWombatWS2812 class
    /// \param serialWombat SerialWombat chip on which the driver will run
-	SerialWombatWS2812(SerialWombat& serialWombat);
+	SerialWombatWS2812(SerialWombatChip& serialWombat);
 
 	/// \brief Initialize a WS2812 LED driver object
 	///
@@ -152,9 +152,18 @@ public:
 
 	/// \brief Sets the mode of the WS2812 LED Driver
 	/// \return 0 or higher for success or a negative number indicating an error code from the Serial Wombat chip.
-	int16_t setMode(SWWS2812Mode mode);
+	int16_t writeMode(SWWS2812Mode mode);
+
+	/// \brief Display a bargraph using the configured ws2812 class
+	///
+	/// \param sourcePin  The data source to use for the bargraph
+	/// \param offRGB The color to use for LEDs beyond the bargraph level
+	/// \param onRGB The color to use for LEDs lit by the bargraph
+	/// \param min The public data value (or below) to be treated as the beginning of the bargraph
+	/// \param max The public data value (or above) to be treated as the end of the bargraph
+	int16_t barGraph(uint8_t sourcePin, uint32_t offRGB, uint32_t onRGB, uint16_t min, uint16_t max);
 private:
-	SerialWombat* _sw;
+	SerialWombatChip* _sw;
 
 	uint8_t _pin = 255;
 	uint8_t _numLEDS = 0;

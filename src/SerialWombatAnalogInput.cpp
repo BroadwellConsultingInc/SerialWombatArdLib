@@ -1,27 +1,33 @@
 #include "SerialWombatAnalogInput.h"
 
 
-SerialWombatAnalogInput::SerialWombatAnalogInput( SerialWombat& serialWombat):_sw(serialWombat)
+SerialWombatAnalogInput::SerialWombatAnalogInput( SerialWombatChip& serialWombat):_sw(serialWombat)
 {
 	_sw = serialWombat;
 }
 
-void SerialWombatAnalogInput::begin(uint8_t pin)
+int16_t SerialWombatAnalogInput::begin(uint8_t pin)
 {
 	_pin = pin;
 	uint8_t tx[] = { 200,_pin,PIN_MODE_ANALOGINPUT,0,0,0,0,0 };
 	uint8_t rx[8];
 	_sw.sendPacket(tx, rx);
 	uint8_t tx1[] = { 201,_pin,PIN_MODE_ANALOGINPUT,64,0,0xFF,0x80,0 };
-	_sw.sendPacket(tx1, rx);
+	return _sw.sendPacket(tx1, rx);
 }
 
-void SerialWombatAnalogInput::begin(uint8_t pin, uint16_t averageSamples, uint16_t filterConstant)
+int16_t SerialWombatAnalogInput::begin(uint8_t pin, uint16_t averageSamples, uint16_t filterConstant, AnalogInputPublicDataOutput output)
+{
+	begin(pin);
+	uint8_t tx[] = { 201,_pin,PIN_MODE_ANALOGINPUT,SW_LE16(averageSamples) ,SW_LE16(filterConstant),(uint8_t)output };
+	return _sw.sendPacket(tx);
+}
+
+int16_t SerialWombatAnalogInput::begin(uint8_t pin, uint16_t averageSamples, uint16_t filterConstant)
 {
 	begin(pin);
 	uint8_t tx[] = { 201,_pin,PIN_MODE_ANALOGINPUT,SW_LE16(averageSamples) ,SW_LE16(filterConstant),0 };
-	uint8_t rx[8];
-	_sw.sendPacket(tx, rx);
+	return _sw.sendPacket(tx);
 }
 
 
@@ -90,7 +96,6 @@ uint16_t SerialWombatAnalogInput::updateSupplyVoltage_mV()
 
 SerialWombatAnalogInput::~SerialWombatAnalogInput()
 {
-
 }
 
 
@@ -120,6 +125,19 @@ uint16_t SerialWombatAnalogInput::readMinimumCounts(bool resetAfterRead)
 	_sw.sendPacket(tx, rx);
 
 	return(rx[3] + rx[4] * 256);
+}
+
+int16_t SerialWombatAnalogInput::setInputSource(uint8_t inputSource)
+{
+	uint8_t tx[] = { 202,_pin,PIN_MODE_ANALOGINPUT,inputSource,0x55,0x55,0x55,0x55 };
+	return(_sw.sendPacket(tx));
+
+}
+
+int16_t SerialWombatAnalogInput::setQueue(uint16_t queueIndex, uint16_t msBetweenQueues)
+{
+	uint8_t tx[8] = { 218,_pin,PIN_MODE_ANALOGINPUT,SW_LE16(queueIndex), SW_LE16(msBetweenQueues),0x55 };
+	return (_sw.sendPacket(tx));
 }
 
 

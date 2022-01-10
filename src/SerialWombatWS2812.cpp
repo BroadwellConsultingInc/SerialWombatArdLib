@@ -1,7 +1,7 @@
 #include "SerialWombat.h"
 
 
-SerialWombatWS2812::SerialWombatWS2812(SerialWombat& serialWombat)
+SerialWombatWS2812::SerialWombatWS2812(SerialWombatChip& serialWombat)
 {
 	_sw = &serialWombat;
 }
@@ -57,12 +57,12 @@ int16_t SerialWombatWS2812::writeAnimationLED(uint8_t frame, uint8_t led, uint32
 
 int16_t SerialWombatWS2812::writeAnimationLED(uint8_t frame, uint8_t led, int16_t color)
 {
-	writeAnimationLED(frame, led,(uint32_t)color);
+	return writeAnimationLED(frame, led,(uint32_t)color);
 }
 
 int16_t SerialWombatWS2812::writeAnimationLED(uint8_t frame, uint8_t led, int32_t color)
 {
-	writeAnimationLED(frame, led, (uint32_t)color);
+	return writeAnimationLED(frame, led, (uint32_t)color);
 }
 
 int16_t SerialWombatWS2812::writeAnimationFrame(uint8_t frame, uint32_t colors[])
@@ -110,8 +110,22 @@ int16_t SerialWombatWS2812::readBufferSize()
 }
 
 
-int16_t SerialWombatWS2812::setMode(SWWS2812Mode mode)
+int16_t SerialWombatWS2812::writeMode(SWWS2812Mode mode)
 {
-	uint8_t tx[8] = { 206,_pin,12,mode,0x55,0x55,0x55,0x55 };
+	uint8_t tx[8] = { 206,_pin,12,(uint8_t)mode,0x55,0x55,0x55,0x55 };
 	return _sw->sendPacket(tx);
+}
+
+int16_t SerialWombatWS2812::barGraph(uint8_t sourcePin, uint32_t offRGB, uint32_t onRGB,uint16_t min, uint16_t max)
+{
+	uint8_t tx[8] = { 206,_pin,12,3,sourcePin,0x55,0x55,0x55 };
+	int16_t result = 0;
+	result = _sw->sendPacket(tx);  if (result < 0) { return result; }
+	result = write(0, offRGB); if (result < 0) { return result; }
+	result = write(1, onRGB);  if (result < 0) { return result; }
+
+	uint8_t minMax[8] = { 207,_pin,12,SW_LE16(min), SW_LE16(max),0x55 };
+	return _sw->sendPacket(minMax);
+
+	
 }

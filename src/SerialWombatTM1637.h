@@ -56,12 +56,12 @@ enum SWTM1637Mode {
 /// Display order issues can be corrected with the orderDigits() command.
 /// 
 /// 
-class SerialWombatTM1637
+class SerialWombatTM1637:public Print
 {
 public:
 	/// \brief Constructor for SerialWombatTM1637 class
-   /// \param serialWombat SerialWombat on which the PWM will run
-	SerialWombatTM1637(SerialWombat& serialWombat);
+   /// \param serialWombat SerialWombatChip on which the PWM will run
+	SerialWombatTM1637(SerialWombatChip& serialWombat);
 
 	/// \brief Initialize an instance of the TM1637 class
 	///
@@ -72,7 +72,8 @@ public:
 	/// \param mode  The mode (decimal, hex, char array, raw or animation) of the display driver
 	/// \param dataSourcePin if in decimal or hex mode, the pin from which the 16 bit data will be read.  Set this to the clkPin setting if you want to be able to write 16 bit (5 digit) numbers using the SerialWombat.writePublicData() function.  Numbers larger than 65535 must be written as strings using the Character Mode
 	/// \param Brightness - a value from 0 (dimmest) to 7 (brightest) based on the TM1637 hardware.  This scale is not linear.
-	int begin(uint8_t clkPin, uint8_t dioPin, uint8_t digits, SWTM1637Mode mode, uint8_t dataSourcePin, uint8_t brightness0to7);
+	int16_t begin(uint8_t clkPin, uint8_t dioPin, uint8_t digits, SWTM1637Mode mode, uint8_t dataSourcePin, uint8_t brightness0to7);
+
 
 	/// \brief Used to reorder the digits of the display to match display hardware.
 	///
@@ -89,14 +90,15 @@ public:
 	/// 
 	/// \return Returns a negative error code if errors occur during configuration
 	/// 
-    int orderDigits(uint8_t first, uint8_t second, uint8_t third, uint8_t fourth, uint8_t fifth, uint8_t sixth );
+	int16_t writeDigitOrder(uint8_t first, uint8_t second, uint8_t third, uint8_t fourth, uint8_t fifth, uint8_t sixth );
 
 	/// \brief Used to send data to the data array of the driver.  
 	///
 	/// \param data  A 6 byte array that is sent to the display driver
+	/// \return Returns a negative error code if errors occur during configuration 
 	/// 
 	/// The meaning of this data varies based on mode.  See examples.
-	int setArray(uint8_t data[6]);
+	int16_t writeArray(uint8_t data[6]);
 	/// \brief Set a bitmap of the MSB of each digit to control decimal points
 	///
 	/// Note that TM1637 decimal point implementation varies greatly depending on the
@@ -105,12 +107,14 @@ public:
 	/// the result of display pcb implementation, not an issue with this library or the Serial Wombat
 	/// firmware.
 	/// \param decimalBitmapLSBleftDigit A bitmap indicating if the decimal for each digit should be lit.  LSB is first digit  Valid values are 0 - 0x3F
+	/// \return Returns a negative error code if errors occur during configuration
 	/// 
-	int setDecimalBitmap(uint8_t decimalBitmapLSBleftDigit);
+	int16_t writeDecimalBitmap(uint8_t decimalBitmapLSBleftDigit);
 	///  \brief Changes the brightness of the display
 	/// 
 	/// \param Brightness - a value from 0 (dimmest) to 7 (brightest) based on the TM1637 hardware.  This scale is not linear.
-	int setBrightness(uint8_t brightness0to7);
+	/// \return Returns a negative error code if errors occur during configuration
+	int16_t writeBrightness(uint8_t brightness0to7);
 
 	/// \brief Loads an animation to the Serial Wombat user buffer area and initializes the animation
 	///
@@ -121,10 +125,37 @@ public:
 	/// \param delay How long the animation display driver should wait between loading new data
 	/// \param Number of Frames to be displayed before returning to the first frame.  This should be the number of lines in data
 	/// \param data A 2 dimensional array of width 6 and arbitrary length.
-	int setAnimation(uint16_t bufferIndex, uint16_t delay, uint8_t numberOfFrames, uint8_t data[][6]);
+	/// \return Returns a negative error code if errors occur during configuration
+	int16_t writeAnimation(uint16_t bufferIndex, uint16_t delay, uint8_t numberOfFrames, uint8_t data[][6]);
+
+	/// \brief Whether or not to suppress leading zeros in decimal mode
+	///
+	/// \return Returns a negative error code if errors occur during configuration
+	/// \param supress  true:  suppress leading zeros   false:  Do not suppress leading zeros
+	int16_t suppressLeadingZeros(bool suppress);
 	
+	/// \brief Set a bitmap of the digits that should blink at 2Hz with 7/8 duty cycle
+	///
+	/// This function is useful for creating user interfaces where the user increments or decrements
+	/// one digit of a number at a time. The blinking digit indicates the digit that will change.
+	/// 
+	/// \param blinkBitmap A bitmap indicating if the decimal for each digit should be lit.  LSB is first digit  Valid values are 0 - 0x3F. 1 = blink
+	/// \return Returns a negative error code if errors occur during configuration
+	/// 
+	int16_t writeBlinkBitmap(uint8_t blinkBitmapLSBleftDigit);
+
+	/// \brief Write a byte to String mode, shifting other characters
+	///
+	/// This function allows the TM1637 mode to use Arduino Print statements.
+	/// 
+	/// \param data Byte to be written to display
+	/// \return Number of bytes written
+	/// 
+	virtual size_t write(uint8_t data);
+	using Print::write;
+
 private:
-	SerialWombat* _sw;
+	SerialWombatChip* _sw;
 
 	uint8_t _pin = 255;
 	uint8_t _dioPin = 255;

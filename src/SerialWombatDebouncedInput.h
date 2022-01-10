@@ -47,13 +47,13 @@ additional hardware.
 See also the SerialWombatButtonCounter class which can run on top of this one.
 
 */
-class SerialWombatDebouncedInput
+class SerialWombatDebouncedInput:public SerialWombatAbstractButton
 {
 public:
 	/// \brief Constructor for the SerialWombatDebouncedInput class.
 	/// 
 	/// \param serialWombat a reference to the Serial Wombat on which the Debounced Input will exist
-	SerialWombatDebouncedInput(SerialWombat& serialWombat);
+	SerialWombatDebouncedInput(SerialWombatChip& serialWombatChip);
 
 	/// \brief Initialize a debounced input (simplified for typical switch to ground)
 	/// 
@@ -107,7 +107,7 @@ public:
 
 
 private:
-	SerialWombat& _sw;
+	SerialWombatChip& _sw;
 	uint8_t _pin = 255;
 	
 
@@ -139,7 +139,7 @@ public:
 
 	/// \brief Constructor for SerialWombatButtonCounter
 	/// \param serialWombatDebouncedInput  A pointer to an already initialized SerialWombatDebouncedInput
-	 SerialWombatButtonCounter( SerialWombatDebouncedInput* serialWombatDebouncedInput);
+	 SerialWombatButtonCounter( SerialWombatAbstractButton& serialWombatDebouncedInput);
 
 	 /// Initializes the SerialWombatButtonCounter
 	 /// 
@@ -167,7 +167,7 @@ public:
 	long lowLimit = LONG_MIN;
 
 private:
-	SerialWombatDebouncedInput* _debouncedInput;
+	SerialWombatAbstractButton& _debouncedInput;
 	long* _variableToIncrement;
 
 	long _slowIncrement;

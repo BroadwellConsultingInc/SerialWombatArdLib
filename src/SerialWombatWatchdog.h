@@ -30,8 +30,8 @@ class SerialWombatWatchdog
 {
 public:
 	/// \brief Constructor for SerialWombatWatchdog
-	/// \param serialWombat SerialWombat on which the SerialWombatWatchdog will run
-	SerialWombatWatchdog(SerialWombat& serialWombat);
+	/// \param serialWombat SerialWombat chip on which the SerialWombatWatchdog will run
+	SerialWombatWatchdog(SerialWombatChip& serialWombat);
 	/// \brief Initialize a SerialWombatWatchdog
 	/// 
 	/// \param pin Pin on which the SerialWombat Watchdog will run.  Valid values for SW4A: 0-3  SW4B: 1-3.
@@ -45,7 +45,7 @@ public:
 	/// \param time_mS number of mS until countdown timer expires.
 	void updateResetCountdown(uint16_t time_mS);
 private:
-	SerialWombat& _sw;
+	SerialWombatChip& _sw;
 	uint8_t _pin = 255;
 	uint16_t _resetStateTime = 10;
 

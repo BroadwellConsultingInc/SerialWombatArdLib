@@ -45,7 +45,7 @@ class SerialWombatProtectedOutput
 public:
     /// \brief Constructor for SerialWombatProtectedOutput
     /// \param serialWombat The serial Wombat on which the Protected Output runs
-    SerialWombatProtectedOutput(SerialWombat& serialWombat);
+    SerialWombatProtectedOutput(SerialWombatChip& serialWombat);
     ///  Initialize the Protected Output.  No pin state changes happen with this function
     /// \param pin The output pin of the Protected output   Valid values for SW4A: 0-3  SW4B: 1-3 
     /// \param monitoredPin The input pin for the Protected Output.  Must be initialized before this call
@@ -70,7 +70,7 @@ public:
     void digitalWrite(uint8_t state);
 
 private:
-    SerialWombat& _sw;
+    SerialWombatChip& _sw;
     uint8_t _pin = 255;
     uint8_t _monitoredPin = 255;
     PO_COMPARE_t _compareMode = PO_FAULT_IF_NOT_EQUAL;
