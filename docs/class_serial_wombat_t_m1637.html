@@ -74,6 +74,12 @@ $(function() {
  <a href="class_serial_wombat_t_m1637.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for SerialWombatTM1637:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_serial_wombat_t_m1637.png" alt=""/>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -105,6 +111,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0cadef4e708d816fde044dbb047f4858"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#a0cadef4e708d816fde044dbb047f4858">writeBlinkBitmap</a> (uint8_t blinkBitmapLSBleftDigit)</td></tr>
 <tr class="memdesc:a0cadef4e708d816fde044dbb047f4858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a bitmap of the digits that should blink at 2Hz with 7/8 duty cycle.  <a href="class_serial_wombat_t_m1637.html#a0cadef4e708d816fde044dbb047f4858">More...</a><br /></td></tr>
 <tr class="separator:a0cadef4e708d816fde044dbb047f4858"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a336a4182993af943e928b2059916ba1f"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_t_m1637.html#a336a4182993af943e928b2059916ba1f">write</a> (uint8_t data)</td></tr>
+<tr class="memdesc:a336a4182993af943e928b2059916ba1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a byte to String mode, shifting other characters.  <a href="class_serial_wombat_t_m1637.html#a336a4182993af943e928b2059916ba1f">More...</a><br /></td></tr>
+<tr class="separator:a336a4182993af943e928b2059916ba1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A Class representing a TM1637 Seven-Segment Display connected to two Serial Wombat pins. </p>
@@ -237,6 +246,42 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a336a4182993af943e928b2059916ba1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a336a4182993af943e928b2059916ba1f">&#9670;&nbsp;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t SerialWombatTM1637::write </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write a byte to String mode, shifting other characters. </p>
+<p>This function allows the TM1637 mode to use Arduino Print statements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Byte to be written to display </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes written </dd></dl>
 
 </div>
 </div>
