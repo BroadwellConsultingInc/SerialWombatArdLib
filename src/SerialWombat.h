@@ -4,6 +4,9 @@
 /*
 Copyright 2020-2021 Broadwell Consulting Inc.
 
+"Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
+the United States.  See SerialWombat.com for usage guidance.
+
 Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
  * to deal in the Software without restriction, including without limitation
@@ -24,9 +27,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 */
 
 #include <stdint.h>
+#include "Stream.h"
 #include "HardwareSerial.h" // Using "" rather than <> for compatibility with Visual C++ simulation project
 #include "Wire.h"// Using "" rather than <> for compatibility with Visual C++ simulation project
 #include "Arduino.h"
+
+
 
 /*! \file SerialWombat.h
 */
@@ -40,26 +46,26 @@ typedef enum
 
 enum class SerialWombatDataSource{
 
-	SW_DATA_SOURCE_PIN_0 = 0,
-	SW_DATA_SOURCE_PIN_1 = 1,
-	SW_DATA_SOURCE_PIN_2 = 2,
-	SW_DATA_SOURCE_PIN_3 = 3,
-	SW_DATA_SOURCE_PIN_4 = 4,
-	SW_DATA_SOURCE_PIN_5 = 5,
-	SW_DATA_SOURCE_PIN_6 = 6,
-	SW_DATA_SOURCE_PIN_7 = 7,
-	SW_DATA_SOURCE_PIN_8 = 8,
-	SW_DATA_SOURCE_PIN_9 = 9,
-	SW_DATA_SOURCE_PIN_10 = 10,
-	SW_DATA_SOURCE_PIN_11 = 11,
-	SW_DATA_SOURCE_PIN_12 = 12,
-	SW_DATA_SOURCE_PIN_13 = 13,
-	SW_DATA_SOURCE_PIN_14 = 14,
-	SW_DATA_SOURCE_PIN_15 = 15,
-	SW_DATA_SOURCE_PIN_16 = 16,
-	SW_DATA_SOURCE_PIN_17 = 17,
-	SW_DATA_SOURCE_PIN_18 = 18,
-	SW_DATA_SOURCE_PIN_19 = 19,
+	SW_DATA_SOURCE_PIN_0 = 0, ///< 16 bit public data provided by Pin 0
+	SW_DATA_SOURCE_PIN_1 = 1,///< 16 bit public data provided by Pin 1
+	SW_DATA_SOURCE_PIN_2 = 2,///< 16 bit public data provided by Pin 2
+	SW_DATA_SOURCE_PIN_3 = 3,///< 16 bit public data provided by Pin 3
+	SW_DATA_SOURCE_PIN_4 = 4,///< 16 bit public data provided by Pin 4
+	SW_DATA_SOURCE_PIN_5 = 5,///< 16 bit public data provided by Pin 5
+	SW_DATA_SOURCE_PIN_6 = 6,///< 16 bit public data provided by Pin 6
+	SW_DATA_SOURCE_PIN_7 = 7,///< 16 bit public data provided by Pin 7
+	SW_DATA_SOURCE_PIN_8 = 8,///< 16 bit public data provided by Pin 8
+	SW_DATA_SOURCE_PIN_9 = 9,///< 16 bit public data provided by Pin 9
+	SW_DATA_SOURCE_PIN_10 = 10,///< 16 bit public data provided by Pin 10
+	SW_DATA_SOURCE_PIN_11 = 11,///< 16 bit public data provided by Pin 11
+	SW_DATA_SOURCE_PIN_12 = 12,///< 16 bit public data provided by Pin 12
+	SW_DATA_SOURCE_PIN_13 = 13,///< 16 bit public data provided by Pin 13
+	SW_DATA_SOURCE_PIN_14 = 14,///< 16 bit public data provided by Pin 14
+	SW_DATA_SOURCE_PIN_15 = 15,///< 16 bit public data provided by Pin 15
+	SW_DATA_SOURCE_PIN_16 = 16,///< 16 bit public data provided by Pin 16
+	SW_DATA_SOURCE_PIN_17 = 17,///< 16 bit public data provided by Pin 17
+	SW_DATA_SOURCE_PIN_18 = 18,///< 16 bit public data provided by Pin 18
+	SW_DATA_SOURCE_PIN_19 = 19,///< 16 bit public data provided by Pin 19
 //	SW_DATA_SOURCE_PIN_20 = 20,
 //	SW_DATA_SOURCE_PIN_21 = 21,
 //	SW_DATA_SOURCE_PIN_22 = 22,
@@ -116,11 +122,12 @@ enum class SerialWombatDataSource{
 	SW_DATA_SOURCE_SYSTEM_UTILIZATION = 74 , ///< A number between 0 and 65535 that scales to the average length of pin processing frames between 0 and 1000mS
 	SW_DATA_SOURCE_VCC_mVOLTS = 75, ///<The system source voltage in mV
 	SW_DATA_SOURCE_VBG_COUNTS_VS_VREF = 76, ///< A/D conversion of VBG against VRef .  Used for mfg calibration
-	SW_DATA_SOURCE_PIN_0_MV = 100,
-	SW_DATA_SOURCE_PIN_1_MV = 101,
-	SW_DATA_SOURCE_PIN_2_MV = 102,
-	SW_DATA_SOURCE_PIN_3_MV = 103,
-	SW_DATA_SOURCE_PIN_4_MV = 104,
+	SW_DATA_SOURCE_LFSR = 78,
+	SW_DATA_SOURCE_PIN_0_MV = 100, ///< Pin 0 public output expressed in mV (for analog modes only)
+	SW_DATA_SOURCE_PIN_1_MV = 101, ///< Pin 1 public output expressed in mV (for analog modes only)
+	SW_DATA_SOURCE_PIN_2_MV = 102, ///< Pin 2 public output expressed in mV (for analog modes only)
+	SW_DATA_SOURCE_PIN_3_MV = 103, ///< Pin 3 public output expressed in mV (for analog modes only)
+	SW_DATA_SOURCE_PIN_4_MV = 104, ///< Pin 4 public output expressed in mV (for analog modes only)
 	//NOT ANALOG            SW_DATA_SOURCE_PIN_5_MV = 105,
 	//NOT ANALOG            SW_DATA_SOURCE_PIN_6_MV = 106,
 	//NOT ANALOG            SW_DATA_SOURCE_PIN_7_MV = 107,
@@ -132,10 +139,10 @@ enum class SerialWombatDataSource{
 	//NOT ANALOG            SW_DATA_SOURCE_PIN_13_MV = 113,
 	//NOT ANALOG            SW_DATA_SOURCE_PIN_14_MV = 114,
 	//NOT ANALOG            SW_DATA_SOURCE_PIN_15_MV = 115,
-	SW_DATA_SOURCE_PIN_16_MV = 116,
-	SW_DATA_SOURCE_PIN_17_MV = 117,
-	SW_DATA_SOURCE_PIN_18_MV = 118,
-	SW_DATA_SOURCE_PIN_19_MV = 119,
+	SW_DATA_SOURCE_PIN_16_MV = 116, ///< Pin 16 public output expressed in mV (for analog modes only)
+	SW_DATA_SOURCE_PIN_17_MV = 117, ///< Pin 17 public output expressed in mV (for analog modes only)
+	SW_DATA_SOURCE_PIN_18_MV = 118, ///< Pin 18 public output expressed in mV (for analog modes only)
+	SW_DATA_SOURCE_PIN_19_MV = 119, ///< Pin 19 public output expressed in mV (for analog modes only)
 };
 
 #define ERROR_HOST_INCORRECT_NUMBER_BYTES_WRITTEN 0x10000 ///< Write routine returned wrong number of bytes
@@ -148,10 +155,10 @@ enum class SerialWombatDataSource{
 
 enum class SerialWombatCommands
 {
-	CMD_ECHO ='!',
+	CMD_ECHO ='!', 
 	CMD_READ_BUFFER_ASCII = 'G',
-	CMD_ASCII_SET_PIN ='P',
-	CMD_RESET = 'R',
+	CMD_ASCII_SET_PIN ='P', 
+	CMD_RESET = 'R', 
 	CMD_SET_BUFFER_ASCII = 'S',
 	CMD_RESYNC = 'U',
 	CMD_VERSION = 'V',
@@ -188,6 +195,9 @@ enum class SerialWombatCommands
 	CONFIGURE_PIN_MODE7 = 207,
 	CONFIGURE_PIN_MODE8 = 208,
 	CONFIGURE_PIN_MODE9 = 209,
+	CONFIGURE_PIN_MODE10 = 210,
+	CONFIGURE_PIN_OUTPUTSCALE = 210,
+	CONFIGURE_PIN_INPUTPROCESS = 211,
 	CONFIGURE_PIN_MODE_HW_0 = 220,
 	CONFIGURE_CHANNEL_MODE_HW_1 = 221,
 	CONFIGURE_CHANNEL_MODE_HW_2 = 222,
@@ -209,19 +219,25 @@ typedef enum {
 	PIN_MODE_TM1637 = 11,
 	PIN_MODE_WS2812 = 12,
 	PIN_MODE_SW_UART = 13,
+	PIN_MODE_INPUT_PROCESSOR = 14,
 	PIN_MODE_MATRIX_KEYPAD = 15,
 	PIN_MODE_PWM = 16,
 	PIN_MODE_UART_RX_TX = 17,  //UART 0 externally is UART 1 internally
 	PIN_MODE_PULSETIMER = 18,
-	PIN_MODE_RESISTANCEINPUT = 19,
+	
 	PIN_MODE_FRAME_TIMER = 21,
+	PIN_MODE_SW18AB_CAPTOUCH = 22,
 	PIN_MODE_UART1_RX_TX = 23,
+	PIN_MODE_RESISTANCEINPUT = 24,
+	PIN_MODE_PULSE_ON_CHANGE = 25,
+	PIN_MODE_HS_SERVO = 26,
+	PIN_MODE_ULTRASONIC_DISTANCE = 27,
 	PIN_MODE_UNKNOWN = 255
 }SerialWombatPinMode_t;
 
 
 
-/*! /brief Class for a Serial Wombat chip.  Each Serial Wombat chip on a project should have its own instance.
+/*! \brief Class for a Serial Wombat chip.  Each Serial Wombat chip on a project should have its own instance.
 
 This class describes the capabilties of a Serial Wombat Chip that are not Pin Mode functionalities
 
@@ -303,6 +319,16 @@ public:
 	/// \return The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip
 	int sendPacket(uint8_t tx[]);
 
+	/// \brief Send an 8 byte packet to the Serial Wombat chip, don't wait for a response.
+		/// 
+		/// This method sends 8 bytes.  Used for resetting the chip prior to bootloading
+		/// 
+		/// 
+		/// \param tx address of an array of 8 bytes to send
+		/// \return returns a non-error 0 or higher
+
+	int sendPacketNoResponse(uint8_t tx[]);
+
 	/// \brief Request version string (combined model and firmware) and return pointer to it
 	/// 
 	/// This queries the Serial Wombat chip for the 7 characters:   product line (1 character)
@@ -337,7 +363,7 @@ public:
 	/// \brief Measure the Serial Wombat chip's Supply voltage
 	/// 
 	/// Causes the Serial Wombat chip to measure the counts for the 
-	/// internal 1.024V reference voltage.  The Arduino library
+	/// internal reference voltage.  The Arduino library
 	/// then converts these counts to a Source votlage in mV
 	/// 
 	/// \return The Serial Wombat chip's source voltage in mV
@@ -348,9 +374,10 @@ public:
 	/// This command is only supported by the SerialWombat 18 Series.
 	/// The Arduino library will return 25 deg. C for other models
 	/// 
+	/// This value is low accuracy unless a calibration has been performed
 	/// 
 	/// \return The Serial Wombat chip's temperature in 100ths deg C
-	uint16_t readTemperature_100thsDegC(void);
+	int16_t readTemperature_100thsDegC(void);
 
 
 	/// \brief Send a reset command to the Serial Wombat chip
@@ -542,9 +569,7 @@ public:
 	/// Incremented every time a communication or command error is detected.
 	uint32_t errorCount = 0;
 
-	/// The last error number reported
-	uint32_t errorNum = 0;
-
+	/// Set to true if boot mode is indicated by a version query
 	bool inBoot = false;
 
 	/// \brief Set a pin to be a throughput monitoring pin. 
@@ -570,7 +595,19 @@ public:
 	/// 
 	int16_t enable2ndCommandInterface(bool enabled);
 
+
+	/// \brief Search the I2C Bus addresses 0x68 to 0x6F for I2C devices, and test to see if they respond to
+	/// Serial Wombat version commands.  Returns first address that responds properly or 0 if none found
+	/// 
+	/// \return I2C address of first found Seirla Wombat chip or 0 if none found
 	static uint8_t find();
+
+	/// \brief Search the I2C Bus addresses 0x68 to 0x6F for I2C devices, and test to see if they respond to
+	/// Serial Wombat version commands.  Returns first address that responds properly or 0 if none found
+	/// 
+	/// \param keepTrying if True, go into a loop and do not exit until a Serial Wombat Chip is found
+	/// 
+	/// \return I2C address of first found Seirla Wombat chip or 0 if none found
 
 	static uint8_t find(bool keepTrying);
 	int16_t lastErrorCode = 0;
@@ -584,6 +621,7 @@ private:
 	uint8_t _pinmode[WOMBAT_MAXIMUM_PINS]={}; // Includes Pullup
 	bool _pullDown[WOMBAT_MAXIMUM_PINS]={};
 	bool _openDrain[WOMBAT_MAXIMUM_PINS]={};
+	bool _highLow[WOMBAT_MAXIMUM_PINS] = {};
 	bool _asleep = false;
 	void configureDigitalPin(uint8_t pin, uint8_t highLow);
 	uint32_t sendReadyTime = 0;
@@ -592,28 +630,98 @@ private:
 	void readDeviceIdentifier();
 };
 
-class SerialWombat : public SerialWombatChip {};  // This class name is depricated.  Do not use for new development.  Use SerialWombatChip instead.
-
+/// \brief This class name is depricated.  Do not use for new development.  Use SerialWombatChip instead.
+class SerialWombat : public SerialWombatChip {};  
 /// Convert a uint16_t to two bytes in little endian format for array initialization
 #define SW_LE16(_a)  (uint8_t)((_a) & 0xFF), (uint8_t)((_a) >>8)  
 
 /// Convert a uint32_t to four bytes in little endian format for array initialization
 #define SW_LE32(_a)  (uint8_t)((_a) & 0xFF), (uint8_t)((_a) >>8) , (uint8_t)((_a) >>16), (uint8_t)((_a) >>24)
 
-#include "SerialWombatAbstractButton.h"
+
+class SerialWombatPin
+{
+public:
+
+	SerialWombatPin(SerialWombatChip& serialWombatChip);
+
+	/// \brief Read the 16 Bit public data associated with this pin 
+	/// 
+	/// Reads and returns the 16 bit value associated with this pin.
+	/// \return 16 bit public data for this pin.
+	uint16_t readPublicData() 
+	{
+		return _sw.readPublicData(_pin);
+	};
+
+	/// \brief Set pin to INPUT or OUTPUT
+	/// 
+	/// This method matches the Arduino Digital io pinMode command
+	/// It should only be used on pins that have not been configured to a more
+	/// sophisticated (e.g. debounce or servo) pin mode.  
+	/// 
+	/// \param mode Valid values are INPUT or OUTPUT as defined by arduino.  Do 
+	/// not use SW_INPUT, SW_HIGH or SW_LOW here, as these have different meanings
+	void pinMode(uint8_t mode);
+
+	/// \brief Set pin to INPUT or OUTPUT, with options for pull Ups and open Drain settings
+	/// 
+	/// \param mode Valid values are INPUT, OUTPUT or INPUT_PULLUP as defined by arduino.  Do 
+	/// not use SW_INPUT, SW_HIGH or SW_LOW here, as these have different meanings
+	/// \param pullDown  If True, a weak pull down will be enabled on this pin (No effect on SW4A/SW4B)
+	/// \param openDrain If True, output becomes openDrain output rather than push / pull
+	void pinMode(uint8_t mode, bool pullDown, bool openDrain);
+
+	/// \brief Set output pin High or Low
+	/// 
+	/// Before calling this function, the pin should be configured as an input or output with pinMode()
+	/// \param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3
+	/// \param val  Valid values are HIGH or LOW
+	/// not use SW_INPUT, SW_HIGH or SW_LOW here, as these have different meanings
+	void digitalWrite(uint8_t val);
+
+	/// \brief Reads the state of the Pin
+	/// 
+	/// This function is based on the pin's public data, not a raw reading.
+	/// 
+	/// \return Returns LOW if pin is low or public data is 0.  Returns HIGH if pin is high or public data is > 0
+	int digitalRead();
+
+
+	/// \brief Write a 16 bit value to this pin
+	/// \param value The 16 bit value to write
+	uint16_t writePublicData(uint16_t value) 
+	{ return _sw.writePublicData(_pin, value); }
+
+	uint8_t pin() {return _pin;}
+	uint8_t swPinModeNumber() { return _pinMode; }
+
+
+protected:
+	uint8_t _pin = 255;
+	SerialWombatChip& _sw;
+	uint8_t _pinMode = 0;
+};
 #include "SerialWombatQueue.h"
+#include "SerialWombatAbstractButton.h"
+#include "SerialWombatAbstractProcessedInput.h"
+#include "SerialWombatAbstractScaledOutput.h"
 #include "SerialWombat18CapTouch.h"
 #include "SerialWombatAnalogInput.h"
 #include "SerialWombatDebouncedInput.h"
 #include "SerialWombatMatrixKeypad.h"
+#include "SerialWombatProcessedInputPin.h"
 #include "SerialWombatProtectedOutput.h"
 #include "SerialWombatPulseTimer.h"
 #include "SerialWombatPWM.h"
 #include "SerialWombatQuadEnc.h"
+#include "SerialWombatResistanceInput.h"
 #include "SerialWombatServo.h"
 #include "SerialWombatTM1637.h"
 #include "SerialWombatUART.h"
+#include "SerialWombatUltrasonicDistanceSensor.h"
 #include "SerialWombatWatchdog.h"
 #include "SerialWombatWS2812.h"
 #include "SerialWombatThroughputConsumer.h"
+
 #endif

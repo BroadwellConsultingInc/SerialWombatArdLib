@@ -1,8 +1,8 @@
 #include "SerialWombatProtectedOutput.h"
 
-SerialWombatProtectedOutput::SerialWombatProtectedOutput(SerialWombatChip& serialWombat):_sw(serialWombat)
+SerialWombatProtectedOutput::SerialWombatProtectedOutput(SerialWombatChip& serialWombat):SerialWombatPin(serialWombat)
 {
-	_sw = serialWombat;
+
 }
 
 void SerialWombatProtectedOutput::begin(uint8_t pin, uint8_t monitoredPin)

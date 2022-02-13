@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['resistanceinputpublicdataoutput_629',['ResistanceInputPublicDataOutput',['../_serial_wombat_resistance_input_8h.html#ac08b0b586869df2557fa063a42771e43',1,'SerialWombatResistanceInput.h']]]
+  ['outputvalue_822',['OutputValue',['../class_serial_wombat_abstract_processed_input.html#a97bd681af788e782ea10d847068300f4',1,'SerialWombatAbstractProcessedInput']]]
 ];

@@ -1,4 +1,30 @@
 #pragma once
+
+/*
+Copyright 2021 Broadwell Consulting Inc.
+
+"Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
+the United States.  See SerialWombat.com for usage guidance.
+
+Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+*/
+
 #include "Stream.h"
 #include "SerialWombat.h"
 /*! \file SerialWombatMatrixKeypad.h
@@ -9,8 +35,11 @@
 
 A Tutorial video is avaialble:
 
+https://youtu.be/hxLda6lBWNg
 \htmlonly
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hxLda6lBWNg" 
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 \endhtmlonly
 
 
@@ -133,9 +162,11 @@ public:
     /// will be less than length.
     size_t readBytes(char* buffer, size_t length);
 
-
+    /// \brief implemented to fulfill Stream requirement.
     void setTimeout(long timeout_mS);
 
+
+    /// \brief used to allow reference copy.  Not for user use.
     SerialWombatMatrixKeypad operator=(SerialWombatMatrixKeypad& kp);
 
 
@@ -145,17 +176,46 @@ protected:
      uint32_t timeout = 1;
 };
 
+
+/// \brief Class that runs on top of SerialWombatMatrixKeypad to treat a key as an individual button
+///
+/// This class allows a single key from a SerialWombatMatrixKeypad to be treated as an individual SerialWombatAbstractButton
+/// that can be read as such or passed to SerialWombatButtonCounter .  
 class SerialWombatMatrixButton : public SerialWombatAbstractButton
 {
 public:
+    /// \brief Instantiate a SerialWombatMatrixButton
+    ///
+    /// \param kp An initialized SerialWombatMatrixKeypad
+    /// \param keyIndex a number 0-15 indicating which key (index, not ascii value) is treated as a button
     SerialWombatMatrixButton(SerialWombatMatrixKeypad& kp, uint8_t keyIndex);
 
+    /// \brief Returns the  state of the input
+    /// 
+    /// This function reads from the public data of the pin which 
+    /// indicates the state of the
+    /// input
+    /// \return TRUE for pressed or FALSE.  
     bool digitalRead();
-
+    /// \brief return the number of mS that the button has been in false state
+ /// 
+ /// 
+ /// \return returns a value in mS which saturates at 65535.  Returns 0 if currently true.
     uint16_t readDurationInFalseState_mS();
 
+    /// \brief return the number of mS that the button has been in true state
+    /// 
+    /// 
+    /// \return returns a value in mS which saturates at 65535.  Returns 0 if currently false.
     uint16_t readDurationInTrueState_mS();
 
+    /// \brief Queries the number of transistions that have occured on the button
+    /// 
+    /// This function queries the button for current state and transitions since last call.
+    /// transition count is put in the global member transitions.  The keypad driver in the Serial
+    /// Wombat chip resets its count to zero after this call.
+    /// 
+    /// \return TRUE or FALSE, current status of debounced input
     bool readTransitionsState();
 
 private:

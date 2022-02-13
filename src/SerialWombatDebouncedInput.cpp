@@ -1,9 +1,8 @@
 #include "SerialWombatDebouncedInput.h"
 
 
-SerialWombatDebouncedInput::SerialWombatDebouncedInput(SerialWombatChip& serialWombat):_sw(serialWombat)
+SerialWombatDebouncedInput::SerialWombatDebouncedInput(SerialWombatChip& serialWombat):SerialWombatAbstractButton(),SerialWombatPin(serialWombat)
 {
-	_sw = serialWombat;
 }
 void SerialWombatDebouncedInput::begin(uint8_t pin)
 {

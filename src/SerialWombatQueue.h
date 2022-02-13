@@ -1,6 +1,9 @@
 #pragma once
 /*
-Copyright 2021 Broadwell Consulting Inc.
+Copyright 2020-2021 Broadwell Consulting Inc.
+
+"Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
+the United States.  See SerialWombat.com for usage guidance.
 
 Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -20,12 +23,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  * OTHER DEALINGS IN THE SOFTWARE.
 */
+
 #include <stdint.h>
 #include "SerialWombat.h"
 
 
 enum class SerialWombatQueueType {
-	QUEUE_TYPE_RAM_BYTE = 0,
+	QUEUE_TYPE_RAM_BYTE = 0,  ///< A queue that queues byte-sized data in a queue in the User RAM area
 };
 
 /// \brief A Class representing a Queue in the User Ram area on the Serial Wombat Chip

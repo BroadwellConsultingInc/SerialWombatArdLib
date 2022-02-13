@@ -67,7 +67,7 @@ Available baud rates are:
 */
 
 class SerialWombatUART :
-    public Stream
+    public Stream, public SerialWombatPin
 {
 public:
     /// \brief Constructor for the SerialWombatUART class.  Only one instance is allowed per SerialWombatChip 4B.
@@ -138,10 +138,8 @@ public:
 
     void setTimeout(long timeout_mS);
 protected:
-     SerialWombatChip& _sw;
      uint8_t _rxPin  = 255;
      uint8_t _txPin = 255;
-     uint8_t _pin = 255;
      uint8_t _baudMarker = 0;
      uint32_t timeout = 5000;
      uint8_t _pinMode = PIN_MODE_UART_RX_TX;

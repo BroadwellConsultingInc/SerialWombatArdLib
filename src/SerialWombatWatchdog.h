@@ -26,7 +26,7 @@ A video tutorial is available:
 https://youtu.be/fIObjmHmprY
 
 */
-class SerialWombatWatchdog
+class SerialWombatWatchdog: public SerialWombatPin
 {
 public:
 	/// \brief Constructor for SerialWombatWatchdog
@@ -45,8 +45,7 @@ public:
 	/// \param time_mS number of mS until countdown timer expires.
 	void updateResetCountdown(uint16_t time_mS);
 private:
-	SerialWombatChip& _sw;
-	uint8_t _pin = 255;
+
 	uint16_t _resetStateTime = 10;
 
 };

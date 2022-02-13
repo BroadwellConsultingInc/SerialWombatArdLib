@@ -74,6 +74,20 @@ QE_ONLOW_POLL	LITERAL1
 QE_ONHIGH_POLL	LITERAL1
 QE_ONBOTH_POLL	LITERAL1
 
+SerialWombatMatrixKeypad	KEYWORD1
+writeQueueMask	KEYWORD2
+
+SerialWombatMatrixButton	KEYWORD1
+
+SerialWombatTM1637	KEYWORD1
+writeDigitOrder	KEYWORD2
+
+SerialWombatResistanceInput	KEYWORD1
+readAveragedOhms	KEYWORD2
+readFilteredOhms	KEYWORD2
+readMaximumOhms	KEYWORD2
+readMinimumOhms	KEYWORD2
+
 SerialWombat18CapTouch	KEYWORD1
 makeDigital	KEYWORD2
 SerialWombat18CapTouchCounter	KEYWORD1
@@ -86,3 +100,4 @@ writeAnimationUserBufferIndex	KEYWORD2
 writeAnimationFrame	KEYWORD2
 writeAnimationFrameDelay	KEYWORD2
 ws2812ModeAnimation	LITERAL1
+

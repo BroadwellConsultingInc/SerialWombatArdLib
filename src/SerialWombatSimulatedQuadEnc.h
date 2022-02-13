@@ -12,9 +12,11 @@ typedef enum {
 	SIMQE_2ND_TRANSITION_2ND_PIN_COMPLETED,
 	SIMQE_2ND_TRANSITION_COMPLETED
 }SIMQUE_STATE_t;
-/*! /brief Class for a Serial Wombat chip.  Each Serial Wombat chip on a project should have its own instance.
+/*! \brief A class for testing SerialWombatQuadEnc inputs.
 
-This class describes the capabilties of a Serial Wombat Chip that are not Pin Mode functionalities
+This class uses digital IO calls to simulate the output of a quadrature encoder.  This is used to unit test
+the SerialWombatQuadEnc class.  All processing occurs on the Arduino side.  This class does not currently
+wrap a pin mode on the Serial Wombat chip.  See the Unit Test example sketch for usage.
 
 */
 class SerialWombatSimulatedQuadEnc

@@ -1,4 +1,28 @@
 #pragma once
+/*
+Copyright 2020-2021 Broadwell Consulting Inc.
+
+"Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
+the United States.  See SerialWombat.com for usage guidance.
+
+Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+*/
 
 #include "SerialWombat.h"
 #include "limits.h"
@@ -47,7 +71,7 @@ additional hardware.
 See also the SerialWombatButtonCounter class which can run on top of this one.
 
 */
-class SerialWombatDebouncedInput:public SerialWombatAbstractButton
+class SerialWombatDebouncedInput:public SerialWombatAbstractButton , public SerialWombatPin
 {
 public:
 	/// \brief Constructor for the SerialWombatDebouncedInput class.
@@ -92,9 +116,6 @@ public:
 	/// \return returns a value in mS which saturates at 65535.  Returns 0 if currently true.
 	uint16_t readDurationInFalseState_mS();
 
-	/// \brief Number of transitions returned by last call to readTransitionsState()
-	uint16_t transitions = 0;
-
 	/// \brief Queries the number of transistions that have occured on the debounced input
 	/// 
 	/// This function queries the debounced input for current state and transitions since last call.
@@ -107,16 +128,15 @@ public:
 
 
 private:
-	SerialWombatChip& _sw;
 	uint8_t _pin = 255;
 	
 
 };
 
 
-/*! \brief A class that runs on top of SerialWombatDebouncedInput to increment or decrement a variable based on a button
+/*! \brief A class that runs on top of SerialWombaAbstractButton to increment or decrement a variable based on a button
 
-This class runs on top of a SerialWombatDebounced input.  It is passed a variable reference in its begin call.
+This class runs on top of a SerialWombaAbstractButton input.  It is passed a variable reference in its begin call.
 The update() method is then called periodically.  This method will look at how many times the debounced input has
 transitioned since the last call, and also if the input is currently pressed and for how long.
 
@@ -138,7 +158,7 @@ class SerialWombatButtonCounter
 public:
 
 	/// \brief Constructor for SerialWombatButtonCounter
-	/// \param serialWombatDebouncedInput  A pointer to an already initialized SerialWombatDebouncedInput
+	/// \param serialWombatDebouncedInput  A pointer to an already initialized SerialWombatDebouncedInput, SerialWombatMatrixButton or digitally configured SerialWombat18CapTouch
 	 SerialWombatButtonCounter( SerialWombatAbstractButton& serialWombatDebouncedInput);
 
 	 /// Initializes the SerialWombatButtonCounter
@@ -153,11 +173,11 @@ public:
 	 /// \param fastIncrement the amount that the variable should increment (or decrement if negative) per increment
 	 /// \param fast_mS_betweenIncrements how often an increment should happen in fast mode
 	 void begin(long* variableToIncrement,
-		 long slowIncrement, unsigned long slow_mS_betweenIncrements,
-		 uint16_t slowToMediumTransition_mS, 
-		 long mediumIncrement,	 unsigned long medium_mS_betweenIncrements, 
-		 uint16_t mediumToFastTransition_mS, 
-		 long fastIncrement, unsigned long fast_mS_betweenIncrements);
+		 long slowIncrement = 1, unsigned long slow_mS_betweenIncrements = 250,
+		 uint16_t slowToMediumTransition_mS = 1000, 
+		 long mediumIncrement = 1,	 unsigned long medium_mS_betweenIncrements = 100, 
+		 uint16_t mediumToFastTransition_mS = 1000 , 
+		 long fastIncrement = 1, unsigned long fast_mS_betweenIncrements = 50);
 	 /// \brief  Called periodically to query the SerialWombatDebouncedInput and update the variable
 	bool update();
 

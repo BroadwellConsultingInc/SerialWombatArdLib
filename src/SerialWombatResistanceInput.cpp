@@ -1,9 +1,8 @@
 #include "SerialWombatResistanceInput.h"
 
 
-SerialWombatResistanceInput::SerialWombatResistanceInput( SerialWombatChip& serialWombatChip):_sw(serialWombatChip)
+SerialWombatResistanceInput::SerialWombatResistanceInput( SerialWombatChip& serialWombatChip):SerialWombatPin(serialWombatChip)
 {
-	_sw = serialWombatChip;
 }
 
 int16_t SerialWombatResistanceInput::begin(uint8_t pin)
@@ -12,7 +11,7 @@ int16_t SerialWombatResistanceInput::begin(uint8_t pin)
 	uint8_t tx[] = { 200,_pin,PIN_MODE_RESISTANCEINPUT,0,0,0,0,0 };
 	uint8_t rx[8];
 	_sw.sendPacket(tx, rx);
-	uint8_t tx1[] = { 201,_pin,PIN_MODE_RESISTANCEINPUT,64,0,0xFF,0x80,0 };
+	uint8_t tx1[] = { 201,_pin,PIN_MODE_RESISTANCEINPUT,4,0,0xFF,0x80,0 };
 	return _sw.sendPacket(tx1, rx);
 }
 

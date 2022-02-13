@@ -76,7 +76,7 @@ Video Tutorial</h1>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Overview</h1>
 <p>This library is designed for use with the Arduio platform. <br  />
- The <a class="el" href="class_serial_wombat.html">SerialWombat</a> class is the basis for all sketches. Include <a class="el" href="_serial_wombat_8h.html">SerialWombat.h</a> to access all Serial Wombat classes.</p>
+ The <a class="el" href="class_serial_wombat.html" title="This class name is depricated. Do not use for new development. Use SerialWombatChip instead.">SerialWombat</a> class is the basis for all sketches. Include <a class="el" href="_serial_wombat_8h.html">SerialWombat.h</a> to access all Serial Wombat classes.</p>
 <p>One Serial Wombat instance should be declared for each Serial Wombat attached to the host. This is typically done by declaring it globally: </p><pre class="fragment">SerialWombat sw;
 </pre><p>Once the Serial Wombat instance is declared, it must be initialized using the <a class="el" href="class_serial_wombat_chip.html#a2834c76a2f42ee15ea4e32c50244f0b1" title="initialize a Serial Wombat chip to use a Serial Interface.">SerialWombat.begin()</a> method. There are separate begin methods for I2C (Wire) and Uart (Serial): </p><pre class="fragment">sw.begin(Serial);
 </pre><p>or </p><pre class="fragment">sw.begin(Wire, 0x6C);  //I2C initialization with address 6C
@@ -106,7 +106,7 @@ The following Pin Modes are avaialble on pins 1,2,3 of the Serial Wombat 4B and 
 <li>Analog Input (<a class="el" href="class_serial_wombat_analog_input.html" title="A class to make analog measurements with the Serial Wombat.">SerialWombatAnalogInput</a> class)</li>
 <li>Protected Output (<a class="el" href="class_serial_wombat_protected_output.html" title="Combine and input and output pin for a protected output.">SerialWombatProtectedOutput</a> class)</li>
 <li>PWM (<a class="el" href="class_serial_wombat_p_w_m.html" title="A class representing a Serial Wombat PWM output.">SerialWombatPWM</a> class )</li>
-<li>Servo (<a class="el" href="class_serial_wombat_servo.html" title="A class to control Servos attached to the Serial Wombat.">SerialWombatServo</a> class)</li>
+<li>Servo (<a class="el" href="class_serial_wombat_servo.html" title="A class to control Servos attached to the Serial Wombat chip.">SerialWombatServo</a> class)</li>
 <li>UART Transmit ( <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> class)</li>
 <li>Watchdog (<a class="el" href="class_serial_wombat_watchdog.html" title="A class to wrap around a Serial Wombat Watchdog Pin.">SerialWombatWatchdog</a> class)</li>
 <li>Digital Output ( <a class="el" href="class_serial_wombat_chip.html#a2e25c58f541b5215aafac0f599cc528f" title="Set an output pin High or Low.">SerialWombat.digitalWrite()</a> ) with optional Open Drain mode</li>

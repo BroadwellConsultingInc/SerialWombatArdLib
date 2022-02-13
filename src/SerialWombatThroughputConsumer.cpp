@@ -23,7 +23,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * OTHER DEALINGS IN THE SOFTWARE.
 */
 
-SerialWombatThroughputConsumer::SerialWombatThroughputConsumer(SerialWombatChip& serialWombat):_sw(serialWombat)
+SerialWombatThroughputConsumer::SerialWombatThroughputConsumer(SerialWombatChip& serialWombat):SerialWombatPin(serialWombat)
 {
 	_sw = serialWombat;
 }
@@ -62,7 +62,7 @@ int16_t SerialWombatThroughputConsumer::write(uint8_t frame, uint16_t delay)
 						(uint8_t)PIN_MODE_THROUGHPUT_CONSUMER ,
 						frame,
 						SW_LE16(delay), 0x55,0x55 };
-	int16_t result = _sw.sendPacket(tx);
+	return( _sw.sendPacket(tx));
 }
 
 int16_t SerialWombatThroughputConsumer::delayInCommProcessing(uint16_t delay)
@@ -71,5 +71,5 @@ int16_t SerialWombatThroughputConsumer::delayInCommProcessing(uint16_t delay)
 						_pin,
 						(uint8_t)PIN_MODE_THROUGHPUT_CONSUMER ,
 						SW_LE16(delay), 0x55,0x55, 0x55 };
-	int16_t result = _sw.sendPacket(tx);
+	return(_sw.sendPacket(tx));
 }

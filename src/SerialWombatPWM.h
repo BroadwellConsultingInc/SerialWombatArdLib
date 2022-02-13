@@ -1,4 +1,30 @@
 #pragma once
+/*
+Copyright 2020-2021 Broadwell Consulting Inc.
+
+"Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
+the United States.  See SerialWombat.com for usage guidance.
+
+Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+
 #include <stdint.h>
 #include "SerialWombat.h"
 /*! \file SerialWombatPWM.h
@@ -29,44 +55,59 @@ typedef enum
 /// An instance of this class should be declared for each pin
 /// to be used as a Serial Wombat PWM.  
 /// 
-/// PWMs are initialized to a frequency of 31250 Hz at startup.
+/// SW4A / SW4B PWMs are initialized to a frequency of 31250 Hz at startup.
 /// This frequency can be changed using the setFrequency_SW4AB method.
 /// All PWM outputs use the same clock divider, so a change in frequency
 /// to one PWM output will affect other outputs.
 /// 
-/// PWM inputs are either 8 or 10 bit resolution, depending on frequency
+/// SW4A/4B PWM inputs are either 8 or 10 bit resolution, depending on frequency
 /// selection.  The duty cycle parameter of methods that set duty cycle
 /// take a 16 bit value ranging from 0 to 65535 as an input regardless of
 /// resolution, with 0 being
 /// always low, and 65535 being always high.
 /// 
+/// Serial Wombat 18AB PWM outputs are driven either by hardware peripherals
+/// or by a DMA based software PWM scheme.  Up to 6 hardware PWM outputs are avaialble
+/// on Enhanced Digital Performance pins (0-4,7,9-19).  The first six Enhanced Digitial
+/// Performance pins configured after reset will claim hardware resources.  Any additional
+/// pins configured for PWM will use DMA based output.  Hardware capable pins can 
+/// generate high resolution signals up to about 100kHz.  DMA based output is limited
+/// to transitions every 17uS, so a 1kHz output will have about 6 bits of resolution and
+/// a 100 Hz output will have about 9 bit resolution.
 
-class SerialWombatPWM
+class SerialWombatPWM : public SerialWombatPin
 {
 public:
     /// \brief Constructor for SerialWombatPWM class
     /// \param serialWombat SerialWombat  chip on which the PWM will run
 	SerialWombatPWM(SerialWombatChip& serialWombat );
 
-    /// \brief Initialize a pin that has been declared as PWM.  Starts with 0 duty cycle
-    /// \param pin The pin to become a PWM.  Valid values for SW4A: 0-3  SW4B: 1-3 
-	void begin(uint8_t pin);
-
-    /// \brief Initialize a pin that has been declared as PWM. 
-   /// \param pin The pin to become a PWM.  Valid values for SW4A: 0-3  SW4B: 1-3 
-   /// \param dutyCycle A value from 0 to 65535 representing duty cycle
-	void begin(uint8_t pin, uint16_t dutyCycle);
-
+   
     /// \brief Initialize a pin that has been declared as PWM. 
    /// \param pin The pin to become a PWM.  Valid values for SW4A: 0-3  SW4B: 1-3 
    /// \param dutyCycle A value from 0 to 65535 representing duty cycle
    /// \param invert if true, internally adjust duty cycle to 65535-duty cycle
-    void begin(uint8_t pin, uint16_t dutyCycle,bool invert);
+    void begin(uint8_t pin, uint16_t dutyCycle = 0,bool invert = false);
 
     /// \brief Set PWM duty cycle
     /// \param dutyCycle A value from 0 to 65535 representing duty cycle
 	void writeDutyCycle(uint16_t dutyCycle);
 
+    
+
+   
+
+ 
+	~SerialWombatPWM();
+
+private:
+
+};
+
+class SerialWombatPWM_4AB : public SerialWombatPWM
+{
+public:
+    SerialWombatPWM_4AB(SerialWombatChip& serialWombat);
     /// \brief Set PWM Frequency (Adjusts all PWM outputs' frequency on a SerialWombat 4A/B chip)
     /// \param frequency  A value of the #Wombat4A_B_PWMFrequencyValues_t enumeration
     /// 
@@ -80,15 +121,27 @@ public:
     /// family based on other hardware that are released in the future because it is tightly coupled to the
     /// PIC16F15214 hardware.
     void setFrequency_SW4AB(Wombat4A_B_PWMFrequencyValues_t frequency);
+};
 
 
-    void setFrequency_SW18AB_Hz(uint32_t frequency_Hz);
-    void setPeriod_SW18AB_uS(uint32_t period_uS);
+class SerialWombatPWM_18AB: public SerialWombatPWM, public SerialWombatAbstractScaledOutput
+{
+public:
+    SerialWombatPWM_18AB(SerialWombatChip& serialWombat);
 
-	~SerialWombatPWM();
+    
 
-private:
-	SerialWombatChip* _sw;
-	uint8_t _pin = 255;
+    /// \brief Set the PWM frequency on a Serial Wombat 18AB chip's PWM
+   ///
+   /// \param frequency_Hz  Frequency in Hz.  Note that actual frequency may vary based on hardware capabilities of the pin.
+    void writeFrequency_Hz(uint32_t frequency_Hz);
+
+    /// \brief Set the PWM period on a Serial Wombat 18AB chip's PWM
+ ///
+ /// \param period_uS  Period in microseconds.  Note that actual period may vary based on hardware capabilities of the pin.
+    void writePeriod_uS(uint32_t period_uS);
+
+    uint8_t pin();
+    uint8_t swPinModeNumber();
 };
 

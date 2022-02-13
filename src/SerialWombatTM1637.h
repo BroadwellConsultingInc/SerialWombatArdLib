@@ -56,7 +56,17 @@ enum SWTM1637Mode {
 /// Display order issues can be corrected with the orderDigits() command.
 /// 
 /// 
-class SerialWombatTM1637:public Print
+/// A tutorial is available here:
+/// 
+/// https://youtu.be/AwW12n6o_T0
+/// 
+/// \htmlonly
+/// <iframe width = "560" height = "315" src = "https://youtu.be/AwW12n6o_T0" title = "YouTube video player"
+/// 	frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+/// 	picture - in - picture" allowfullscreen></iframe>
+/// 	\endhtmlonly
+/// 
+class SerialWombatTM1637:public Print, public SerialWombatPin
 {
 public:
 	/// \brief Constructor for SerialWombatTM1637 class
@@ -152,12 +162,14 @@ public:
 	/// \return Number of bytes written
 	/// 
 	virtual size_t write(uint8_t data);
+
+	virtual size_t write(const uint8_t* buffer, size_t size);
+
+	virtual int availableForWrite() { return 100; } // We will throw out everthing but the last 6.
 	using Print::write;
 
 private:
-	SerialWombatChip* _sw;
 
-	uint8_t _pin = 255;
 	uint8_t _dioPin = 255;
 };
 

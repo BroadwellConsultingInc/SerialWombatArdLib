@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['opendrain_111',['openDrain',['../class_serial_wombat_simulated_quad_enc.html#a6a5630df5d9d192483d0835a932d5994',1,'SerialWombatSimulatedQuadEnc']]],
-  ['operator_3d_112',['operator=',['../class_serial_wombat_matrix_keypad.html#a93ec313b06ac99e972659241409a40c9',1,'SerialWombatMatrixKeypad']]]
+  ['none_151',['NONE',['../class_serial_wombat_abstract_processed_input.html#a79e5cf98e48c2e2dfba01962435535c0ae128f7db7de74c935a638d06567a608f',1,'SerialWombatAbstractProcessedInput']]]
 ];

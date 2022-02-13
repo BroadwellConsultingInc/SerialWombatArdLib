@@ -67,9 +67,12 @@ $(function() {
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_serial_wombat_abstract_button-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">SerialWombatAbstractButton Class Reference</div>  </div>
+<div class="title">SerialWombatAbstractButton Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="class_serial_wombat18_cap_touch.html" title="A class that controls a Cap Touch Pin on the Serial Wombat 18AB chip.">SerialWombat18CapTouch</a>, <a class="el" href="class_serial_wombat_debounced_input.html" title="A pin mode class that debounces inputs.">SerialWombatDebouncedInput</a> and <a class="el" href="class_serial_wombat_matrix_button.html" title="Class that runs on top of SerialWombatMatrixKeypad to treat a key as an individual button.">SerialWombatMatrixButton</a> inherit from this class.  
+ <a href="class_serial_wombat_abstract_button.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_serial_wombat_abstract_button_8h_source.html">SerialWombatAbstractButton.h</a>&gt;</code></p>
 <div class="dynheader">
@@ -80,34 +83,57 @@ Inheritance diagram for SerialWombatAbstractButton:</div>
   <map id="SerialWombatAbstractButton_map" name="SerialWombatAbstractButton_map">
 <area href="class_serial_wombat18_cap_touch.html" title="A class that controls a Cap Touch Pin on the Serial Wombat 18AB chip." alt="SerialWombat18CapTouch" shape="rect" coords="0,56,181,80"/>
 <area href="class_serial_wombat_debounced_input.html" title="A pin mode class that debounces inputs." alt="SerialWombatDebouncedInput" shape="rect" coords="191,56,372,80"/>
-<area href="class_serial_wombat_matrix_button.html" alt="SerialWombatMatrixButton" shape="rect" coords="382,56,563,80"/>
+<area href="class_serial_wombat_matrix_button.html" title="Class that runs on top of SerialWombatMatrixKeypad to treat a key as an individual button." alt="SerialWombatMatrixButton" shape="rect" coords="382,56,563,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a28e14cfd628abe0fb2d9734efe2fc36f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_button.html#a28e14cfd628abe0fb2d9734efe2fc36f">digitalRead</a> ()</td></tr>
-<tr class="memdesc:a28e14cfd628abe0fb2d9734efe2fc36f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state of the input.  <a href="class_serial_wombat_abstract_button.html#a28e14cfd628abe0fb2d9734efe2fc36f">More...</a><br /></td></tr>
-<tr class="separator:a28e14cfd628abe0fb2d9734efe2fc36f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac081b7756d420d889a2042a8cd8a2452"><td class="memItemLeft" align="right" valign="top">virtual uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_button.html#ac081b7756d420d889a2042a8cd8a2452">readDurationInTrueState_mS</a> ()</td></tr>
-<tr class="memdesc:ac081b7756d420d889a2042a8cd8a2452"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the number of mS that the input has been in true state  <a href="class_serial_wombat_abstract_button.html#ac081b7756d420d889a2042a8cd8a2452">More...</a><br /></td></tr>
-<tr class="separator:ac081b7756d420d889a2042a8cd8a2452"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34cb56aca9cebf13e3376fd762cb1ebb"><td class="memItemLeft" align="right" valign="top">virtual uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_button.html#a34cb56aca9cebf13e3376fd762cb1ebb">readDurationInFalseState_mS</a> ()</td></tr>
-<tr class="memdesc:a34cb56aca9cebf13e3376fd762cb1ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the number of mS that the input has been in false state  <a href="class_serial_wombat_abstract_button.html#a34cb56aca9cebf13e3376fd762cb1ebb">More...</a><br /></td></tr>
-<tr class="separator:a34cb56aca9cebf13e3376fd762cb1ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21e056d0d6578f5e28bdcf9f92f23d24"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_button.html#a21e056d0d6578f5e28bdcf9f92f23d24">readTransitionsState</a> ()</td></tr>
-<tr class="memdesc:a21e056d0d6578f5e28bdcf9f92f23d24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the number of transistions that have occured on the debounced input.  <a href="class_serial_wombat_abstract_button.html#a21e056d0d6578f5e28bdcf9f92f23d24">More...</a><br /></td></tr>
-<tr class="separator:a21e056d0d6578f5e28bdcf9f92f23d24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad428309c9e260bd09e2d7d2a117557e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_button.html#ad428309c9e260bd09e2d7d2a117557e7">SerialWombatAbstractButton</a> ()</td></tr>
+<tr class="separator:ad428309c9e260bd09e2d7d2a117557e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2179ec47f525c430eec8721113fa776a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_button.html#a2179ec47f525c430eec8721113fa776a">digitalRead</a> ()=0</td></tr>
+<tr class="memdesc:a2179ec47f525c430eec8721113fa776a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state of the input.  <a href="class_serial_wombat_abstract_button.html#a2179ec47f525c430eec8721113fa776a">More...</a><br /></td></tr>
+<tr class="separator:a2179ec47f525c430eec8721113fa776a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad780aa6e72f1941c93db29fc754e7fb0"><td class="memItemLeft" align="right" valign="top">virtual uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_button.html#ad780aa6e72f1941c93db29fc754e7fb0">readDurationInTrueState_mS</a> ()=0</td></tr>
+<tr class="memdesc:ad780aa6e72f1941c93db29fc754e7fb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the number of mS that the input has been in true state  <a href="class_serial_wombat_abstract_button.html#ad780aa6e72f1941c93db29fc754e7fb0">More...</a><br /></td></tr>
+<tr class="separator:ad780aa6e72f1941c93db29fc754e7fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa98c92ffe2c0c8286d90277513cca947"><td class="memItemLeft" align="right" valign="top">virtual uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_button.html#aa98c92ffe2c0c8286d90277513cca947">readDurationInFalseState_mS</a> ()=0</td></tr>
+<tr class="memdesc:aa98c92ffe2c0c8286d90277513cca947"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the number of mS that the input has been in false state  <a href="class_serial_wombat_abstract_button.html#aa98c92ffe2c0c8286d90277513cca947">More...</a><br /></td></tr>
+<tr class="separator:aa98c92ffe2c0c8286d90277513cca947"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a236e74e5eba38a939981acb5fcc83968"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_button.html#a236e74e5eba38a939981acb5fcc83968">readTransitionsState</a> ()=0</td></tr>
+<tr class="memdesc:a236e74e5eba38a939981acb5fcc83968"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the number of transistions that have occured on the debounced input.  <a href="class_serial_wombat_abstract_button.html#a236e74e5eba38a939981acb5fcc83968">More...</a><br /></td></tr>
+<tr class="separator:a236e74e5eba38a939981acb5fcc83968"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a882bc5a77772b86e970ba8720b89bd9d"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_button.html#a882bc5a77772b86e970ba8720b89bd9d">transitions</a> = 0</td></tr>
-<tr class="memdesc:a882bc5a77772b86e970ba8720b89bd9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of transitions returned by last call to <a class="el" href="class_serial_wombat_abstract_button.html#a21e056d0d6578f5e28bdcf9f92f23d24" title="Queries the number of transistions that have occured on the debounced input.">readTransitionsState()</a>  <a href="class_serial_wombat_abstract_button.html#a882bc5a77772b86e970ba8720b89bd9d">More...</a><br /></td></tr>
+<tr class="memdesc:a882bc5a77772b86e970ba8720b89bd9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of transitions returned by last call to <a class="el" href="class_serial_wombat_abstract_button.html#a236e74e5eba38a939981acb5fcc83968" title="Queries the number of transistions that have occured on the debounced input.">readTransitionsState()</a>  <a href="class_serial_wombat_abstract_button.html#a882bc5a77772b86e970ba8720b89bd9d">More...</a><br /></td></tr>
 <tr class="separator:a882bc5a77772b86e970ba8720b89bd9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_serial_wombat18_cap_touch.html" title="A class that controls a Cap Touch Pin on the Serial Wombat 18AB chip.">SerialWombat18CapTouch</a>, <a class="el" href="class_serial_wombat_debounced_input.html" title="A pin mode class that debounces inputs.">SerialWombatDebouncedInput</a> and <a class="el" href="class_serial_wombat_matrix_button.html" title="Class that runs on top of SerialWombatMatrixKeypad to treat a key as an individual button.">SerialWombatMatrixButton</a> inherit from this class. </p>
+<p>This class provides a basic set of interface for any pin mode class that has a button-like interface It allows classes like <a class="el" href="class_serial_wombat_button_counter.html" title="A class that runs on top of SerialWombaAbstractButton to increment or decrement a variable based on a...">SerialWombatButtonCounter</a> to work uniformly with any button-like class. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad428309c9e260bd09e2d7d2a117557e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad428309c9e260bd09e2d7d2a117557e7">&#9670;&nbsp;</a></span>SerialWombatAbstractButton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SerialWombatAbstractButton::SerialWombatAbstractButton </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a28e14cfd628abe0fb2d9734efe2fc36f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28e14cfd628abe0fb2d9734efe2fc36f">&#9670;&nbsp;</a></span>digitalRead()</h2>
+<a id="a2179ec47f525c430eec8721113fa776a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2179ec47f525c430eec8721113fa776a">&#9670;&nbsp;</a></span>digitalRead()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,7 +150,7 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -132,12 +158,12 @@ Public Attributes</h2></td></tr>
 <p>Returns the state of the input. </p>
 <p>This function reads the status of an input </p><dl class="section return"><dt>Returns</dt><dd>TRUE or FALSE. Meaning depends on inversion setting </dd></dl>
 
-<p>Reimplemented in <a class="el" href="class_serial_wombat_matrix_button.html#ab1c608739aa1e8a3618a4b1fe407f15a">SerialWombatMatrixButton</a>, <a class="el" href="class_serial_wombat_debounced_input.html#a7157089755a97284dd76951c67a786ce">SerialWombatDebouncedInput</a>, and <a class="el" href="class_serial_wombat18_cap_touch.html#a5efb52338febc961be7f19579da54035">SerialWombat18CapTouch</a>.</p>
+<p>Implemented in <a class="el" href="class_serial_wombat_matrix_button.html#ab1c608739aa1e8a3618a4b1fe407f15a">SerialWombatMatrixButton</a>, <a class="el" href="class_serial_wombat18_cap_touch.html#a5efb52338febc961be7f19579da54035">SerialWombat18CapTouch</a>, and <a class="el" href="class_serial_wombat_debounced_input.html#a7157089755a97284dd76951c67a786ce">SerialWombatDebouncedInput</a>.</p>
 
 </div>
 </div>
-<a id="a34cb56aca9cebf13e3376fd762cb1ebb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34cb56aca9cebf13e3376fd762cb1ebb">&#9670;&nbsp;</a></span>readDurationInFalseState_mS()</h2>
+<a id="aa98c92ffe2c0c8286d90277513cca947"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa98c92ffe2c0c8286d90277513cca947">&#9670;&nbsp;</a></span>readDurationInFalseState_mS()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,7 +180,7 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -163,12 +189,12 @@ Public Attributes</h2></td></tr>
 <p>Note that this value starts incrementing after any debounce period, not after the physical pin transition.</p>
 <dl class="section return"><dt>Returns</dt><dd>returns a value in mS which saturates at 65535. Returns 0 if currently true. </dd></dl>
 
-<p>Reimplemented in <a class="el" href="class_serial_wombat_matrix_button.html#ade79c7226b4ef0f1a9e68a8d541ad311">SerialWombatMatrixButton</a>, <a class="el" href="class_serial_wombat_debounced_input.html#ac66d9482fbfb7d20d144058c7706c8b9">SerialWombatDebouncedInput</a>, and <a class="el" href="class_serial_wombat18_cap_touch.html#a845a1b4bc460138aed7a28e55ed5bd58">SerialWombat18CapTouch</a>.</p>
+<p>Implemented in <a class="el" href="class_serial_wombat_matrix_button.html#ade79c7226b4ef0f1a9e68a8d541ad311">SerialWombatMatrixButton</a>, <a class="el" href="class_serial_wombat18_cap_touch.html#a845a1b4bc460138aed7a28e55ed5bd58">SerialWombat18CapTouch</a>, and <a class="el" href="class_serial_wombat_debounced_input.html#ac66d9482fbfb7d20d144058c7706c8b9">SerialWombatDebouncedInput</a>.</p>
 
 </div>
 </div>
-<a id="ac081b7756d420d889a2042a8cd8a2452"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac081b7756d420d889a2042a8cd8a2452">&#9670;&nbsp;</a></span>readDurationInTrueState_mS()</h2>
+<a id="ad780aa6e72f1941c93db29fc754e7fb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad780aa6e72f1941c93db29fc754e7fb0">&#9670;&nbsp;</a></span>readDurationInTrueState_mS()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,7 +211,7 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -194,12 +220,12 @@ Public Attributes</h2></td></tr>
 <p>Note that this value starts incrementing after the debounce period, not after the physical pin transition.</p>
 <dl class="section return"><dt>Returns</dt><dd>returns a value in mS which saturates at 65535. Returns 0 if currently false. </dd></dl>
 
-<p>Reimplemented in <a class="el" href="class_serial_wombat_matrix_button.html#a2a2443e8dd1bc23304506407ca0ad3c1">SerialWombatMatrixButton</a>, <a class="el" href="class_serial_wombat_debounced_input.html#a9d8c8cfec8d126999345525826d11b5b">SerialWombatDebouncedInput</a>, and <a class="el" href="class_serial_wombat18_cap_touch.html#a6c93d99957aae3b55497495025470709">SerialWombat18CapTouch</a>.</p>
+<p>Implemented in <a class="el" href="class_serial_wombat_matrix_button.html#a2a2443e8dd1bc23304506407ca0ad3c1">SerialWombatMatrixButton</a>, <a class="el" href="class_serial_wombat18_cap_touch.html#a6c93d99957aae3b55497495025470709">SerialWombat18CapTouch</a>, and <a class="el" href="class_serial_wombat_debounced_input.html#a9d8c8cfec8d126999345525826d11b5b">SerialWombatDebouncedInput</a>.</p>
 
 </div>
 </div>
-<a id="a21e056d0d6578f5e28bdcf9f92f23d24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21e056d0d6578f5e28bdcf9f92f23d24">&#9670;&nbsp;</a></span>readTransitionsState()</h2>
+<a id="a236e74e5eba38a939981acb5fcc83968"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a236e74e5eba38a939981acb5fcc83968">&#9670;&nbsp;</a></span>readTransitionsState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -216,7 +242,7 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -225,7 +251,7 @@ Public Attributes</h2></td></tr>
 <p>This function queries the debounced input for current state and transitions since last call. transition count is put in the global member transitions. The debounced input in the Serial Wombat resets its count to zero after this call.</p>
 <dl class="section return"><dt>Returns</dt><dd>TRUE or FALSE, current status of debounced input </dd></dl>
 
-<p>Reimplemented in <a class="el" href="class_serial_wombat_matrix_button.html#a346a1da0cb80bb8292c68b46f114c909">SerialWombatMatrixButton</a>, <a class="el" href="class_serial_wombat_debounced_input.html#af4036b5a1f3b6de3c2df296e110e8b11">SerialWombatDebouncedInput</a>, and <a class="el" href="class_serial_wombat18_cap_touch.html#aaf9c4c84d4a1bb31ee284fdb726d69d9">SerialWombat18CapTouch</a>.</p>
+<p>Implemented in <a class="el" href="class_serial_wombat_matrix_button.html#a346a1da0cb80bb8292c68b46f114c909">SerialWombatMatrixButton</a>, <a class="el" href="class_serial_wombat18_cap_touch.html#aaf9c4c84d4a1bb31ee284fdb726d69d9">SerialWombat18CapTouch</a>, and <a class="el" href="class_serial_wombat_debounced_input.html#af4036b5a1f3b6de3c2df296e110e8b11">SerialWombatDebouncedInput</a>.</p>
 
 </div>
 </div>
@@ -242,7 +268,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Number of transitions returned by last call to <a class="el" href="class_serial_wombat_abstract_button.html#a21e056d0d6578f5e28bdcf9f92f23d24" title="Queries the number of transistions that have occured on the debounced input.">readTransitionsState()</a> </p>
+<p>Number of transitions returned by last call to <a class="el" href="class_serial_wombat_abstract_button.html#a236e74e5eba38a939981acb5fcc83968" title="Queries the number of transistions that have occured on the debounced input.">readTransitionsState()</a> </p>
 
 </div>
 </div>

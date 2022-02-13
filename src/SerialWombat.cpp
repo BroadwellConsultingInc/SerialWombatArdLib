@@ -182,6 +182,7 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 
 	if (Serial != NULL)
 	{
+		while (Serial->read() >= 0);
 		Serial->write(tx, 8);  //TODO add addressing, CRC
 		int bytesRx = Serial->readBytes(rx, 8);
 		if (bytesRx < 8)
@@ -191,6 +192,7 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 		if (rx[0] == 'E')
 		{
 			lastErrorCode = -1 * ((int)rx[1] * 256 + rx[2]);
+			++errorCount;
 			return (lastErrorCode);
 		}
 		return (8);
@@ -219,8 +221,32 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 		if (rx[0] == 'E')
 		{
 			lastErrorCode = -1 * ((int)rx[1] * 256 + rx[2]);
+			++errorCount;
 			return (lastErrorCode);
 		}
+	}
+	return(0);
+
+}
+int SerialWombatChip::sendPacketNoResponse(uint8_t tx[])
+{
+
+	if (Serial != NULL)
+	{
+		Serial->write(tx, 8);  //TODO add addressing, CRC
+		return (8);
+	}
+
+	if (i2cInterface != NULL)
+	{
+		int count = 8;
+		//while (tx[count - 1] == 0x55)
+		//{
+		//	--count;
+		//}
+		i2cInterface->beginTransmission(address);
+		i2cInterface->write(tx, 8);
+		i2cInterface->endTransmission();
 	}
 	return(0);
 
@@ -312,11 +338,16 @@ uint16_t SerialWombatChip::readSupplyVoltage_mV()
 	return(_supplyVoltagemV);
 }
 
-uint16_t SerialWombatChip::readTemperature_100thsDegC(void)
+int16_t SerialWombatChip::readTemperature_100thsDegC(void)
 {
 	if (isSW18())
 	{
-		return readPublicData(70);
+		int32_t result = readPublicData(70);
+		if (result >= 32768)
+		{
+			result = result - 65536;
+		}
+		return ((int16_t)result);
 	}
 	else
 	{
@@ -697,4 +728,28 @@ int16_t SerialWombatChip::enable2ndCommandInterface(bool enabled)
 	return sendPacket(tx);
 }
 
+SerialWombatPin::SerialWombatPin(SerialWombatChip& serialWombatChip) : _sw(serialWombatChip)
+{
+	_sw = serialWombatChip;
+}
 
+void SerialWombatPin::pinMode(uint8_t mode)
+{
+	_sw.pinMode(_pin, mode);
+}
+
+void SerialWombatPin::pinMode(uint8_t mode, bool pullDown, bool openDrain)
+{
+	_sw.pinMode(_pin, mode, pullDown, openDrain);
+}
+
+void SerialWombatPin::digitalWrite( uint8_t val)
+{
+	_sw.digitalWrite(_pin, val);
+}
+
+
+int SerialWombatPin::digitalRead()
+{
+	return (_sw.digitalRead(_pin));
+}

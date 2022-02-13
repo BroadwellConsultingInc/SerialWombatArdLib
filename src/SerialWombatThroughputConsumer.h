@@ -27,7 +27,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #include "SerialWombat.h"
 
 
-/// \brief A Class that consumes CPU time in order to facilitate testing 
+/// \brief A Class that consumes CPU time on the Serial Wombat chip in order to facilitate testing 
 ///
 /// This class is only supported on the Serial Wombat SW18AB chip.  It is not supported on the
 /// Serial Wombat 4X line.
@@ -39,7 +39,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// which delay to use.  During this delay the pin goes high and waits in a 
 /// loop for approximately the specified number of uS. 
 /// 
-class SerialWombatThroughputConsumer
+class SerialWombatThroughputConsumer: public SerialWombatPin
 {
 public:
 	/// \brief Constructor for SerialWombatThroughputConsumer class
@@ -75,8 +75,6 @@ public:
 	/// 
 	int16_t delayInCommProcessing(uint16_t delay);
 private:
-	SerialWombatChip& _sw;
 
-	uint8_t _pin = 255;
 };
 

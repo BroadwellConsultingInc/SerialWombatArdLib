@@ -121,8 +121,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:acbf4b31874441e8f6d0db52f9db1e213"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a specified number of bytes from the <a class="el" href="class_serial_wombat_matrix_keypad.html" title="A class for the Serial Wombat SW18AB chips which scans matrix keypads up to 4x4.">SerialWombatMatrixKeypad</a> queue queue.  <a href="class_serial_wombat_matrix_keypad.html#acbf4b31874441e8f6d0db52f9db1e213">More...</a><br /></td></tr>
 <tr class="separator:acbf4b31874441e8f6d0db52f9db1e213"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38663994a82ee2f5aad21cdf7183e642"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_matrix_keypad.html#a38663994a82ee2f5aad21cdf7183e642">setTimeout</a> (long timeout_mS)</td></tr>
+<tr class="memdesc:a38663994a82ee2f5aad21cdf7183e642"><td class="mdescLeft">&#160;</td><td class="mdescRight">implemented to fulfill Stream requirement.  <a href="class_serial_wombat_matrix_keypad.html#a38663994a82ee2f5aad21cdf7183e642">More...</a><br /></td></tr>
 <tr class="separator:a38663994a82ee2f5aad21cdf7183e642"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93ec313b06ac99e972659241409a40c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_serial_wombat_matrix_keypad.html">SerialWombatMatrixKeypad</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_matrix_keypad.html#a93ec313b06ac99e972659241409a40c9">operator=</a> (<a class="el" href="class_serial_wombat_matrix_keypad.html">SerialWombatMatrixKeypad</a> &amp;kp)</td></tr>
+<tr class="memdesc:a93ec313b06ac99e972659241409a40c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">used to allow reference copy. Not for user use.  <a href="class_serial_wombat_matrix_keypad.html#a93ec313b06ac99e972659241409a40c9">More...</a><br /></td></tr>
 <tr class="separator:a93ec313b06ac99e972659241409a40c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -140,8 +142,10 @@ Protected Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class for the Serial Wombat SW18AB chips which scans matrix keypads up to 4x4. </p>
 <p>A Tutorial video is avaialble:</p>
-<p> 
-
+<p><a href="https://youtu.be/hxLda6lBWNg">https://youtu.be/hxLda6lBWNg</a>  
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hxLda6lBWNg" 
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
 <p>The class inherits from the Arduino Stream class, so queued kepad presses can be read like a Serial port.</p>
 <p>This class allows the user to declare up to 4 row and 4 column pins which are strobed continuously to read up to 16 buttons. The Serial Wombat chip's internal pull-up resistors are used so no additional hardware is necesary. Standard matrix keypads can be attached directly to the Serial Wombat chip pins. All Serial Wombat 18AB chip pins can be used in any combination or order.</p>
@@ -364,6 +368,8 @@ With 16 being used for no current press, depending on mode setting
       </table>
 </div><div class="memdoc">
 
+<p>used to allow reference copy. Not for user use. </p>
+
 </div>
 </div>
 <a id="a05301198b808886190bce85dcacfe153"></a>
@@ -460,6 +466,8 @@ With 16 being used for no current press, depending on mode setting
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>implemented to fulfill Stream requirement. </p>
 
 </div>
 </div>

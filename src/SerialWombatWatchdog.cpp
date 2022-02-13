@@ -1,8 +1,7 @@
 #include "SerialWombatWatchdog.h"
 
-SerialWombatWatchdog::SerialWombatWatchdog(SerialWombatChip& sw):_sw(sw)
+SerialWombatWatchdog::SerialWombatWatchdog(SerialWombatChip& sw):SerialWombatPin(sw)
 {
-	_sw = sw;
 }
 
 void SerialWombatWatchdog::begin(uint8_t pin, SerialWombatPinState_t normalState, SerialWombatPinState_t resetState, uint16_t timeout_mS, bool ResetWombatAfterTimeout)

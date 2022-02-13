@@ -72,8 +72,19 @@ enum SWWS2812Mode {
 /// The Update rate is variable with the number of LEDs so that rendering of colors into the User Buffer
 /// is spread across multiple Serial Wombat 1mS execution frames.  The LEDs will be updated approximately every
 /// X mS, where X is the number of LEDs plus 20.
+/// 
+/// A tutorial is available here:
+/// 
+/// https://youtu.be/WoXvLBJFpXk
+/// 
+/// \htmlonly
+/// <iframe width = "560" height = "315" src = "https://youtu.be/WoXvLBJFpXk" title = "YouTube video player"
+/// 	frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+/// 	picture - in - picture" allowfullscreen></iframe>
+/// 	\endhtmlonly
+/// 
 
-class SerialWombatWS2812
+class SerialWombatWS2812 : public SerialWombatPin
 {
 public:
 	/// \brief Constructor for SerialWombatWS2812 class
@@ -163,9 +174,6 @@ public:
 	/// \param max The public data value (or above) to be treated as the end of the bargraph
 	int16_t barGraph(uint8_t sourcePin, uint32_t offRGB, uint32_t onRGB, uint16_t min, uint16_t max);
 private:
-	SerialWombatChip* _sw;
-
-	uint8_t _pin = 255;
 	uint8_t _numLEDS = 0;
 	uint16_t _userBufferIndex=0;
 };

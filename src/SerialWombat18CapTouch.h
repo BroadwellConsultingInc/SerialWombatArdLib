@@ -1,4 +1,28 @@
 #pragma once
+/*
+Copyright 2021 Broadwell Consulting Inc.
+
+"Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
+the United States.  See SerialWombat.com for usage guidance.
+
+Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+*/
 
 #include <stdint.h>
 #include "SerialWombat.h"
@@ -45,20 +69,56 @@
 /// if the default 5ms delay between samples is used.  However, it should be considered
 /// if multiple Cap Touch pins are being used simultaneously or if the delay is
 /// decreased as they may combine to
-/// starve other analog chanels and make conversions sporadic.  This may also 
+/// starve other analog chanels and make conversions sporadic, affecting filtering and
+/// averaging.  This may also 
 /// impact performance of real-time control pin modes run on the Serial Wombat chip
 /// such as PID control.
 /// 
+/// A Tutorial video is also avaialble:
+/// https://youtu.be/c4B0_DRVHs0
+/// \htmlonly
+/// <iframe width = "560" height = "315" src = "https://www.youtube.com/embed/c4B0_DRVHs0" frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>< / iframe>
+/// \endhtmlonly
 /// 
-class SerialWombat18CapTouch :public SerialWombatAbstractButton
+class SerialWombat18CapTouch :public SerialWombatAbstractButton, public SerialWombatPin
 {
 public:
+
+	/// \brief Instantiate a  SerialWombat18CapTouch class on a specified Serial Wombat Chip
 	SerialWombat18CapTouch(SerialWombatChip& serialWombat);
 
-	int16_t begin(uint8_t pin, uint16_t chargeTime);
-	int16_t begin(uint8_t pin, uint16_t chargeTime, uint16_t delay);
+	
+	/// \brief Initialize the SerialWombat18CapTouch instance with a given charge Time in uS
+	///
+	/// Required Charge time will vary by touch plate size, insulation and material.  See
+	/// YouTube video and example for usage.
+	/// 
+	/// \param pin The pin on which the Cap Touch should run.  Needs to be an Analog Capable pin
+	/// \param chargeTime Charge time in uS for capacitive charging.  
+	/// \param delay Sets how long to wait between samples in mS.  This may be useful since the
+	/// Cap Touch pin mode monopolizes the A/D converter while a measurement is in progress.
+	int16_t begin(uint8_t pin, uint16_t chargeTime, uint16_t delay = 10);
+
+	/// \brief Make a cap touch behave like a digital button
+	/// 
+	/// This method sets limits for touch present and absent, and makes the 
+	/// pin report digitally rather than analog.  See video and example
+	/// for calibration routine.
+	/// 
+	/// \param touchLimit The calibrated value below which an A/D reading indicates touch present
+	/// \param noTouchLimit The calibrated value above which an A/D reading indicates no touch present
 	int16_t makeDigital(uint16_t touchLimit, uint16_t noTouchLimit);
 
+	/// \brief Make a cap touch behave like a digital button
+	/// 
+	/// This method sets limits for touch present and absent, and makes the 
+	/// pin report digitally rather than analog.  See video and example
+	/// for calibration routine.
+	/// 
+	/// \param touchLimit The calibrated value below which an A/D reading indicates touch present
+	/// \param noTouchLimit The calibrated value above which an A/D reading indicates no touch present
+	/// \param invert Invert the touch result
+	/// \param debounceCount number of consecutive digital samples that must match to change state
 	int16_t makeDigital(uint16_t touchLimit, uint16_t noTouchLimit, uint16_t touchValue, uint16_t noTouchValue, bool invert,uint16_t debounceCount);
 	int16_t makeAnalog();
 
@@ -98,83 +158,7 @@ public:
 
 
 private:
-	SerialWombatChip& _sw;
-	uint8_t _pin = 255;
+
 	uint16_t _trueOutput = 1;
 	uint16_t _falseOutput = 1;
 };
-
-/*! \brief A class that runs on top of SerialWombatDebouncedInput to increment or decrement a variable based on a button
-
-This class runs on top of a SerialWombatDebounced input.  It is passed a variable reference in its begin call.
-The update() method is then called periodically.  This method will look at how many times the debounced input has
-transitioned since the last call, and also if the input is currently pressed and for how long.
-
-A high limit and low limit can be set which keeps the variable from exceeing those bounds.
-
-Times can be specified for button hold that allows the variable to be incremented at varying rates for short, medium,
-and long holds.
-
-See the example sw4b_ard_Debounce2 distributed with the Serial Wombat Arduino Library and in the video
-
-https://youtu.be/_EKlrEVaEhg
-
-for an example.
-
-
-*/
-class SerialWombat18CapTouchCounter
-{
-public:
-
-	/// \brief Constructor for SerialWombat18CapTouchCounter
-	/// \param serialWombatCapTouch  A pointer to an already initialized SerialWombat18CapTouch
-	SerialWombat18CapTouchCounter(SerialWombat18CapTouch* serialWombatCapTouch);
-
-	/// Initializes the SerialWombat18TouchCounter
-	/// 
-	/// \param variableToIncrement  A pointer to a signed long integer
-	/// \param slowIncrement the amount that the variable should increment (or decrement if negative) per increment
-	/// \param slow_mS_betweenIncrements how often an increment should happen in slow mode
-	/// \param slowToMediumTransition_mS how long to stay in slow mode before switching to medium mode
-	/// \param mediumIncrement the amount that the variable should increment (or decrement if negative) per increment
-	/// \param medium_mS_betweenIncrements how often an increment should happen in medium mode
-	/// \param mediumToFastTransition_mS how long after the initail button press start until switching to Fast mode
-	/// \param fastIncrement the amount that the variable should increment (or decrement if negative) per increment
-	/// \param fast_mS_betweenIncrements how often an increment should happen in fast mode
-	void begin(long* variableToIncrement,
-		long slowIncrement, unsigned long slow_mS_betweenIncrements,
-		uint16_t slowToMediumTransition_mS,
-		long mediumIncrement, unsigned long medium_mS_betweenIncrements,
-		uint16_t mediumToFastTransition_mS,
-		long fastIncrement, unsigned long fast_mS_betweenIncrements);
-	/// \brief  Called periodically to query the SerialWombatDebouncedInput and update the variable
-	bool update();
-
-	/// \brief The variable will not increment above this limit.
-	long highLimit = LONG_MAX;
-	///  \brief The variable will not decrement below this limit.
-	long lowLimit = LONG_MIN;
-
-private:
-	SerialWombat18CapTouch* _capTouch;
-	long* _variableToIncrement;
-
-	long _slowIncrement;
-	unsigned long _slow_mS_betweenIncrements;
-
-	uint16_t _slowToMediumTransition_mS;
-
-	long _mediumIncrement;
-	unsigned long _medium_mS_betweenIncrements;
-
-	uint16_t _mediumToFastTransistion_mS;
-
-	long _fastIncrement;
-	unsigned long _fast_mS_betweenIncrements;
-
-	unsigned long _lastPressDuration;
-
-};
-
-

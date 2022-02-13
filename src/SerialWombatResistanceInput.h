@@ -1,4 +1,30 @@
 #pragma once
+
+/*
+Copyright 2020-2021 Broadwell Consulting Inc.
+
+"Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
+the United States.  See SerialWombat.com for usage guidance.
+
+Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+*/
+
 #include <stdint.h>
 #include "SerialWombat.h"
 
@@ -16,13 +42,13 @@ enum ResistanceInputPublicDataOutput {
 
 /*!
 
-\brief A class to make resistance measurements with the Serial Wombat.
+\brief A class to make resistance measurements with the Serial Wombat 18AB chip.
 
-The SerialWombatResistanceInput class is used to make resistance measurements on a given pin.
+The SerialWombatResistanceInput class is used to make resistance measurements on a given pin up to about 60 kOhm.
 
 This pin mode is only available on the SerialWombat 18AB chip
 
-Any analog-capable pin may be used to make a measurement.
+Any analog-capable pin may be used to make a measurement (0-4, 16-19).
 
 Averaging of samples and first order IIR filtering (20 Hz sampling) of input are available
 
@@ -34,9 +60,18 @@ when given a steady input.
 
 Declare and initialize a SerialWombatResistanceInput instance for each pin being used as a resistance input.
 
+A tutorial is available here:
+
+https://youtu.be/8ynBmxZSE_M
+
+\htmlonly
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8ynBmxZSE_M" title="YouTube video player" 
+frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+picture-in-picture" allowfullscreen></iframe>
+\endhtmlonly
 
 */
-class SerialWombatResistanceInput
+class SerialWombatResistanceInput : public SerialWombatPin
 {
 public:
 	/// \brief Constructor for the SerialWombatResistanceInput class.
@@ -48,14 +83,14 @@ public:
 	/// 
 	/// This intialization turns on sample averaging to 64 samples 
 	/// 
-	/// \param pin The Serial Wombat pin to set.  Must be an analog pin 
+	/// \param pin The Serial Wombat pin to set.  Must be an analog pin (0-4, 16-19)
 	/// 
 	/// \return Returns a negative error code if initialization failed.
 	int16_t begin(uint8_t pin);
 
 	/// \brief Initialize a resistance input on a given pin.
 	/// 
-	/// \param pin The Serial Wombat pin to set.   Must be an analog pin
+	/// \param pin The Serial Wombat pin to set.   Must be an analog pin (0-4, 16-19)
 	/// \param averageSamples Number of samples to average.  
 	/// \param filterConstant First Order IIR filter constant, expressed as 1/65536ths .
 	/// Values closer to 65536 give heavier filtering.  Sample frequency is 20Hz.
@@ -64,7 +99,7 @@ public:
 
 	/// \brief Initialize a resistance input on a given pin.
 	/// 
-	/// \param pin The Serial Wombat pin to set.  Must be an analog pin
+	/// \param pin The Serial Wombat pin to set.  Must be an analog pin (0-4, 16-19)
 	/// \param averageSamples Number of samples to average. 
 	/// \param filterConstant First Order IIR filter constant, expressed as 1/65536ths .
 	/// Values closer to 65536 give heavier filtering.  Sample frequency is 20 Hz.
@@ -114,10 +149,6 @@ public:
 	uint16_t readMinimumOhms(bool resetAfterRead);
 
 private:
-	SerialWombatChip &_sw ;
-	
-	uint8_t _pin = 255;
-	
 	
 };
 

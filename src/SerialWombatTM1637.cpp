@@ -1,4 +1,3 @@
-#include "SerialWombatTM1637.h"
 /*
 Copyright 2021 Broadwell Consulting Inc.
 
@@ -22,10 +21,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  * OTHER DEALINGS IN THE SOFTWARE.
 */
+#include "SerialWombat.h"
 
-SerialWombatTM1637::SerialWombatTM1637(SerialWombatChip& serialWombat)
+SerialWombatTM1637::SerialWombatTM1637(SerialWombatChip& serialWombat): SerialWombatPin(serialWombat)
 {
-	_sw = &serialWombat;
 }
 
 int16_t SerialWombatTM1637::begin(uint8_t clkPin, uint8_t dioPin, uint8_t digits, SWTM1637Mode mode, uint8_t dataSourcePin,   uint8_t brightness0to7)
@@ -41,7 +40,7 @@ int16_t SerialWombatTM1637::begin(uint8_t clkPin, uint8_t dioPin, uint8_t digits
 		dataSourcePin,
 		brightness0to7,
 	};
-	int16_t retval = _sw->sendPacket(tx_200);
+	int16_t retval = _sw.sendPacket(tx_200);
     return retval;
 }
 
@@ -57,7 +56,7 @@ int16_t SerialWombatTM1637::writeDigitOrder(uint8_t first, uint8_t second, uint8
 		fourth,
 		fifth,
 	};
-	int retval = _sw->sendPacket(tx_201);
+	int retval = _sw.sendPacket(tx_201);
 	if (retval < 0)
 	{
 		return retval;
@@ -72,7 +71,7 @@ int16_t SerialWombatTM1637::writeDigitOrder(uint8_t first, uint8_t second, uint8
 		0x55,
 		0x55,
 	};
-	return _sw->sendPacket(tx_202);
+	return _sw.sendPacket(tx_202);
 }
 
 int16_t SerialWombatTM1637::writeArray(uint8_t data[6])
@@ -87,7 +86,7 @@ int16_t SerialWombatTM1637::writeArray(uint8_t data[6])
 		data[3],
 		data[4],
 	};
-	int retval = _sw->sendPacket(tx_204);
+	int retval = _sw.sendPacket(tx_204);
 	if (retval < 0)
 	{
 		return retval;
@@ -102,7 +101,7 @@ int16_t SerialWombatTM1637::writeArray(uint8_t data[6])
 		0x55,
 		0x55,
 	};
-	return _sw->sendPacket(tx_205);
+	return _sw.sendPacket(tx_205);
 }
 
 int16_t SerialWombatTM1637::writeDecimalBitmap(uint8_t decimalBitmapLSBleftDigit)
@@ -117,7 +116,7 @@ int16_t SerialWombatTM1637::writeDecimalBitmap(uint8_t decimalBitmapLSBleftDigit
 		0x55,
 		0x55,
 	};
-	return _sw->sendPacket(tx_206);
+	return _sw.sendPacket(tx_206);
 }
 
 int16_t SerialWombatTM1637::writeBrightness(uint8_t brightness0to7)
@@ -132,12 +131,12 @@ int16_t SerialWombatTM1637::writeBrightness(uint8_t brightness0to7)
 		0x55,
 		0x55,
 	};
-	return _sw->sendPacket(tx_203);
+	return _sw.sendPacket(tx_203);
 }
 
 int16_t SerialWombatTM1637::writeAnimation(uint16_t bufferIndex, uint16_t delay, uint8_t numberOfFrames, uint8_t data[][6])
 {
-	int result = _sw->writeUserBuffer(bufferIndex, (uint8_t*)data, numberOfFrames * 6);
+	int result = _sw.writeUserBuffer(bufferIndex, (uint8_t*)data, numberOfFrames * 6);
 
 	if (result < 0)
 	{
@@ -160,7 +159,7 @@ int16_t SerialWombatTM1637::suppressLeadingZeros(bool suppress)
 		0x55,
 		0x55,
 	};
-	return _sw->sendPacket(tx_203);
+	return _sw.sendPacket(tx_203);
 }
 
 int16_t SerialWombatTM1637::writeBlinkBitmap(uint8_t decimalBitmapLSBleftDigit)
@@ -175,7 +174,7 @@ int16_t SerialWombatTM1637::writeBlinkBitmap(uint8_t decimalBitmapLSBleftDigit)
 		0x55,
 		0x55,
 	};
-	return _sw->sendPacket(tx_206);
+	return _sw.sendPacket(tx_206);
 }
 
 size_t SerialWombatTM1637::write(uint8_t data)
@@ -184,13 +183,13 @@ size_t SerialWombatTM1637::write(uint8_t data)
 		(uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE8, // Pin Set command
 		_pin,
 		PIN_MODE_TM1637, // TM1637
+		1,
 		data,
 		0x55,
 		0x55,
 		0x55,
-		0x55,
 	};
-	if (_sw->sendPacket(tx) < 0)
+	if (_sw.sendPacket(tx) < 0)
 	{
 		return 0;
 	}
@@ -198,4 +197,45 @@ size_t SerialWombatTM1637::write(uint8_t data)
 	{
 		return 1;
 	}
+}
+
+size_t SerialWombatTM1637::write(const uint8_t* buffer, size_t size)
+{
+	size_t initialSize = size;
+	if (size > 6)
+	{
+		buffer += size - 6;
+		size = 6;
+	}
+	if (size > 4)
+	{
+		uint8_t tx[8] = {
+		(uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE8, // Pin Set command
+		_pin,
+		PIN_MODE_TM1637, // TM1637
+		4,
+		buffer[0],
+		buffer[1],
+		buffer[2],
+		buffer[3],
+		};
+		_sw.sendPacket(tx);
+		size -= 4;
+		buffer += 4;
+	}
+
+	{
+		uint8_t tx[8] = {
+		(uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE8, // Pin Set command
+		_pin,
+		PIN_MODE_TM1637, // TM1637
+		(uint8_t)size,
+		buffer[0],
+		size > 1 ? buffer[1] : (uint8_t)0x55,
+		size > 2 ? buffer[2] : (uint8_t)0x55,
+	    size > 3 ? buffer[3] : (uint8_t)0x55,
+		};
+		_sw.sendPacket(tx);
+	}
+	return size_t(initialSize);
 }

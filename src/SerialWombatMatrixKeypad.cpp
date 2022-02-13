@@ -171,7 +171,7 @@ size_t SerialWombatMatrixKeypad::readBytes(char* buffer, size_t length)
 }
 
 
-SerialWombatMatrixButton::SerialWombatMatrixButton(SerialWombatMatrixKeypad& kp, uint8_t keyIndex):_keypad(kp)
+SerialWombatMatrixButton::SerialWombatMatrixButton(SerialWombatMatrixKeypad& kp, uint8_t keyIndex):_keypad(kp),SerialWombatAbstractButton()
 {
 	_keypad = kp;
 	_keyIndex = keyIndex;

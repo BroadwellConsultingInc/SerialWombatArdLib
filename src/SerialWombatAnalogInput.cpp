@@ -1,34 +1,24 @@
 #include "SerialWombatAnalogInput.h"
 
 
-SerialWombatAnalogInput::SerialWombatAnalogInput( SerialWombatChip& serialWombat):_sw(serialWombat)
+SerialWombatAnalogInput::SerialWombatAnalogInput( SerialWombatChip& serialWombat):SerialWombatPin(serialWombat)
 {
-	_sw = serialWombat;
+
 }
 
-int16_t SerialWombatAnalogInput::begin(uint8_t pin)
-{
-	_pin = pin;
-	uint8_t tx[] = { 200,_pin,PIN_MODE_ANALOGINPUT,0,0,0,0,0 };
-	uint8_t rx[8];
-	_sw.sendPacket(tx, rx);
-	uint8_t tx1[] = { 201,_pin,PIN_MODE_ANALOGINPUT,64,0,0xFF,0x80,0 };
-	return _sw.sendPacket(tx1, rx);
-}
 
 int16_t SerialWombatAnalogInput::begin(uint8_t pin, uint16_t averageSamples, uint16_t filterConstant, AnalogInputPublicDataOutput output)
 {
-	begin(pin);
-	uint8_t tx[] = { 201,_pin,PIN_MODE_ANALOGINPUT,SW_LE16(averageSamples) ,SW_LE16(filterConstant),(uint8_t)output };
-	return _sw.sendPacket(tx);
+	_pin = pin;
+	_pinMode = PIN_MODE_ANALOGINPUT;
+	uint8_t tx[] = { 200,_pin,PIN_MODE_ANALOGINPUT,0,0,0,0,0 };
+	int16_t result = _sw.sendPacket(tx);
+	if (result < 0) { return result; }
+	uint8_t tx1[] = { 201,_pin,PIN_MODE_ANALOGINPUT,SW_LE16(averageSamples) ,SW_LE16(filterConstant),(uint8_t)output };
+	return _sw.sendPacket(tx1);
 }
 
-int16_t SerialWombatAnalogInput::begin(uint8_t pin, uint16_t averageSamples, uint16_t filterConstant)
-{
-	begin(pin);
-	uint8_t tx[] = { 201,_pin,PIN_MODE_ANALOGINPUT,SW_LE16(averageSamples) ,SW_LE16(filterConstant),0 };
-	return _sw.sendPacket(tx);
-}
+
 
 
 uint16_t SerialWombatAnalogInput::readVoltage_mV()
@@ -127,18 +117,7 @@ uint16_t SerialWombatAnalogInput::readMinimumCounts(bool resetAfterRead)
 	return(rx[3] + rx[4] * 256);
 }
 
-int16_t SerialWombatAnalogInput::setInputSource(uint8_t inputSource)
-{
-	uint8_t tx[] = { 202,_pin,PIN_MODE_ANALOGINPUT,inputSource,0x55,0x55,0x55,0x55 };
-	return(_sw.sendPacket(tx));
 
-}
-
-int16_t SerialWombatAnalogInput::setQueue(uint16_t queueIndex, uint16_t msBetweenQueues)
-{
-	uint8_t tx[8] = { 218,_pin,PIN_MODE_ANALOGINPUT,SW_LE16(queueIndex), SW_LE16(msBetweenQueues),0x55 };
-	return (_sw.sendPacket(tx));
-}
 
 
 uint16_t SerialWombatAnalogInput::readMaximum_mV(bool resetAfterRead)
@@ -158,3 +137,19 @@ uint16_t SerialWombatAnalogInput::readMinimum_mV(bool resetAfterRead)
 	return ((uint16_t)(x >> 16));
 }
 
+SerialWombatAnalogInput_18AB::SerialWombatAnalogInput_18AB(SerialWombatChip& serialWombat):SerialWombatAnalogInput(serialWombat),SerialWombatAbstractProcessedInput(serialWombat)
+{
+}
+
+int16_t SerialWombatAnalogInput_18AB::setInputSource(uint8_t inputSource)
+{
+	uint8_t tx[] = { 202,_pin,PIN_MODE_ANALOGINPUT,inputSource,0x55,0x55,0x55,0x55 };
+	return(_sw.sendPacket(tx));
+
+}
+
+int16_t SerialWombatAnalogInput_18AB::setQueue(uint16_t queueIndex, uint16_t msBetweenQueues)
+{
+	uint8_t tx[8] = { 218,_pin,PIN_MODE_ANALOGINPUT,SW_LE16(queueIndex), SW_LE16(msBetweenQueues),0x55 };
+	return (_sw.sendPacket(tx));
+}

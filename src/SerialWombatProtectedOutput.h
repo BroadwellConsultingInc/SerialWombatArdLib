@@ -1,4 +1,29 @@
 #pragma once
+/*
+Copyright 2020-2021 Broadwell Consulting Inc.
+
+"Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
+the United States.  See SerialWombat.com for usage guidance.
+
+Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+*/
+
 #include "SerialWombat.h"
 /*! \file SerialWombatProtectedOutput.h
 */
@@ -15,17 +40,17 @@ typedef enum
 /*! \brief Combine and input and output pin for a protected output
 
 The SerialWombtProtectedOutput class is assigned to a Serial Wombat
-output.  It monitors another previously configured pin's public data,
+output pin.  It monitors another previously configured pin's public data,
 such as a digital I/O value or an Analog input.  If the monitored value
 does not meet expectations, then the protected pin changes values to
-a configured state.   This allows the Serial Wombat to constantly
+a configured state.   This allows the Serial Wombat chip to constantly
 verify a condition without the need for constant polling from the 
 host device.
 
 \warning The SerialWombatProtectedOutput is intended to help prevent
-accidental damage to hobby circuitry.  The Serial Wombat and its associated
+accidental damage to hobby circuitry.  The Serial Wombat chip and its associated
 libraries are not designed for use in Safety Critical applications.  The 
-Serial Wombat should not be used in situations where a malfunction or design
+Serial Wombat chip should not be used in situations where a malfunction or design
 defect could result in damage to property, economic loss,
 or harm to living people or creatures.
 
@@ -40,11 +65,11 @@ Video Tutorial
 
 https://youtu.be/p8CO04C1q_Y
 */
-class SerialWombatProtectedOutput
+class SerialWombatProtectedOutput : public SerialWombatPin
 {
 public:
     /// \brief Constructor for SerialWombatProtectedOutput
-    /// \param serialWombat The serial Wombat on which the Protected Output runs
+    /// \param serialWombat The serial Wombat Chip on which the Protected Output runs
     SerialWombatProtectedOutput(SerialWombatChip& serialWombat);
     ///  Initialize the Protected Output.  No pin state changes happen with this function
     /// \param pin The output pin of the Protected output   Valid values for SW4A: 0-3  SW4B: 1-3 
@@ -70,8 +95,7 @@ public:
     void digitalWrite(uint8_t state);
 
 private:
-    SerialWombatChip& _sw;
-    uint8_t _pin = 255;
+
     uint8_t _monitoredPin = 255;
     PO_COMPARE_t _compareMode = PO_FAULT_IF_NOT_EQUAL;
     uint8_t _debounceTime = 0;

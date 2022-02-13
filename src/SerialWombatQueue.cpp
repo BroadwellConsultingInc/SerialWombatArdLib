@@ -206,7 +206,7 @@ size_t SerialWombatQueue::readBytes(char* buffer, size_t length)
 	uint16_t bytesRead = 0;
 	while (bytesRead < length)
 	{
-		uint8_t bytesToRead = length - bytesRead;
+		uint8_t bytesToRead =(uint8_t)( length - bytesRead);
 		if (bytesToRead > 6)
 		{
 			bytesToRead = 6;

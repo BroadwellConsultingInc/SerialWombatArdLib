@@ -1,9 +1,7 @@
 #include "SerialWombatQuadEnc.h"
 
-SerialWombatQuadEnc::SerialWombatQuadEnc(SerialWombatChip& serialWombat) :_sw(serialWombat)
+SerialWombatQuadEnc::SerialWombatQuadEnc(SerialWombatChip& serialWombat) :SerialWombatPin(serialWombat)
 {
-	_sw = serialWombat;
-	_pin = 255;
 	_secondPin = 255;
 }
 

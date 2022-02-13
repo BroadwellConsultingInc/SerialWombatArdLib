@@ -1,10 +1,8 @@
 #include "SerialWombatUART.h"
 
 
-SerialWombatUART::SerialWombatUART(SerialWombatChip& serialWombat):_sw(serialWombat)
-{
-	_sw = serialWombat;
-	
+SerialWombatUART::SerialWombatUART(SerialWombatChip& serialWombat):SerialWombatPin(serialWombat)
+{	
 }
 
 int16_t SerialWombatUART::begin(uint32_t baudRate, uint8_t pin, uint8_t rxPin, uint8_t txPin)
