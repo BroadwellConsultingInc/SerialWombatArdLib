@@ -44,28 +44,30 @@ typedef enum
 	SW_INPUT = 2,
 }SerialWombatPinState_t;
 
+
+/// \brief A list of Serial Wombat public data sources
 enum class SerialWombatDataSource{
 
-	SW_DATA_SOURCE_PIN_0 = 0, ///< 16 bit public data provided by Pin 0
-	SW_DATA_SOURCE_PIN_1 = 1,///< 16 bit public data provided by Pin 1
-	SW_DATA_SOURCE_PIN_2 = 2,///< 16 bit public data provided by Pin 2
-	SW_DATA_SOURCE_PIN_3 = 3,///< 16 bit public data provided by Pin 3
-	SW_DATA_SOURCE_PIN_4 = 4,///< 16 bit public data provided by Pin 4
-	SW_DATA_SOURCE_PIN_5 = 5,///< 16 bit public data provided by Pin 5
-	SW_DATA_SOURCE_PIN_6 = 6,///< 16 bit public data provided by Pin 6
-	SW_DATA_SOURCE_PIN_7 = 7,///< 16 bit public data provided by Pin 7
-	SW_DATA_SOURCE_PIN_8 = 8,///< 16 bit public data provided by Pin 8
-	SW_DATA_SOURCE_PIN_9 = 9,///< 16 bit public data provided by Pin 9
-	SW_DATA_SOURCE_PIN_10 = 10,///< 16 bit public data provided by Pin 10
-	SW_DATA_SOURCE_PIN_11 = 11,///< 16 bit public data provided by Pin 11
-	SW_DATA_SOURCE_PIN_12 = 12,///< 16 bit public data provided by Pin 12
-	SW_DATA_SOURCE_PIN_13 = 13,///< 16 bit public data provided by Pin 13
-	SW_DATA_SOURCE_PIN_14 = 14,///< 16 bit public data provided by Pin 14
-	SW_DATA_SOURCE_PIN_15 = 15,///< 16 bit public data provided by Pin 15
-	SW_DATA_SOURCE_PIN_16 = 16,///< 16 bit public data provided by Pin 16
-	SW_DATA_SOURCE_PIN_17 = 17,///< 16 bit public data provided by Pin 17
-	SW_DATA_SOURCE_PIN_18 = 18,///< 16 bit public data provided by Pin 18
-	SW_DATA_SOURCE_PIN_19 = 19,///< 16 bit public data provided by Pin 19
+	SW_DATA_SOURCE_PIN_0 = 0, ///< (0) 16 bit public data provided by Pin 0
+	SW_DATA_SOURCE_PIN_1 = 1, ///< (1) 16 bit public data provided by Pin 1
+	SW_DATA_SOURCE_PIN_2 = 2, ///< (2) 16 bit public data provided by Pin 2
+	SW_DATA_SOURCE_PIN_3 = 3, ///< (3) 16 bit public data provided by Pin 3
+	SW_DATA_SOURCE_PIN_4 = 4, ///< (4) 16 bit public data provided by Pin 4
+	SW_DATA_SOURCE_PIN_5 = 5, ///< (5) 16 bit public data provided by Pin 5
+	SW_DATA_SOURCE_PIN_6 = 6, ///< (6) 16 bit public data provided by Pin 6
+	SW_DATA_SOURCE_PIN_7 = 7, ///< (7) 16 bit public data provided by Pin 7
+	SW_DATA_SOURCE_PIN_8 = 8, ///< (8) 16 bit public data provided by Pin 8
+	SW_DATA_SOURCE_PIN_9 = 9, ///< (9) 16 bit public data provided by Pin 9
+	SW_DATA_SOURCE_PIN_10 = 10, ///< (10) 16 bit public data provided by Pin 10
+	SW_DATA_SOURCE_PIN_11 = 11, ///< (11) 16 bit public data provided by Pin 11
+	SW_DATA_SOURCE_PIN_12 = 12, ///< (12) 16 bit public data provided by Pin 12
+	SW_DATA_SOURCE_PIN_13 = 13, ///< (13) 16 bit public data provided by Pin 13
+	SW_DATA_SOURCE_PIN_14 = 14, ///< (14) 16 bit public data provided by Pin 14
+	SW_DATA_SOURCE_PIN_15 = 15, ///< (15) 16 bit public data provided by Pin 15
+	SW_DATA_SOURCE_PIN_16 = 16, ///< (16) 16 bit public data provided by Pin 16
+	SW_DATA_SOURCE_PIN_17 = 17, ///< (17) 16 bit public data provided by Pin 17
+	SW_DATA_SOURCE_PIN_18 = 18, ///< (18) 16 bit public data provided by Pin 18
+	SW_DATA_SOURCE_PIN_19 = 19, ///< (19) 16 bit public data provided by Pin 19
 //	SW_DATA_SOURCE_PIN_20 = 20,
 //	SW_DATA_SOURCE_PIN_21 = 21,
 //	SW_DATA_SOURCE_PIN_22 = 22,
@@ -110,24 +112,24 @@ enum class SerialWombatDataSource{
 //	SW_DATA_SOURCE_PIN_61 = 61,
 //	SW_DATA_SOURCE_PIN_62 = 62,
 //	SW_DATA_SOURCE_PIN_63 = 63,
-	SW_DATA_SOURCE_INCREMENTING_NUMBER = 65, ///< An number that increments each time it is accessed.
-	SW_DATA_SOURCE_1024mvCounts = 66 , ///< The number of ADC counts that result from a 1.024V reading
-	SW_DATA_SOURCE_FRAMES_RUN_LSW = 67, ///< The number of frames run since reset, least significant 16 bits
-	SW_DATA_SOURCE_FRAMES_RUN_MSW = 68, ///< The number of frames run since reset, most significant 16 bits
-	SW_DATA_SOURCE_OVERRUN_FRAMES = 69, ///< The number of frames that ran more than 1mS
-	SW_DATA_SOURCE_TEMPERATURE = 70, ///<The internal core temperature expressed in 100ths deg C
-	SW_DATA_SOURCE_PACKETS_RECEIVED = 71,  ///<The nubmer of incoming command packets that have been processed since reset (rolls over at 65535)
-	SW_DATA_SOURCE_ERRORS = 72,  ///<The number of incoming packets that have caused errors since reset (rolls over at 65535)  
-	SW_DATA_SOURCE_DROPPED_FRAMES = 73 , ///<The number of times since reset that a frame ran so far behind that it crossed two subsequent 1ms boundaries, causing a permanent lost frame
-	SW_DATA_SOURCE_SYSTEM_UTILIZATION = 74 , ///< A number between 0 and 65535 that scales to the average length of pin processing frames between 0 and 1000mS
-	SW_DATA_SOURCE_VCC_mVOLTS = 75, ///<The system source voltage in mV
-	SW_DATA_SOURCE_VBG_COUNTS_VS_VREF = 76, ///< A/D conversion of VBG against VRef .  Used for mfg calibration
-	SW_DATA_SOURCE_LFSR = 78,
-	SW_DATA_SOURCE_PIN_0_MV = 100, ///< Pin 0 public output expressed in mV (for analog modes only)
-	SW_DATA_SOURCE_PIN_1_MV = 101, ///< Pin 1 public output expressed in mV (for analog modes only)
-	SW_DATA_SOURCE_PIN_2_MV = 102, ///< Pin 2 public output expressed in mV (for analog modes only)
-	SW_DATA_SOURCE_PIN_3_MV = 103, ///< Pin 3 public output expressed in mV (for analog modes only)
-	SW_DATA_SOURCE_PIN_4_MV = 104, ///< Pin 4 public output expressed in mV (for analog modes only)
+	SW_DATA_SOURCE_INCREMENTING_NUMBER = 65, ///< (65) An number that increments each time it is accessed.
+	SW_DATA_SOURCE_1024mvCounts = 66 , ///< (66) The number of ADC counts that result from a 1.024V reading
+	SW_DATA_SOURCE_FRAMES_RUN_LSW = 67, ///< (67) The number of frames run since reset, least significant 16 bits
+	SW_DATA_SOURCE_FRAMES_RUN_MSW = 68, ///< (68) The number of frames run since reset, most significant 16 bits
+	SW_DATA_SOURCE_OVERRUN_FRAMES = 69, ///< (69) The number of frames that ran more than 1mS
+	SW_DATA_SOURCE_TEMPERATURE = 70, ///< (70)The internal core temperature expressed in 100ths deg C
+	SW_DATA_SOURCE_PACKETS_RECEIVED = 71, ///< (71) The nubmer of incoming command packets that have been processed since reset (rolls over at 65535)
+	SW_DATA_SOURCE_ERRORS = 72, ///< (72)The number of incoming packets that have caused errors since reset (rolls over at 65535)  
+	SW_DATA_SOURCE_DROPPED_FRAMES = 73, ///< (73) The number of times since reset that a frame ran so far behind that it crossed two subsequent 1ms boundaries, causing a permanent lost frame
+	SW_DATA_SOURCE_SYSTEM_UTILIZATION = 74, ///< (74) A number between 0 and 65535 that scales to the average length of pin processing frames between 0 and 1000mS
+	SW_DATA_SOURCE_VCC_mVOLTS = 75, ///< (75) The system source voltage in mV
+	SW_DATA_SOURCE_VBG_COUNTS_VS_VREF = 76, ///< (76) A/D conversion of VBG against VRef .  Used for mfg calibration
+	SW_DATA_SOURCE_LFSR = 78, ///< (78) A  Linear Feedback Shift Register that produces a Pseudo random sequence of 16 bit values
+	SW_DATA_SOURCE_PIN_0_MV = 100, ///< (100) Pin 0 public output expressed in mV (for analog modes only)
+	SW_DATA_SOURCE_PIN_1_MV = 101, ///< (101) Pin 1 public output expressed in mV (for analog modes only)
+	SW_DATA_SOURCE_PIN_2_MV = 102, ///< (102) Pin 2 public output expressed in mV (for analog modes only)
+	SW_DATA_SOURCE_PIN_3_MV = 103, ///< (103) Pin 3 public output expressed in mV (for analog modes only)
+	SW_DATA_SOURCE_PIN_4_MV = 104, ///< (104) Pin 4 public output expressed in mV (for analog modes only)
 	//NOT ANALOG            SW_DATA_SOURCE_PIN_5_MV = 105,
 	//NOT ANALOG            SW_DATA_SOURCE_PIN_6_MV = 106,
 	//NOT ANALOG            SW_DATA_SOURCE_PIN_7_MV = 107,
@@ -139,10 +141,25 @@ enum class SerialWombatDataSource{
 	//NOT ANALOG            SW_DATA_SOURCE_PIN_13_MV = 113,
 	//NOT ANALOG            SW_DATA_SOURCE_PIN_14_MV = 114,
 	//NOT ANALOG            SW_DATA_SOURCE_PIN_15_MV = 115,
-	SW_DATA_SOURCE_PIN_16_MV = 116, ///< Pin 16 public output expressed in mV (for analog modes only)
-	SW_DATA_SOURCE_PIN_17_MV = 117, ///< Pin 17 public output expressed in mV (for analog modes only)
-	SW_DATA_SOURCE_PIN_18_MV = 118, ///< Pin 18 public output expressed in mV (for analog modes only)
-	SW_DATA_SOURCE_PIN_19_MV = 119, ///< Pin 19 public output expressed in mV (for analog modes only)
+	SW_DATA_SOURCE_PIN_16_MV = 116, ///< (116) Pin 16 public output expressed in mV (for analog modes only)
+	SW_DATA_SOURCE_PIN_17_MV = 117, ///< (117) Pin 17 public output expressed in mV (for analog modes only)
+	SW_DATA_SOURCE_PIN_18_MV = 118, ///< (118) Pin 18 public output expressed in mV (for analog modes only)
+	SW_DATA_SOURCE_PIN_19_MV = 119, ///< (119) Pin 19 public output expressed in mV (for analog modes only)
+	SW_DATA_SOURCE_2HZ_SQUARE = 164, ///< (164) Square wave that alternates between 0 and 65535 every 256 frames
+	SW_DATA_SOURCE_2HZ_SAW = 165,///< (165) Sawtooth wave that goes from  0 to 65535 to 0 every  512 frames
+//            SW_DATA_SOURCE_2HZ_SIN = 166,
+SW_DATA_SOURCE_1HZ_SQUARE = 167,///< (167) Square wave that alternates between 0 and 65535 every 512 frames
+SW_DATA_SOURCE_1HZ_SAW = 168,///<  (168) Sawtooth wave that goes from  0 to 65535 to 0 every  1024 frames
+//           SW_DATA_SOURCE_1HZ_SIN = 169,
+SW_DATA_SOURCE_2SEC_SQUARE = 170,///< (170)Square wave that alternates between 0 and 65535 every 1024 frames
+SW_DATA_SOURCE_2SEC_SAW = 171,///< (171)Sawtooth wave that goes from  0 to 65535 to 0 every  2048 frames
+//          SW_DATA_SOURCE_2SEC_SIN = 172,
+SW_DATA_SOURCE_8SEC_SQUARE = 173,///< (173)Square wave that alternates between 0 and 65535 every 4096 frames
+SW_DATA_SOURCE_8SEC_SAW = 174,///< (174)Sawtooth wave that goes from  0 to 65535 to 0 every  8192 frames
+//         SW_DATA_SOURCE_8SEC_SIN = 175,
+SW_DATA_SOURCE_65SEC_SQUARE = 176,///< (176) Square wave that alternates between 0 and 65535 every 32768 frames
+SW_DATA_SOURCE_65SEC_SAW = 177,///< (177 )Sawtooth wave that goes from  0 to 65535 to 0 every  65536 frames
+//        SW_DATA_SOURCE_65SEC_SIN = 178,
 };
 
 #define ERROR_HOST_INCORRECT_NUMBER_BYTES_WRITTEN 0x10000 ///< Write routine returned wrong number of bytes
@@ -151,91 +168,94 @@ enum class SerialWombatDataSource{
 #define ERROR_HOST_NACK_DATA 0x10003   ///< endTransmission returned data NACK
 #define ERROR_HOST_OTHER_I2C_ERROR 0x10004 ///< endTransmission returned other error
 
-#define WOMBAT_MAXIMUM_PINS 19
+#define WOMBAT_MAXIMUM_PINS 20
 
 enum class SerialWombatCommands
 {
-	CMD_ECHO ='!', 
-	CMD_READ_BUFFER_ASCII = 'G',
-	CMD_ASCII_SET_PIN ='P', 
-	CMD_RESET = 'R', 
-	CMD_SET_BUFFER_ASCII = 'S',
-	CMD_RESYNC = 'U',
-	CMD_VERSION = 'V',
-	CMD_SUPPLYVOLTAGE = 'v',
-	COMMAND_BINARY_READ_PIN_BUFFFER = 0x81,
-	COMMAND_BINARY_SET_PIN_BUFFFER = 0x82,
-	COMMAND_BINARY_READ_USER_BUFFER = 0x83,
-	COMMAND_BINARY_WRITE_USER_BUFFER = 0x84,
-	COMMAND_BINARY_WRITE_USER_BUFFER_CONTINUE = 0x85,
-	COMMAND_BINARY_QUEUE_INITIALIZE = 0x90,
-	COMMAND_BINARY_QUEUE_ADD_BYTES = 0x91,
-	COMMAND_BINARY_QUEUE_ADD_7BYTES = 0x92,
-	COMMAND_BINARY_QUEUE_READ_BYTES = 0x93,
-	COMMAND_BINARY_QUEUE_INFORMATION = 0x94,
-	COMMAND_BINARY_CONFIGURE = 0x9F,
-	COMMAND_BINARY_READ_RAM = 0xA0,
-	COMMAND_BINARY_READ_FLASH = 0xA1,
-	COMMAND_BINARY_READ_EEPROM = 0xA2,
-	COMMAND_BINARY_WRITE_RAM = 0xA3,
-	COMMAND_BINARY_WRITE_FLASH = 0xA4,
-	COMMAND_CALIBRATE_ANALOG = 0xA5,
-	COMMAND_ENABLE_2ND_UART = 0xA6,
-	COMMAND_UART0_TX_7BYTES = 0xB0,
-	COMMAND_UART0_RX_7BYTES = 0xB1,
-	COMMAND_UART1_TX_7BYTES = 0xB2,
-	COMMAND_UART1_RX_7BYTES = 0xB3,
-	CONFIGURE_PIN_MODE0 = 200,
-	CONFIGURE_PIN_MODE1 = 201,
-	CONFIGURE_PIN_MODE2 = 202,
-	CONFIGURE_PIN_MODE3 = 203,
-	CONFIGURE_PIN_MODE4 = 204,
-	CONFIGURE_PIN_MODE5 = 205,
-	CONFIGURE_PIN_MODE6 = 206,
-	CONFIGURE_PIN_MODE7 = 207,
-	CONFIGURE_PIN_MODE8 = 208,
-	CONFIGURE_PIN_MODE9 = 209,
-	CONFIGURE_PIN_MODE10 = 210,
-	CONFIGURE_PIN_OUTPUTSCALE = 210,
-	CONFIGURE_PIN_INPUTPROCESS = 211,
-	CONFIGURE_PIN_MODE_HW_0 = 220,
-	CONFIGURE_CHANNEL_MODE_HW_1 = 221,
-	CONFIGURE_CHANNEL_MODE_HW_2 = 222,
-	CONFIGURE_CHANNEL_MODE_HW_3 = 223,
+	CMD_ECHO ='!', ///< ('!')
+	CMD_READ_BUFFER_ASCII = 'G',///< ('G')
+	CMD_ASCII_SET_PIN ='P', ///< ('P')
+	CMD_RESET = 'R', ///< ('R')
+	CMD_SET_BUFFER_ASCII = 'S',///< ('S')
+	CMD_RESYNC = 'U',///< ('U')
+	CMD_VERSION = 'V',///< ('V')
+	CMD_SUPPLYVOLTAGE = 'v',///< ('v')
+	COMMAND_BINARY_READ_PIN_BUFFFER = 0x81, ///< (0x81)
+	COMMAND_BINARY_SET_PIN_BUFFFER = 0x82, ///< (0x82)
+	COMMAND_BINARY_READ_USER_BUFFER = 0x83, ///< (0x83)
+	COMMAND_BINARY_WRITE_USER_BUFFER = 0x84, ///< (0x84)
+	COMMAND_BINARY_WRITE_USER_BUFFER_CONTINUE = 0x85, ///< (0x85)
+	COMMAND_BINARY_QUEUE_INITIALIZE = 0x90, ///< (0x90)
+	COMMAND_BINARY_QUEUE_ADD_BYTES = 0x91, ///< (0x91)
+	COMMAND_BINARY_QUEUE_ADD_7BYTES = 0x92, ///< (0x92)
+	COMMAND_BINARY_QUEUE_READ_BYTES = 0x93, ///< (0x93)
+	COMMAND_BINARY_QUEUE_INFORMATION = 0x94, ///< (0x94)
+	COMMAND_BINARY_CONFIGURE = 0x9F, ///< (0x9F)
+	COMMAND_BINARY_READ_RAM = 0xA0, ///< (0xA0)
+	COMMAND_BINARY_READ_FLASH = 0xA1, ///< (0xA1)
+	COMMAND_BINARY_READ_EEPROM = 0xA2, ///< (0xA2)
+	COMMAND_BINARY_WRITE_RAM = 0xA3, ///< (0xA3)
+	COMMAND_BINARY_WRITE_FLASH = 0xA4, ///< (0xA4)
+	COMMAND_CALIBRATE_ANALOG = 0xA5, ///< (0xA5)
+	COMMAND_ENABLE_2ND_UART = 0xA6, ///< (0xA6)
+	COMMAND_READ_LAST_ERROR_PACKET = 0xA7, ///< (0xA7)
+	COMMAND_UART0_TX_7BYTES = 0xB0, ///< (0xB0)
+	COMMAND_UART0_RX_7BYTES = 0xB1, ///< (0xB1)
+	COMMAND_UART1_TX_7BYTES = 0xB2, ///< (0xB2)
+	COMMAND_UART1_RX_7BYTES = 0xB3, ///< (0xB3)
+	CONFIGURE_PIN_MODE0 = 200, ///< (200)
+	CONFIGURE_PIN_MODE1 = 201, ///< (201)
+	CONFIGURE_PIN_MODE2 = 202, ///< (202)
+	CONFIGURE_PIN_MODE3 = 203, ///< (203)
+	CONFIGURE_PIN_MODE4 = 204, ///< (204)
+	CONFIGURE_PIN_MODE5 = 205, ///< (205)
+	CONFIGURE_PIN_MODE6 = 206, ///< (206)
+	CONFIGURE_PIN_MODE7 = 207, ///< (207)
+	CONFIGURE_PIN_MODE8 = 208, ///< (208)
+	CONFIGURE_PIN_MODE9 = 209, ///< (209)
+	CONFIGURE_PIN_MODE10 = 210, ///< (210)
+	CONFIGURE_PIN_OUTPUTSCALE = 210, ///< (210)
+	CONFIGURE_PIN_INPUTPROCESS = 211, ///< (211)
+	CONFIGURE_PIN_MODE_HW_0 = 220, ///< (220)
+	CONFIGURE_CHANNEL_MODE_HW_1 = 221, ///< (221)
+	CONFIGURE_CHANNEL_MODE_HW_2 = 222, ///< (222)
+	CONFIGURE_CHANNEL_MODE_HW_3 = 223, ///< (223)
 
 };
 
 
 typedef enum {
-	PIN_MODE_DIGITALIO = 0,
-	PIN_MODE_CONTROLLED = 1,
-	PIN_MODE_ANALOGINPUT = 2,
-	PIN_MODE_SERVO = 3,
-	PIN_MODE_THROUGHPUT_CONSUMER = 4,
-	PIN_MODE_QUADRATUREENCODER = 5,
-	PIN_MODE_WATCHDOG = 7,
-	PIN_MODE_PROTECTED_OUTPUT = 8,
-	PIN_MODE_DEBOUNCE = 10,
-	PIN_MODE_TM1637 = 11,
-	PIN_MODE_WS2812 = 12,
-	PIN_MODE_SW_UART = 13,
-	PIN_MODE_INPUT_PROCESSOR = 14,
-	PIN_MODE_MATRIX_KEYPAD = 15,
-	PIN_MODE_PWM = 16,
-	PIN_MODE_UART_RX_TX = 17,  //UART 0 externally is UART 1 internally
-	PIN_MODE_PULSETIMER = 18,
-	
-	PIN_MODE_FRAME_TIMER = 21,
-	PIN_MODE_SW18AB_CAPTOUCH = 22,
-	PIN_MODE_UART1_RX_TX = 23,
-	PIN_MODE_RESISTANCEINPUT = 24,
-	PIN_MODE_PULSE_ON_CHANGE = 25,
-	PIN_MODE_HS_SERVO = 26,
-	PIN_MODE_ULTRASONIC_DISTANCE = 27,
-	PIN_MODE_UNKNOWN = 255
+	PIN_MODE_DIGITALIO = 0, ///< (0)
+	PIN_MODE_CONTROLLED = 1, ///< (1)
+	PIN_MODE_ANALOGINPUT = 2, ///< (2)
+	PIN_MODE_SERVO = 3, ///< (3)
+	PIN_MODE_THROUGHPUT_CONSUMER = 4, ///< (4)
+	PIN_MODE_QUADRATUREENCODER = 5, ///< (5)
+	PIN_MODE_WATCHDOG = 7, ///< (7)
+	PIN_MODE_PROTECTED_OUTPUT = 8, ///< (8)
+	PIN_MODE_DEBOUNCE = 10, ///< (10)
+	PIN_MODE_TM1637 = 11, ///< (11)
+	PIN_MODE_WS2812 = 12, ///< (12)
+	PIN_MODE_SW_UART = 13, ///< (13)
+	PIN_MODE_INPUT_PROCESSOR = 14, ///< (14)
+	PIN_MODE_MATRIX_KEYPAD = 15, ///< (15)
+	PIN_MODE_PWM = 16, ///< (16)
+	PIN_MODE_UART_RX_TX = 17, ///< (17)  
+	PIN_MODE_PULSETIMER = 18, ///< (18)
+	PIN_MODE_FRAME_TIMER = 21, ///< (21)
+	PIN_MODE_SW18AB_CAPTOUCH = 22, ///< (22)
+	PIN_MODE_UART1_RX_TX = 23, ///< (23)
+	PIN_MODE_RESISTANCEINPUT = 24, ///< (24)
+	PIN_MODE_PULSE_ON_CHANGE = 25, ///< (25)
+	PIN_MODE_HS_SERVO = 26, ///< (26)
+	PIN_MODE_ULTRASONIC_DISTANCE = 27, ///< (27)
+	PIN_MODE_LIQUIDCRYSTAL = 28, ///< (28)
+	PIN_MODE_UNKNOWN = 255, ///< (0xFF)
 }SerialWombatPinMode_t;
 
+class SerialWombatChip;
 
+typedef void  (*SerialWombatErrorHandler_t) (uint16_t errorNumber, SerialWombatChip* sw);
 
 /*! \brief Class for a Serial Wombat chip.  Each Serial Wombat chip on a project should have its own instance.
 
@@ -561,13 +581,23 @@ public:
 	/// Contains the last firmware Version retreived by queryVersion() as a zero-terminated string
 	uint8_t fwVersion[4] = { 0 };
 
+	/// Contains the unique identifier stored in microcontroller at its manufacturing.  
+	/// Length and format vary by model.  uniqueIdentifier holds the length in bytes.  
+	/// Call queryVersion() to populate this value.
 	uint8_t uniqueIdentifier[16];
+
+	/// Contains the unique identifier length in bytes.  This value varies by model. 
+	/// Call queryVersion() to populate this value.
 	uint8_t uniqueIdentifierLength = 0;
 
+	/// Contains a Microchip device identifier for Microchip based Serial Wombat Models.
+	/// Call queryVersion() to populate this value.
 	uint16_t deviceIdentifier;
+	/// Contains a Microchip device revision for Microchip based Serial Wombat Models.
+	/// Call queryVersion() to populate this value.
 	uint16_t deviceRevision;
 	/// Incremented every time a communication or command error is detected.
-	uint32_t errorCount = 0;
+	uint16_t errorCount = 0;
 
 	/// Set to true if boot mode is indicated by a version query
 	bool inBoot = false;
@@ -588,6 +618,28 @@ public:
 	/// \return Number of bytes written or error code.
 	int writeUserBuffer(uint16_t index, uint8_t* buffer, uint16_t count);
 
+		/// \brief Write bytes to the User Memory Buffer in the Serial Wombat chip
+	/// \param index The index into the User Buffer array of bytes where the data should be loaded
+	/// \param buffer a pointer to an array of bytes to be loaded into the User Buffer array
+	/// \param s string to convert to Ascii bytes and load
+	/// \return Number of bytes written or error code.
+		int writeUserBuffer(uint16_t index, char* s);
+
+		/// \brief Write bytes to the User Memory Buffer in the Serial Wombat chip
+/// \param index The index into the User Buffer array of bytes where the data should be loaded
+/// \param buffer a pointer to an array of bytes to be loaded into the User Buffer array
+/// \param s string to convert to Ascii bytes and load
+/// \return Number of bytes written or error code.
+		int writeUserBuffer(uint16_t index, const char s[]);
+
+	/// \brief Read bytes from the User Memory Buffer in the Serial Wombat chip
+	/// \param index The index into the User Buffer array of bytes from which data should be read 
+	/// \param buffer a pointer to an array of bytes to be loaded from the User Buffer array
+	/// \param number of bytes to read
+	/// \return Number of bytes read or error code.
+
+	int readUserBuffer(uint16_t index, uint8_t* buffer, uint16_t count);
+
 	/// \brief Enable UART command interface in addition to I2C (SW18AB Only)
 	/// \param 2nd communication interface is enabled
 	/// 
@@ -596,11 +648,6 @@ public:
 	int16_t enable2ndCommandInterface(bool enabled);
 
 
-	/// \brief Search the I2C Bus addresses 0x68 to 0x6F for I2C devices, and test to see if they respond to
-	/// Serial Wombat version commands.  Returns first address that responds properly or 0 if none found
-	/// 
-	/// \return I2C address of first found Seirla Wombat chip or 0 if none found
-	static uint8_t find();
 
 	/// \brief Search the I2C Bus addresses 0x68 to 0x6F for I2C devices, and test to see if they respond to
 	/// Serial Wombat version commands.  Returns first address that responds properly or 0 if none found
@@ -609,12 +656,31 @@ public:
 	/// 
 	/// \return I2C address of first found Seirla Wombat chip or 0 if none found
 
-	static uint8_t find(bool keepTrying);
+	/// \brief Search the I2C Bus addresses 0x68 to 0x6F for I2C devices, and test to see if they respond to
+	/// Serial Wombat version commands.  Returns first address that responds properly or 0 if none found
+	///
+	/// \param keepTrying If true, find will stay in a loop  and continue polling until a Serial Wombat chip is detected. 
+	/// \return I2C address of first found Seirla Wombat chip or 0 if none found
+	static uint8_t find(bool keepTrying = false);
+
+	/// The last error code returned as part of a protocol error message expressed as a positive integer
 	int16_t lastErrorCode = 0;
 
+	/// \brief Returns the last Serial Wombat command that produced a protocol error
+	///
+	/// \return Returns the error code associated with the command
+	/// \param cmd pointer to a uint8_t [8] array into which the error command will be copied
+	int16_t readLastErrorCommand(uint8_t* cmd);
+
+	/// \brief Registers an error handler that is called by the SerialWombatChip sendPacket() command when a protocol error is returned by the Serial Wombat
+	/// \handler A function pointer to a function of SerialWombatErrorHandler_t type.
+	void registerErrorHandler(SerialWombatErrorHandler_t handler);
+
+	/// \brief The I2C address of the SerialWombatChip instance
+	uint8_t address = 0;
 private:
 
-	uint8_t address = 0;
+
 	char version[8] = { 0 };
 	HardwareSerial * Serial = NULL;
 	TwoWire* i2cInterface = NULL;
@@ -628,6 +694,8 @@ private:
 	int16_t initialize();
 	void readUniqueIdentifier();
 	void readDeviceIdentifier();
+	uint16_t returnErrorCode(uint8_t* rx);
+	SerialWombatErrorHandler_t errorHandler = NULL;
 };
 
 /// \brief This class name is depricated.  Do not use for new development.  Use SerialWombatChip instead.
@@ -639,11 +707,26 @@ class SerialWombat : public SerialWombatChip {};
 #define SW_LE32(_a)  (uint8_t)((_a) & 0xFF), (uint8_t)((_a) >>8) , (uint8_t)((_a) >>16), (uint8_t)((_a) >>24)
 
 
+/// \brief Describes a Serial Wombat Pin.  Is base class for other pin modes
+///
+/// This class describes a Serial Wombat Pin on a Serial Wombat Chip.  This class
+/// can be used to control a pin as a simple Digital I/O pin.
+/// This class is used as a base class for many other pin mode classes.
+///
+/// Digital I/O related members such as digitalWrite or pinMode should not be
+/// called against derived classes as this may have unpredicable effects on
+/// the state machines run by those derived classes.
 class SerialWombatPin
 {
 public:
-
+	/// \brief Instantiates a Serial Wombat Pin 
+	/// \param serialWombatChip The chip on which the Serial Wombat Pin exists
 	SerialWombatPin(SerialWombatChip& serialWombatChip);
+
+	/// \brief Instantiates a Serial Wombat Pin 
+	/// \param serialWombatChip The chip on which the Serial Wombat Pin exists
+	/// \param pin The pin number of the pin (WP number, not package pin number) of the pin
+	SerialWombatPin(SerialWombatChip& serialWombatChip, uint8_t pin);
 
 	/// \brief Read the 16 Bit public data associated with this pin 
 	/// 
@@ -693,7 +776,12 @@ public:
 	uint16_t writePublicData(uint16_t value) 
 	{ return _sw.writePublicData(_pin, value); }
 
+	/// \brief Returns the current SW pin number.  Used primarily for virtual calls by derived classes
+	/// \return Returns the current SW pin number.
 	uint8_t pin() {return _pin;}
+
+	/// \brief Returns the Mode number.  Used primarily by derived classes to populate packet data
+	/// \return Returns the pin mode number
 	uint8_t swPinModeNumber() { return _pinMode; }
 
 
@@ -701,7 +789,19 @@ protected:
 	uint8_t _pin = 255;
 	SerialWombatChip& _sw;
 	uint8_t _pinMode = 0;
+
 };
+
+
+/// \brief a sample error handler that can be registered with registerErrorHandler to report protocol errors on Serial.  
+/// 
+/// Do not use this when using Serial to control the Serial Wombat Chip
+/// \param error The error number that was reported
+/// \param pointer to the Serial Wombat Chip instance that generated the error
+void SerialWombatSerialErrorHandlerBrief(uint16_t error, SerialWombatChip* sw);
+void SerialWombatSerialErrorHandlerVerbose(uint16_t error, SerialWombatChip* sw);
+
+#include "SerialWombatErrors.h"
 #include "SerialWombatQueue.h"
 #include "SerialWombatAbstractButton.h"
 #include "SerialWombatAbstractProcessedInput.h"
@@ -709,9 +809,11 @@ protected:
 #include "SerialWombat18CapTouch.h"
 #include "SerialWombatAnalogInput.h"
 #include "SerialWombatDebouncedInput.h"
+#include "SerialWombatLiquidCrystal.h"
 #include "SerialWombatMatrixKeypad.h"
 #include "SerialWombatProcessedInputPin.h"
 #include "SerialWombatProtectedOutput.h"
+#include "SerialWombatPulseOnChange.h"
 #include "SerialWombatPulseTimer.h"
 #include "SerialWombatPWM.h"
 #include "SerialWombatQuadEnc.h"

@@ -1,6 +1,6 @@
 #include <SerialWombat.h>
 
-SerialWombat sw6C;    //Declare a Serial Wombat
+SerialWombatChip sw6C;    //Declare a Serial Wombat chip
 SerialWombatPulseTimer steering(sw6C);
 SerialWombatPulseTimer throttle(sw6C);
 SerialWombatPulseTimer button(sw6C);

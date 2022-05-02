@@ -50,7 +50,7 @@ public:
 	///
 	///
 	int16_t begin(uint8_t pin, uint8_t dataSourcePin);
-	int16_t begin(uint8_t pin, SerialWombatDataSource dataSource) { begin(pin, (uint8_t)dataSource); }
+	int16_t begin(uint8_t pin, SerialWombatDataSource dataSource) { return begin(pin, (uint8_t)dataSource); }
 
 	uint8_t pin() { return _pin; }
 	uint8_t swPinModeNumber() {return _pinMode;	};

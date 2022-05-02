@@ -34,7 +34,7 @@ data loss is likely when receiving streams of data greater than the buffer size 
 baud rates.
 
 To minimize this possiblity, read data frequently from the Serial Wombat chip, and set I2C frequency
-to 400kHz to maximize throughput.
+to 400kHz to maximize throughput (SW4B only) .
 
 This class can Send, Receive, or both.  A single instance of this class is allowed per Serial Wombat 4B chip
 due to the fact that it relies on the PIC16F15214's UART module, of which there is only one on the micro.
@@ -149,6 +149,52 @@ protected:
 
 
 
+/*! \brief A class for the Serial Wombat 4B or SW18AB chips which creates a software based UART on the SW18AB
+
+A Tutorial video is avaialble:
+
+\htmlonly
+TODO
+\endhtmlonly
+
+TODO
+
+
+The class inherits from the Arduino Sream class, so functions such as println()
+can be used once the Software UART is initialized.
+
+
+\warning Due to the overhead of querying and retreiving data from the SerialWombatUART,
+data loss is likely when receiving streams of data greater than the buffer size at higher
+baud rates.
+
+Multiple instances of this class can be created on the Serial Wombat 18AB chip.  This pin mode requires 
+more CPU time than most, particularly for higher baud rate ports.  Serial Wombat chip CPU usage should
+be checked if multiple software uarts are used.  Exceeding the available SW18AB CPU resources will cause
+bit errors in the UART.
+
+A queue in the User Buffer area is allocated for RX and one for TX prior to as part of begin for this mode.
+Size of these queues should be determined based on system needs.  The User needs to ensure that the created queues do
+not overlap with other structures created in the User Buffer
+
+A full Serial Wombat packet send / receive sequence (8 bytes in each direction) over I2C or the main UART is necessary to
+query the status of the queues or to read or receive a byte of data.  
+
+The protocol becomes more efficient if multiple bytes are read or written using the readBytes or 
+write(const uint8_t* buffer, size_t size) interfaces rather than read() or write(uint8_t data).
+
+The class must be assigned to a pin.  This may be either the receive or transmit pin.
+
+Available baud rates are:
+ - 300  
+ - 1200 
+ - 2400  
+ - 4800  
+ - 9600  
+ - 19200 
+ - 28800   (Transmit only, receive may be unreliable )
+ - 57600  (Transmit only, receive may be unreliable )
+*/
 class SerialWombatSWUART : public SerialWombatUART
 {
 
@@ -170,11 +216,23 @@ public:
     /// \brief This method can't be called for Software UART because it doens't initialize queues in User Data Area
     int16_t begin(uint32_t baudRate, uint8_t pin, uint8_t rxPin, uint8_t txPin, uint8_t HWinterface) = delete;
 
+    /// \brief Write bytes to the SerialWombatUART for Transmit
+    /// \param buffer  An array of uint8_t bytes to send
+    /// \param size the number of bytes to send
+    /// \return the number of bytes sent
+    /// 
+    /// This function queries the SerialWombatSWUART for avaialble TX
+    /// buffer space, and sends bytes as buffer space is avaialble.
+    /// If avaialable buffer space is not sufficient to send the entire
+    /// array then the function will block and continue trying until the
+    /// entire message has been sent to the SerialWombatUART transmit queue.
     size_t write(const uint8_t* buffer, size_t size);
+
+    /// \brief SerialWombatQueue created on the Serial Wombat chip for data received by the SerialWombatSWUART
     SerialWombatQueue rxQueue{ _sw };
+    /// \brief SerialWombatQueue created on the Serial Wombat chip for data to be sent by the SerialWombatSWUART
     SerialWombatQueue txQueue{ _sw };
 private:
-
     using SerialWombatUART::begin;    //make parent class begin unavaialble
 
 };

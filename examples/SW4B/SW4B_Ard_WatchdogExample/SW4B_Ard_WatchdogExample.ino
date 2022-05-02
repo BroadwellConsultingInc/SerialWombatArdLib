@@ -1,6 +1,6 @@
 #include <SerialWombat.h>
 
-SerialWombat sw;    //Declare a Serial Wombat
+SerialWombatChip sw;    //Declare a Serial Wombat chip
 SerialWombatWatchdog Watchdog(sw);  // Declare a Watchdog pin
 
 // A video tutorial for this example is available at: https://youtu.be/fIObjmHmprY

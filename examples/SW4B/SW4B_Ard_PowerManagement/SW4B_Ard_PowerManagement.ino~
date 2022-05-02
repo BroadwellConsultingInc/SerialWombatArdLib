@@ -1,5 +1,9 @@
 #include "SerialWombat.h"
 
+
+// This example is explained in a video tutorial at: https://youtu.be/jVkQ1YoqcpI
+
+
 SerialWombat SW6C;
 SerialWombatPWM pwm(SW6C);
 SerialWombatAnalogInput pot(SW6C);

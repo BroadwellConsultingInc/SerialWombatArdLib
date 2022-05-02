@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pulses_809',['Pulses',['../class_serial_wombat_pulse_timer.html#a9de1749ff92d51e20c28076f26661914',1,'SerialWombatPulseTimer']]]
+  ['opendrain_925',['openDrain',['../class_serial_wombat_simulated_quad_enc.html#a6a5630df5d9d192483d0835a932d5994',1,'SerialWombatSimulatedQuadEnc']]]
 ];

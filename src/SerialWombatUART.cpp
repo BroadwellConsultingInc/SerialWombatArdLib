@@ -5,12 +5,8 @@ SerialWombatUART::SerialWombatUART(SerialWombatChip& serialWombat):SerialWombatP
 {	
 }
 
-int16_t SerialWombatUART::begin(uint32_t baudRate, uint8_t pin, uint8_t rxPin, uint8_t txPin)
-{
-	return begin(baudRate, pin, rxPin, txPin, 1);
-}
 
-int16_t SerialWombatUART::begin(uint32_t baudRate, uint8_t pin, uint8_t rxPin, uint8_t txPin, uint8_t HWinterface)
+int16_t SerialWombatUART::begin(uint32_t baudRate, uint8_t pin, uint8_t rxPin, uint8_t txPin, uint8_t HWinterface = 1)
 {
 	_rxPin = rxPin;
 	_txPin = txPin;

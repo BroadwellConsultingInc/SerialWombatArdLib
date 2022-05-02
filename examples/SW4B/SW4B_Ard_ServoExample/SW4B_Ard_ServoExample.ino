@@ -1,6 +1,6 @@
 #include <SerialWombat.h>
 
-SerialWombat sw;    //Declare a Serial Wombat
+SerialWombatChip sw;    //Declare a Serial Wombat chip
 SerialWombatServo ContinuousServo(sw);  // Declare a Servo on pin 2 of Serial Wombat sw
 SerialWombatServo StandardServo(sw);   // Declare a Servo on pin 3 of Serial Wombat sw
 
@@ -11,8 +11,8 @@ void setup() {
     Wire.begin();
     sw.begin(Wire,0x6C);  //Initialize the Serial Wombat library to use the primary I2C port, This SerialWombat's address is 6C.
   }
-  ContinuousServo.attach(2,500,2500,true);
-  StandardServo.attach(3);
+  ContinuousServo.attach(2,500,2500,true); // Initialize a servo on pin 2, 500uS minimum pulse, 2500 us Maximum pulse, reversed
+  StandardServo.attach(3);  // Initialize a servo on pin 3 using Arduino equivalent default values
 
 }
 

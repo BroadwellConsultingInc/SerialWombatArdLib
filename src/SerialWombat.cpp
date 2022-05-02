@@ -1,4 +1,5 @@
 #include "SerialWombat.h"
+#include "..\..\..\..\..\..\GitHub\broadwellconsultinginc\SerialWombatArdLib\src\SerialWombat.h"
 /*
 Copyright 2020-2021 Broadwell Consulting Inc.
 
@@ -45,7 +46,10 @@ int16_t SerialWombatChip::begin(HardwareSerial& serial, bool reset)
 {
 	Serial = &serial;
 	Serial->begin(115200);
-	Serial->setTimeout(1000);
+	Serial->setTimeout(2);
+	Serial->write((uint8_t*)"UUUUUUUU", 8);
+	delay(5);
+	while (Serial->read() >= 0);
 	if (reset)
 	{
 		hardwareReset();
@@ -182,16 +186,43 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 
 	if (Serial != NULL)
 	{
-		while (Serial->read() >= 0);
+		uint32_t milisStart = millis();
+		while (Serial->read() > 0);
+		uint32_t milisFlush = millis();
 		Serial->write(tx, 8);  //TODO add addressing, CRC
-		int bytesRx = Serial->readBytes(rx, 8);
+		uint32_t millisWrite = millis();
+		int bytesRx = 0;
+		uint8_t debugRx[8]; //TODO remove
+		uint32_t timenow = millis();
+		while (bytesRx < 8 && timenow <= (millisWrite + 50))
+		{
+			int32_t data = Serial->read();
+			if (data >= 0)
+			{
+				rx[bytesRx] = data;
+				debugRx[8];
+				++bytesRx;
+			}
+			timenow = millis();
+		}
+		uint32_t milisread = millis();
 		if (bytesRx < 8)
 		{
-			return (bytesRx + 1);
+			if (errorHandler != NULL)
+			{
+				errorHandler(SW_ERROR_LESS_THAN_8_BYTES_RETURNED,this);
+			}
+			++errorCount;
+			return (-1 * SW_ERROR_LESS_THAN_8_BYTES_RETURNED);
 		}
 		if (rx[0] == 'E')
 		{
-			lastErrorCode = -1 * ((int)rx[1] * 256 + rx[2]);
+			lastErrorCode = returnErrorCode(rx);
+			if (errorHandler != NULL)
+			{
+				errorHandler(lastErrorCode,this);
+			}
+			lastErrorCode *= -1;
 			++errorCount;
 			return (lastErrorCode);
 		}
@@ -218,9 +249,24 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 			rx[count] = i2cInterface->read();
 			++count;
 		}
+
+		if (count < 8)
+		{
+			if (errorHandler != NULL)
+			{
+				errorHandler(SW_ERROR_LESS_THAN_8_BYTES_RETURNED,this);
+			}
+			++errorCount;
+			return (-1 * SW_ERROR_LESS_THAN_8_BYTES_RETURNED);
+		}
 		if (rx[0] == 'E')
 		{
-			lastErrorCode = -1 * ((int)rx[1] * 256 + rx[2]);
+			lastErrorCode = returnErrorCode(rx);
+			if (errorHandler != NULL)
+			{
+				errorHandler(lastErrorCode,this);
+			}
+			lastErrorCode *= -1;
 			++errorCount;
 			return (lastErrorCode);
 		}
@@ -255,7 +301,7 @@ int SerialWombatChip::sendPacketNoResponse(uint8_t tx[])
 int SerialWombatChip::sendPacket(uint8_t tx[])
 {
 	uint8_t rx[8];
-
+	
 	if (_asleep)
 	{
 		_asleep = false;
@@ -280,8 +326,7 @@ int SerialWombatChip::sendPacket(uint8_t tx[])
 
 	if (Serial != NULL)
 	{
-		Serial->write(tx, 8);  //TODO add addressing, CRC		
-		return (8);
+		return Serial->write(tx, 8);  //TODO add addressing, CRC		
 	}
 
 	if (i2cInterface != NULL)
@@ -324,7 +369,7 @@ uint16_t SerialWombatChip::readSupplyVoltage_mV()
 	}
 	else
 	{
-		uint16_t counts = readPublicData(66); // Get FVR counts (1.024 v)
+		int32_t counts = readPublicData(66); // Get FVR counts (1.024 v)
 		if (counts > 0)
 		{
 			uint32_t mv = 1024 * 65536 / counts;
@@ -522,10 +567,6 @@ int16_t SerialWombatChip::setThroughputPin(uint8_t pin)
 	return sendPacket(tx);
 }
 
-uint8_t SerialWombatChip::find()
-{
-	return(find(false));
-}
 
 uint8_t SerialWombatChip::find(bool keepTrying)
 {
@@ -564,6 +605,39 @@ uint8_t SerialWombatChip::find(bool keepTrying)
 		delay(0);
 	}while (keepTrying);
 			return(0);  // Didn't find one.
+}
+
+int SerialWombatChip::readUserBuffer(uint16_t index, uint8_t* buffer, uint16_t count)
+{
+	uint16_t bytesRead = 0;
+	while (bytesRead < count)
+	{
+		uint8_t tx[] = {(uint8_t) SerialWombatCommands::COMMAND_BINARY_READ_USER_BUFFER, SW_LE16(index),0x55,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+		int16_t result = sendPacket(tx, rx);
+		if (result >= 0)
+		{
+			for (int i = 1; i < 8; ++i)
+			{
+				buffer[bytesRead] = rx[i];
+				++bytesRead;
+				if (bytesRead >= count)
+				{
+					break;
+				}
+			}
+		}
+		else
+		{
+			return (bytesRead);
+		}
+	}
+	return (bytesRead);
+}
+
+void SerialWombatChip::registerErrorHandler(SerialWombatErrorHandler_t handler)
+{
+	errorHandler = handler;
 }
 
 void SerialWombatChip::configureDigitalPin(uint8_t pin,uint8_t highLow)
@@ -682,7 +756,7 @@ int SerialWombatChip::writeUserBuffer(uint16_t address, uint8_t* buffer, uint16_
 		}
 		bytesSent += 7;
 	}
-	if (count > 0)
+	while (count > 0)
 	{
 		{ // Send first packet of up to 4 bytes
 			uint8_t bytesToSend = 4;
@@ -711,11 +785,20 @@ int SerialWombatChip::writeUserBuffer(uint16_t address, uint8_t* buffer, uint16_
 			}
 			bytesSent += bytesToSend;
 		}
-		return (bytesSent);
 	}
-	return(0);
+	return(bytesSent);
 	
 
+}
+
+int SerialWombatChip::writeUserBuffer(uint16_t index, char* s)
+{
+	return writeUserBuffer(index, (uint8_t*)s, (uint16_t)strlen(s));
+}
+
+int SerialWombatChip::writeUserBuffer(uint16_t index, const char s[])
+{
+	return writeUserBuffer(index, (uint8_t*)s, (uint16_t)strlen(s));
 }
 
 int16_t SerialWombatChip::enable2ndCommandInterface(bool enabled)
@@ -726,6 +809,20 @@ int16_t SerialWombatChip::enable2ndCommandInterface(bool enabled)
 		tx[1] = 1;
 	}
 	return sendPacket(tx);
+}
+
+uint16_t SerialWombatChip::returnErrorCode(uint8_t* rx)
+{
+	uint16_t result = rx[1] - '0';
+	result *= 10;
+	result += rx[2] - '0';
+	result *= 10;
+	result += rx[3] - '0';
+	result *= 10;
+	result += rx[4] - '0';
+	result *= 10;
+	result += rx[5] - '0';
+	return(result);
 }
 
 SerialWombatPin::SerialWombatPin(SerialWombatChip& serialWombatChip) : _sw(serialWombatChip)
@@ -748,8 +845,70 @@ void SerialWombatPin::digitalWrite( uint8_t val)
 	_sw.digitalWrite(_pin, val);
 }
 
+SerialWombatPin::SerialWombatPin(SerialWombatChip& serialWombatChip, uint8_t pin) : _sw(serialWombatChip)
+{
+	_pin = pin;
+}
+
+
+
 
 int SerialWombatPin::digitalRead()
 {
 	return (_sw.digitalRead(_pin));
 }
+
+int16_t SerialWombatChip::readLastErrorCommand(uint8_t* cmd)
+{
+	uint8_t tx[8] = { (uint8_t)SerialWombatCommands::COMMAND_READ_LAST_ERROR_PACKET, 0,0x55,0x55,0x55,0x55,0x55,0x55 };
+	uint8_t rx[8];
+	if (sendPacket(tx, rx) >= 0)
+	{
+		for (int i = 1; i < 8; ++i)
+		{
+			cmd[i - 1] = rx[i];
+		}
+	}
+	else
+	{
+		return (-1);
+	}
+	tx[1] = 7;
+	if (sendPacket(tx, rx) >= 0)
+	{
+		cmd[7] = rx[1];
+		return(0);
+	}
+	else
+	{
+		return (-1);
+	}
+}
+
+void SerialWombatSerialErrorHandlerBrief(uint16_t error, SerialWombatChip* sw)
+{
+	char s[10];
+	Serial.print("Comm Error on SW at addr ");
+	sprintf(s, "0x%02X ", sw->address);
+	Serial.print(s);
+	Serial.print(" Error code ");
+	
+		Serial.print(error);
+
+		Serial.print(" Error count ");
+		Serial.print(sw->errorCount);
+	
+		uint8_t errorCmd[8];
+		if (sw->readLastErrorCommand(errorCmd) >= 0)
+		{
+			Serial.print(" Command: ");
+			for (int i = 0; i < 8; ++i)
+			{
+				sprintf(s, "0x%02X ", errorCmd[i]);
+					Serial.print(s);
+			}
+		}
+
+		Serial.println();
+}
+

@@ -1,6 +1,6 @@
 #include <SerialWombat.h>
 
-SerialWombat sw6C;    //Declare a Serial Wombat
+SerialWombatChip sw6C;    //Declare a Serial Wombat chip
 SerialWombatQuadEnc qeBasic(sw6C);
 SerialWombatQuadEnc qeWithPullUps(sw6C);
 
@@ -15,8 +15,8 @@ void setup() {
     Wire.begin();
     sw6C.begin(Wire, 0x6C); //Initialize the Serial Wombat library to use the primary I2C port, SerialWombat is address 6C
   }
-  qeBasic.begin(0, 1);
-  qeWithPullUps.begin(2, 3);
+  qeBasic.begin(0, 1);  // Initialize a QE on pins 0 and 1
+  qeWithPullUps.begin(2, 3);  // Initialize a QE on pins 2 and 3
   Serial.begin(115200);
 }
 

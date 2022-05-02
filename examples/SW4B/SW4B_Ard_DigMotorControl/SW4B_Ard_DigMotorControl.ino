@@ -1,6 +1,6 @@
 #include <SerialWombat.h>
 
-SerialWombat sw;    //Declare a Serial Wombat
+SerialWombatChip sw;    //Declare a Serial Wombat
 
 // This example is explained in a video tutorial at: https://youtu.be/p8CO04C1q_Y
 

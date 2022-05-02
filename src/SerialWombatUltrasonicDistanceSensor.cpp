@@ -1,5 +1,4 @@
-#include <SerialWombat.h>
-#include "SerialWombatUltrasonicDistanceSensor.h"
+#include "SerialWombat.h"
 
 SerialWombatUltrasonicDistanceSensor::SerialWombatUltrasonicDistanceSensor(SerialWombatChip& serialWombat) :SerialWombatPin(serialWombat), SerialWombatAbstractProcessedInput(serialWombat)
 {

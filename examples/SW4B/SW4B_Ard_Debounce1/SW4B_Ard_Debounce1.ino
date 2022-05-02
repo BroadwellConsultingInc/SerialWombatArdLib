@@ -1,6 +1,6 @@
 #include <SerialWombat.h>
 
-SerialWombat sw;    //Declare a Serial Wombat
+SerialWombatChip sw;    //Declare a Serial Wombat
 SerialWombatDebouncedInput redButton(sw);
 SerialWombatDebouncedInput greenButton(sw);
 

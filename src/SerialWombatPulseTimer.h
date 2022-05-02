@@ -152,21 +152,28 @@ private:
 
 };
 
+/// \brief extends the SerialWombatPulseTimer class with SW18AB specific functionality 
+///
+/// This class adds functionality that is specific to the SW18AB firmware in addition
+/// to generic SerialWombatPulseTimer functionality avaialble on all Serial Wombat chips
+
 class SerialWombatPulseTimer_18AB : public SerialWombatPulseTimer
 {
 public:
 	enum publicDataOutput {
-		HIGH_TIME = 0,
-		LOW_TIME = 1,
-		PULSE_COUNT = 2,
-		PERIOD_ON_LTH_TRANSITION = 3,
-		PERIOD_ON_HTL_TRANSITION = 4,
-		FREQUENCY_ON_LTH_TRANSITION = 5,
-		FREQUENCY_ON_HTL_TRANSITION = 6,
-		DUTYCYCLE_ON_LTH_TRANSITION = 7,
-		DUTYCYCLE_ON_HTL_TRANSITION = 8,
+		HIGH_TIME = 0, ///<  The pulse high time in uS.  Updated on each high to low transition.
+		LOW_TIME = 1, ///< the pulse low time in uS.  Update on each low to high transition.
+		PULSE_COUNT = 2, ///< The number of pulses that have occured since initialization.  Updated on each high to low transition
+		PERIOD_ON_LTH_TRANSITION = 3,  ///< The period of the pulse in uS, based on the previous high and low times, updated on low to high transition
+		PERIOD_ON_HTL_TRANSITION = 4,  ///< The period of the pulse in uS, based on the previous high and low times, updated on high to low transition
+		FREQUENCY_ON_LTH_TRANSITION = 5, ///< The frequency of the pulse in Hz, based on the previous high and low times, updated on low to high transition
+		FREQUENCY_ON_HTL_TRANSITION = 6, ///< The frequency of the pulse in Hz, based on the previous high and low times, updated on high to low transition
+		DUTYCYCLE_ON_LTH_TRANSITION = 7, ///< Duty cycle of the pulse as a ratio from 0 to 65535, updated on low to high transition
+		DUTYCYCLE_ON_HTL_TRANSITION = 8, ///< Duty cycle of the pulse as a ratio from 0 to 65535, updated on high to low transition
 	};
 
+	/// \brief constructor for SerialWombatPulseTimer_18AB
+	/// \param serialWombat reference to the SerialWombat chip on which the SerialWombatPulseTimer_18AB will run
 	SerialWombatPulseTimer_18AB(SerialWombatChip& serialWombat);
 
 	/// \brief configures which measurement is the Public Data Output of this pin mode

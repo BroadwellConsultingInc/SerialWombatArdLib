@@ -82,7 +82,6 @@ public:
     /// \param serialWombat SerialWombat  chip on which the PWM will run
 	SerialWombatPWM(SerialWombatChip& serialWombat );
 
-   
     /// \brief Initialize a pin that has been declared as PWM. 
    /// \param pin The pin to become a PWM.  Valid values for SW4A: 0-3  SW4B: 1-3 
    /// \param dutyCycle A value from 0 to 65535 representing duty cycle
@@ -93,17 +92,12 @@ public:
     /// \param dutyCycle A value from 0 to 65535 representing duty cycle
 	void writeDutyCycle(uint16_t dutyCycle);
 
-    
-
-   
-
- 
 	~SerialWombatPWM();
-
 private:
-
 };
 
+
+/// \brief Extends the SerialWombatPWM class with SW4A/SW4B specific functionality
 class SerialWombatPWM_4AB : public SerialWombatPWM
 {
 public:
@@ -123,7 +117,7 @@ public:
     void setFrequency_SW4AB(Wombat4A_B_PWMFrequencyValues_t frequency);
 };
 
-
+/// \brief Extends the SerialWombatPWM class with SW18AB specific functionality, including SerialWombatAbstractScaledOutput
 class SerialWombatPWM_18AB: public SerialWombatPWM, public SerialWombatAbstractScaledOutput
 {
 public:
@@ -141,7 +135,11 @@ public:
  /// \param period_uS  Period in microseconds.  Note that actual period may vary based on hardware capabilities of the pin.
     void writePeriod_uS(uint32_t period_uS);
 
+    /// \brief fulfills a virtual function requirement of SerialWombatAbstractScaledOutput
+    /// \return current pin number
     uint8_t pin();
+    /// \brief fulfills a virtual function requirement of SerialWombatAbstractScaledOutput
+    /// \return current pin mode number
     uint8_t swPinModeNumber();
 };
 

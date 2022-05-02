@@ -87,9 +87,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6912bbfe81bbb93248a8d13d182f18fc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_queue.html#a6912bbfe81bbb93248a8d13d182f18fc">SerialWombatQueue</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat)</td></tr>
 <tr class="memdesc:a6912bbfe81bbb93248a8d13d182f18fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_serial_wombat_w_s2812.html" title="A Class representing a WS2812 or compatible RGB LED string connected to a Serial Wombat pin.">SerialWombatWS2812</a> class.  <a href="class_serial_wombat_queue.html#a6912bbfe81bbb93248a8d13d182f18fc">More...</a><br /></td></tr>
 <tr class="separator:a6912bbfe81bbb93248a8d13d182f18fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdb0bddfb3fcb5b6bbb7ae98e3d76b9b"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_queue.html#acdb0bddfb3fcb5b6bbb7ae98e3d76b9b">begin</a> (uint16_t index, uint16_t <a class="el" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a>)</td></tr>
-<tr class="memdesc:acdb0bddfb3fcb5b6bbb7ae98e3d76b9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a Serial Wombat Queue (RAM Bytes) in User Memory Area on Serial Wombat Chip.  <a href="class_serial_wombat_queue.html#acdb0bddfb3fcb5b6bbb7ae98e3d76b9b">More...</a><br /></td></tr>
-<tr class="separator:acdb0bddfb3fcb5b6bbb7ae98e3d76b9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4c3aa8bbc4f0d18b0259e38fe51f4f6"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_queue.html#af4c3aa8bbc4f0d18b0259e38fe51f4f6">begin</a> (uint16_t index, uint16_t <a class="el" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a>, <a class="el" href="_serial_wombat_queue_8h.html#ae590461897f6809b2b60297b96d7e46d">SerialWombatQueueType</a> qtype=<a class="el" href="_serial_wombat_queue_8h.html#ae590461897f6809b2b60297b96d7e46dafe7f527b63d26ece5ec657006256b687">SerialWombatQueueType::QUEUE_TYPE_RAM_BYTE</a>)</td></tr>
+<tr class="memdesc:af4c3aa8bbc4f0d18b0259e38fe51f4f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a Serial Wombat Queue (RAM Bytes) in User Memory Area on Serial Wombat Chip.  <a href="class_serial_wombat_queue.html#af4c3aa8bbc4f0d18b0259e38fe51f4f6">More...</a><br /></td></tr>
+<tr class="separator:af4c3aa8bbc4f0d18b0259e38fe51f4f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59465fb274ce59ffefed40d54e467e63"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_queue.html#a59465fb274ce59ffefed40d54e467e63">available</a> ()</td></tr>
 <tr class="memdesc:a59465fb274ce59ffefed40d54e467e63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the Serial Wombat for number bytes available to read.  <a href="class_serial_wombat_queue.html#a59465fb274ce59ffefed40d54e467e63">More...</a><br /></td></tr>
 <tr class="separator:a59465fb274ce59ffefed40d54e467e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,8 +194,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="acdb0bddfb3fcb5b6bbb7ae98e3d76b9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdb0bddfb3fcb5b6bbb7ae98e3d76b9b">&#9670;&nbsp;</a></span>begin()</h2>
+<a id="af4c3aa8bbc4f0d18b0259e38fe51f4f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4c3aa8bbc4f0d18b0259e38fe51f4f6">&#9670;&nbsp;</a></span>begin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,7 +210,13 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>length</em>&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_serial_wombat_queue_8h.html#ae590461897f6809b2b60297b96d7e46d">SerialWombatQueueType</a>&#160;</td>
+          <td class="paramname"><em>qtype</em> = <code><a class="el" href="_serial_wombat_queue_8h.html#ae590461897f6809b2b60297b96d7e46dafe7f527b63d26ece5ec657006256b687">SerialWombatQueueType::QUEUE_TYPE_RAM_BYTE</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>

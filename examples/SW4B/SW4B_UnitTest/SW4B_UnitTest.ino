@@ -1,3 +1,17 @@
+/*
+
+NOTE:   THIS SKETCH REQUIRES A SPECIAL PCB BOARD TO RUN.  See the Youtube video
+at 
+https://youtu.be/wIymOIWbA4E
+
+Running this sketch without that PCB will cause many failures to occur.
+
+This sketch is primarily intended for internal use by Jon to verify that new firmware changes don't break old features, but is included here 
+for your reference and my convenience.
+
+*/
+
+
 #include <SerialWombat.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>

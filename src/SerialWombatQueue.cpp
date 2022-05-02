@@ -6,11 +6,11 @@ SerialWombatQueue::SerialWombatQueue(SerialWombatChip& serialWombat) :_sw(serial
 	_sw = serialWombat;
 }
 
-int16_t SerialWombatQueue::begin(uint16_t index, uint16_t length)
+int16_t SerialWombatQueue::begin(uint16_t index, uint16_t length, SerialWombatQueueType qtype)
 {
 	startIndex = index;
 	length = length;
-	uint8_t tx[] = {(uint8_t) SerialWombatCommands::COMMAND_BINARY_QUEUE_INITIALIZE ,SW_LE16(index),SW_LE16(length),(uint8_t)SerialWombatQueueType::QUEUE_TYPE_RAM_BYTE, 0x55,0x55 };
+	uint8_t tx[] = {(uint8_t) SerialWombatCommands::COMMAND_BINARY_QUEUE_INITIALIZE ,SW_LE16(index),SW_LE16(length),(uint8_t)qtype, 0x55,0x55 };
 	uint8_t rx[8];
 	int16_t result =  _sw.sendPacket(tx,rx);
 	if (result < 0)

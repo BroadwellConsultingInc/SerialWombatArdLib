@@ -30,6 +30,7 @@ SerialWombatProcessedInputPin::SerialWombatProcessedInputPin(SerialWombatChip& s
 
 int16_t SerialWombatProcessedInputPin::begin(uint8_t pin, uint8_t dataSourcePin)
 {
+	delay(500); //TODO
 	_pin = pin;
 	_pinMode = (uint8_t)SerialWombatPinMode_t::PIN_MODE_INPUT_PROCESSOR;
 	uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE0,

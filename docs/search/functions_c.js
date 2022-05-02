@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['queryversion_631',['queryVersion',['../class_serial_wombat_chip.html#adb573e75fa99a67ba18b79801a449797',1,'SerialWombatChip']]]
+  ['operator_3d_733',['operator=',['../class_serial_wombat_matrix_keypad.html#a93ec313b06ac99e972659241409a40c9',1,'SerialWombatMatrixKeypad']]]
 ];

@@ -30,6 +30,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 
 enum class SerialWombatQueueType {
 	QUEUE_TYPE_RAM_BYTE = 0,  ///< A queue that queues byte-sized data in a queue in the User RAM area
+    QUEUE_TYPE_RAM_BYTE_SHIFT = 1,  ///< A queue that queues byte-sized data in a queue in the User RAM area
 };
 
 /// \brief A Class representing a Queue in the User Ram area on the Serial Wombat Chip
@@ -48,7 +49,7 @@ public:
     /// \param length The length in bytes of avaialble queue space
     /// \return A positive number indicating the number of bytes used in User Memory Area (Will be more than
     /// length due to queue management variables) or a negative number indicating an error code.
-  	int16_t begin(uint16_t index, uint16_t length);
+  	int16_t begin(uint16_t index, uint16_t length, SerialWombatQueueType qtype = SerialWombatQueueType::QUEUE_TYPE_RAM_BYTE);
 
     /// \brief Queries the Serial Wombat for number bytes available to read
     /// \return Number of bytes available to read.

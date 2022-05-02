@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['opendrain_808',['openDrain',['../class_serial_wombat_simulated_quad_enc.html#a6a5630df5d9d192483d0835a932d5994',1,'SerialWombatSimulatedQuadEnc']]]
+  ['measurementoverflowoccurred_923',['MeasurementOverflowOccurred',['../class_serial_wombat_pulse_timer.html#abb4f92437f247249b5361142f1756577',1,'SerialWombatPulseTimer']]],
+  ['model_924',['model',['../class_serial_wombat_chip.html#adf237d8d91299b87067ec1ff83ea5cf0',1,'SerialWombatChip']]]
 ];

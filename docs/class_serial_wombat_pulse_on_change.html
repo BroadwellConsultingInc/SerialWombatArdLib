@@ -70,7 +70,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>TODO.  
+<p>Monitors other pin(s) or public data in the Serial Wombat chip and generates a pin pulse on change.  
  <a href="class_serial_wombat_pulse_on_change.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>&gt;</code></p>
@@ -80,49 +80,52 @@ Inheritance diagram for SerialWombatPulseOnChange:</div>
  <div class="center">
   <img src="class_serial_wombat_pulse_on_change.png" usemap="#SerialWombatPulseOnChange_map" alt=""/>
   <map id="SerialWombatPulseOnChange_map" name="SerialWombatPulseOnChange_map">
-<area href="class_serial_wombat_pin.html" alt="SerialWombatPin" shape="rect" coords="0,0,181,24"/>
+<area href="class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="SerialWombatPin" shape="rect" coords="0,0,181,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac67ec8c6466c5e0aa1f5176a769dd403"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#ac67ec8c6466c5e0aa1f5176a769dd403">SerialWombatPulseOnChange</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat)</td></tr>
-<tr class="memdesc:ac67ec8c6466c5e0aa1f5176a769dd403"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor for <a class="el" href="class_serial_wombat_pulse_on_change.html" title="TODO.">SerialWombatPulseOnChange</a>.  <a href="class_serial_wombat_pulse_on_change.html#ac67ec8c6466c5e0aa1f5176a769dd403">More...</a><br /></td></tr>
+<tr class="memdesc:ac67ec8c6466c5e0aa1f5176a769dd403"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor for <a class="el" href="class_serial_wombat_pulse_on_change.html" title="Monitors other pin(s) or public data in the Serial Wombat chip and generates a pin pulse on change.">SerialWombatPulseOnChange</a>.  <a href="class_serial_wombat_pulse_on_change.html#ac67ec8c6466c5e0aa1f5176a769dd403">More...</a><br /></td></tr>
 <tr class="separator:ac67ec8c6466c5e0aa1f5176a769dd403"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cead74d5b17543b3069ff551025c1e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a7cead74d5b17543b3069ff551025c1e0">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, uint16_t pulseOnTime=50, uint16_t pulseOffTime=50, uint8_t orNotAnd=1, uint16_t PWMperiod=0, uint16_t PWMdutyCycle=0x8000)</td></tr>
-<tr class="memdesc:a7cead74d5b17543b3069ff551025c1e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization routine for <a class="el" href="class_serial_wombat_pulse_on_change.html" title="TODO.">SerialWombatPulseOnChange</a>.  <a href="class_serial_wombat_pulse_on_change.html#a7cead74d5b17543b3069ff551025c1e0">More...</a><br /></td></tr>
-<tr class="separator:a7cead74d5b17543b3069ff551025c1e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2ffdbb0843c8d0287fd915caca1a4ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#ad2ffdbb0843c8d0287fd915caca1a4ca">setEntryOnChange</a> (uint8_t entryID, uint8_t sourcePin)</td></tr>
-<tr class="separator:ad2ffdbb0843c8d0287fd915caca1a4ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d17c3561182b78bc31339992dda703b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a5d17c3561182b78bc31339992dda703b">setEntryOnIncrease</a> (uint8_t entryID, uint8_t sourcePin)</td></tr>
-<tr class="separator:a5d17c3561182b78bc31339992dda703b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdf2f991ec7145c1c3330adf8fe8753c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#acdf2f991ec7145c1c3330adf8fe8753c">setEntryOnDecrease</a> (uint8_t entryID, uint8_t sourcePin)</td></tr>
-<tr class="separator:acdf2f991ec7145c1c3330adf8fe8753c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a15d777d24cd78b12297ff7938bdf28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a6a15d777d24cd78b12297ff7938bdf28">setEntryOnEqualValue</a> (uint8_t entryID, uint8_t sourcePin, uint16_t value)</td></tr>
-<tr class="separator:a6a15d777d24cd78b12297ff7938bdf28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a90644bd94afbd02a32d70a145ff5e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a2a90644bd94afbd02a32d70a145ff5e3">setEntryOnBelowValue</a> (uint8_t entryID, uint8_t sourcePin, uint16_t value)</td></tr>
-<tr class="separator:a2a90644bd94afbd02a32d70a145ff5e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f2e48774cebb2550b4cb9c15c8908e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a7f2e48774cebb2550b4cb9c15c8908e0">setEntryOnAboveValue</a> (uint8_t entryID, uint8_t sourcePin, uint16_t value)</td></tr>
-<tr class="separator:a7f2e48774cebb2550b4cb9c15c8908e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cc24e5bc8dc93e1352e07f389057c74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a7cc24e5bc8dc93e1352e07f389057c74">setEntryOnNotEqualValue</a> (uint8_t entryID, uint8_t sourcePin, uint16_t value)</td></tr>
-<tr class="separator:a7cc24e5bc8dc93e1352e07f389057c74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69a0599023d15ceff503c09d9ff3c138"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a69a0599023d15ceff503c09d9ff3c138">setEntryOnPinsEqual</a> (uint8_t entryID, uint8_t sourcePin, uint8_t secondPin)</td></tr>
-<tr class="separator:a69a0599023d15ceff503c09d9ff3c138"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fe5bdf59fba7210e1c8c12db4cf7b36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a0fe5bdf59fba7210e1c8c12db4cf7b36">setEntryOnPinsNotEqual</a> (uint8_t entryID, uint8_t sourcePin, uint8_t secondPin)</td></tr>
-<tr class="separator:a0fe5bdf59fba7210e1c8c12db4cf7b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addea0810555f8759b472c8a3bfc7b9eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#addea0810555f8759b472c8a3bfc7b9eb">setEntryOnPinGTPin</a> (uint8_t entryID, uint8_t sourcePin, uint8_t secondPin)</td></tr>
-<tr class="separator:addea0810555f8759b472c8a3bfc7b9eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39145d6315b3b9c3a5431ae2a132acd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a39145d6315b3b9c3a5431ae2a132acd4">setEntryOnPinLTPin</a> (uint8_t entryID, uint8_t sourcePin, uint8_t secondPin)</td></tr>
-<tr class="separator:a39145d6315b3b9c3a5431ae2a132acd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a044109c6501c063b432e3365a622a670"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a044109c6501c063b432e3365a622a670">setEntryOnPinCrossValue</a> (uint8_t entryID, uint8_t sourcePin, uint16_t value)</td></tr>
-<tr class="separator:a044109c6501c063b432e3365a622a670"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3127274f7d3387e323968704e6f0ff2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a3127274f7d3387e323968704e6f0ff2f">setEntryOnPinCrossAscending</a> (uint8_t entryID, uint8_t sourcePin, uint16_t value)</td></tr>
-<tr class="separator:a3127274f7d3387e323968704e6f0ff2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d2770bc953f34a454e5dc5171786042"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a8d2770bc953f34a454e5dc5171786042">setEntryOnPinCrossDescending</a> (uint8_t entryID, uint8_t sourcePin uint16_t value)</td></tr>
-<tr class="separator:a8d2770bc953f34a454e5dc5171786042"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68a367b3ab4d7ae572b09d5f5749e0e8"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a68a367b3ab4d7ae572b09d5f5749e0e8">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, <a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a> activeMode=<a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8a5a6289abae95d398ec1b53a56bf2a71a">SW_HIGH</a>, <a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a> inactiveMode=<a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8ab22ed2957b068ad839e5f2d0f5de1eb0">SW_LOW</a>, uint16_t pulseOnTime=50, uint16_t pulseOffTime=50, uint8_t orNotAnd=1, uint16_t PWMperiod=0, uint16_t PWMdutyCycle=0x8000)</td></tr>
+<tr class="memdesc:a68a367b3ab4d7ae572b09d5f5749e0e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization routine for <a class="el" href="class_serial_wombat_pulse_on_change.html" title="Monitors other pin(s) or public data in the Serial Wombat chip and generates a pin pulse on change.">SerialWombatPulseOnChange</a>.  <a href="class_serial_wombat_pulse_on_change.html#a68a367b3ab4d7ae572b09d5f5749e0e8">More...</a><br /></td></tr>
+<tr class="separator:a68a367b3ab4d7ae572b09d5f5749e0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad17a306fe4fabcc9f48c5c392261edda"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#ad17a306fe4fabcc9f48c5c392261edda">setEntryOnChange</a> (uint8_t entryID, uint8_t sourcePin)</td></tr>
+<tr class="memdesc:ad17a306fe4fabcc9f48c5c392261edda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure a change entry to pulse when a pin or public data changes.  <a href="class_serial_wombat_pulse_on_change.html#ad17a306fe4fabcc9f48c5c392261edda">More...</a><br /></td></tr>
+<tr class="separator:ad17a306fe4fabcc9f48c5c392261edda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a351ed41a1fe632a8e341f0c7f46e54bf"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a351ed41a1fe632a8e341f0c7f46e54bf">setEntryOnIncrease</a> (uint8_t entryID, uint8_t sourcePin)</td></tr>
+<tr class="memdesc:a351ed41a1fe632a8e341f0c7f46e54bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure a change entry to pulse when a pin or public data increases.  <a href="class_serial_wombat_pulse_on_change.html#a351ed41a1fe632a8e341f0c7f46e54bf">More...</a><br /></td></tr>
+<tr class="separator:a351ed41a1fe632a8e341f0c7f46e54bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0e4c84f56681b3ed48834f2a508721d"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#ab0e4c84f56681b3ed48834f2a508721d">setEntryOnDecrease</a> (uint8_t entryID, uint8_t sourcePin)</td></tr>
+<tr class="memdesc:ab0e4c84f56681b3ed48834f2a508721d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure a change entry to pulse when a pin or public data Decreases.  <a href="class_serial_wombat_pulse_on_change.html#ab0e4c84f56681b3ed48834f2a508721d">More...</a><br /></td></tr>
+<tr class="separator:ab0e4c84f56681b3ed48834f2a508721d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c0c67039a13326066d157a15e5394a8"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a3c0c67039a13326066d157a15e5394a8">setEntryOnEqualValue</a> (uint8_t entryID, uint8_t sourcePin, uint16_t value)</td></tr>
+<tr class="memdesc:a3c0c67039a13326066d157a15e5394a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure a change entry to pulse when a pin or public data equals a specified value.  <a href="class_serial_wombat_pulse_on_change.html#a3c0c67039a13326066d157a15e5394a8">More...</a><br /></td></tr>
+<tr class="separator:a3c0c67039a13326066d157a15e5394a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd066ea3a8fa3ce26957e235d620c71e"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#acd066ea3a8fa3ce26957e235d620c71e">setEntryOnLessThanValue</a> (uint8_t entryID, uint8_t sourcePin, uint16_t value)</td></tr>
+<tr class="memdesc:acd066ea3a8fa3ce26957e235d620c71e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure a change entry to pulse when a pin or public data is below a specified value.  <a href="class_serial_wombat_pulse_on_change.html#acd066ea3a8fa3ce26957e235d620c71e">More...</a><br /></td></tr>
+<tr class="separator:acd066ea3a8fa3ce26957e235d620c71e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b7de0401231a11911a6d9a1829ca3ef"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a2b7de0401231a11911a6d9a1829ca3ef">setEntryOnGreaterThanValue</a> (uint8_t entryID, uint8_t sourcePin, uint16_t value)</td></tr>
+<tr class="memdesc:a2b7de0401231a11911a6d9a1829ca3ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure a change entry to pulse when a pin or public data is above a specified value.  <a href="class_serial_wombat_pulse_on_change.html#a2b7de0401231a11911a6d9a1829ca3ef">More...</a><br /></td></tr>
+<tr class="separator:a2b7de0401231a11911a6d9a1829ca3ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ce6b30b2f3038eea808fa8719604d60"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a5ce6b30b2f3038eea808fa8719604d60">setEntryOnNotEqualValue</a> (uint8_t entryID, uint8_t sourcePin, uint16_t value)</td></tr>
+<tr class="memdesc:a5ce6b30b2f3038eea808fa8719604d60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure a change entry to pulse when a pin or public data is not equal to a specified value.  <a href="class_serial_wombat_pulse_on_change.html#a5ce6b30b2f3038eea808fa8719604d60">More...</a><br /></td></tr>
+<tr class="separator:a5ce6b30b2f3038eea808fa8719604d60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ce39fed4a562b25c5c6723640a7879b"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a0ce39fed4a562b25c5c6723640a7879b">setEntryOnPinsEqual</a> (uint8_t entryID, uint8_t sourcePin, uint8_t secondPin)</td></tr>
+<tr class="memdesc:a0ce39fed4a562b25c5c6723640a7879b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure a change entry to pulse when a pin or public data equals a second pin or public data's value.  <a href="class_serial_wombat_pulse_on_change.html#a0ce39fed4a562b25c5c6723640a7879b">More...</a><br /></td></tr>
+<tr class="separator:a0ce39fed4a562b25c5c6723640a7879b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94a79b340a887b588a696571625cf503"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_on_change.html#a94a79b340a887b588a696571625cf503">setEntryOnPinsNotEqual</a> (uint8_t entryID, uint8_t sourcePin, uint8_t secondPin)</td></tr>
+<tr class="memdesc:a94a79b340a887b588a696571625cf503"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure a change entry to pulse when a pin or public data is not equal to a second pin or public data's value.  <a href="class_serial_wombat_pulse_on_change.html#a94a79b340a887b588a696571625cf503">More...</a><br /></td></tr>
+<tr class="separator:a94a79b340a887b588a696571625cf503"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_serial_wombat_pin"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_serial_wombat_pin')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_serial_wombat_pin.html">SerialWombatPin</a></td></tr>
 <tr class="memitem:a83837099ac8f30c8aa194a91ed5cd7a4 inherit pub_methods_class_serial_wombat_pin"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a83837099ac8f30c8aa194a91ed5cd7a4">SerialWombatPin</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombatChip)</td></tr>
+<tr class="memdesc:a83837099ac8f30c8aa194a91ed5cd7a4 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates a Serial Wombat Pin.  <a href="class_serial_wombat_pin.html#a83837099ac8f30c8aa194a91ed5cd7a4">More...</a><br /></td></tr>
 <tr class="separator:a83837099ac8f30c8aa194a91ed5cd7a4 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2b411e8f52dea6243728f675b423c18 inherit pub_methods_class_serial_wombat_pin"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#ab2b411e8f52dea6243728f675b423c18">SerialWombatPin</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombatChip, uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>)</td></tr>
+<tr class="memdesc:ab2b411e8f52dea6243728f675b423c18 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates a Serial Wombat Pin.  <a href="class_serial_wombat_pin.html#ab2b411e8f52dea6243728f675b423c18">More...</a><br /></td></tr>
+<tr class="separator:ab2b411e8f52dea6243728f675b423c18 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60b32aa6eb6cbce89b5ea0b8114b8370 inherit pub_methods_class_serial_wombat_pin"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a60b32aa6eb6cbce89b5ea0b8114b8370">readPublicData</a> ()</td></tr>
 <tr class="memdesc:a60b32aa6eb6cbce89b5ea0b8114b8370 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the 16 Bit public data associated with this pin.  <a href="class_serial_wombat_pin.html#a60b32aa6eb6cbce89b5ea0b8114b8370">More...</a><br /></td></tr>
 <tr class="separator:a60b32aa6eb6cbce89b5ea0b8114b8370 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,8 +145,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0c103c1bb8e1777c9d59104bb8e24d4c inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a 16 bit value to this pin.  <a href="class_serial_wombat_pin.html#a0c103c1bb8e1777c9d59104bb8e24d4c">More...</a><br /></td></tr>
 <tr class="separator:a0c103c1bb8e1777c9d59104bb8e24d4c inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6de209447153d55145f26553aae2c4a inherit pub_methods_class_serial_wombat_pin"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a> ()</td></tr>
+<tr class="memdesc:ae6de209447153d55145f26553aae2c4a inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current SW pin number. Used primarily for virtual calls by derived classes.  <a href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">More...</a><br /></td></tr>
 <tr class="separator:ae6de209447153d55145f26553aae2c4a inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a689e659f42c3518c6f62b717101e26 inherit pub_methods_class_serial_wombat_pin"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a3a689e659f42c3518c6f62b717101e26">swPinModeNumber</a> ()</td></tr>
+<tr class="memdesc:a3a689e659f42c3518c6f62b717101e26 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Mode number. Used primarily by derived classes to populate packet data.  <a href="class_serial_wombat_pin.html#a3a689e659f42c3518c6f62b717101e26">More...</a><br /></td></tr>
 <tr class="separator:a3a689e659f42c3518c6f62b717101e26 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -157,21 +162,34 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:af831f0ed6a9d11a27f2178e61890607b inherit pro_attribs_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>TODO. </p>
-<p>This class is used to measure the length of pulses in mS or in uS. On the Serial Wombat 4A/B the precision is about 8uS in uS mode, with an accuracy of +/- 2% because of variation in the Serial Wombat chip's internal oscillator.</p>
-<p>One <a class="el" href="class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time.">SerialWombatPulseTimer</a> should be declared per Serial Wombat pin in this mode.</p>
+<div class="textblock"><p>Monitors other pin(s) or public data in the Serial Wombat chip and generates a pin pulse on change. </p>
+<p>This class controls the Pulse on Change pin mode of the Serial Wombat Chip. Pulse on Change is useful to generate a pulse that can drive an interrupt on the host Arduino, or for creating user alerts such as LED pulses or buzzer tones that acknowledge data reception or human input.</p>
+<p>For instance, a pulse could be generated when the output value of a rotary encoder state machine on other pins changes value. Or an LED could be pulsed to command traffic on the Serial Wombat chip by making it pulse when SW_DATA_SOURCE_PACKETS_RECEIVED changes.</p>
+<p>Reference the Public Data and Pin Modes section on the main page to learn more about public data and how public data on the Serial Wombat chip works.</p>
+<p>The each pin can monitor up to 8 other pins or data sources for changes. A pulse will be generated when any of the criteria (orNotAnd == 1) or all (simultaneously) of the criteria (orNotAnd == 0) are met. Criteria can be any of the following:</p>
+<ul>
+<li>Pin data or public data changed</li>
+<li>Pin data or public data increased</li>
+<li>Pin data or public data decreased</li>
+<li>Pin data or public data equals a fixed value</li>
+<li>Pin data or public data below a fixed value</li>
+<li>Pin data or public data above a fixed value</li>
+<li>Pin data or public data not equal to a fixed value</li>
+<li>Pin data or public data crosses a fixed value</li>
+<li>Pin data or public data crosses (ascending) a fixed value</li>
+<li>Pin data or public data crosses (descending) a fixed value</li>
+<li>Pin data or public data equals another pin</li>
+<li>Pin data or public data below another pin</li>
+<li>Pin data or public data above another pin</li>
+<li>Pin data or public data not equal to another pin</li>
+<li>Pin data or public data is within a range</li>
+<li>Pin data or public data is outside a range</li>
+</ul>
 <p>A video Tutorial on this pin mode is available:</p>
 <p> 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/YtQWUub9gYw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+TODO
 </p>
-<p><a href="https://youtu.be/YtQWUub9gYw">https://youtu.be/YtQWUub9gYw</a></p>
-<p>This pinmode is useful for measuring RC Servo outputs, PWM frequency and duty cycle, or any other signal where the pulse width is relevant. It is designed to measure repetitive signals. It is not intended to read a number of differing independent pulse widths that come one after another, such as WS2812 or similar output.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Care must be taken when using this pinmode with high frequency ( &gt; 5 kHz) signals or pins that may be left floating on the Serial Wombat 4A / 4B because the Serial Wombat 4A and 4B chip uses an interrupt internally to capture transition timestamps. Excessively frequent pin transitions may cause the interrupt handler to starve the main processing loop, impacting function of all pin modes and communications.</dd></dl>
-<p>The Serial Wombat chip can be queried for overflow frames. If overflow frames are occuring, then the system is overloaded.</p>
-<p>The Serial Wombat 4A and 4B chips can measure a maxium of 8 transitions per mS across all pulse input pins. More frequent transitions than this may result in incorrect measurements. The MeasurementOverflowOccurred flag is set if at any time more than 8 transitions occured without processing.</p>
-<p>The Serial Wombat 18AB chip uses a DMA based sampling scheme with samples taken at 57600 Hz. It has lower resolution than the Serial Wombat 4A/B (17 uS resolution), but can measure up to 18 simultaneous pulse trains and is not subject to being overloaded by faster signals.</p>
-<p>The number of pulses over time can be used for rough frequency measurements.</p>
-<p>Consecutive High and low periods can be used to calculate duty cycle, although there is no indication whether high or low was most recent. </p>
+<p>TODO <a href="https://youtu.be/">https://youtu.be/</a> </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac67ec8c6466c5e0aa1f5176a769dd403"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac67ec8c6466c5e0aa1f5176a769dd403">&#9670;&nbsp;</a></span>SerialWombatPulseOnChange()</h2>
@@ -189,7 +207,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Class constructor for <a class="el" href="class_serial_wombat_pulse_on_change.html" title="TODO.">SerialWombatPulseOnChange</a>. </p>
+<p>Class constructor for <a class="el" href="class_serial_wombat_pulse_on_change.html" title="Monitors other pin(s) or public data in the Serial Wombat chip and generates a pin pulse on change.">SerialWombatPulseOnChange</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">serialWombat</td><td>The Serial Wombat chip on which the <a class="el" href="class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time.">SerialWombatPulseTimer</a> pinmode will be run </td></tr>
@@ -200,17 +218,29 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7cead74d5b17543b3069ff551025c1e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7cead74d5b17543b3069ff551025c1e0">&#9670;&nbsp;</a></span>begin()</h2>
+<a id="a68a367b3ab4d7ae572b09d5f5749e0e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68a367b3ab4d7ae572b09d5f5749e0e8">&#9670;&nbsp;</a></span>begin()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SerialWombatPulseOnChange::begin </td>
+          <td class="memname">int16_t SerialWombatPulseOnChange::begin </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a>&#160;</td>
+          <td class="paramname"><em>activeMode</em> = <code><a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8a5a6289abae95d398ec1b53a56bf2a71a">SW_HIGH</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a>&#160;</td>
+          <td class="paramname"><em>inactiveMode</em> = <code><a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8ab22ed2957b068ad839e5f2d0f5de1eb0">SW_LOW</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -250,14 +280,14 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialization routine for <a class="el" href="class_serial_wombat_pulse_on_change.html" title="TODO.">SerialWombatPulseOnChange</a>. </p>
+<p>Initialization routine for <a class="el" href="class_serial_wombat_pulse_on_change.html" title="Monitors other pin(s) or public data in the Serial Wombat chip and generates a pin pulse on change.">SerialWombatPulseOnChange</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pin</td><td>The Serial Wombat pin that will pulse on change </td></tr>
     <tr><td class="paramname">pulseOnTime</td><td>The Number of mS that the pulse will last when the true condition occurs. Set to 65535 to stay on constantly until condition is false </td></tr>
     <tr><td class="paramname">pulseOffTime</td><td>the number of mS that the pulse will stay off until another pulse can be triggered. </td></tr>
     <tr><td class="paramname">orNotAnd</td><td>0 = all initialized entries must be true to generate pulse. 1 = Any intitialized entry will generate a pulse if true </td></tr>
-    <tr><td class="paramname">PWMperiod</td><td>the period in uS of ouput pulse. Set to 0 for constant on. </td></tr>
+    <tr><td class="paramname">PWMperiod</td><td>the period in uS of ouput pulse. Set to 0 for constant Active. </td></tr>
     <tr><td class="paramname">PWMdutyCycle</td><td>for output pulse. Only valid if PWM Period is not 0. </td></tr>
   </table>
   </dd>
@@ -265,82 +295,14 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a7f2e48774cebb2550b4cb9c15c8908e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f2e48774cebb2550b4cb9c15c8908e0">&#9670;&nbsp;</a></span>setEntryOnAboveValue()</h2>
+<a id="ad17a306fe4fabcc9f48c5c392261edda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad17a306fe4fabcc9f48c5c392261edda">&#9670;&nbsp;</a></span>setEntryOnChange()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SerialWombatPulseOnChange::setEntryOnAboveValue </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>entryID</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>sourcePin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2a90644bd94afbd02a32d70a145ff5e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a90644bd94afbd02a32d70a145ff5e3">&#9670;&nbsp;</a></span>setEntryOnBelowValue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SerialWombatPulseOnChange::setEntryOnBelowValue </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>entryID</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>sourcePin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad2ffdbb0843c8d0287fd915caca1a4ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2ffdbb0843c8d0287fd915caca1a4ca">&#9670;&nbsp;</a></span>setEntryOnChange()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SerialWombatPulseOnChange::setEntryOnChange </td>
+          <td class="memname">int16_t SerialWombatPulseOnChange::setEntryOnChange </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>entryID</em>, </td>
@@ -359,16 +321,26 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Configure a change entry to pulse when a pin or public data changes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entryID</td><td>to set one entry in this pin's change entry table to OnChange. Valid values are 0-7 </td></tr>
+    <tr><td class="paramname">sourcePin</td><td>Pin or data source to monitor for change. Enumerated types should be casted to uint8_t</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
+
 </div>
 </div>
-<a id="acdf2f991ec7145c1c3330adf8fe8753c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdf2f991ec7145c1c3330adf8fe8753c">&#9670;&nbsp;</a></span>setEntryOnDecrease()</h2>
+<a id="ab0e4c84f56681b3ed48834f2a508721d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0e4c84f56681b3ed48834f2a508721d">&#9670;&nbsp;</a></span>setEntryOnDecrease()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SerialWombatPulseOnChange::setEntryOnDecrease </td>
+          <td class="memname">int16_t SerialWombatPulseOnChange::setEntryOnDecrease </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>entryID</em>, </td>
@@ -387,16 +359,26 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Configure a change entry to pulse when a pin or public data Decreases. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entryID</td><td>to set one entry in this pin's change entry table to OnChange. Valid values are 0-7 </td></tr>
+    <tr><td class="paramname">sourcePin</td><td>Pin or data source to monitor for change. Enumerated types should be casted to uint8_t</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
+
 </div>
 </div>
-<a id="a6a15d777d24cd78b12297ff7938bdf28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a15d777d24cd78b12297ff7938bdf28">&#9670;&nbsp;</a></span>setEntryOnEqualValue()</h2>
+<a id="a3c0c67039a13326066d157a15e5394a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c0c67039a13326066d157a15e5394a8">&#9670;&nbsp;</a></span>setEntryOnEqualValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SerialWombatPulseOnChange::setEntryOnEqualValue </td>
+          <td class="memname">int16_t SerialWombatPulseOnChange::setEntryOnEqualValue </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>entryID</em>, </td>
@@ -421,16 +403,72 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Configure a change entry to pulse when a pin or public data equals a specified value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entryID</td><td>to set one entry in this pin's change entry table to OnChange. Valid values are 0-7 </td></tr>
+    <tr><td class="paramname">sourcePin</td><td>Pin or data source to monitor for change. Enumerated types should be casted to uint8_t </td></tr>
+    <tr><td class="paramname">value</td><td>A constant value to be compared against the public data specified by sourcePin</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
+
 </div>
 </div>
-<a id="a5d17c3561182b78bc31339992dda703b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d17c3561182b78bc31339992dda703b">&#9670;&nbsp;</a></span>setEntryOnIncrease()</h2>
+<a id="a2b7de0401231a11911a6d9a1829ca3ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b7de0401231a11911a6d9a1829ca3ef">&#9670;&nbsp;</a></span>setEntryOnGreaterThanValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SerialWombatPulseOnChange::setEntryOnIncrease </td>
+          <td class="memname">int16_t SerialWombatPulseOnChange::setEntryOnGreaterThanValue </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>entryID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>sourcePin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configure a change entry to pulse when a pin or public data is above a specified value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entryID</td><td>to set one entry in this pin's change entry table to OnChange. Valid values are 0-7 </td></tr>
+    <tr><td class="paramname">sourcePin</td><td>Pin or data source to monitor for change. Enumerated types should be casted to uint8_t </td></tr>
+    <tr><td class="paramname">value</td><td>A constant value to be compared against the public data specified by sourcePin</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
+
+</div>
+</div>
+<a id="a351ed41a1fe632a8e341f0c7f46e54bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a351ed41a1fe632a8e341f0c7f46e54bf">&#9670;&nbsp;</a></span>setEntryOnIncrease()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatPulseOnChange::setEntryOnIncrease </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>entryID</em>, </td>
@@ -449,16 +487,26 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Configure a change entry to pulse when a pin or public data increases. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entryID</td><td>to set one entry in this pin's change entry table to OnChange. Valid values are 0-7 </td></tr>
+    <tr><td class="paramname">sourcePin</td><td>Pin or data source to monitor for change. Enumerated types should be casted to uint8_t</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
+
 </div>
 </div>
-<a id="a7cc24e5bc8dc93e1352e07f389057c74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7cc24e5bc8dc93e1352e07f389057c74">&#9670;&nbsp;</a></span>setEntryOnNotEqualValue()</h2>
+<a id="acd066ea3a8fa3ce26957e235d620c71e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd066ea3a8fa3ce26957e235d620c71e">&#9670;&nbsp;</a></span>setEntryOnLessThanValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SerialWombatPulseOnChange::setEntryOnNotEqualValue </td>
+          <td class="memname">int16_t SerialWombatPulseOnChange::setEntryOnLessThanValue </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>entryID</em>, </td>
@@ -483,16 +531,27 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Configure a change entry to pulse when a pin or public data is below a specified value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entryID</td><td>to set one entry in this pin's change entry table to OnChange. Valid values are 0-7 </td></tr>
+    <tr><td class="paramname">sourcePin</td><td>Pin or data source to monitor for change. Enumerated types should be casted to uint8_t </td></tr>
+    <tr><td class="paramname">value</td><td>A constant value to be compared against the public data specified by sourcePin</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
+
 </div>
 </div>
-<a id="a3127274f7d3387e323968704e6f0ff2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3127274f7d3387e323968704e6f0ff2f">&#9670;&nbsp;</a></span>setEntryOnPinCrossAscending()</h2>
+<a id="a5ce6b30b2f3038eea808fa8719604d60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ce6b30b2f3038eea808fa8719604d60">&#9670;&nbsp;</a></span>setEntryOnNotEqualValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SerialWombatPulseOnChange::setEntryOnPinCrossAscending </td>
+          <td class="memname">int16_t SerialWombatPulseOnChange::setEntryOnNotEqualValue </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>entryID</em>, </td>
@@ -517,78 +576,27 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Configure a change entry to pulse when a pin or public data is not equal to a specified value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entryID</td><td>to set one entry in this pin's change entry table to OnChange. Valid values are 0-7 </td></tr>
+    <tr><td class="paramname">sourcePin</td><td>Pin or data source to monitor for change. Enumerated types should be casted to uint8_t </td></tr>
+    <tr><td class="paramname">value</td><td>A constant value to be compared against the public data specified by sourcePin</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
+
 </div>
 </div>
-<a id="a8d2770bc953f34a454e5dc5171786042"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d2770bc953f34a454e5dc5171786042">&#9670;&nbsp;</a></span>setEntryOnPinCrossDescending()</h2>
+<a id="a0ce39fed4a562b25c5c6723640a7879b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ce39fed4a562b25c5c6723640a7879b">&#9670;&nbsp;</a></span>setEntryOnPinsEqual()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SerialWombatPulseOnChange::setEntryOnPinCrossDescending </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>entryID</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t sourcePin uint16_t&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a044109c6501c063b432e3365a622a670"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a044109c6501c063b432e3365a622a670">&#9670;&nbsp;</a></span>setEntryOnPinCrossValue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SerialWombatPulseOnChange::setEntryOnPinCrossValue </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>entryID</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>sourcePin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="addea0810555f8759b472c8a3bfc7b9eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#addea0810555f8759b472c8a3bfc7b9eb">&#9670;&nbsp;</a></span>setEntryOnPinGTPin()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SerialWombatPulseOnChange::setEntryOnPinGTPin </td>
+          <td class="memname">int16_t SerialWombatPulseOnChange::setEntryOnPinsEqual </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>entryID</em>, </td>
@@ -613,16 +621,27 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Configure a change entry to pulse when a pin or public data equals a second pin or public data's value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entryID</td><td>to set one entry in this pin's change entry table to OnChange. Valid values are 0-7 </td></tr>
+    <tr><td class="paramname">sourcePin</td><td>Pin or data source to monitor for change. Enumerated types should be casted to uint8_t </td></tr>
+    <tr><td class="paramname">secondPin</td><td>Pin or public data whose data will be compared to the public data from sourcePin</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
+
 </div>
 </div>
-<a id="a39145d6315b3b9c3a5431ae2a132acd4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39145d6315b3b9c3a5431ae2a132acd4">&#9670;&nbsp;</a></span>setEntryOnPinLTPin()</h2>
+<a id="a94a79b340a887b588a696571625cf503"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94a79b340a887b588a696571625cf503">&#9670;&nbsp;</a></span>setEntryOnPinsNotEqual()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SerialWombatPulseOnChange::setEntryOnPinLTPin </td>
+          <td class="memname">int16_t SerialWombatPulseOnChange::setEntryOnPinsNotEqual </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>entryID</em>, </td>
@@ -647,73 +666,16 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a69a0599023d15ceff503c09d9ff3c138"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69a0599023d15ceff503c09d9ff3c138">&#9670;&nbsp;</a></span>setEntryOnPinsEqual()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SerialWombatPulseOnChange::setEntryOnPinsEqual </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>entryID</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>sourcePin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>secondPin</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0fe5bdf59fba7210e1c8c12db4cf7b36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fe5bdf59fba7210e1c8c12db4cf7b36">&#9670;&nbsp;</a></span>setEntryOnPinsNotEqual()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SerialWombatPulseOnChange::setEntryOnPinsNotEqual </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>entryID</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>sourcePin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>secondPin</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Configure a change entry to pulse when a pin or public data is not equal to a second pin or public data's value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entryID</td><td>to set one entry in this pin's change entry table to OnChange. Valid values are 0-7 </td></tr>
+    <tr><td class="paramname">sourcePin</td><td>Pin or data source to monitor for change. Enumerated types should be casted to uint8_t </td></tr>
+    <tr><td class="paramname">secondPin</td><td>Pin or public data whose data will be compared to the public data from sourcePin</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
 </div>
 </div>

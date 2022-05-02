@@ -1,6 +1,6 @@
 #include <SerialWombat.h>
 
-SerialWombat sw;    //Declare a Serial Wombat
+SerialWombatChip sw;    //Declare a Serial Wombat chip
 SerialWombatUART SWUart(sw);  // Declare a Serial Wombat UART  Only one UART can be assigned on the SerialWombat 4B.  This pin mode does not work on Serial Wombat 4A.
 
 // There is a video tutorial to go with this example at:  https://youtu.be/C1FjcaiBYZs

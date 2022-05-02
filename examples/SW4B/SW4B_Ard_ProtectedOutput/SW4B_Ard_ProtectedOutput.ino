@@ -1,6 +1,6 @@
 #include <SerialWombat.h>
 
-SerialWombat sw;    //Declare a Serial Wombat
+SerialWombatChip sw;    //Declare a Serial Wombat chip
 
 SerialWombatProtectedOutput swpo(sw);
 SerialWombatAnalogInput Feedback(sw);

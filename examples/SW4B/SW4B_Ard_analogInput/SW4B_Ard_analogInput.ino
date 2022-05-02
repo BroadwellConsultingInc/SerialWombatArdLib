@@ -1,6 +1,6 @@
 #include <SerialWombat.h>
 
-SerialWombat sw6C;    //Declare a Serial Wombat
+SerialWombatChip sw6C;    //Declare a Serial Wombat
 SerialWombatAnalogInput leftPot(sw6C);  //5k linear Pot
 SerialWombatAnalogInput rightPot(sw6C); //5k linear Pot      
 SerialWombatAnalogInput temperatureSensor(sw6C);
