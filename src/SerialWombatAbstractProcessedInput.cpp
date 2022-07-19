@@ -147,7 +147,7 @@ int16_t SerialWombatAbstractProcessedInput::writeExcludeBelowAbove(uint16_t low,
 	return(result);
 }
 
-int16_t SerialWombatAbstractProcessedInput::configureQueue(SerialWombatQueue* queue, Frequency frequency, bool queueHighByte, bool queueLowByte)
+int16_t SerialWombatAbstractProcessedInput::configureQueue(SerialWombatQueue* queue, Period frequency, bool queueHighByte, bool queueLowByte)
 {
 	uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
 		pin(),
@@ -157,9 +157,7 @@ int16_t SerialWombatAbstractProcessedInput::configureQueue(SerialWombatQueue* qu
 		,(uint8_t)frequency,
 		(uint8_t)((((uint8_t) queueHighByte) << (uint8_t)1) | (uint8_t)queueLowByte)
 	};
-
 	int16_t result = _pisw.sendPacket(tx);
-
 	return(result);
 }
 
@@ -178,7 +176,7 @@ int16_t SerialWombatAbstractProcessedInput::configureOutputValue(OutputValue out
 	return(result);
 }
 
-int16_t SerialWombatAbstractProcessedInput::configureTransformScaleRange(uint16_t min, uint16_t max)
+int16_t SerialWombatAbstractProcessedInput::writeTransformScaleRange(uint16_t min, uint16_t max)
 {
 	uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
 		pin(),
@@ -193,7 +191,7 @@ int16_t SerialWombatAbstractProcessedInput::configureTransformScaleRange(uint16_
 	return(result);
 }
 
-int16_t SerialWombatAbstractProcessedInput::configureTransformLinearMXB(int32_t m, int32_t b)
+int16_t SerialWombatAbstractProcessedInput::writeTransformLinearMXB(int32_t m, int32_t b)
 {
 	uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
 		pin(),

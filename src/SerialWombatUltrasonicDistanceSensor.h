@@ -66,11 +66,20 @@ public:
 	/// \return 0 or higher if successful, negative error code if not successful.
 	int16_t begin(uint8_t echoPin, driver driver, uint8_t triggerPin,bool autoTrigger = true, bool pullUp = false);
 
+	/// \brief get the number of pulses that have been sent.  
+	///
+	/// \return The number of pulses that have been sent.  Rolls over at 65536
 	uint16_t readPulseCount();
 
+	/// \brief Manually trigger a distance reading
+	///
+	/// Use this interface to trigger a reading if begin was called with autoTrigger = false
+	/// \return 0 or higher if successful, negative error code if not successful.
 	int16_t manualTrigger();
 
+	/// \brief Facilitates Inheritance
 	uint8_t pin() { return _pin; }
+	/// \brief Facilitates Inheritance
 	uint8_t swPinModeNumber() { return _pinMode; }
 
 private:

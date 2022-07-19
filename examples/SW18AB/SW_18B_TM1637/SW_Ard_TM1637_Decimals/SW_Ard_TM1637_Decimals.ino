@@ -24,9 +24,10 @@ https://youtu.be/AwW12n6o_T0
 Documentation for the SerialWombatTM1637 Arduino class is available at:
 https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_t_m1637.html#details
 
+Serial Wombat is a registered trademark in the United States of Broadwell Consulting Inc.
 */
 
-SerialWombat sw;
+SerialWombatChip sw;
 SerialWombatTM1637 myDisplay(sw);
 #define DISPLAY_CLK_PIN 19  // <<<<<<<<<   Set this to the Serial Wombat pin connected to your Display Clock Pin
 #define DISPLAY_DIN_PIN 18  // <<<<<<<<<   Set this to the Serial Wombat pin connected to your Display Data Pin
@@ -42,8 +43,8 @@ void setup() {
   
   sw.begin(Wire,i2cAddress,false);
 
-  myDisplay.begin(19,  //Clk Pin
-  18, // Data Pin
+  myDisplay.begin(DISPLAY_CLK_PIN,  //Clk Pin
+  DISPLAY_DIN_PIN, // Data Pin
   6, // Number of digits
   tm1637CharArray, // Mode enumeration
   0x55, // Not used in tm1637CharArray mode

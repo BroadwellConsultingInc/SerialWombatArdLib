@@ -81,8 +81,9 @@ Inheritance diagram for SerialWombatPulseTimer_18AB:</div>
  <div class="center">
   <img src="class_serial_wombat_pulse_timer__18_a_b.png" usemap="#SerialWombatPulseTimer_5F18AB_map" alt=""/>
   <map id="SerialWombatPulseTimer_5F18AB_map" name="SerialWombatPulseTimer_5F18AB_map">
-<area href="class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time." alt="SerialWombatPulseTimer" shape="rect" coords="0,56,189,80"/>
-<area href="class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="SerialWombatPin" shape="rect" coords="0,0,189,24"/>
+<area href="class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time." alt="SerialWombatPulseTimer" shape="rect" coords="0,56,223,80"/>
+<area href="class_serial_wombat_abstract_processed_input.html" title="SerialWombatAnalogInput, SerialWombatPulseTimer, SerialWombatResistanceInput and others inherit from ..." alt="SerialWombatAbstractProcessedInput" shape="rect" coords="233,56,456,80"/>
+<area href="class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="SerialWombatPin" shape="rect" coords="0,0,223,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -103,6 +104,34 @@ Public Types</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a486e3029fae457e18763e324dbc47084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_types_class_serial_wombat_abstract_processed_input"><td colspan="2" onclick="javascript:toggleInherit('pub_types_class_serial_wombat_abstract_processed_input')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="class_serial_wombat_abstract_processed_input.html">SerialWombatAbstractProcessedInput</a></td></tr>
+<tr class="memitem:ab769b42fe94979e754fdd950cb7ce1f2 inherit pub_types_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2">Period</a> { <br />
+&#160;&#160;<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2a06adfbe8f8080dedac74aa8b264803f1">PERIOD_1024mS</a> = 0, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2a607a6dddf982edd557efc73c05b91432">PERIOD_512mS</a> = 1, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2a21e713a5a25371eb830b8baad5391282">PERIOD_256mS</a> = 2, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2a8d87fa620cf8c3540031a8330c307ab1">PERIOD_128mS</a> = 3, 
+<br />
+&#160;&#160;<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2a9214b38efb3283da282c716fd603921d">PERIOD_64mS</a> = 4, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2a03e2c075347d267c70df0312ea7d1c4c">PERIOD_32mS</a> = 5, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2ad5545c70f74cc160e216a1e316b6c065">PERIOD_16mS</a> = 6, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2a1ff4a88532621b3ef6acea520028fae5">FREQ_8mS</a> = 7, 
+<br />
+&#160;&#160;<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2a79ddb7e8fa91dd2639324ab15c5964ae">PERIOD_4mS</a> = 8, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2a5afc0e0ef51893194f90e4a48f3c2ff9">PERIOD_2mS</a> = 9, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2adee2abb03896e3488cbd9d10a8089e25">FREQ_1mS</a> = 10
+<br />
+ }</td></tr>
+<tr class="separator:ab769b42fe94979e754fdd950cb7ce1f2 inherit pub_types_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97bd681af788e782ea10d847068300f4 inherit pub_types_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a97bd681af788e782ea10d847068300f4">OutputValue</a> { <a class="el" href="class_serial_wombat_abstract_processed_input.html#a97bd681af788e782ea10d847068300f4a2fb8e6be4757d394736f387e074d42bb">RAW</a> = 0, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#a97bd681af788e782ea10d847068300f4a04dd31c28f461b5c0e590a7625ddebde">AVERAGE</a> = 1, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#a97bd681af788e782ea10d847068300f4a3470d6ca72f7d90564aef2da52d21f14">FIRST_ORDER_FILTERED</a> = 2
+ }</td></tr>
+<tr class="separator:a97bd681af788e782ea10d847068300f4 inherit pub_types_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79e5cf98e48c2e2dfba01962435535c0 inherit pub_types_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a79e5cf98e48c2e2dfba01962435535c0">Transform</a> { <a class="el" href="class_serial_wombat_abstract_processed_input.html#a79e5cf98e48c2e2dfba01962435535c0ae128f7db7de74c935a638d06567a608f">NONE</a> = 0, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#a79e5cf98e48c2e2dfba01962435535c0a47940c19cd1f8bc693b34069741fac3b">SCALE_RANGE</a> = 1, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#a79e5cf98e48c2e2dfba01962435535c0ac93e5a6a726588d09122350ffa8a7d8d">LINEAR_MXB</a> = 2
+ }</td></tr>
+<tr class="separator:a79e5cf98e48c2e2dfba01962435535c0 inherit pub_types_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -112,6 +141,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4fcfca11feb305364fec4d3abcc801df"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_timer__18_a_b.html#a4fcfca11feb305364fec4d3abcc801df">configurePublicDataOutput</a> (<a class="el" href="class_serial_wombat_pulse_timer__18_a_b.html#a486e3029fae457e18763e324dbc47084">SerialWombatPulseTimer_18AB::publicDataOutput</a> <a class="el" href="class_serial_wombat_pulse_timer__18_a_b.html#a486e3029fae457e18763e324dbc47084">publicDataOutput</a>)</td></tr>
 <tr class="memdesc:a4fcfca11feb305364fec4d3abcc801df"><td class="mdescLeft">&#160;</td><td class="mdescRight">configures which measurement is the Public Data Output of this pin mode  <a href="class_serial_wombat_pulse_timer__18_a_b.html#a4fcfca11feb305364fec4d3abcc801df">More...</a><br /></td></tr>
 <tr class="separator:a4fcfca11feb305364fec4d3abcc801df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f6a1cb6d112cc5511838ccc5e2414a7"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_timer__18_a_b.html#a8f6a1cb6d112cc5511838ccc5e2414a7">pin</a> ()</td></tr>
+<tr class="memdesc:a8f6a1cb6d112cc5511838ccc5e2414a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Facilitates multi-inheritance.  <a href="class_serial_wombat_pulse_timer__18_a_b.html#a8f6a1cb6d112cc5511838ccc5e2414a7">More...</a><br /></td></tr>
+<tr class="separator:a8f6a1cb6d112cc5511838ccc5e2414a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae65383d055a2196bfa58533a9c18be75"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_timer__18_a_b.html#ae65383d055a2196bfa58533a9c18be75">swPinModeNumber</a> ()</td></tr>
+<tr class="memdesc:ae65383d055a2196bfa58533a9c18be75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Facilitates multi-inheritance.  <a href="class_serial_wombat_pulse_timer__18_a_b.html#ae65383d055a2196bfa58533a9c18be75">More...</a><br /></td></tr>
+<tr class="separator:ae65383d055a2196bfa58533a9c18be75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_serial_wombat_pulse_timer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_serial_wombat_pulse_timer')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_serial_wombat_pulse_timer.html">SerialWombatPulseTimer</a></td></tr>
 <tr class="memitem:a38c664a0b6f2490fa8fed5592fe1a3e5 inherit pub_methods_class_serial_wombat_pulse_timer"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pulse_timer.html#a38c664a0b6f2490fa8fed5592fe1a3e5">SerialWombatPulseTimer</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat)</td></tr>
 <tr class="memdesc:a38c664a0b6f2490fa8fed5592fe1a3e5 inherit pub_methods_class_serial_wombat_pulse_timer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor for <a class="el" href="class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time.">SerialWombatPulseTimer</a>.  <a href="class_serial_wombat_pulse_timer.html#a38c664a0b6f2490fa8fed5592fe1a3e5">More...</a><br /></td></tr>
@@ -168,6 +203,49 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3a689e659f42c3518c6f62b717101e26 inherit pub_methods_class_serial_wombat_pin"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a3a689e659f42c3518c6f62b717101e26">swPinModeNumber</a> ()</td></tr>
 <tr class="memdesc:a3a689e659f42c3518c6f62b717101e26 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Mode number. Used primarily by derived classes to populate packet data.  <a href="class_serial_wombat_pin.html#a3a689e659f42c3518c6f62b717101e26">More...</a><br /></td></tr>
 <tr class="separator:a3a689e659f42c3518c6f62b717101e26 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_serial_wombat_abstract_processed_input"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_serial_wombat_abstract_processed_input')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_serial_wombat_abstract_processed_input.html">SerialWombatAbstractProcessedInput</a></td></tr>
+<tr class="memitem:a2908a3d214dedd2e59f6da76ede9d0bc inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a2908a3d214dedd2e59f6da76ede9d0bc">SerialWombatAbstractProcessedInput</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;sw)</td></tr>
+<tr class="memdesc:a2908a3d214dedd2e59f6da76ede9d0bc inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class....">SerialWombatAbstractScaledOutput</a> Class.  <a href="class_serial_wombat_abstract_processed_input.html#a2908a3d214dedd2e59f6da76ede9d0bc">More...</a><br /></td></tr>
+<tr class="separator:a2908a3d214dedd2e59f6da76ede9d0bc inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af34a9b26aa1014f2362ef8ecb7ea530d inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#af34a9b26aa1014f2362ef8ecb7ea530d">writeInverted</a> (bool inverted)</td></tr>
+<tr class="memdesc:af34a9b26aa1014f2362ef8ecb7ea530d inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="mdescLeft">&#160;</td><td class="mdescRight">if enabled subtract the input value from 65535 before doing any other processing.  <a href="class_serial_wombat_abstract_processed_input.html#af34a9b26aa1014f2362ef8ecb7ea530d">More...</a><br /></td></tr>
+<tr class="separator:af34a9b26aa1014f2362ef8ecb7ea530d inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a444b27a785168c229f48caac68f97453 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a444b27a785168c229f48caac68f97453">writeFirstOrderFilteringConstant</a> (uint16_t constant)</td></tr>
+<tr class="memdesc:a444b27a785168c229f48caac68f97453 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a first order filtering constant to be applied to the signal Higher is heavier filtering.  <a href="class_serial_wombat_abstract_processed_input.html#a444b27a785168c229f48caac68f97453">More...</a><br /></td></tr>
+<tr class="separator:a444b27a785168c229f48caac68f97453 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef205e1106b80667b44fbaed6f6d96a3 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#aef205e1106b80667b44fbaed6f6d96a3">writeAveragingNumberOfSamples</a> (uint16_t numberOfSamples)</td></tr>
+<tr class="memdesc:aef205e1106b80667b44fbaed6f6d96a3 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a number of samples to average for each update of the downstream signal.  <a href="class_serial_wombat_abstract_processed_input.html#aef205e1106b80667b44fbaed6f6d96a3">More...</a><br /></td></tr>
+<tr class="separator:aef205e1106b80667b44fbaed6f6d96a3 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a836868f3afa41af9062c65adb20d3c81 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a836868f3afa41af9062c65adb20d3c81">writeExcludeBelowAbove</a> (uint16_t low, uint16_t high)</td></tr>
+<tr class="memdesc:a836868f3afa41af9062c65adb20d3c81 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets input value ranges which are discarded rather than processed.  <a href="class_serial_wombat_abstract_processed_input.html#a836868f3afa41af9062c65adb20d3c81">More...</a><br /></td></tr>
+<tr class="separator:a836868f3afa41af9062c65adb20d3c81 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6332fc244a4c3e1de1ae7465e80ce4e inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#ae6332fc244a4c3e1de1ae7465e80ce4e">configureQueue</a> (<a class="el" href="class_serial_wombat_queue.html">SerialWombatQueue</a> *queue, <a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2">Period</a> period, bool queueHighByte=true, bool queueLowByte=true)</td></tr>
+<tr class="memdesc:ae6332fc244a4c3e1de1ae7465e80ce4e inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the queueing feature for this pin mode. Queue must have been initialized prior to this queue.  <a href="class_serial_wombat_abstract_processed_input.html#ae6332fc244a4c3e1de1ae7465e80ce4e">More...</a><br /></td></tr>
+<tr class="separator:ae6332fc244a4c3e1de1ae7465e80ce4e inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45492953887a3ac73e8593c196a9c7df inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a45492953887a3ac73e8593c196a9c7df">configureOutputValue</a> (<a class="el" href="class_serial_wombat_abstract_processed_input.html#a97bd681af788e782ea10d847068300f4">OutputValue</a> outputValue)</td></tr>
+<tr class="memdesc:a45492953887a3ac73e8593c196a9c7df inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures whether the pin's public data value is averaged, filtered, or neither.  <a href="class_serial_wombat_abstract_processed_input.html#a45492953887a3ac73e8593c196a9c7df">More...</a><br /></td></tr>
+<tr class="separator:a45492953887a3ac73e8593c196a9c7df inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24d57fbe5233494ae4149e5b438a15e1 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a24d57fbe5233494ae4149e5b438a15e1">writeTransformScaleRange</a> (uint16_t min, uint16_t max)</td></tr>
+<tr class="memdesc:a24d57fbe5233494ae4149e5b438a15e1 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale incoming values to a range of 0 to 65535.  <a href="class_serial_wombat_abstract_processed_input.html#a24d57fbe5233494ae4149e5b438a15e1">More...</a><br /></td></tr>
+<tr class="separator:a24d57fbe5233494ae4149e5b438a15e1 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f215350d4edd8e7d343a8a1186adfb2 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a3f215350d4edd8e7d343a8a1186adfb2">writeTransformLinearMXB</a> (int32_t m, int32_t b)</td></tr>
+<tr class="memdesc:a3f215350d4edd8e7d343a8a1186adfb2 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale incoming values based on an mx+b linear equation.  <a href="class_serial_wombat_abstract_processed_input.html#a3f215350d4edd8e7d343a8a1186adfb2">More...</a><br /></td></tr>
+<tr class="separator:a3f215350d4edd8e7d343a8a1186adfb2 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af93fb556cddd0853d3370b2a2e7b5681 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#af93fb556cddd0853d3370b2a2e7b5681">writeProcessedInputEnable</a> (bool enabled)</td></tr>
+<tr class="memdesc:af93fb556cddd0853d3370b2a2e7b5681 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables all input processing functions If disabled, the raw input value is placed directly in the pin's 16 bit public data buffer.  <a href="class_serial_wombat_abstract_processed_input.html#af93fb556cddd0853d3370b2a2e7b5681">More...</a><br /></td></tr>
+<tr class="separator:af93fb556cddd0853d3370b2a2e7b5681 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4967eab8a624491edfd46b44a0388766 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a4967eab8a624491edfd46b44a0388766">readMinimum</a> (bool resetAfterRead=false)</td></tr>
+<tr class="memdesc:a4967eab8a624491edfd46b44a0388766 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreive the maximum public data output value since the last call with reset= true.  <a href="class_serial_wombat_abstract_processed_input.html#a4967eab8a624491edfd46b44a0388766">More...</a><br /></td></tr>
+<tr class="separator:a4967eab8a624491edfd46b44a0388766 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5995493275ecb8ceb45b42cc18e402f inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#ad5995493275ecb8ceb45b42cc18e402f">readMaximum</a> (bool resetAfterRead=false)</td></tr>
+<tr class="memdesc:ad5995493275ecb8ceb45b42cc18e402f inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreive the minimum public data output value since the last call with reset= true.  <a href="class_serial_wombat_abstract_processed_input.html#ad5995493275ecb8ceb45b42cc18e402f">More...</a><br /></td></tr>
+<tr class="separator:ad5995493275ecb8ceb45b42cc18e402f inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5086436b209dfa88cc30f571b3df8eb7 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a5086436b209dfa88cc30f571b3df8eb7">readAverage</a> ()</td></tr>
+<tr class="memdesc:a5086436b209dfa88cc30f571b3df8eb7 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreive the last completed averaged value.  <a href="class_serial_wombat_abstract_processed_input.html#a5086436b209dfa88cc30f571b3df8eb7">More...</a><br /></td></tr>
+<tr class="separator:a5086436b209dfa88cc30f571b3df8eb7 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e95e7677c7570c7f57b32914515e94e inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a6e95e7677c7570c7f57b32914515e94e">readFiltered</a> ()</td></tr>
+<tr class="memdesc:a6e95e7677c7570c7f57b32914515e94e inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreive the filtered value.  <a href="class_serial_wombat_abstract_processed_input.html#a6e95e7677c7570c7f57b32914515e94e">More...</a><br /></td></tr>
+<tr class="separator:a6e95e7677c7570c7f57b32914515e94e inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -282,6 +360,64 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher for success or a negative error code. </dd></dl>
+
+</div>
+</div>
+<a id="a8f6a1cb6d112cc5511838ccc5e2414a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f6a1cb6d112cc5511838ccc5e2414a7">&#9670;&nbsp;</a></span>pin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SerialWombatPulseTimer_18AB::pin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Facilitates multi-inheritance. </p>
+
+<p>Implements <a class="el" href="class_serial_wombat_abstract_processed_input.html#a9a7b338494eae91f14bb2965fc843675">SerialWombatAbstractProcessedInput</a>.</p>
+
+</div>
+</div>
+<a id="ae65383d055a2196bfa58533a9c18be75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae65383d055a2196bfa58533a9c18be75">&#9670;&nbsp;</a></span>swPinModeNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SerialWombatPulseTimer_18AB::swPinModeNumber </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Facilitates multi-inheritance. </p>
+
+<p>Implements <a class="el" href="class_serial_wombat_abstract_processed_input.html#abc6a028ff5841c91f9770bd4611c4527">SerialWombatAbstractProcessedInput</a>.</p>
 
 </div>
 </div>

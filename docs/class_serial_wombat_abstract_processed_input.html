@@ -83,29 +83,31 @@ Inheritance diagram for SerialWombatAbstractProcessedInput:</div>
   <map id="SerialWombatAbstractProcessedInput_map" name="SerialWombatAbstractProcessedInput_map">
 <area href="class_serial_wombat_analog_input__18_a_b.html" title="This class extends SerialWombatAnalogInput with SW18AB specific capabilities." alt="SerialWombatAnalogInput_18AB" shape="rect" coords="0,56,234,80"/>
 <area href="class_serial_wombat_processed_input_pin.html" title="A Class which reads data from another pin&#39;s public data and runs it through SerialWombatAbstractInput..." alt="SerialWombatProcessedInputPin" shape="rect" coords="244,56,478,80"/>
-<area href="class_serial_wombat_ultrasonic_distance_sensor.html" title="A Class which uses one or two Serial Wombat 18AB pins to measure distance using an Ultrasonic distanc..." alt="SerialWombatUltrasonicDistanceSensor" shape="rect" coords="488,56,722,80"/>
+<area href="class_serial_wombat_pulse_timer__18_a_b.html" title="extends the SerialWombatPulseTimer class with SW18AB specific functionality" alt="SerialWombatPulseTimer_18AB" shape="rect" coords="488,56,722,80"/>
+<area href="class_serial_wombat_resistance_input.html" title="A class to make resistance measurements with the Serial Wombat 18AB chip." alt="SerialWombatResistanceInput" shape="rect" coords="732,56,966,80"/>
+<area href="class_serial_wombat_ultrasonic_distance_sensor.html" title="A Class which uses one or two Serial Wombat 18AB pins to measure distance using an Ultrasonic distanc..." alt="SerialWombatUltrasonicDistanceSensor" shape="rect" coords="976,56,1210,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a81e7c2cea75b7009918476130a452376"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a81e7c2cea75b7009918476130a452376">Frequency</a> { <br />
-&#160;&#160;<a class="el" href="class_serial_wombat_abstract_processed_input.html#a81e7c2cea75b7009918476130a452376a4c3c8ee696c1e900843c055c3910c2a8">FREQ_1Hz</a> = 0, 
-<a class="el" href="class_serial_wombat_abstract_processed_input.html#a81e7c2cea75b7009918476130a452376a366bfd7d3f3ce8ad43db27814a2ccc88">FREQ_2Hz</a> = 1, 
-<a class="el" href="class_serial_wombat_abstract_processed_input.html#a81e7c2cea75b7009918476130a452376a690416c1603f96692a71ec34fec06dd4">FREQ_4Hz</a> = 2, 
-<a class="el" href="class_serial_wombat_abstract_processed_input.html#a81e7c2cea75b7009918476130a452376afe5aa9d080321c505a7351f31033f43b">FREQ_8Hz</a> = 3, 
+<tr class="memitem:ab769b42fe94979e754fdd950cb7ce1f2"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2">Period</a> { <br />
+&#160;&#160;<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2a06adfbe8f8080dedac74aa8b264803f1">PERIOD_1024mS</a> = 0, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2a607a6dddf982edd557efc73c05b91432">PERIOD_512mS</a> = 1, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2a21e713a5a25371eb830b8baad5391282">PERIOD_256mS</a> = 2, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2a8d87fa620cf8c3540031a8330c307ab1">PERIOD_128mS</a> = 3, 
 <br />
-&#160;&#160;<a class="el" href="class_serial_wombat_abstract_processed_input.html#a81e7c2cea75b7009918476130a452376aa53ab4637585d400345e2c67258be8b6">FREQ_16Hz</a> = 4, 
-<a class="el" href="class_serial_wombat_abstract_processed_input.html#a81e7c2cea75b7009918476130a452376ace064b313727d1f0e8cc08c98dca8ed7">FREQ_32Hz</a> = 5, 
-<a class="el" href="class_serial_wombat_abstract_processed_input.html#a81e7c2cea75b7009918476130a452376a9fa10c4c8e191a7b09279ddfa91b433e">FREQ_64Hz</a> = 6, 
-<a class="el" href="class_serial_wombat_abstract_processed_input.html#a81e7c2cea75b7009918476130a452376a4ce1de2ed52572a451d487f5f146075b">FREQ_128Hz</a> = 7, 
+&#160;&#160;<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2a9214b38efb3283da282c716fd603921d">PERIOD_64mS</a> = 4, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2a03e2c075347d267c70df0312ea7d1c4c">PERIOD_32mS</a> = 5, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2ad5545c70f74cc160e216a1e316b6c065">PERIOD_16mS</a> = 6, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2a1ff4a88532621b3ef6acea520028fae5">FREQ_8mS</a> = 7, 
 <br />
-&#160;&#160;<a class="el" href="class_serial_wombat_abstract_processed_input.html#a81e7c2cea75b7009918476130a452376aa993ebef75eb64eb8e20be642b70659f">FREQ_256Hz</a> = 8, 
-<a class="el" href="class_serial_wombat_abstract_processed_input.html#a81e7c2cea75b7009918476130a452376aa8488a92f322672aa8538ebdee755032">FREQ_512Hz</a> = 9, 
-<a class="el" href="class_serial_wombat_abstract_processed_input.html#a81e7c2cea75b7009918476130a452376ad84f9f7da88b73eadd0b9e12eda420bb">FREQ_1024Hz</a> = 10
+&#160;&#160;<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2a79ddb7e8fa91dd2639324ab15c5964ae">PERIOD_4mS</a> = 8, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2a5afc0e0ef51893194f90e4a48f3c2ff9">PERIOD_2mS</a> = 9, 
+<a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2adee2abb03896e3488cbd9d10a8089e25">FREQ_1mS</a> = 10
 <br />
  }</td></tr>
-<tr class="separator:a81e7c2cea75b7009918476130a452376"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ab769b42fe94979e754fdd950cb7ce1f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97bd681af788e782ea10d847068300f4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a97bd681af788e782ea10d847068300f4">OutputValue</a> { <a class="el" href="class_serial_wombat_abstract_processed_input.html#a97bd681af788e782ea10d847068300f4a2fb8e6be4757d394736f387e074d42bb">RAW</a> = 0, 
 <a class="el" href="class_serial_wombat_abstract_processed_input.html#a97bd681af788e782ea10d847068300f4a04dd31c28f461b5c0e590a7625ddebde">AVERAGE</a> = 1, 
 <a class="el" href="class_serial_wombat_abstract_processed_input.html#a97bd681af788e782ea10d847068300f4a3470d6ca72f7d90564aef2da52d21f14">FIRST_ORDER_FILTERED</a> = 2
@@ -120,69 +122,77 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2908a3d214dedd2e59f6da76ede9d0bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a2908a3d214dedd2e59f6da76ede9d0bc">SerialWombatAbstractProcessedInput</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;sw)</td></tr>
-<tr class="memdesc:a2908a3d214dedd2e59f6da76ede9d0bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo and SerialWombatPWM inherit from this class.">SerialWombatAbstractScaledOutput</a> Class.  <a href="class_serial_wombat_abstract_processed_input.html#a2908a3d214dedd2e59f6da76ede9d0bc">More...</a><br /></td></tr>
+<tr class="memdesc:a2908a3d214dedd2e59f6da76ede9d0bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class....">SerialWombatAbstractScaledOutput</a> Class.  <a href="class_serial_wombat_abstract_processed_input.html#a2908a3d214dedd2e59f6da76ede9d0bc">More...</a><br /></td></tr>
 <tr class="separator:a2908a3d214dedd2e59f6da76ede9d0bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af34a9b26aa1014f2362ef8ecb7ea530d"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#af34a9b26aa1014f2362ef8ecb7ea530d">writeInverted</a> (bool inverted)</td></tr>
+<tr class="memdesc:af34a9b26aa1014f2362ef8ecb7ea530d"><td class="mdescLeft">&#160;</td><td class="mdescRight">if enabled subtract the input value from 65535 before doing any other processing.  <a href="class_serial_wombat_abstract_processed_input.html#af34a9b26aa1014f2362ef8ecb7ea530d">More...</a><br /></td></tr>
 <tr class="separator:af34a9b26aa1014f2362ef8ecb7ea530d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a444b27a785168c229f48caac68f97453"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a444b27a785168c229f48caac68f97453">writeFirstOrderFilteringConstant</a> (uint16_t constant)</td></tr>
+<tr class="memdesc:a444b27a785168c229f48caac68f97453"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a first order filtering constant to be applied to the signal Higher is heavier filtering.  <a href="class_serial_wombat_abstract_processed_input.html#a444b27a785168c229f48caac68f97453">More...</a><br /></td></tr>
 <tr class="separator:a444b27a785168c229f48caac68f97453"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef205e1106b80667b44fbaed6f6d96a3"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#aef205e1106b80667b44fbaed6f6d96a3">writeAveragingNumberOfSamples</a> (uint16_t numberOfSamples)</td></tr>
+<tr class="memdesc:aef205e1106b80667b44fbaed6f6d96a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a number of samples to average for each update of the downstream signal.  <a href="class_serial_wombat_abstract_processed_input.html#aef205e1106b80667b44fbaed6f6d96a3">More...</a><br /></td></tr>
 <tr class="separator:aef205e1106b80667b44fbaed6f6d96a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a836868f3afa41af9062c65adb20d3c81"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a836868f3afa41af9062c65adb20d3c81">writeExcludeBelowAbove</a> (uint16_t low, uint16_t high)</td></tr>
+<tr class="memdesc:a836868f3afa41af9062c65adb20d3c81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets input value ranges which are discarded rather than processed.  <a href="class_serial_wombat_abstract_processed_input.html#a836868f3afa41af9062c65adb20d3c81">More...</a><br /></td></tr>
 <tr class="separator:a836868f3afa41af9062c65adb20d3c81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a280f284d02d2f0adda55241c53e07175"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a280f284d02d2f0adda55241c53e07175">configureQueue</a> (<a class="el" href="class_serial_wombat_queue.html">SerialWombatQueue</a> *queue, <a class="el" href="class_serial_wombat_abstract_processed_input.html#a81e7c2cea75b7009918476130a452376">Frequency</a> frequency, bool queueHighByte=true, bool queueLowByte=true)</td></tr>
-<tr class="separator:a280f284d02d2f0adda55241c53e07175"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6332fc244a4c3e1de1ae7465e80ce4e"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#ae6332fc244a4c3e1de1ae7465e80ce4e">configureQueue</a> (<a class="el" href="class_serial_wombat_queue.html">SerialWombatQueue</a> *queue, <a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2">Period</a> period, bool queueHighByte=true, bool queueLowByte=true)</td></tr>
+<tr class="memdesc:ae6332fc244a4c3e1de1ae7465e80ce4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the queueing feature for this pin mode. Queue must have been initialized prior to this queue.  <a href="class_serial_wombat_abstract_processed_input.html#ae6332fc244a4c3e1de1ae7465e80ce4e">More...</a><br /></td></tr>
+<tr class="separator:ae6332fc244a4c3e1de1ae7465e80ce4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45492953887a3ac73e8593c196a9c7df"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a45492953887a3ac73e8593c196a9c7df">configureOutputValue</a> (<a class="el" href="class_serial_wombat_abstract_processed_input.html#a97bd681af788e782ea10d847068300f4">OutputValue</a> outputValue)</td></tr>
+<tr class="memdesc:a45492953887a3ac73e8593c196a9c7df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures whether the pin's public data value is averaged, filtered, or neither.  <a href="class_serial_wombat_abstract_processed_input.html#a45492953887a3ac73e8593c196a9c7df">More...</a><br /></td></tr>
 <tr class="separator:a45492953887a3ac73e8593c196a9c7df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4de511b5760cb201a465c524abdd0e5"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#ae4de511b5760cb201a465c524abdd0e5">configureTransformScaleRange</a> (uint16_t min, uint16_t max)</td></tr>
-<tr class="separator:ae4de511b5760cb201a465c524abdd0e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51ee58a1b2553ee23e4cea5a68a87be6"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a51ee58a1b2553ee23e4cea5a68a87be6">configureTransformLinearMXB</a> (int32_t m, int32_t b)</td></tr>
-<tr class="separator:a51ee58a1b2553ee23e4cea5a68a87be6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24d57fbe5233494ae4149e5b438a15e1"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a24d57fbe5233494ae4149e5b438a15e1">writeTransformScaleRange</a> (uint16_t min, uint16_t max)</td></tr>
+<tr class="memdesc:a24d57fbe5233494ae4149e5b438a15e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale incoming values to a range of 0 to 65535.  <a href="class_serial_wombat_abstract_processed_input.html#a24d57fbe5233494ae4149e5b438a15e1">More...</a><br /></td></tr>
+<tr class="separator:a24d57fbe5233494ae4149e5b438a15e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f215350d4edd8e7d343a8a1186adfb2"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a3f215350d4edd8e7d343a8a1186adfb2">writeTransformLinearMXB</a> (int32_t m, int32_t b)</td></tr>
+<tr class="memdesc:a3f215350d4edd8e7d343a8a1186adfb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale incoming values based on an mx+b linear equation.  <a href="class_serial_wombat_abstract_processed_input.html#a3f215350d4edd8e7d343a8a1186adfb2">More...</a><br /></td></tr>
+<tr class="separator:a3f215350d4edd8e7d343a8a1186adfb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af93fb556cddd0853d3370b2a2e7b5681"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#af93fb556cddd0853d3370b2a2e7b5681">writeProcessedInputEnable</a> (bool enabled)</td></tr>
+<tr class="memdesc:af93fb556cddd0853d3370b2a2e7b5681"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables all input processing functions If disabled, the raw input value is placed directly in the pin's 16 bit public data buffer.  <a href="class_serial_wombat_abstract_processed_input.html#af93fb556cddd0853d3370b2a2e7b5681">More...</a><br /></td></tr>
 <tr class="separator:af93fb556cddd0853d3370b2a2e7b5681"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a016159e04e0943f74d62f5e88ddda761"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a016159e04e0943f74d62f5e88ddda761">readMinimum</a> (bool reset=false)</td></tr>
-<tr class="separator:a016159e04e0943f74d62f5e88ddda761"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81a75d78b3d33b6a798c140ee529a1d4"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a81a75d78b3d33b6a798c140ee529a1d4">readMaximum</a> (bool reset=false)</td></tr>
-<tr class="separator:a81a75d78b3d33b6a798c140ee529a1d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4967eab8a624491edfd46b44a0388766"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a4967eab8a624491edfd46b44a0388766">readMinimum</a> (bool resetAfterRead=false)</td></tr>
+<tr class="memdesc:a4967eab8a624491edfd46b44a0388766"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreive the maximum public data output value since the last call with reset= true.  <a href="class_serial_wombat_abstract_processed_input.html#a4967eab8a624491edfd46b44a0388766">More...</a><br /></td></tr>
+<tr class="separator:a4967eab8a624491edfd46b44a0388766"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5995493275ecb8ceb45b42cc18e402f"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#ad5995493275ecb8ceb45b42cc18e402f">readMaximum</a> (bool resetAfterRead=false)</td></tr>
+<tr class="memdesc:ad5995493275ecb8ceb45b42cc18e402f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreive the minimum public data output value since the last call with reset= true.  <a href="class_serial_wombat_abstract_processed_input.html#ad5995493275ecb8ceb45b42cc18e402f">More...</a><br /></td></tr>
+<tr class="separator:ad5995493275ecb8ceb45b42cc18e402f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5086436b209dfa88cc30f571b3df8eb7"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a5086436b209dfa88cc30f571b3df8eb7">readAverage</a> ()</td></tr>
+<tr class="memdesc:a5086436b209dfa88cc30f571b3df8eb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreive the last completed averaged value.  <a href="class_serial_wombat_abstract_processed_input.html#a5086436b209dfa88cc30f571b3df8eb7">More...</a><br /></td></tr>
 <tr class="separator:a5086436b209dfa88cc30f571b3df8eb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e95e7677c7570c7f57b32914515e94e"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a6e95e7677c7570c7f57b32914515e94e">readFiltered</a> ()</td></tr>
+<tr class="memdesc:a6e95e7677c7570c7f57b32914515e94e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreive the filtered value.  <a href="class_serial_wombat_abstract_processed_input.html#a6e95e7677c7570c7f57b32914515e94e">More...</a><br /></td></tr>
 <tr class="separator:a6e95e7677c7570c7f57b32914515e94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a7b338494eae91f14bb2965fc843675"><td class="memItemLeft" align="right" valign="top">virtual uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a9a7b338494eae91f14bb2965fc843675">pin</a> ()=0</td></tr>
+<tr class="memdesc:a9a7b338494eae91f14bb2965fc843675"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for inheritance.  <a href="class_serial_wombat_abstract_processed_input.html#a9a7b338494eae91f14bb2965fc843675">More...</a><br /></td></tr>
 <tr class="separator:a9a7b338494eae91f14bb2965fc843675"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc6a028ff5841c91f9770bd4611c4527"><td class="memItemLeft" align="right" valign="top">virtual uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#abc6a028ff5841c91f9770bd4611c4527">swPinModeNumber</a> ()=0</td></tr>
+<tr class="memdesc:abc6a028ff5841c91f9770bd4611c4527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for ineheritance.  <a href="class_serial_wombat_abstract_processed_input.html#abc6a028ff5841c91f9770bd4611c4527">More...</a><br /></td></tr>
 <tr class="separator:abc6a028ff5841c91f9770bd4611c4527"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_serial_wombat_analog_input.html" title="A class to make analog measurements with the Serial Wombat.">SerialWombatAnalogInput</a>, <a class="el" href="class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time.">SerialWombatPulseTimer</a>, <a class="el" href="class_serial_wombat_resistance_input.html" title="A class to make resistance measurements with the Serial Wombat 18AB chip.">SerialWombatResistanceInput</a> and others inherit from this class. </p>
+<p>This class allows a common set of services to be applied to Serial Wombat inputs which inherit from it. These include <a class="el" href="class_serial_wombat_analog_input.html" title="A class to make analog measurements with the Serial Wombat.">SerialWombatAnalogInput</a>, <a class="el" href="class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time.">SerialWombatPulseTimer</a>, <a class="el" href="class_serial_wombat_resistance_input.html" title="A class to make resistance measurements with the Serial Wombat 18AB chip.">SerialWombatResistanceInput</a> and will include others in the future.</p>
+<p>This class is only applicable to the Serial Wombat 18AB firmware.</p>
+<p>This class allows various transformations and filters to be performed on incoming measurements within the Serial Wombat firmware using the Serial Wombat chip's cpu cycles. Since this class is processed every 1mS for each pin configured to an input class, it can do tasks like filtering or averaging much more quickly and consistently than could be achieved by sampling the value over I2C or UART and doing the computation on the host device. Minimum and Maximum measured values are also tracked for retreival by the host</p>
+<p>Additionally, this class is capable of limiting input (for example any value below 10000 is processed as 10000, and any value above 62331 is processed as 62331), scaling input (e.g. an expected input range of 3000 to 7000 is scaled linearly to the full Serial Wombat Range of 0 to 65535), mx+b linear transformations, exclusion of outlier data (e.g. any value over 50000 is ignored, and the previous valid measurement is substituted in its place).</p>
+<p>Inputs can be inverted (scaled from 0-65535 to 65535-0 by substracting the raw value from 65535). This is useful for reversing the direction of things like analog measured potentiometers.</p>
+<p>The final output of the <a class="el" href="class_serial_wombat_abstract_processed_input.html" title="SerialWombatAnalogInput, SerialWombatPulseTimer, SerialWombatResistanceInput and others inherit from ...">SerialWombatAbstractProcessedInput</a> operations can be queued in a User Memory Area queue on a periodic basis. This allows synchronsous sampling and storage of input data for retreival and processing by the host. This allows waveforms to be stored and processed. Sampling period is an enumerated type ranging from 1mS to 1024mS in power of 2 intervals</p>
+<p>Data processing happens in the following order each 1mS for any enabled feature:</p>
+<ul>
+<li>The pin mode measures the physical input</li>
+<li>Any outlier values are excluded. if a value is excluded the last valid measured raw input is substituted in its place</li>
+<li>Inversion of input (subtraction of value from 65535)</li>
+<li>Transformation of output value (Scale of smaller input range (e.g. 8000-12000 to 0-65535) or mx+b linear transformation</li>
+<li>Averaging and filtering of the result of prior steps and storage of averaged / filtered values for access by the host. <br  />
+</li>
+<li>Selection of the result to be passed to the next steps. The unfiltered value, the averaged value, or the filtered value can be selected to be the pin's public data output</li>
+<li>Updating the minimum and maximum recorded value for retreival by the host</li>
+<li>Sampling the data into a queue in the user buffer</li>
+<li>Placement of the value into the pin's 16-bit public data buffer for access by the host or other pin modes that react to a pin's public data buffer.</li>
+</ul>
+<p>To use this class first configure the pin to its mode using the normal begin() call for that pin mode (the derived class). Then call any configuratioon commands ( writeInverted, writeTransformLinearMXB, etc) then call writeProcessedInputEnable(true) to enable processing. </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="a81e7c2cea75b7009918476130a452376"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81e7c2cea75b7009918476130a452376">&#9670;&nbsp;</a></span>Frequency</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="class_serial_wombat_abstract_processed_input.html#a81e7c2cea75b7009918476130a452376">SerialWombatAbstractProcessedInput::Frequency</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a81e7c2cea75b7009918476130a452376a4c3c8ee696c1e900843c055c3910c2a8"></a>FREQ_1Hz&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a81e7c2cea75b7009918476130a452376a366bfd7d3f3ce8ad43db27814a2ccc88"></a>FREQ_2Hz&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a81e7c2cea75b7009918476130a452376a690416c1603f96692a71ec34fec06dd4"></a>FREQ_4Hz&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a81e7c2cea75b7009918476130a452376afe5aa9d080321c505a7351f31033f43b"></a>FREQ_8Hz&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a81e7c2cea75b7009918476130a452376aa53ab4637585d400345e2c67258be8b6"></a>FREQ_16Hz&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a81e7c2cea75b7009918476130a452376ace064b313727d1f0e8cc08c98dca8ed7"></a>FREQ_32Hz&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a81e7c2cea75b7009918476130a452376a9fa10c4c8e191a7b09279ddfa91b433e"></a>FREQ_64Hz&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a81e7c2cea75b7009918476130a452376a4ce1de2ed52572a451d487f5f146075b"></a>FREQ_128Hz&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a81e7c2cea75b7009918476130a452376aa993ebef75eb64eb8e20be642b70659f"></a>FREQ_256Hz&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a81e7c2cea75b7009918476130a452376aa8488a92f322672aa8538ebdee755032"></a>FREQ_512Hz&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a81e7c2cea75b7009918476130a452376ad84f9f7da88b73eadd0b9e12eda420bb"></a>FREQ_1024Hz&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
 <a id="a97bd681af788e782ea10d847068300f4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a97bd681af788e782ea10d847068300f4">&#9670;&nbsp;</a></span>OutputValue</h2>
 
@@ -195,9 +205,39 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a97bd681af788e782ea10d847068300f4a2fb8e6be4757d394736f387e074d42bb"></a>RAW&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a97bd681af788e782ea10d847068300f4a04dd31c28f461b5c0e590a7625ddebde"></a>AVERAGE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a97bd681af788e782ea10d847068300f4a3470d6ca72f7d90564aef2da52d21f14"></a>FIRST_ORDER_FILTERED&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a97bd681af788e782ea10d847068300f4a2fb8e6be4757d394736f387e074d42bb"></a>RAW&#160;</td><td class="fielddoc"><p>Use the unfiltered signal for the pin's public data. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a97bd681af788e782ea10d847068300f4a04dd31c28f461b5c0e590a7625ddebde"></a>AVERAGE&#160;</td><td class="fielddoc"><p>Use an averaged signal for the pin's public data (updates less often) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a97bd681af788e782ea10d847068300f4a3470d6ca72f7d90564aef2da52d21f14"></a>FIRST_ORDER_FILTERED&#160;</td><td class="fielddoc"><p>Use a first order filtered signal for the pin's public data. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ab769b42fe94979e754fdd950cb7ce1f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab769b42fe94979e754fdd950cb7ce1f2">&#9670;&nbsp;</a></span>Period</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2">SerialWombatAbstractProcessedInput::Period</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab769b42fe94979e754fdd950cb7ce1f2a06adfbe8f8080dedac74aa8b264803f1"></a>PERIOD_1024mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab769b42fe94979e754fdd950cb7ce1f2a607a6dddf982edd557efc73c05b91432"></a>PERIOD_512mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab769b42fe94979e754fdd950cb7ce1f2a21e713a5a25371eb830b8baad5391282"></a>PERIOD_256mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab769b42fe94979e754fdd950cb7ce1f2a8d87fa620cf8c3540031a8330c307ab1"></a>PERIOD_128mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab769b42fe94979e754fdd950cb7ce1f2a9214b38efb3283da282c716fd603921d"></a>PERIOD_64mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab769b42fe94979e754fdd950cb7ce1f2a03e2c075347d267c70df0312ea7d1c4c"></a>PERIOD_32mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab769b42fe94979e754fdd950cb7ce1f2ad5545c70f74cc160e216a1e316b6c065"></a>PERIOD_16mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab769b42fe94979e754fdd950cb7ce1f2a1ff4a88532621b3ef6acea520028fae5"></a>FREQ_8mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab769b42fe94979e754fdd950cb7ce1f2a79ddb7e8fa91dd2639324ab15c5964ae"></a>PERIOD_4mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab769b42fe94979e754fdd950cb7ce1f2a5afc0e0ef51893194f90e4a48f3c2ff9"></a>PERIOD_2mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab769b42fe94979e754fdd950cb7ce1f2adee2abb03896e3488cbd9d10a8089e25"></a>FREQ_1mS&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -214,9 +254,12 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a79e5cf98e48c2e2dfba01962435535c0ae128f7db7de74c935a638d06567a608f"></a>NONE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a79e5cf98e48c2e2dfba01962435535c0a47940c19cd1f8bc693b34069741fac3b"></a>SCALE_RANGE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a79e5cf98e48c2e2dfba01962435535c0ac93e5a6a726588d09122350ffa8a7d8d"></a>LINEAR_MXB&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a79e5cf98e48c2e2dfba01962435535c0ae128f7db7de74c935a638d06567a608f"></a>NONE&#160;</td><td class="fielddoc"><p>Don't transform the input signal. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79e5cf98e48c2e2dfba01962435535c0a47940c19cd1f8bc693b34069741fac3b"></a>SCALE_RANGE&#160;</td><td class="fielddoc"><p>Scale the input signal to a 0-65535 value based on input high and low limits. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79e5cf98e48c2e2dfba01962435535c0ac93e5a6a726588d09122350ffa8a7d8d"></a>LINEAR_MXB&#160;</td><td class="fielddoc"><p>Scale the input signal based on a linear mx+b equation. </p>
+</td></tr>
 </table>
 
 </div>
@@ -238,7 +281,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor for the <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo and SerialWombatPWM inherit from this class.">SerialWombatAbstractScaledOutput</a> Class. </p>
+<p>Constructor for the <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class....">SerialWombatAbstractScaledOutput</a> Class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sw</td><td>A reference to a previously declared <a class="el" href="class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes.">SerialWombatPin</a> to which the output is connected. </td></tr>
@@ -265,10 +308,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Configures whether the pin's public data value is averaged, filtered, or neither. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">outputValue</td><td>An enumerated type for filtered, averaged, or raw </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a280f284d02d2f0adda55241c53e07175"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a280f284d02d2f0adda55241c53e07175">&#9670;&nbsp;</a></span>configureQueue()</h2>
+<a id="ae6332fc244a4c3e1de1ae7465e80ce4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6332fc244a4c3e1de1ae7465e80ce4e">&#9670;&nbsp;</a></span>configureQueue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -282,8 +333,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a81e7c2cea75b7009918476130a452376">Frequency</a>&#160;</td>
-          <td class="paramname"><em>frequency</em>, </td>
+          <td class="paramtype"><a class="el" href="class_serial_wombat_abstract_processed_input.html#ab769b42fe94979e754fdd950cb7ce1f2">Period</a>&#160;</td>
+          <td class="paramname"><em>period</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -305,61 +356,20 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a51ee58a1b2553ee23e4cea5a68a87be6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51ee58a1b2553ee23e4cea5a68a87be6">&#9670;&nbsp;</a></span>configureTransformLinearMXB()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int16_t SerialWombatAbstractProcessedInput::configureTransformLinearMXB </td>
-          <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae4de511b5760cb201a465c524abdd0e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4de511b5760cb201a465c524abdd0e5">&#9670;&nbsp;</a></span>configureTransformScaleRange()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int16_t SerialWombatAbstractProcessedInput::configureTransformScaleRange </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>min</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>max</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Sets up the queueing feature for this pin mode. Queue must have been initialized prior to this queue. </p>
+<p>Allows periodic storage of the public data value into a previously initialized queue in the user memory buffer. The high byte, the low byte, or both can be stored into the queue. This is useful to increase the number of Samples that can be stored and transferred if 8 bit resolution is sufficent. <br  />
+</p>
+<p>Note that the sampling period is an enumerated type, not a numerical value</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queue</td><td>The index into the User Memory Buffer where the queue is located </td></tr>
+    <tr><td class="paramname">period</td><td>The sampling period. See the enumerated type for values </td></tr>
+    <tr><td class="paramname">queueHighByte</td><td>Whether to put the high byte of the sample into the queue </td></tr>
+    <tr><td class="paramname">queueLowByte</td><td>Whether to put the low byte of the sample into the queue </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
 </div>
 </div>
@@ -386,7 +396,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_serial_wombat_analog_input__18_a_b.html#a0e39384e67901c79c49f2a9c06661241">SerialWombatAnalogInput_18AB</a>, <a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#a35e0e42cedda4f5268cb23e081bbbe10">SerialWombatUltrasonicDistanceSensor</a>, and <a class="el" href="class_serial_wombat_processed_input_pin.html#aebb7c54c531270c5a2d1139640c38a7f">SerialWombatProcessedInputPin</a>.</p>
+<p>Used for inheritance. </p>
+
+<p>Implemented in <a class="el" href="class_serial_wombat_analog_input__18_a_b.html#a0e39384e67901c79c49f2a9c06661241">SerialWombatAnalogInput_18AB</a>, <a class="el" href="class_serial_wombat_pulse_timer__18_a_b.html#a8f6a1cb6d112cc5511838ccc5e2414a7">SerialWombatPulseTimer_18AB</a>, <a class="el" href="class_serial_wombat_resistance_input.html#af674a9f0a2944380ce163e10058b77ac">SerialWombatResistanceInput</a>, <a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#a35e0e42cedda4f5268cb23e081bbbe10">SerialWombatUltrasonicDistanceSensor</a>, and <a class="el" href="class_serial_wombat_processed_input_pin.html#aebb7c54c531270c5a2d1139640c38a7f">SerialWombatProcessedInputPin</a>.</p>
 
 </div>
 </div>
@@ -405,6 +417,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retreive the last completed averaged value. </p>
+<dl class="section return"><dt>Returns</dt><dd>The last completed result of the averaging. Note that because the average is a normal average and not a moving average, this value is unlikely to include the most recent raw samples. </dd></dl>
+
 </div>
 </div>
 <a id="a6e95e7677c7570c7f57b32914515e94e"></a>
@@ -422,10 +437,13 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retreive the filtered value. </p>
+<p>A 16 bit value representing the First Order IIR filtered result of the input </p>
+
 </div>
 </div>
-<a id="a81a75d78b3d33b6a798c140ee529a1d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81a75d78b3d33b6a798c140ee529a1d4">&#9670;&nbsp;</a></span>readMaximum()</h2>
+<a id="ad5995493275ecb8ceb45b42cc18e402f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5995493275ecb8ceb45b42cc18e402f">&#9670;&nbsp;</a></span>readMaximum()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -434,16 +452,26 @@ Public Member Functions</h2></td></tr>
           <td class="memname">uint16_t SerialWombatAbstractProcessedInput::readMaximum </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>reset</em> = <code>false</code></td><td>)</td>
+          <td class="paramname"><em>resetAfterRead</em> = <code>false</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retreive the minimum public data output value since the last call with reset= true. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">resetAfterRead</td><td>If True, minimum value is set to 65535 after read so that subsequent values become minimum. <br  />
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating the minimum value </dd></dl>
+
 </div>
 </div>
-<a id="a016159e04e0943f74d62f5e88ddda761"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a016159e04e0943f74d62f5e88ddda761">&#9670;&nbsp;</a></span>readMinimum()</h2>
+<a id="a4967eab8a624491edfd46b44a0388766"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4967eab8a624491edfd46b44a0388766">&#9670;&nbsp;</a></span>readMinimum()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -452,11 +480,21 @@ Public Member Functions</h2></td></tr>
           <td class="memname">uint16_t SerialWombatAbstractProcessedInput::readMinimum </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>reset</em> = <code>false</code></td><td>)</td>
+          <td class="paramname"><em>resetAfterRead</em> = <code>false</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Retreive the maximum public data output value since the last call with reset= true. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">resetAfterRead</td><td>If True, maximum value is set to 0 after read so that subsequent values become maximum. <br  />
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating the maximum value </dd></dl>
 
 </div>
 </div>
@@ -483,7 +521,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_serial_wombat_analog_input__18_a_b.html#a45104a31a717fc32891cdd5df77da6d8">SerialWombatAnalogInput_18AB</a>, <a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#a3e0bb019d7700a76ce33593548ddc862">SerialWombatUltrasonicDistanceSensor</a>, and <a class="el" href="class_serial_wombat_processed_input_pin.html#a97af11685d079adc4a571f159e0ad3cc">SerialWombatProcessedInputPin</a>.</p>
+<p>Used for ineheritance. </p>
+
+<p>Implemented in <a class="el" href="class_serial_wombat_analog_input__18_a_b.html#a45104a31a717fc32891cdd5df77da6d8">SerialWombatAnalogInput_18AB</a>, <a class="el" href="class_serial_wombat_pulse_timer__18_a_b.html#ae65383d055a2196bfa58533a9c18be75">SerialWombatPulseTimer_18AB</a>, <a class="el" href="class_serial_wombat_resistance_input.html#a4dc5fb9dc28ae529255ad3f11add0cce">SerialWombatResistanceInput</a>, <a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#a3e0bb019d7700a76ce33593548ddc862">SerialWombatUltrasonicDistanceSensor</a>, and <a class="el" href="class_serial_wombat_processed_input_pin.html#a97af11685d079adc4a571f159e0ad3cc">SerialWombatProcessedInputPin</a>.</p>
 
 </div>
 </div>
@@ -502,6 +542,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Set a number of samples to average for each update of the downstream signal. </p>
+<p>The average is a typical average, not a moving average so the more samples comprise the averaged value the less often the downstream value will update.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>number of samples to include in each output average. Samples are typically taken each mS, although some modes such as <a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html" title="A Class which uses one or two Serial Wombat 18AB pins to measure distance using an Ultrasonic distanc...">SerialWombatUltrasonicDistanceSensor</a> sample at other periods. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
 </div>
 </div>
@@ -531,6 +581,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets input value ranges which are discarded rather than processed. </p>
+<p>Input values that are below the low parameter or above the high parameter are not processed. The last valid input value is repeated instead. This feature is designed to reject outlier values, not to act as a high or low limiting clamp</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">low</td><td>input values below this value will not be processed </td></tr>
+    <tr><td class="paramname">high</td><td>input values above this value will not be processsed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
+
 </div>
 </div>
 <a id="a444b27a785168c229f48caac68f97453"></a>
@@ -548,6 +609,24 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Set a first order filtering constant to be applied to the signal Higher is heavier filtering. </p>
+<p>The filter samples at 1kHz. For a good explanation of 1st order IIR filter calculations, see: <a href="https://www.monocilindro.com/2017/04/08/how-to-implement-a-1st-order-iir-filter-in-5-minutes/">https://www.monocilindro.com/2017/04/08/how-to-implement-a-1st-order-iir-filter-in-5-minutes/</a></p>
+<p>Some filter cut-off (3dB down) frequency and constant values:</p><ul>
+<li>0.5 Hz 65417</li>
+<li>1 Hz 65298 <br  />
+</li>
+<li>2 Hz 65062</li>
+<li>5 Hz 64358</li>
+<li>10 Hz 63202</li>
+</ul>
+<p>Filtering adds lag. The higher the filter constant value, the longer it takes for the filter to settle when given a steady input. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">constant</td><td>The first order filter constant from 0 to 65535. Larger constant is heavier filtering </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
 </div>
 </div>
@@ -567,6 +646,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>if enabled subtract the input value from 65535 before doing any other processing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inverted</td><td>False - input value isn't changed. True- input value is subtracted from 65535</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
+
 </div>
 </div>
 <a id="af93fb556cddd0853d3370b2a2e7b5681"></a>
@@ -584,6 +672,88 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Enables or disables all input processing functions If disabled, the raw input value is placed directly in the pin's 16 bit public data buffer. </p>
+
+</div>
+</div>
+<a id="a3f215350d4edd8e7d343a8a1186adfb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f215350d4edd8e7d343a8a1186adfb2">&#9670;&nbsp;</a></span>writeTransformLinearMXB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatAbstractProcessedInput::writeTransformLinearMXB </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scale incoming values based on an mx+b linear equation. </p>
+<p>Allows scaling of an input by multiplying by m, dividing by 256, and adding b. The m value can be thought of as a fraction with a divisor of 256. This allows the scaling value to make the input bigger or smaller. After the multiplication, division and addition the result is limited to the range of 0 to 65535. Calling this feature disables writeTransformScaleRange until the pin is reinitialized with begin().</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>A value between -16777215 and +1677215 representing the number of 256th by which to multiply the input </td></tr>
+    <tr><td class="paramname">b</td><td>A value between -65535 and 65535 to add to the result of the multiplication </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
+
+</div>
+</div>
+<a id="a24d57fbe5233494ae4149e5b438a15e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24d57fbe5233494ae4149e5b438a15e1">&#9670;&nbsp;</a></span>writeTransformScaleRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatAbstractProcessedInput::writeTransformScaleRange </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scale incoming values to a range of 0 to 65535. </p>
+<p>This function allows configuration of an input scaling range that maps to 0-65535. <br  />
+ For example, if a sensor returns a range from 2000 to 5000, setting the minimum to 2000 and maximum to 5000 will cause values below 2000 to be 0, values above 5000 to be 65535, and values in between will be scaled accordingly. This allows a sensor or other input device to scale to the Serial Wombat philosophy of using a 16 bit resolution number to represent the the possible range of values</p>
+<p>Calling this feature disables writeTransformLinearMXB until the pin is reinitialized with begin().</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min</td><td>The minimum value of the input range. Input values less than or equal to that will be scaled to 0 </td></tr>
+    <tr><td class="paramname">max</td><td>The maximum value of the input range. Input values greater or equal to that will be scaled to 65535 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
 </div>
 </div>

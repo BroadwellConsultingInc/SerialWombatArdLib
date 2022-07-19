@@ -26,6 +26,7 @@
  *  a CRC stored in the image.  These should match
  *  
  *  A video tutorial on this example is available at:
+https://youtu.be/q7ls-lMaL80
  */
 SerialWombatChip sw;
 #define ARDUINO_PIN_TO_SWC_RESET D5

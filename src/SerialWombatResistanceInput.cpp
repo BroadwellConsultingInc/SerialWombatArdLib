@@ -1,7 +1,7 @@
 #include "SerialWombatResistanceInput.h"
 
 
-SerialWombatResistanceInput::SerialWombatResistanceInput( SerialWombatChip& serialWombatChip):SerialWombatPin(serialWombatChip)
+SerialWombatResistanceInput::SerialWombatResistanceInput( SerialWombatChip& serialWombatChip):SerialWombatPin(serialWombatChip), SerialWombatAbstractProcessedInput(serialWombatChip)
 {
 }
 

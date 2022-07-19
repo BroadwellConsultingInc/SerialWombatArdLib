@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['transform_955',['Transform',['../class_serial_wombat_abstract_processed_input.html#a79e5cf98e48c2e2dfba01962435535c0',1,'SerialWombatAbstractProcessedInput']]]
+  ['wombat4a_5fb_5fpwmfrequencyvalues_5ft_960',['Wombat4A_B_PWMFrequencyValues_t',['../_serial_wombat_p_w_m_8h.html#a2088b99b4668da0234cd4564f5a328ba',1,'SerialWombatPWM.h']]]
 ];

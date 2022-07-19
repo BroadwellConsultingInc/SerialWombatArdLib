@@ -57,6 +57,12 @@
           Serial.print(".");
           Serial.println(temperature % 100);
           delay(50);
+         Serial.print("Birthday: ");
+          Serial.println(sw.readBirthday());
+          char brand[33];
+          sw.readBrand(brand);
+          Serial.print("Brand: ");
+          Serial.println(brand);
         }
       }
       else

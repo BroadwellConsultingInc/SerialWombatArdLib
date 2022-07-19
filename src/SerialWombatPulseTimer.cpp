@@ -71,6 +71,6 @@ int16_t SerialWombatPulseTimer_18AB::configurePublicDataOutput(SerialWombatPulse
 	return _sw.sendPacket(tx);
 }
 
-SerialWombatPulseTimer_18AB::SerialWombatPulseTimer_18AB(SerialWombatChip& serialWombat):SerialWombatPulseTimer(serialWombat)
+SerialWombatPulseTimer_18AB::SerialWombatPulseTimer_18AB(SerialWombatChip& serialWombat):SerialWombatPulseTimer(serialWombat), SerialWombatAbstractProcessedInput(serialWombat)
 {
 }

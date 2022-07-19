@@ -71,7 +71,7 @@ picture-in-picture" allowfullscreen></iframe>
 \endhtmlonly
 
 */
-class SerialWombatResistanceInput : public SerialWombatPin
+class SerialWombatResistanceInput : public SerialWombatPin, public SerialWombatAbstractProcessedInput
 {
 public:
 	/// \brief Constructor for the SerialWombatResistanceInput class.
@@ -147,6 +147,9 @@ public:
 	/// 
 	/// \return A 16 bit unsigned value indicating maximum Resistance Ohms
 	uint16_t readMinimumOhms(bool resetAfterRead);
+
+	uint8_t pin() { return _pin; }
+	uint8_t swPinModeNumber() { return _pinMode; }
 
 private:
 	

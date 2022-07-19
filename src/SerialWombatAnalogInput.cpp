@@ -141,15 +141,4 @@ SerialWombatAnalogInput_18AB::SerialWombatAnalogInput_18AB(SerialWombatChip& ser
 {
 }
 
-int16_t SerialWombatAnalogInput_18AB::setInputSource(uint8_t inputSource)
-{
-	uint8_t tx[] = { 202,_pin,PIN_MODE_ANALOGINPUT,inputSource,0x55,0x55,0x55,0x55 };
-	return(_sw.sendPacket(tx));
 
-}
-
-int16_t SerialWombatAnalogInput_18AB::setQueue(uint16_t queueIndex, uint16_t msBetweenQueues)
-{
-	uint8_t tx[8] = { 218,_pin,PIN_MODE_ANALOGINPUT,SW_LE16(queueIndex), SW_LE16(msBetweenQueues),0x55 };
-	return (_sw.sendPacket(tx));
-}

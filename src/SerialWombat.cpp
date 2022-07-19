@@ -1,6 +1,8 @@
 #include "SerialWombat.h"
 /*
-Copyright 2020-2021 Broadwell Consulting Inc.
+Copyright 2020-2022 Broadwell Consulting Inc.
+
+Serial Wombat is a registered trademark in the US of Broadwell Consulting Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -654,7 +656,7 @@ void SerialWombatChip::configureDigitalPin(uint8_t pin,uint8_t highLow)
 	{
 		if (highLow == LOW)
 		{
-			tx[3] = 0; //Output
+			tx[3] = 0;
 		}
 		else if (highLow == HIGH)
 		{
@@ -740,6 +742,7 @@ int SerialWombatChip::writeUserBuffer(uint16_t address, uint8_t* buffer, uint16_
 	}
 	while (count >= 7)  // Continue sending
 	{
+
 		count -= 7;
 		uint8_t tx[8] = { 0x85,0x55,0x55,0x55,0x55,0x55,0x55,0x55 };
 		uint8_t rx[8];
@@ -757,6 +760,7 @@ int SerialWombatChip::writeUserBuffer(uint16_t address, uint8_t* buffer, uint16_
 	}
 	while (count > 0)
 	{
+
 		{ // Send first packet of up to 4 bytes
 			uint8_t bytesToSend = 4;
 			if (count < 4)
@@ -822,6 +826,70 @@ uint16_t SerialWombatChip::returnErrorCode(uint8_t* rx)
 	result *= 10;
 	result += rx[5] - '0';
 	return(result);
+}
+
+int16_t SerialWombatChip::echo(uint8_t data[], uint8_t count)
+{
+	uint8_t tx[] = "!UUUUUUU";
+	for (int i = 0; i < 7 && i < count; ++i)
+	{
+		tx[i + 1] = (uint8_t)data[i];
+	}
+	return sendPacket(tx);
+}
+
+int16_t SerialWombatChip::echo(char* data)
+{
+	int length = strlen(data);
+	uint8_t tx[] = "!UUUUUUU";
+	for (int i = 0; i < 7 && i < length; ++i)
+	{
+		tx[i + 1] = (uint8_t)data[i];
+	}
+	return sendPacket(tx);
+}
+
+uint32_t SerialWombatChip::readBirthday()
+{
+	if (isSW18())
+	{
+		uint32_t birthday = (readFlashAddress(0x2A00C) >> 8) & 0xFF;
+		birthday *= 100;
+		birthday += (readFlashAddress(0x2A00C)) & 0xFF;
+		birthday *= 100;
+		birthday += readFlashAddress(0x2A00E) & 0xFF;
+		birthday *= 100;
+		birthday += readFlashAddress(0x2A010) & 0xFF;
+		return (birthday);
+	}
+	return 0;
+}
+
+int16_t SerialWombatChip::readBrand(char* data)
+{
+	uint8_t length = 0;
+	if (isSW18())
+	{
+		for (int i = 0; i < 32; ++i)
+		{
+			uint32_t val = readFlashAddress(0x2A020 + i * 2) ;
+			if ((val & 0xFF) != 0xFF)
+			{
+				data[i ] = (char)(val & 0xFF);
+				++length;
+			}		
+			else
+			{
+				data[length] = 0;
+				return (length);
+			}
+		}
+		data[length] = 0;
+		return (length);
+	}
+
+	data[0] = 0;
+	return 0 ;
 }
 
 SerialWombatPin::SerialWombatPin(SerialWombatChip& serialWombatChip) : _sw(serialWombatChip)

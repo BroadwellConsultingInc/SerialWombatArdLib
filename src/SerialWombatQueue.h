@@ -98,6 +98,8 @@ public:
     uint16_t length = 0;
 
     void setTimeout(long timeout_mS);
+
+    //TODO add copy interface
 private:
     SerialWombatChip& _sw;
 

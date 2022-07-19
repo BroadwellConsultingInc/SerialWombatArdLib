@@ -125,12 +125,8 @@ public:
 	/// \return TRUE or FALSE, current status of debounced input
 	bool readTransitionsState();
 
-
-
 private:
 	uint8_t _pin = 255;
-	
-
 };
 
 

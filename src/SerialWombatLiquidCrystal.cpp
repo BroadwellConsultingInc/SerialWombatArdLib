@@ -178,7 +178,7 @@ int16_t SerialWombatLiquidCrystal::setRowOffsets(uint8_t row1, uint8_t row2, uin
 	result = _sw.sendPacket(tx);	if (result < 0) { return result; };
 	tx[3] = 3; tx[4] = row4;
 	result = _sw.sendPacket(tx);	if (result < 0) { return result; };
-
+	return(0);
 }
 
 int16_t SerialWombatLiquidCrystal::command(uint8_t cmd)

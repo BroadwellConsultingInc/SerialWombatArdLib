@@ -5,7 +5,8 @@ This example shows how to initialize a 16 key, 8 pin 4x4 matrix keypad using the
 Serial Wombat 18AB chip'sSerialWombatMatrixKeypad class, and add a queue mask
 to allow only certain digits to be entered in the queue
 
-
+Note that firmware versions prior to 2.0.7 have a bug that may cause slow recognition of
+button presses.
 
 This example assumes a 4x4 keypad attached with rows connected to pins 10,11,12,13 
 and columns attached to pins 16,17,18,19 .  This can be changed in the keypad.begin 
@@ -25,7 +26,7 @@ address 0x6B.
 
 
 A video demonstrating the use of the SerialWombatMatrixKeypad class on the Serial Wombat 18AB chip is available at:
-TODO: Link to video 
+https://youtu.be/hxLda6lBWNg 
 
 Documentation for the SerialWombatTM1637 Arduino class is available at:
 https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_w_s2812.html#details

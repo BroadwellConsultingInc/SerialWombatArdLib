@@ -216,6 +216,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac9657776e3da2c820ea90adc80eb025d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#ac9657776e3da2c820ea90adc80eb025d">registerErrorHandler</a> (<a class="el" href="_serial_wombat_8h.html#ae40304ff81de28d6e227fd1834a00a57">SerialWombatErrorHandler_t</a> handler)</td></tr>
 <tr class="memdesc:ac9657776e3da2c820ea90adc80eb025d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers an error handler that is called by the <a class="el" href="class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.">SerialWombatChip</a> <a class="el" href="class_serial_wombat_chip.html#a93a62e8cab628873742c0d608e4f2400" title="Send an 8 byte packet to the Serial Wombat chip and wait for 8 bytes back.">sendPacket()</a> command when a protocol error is returned by the Serial Wombat \handler A function pointer to a function of SerialWombatErrorHandler_t type.  <a href="class_serial_wombat_chip.html#ac9657776e3da2c820ea90adc80eb025d">More...</a><br /></td></tr>
 <tr class="separator:ac9657776e3da2c820ea90adc80eb025d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c876ccbd5c9cd4c81df1a47e10b3117"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a2c876ccbd5c9cd4c81df1a47e10b3117">echo</a> (uint8_t data[], uint8_t count=7)</td></tr>
+<tr class="separator:a2c876ccbd5c9cd4c81df1a47e10b3117"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a625690e8404d811e8efe21cacfae1f05"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a625690e8404d811e8efe21cacfae1f05">echo</a> (char *data)</td></tr>
+<tr class="separator:a625690e8404d811e8efe21cacfae1f05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e27a54a7b7f6d7bbc890860636c7bb8"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a5e27a54a7b7f6d7bbc890860636c7bb8">readBirthday</a> ()</td></tr>
+<tr class="separator:a5e27a54a7b7f6d7bbc890860636c7bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86414b809b469058668abae402fb5247"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a86414b809b469058668abae402fb5247">readBrand</a> (char *data)</td></tr>
+<tr class="separator:a86414b809b469058668abae402fb5247"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -594,6 +602,52 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a625690e8404d811e8efe21cacfae1f05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a625690e8404d811e8efe21cacfae1f05">&#9670;&nbsp;</a></span>echo() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatChip::echo </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2c876ccbd5c9cd4c81df1a47e10b3117"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c876ccbd5c9cd4c81df1a47e10b3117">&#9670;&nbsp;</a></span>echo() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatChip::echo </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>data</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>count</em> = <code>7</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a57b0e126bbc85e4b9dfd6c5c68a30e16"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a57b0e126bbc85e4b9dfd6c5c68a30e16">&#9670;&nbsp;</a></span>enable2ndCommandInterface()</h2>
 
@@ -851,6 +905,41 @@ Public Attributes</h2></td></tr>
 <p>Send a version request to the Serial Wombat chip. </p>
 <p>This function queries the Serial Wombat chip for its model and version and stores the result in the public members model and fwVersion as zero terminated strings. Returns true if the response is likely a proper version response and false otherwise.</p>
 <dl class="section return"><dt>Returns</dt><dd>TRUE if response was likely a valid version, FALSE otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a5e27a54a7b7f6d7bbc890860636c7bb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e27a54a7b7f6d7bbc890860636c7bb8">&#9670;&nbsp;</a></span>readBirthday()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t SerialWombatChip::readBirthday </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a86414b809b469058668abae402fb5247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86414b809b469058668abae402fb5247">&#9670;&nbsp;</a></span>readBrand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatChip::readBrand </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

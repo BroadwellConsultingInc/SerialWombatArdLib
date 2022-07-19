@@ -173,7 +173,7 @@ public:
 	///
 	/// \return returns a number 0 or greater for success, negative numbers indicate an error occured.
 	int16_t setEntryOnPinsNotEqual(uint8_t entryID, uint8_t sourcePin, uint8_t secondPin );
-	/*
+
 	/// \brief Configure a change entry to pulse when a pin or public data is greater than a second pin or public data's value
 	///
 	/// \param entryID to set one entry in this pin's change entry table to OnChange.  Valid values are 0-7
@@ -191,7 +191,7 @@ public:
 	///
 	/// \return returns a number 0 or greater for success, negative numbers indicate an error occured.
 	int16_t setEntryOnPinLTPin(uint8_t entryID, uint8_t sourcePin, uint8_t secondPin );
-
+/*
 	/// \brief Configure a change entry to pulse when a pin or public data crosses a specified value
 	///
 	/// \param entryID to set one entry in this pin's change entry table to OnChange.  Valid values are 0-7

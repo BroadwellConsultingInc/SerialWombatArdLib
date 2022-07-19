@@ -6,8 +6,8 @@
 #include <ArduinoOTA.h>
 #define I2CADDRESS 0x6B
  
-const char* ssid = "gileadn2_4ghz";
-const char* password = "413926413926413926413926CA";
+const char* ssid = MY_WIFI_NETWORK;
+const char* password = MY_WIFI_PASSWORD;
  
 WiFiServer wifiServer(4000);
 void setup() {

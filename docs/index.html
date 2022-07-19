@@ -67,16 +67,24 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="autotoc_md0"></a>
-Video Tutorial</h1>
+Welcome!</h1>
+<p>This is the documentation for the Arduino library for the Serial Wombat 4B and Serial Wombat 18AB chips.</p>
+<p>It's also a great reference for Python and C# programmers, as the interfaces in the Python and C# libraries track as closely to the Arduino library as possible. This makes it possible for developers on any platform to share examples that can easily be ported across langauges and platforms. This is one of the fundamental goals of the Serial Wombat Project.</p>
+<p>Serial Wombat is a registered trademark in the USA of Broadwell Consulting Inc. See <a href="https://www.serialwombat.com/copyright-tm">https://www.serialwombat.com/copyright-tm</a> for usage details.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Video Tutorials</h1>
 <p>A video is available for Getting Started with the Serial Wombat 4B using I2C:</p>
 <p> 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UZOnq2FdrvU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
 <p><a href="https://www.youtube.com/embed/UZOnq2FdrvU">https://www.youtube.com/embed/UZOnq2FdrvU</a></p>
-<h1><a class="anchor" id="autotoc_md1"></a>
+<p>A video is available for Getting Started with the Serial Wombat 18AB using I2C or UART:</p>
+<p> 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mYTGZtJX6po" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
 Overview</h1>
-<p>This library is designed for use with the Arduio platform. <br  />
- The <a class="el" href="class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.">SerialWombatChip</a> class is the basis for all sketches. Include <a class="el" href="_serial_wombat_8h.html">SerialWombat.h</a> to access all Serial Wombat classes.</p>
+<p>This library is designed for use with the Arduio platform, but the class and interface descriptions also apply to the Python and C# libraries. The <a class="el" href="class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.">SerialWombatChip</a> class is the basis for all sketches. Include <a class="el" href="_serial_wombat_8h.html">SerialWombat.h</a> to access all Serial Wombat classes.</p>
 <p>One <a class="el" href="class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.">SerialWombatChip</a> instance should be declared for each Serial Wombat chip attached to the host. This is typically done by declaring it globally: </p><pre class="fragment">SerialWombatChip sw;
 </pre><p>Once the <a class="el" href="class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.">SerialWombatChip</a> instance is declared, it must be initialized using the <a class="el" href="class_serial_wombat_chip.html#a2834c76a2f42ee15ea4e32c50244f0b1" title="initialize a Serial Wombat chip to use a Serial Interface.">SerialWombatChip.begin()</a> method. There are separate begin methods for I2C (Wire) and Uart (Serial): </p><pre class="fragment">sw.begin(Serial);
 </pre><p>or </p><pre class="fragment">sw.begin(Wire, 0x6C);  //I2C initialization with address 6C
@@ -88,15 +96,15 @@ else
 {
     //Serial Wombat  chip not detected.
 }
-</pre><h1><a class="anchor" id="autotoc_md2"></a>
+</pre><h1><a class="anchor" id="autotoc_md3"></a>
 Serial Wombat Models</h1>
 <p>There are currently two Serial Wombat chip models available: The Serial Wombat 4B and the Serial Wombat 18AB.</p>
 <p>The Serial Wombat 4B communicates over I2C and has 4 I/O pins not counting communication pins, 1 which is digital input only, and 3 which are Input/Output and analog capable.</p>
 <p>The Serial Wombat 18AB can communicate over I2C or UART based on its address pin configuration. It has 18 I/O pins not counting communication pins. 7 or 9 pins (I2C or UART mode) are Analog capable, and 15 are capable of enhanced digital capability (pins 5,6, and 8 are not). The SW18AB has pins numbered from 0 to 19. Two of these pins are used for communication (3 and 4 for I2C or 7 and 9 for UART).</p>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md4"></a>
 Serial Wombat Pin Modes</h1>
 <p>Most Serial Wombat functionality is achieved through Pin Modes. Most pin modes are achieved by declaring an instance of a class for that pin mode with the Serial Wombat instance that pin mode will be attached to as a parameter. A .begin call with additional parameters is typically called during the Arduino setup() function.</p>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 SW4B pin modes (All pins)</h2>
 <ul>
 <li>Button Debouncing ( <a class="el" href="class_serial_wombat_debounced_input.html" title="A pin mode class that debounces inputs.">SerialWombatDebouncedInput</a> class )</li>
@@ -105,7 +113,7 @@ SW4B pin modes (All pins)</h2>
 <li>Quadrature Encoder ( <a class="el" href="class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input.">SerialWombatQuadEnc</a> class)</li>
 <li>UART Receive ( <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> class)</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 SW4B pin modes (pins 1,2,3 only)</h2>
 <ul>
 <li>Analog Input (<a class="el" href="class_serial_wombat_analog_input.html" title="A class to make analog measurements with the Serial Wombat.">SerialWombatAnalogInput</a> class)</li>
@@ -116,7 +124,7 @@ SW4B pin modes (pins 1,2,3 only)</h2>
 <li>Watchdog (<a class="el" href="class_serial_wombat_watchdog.html" title="A class to wrap around a Serial Wombat Watchdog Pin.">SerialWombatWatchdog</a> class)</li>
 <li>Digital Output ( <a class="el" href="class_serial_wombat_chip.html#a2e25c58f541b5215aafac0f599cc528f" title="Set an output pin High or Low.">SerialWombatChip.digitalWrite()</a> ) with optional Open Drain mode</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="autotoc_md7"></a>
 SW18AB pin modes (All pins)</h2>
 <ul>
 <li>Button Debouncing ( <a class="el" href="class_serial_wombat_debounced_input.html" title="A pin mode class that debounces inputs.">SerialWombatDebouncedInput</a> class )</li>
@@ -134,14 +142,14 @@ SW18AB pin modes (All pins)</h2>
 <li>Ultrasonic distance sensing (<a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html" title="A Class which uses one or two Serial Wombat 18AB pins to measure distance using an Ultrasonic distanc...">SerialWombatUltrasonicDistanceSensor</a> class)</li>
 <li>Watchdog (<a class="el" href="class_serial_wombat_watchdog.html" title="A class to wrap around a Serial Wombat Watchdog Pin.">SerialWombatWatchdog</a> class)</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="autotoc_md8"></a>
 SW18AB Analog pin modes ( pins 0,1,2,3,4,16,17,18,19)</h2>
 <ul>
 <li>Analog Input (<a class="el" href="class_serial_wombat_analog_input.html" title="A class to make analog measurements with the Serial Wombat.">SerialWombatAnalogInput</a> class or extended <a class="el" href="class_serial_wombat_analog_input__18_a_b.html" title="This class extends SerialWombatAnalogInput with SW18AB specific capabilities.">SerialWombatAnalogInput_18AB</a>)</li>
 <li>Capacitive Touch (<a class="el" href="class_serial_wombat18_cap_touch.html" title="A class that controls a Cap Touch Pin on the Serial Wombat 18AB chip.">SerialWombat18CapTouch</a> class)</li>
 <li>Resistance Input (<a class="el" href="class_serial_wombat_resistance_input.html" title="A class to make resistance measurements with the Serial Wombat 18AB chip.">SerialWombatResistanceInput</a> class)</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md8"></a>
+<h2><a class="anchor" id="autotoc_md9"></a>
 SW18AB Enhanced Digital pin modes (All pins except 5,6,8)</h2>
 <ul>
 <li>High Frequency Servo (<a class="el" href="class_serial_wombat_high_frequency_servo.html" title="A class for the Serial Wombat 18AB Chip that adds support for high frequency hobby Servos(200 Hz,...">SerialWombatHighFrequencyServo</a> class)</li>
@@ -151,7 +159,7 @@ SW18AB Enhanced Digital pin modes (All pins except 5,6,8)</h2>
 <li>Servo with enhanced resolution ( <a class="el" href="class_serial_wombat_servo__18_a_b.html" title="A derived class that adds additional Servo Functionality for the Serial Wombat 18AB Chip.">SerialWombatServo_18AB</a> class)</li>
 </ul>
 <dl class="section warning"><dt>Warning</dt><dd>Due to hardware initializations unexpected side effects may occur if the same pin is configured multiple times to different pin modes after Serial Wombat chip initialization</dd></dl>
-<h2><a class="anchor" id="autotoc_md9"></a>
+<h2><a class="anchor" id="autotoc_md10"></a>
 Additional Capabilities:</h2>
 <p>A Serial Wombat chip can measure its own source voltage with the <a class="el" href="class_serial_wombat_chip.html#a9a4b2a9a8ee2d00dd4dd7e34457f70ba" title="Measure the Serial Wombat chip&#39;s Supply voltage.">SerialWombatChip.readSupplyVoltage_mV</a> method.</p>
 <p>A Serial Wombat chip can report its Model and Firmware revision with the <a class="el" href="class_serial_wombat_chip.html#adb573e75fa99a67ba18b79801a449797" title="Send a version request to the Serial Wombat chip.">SerialWombatChip.queryVersion</a> method.</p>
@@ -159,7 +167,7 @@ Additional Capabilities:</h2>
 <p>A Serial Wombat chip has a unique ID available through the <a class="el" href="class_serial_wombat_chip.html#a0ca6427a754019bc1ae4859bb9680e93">SerialWombatChip.uniqueIdentifier</a> property. See: <a href="https://youtu.be/IHTcKyXT_2Q">https://youtu.be/IHTcKyXT_2Q</a> <br  />
 </p>
 <p>The Serial Wombat 18AB chip can measure its die temperature (low accuracy) thorugh the <a class="el" href="class_serial_wombat_chip.html#a6d1e6333b6b56f234f6e4a64b44a95f7" title="Measure the Serial Wombat chip&#39;s internal temperature.">SerialWombatChip.readTemperature_100thsDegC</a> method.</p>
-<h1><a class="anchor" id="autotoc_md10"></a>
+<h1><a class="anchor" id="autotoc_md11"></a>
 Public Data and Pin Modes</h1>
 <p>A fundamental part of the Serial Wombat firmware design is public data. Each pin has a 16-bit value that can be read or written by the host or by other pins. This piece of data is typically the most important piece of data for a pin mode, such as the position of a Servo, the duty cycle of a PWM, the high time of a pulse measurement or the result of an analog to digital conversion.</p>
 <p>The ability to leverage this capability on the Serial Wombat 4B is quite limited due to the limited space available for code.</p>
@@ -172,14 +180,15 @@ Public Data and Pin Modes</h1>
 <p>SerialWombatDataSource enum. For instance, the value <a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faaacef8bf137a25bec3d8fd61897ee1289">SW_DATA_SOURCE_PACKETS_RECEIVED </a> increments each time the Serial Wombat firmware processes a packet. By configuring a Pulse On Change pin to read this value it becomes easy to create an "activity" LED which blinks when the host sends commands. <br  />
 </p>
 <p>The value <a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6faa350080404c0fd407706d12d834063f3a">SW_DATA_SOURCE_VCC_mVOLTS </a> provides the system voltage in mV. By configuring a TM1637 display to display this public data it is easy to add a system voltage indicator to the system.</p>
-<p>More complex interactions can be created by taking advantage of functionality provided by the <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo and SerialWombatPWM inherit from this class.">SerialWombatAbstractScaledOutput</a> and <a class="el" href="class_serial_wombat_abstract_processed_input.html" title="SerialWombatAnalogInput, SerialWombatPulseTimer, SerialWombatResistanceInput and others inherit from ...">SerialWombatAbstractProcessedInput</a> classes. <br  />
+<p>More complex interactions can be created by taking advantage of functionality provided by the <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class....">SerialWombatAbstractScaledOutput</a> and <a class="el" href="class_serial_wombat_abstract_processed_input.html" title="SerialWombatAnalogInput, SerialWombatPulseTimer, SerialWombatResistanceInput and others inherit from ...">SerialWombatAbstractProcessedInput</a> classes. <br  />
 </p>
-<p><a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo and SerialWombatPWM inherit from this class.">SerialWombatAbstractScaledOutput</a> is inherited by many pins which provide a non-binary output, such as PWM, or Servo position. This inherited class provides a common framework for scaling, inverting, transforming and filtering output. The <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo and SerialWombatPWM inherit from this class.">SerialWombatAbstractScaledOutput</a> class makes it easy to control how fast a Servo is allowed to move, or turn a PWM output into a PID controller which changes its output based on an analog or pulse timing input pin's data. This real-time control occurs on a 1kHz basis within the Serial Wombat Chip.</p>
+<p><a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class....">SerialWombatAbstractScaledOutput</a> is inherited by many pins which provide a non-binary output, such as PWM, or Servo position. This inherited class provides a common framework for scaling, inverting, transforming and filtering output. The <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class....">SerialWombatAbstractScaledOutput</a> class makes it easy to control how fast a Servo is allowed to move, or turn a PWM output into a PID controller which changes its output based on an analog or pulse timing input pin's data. This real-time control occurs on a 1kHz basis within the Serial Wombat Chip.</p>
 <p>The <a class="el" href="class_serial_wombat_abstract_processed_input.html" title="SerialWombatAnalogInput, SerialWombatPulseTimer, SerialWombatResistanceInput and others inherit from ...">SerialWombatAbstractProcessedInput</a> class is inherited by many pins which provide non-binary input, such as Analog input, resistance input, pulse timing, etc. This class provides averaging, filtering, queing, linear transform or inversion, minimum and maximum tracking, outlier exclusion, etc. for input pin modes. An average of 64 raw samples could be provided as a pin's public data for example.</p>
-<h1><a class="anchor" id="autotoc_md11"></a>
-User Buffer</h1>
-<p>The Serial Wombat 18AB firmware allocates 8192 bytes (in current version, this amount may change in the future) to a User Buffer. This is essentially an 8192 byte array which is used by some pin modes to supplement each pin's statically allocated memory. The WS2812 driver uses part of the User Buffer to create waveforms and animations for driving LEDs. The software UART pin modes use the User Buffer to create transmit and receive queues. It is up to the user to understand how much memory each pin mode uses and provide a starting index into the User Buffer which does not overlap with other areas of the User Buffer used by other pins. The User Buffer can be read and written directly by the Arduino using the <a class="el" href="class_serial_wombat_chip.html#a4672bc1f8eaa4f82e3294c72c153771f" title="Read bytes from the User Memory Buffer in the Serial Wombat chip.">SerialWombatChip::readUserBuffer()</a> and <a class="el" href="class_serial_wombat_chip.html#a6c6069f5601d82a7ec45ce3ce5bf2504" title="Write bytes to the User Memory Buffer in the Serial Wombat chip.">SerialWombatChip::writeUserBuffer()</a> methods.</p>
 <h1><a class="anchor" id="autotoc_md12"></a>
+User Buffer</h1>
+<p>The Serial Wombat 18AB firmware allocates 8192 bytes (in current version, this amount may change in the future) to a User Buffer. This is essentially an 8192 byte array which is used by some pin modes to supplement each pin's statically allocated memory. The WS2812 driver uses part of the User Buffer to create waveforms and animations for driving LEDs. The software UART pin modes use the User Buffer to create transmit and receive queues. Any analog or numerical input pin mode that inherits from <a class="el" href="class_serial_wombat_abstract_processed_input.html" title="SerialWombatAnalogInput, SerialWombatPulseTimer, SerialWombatResistanceInput and others inherit from ...">SerialWombatAbstractProcessedInput</a> can use the User Buffer to synchronously queue input values for analysis.</p>
+<p>It is up to the user to understand how much memory each pin mode uses and provide a starting index into the User Buffer which does not overlap with other areas of the User Buffer used by other pins. The User Buffer can be read and written directly by the Arduino using the <a class="el" href="class_serial_wombat_chip.html#a4672bc1f8eaa4f82e3294c72c153771f" title="Read bytes from the User Memory Buffer in the Serial Wombat chip.">SerialWombatChip::readUserBuffer()</a> and <a class="el" href="class_serial_wombat_chip.html#a6c6069f5601d82a7ec45ce3ce5bf2504" title="Write bytes to the User Memory Buffer in the Serial Wombat chip.">SerialWombatChip::writeUserBuffer()</a> methods.</p>
+<h1><a class="anchor" id="autotoc_md13"></a>
 Error Messages</h1>
 <p>The Serial Wombat firmware will return an error message when it recognizes an invalid command. The Serial Wombat 4B chip has limited error checking and no specific return codes due to limited program space. The Serial Wombat 18AB chip has extensive error checking of commands, parameters, order of commands, etc. to help detect and debug errors. Many functions in the Arduino library return an int16_t which returns 0 or higher for success, or a negative number corresponding to an error ID if the Serial Wombat chip returns an error. Some Serial Wombat Arduino library function calls result in multiple command packets being sent to the Serial Wombat chip. In some cases a function call may complete one command and error on a subsequent command. In this case the function will return a negative error code, but unintended side effects may occur due to partial execution. When properly configured the Serial Wombat Arduino library should not return errors. An error handler is available which allows registration of a funciton which is called upon errors. A sample function is provided which prints the error code to Serial if it is registered during initialization. See the ErrorHandling examples in the Serial Wombat Arduino library examples. Error codes are defined in the enum <a class="el" href="_serial_wombat_errors_8h.html#a864855f9b7396b3a518a57030f961dc8">SW_ERROR_t</a> . If an error is detected by the Serial Wombat firmware the last packet which caused an error is stored on the Serial Wombat chip for later retreival by the Arduino through the <a class="el" href="class_serial_wombat_chip.html#ae60b33dc9fc1a52e97cdbe04581889ca" title="Returns the last Serial Wombat command that produced a protocol error.">SerialWombatChip::readLastErrorCommand()</a> method. To register the default handler, call the <a class="el" href="class_serial_wombat_chip.html#ac9657776e3da2c820ea90adc80eb025d" title="Registers an error handler that is called by the SerialWombatChip sendPacket() command when a protoco...">SerialWombatChip::registerErrorHandler()</a> method with the sample function: </p><pre class="fragment">sw.registerErrorHandler(SerialWombatSerialErrorHandlerBrief);
 </pre><p>The same enumerated values are used in the Arduino library and the Serial Wombat 18AB firmware, so if you're not clear on why an error is happening, examination of the firmware source code may help. Use of the avaialble Saleae compatible Serial Wombat Protocol analyzer is also highly recommended. A tutorial video is avaialble here: <a href="https://youtu.be/cL7kUm9qjvU">https://youtu.be/cL7kUm9qjvU</a> . </p>

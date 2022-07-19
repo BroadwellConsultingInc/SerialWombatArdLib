@@ -63,6 +63,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_serial_wombat_abstract_scaled_output-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -70,7 +71,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="class_serial_wombat_servo.html" title="A class to control Servos attached to the Serial Wombat chip.">SerialWombatServo</a> and <a class="el" href="class_serial_wombat_p_w_m.html" title="A class representing a Serial Wombat PWM output.">SerialWombatPWM</a> inherit from this class.  
+<p><a class="el" href="class_serial_wombat_servo.html" title="A class to control Servos attached to the Serial Wombat chip.">SerialWombatServo</a>, <a class="el" href="class_serial_wombat_p_w_m.html" title="A class representing a Serial Wombat PWM output.">SerialWombatPWM</a> and other proportional ouptut classes inherit from this class. it provides control blocks for manipulating output based on input.  
  <a href="class_serial_wombat_abstract_scaled_output.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>&gt;</code></p>
@@ -86,39 +87,117 @@ Inheritance diagram for SerialWombatAbstractScaledOutput:</div>
   </map>
 </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ae98e5ae800e55696f88a067dab46266e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266e">Period</a> { <br />
+&#160;&#160;<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266eadc8ec96b47c83c6a7762cb14642dba9f">PERIOD_1024mS</a> = 0, 
+<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea9061d789d70e1505f4d8c2c13bf8b457">PERIOD_512mS</a> = 1, 
+<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea0a7eb7d215647d946eb82d2d574e29a5">PERIOD_256mS</a> = 2, 
+<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea1a59208198b0e559db5966e0edf4f0a8">PERIOD_128mS</a> = 3, 
+<br />
+&#160;&#160;<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea45c827a738397fa384e03cf7504ba43c">PERIOD_64mS</a> = 4, 
+<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea61af7294d2157c78490f4931f7317315">PERIOD_32mS</a> = 5, 
+<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea9e696e316aedf27307d636aaafe60832">PERIOD_16mS</a> = 6, 
+<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea6dceedae816a712fa8ae6d6435bc2361">PERIOD_8mS</a> = 7, 
+<br />
+&#160;&#160;<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea81803b8474f0c5ec82c30e1fe5bca880">PERIOD_4mS</a> = 8, 
+<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea07b06815d591aa752c56b95e0f2b42c4">PERIOD_2mS</a> = 9, 
+<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266eac85dd02fdde8a7247a5872646afde36f">PERIOD_1mS</a> = 10
+<br />
+ }</td></tr>
+<tr class="separator:ae98e5ae800e55696f88a067dab46266e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4a0d75669fab72c813db6f916ebd7303"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#a4a0d75669fab72c813db6f916ebd7303">SerialWombatAbstractScaledOutput</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;sw)</td></tr>
-<tr class="memdesc:a4a0d75669fab72c813db6f916ebd7303"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo and SerialWombatPWM inherit from this class.">SerialWombatAbstractScaledOutput</a> Class.  <a href="class_serial_wombat_abstract_scaled_output.html#a4a0d75669fab72c813db6f916ebd7303">More...</a><br /></td></tr>
+<tr class="memdesc:a4a0d75669fab72c813db6f916ebd7303"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class....">SerialWombatAbstractScaledOutput</a> Class.  <a href="class_serial_wombat_abstract_scaled_output.html#a4a0d75669fab72c813db6f916ebd7303">More...</a><br /></td></tr>
 <tr class="separator:a4a0d75669fab72c813db6f916ebd7303"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05117e5116d65afc07df4912d2e0b070"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#a05117e5116d65afc07df4912d2e0b070">writeTimeout</a> (uint16_t timeout_mS, uint16_t timeoutOutputValue)</td></tr>
+<tr class="memdesc:a05117e5116d65afc07df4912d2e0b070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a timeout value which will cause the output to go to a default value if not updated.  <a href="class_serial_wombat_abstract_scaled_output.html#a05117e5116d65afc07df4912d2e0b070">More...</a><br /></td></tr>
 <tr class="separator:a05117e5116d65afc07df4912d2e0b070"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a014d42b447b5cb6b4a804d4b713b9540"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#a014d42b447b5cb6b4a804d4b713b9540">writeScalingEnabled</a> (bool enabled, uint8_t sourcePin)</td></tr>
+<tr class="memdesc:a014d42b447b5cb6b4a804d4b713b9540"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable scaling and set which pin or public data is used as the input source.  <a href="class_serial_wombat_abstract_scaled_output.html#a014d42b447b5cb6b4a804d4b713b9540">More...</a><br /></td></tr>
 <tr class="separator:a014d42b447b5cb6b4a804d4b713b9540"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97b3a07c069a12573329e6e5ef4ea5dc"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#a97b3a07c069a12573329e6e5ef4ea5dc">writeInputScaling</a> (uint16_t inputMin, uint16_t inputMax)</td></tr>
+<tr class="memdesc:a97b3a07c069a12573329e6e5ef4ea5dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale incoming values to a range of 0 to 65535.  <a href="class_serial_wombat_abstract_scaled_output.html#a97b3a07c069a12573329e6e5ef4ea5dc">More...</a><br /></td></tr>
 <tr class="separator:a97b3a07c069a12573329e6e5ef4ea5dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4da966cb3971bd8638c74e65008c819b"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#a4da966cb3971bd8638c74e65008c819b">writeOutputScaling</a> (uint16_t outputMin, uint16_t outputMax)</td></tr>
+<tr class="memdesc:a4da966cb3971bd8638c74e65008c819b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduces the output range from 0 to 65535 to user specified range.  <a href="class_serial_wombat_abstract_scaled_output.html#a4da966cb3971bd8638c74e65008c819b">More...</a><br /></td></tr>
 <tr class="separator:a4da966cb3971bd8638c74e65008c819b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca44013e915e42cce28f486f9368470c"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#aca44013e915e42cce28f486f9368470c">writeScalingInvertedInput</a> (bool inverted)</td></tr>
+<tr class="memdesc:aca44013e915e42cce28f486f9368470c"><td class="mdescLeft">&#160;</td><td class="mdescRight">if enabled subtract the input value from 65535 before doing any other processing.  <a href="class_serial_wombat_abstract_scaled_output.html#aca44013e915e42cce28f486f9368470c">More...</a><br /></td></tr>
 <tr class="separator:aca44013e915e42cce28f486f9368470c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ab26ad6b229e9d48ac953424d1762e6"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#a6ab26ad6b229e9d48ac953424d1762e6">writeScalingTargetValue</a> (uint16_t target)</td></tr>
+<tr class="memdesc:a6ab26ad6b229e9d48ac953424d1762e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The target input value for PID control.  <a href="class_serial_wombat_abstract_scaled_output.html#a6ab26ad6b229e9d48ac953424d1762e6">More...</a><br /></td></tr>
 <tr class="separator:a6ab26ad6b229e9d48ac953424d1762e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa73580c688f7d649ecedfd37978ad772"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#aa73580c688f7d649ecedfd37978ad772">configureRateControl</a> (uint8_t sampleRate, uint16_t filterConstant)</td></tr>
-<tr class="separator:aa73580c688f7d649ecedfd37978ad772"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae901ecf537efbf099bcb867556d96d18"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae901ecf537efbf099bcb867556d96d18">configure1stOrderFiltering</a> (uint8_t sampleRate, uint16_t filterConstant)</td></tr>
-<tr class="separator:ae901ecf537efbf099bcb867556d96d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a375dee6a6eed5bc01499571581c13495"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#a375dee6a6eed5bc01499571581c13495">configureHysteresis</a> (uint16_t lowLimit, uint16_t lowOutputValue, uint16_t highLimit, uint16_t highOutputValue, uint16_t initialOutputValue)</td></tr>
-<tr class="separator:a375dee6a6eed5bc01499571581c13495"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7084fcc3789926e4d9e31a06204cf3ee"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#a7084fcc3789926e4d9e31a06204cf3ee">configurePID</a> (uint16_t kp, uint16_t ki, uint16_t kd, uint16_t target, uint8_t sampleRate)</td></tr>
-<tr class="separator:a7084fcc3789926e4d9e31a06204cf3ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05c3163a4364e087b04f4ccad0195aad"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#a05c3163a4364e087b04f4ccad0195aad">writeRateControl</a> (<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266e">Period</a> samplePeriod, uint16_t maximumChangecounts)</td></tr>
+<tr class="separator:a05c3163a4364e087b04f4ccad0195aad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87dbdc7d1255172b1ab95d9e7442867b"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#a87dbdc7d1255172b1ab95d9e7442867b">write1stOrderFiltering</a> (<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266e">Period</a> sampleRate, uint16_t filterConstant)</td></tr>
+<tr class="separator:a87dbdc7d1255172b1ab95d9e7442867b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25e299c7fab3a592bc68e58e5ad3a956"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#a25e299c7fab3a592bc68e58e5ad3a956">writeHysteresis</a> (uint16_t lowLimit, uint16_t lowOutputValue, uint16_t highLimit, uint16_t highOutputValue, uint16_t initialOutputValue)</td></tr>
+<tr class="memdesc:a25e299c7fab3a592bc68e58e5ad3a956"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls the output based on hystersis control.  <a href="class_serial_wombat_abstract_scaled_output.html#a25e299c7fab3a592bc68e58e5ad3a956">More...</a><br /></td></tr>
+<tr class="separator:a25e299c7fab3a592bc68e58e5ad3a956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd24ad0af57b03617ff56fc609779f95"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#abd24ad0af57b03617ff56fc609779f95">writePID</a> (uint16_t kp, uint16_t ki, uint16_t kd, uint16_t target, <a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266e">Period</a> samplePeriod)</td></tr>
+<tr class="memdesc:abd24ad0af57b03617ff56fc609779f95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the scaled output block into PID control mode.  <a href="class_serial_wombat_abstract_scaled_output.html#abd24ad0af57b03617ff56fc609779f95">More...</a><br /></td></tr>
+<tr class="separator:abd24ad0af57b03617ff56fc609779f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70dbe9dfc661608efcb21214c0a881c9"><td class="memItemLeft" align="right" valign="top">virtual uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#a70dbe9dfc661608efcb21214c0a881c9">pin</a> ()=0</td></tr>
+<tr class="memdesc:a70dbe9dfc661608efcb21214c0a881c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Facilitates inheritance.  <a href="class_serial_wombat_abstract_scaled_output.html#a70dbe9dfc661608efcb21214c0a881c9">More...</a><br /></td></tr>
 <tr class="separator:a70dbe9dfc661608efcb21214c0a881c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd93156ef9d71185e7f2de4a6e5fc2e5"><td class="memItemLeft" align="right" valign="top">virtual uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#afd93156ef9d71185e7f2de4a6e5fc2e5">swPinModeNumber</a> ()=0</td></tr>
+<tr class="memdesc:afd93156ef9d71185e7f2de4a6e5fc2e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Facilitates inheritance.  <a href="class_serial_wombat_abstract_scaled_output.html#afd93156ef9d71185e7f2de4a6e5fc2e5">More...</a><br /></td></tr>
 <tr class="separator:afd93156ef9d71185e7f2de4a6e5fc2e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="class_serial_wombat_servo.html" title="A class to control Servos attached to the Serial Wombat chip.">SerialWombatServo</a> and <a class="el" href="class_serial_wombat_p_w_m.html" title="A class representing a Serial Wombat PWM output.">SerialWombatPWM</a> inherit from this class. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="textblock"><p><a class="el" href="class_serial_wombat_servo.html" title="A class to control Servos attached to the Serial Wombat chip.">SerialWombatServo</a>, <a class="el" href="class_serial_wombat_p_w_m.html" title="A class representing a Serial Wombat PWM output.">SerialWombatPWM</a> and other proportional ouptut classes inherit from this class. it provides control blocks for manipulating output based on input. </p>
+<p>This class encapsulates the Serial Wombat Scaled Output functional block. This block is included in all proportial output classes in the <a class="el" href="class_serial_wombat.html" title="This class name is depricated. Do not use for new development. Use SerialWombatChip instead.">SerialWombat</a> 18AB chip. Each pin's output block is separate from the others.</p>
+<p>This block is designed to facilitate real time control of outputs based on configuration from the host without the need to issue additional commands after the initial configuration. The block also includes a timeout function which is capable of setting an output to pre-determined value if the host does not reset a countdown timer within a specified number of mS. This allows a controlled shutdown if the host crashes, the data bus becomes inoperable, etc. Because the output block is serviced every 1mS, real time control can be achived with higher performance than if control was performed over the data bus. This functionality also frees the host of the need to maintain timing sensitive communication with the Serial Wombat chip.</p>
+<p>This block can limit output rate of change either by a limited amout of change per time, or by first-order filtering output changes. Rate limiting is useful to implement smooth motion over time (controlled within the Serial Wombat chip) such as a model railroad crossing gate attached to a servo. It also can prevent a current spike caused by requesting large changes in position at one time. First order filtering is useful to change position rapidly at the beginning, but slow near the end to reduce impact speed.</p>
+<p>The target output value can be provided by the host, or the Scaled Output block can be configured to get its target value from another pin or a public data source such as the Serial Wombat 18AB chip's internal temperature sensor or source voltage measurement. This capability to act on another pin's data would be useful for example if one wanted to control a 6 DOF / 6 servo robotic arm with 6 potentiometer outputs. The Serial Wombat chip could filter user inputs to provide smooth movement as well as scale the outputs so that the full range of potentiometer travel can be mapped to each joint's range of servo motion in degrees. The Arduino or other host could monitor the controls and poentially intervene if higher level logic deemed it necessary, but would be freed of the need to constantly poll the pots and update servo pulse values.</p>
+<p>The Scaled Output block can also do simple real-time control of an output based on an input. For instance, a heater could be set to pwm at some duty cycle if an analog input dropped below a threshold, then shut off when it rose above some other higher threshold. This is hystersis mode.</p>
+<p>Another control method is Proportial/Integral/Derivative (PID) control. In this mode the host provides P I and D calibrations for the system, and specifies an input pin and target value. The output of the Scaled Output block is then controlled via PID to try and reach the target value. As an example, a motor's encoder output could be attached to a SerialWombatPulseInput pin configured to output the frequency of incoming pulses. The PID controller in the Scaled Output block could then vary the PWM driving a FET controlling the motor to keep the motor running at constant speed that adapts to changing motor load or source voltage. The PID controller requires that a postive output cause a positive input from the feedback system. If they are opposite then the invert function of the block can be used.</p>
+<div class="image">
+<img src="ScaledOutputFlowchart.png" alt=""/>
+</div>
+<p> Scaling operations happen in the following sequence:</p><ul>
+<li>Read the source pin's or data source's public data (Note that the Host can also provide the input value by setting the source pin to the output pin and writing that pin's public data. In this case the output value of the pin will not be written to the pin's public data)</li>
+<li>Scale the inputs from a specified Min/Max range to 0 to 65535</li>
+<li>Invert if configured by subtracting the scaled value from 65535</li>
+<li>Pass the input value to the specified control algorithm (PID, Hysteresis or PassThrough) to determine the output value</li>
+<li>Check to see if a communication timeout has occurred if configured. If so, substitute the default output value</li>
+<li>Perform output filtering if configured to smooth transitions in the output value</li>
+<li>Scale the output value from 0-65535 to some other range if configured. This is useful for example if a servo is physically limited to a portion of its normal rotation.</li>
+<li>Write the output data to the output pin's publc data (unless the pin is configured to use its own public data as an input source)</li>
+<li>Write the output data to the underlying pin mode (Servo, PWM, etc) so that the physical output is updated </li>
+</ul>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="ae98e5ae800e55696f88a067dab46266e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae98e5ae800e55696f88a067dab46266e">&#9670;&nbsp;</a></span>Period</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266e">SerialWombatAbstractScaledOutput::Period</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae98e5ae800e55696f88a067dab46266eadc8ec96b47c83c6a7762cb14642dba9f"></a>PERIOD_1024mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae98e5ae800e55696f88a067dab46266ea9061d789d70e1505f4d8c2c13bf8b457"></a>PERIOD_512mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae98e5ae800e55696f88a067dab46266ea0a7eb7d215647d946eb82d2d574e29a5"></a>PERIOD_256mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae98e5ae800e55696f88a067dab46266ea1a59208198b0e559db5966e0edf4f0a8"></a>PERIOD_128mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae98e5ae800e55696f88a067dab46266ea45c827a738397fa384e03cf7504ba43c"></a>PERIOD_64mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae98e5ae800e55696f88a067dab46266ea61af7294d2157c78490f4931f7317315"></a>PERIOD_32mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae98e5ae800e55696f88a067dab46266ea9e696e316aedf27307d636aaafe60832"></a>PERIOD_16mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae98e5ae800e55696f88a067dab46266ea6dceedae816a712fa8ae6d6435bc2361"></a>PERIOD_8mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae98e5ae800e55696f88a067dab46266ea81803b8474f0c5ec82c30e1fe5bca880"></a>PERIOD_4mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae98e5ae800e55696f88a067dab46266ea07b06815d591aa752c56b95e0f2b42c4"></a>PERIOD_2mS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae98e5ae800e55696f88a067dab46266eac85dd02fdde8a7247a5872646afde36f"></a>PERIOD_1mS&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4a0d75669fab72c813db6f916ebd7303"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4a0d75669fab72c813db6f916ebd7303">&#9670;&nbsp;</a></span>SerialWombatAbstractScaledOutput()</h2>
 
@@ -135,7 +214,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor for the <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo and SerialWombatPWM inherit from this class.">SerialWombatAbstractScaledOutput</a> Class. </p>
+<p>Constructor for the <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class....">SerialWombatAbstractScaledOutput</a> Class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sw</td><td>A reference to a previously declared <a class="el" href="class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes.">SerialWombatPin</a> to which the output is connected. </td></tr>
@@ -146,16 +225,74 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae901ecf537efbf099bcb867556d96d18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae901ecf537efbf099bcb867556d96d18">&#9670;&nbsp;</a></span>configure1stOrderFiltering()</h2>
+<a id="a70dbe9dfc661608efcb21214c0a881c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70dbe9dfc661608efcb21214c0a881c9">&#9670;&nbsp;</a></span>pin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual uint8_t SerialWombatAbstractScaledOutput::pin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Facilitates inheritance. </p>
+
+<p>Implemented in <a class="el" href="class_serial_wombat_servo__18_a_b.html#ab7b0f69006e736509d283582106039ff">SerialWombatServo_18AB</a>, and <a class="el" href="class_serial_wombat_p_w_m__18_a_b.html#a9b99507a30152a9bbb07083c1b17f490">SerialWombatPWM_18AB</a>.</p>
+
+</div>
+</div>
+<a id="afd93156ef9d71185e7f2de4a6e5fc2e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd93156ef9d71185e7f2de4a6e5fc2e5">&#9670;&nbsp;</a></span>swPinModeNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual uint8_t SerialWombatAbstractScaledOutput::swPinModeNumber </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Facilitates inheritance. </p>
+
+<p>Implemented in <a class="el" href="class_serial_wombat_servo__18_a_b.html#af122e8d809f793ce9d83749a638a0c90">SerialWombatServo_18AB</a>, and <a class="el" href="class_serial_wombat_p_w_m__18_a_b.html#abf5a1405578946de736e585f55836758">SerialWombatPWM_18AB</a>.</p>
+
+</div>
+</div>
+<a id="a87dbdc7d1255172b1ab95d9e7442867b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87dbdc7d1255172b1ab95d9e7442867b">&#9670;&nbsp;</a></span>write1stOrderFiltering()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int16_t SerialWombatAbstractScaledOutput::configure1stOrderFiltering </td>
+          <td class="memname">int16_t SerialWombatAbstractScaledOutput::write1stOrderFiltering </td>
           <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramtype"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266e">Period</a>&#160;</td>
           <td class="paramname"><em>sampleRate</em>, </td>
         </tr>
         <tr>
@@ -171,17 +308,27 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>\begin Controls how fast an ouput can change based on filtering</p>
+<p>This function allows configuration of how fast an output's value is allowed to change based on a first order filter. The Rate control runs on a fixed period based on the Period enumerated type. Every samplePeriod ms the target is reevaluated. The requested output is combined with the current output using filterConstant. Higher values for filterConstant cause heavier filtering</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">samplePeriod</td><td>How often the output is updated (enumerated type) </td></tr>
+    <tr><td class="paramname">filterConstant</td><td>A value from 0 to 65535 indicating the amount of filtering. Higher is more filtering. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
 </div>
 </div>
-<a id="a375dee6a6eed5bc01499571581c13495"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a375dee6a6eed5bc01499571581c13495">&#9670;&nbsp;</a></span>configureHysteresis()</h2>
+<a id="a25e299c7fab3a592bc68e58e5ad3a956"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25e299c7fab3a592bc68e58e5ad3a956">&#9670;&nbsp;</a></span>writeHysteresis()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int16_t SerialWombatAbstractScaledOutput::configureHysteresis </td>
+          <td class="memname">int16_t SerialWombatAbstractScaledOutput::writeHysteresis </td>
           <td>(</td>
           <td class="paramtype">uint16_t&#160;</td>
           <td class="paramname"><em>lowLimit</em>, </td>
@@ -218,133 +365,20 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a7084fcc3789926e4d9e31a06204cf3ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7084fcc3789926e4d9e31a06204cf3ee">&#9670;&nbsp;</a></span>configurePID()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int16_t SerialWombatAbstractScaledOutput::configurePID </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>kp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>ki</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>kd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>target</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>sampleRate</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa73580c688f7d649ecedfd37978ad772"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa73580c688f7d649ecedfd37978ad772">&#9670;&nbsp;</a></span>configureRateControl()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int16_t SerialWombatAbstractScaledOutput::configureRateControl </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>sampleRate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>filterConstant</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a70dbe9dfc661608efcb21214c0a881c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70dbe9dfc661608efcb21214c0a881c9">&#9670;&nbsp;</a></span>pin()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual uint8_t SerialWombatAbstractScaledOutput::pin </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_serial_wombat_servo__18_a_b.html#ab7b0f69006e736509d283582106039ff">SerialWombatServo_18AB</a>, and <a class="el" href="class_serial_wombat_p_w_m__18_a_b.html#a9b99507a30152a9bbb07083c1b17f490">SerialWombatPWM_18AB</a>.</p>
-
-</div>
-</div>
-<a id="afd93156ef9d71185e7f2de4a6e5fc2e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd93156ef9d71185e7f2de4a6e5fc2e5">&#9670;&nbsp;</a></span>swPinModeNumber()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual uint8_t SerialWombatAbstractScaledOutput::swPinModeNumber </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_serial_wombat_servo__18_a_b.html#af122e8d809f793ce9d83749a638a0c90">SerialWombatServo_18AB</a>, and <a class="el" href="class_serial_wombat_p_w_m__18_a_b.html#abf5a1405578946de736e585f55836758">SerialWombatPWM_18AB</a>.</p>
+<p>Controls the output based on hystersis control. </p>
+<p>Calling this function places the output in hysteresis mode. In this mode the input source is monitored and compared against a high and low threshold. If the input source is equal or greater to highLimit then the output becomes highOutputValue. If it is equal or less than lowLimit then lowOutputValue is output. <br  />
+ If the input source is between lowLimit and highLimit then no change occurs. <br  />
+ </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lowLimit</td><td>If the input source is at or below this level the output value is lowOutputValue </td></tr>
+    <tr><td class="paramname">lowOutputValue</td><td>if the input source is at or below lowLimit then this value becomes the output </td></tr>
+    <tr><td class="paramname">highLimit</td><td>if the input source is at or above this level then the output value is highOutputValue </td></tr>
+    <tr><td class="paramname">highOutputValue</td><td>if the input source is at or above highLimit then this value becomes the output </td></tr>
+    <tr><td class="paramname">initialOutputValue</td><td>if the input source is between lowLimit and highLimit at initialization then this value is output </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
 </div>
 </div>
@@ -374,6 +408,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Scale incoming values to a range of 0 to 65535. </p>
+<p>This function allows configuration of an input scaling range that maps to 0-65535. <br  />
+ For example, if another pin or public data returns a range from 2000 to 5000, setting the minimum to 2000 and maximum to 5000 will cause values below 2000 to be 0, values above 5000 to be 65535, and values in between will be scaled accordingly. This allows a sensor or other input device to scale to the Serial Wombat philosophy of using a 16 bit resolution number to represent the the possible range of values</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min</td><td>The minimum value of the input range. Input values less than or equal to that will be scaled to 0 </td></tr>
+    <tr><td class="paramname">max</td><td>The maximum value of the input range. Input values greater or equal to that will be scaled to 65535 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
+
 </div>
 </div>
 <a id="a4da966cb3971bd8638c74e65008c819b"></a>
@@ -401,6 +447,122 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Reduces the output range from 0 to 65535 to user specified range. </p>
+<p>This functionn is useful for scaling the 0 to 65535 full range to a specific output range to correspond to the desired output range of the actual physical output.</p>
+<p>For instance, if a 180 degree servo needed to move through its center 90 degrees (45 degrees dead band, 90 degrees of movement, and 45 degrees of dead band) then minimum and maximum values of 16384 and 49152 could be used.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">outputMin</td><td>The value to which a calculated output of 0 will map </td></tr>
+    <tr><td class="paramname">outputMax</td><td>The value to which a calculated output of 65535 will map </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
+
+</div>
+</div>
+<a id="abd24ad0af57b03617ff56fc609779f95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd24ad0af57b03617ff56fc609779f95">&#9670;&nbsp;</a></span>writePID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatAbstractScaledOutput::writePID </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>kp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>ki</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>kd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266e">SerialWombatAbstractScaledOutput::Period</a>&#160;</td>
+          <td class="paramname"><em>sampleRate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configure the scaled output block into PID control mode. </p>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code This pin mode implements Propotional / Integral / Derivative (PID) control. It attempts to drive the input to a target value based on calibration constants provided by the host.</dd></dl>
+<p>For a discussion of PID control in general, this link is suggested: <a href="https://www.ni.com/en-us/innovations/white-papers/06/pid-theory-explained.html">https://www.ni.com/en-us/innovations/white-papers/06/pid-theory-explained.html</a> <br  />
+</p>
+<p>This block implements PID using the diagram shown in this link where the kP term is applied after the sum of the error, 1/ki * integration and kd * derivative sum. This is different from the order used in some PID algorithms. The net effect is the same but the values of the ki and kd are different than if the constants were all applied first and the sum taken afterwards. This was done to best distribute values so that calculations could be done using integral math rather than floating point due to the performance cost of floating point on small microcontrollers.</p>
+<p>Note that kp, ki and kd are unsigned integers. For this reason it is necessary that an increase in controller output creates a positive change in the measurement of the plant. The writeScalingInvertedInput function can be used to invert the input if the system reacts negatively to a an increase in output.</p>
+<p>See the pid() function in the Serial Wombat 18AB firmware to see exactly how the math is implemented: <a href="https://github.com/BroadwellConsultingInc/SerialWombat/blob/main/SerialWombat18A_18B/SerialWombat18A_18B.X/outputScale.c">https://github.com/BroadwellConsultingInc/SerialWombat/blob/main/SerialWombat18A_18B/SerialWombat18A_18B.X/outputScale.c</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">kp</td><td>The proportional constant applied to the sum of the error, 1/ki * error sum, and kd * derivative. Scaled to 1/256ths . </td></tr>
+    <tr><td class="paramname">ki</td><td>The integral constant applied to the integral. Scaled to 1/16384ths, as typically you want this value to be less than 1.0 </td></tr>
+    <tr><td class="paramname">kd</td><td>The derivative contant applied to the derivative. This value is scaled to 1/16384. <br  />
+ </td></tr>
+    <tr><td class="paramname">target</td><td>The value the output will attempt to control the input to </td></tr>
+    <tr><td class="paramname">samplePeriod</td><td>an enumerated time for how often the PID controller updates. This value should be based on how fast the system responds to change in output so that integral and derivative terms work correctly. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
+
+</div>
+</div>
+<a id="a05c3163a4364e087b04f4ccad0195aad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05c3163a4364e087b04f4ccad0195aad">&#9670;&nbsp;</a></span>writeRateControl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatAbstractScaledOutput::writeRateControl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266e">SerialWombatAbstractScaledOutput::Period</a>&#160;</td>
+          <td class="paramname"><em>sampleRate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>maximumChangecounts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>\begin Controls how fast an ouput can change in counts</p>
+<p>This function allows configuration of how fast an output's value is allowed to change in counts on a 0-65535 scale. The Rate control runs on a fixed period based on the Period enumerated type. Every samplePeriod ms the target is reevaluated. If the expected output would change the output by more than maximumChangecounts, then the output only changes by maximumChangecounts</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">samplePeriod</td><td>How often the output is updated (enumerated type) </td></tr>
+    <tr><td class="paramname">maximumChangecounts</td><td>The maximum number of counts of change allowed over samplePeriod </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
 </div>
 </div>
@@ -430,6 +592,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enable scaling and set which pin or public data is used as the input source. </p>
+<p>This function should be called after all other desired configuration functions have been called.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enabled</td><td>Enables the Scaled Output block. If false then the current pin's public data value is used as the setting for the output </td></tr>
+    <tr><td class="paramname">sourcePin</td><td>The pin or public data id that should be read to drive the output value. Only used when enabled is set to true </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aca44013e915e42cce28f486f9368470c"></a>
@@ -448,6 +620,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>if enabled subtract the input value from 65535 before doing any other processing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inverted</td><td>False - input value isn't changed. True- input value is subtracted from 65535</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
+
 </div>
 </div>
 <a id="a6ab26ad6b229e9d48ac953424d1762e6"></a>
@@ -465,6 +646,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The target input value for PID control. </p>
+<p>When configured to drive the output value via PID control the target value is the desired value for the input to reach based on modification of the output value. For example, in a system where an analog temperatue sensor was influnced by a heater attached to a PWM output, the input would be the actual temperature, the target would be the desired temperature, and the output would be the PWM driving the heater.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>The 16 bit value the system will attempt to achieve by varying the output </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
 </div>
 </div>
@@ -493,6 +684,17 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Enable a timeout value which will cause the output to go to a default value if not updated. </p>
+<p>When this function is called with a timeout value longer than 0 mS the timer becomes enabled. Internally a counter is set to 0 and increments each 1ms. If the counter reaches the timeout value then the output is set to timeoutOutputValue. Calling writeTimeout again resets the counter to 0, so it is intended to be called periodicallly to ensure that the timeout never occurs under normal circumstances. It can also be used to generate timed output which is active for some period of time then reverts to timeoutOutputValue . The length of this pulse may vary by a few hundred microseconds because it is done in software, not hardware.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout_mS</td><td>How long in mS before the timeout occurs. Set to zero to disable the timeout </td></tr>
+    <tr><td class="paramname">timeoutOutputValue</td><td>The 16 bit value that should be output if a timeout occurs </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
 </div>
 </div>

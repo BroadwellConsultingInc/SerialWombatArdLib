@@ -84,7 +84,7 @@ int16_t SerialWombatAbstractScaledOutput::writeScalingTargetValue(uint16_t targe
 	return(_asosw.sendPacket(tx));
 }
 
-int16_t SerialWombatAbstractScaledOutput::configureRateControl(uint8_t sampleRate, uint16_t filterConstant)
+int16_t SerialWombatAbstractScaledOutput::writeRateControl(SerialWombatAbstractScaledOutput::Period sampleRate, uint16_t filterConstant)
 {
 	{
 		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
@@ -112,7 +112,7 @@ int16_t SerialWombatAbstractScaledOutput::configureRateControl(uint8_t sampleRat
 	}
 }
 
-int16_t SerialWombatAbstractScaledOutput::configure1stOrderFiltering(uint8_t sampleRate, uint16_t filterConstant)
+int16_t SerialWombatAbstractScaledOutput::write1stOrderFiltering(Period sampleRate, uint16_t filterConstant)
 {
 	{
 		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
@@ -140,7 +140,7 @@ int16_t SerialWombatAbstractScaledOutput::configure1stOrderFiltering(uint8_t sam
 	}
 }
 
-int16_t SerialWombatAbstractScaledOutput::configureHysteresis(uint16_t lowLimit, uint16_t lowOutputValue, uint16_t highLimit, uint16_t highOutputValue, uint16_t initialOutputValue)
+int16_t SerialWombatAbstractScaledOutput::writeHysteresis(uint16_t lowLimit, uint16_t lowOutputValue, uint16_t highLimit, uint16_t highOutputValue, uint16_t initialOutputValue)
 {
 	{
 		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
@@ -176,7 +176,7 @@ int16_t SerialWombatAbstractScaledOutput::configureHysteresis(uint16_t lowLimit,
 	return(0);
 }
 
-int16_t SerialWombatAbstractScaledOutput::configurePID(uint16_t kp, uint16_t ki, uint16_t kd, uint16_t target, uint8_t sampleRate)
+int16_t SerialWombatAbstractScaledOutput::writePID(uint16_t kp, uint16_t ki, uint16_t kd, uint16_t target, SerialWombatAbstractScaledOutput::Period sampleRate)
 {
 	{
 		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,

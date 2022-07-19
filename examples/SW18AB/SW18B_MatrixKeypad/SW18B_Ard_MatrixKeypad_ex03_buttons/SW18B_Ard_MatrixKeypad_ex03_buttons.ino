@@ -3,6 +3,9 @@
 This example shows how to initialize a 16 key, 8 pin 4x4 matrix keypad using the 
 Serial Wombat 18AB chip's SerialWombatMatrixKeypad class.
 
+Note that firmware versions prior to 2.0.7 have a bug that may cause slow recognition of
+button presses.
+
 This example shows how to treat the matrix keypad as if it were 16 separate digital
 inputs by creating 16 instances of SerialWombatMatrixButton from a single instance of
 SerialWombatMatrixKeypad.  The SerialWombatMatrixKeypad instance scans the keys and
@@ -17,7 +20,7 @@ and columns attached to pins 16,17,18,19 .  This can be changed in the keypad.be
 statement to fit your circuit.
 
 A video demonstrating the use of the SerialWombatMatrixKeypad class on the Serial Wombat 18AB chip is available at:
-TODO: Link to video 
+https://youtu.be/hxLda6lBWNg 
 
 Documentation for the SerialWombatTM1637 Arduino class is available at:
 https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_w_s2812.html#details

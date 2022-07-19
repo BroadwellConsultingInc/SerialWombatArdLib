@@ -1,9 +1,15 @@
 \file SerialWombat.h
 \mainpage Serial Wombat Arduino Library
 
+Welcome!
+=============
+This is the documentation for the Arduino library for the Serial Wombat 4B and Serial Wombat 18AB chips.
 
+It's also a great reference for Python and C# programmers, as the interfaces in the Python and C# libraries track as closely to the Arduino library as possible.  This makes it possible for developers on any platform to share examples that can easily be ported across langauges and platforms.  This is one of the fundamental goals of the Serial Wombat Project.
 
-Video Tutorial
+Serial Wombat is a registered trademark in the USA of Broadwell Consulting Inc.  See https://www.serialwombat.com/copyright-tm for usage details.
+
+Video Tutorials
 ==============
 A video is available for Getting Started with the Serial Wombat 4B using I2C:
 
@@ -13,9 +19,16 @@ A video is available for Getting Started with the Serial Wombat 4B using I2C:
 
 https://www.youtube.com/embed/UZOnq2FdrvU
 
+A video is available for Getting Started with the Serial Wombat 18AB using I2C or UART:
+
+\htmlonly
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mYTGZtJX6po" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+\endhtmlonly
+
+
 Overview
 ==============
-This library is designed for use with the Arduio platform.  
+This library is designed for use with the Arduio platform, but the class and interface descriptions also apply to the Python and C# libraries.
 The SerialWombatChip class is the basis for all sketches.
 Include SerialWombat.h to access all Serial Wombat classes.
 
@@ -187,7 +200,9 @@ pin modes.  An average of 64 raw samples could be provided as a pin's public dat
 User Buffer
 =======================
 The Serial Wombat 18AB firmware allocates 8192 bytes (in current version, this amount may change in the future) to a User Buffer.  This is essentially an 8192 byte
-array which is used by some pin modes to supplement each pin's statically allocated memory.  The WS2812 driver uses part of the User Buffer to create waveforms and animations for driving LEDs.  The software UART pin modes use the User Buffer to create transmit and receive queues.  It is up to the user to understand how much memory each pin mode uses and provide a starting index into the User Buffer which does not overlap with other areas of the User Buffer used by other pins.  The User Buffer can be read and written directly by the Arduino using the SerialWombatChip::readUserBuffer() and SerialWombatChip::writeUserBuffer() methods.
+array which is used by some pin modes to supplement each pin's statically allocated memory.  The WS2812 driver uses part of the User Buffer to create waveforms and animations for driving LEDs.  The software UART pin modes use the User Buffer to create transmit and receive queues.  Any analog or numerical input pin mode that inherits from SerialWombatAbstractProcessedInput can use the User Buffer to synchronously queue input values for analysis.
+
+ It is up to the user to understand how much memory each pin mode uses and provide a starting index into the User Buffer which does not overlap with other areas of the User Buffer used by other pins.  The User Buffer can be read and written directly by the Arduino using the SerialWombatChip::readUserBuffer() and SerialWombatChip::writeUserBuffer() methods.
 
 Error Messages
 ========================

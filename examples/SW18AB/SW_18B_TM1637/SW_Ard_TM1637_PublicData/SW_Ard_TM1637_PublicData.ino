@@ -19,6 +19,8 @@ https://youtu.be/AwW12n6o_T0
 Documentation for the SerialWombatTM1637 Arduino class is available at:
 https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_t_m1637.html#details
 
+Serial Wombat is a registered trademark in the United States of Broadwell Consulting Inc.
+
 */
 
 SerialWombat sw;

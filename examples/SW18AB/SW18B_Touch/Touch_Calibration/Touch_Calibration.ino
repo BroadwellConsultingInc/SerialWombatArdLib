@@ -7,17 +7,23 @@ calibration constants for the touch sensor.
 SerialWombat18CapTouch class documentation can be found here:
 https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat18_cap_touch.html#details
 
+
+NOTE!   VERSION 2.0.5 of the SW18AB firmware has a bug which prevents configuration of digital mode for the
+Touch input.  You must upgrade if you have version 2.0.5 and want to use this feature.
+
+
 A demonstration video of this class can be found here:
 https://youtu.be/c4B0_DRVHs0
 
 */
 
 #define TOUCH_PIN 17      //<<<<<< MODIFY THIS BASED ON WHICH PIN YOUR TOUCH SENSOR IS RUNNING ON
-SerialWombat sw;
+SerialWombatChip sw;
 SerialWombat18CapTouch capTouch(sw);
 
 uint16_t lastDigitalRead;
 void setup() {
+	delay(5000);
   // Set up the Serial port and I2C
   Wire.begin();
   Serial.begin(115200);
@@ -31,6 +37,16 @@ void setup() {
   
   delay(1000);
 
+   sw.queryVersion();
+
+   if (sw.fwVersion[0] == '2' && sw.fwVersion[1] == '0' && sw.fwVersion[2] == '5')
+   {
+	   Serial.println("Firmware Version 2.0.5 detected.  This version has a bug which prevents transition from analog to digital touch reporting.  Update firmware to latest version (Tutorial video: https://youtu.be/q7ls-lMaL80  )");
+	   while (1)
+	   {
+		   delay(100);
+	   }
+   }
 
   //Iterate through increasing amounts of charge until we find a value that 90% saturates the sensor.
   Serial.println("Determining charge time.  Do not touch the sensor.");
@@ -122,7 +138,10 @@ void setup() {
   Serial.println("Done.");
 
   Serial.println();
-  Serial.println("Configuring Touch in digital mode using calibrations.");
+  Serial.println("Configuring Touch in digital mode using calibrations.  Code is:");
+  Serial.println();
+  Serial.print(" capTouch.begin(TOUCH_PIN,");Serial.print(recommendedChargeTime);Serial.println(",0);");
+  Serial.print("capTouch.makeDigital("); Serial.print(LowLimit);Serial.print(",");Serial.print(HighLimit);Serial.println(",1,0,0,0);");
   Serial.println();
 
   capTouch.makeDigital(LowLimit,HighLimit,1,0,0,0);

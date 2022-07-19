@@ -125,6 +125,7 @@ enum class SerialWombatDataSource{
 	SW_DATA_SOURCE_VCC_mVOLTS = 75, ///< (75) The system source voltage in mV
 	SW_DATA_SOURCE_VBG_COUNTS_VS_VREF = 76, ///< (76) A/D conversion of VBG against VRef .  Used for mfg calibration
 	SW_DATA_SOURCE_LFSR = 78, ///< (78) A  Linear Feedback Shift Register that produces a Pseudo random sequence of 16 bit values
+	SW_DATA_SOURCE_0x55 = 85, ///< (85) 0x55 is a reserved value for resyncing.  Returns 0x55 0x55 
 	SW_DATA_SOURCE_PIN_0_MV = 100, ///< (100) Pin 0 public output expressed in mV (for analog modes only)
 	SW_DATA_SOURCE_PIN_1_MV = 101, ///< (101) Pin 1 public output expressed in mV (for analog modes only)
 	SW_DATA_SOURCE_PIN_2_MV = 102, ///< (102) Pin 2 public output expressed in mV (for analog modes only)
@@ -160,6 +161,7 @@ SW_DATA_SOURCE_8SEC_SAW = 174,///< (174)Sawtooth wave that goes from  0 to 65535
 SW_DATA_SOURCE_65SEC_SQUARE = 176,///< (176) Square wave that alternates between 0 and 65535 every 32768 frames
 SW_DATA_SOURCE_65SEC_SAW = 177,///< (177 )Sawtooth wave that goes from  0 to 65535 to 0 every  65536 frames
 //        SW_DATA_SOURCE_65SEC_SIN = 178,
+         	SW_DATA_SOURCE_NONE = 255,///< (255 ) Used to mean "No Source Selected"
 };
 
 #define ERROR_HOST_INCORRECT_NUMBER_BYTES_WRITTEN 0x10000 ///< Write routine returned wrong number of bytes
@@ -678,6 +680,12 @@ public:
 
 	/// \brief The I2C address of the SerialWombatChip instance
 	uint8_t address = 0;
+
+	int16_t echo(uint8_t data[], uint8_t count = 7);
+	int16_t echo(char* data);
+
+	uint32_t readBirthday();
+	int16_t readBrand(char* data);
 private:
 
 

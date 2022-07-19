@@ -91,7 +91,16 @@ var menudata={children:[
 {text:"t",url:"functions_vars.html#index_t"},
 {text:"u",url:"functions_vars.html#index_u"}]},
 {text:"Enumerations",url:"functions_enum.html"},
-{text:"Enumerator",url:"functions_eval.html"}]}]},
+{text:"Enumerator",url:"functions_eval.html",children:[
+{text:"a",url:"functions_eval.html#index_a"},
+{text:"d",url:"functions_eval.html#index_d"},
+{text:"f",url:"functions_eval.html#index_f"},
+{text:"h",url:"functions_eval.html#index_h"},
+{text:"l",url:"functions_eval.html#index_l"},
+{text:"n",url:"functions_eval.html#index_n"},
+{text:"p",url:"functions_eval.html#index_p"},
+{text:"r",url:"functions_eval.html#index_r"},
+{text:"s",url:"functions_eval.html#index_s"}]}]}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"},
 {text:"File Members",url:"globals.html",children:[

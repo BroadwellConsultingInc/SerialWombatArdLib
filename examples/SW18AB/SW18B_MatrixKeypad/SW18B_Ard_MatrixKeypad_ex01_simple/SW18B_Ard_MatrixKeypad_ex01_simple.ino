@@ -7,6 +7,9 @@ Serial Wombat 18AB chip'sSerialWombatMatrixKeypad class.
 This example shows how to treat the matrix keypad as a stream input 
 so that it can be treated as if keypresses are Serial Input
 
+Note that firmware versions prior to 2.0.7 have a bug that may cause slow recognition of
+button presses.
+
 This example assumes a 4x4 keypad attached with rows connected to pins 10,11,12,13 
 and columns attached to pins 16,17,18,19 .  This can be changed in the keypad.begin 
 statement to fit your circuit.
@@ -25,13 +28,13 @@ address 0x6B.
 
 
 A video demonstrating the use of the SerialWombatMatrixKeypad class on the Serial Wombat 18AB chip is available at:
-TODO: Link to video 
+https://youtu.be/hxLda6lBWNg
 
 Documentation for the SerialWombatTM1637 Arduino class is available at:
 https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_w_s2812.html#details
 
 */
-SerialWombatChip SW6B;
+SerialWombatChip sw;
 SerialWombatMatrixKeypad keypad(SW6B);
 
 void setup() {
@@ -39,7 +42,7 @@ void setup() {
   Serial.begin(115200);
   Wire.begin();
   delay(100);
-  SW6B.begin(Wire,0x6B);
+  sw.begin(Wire,0x6B);
 
   keypad.begin(10, // Command pin, typically the same as the row0 pin
   10, //row 0

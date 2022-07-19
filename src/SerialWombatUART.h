@@ -73,12 +73,7 @@ public:
     /// \brief Constructor for the SerialWombatUART class.  Only one instance is allowed per SerialWombatChip 4B.
     /// \param serialWombat The Serial Wombat chip on which the SerialWombatUART instance will run.
     SerialWombatUART(SerialWombatChip& serialWombat);
-    /// \brief Initalize the SerialWombatUART.  
-    /// \param baudRate  300, 1200, 2400, 4800, 9600,  19200,  38400,  57600,  115200
-    /// \param pin  The pin that will host the state machine.  This can be either the rxPin or txPin
-    /// \param rxPin The pin that will receive.  All 4 pins on the SW4B may be used.  255 if no receive function is needed
-    /// \param txPin The pin that will transmit.  Valid values for the SW4B are 1-3.  255 if no transmit function is needed
-    int16_t begin(uint32_t baudRate,uint8_t pin, uint8_t rxPin, uint8_t txPin);
+   
 
     /// \brief Initalize the SerialWombatUART.  
 /// \param baudRate  300, 1200, 2400, 4800, 9600,  19200,  38400,  57600,  115200
@@ -86,7 +81,7 @@ public:
 /// \param rxPin The pin that will receive.  All 4 pins on the SW4B may be used.  255 if no receive function is needed
 /// \param txPin The pin that will transmit.  Valid values for the SW4B are 1-3.  255 if no transmit function is needed
 /// \param HWinterface  1 or 2 for HW UART 1 or 2
-    int16_t begin(uint32_t baudRate, uint8_t pin, uint8_t rxPin, uint8_t txPin,uint8_t HWinterface );
+    int16_t begin(uint32_t baudRate, uint8_t pin, uint8_t rxPin, uint8_t txPin,uint8_t HWinterface = 1 );
     /// \brief Queries the SerialWombatUART for number bytes available to read
     /// \return Number of bytes available to read.
     int available();

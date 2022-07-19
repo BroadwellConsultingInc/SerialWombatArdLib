@@ -48,9 +48,9 @@ The SerialWombatAnalogInput class is used to make measurements on a given pin.
 
 Any analog-capable pin may be used to make a measurement.
 
-Averaging of samples and first order IIR filtering (1 kHz sampling) of input are available
+Averaging of samples and first order IIR filtering (1 kHz sampling) of input are available.
 
-For a good explanation of 1st order FIR filter calculations, see:
+For a good explanation of 1st order IIR filter calculations, see:
 https://www.monocilindro.com/2017/04/08/how-to-implement-a-1st-order-iir-filter-in-5-minutes/
 
 Some filter cut-off (3dB down) frequency and constant values:
@@ -213,23 +213,6 @@ class SerialWombatAnalogInput_18AB : public SerialWombatAnalogInput, public Seri
 public:
 
 	SerialWombatAnalogInput_18AB(SerialWombatChip& serialWombat);
-	/// \brief Set the pin to use another pin's public data instead of the A/D converter as input
-	/// 
-	/// \param inputSource the pin used as an input source.
-	/// \return returns a negative number if an error occured.
-	int16_t setInputSource(uint8_t inputSource);
-
-	/// \brief Set a Queue in User memory periodically store A/D results (SW18AB only)
-	///
-	/// This feature allows precisce sampling of an A/D input and storage into a queue on
-	/// the Serial Wombat chip for retreival by the host.  The queue must be a previously configured 
-	/// SerialWombatQueue
-	/// 
-	/// \param queueIndex  The index in the User Buffer of the queue.
-	/// \param msBetweenQueues How many mS to delay betwen storing values to the queue
-	/// 
-	/// \return returns a negative number if an error occured.
-	int16_t setQueue(uint16_t queueIndex, uint16_t msBetweenQueues);
 
 	uint8_t pin() { return _pin; }
 	uint8_t swPinModeNumber() { return _pinMode; }

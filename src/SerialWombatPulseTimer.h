@@ -157,7 +157,7 @@ private:
 /// This class adds functionality that is specific to the SW18AB firmware in addition
 /// to generic SerialWombatPulseTimer functionality avaialble on all Serial Wombat chips
 
-class SerialWombatPulseTimer_18AB : public SerialWombatPulseTimer
+class SerialWombatPulseTimer_18AB : public SerialWombatPulseTimer, public SerialWombatAbstractProcessedInput
 {
 public:
 	enum publicDataOutput {
@@ -184,4 +184,9 @@ public:
 	/// \param publicDataOutput An enumerated type indicating what data to output
 	/// \return returns 0 or higher for success or a negative error code.
 	int16_t configurePublicDataOutput(SerialWombatPulseTimer_18AB::publicDataOutput publicDataOutput);
+	
+	/// \brief Facilitates multi-inheritance
+	uint8_t pin() { return _pin; }
+	/// \brief Facilitates multi-inheritance
+	uint8_t swPinModeNumber() { return _pinMode; }
 };

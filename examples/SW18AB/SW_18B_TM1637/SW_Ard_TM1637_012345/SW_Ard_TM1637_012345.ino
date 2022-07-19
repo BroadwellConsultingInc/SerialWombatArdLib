@@ -24,7 +24,7 @@ https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_
 
 */
 
-SerialWombat sw;
+SerialWombatChip sw;
 SerialWombatTM1637 myDisplay(sw);
 #define DISPLAY_CLK_PIN 19  // <<<<<<<<<   Set this to the Serial Wombat pin connected to your Display Clock Pin
 #define DISPLAY_DIN_PIN 18  // <<<<<<<<<   Set this to the Serial Wombat pin connected to your Display Data Pin
@@ -46,7 +46,7 @@ void setup() {
   tm1637CharArray, // Mode enumeration
   0x55, // Source pin Not used in tm1637CharArray mode
   4);   // Brightness 
-  myDisplay.writeDigitOrder(2,3,4,5,0,1);
+  // myDisplay.writeDigitOrder(2,3,4,5,0,1);
 
 
   uint8_t test[7] = "012345";
