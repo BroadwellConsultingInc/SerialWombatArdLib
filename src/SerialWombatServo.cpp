@@ -94,12 +94,12 @@ void SerialWombatHighFrequencyServo::attach(uint8_t pin, uint16_t min, uint16_t 
 	initializeServo();
 }
 
-int16_t SerialWombatHighFrequencyServo::writeFrequency(uint16_t frequency)
+int16_t SerialWombatHighFrequencyServo::writeFrequency_Hz(uint16_t frequency)
 {
-	return writePeriod((uint16_t)(1000000ul / frequency));
+	return writePeriod_uS((uint16_t)(1000000ul / frequency));
 }
 
-int16_t SerialWombatHighFrequencyServo::writePeriod(uint16_t period)
+int16_t SerialWombatHighFrequencyServo::writePeriod_uS(uint16_t period)
 {
 	uint8_t tx[] = { 203,_pin,_pinMode,SW_LE16(period), 0x55,0x55,0x55 };
 	uint8_t rx[8];

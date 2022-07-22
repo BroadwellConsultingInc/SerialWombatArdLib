@@ -212,7 +212,7 @@ public:
 	void attach(uint8_t pin, uint16_t min , uint16_t max , bool reverse = false);
 
 
-	int16_t writeFrequency(uint16_t frequency_hZ);
-	int16_t writePeriod(uint16_t period_uS);
+	int16_t writeFrequency_Hz(uint16_t frequency_hZ);
+	int16_t writePeriod_uS(uint16_t period_uS);
 };
 
