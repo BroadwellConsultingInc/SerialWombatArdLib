@@ -130,14 +130,16 @@ $(function() {
 <div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">   98</a></span>&#160;    uint16_t <a class="code" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a> = 0;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_serial_wombat_queue.html#a6cfcb47fd923dd22c684d927f4a9bdc7">setTimeout</a>(<span class="keywordtype">long</span> timeout_mS);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="class_serial_wombat_chip.html">SerialWombatChip</a>&amp; _sw;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    uint32_t _timeout = 500;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;};</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">//TODO add copy interface</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="class_serial_wombat_chip.html">SerialWombatChip</a>&amp; _sw;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    uint32_t _timeout = 500;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_serial_wombat_chip_html"><div class="ttname"><a href="class_serial_wombat_chip.html">SerialWombatChip</a></div><div class="ttdoc">Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.</div><div class="ttdef"><b>Definition:</b> SerialWombat.h:265</div></div>
+<div class="ttc" id="aclass_serial_wombat_chip_html"><div class="ttname"><a href="class_serial_wombat_chip.html">SerialWombatChip</a></div><div class="ttdoc">Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.</div><div class="ttdef"><b>Definition:</b> SerialWombat.h:267</div></div>
 <div class="ttc" id="aclass_serial_wombat_queue_html_a67752e4e8e86c8f76c0fe71158c5bdf0"><div class="ttname"><a href="class_serial_wombat_queue.html#a67752e4e8e86c8f76c0fe71158c5bdf0">SerialWombatQueue::write</a></div><div class="ttdeci">size_t write(uint8_t data)</div><div class="ttdoc">Write a byte to the Serial Wombat Queue.</div><div class="ttdef"><b>Definition:</b> SerialWombatQueue.cpp:71</div></div>
 <div class="ttc" id="aclass_serial_wombat_queue_html_a6cfcb47fd923dd22c684d927f4a9bdc7"><div class="ttname"><a href="class_serial_wombat_queue.html#a6cfcb47fd923dd22c684d927f4a9bdc7">SerialWombatQueue::setTimeout</a></div><div class="ttdeci">void setTimeout(long timeout_mS)</div><div class="ttdef"><b>Definition:</b> SerialWombatQueue.cpp:240</div></div>
 <div class="ttc" id="a_serial_wombat_queue_8h_html_ae590461897f6809b2b60297b96d7e46dafe7f527b63d26ece5ec657006256b687"><div class="ttname"><a href="_serial_wombat_queue_8h.html#ae590461897f6809b2b60297b96d7e46dafe7f527b63d26ece5ec657006256b687">SerialWombatQueueType::QUEUE_TYPE_RAM_BYTE</a></div><div class="ttdeci">@ QUEUE_TYPE_RAM_BYTE</div><div class="ttdoc">A queue that queues byte-sized data in a queue in the User RAM area.</div></div>

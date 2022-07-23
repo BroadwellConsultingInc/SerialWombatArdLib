@@ -97,10 +97,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8792047abbb8fa71c808c5cca1c60713"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_high_frequency_servo.html#a8792047abbb8fa71c808c5cca1c60713">attach</a> (uint8_t <a class="el" href="class_serial_wombat_servo__18_a_b.html#ab7b0f69006e736509d283582106039ff">pin</a>, uint16_t min, uint16_t max, bool reverse=false)</td></tr>
 <tr class="memdesc:a8792047abbb8fa71c808c5cca1c60713"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a high Speed servo on the specified pin.  <a href="class_serial_wombat_high_frequency_servo.html#a8792047abbb8fa71c808c5cca1c60713">More...</a><br /></td></tr>
 <tr class="separator:a8792047abbb8fa71c808c5cca1c60713"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0d7c32465167027b3978d1c2533ae2d"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_high_frequency_servo.html#aa0d7c32465167027b3978d1c2533ae2d">writeFrequency</a> (uint16_t frequency_hZ)</td></tr>
-<tr class="separator:aa0d7c32465167027b3978d1c2533ae2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1624f075937735c2f0baf23bec17ae66"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_high_frequency_servo.html#a1624f075937735c2f0baf23bec17ae66">writePeriod</a> (uint16_t period_uS)</td></tr>
-<tr class="separator:a1624f075937735c2f0baf23bec17ae66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78b5d95dfdeb98df02617deba1ec1e87"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_high_frequency_servo.html#a78b5d95dfdeb98df02617deba1ec1e87">writeFrequency_Hz</a> (uint16_t frequency_hZ)</td></tr>
+<tr class="separator:a78b5d95dfdeb98df02617deba1ec1e87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8185cb930d5fb900496ae33c2ff6ced9"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_high_frequency_servo.html#a8185cb930d5fb900496ae33c2ff6ced9">writePeriod_uS</a> (uint16_t period_uS)</td></tr>
+<tr class="separator:a8185cb930d5fb900496ae33c2ff6ced9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_serial_wombat_servo__18_a_b"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_serial_wombat_servo__18_a_b')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_serial_wombat_servo__18_a_b.html">SerialWombatServo_18AB</a></td></tr>
 <tr class="memitem:a77006c82b2457d8acf7e6301605bb76b inherit pub_methods_class_serial_wombat_servo__18_a_b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_servo__18_a_b.html#a77006c82b2457d8acf7e6301605bb76b">SerialWombatServo_18AB</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat)</td></tr>
 <tr class="separator:a77006c82b2457d8acf7e6301605bb76b inherit pub_methods_class_serial_wombat_servo__18_a_b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -199,19 +199,19 @@ Public Member Functions</h2></td></tr>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_types_class_serial_wombat_abstract_scaled_output"><td colspan="2" onclick="javascript:toggleInherit('pub_types_class_serial_wombat_abstract_scaled_output')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="class_serial_wombat_abstract_scaled_output.html">SerialWombatAbstractScaledOutput</a></td></tr>
 <tr class="memitem:ae98e5ae800e55696f88a067dab46266e inherit pub_types_class_serial_wombat_abstract_scaled_output"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266e">Period</a> { <br />
-&#160;&#160;<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266eadc8ec96b47c83c6a7762cb14642dba9f">PERIOD_1024mS</a> = 0, 
-<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea9061d789d70e1505f4d8c2c13bf8b457">PERIOD_512mS</a> = 1, 
-<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea0a7eb7d215647d946eb82d2d574e29a5">PERIOD_256mS</a> = 2, 
-<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea1a59208198b0e559db5966e0edf4f0a8">PERIOD_128mS</a> = 3, 
+&#160;&#160;<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266eac85dd02fdde8a7247a5872646afde36f">PERIOD_1mS</a> = 0, 
+<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea07b06815d591aa752c56b95e0f2b42c4">PERIOD_2mS</a> = 1, 
+<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea81803b8474f0c5ec82c30e1fe5bca880">PERIOD_4mS</a> = 2, 
+<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea6dceedae816a712fa8ae6d6435bc2361">PERIOD_8mS</a> = 3, 
 <br />
-&#160;&#160;<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea45c827a738397fa384e03cf7504ba43c">PERIOD_64mS</a> = 4, 
+&#160;&#160;<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea9e696e316aedf27307d636aaafe60832">PERIOD_16mS</a> = 4, 
 <a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea61af7294d2157c78490f4931f7317315">PERIOD_32mS</a> = 5, 
-<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea9e696e316aedf27307d636aaafe60832">PERIOD_16mS</a> = 6, 
-<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea6dceedae816a712fa8ae6d6435bc2361">PERIOD_8mS</a> = 7, 
+<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea45c827a738397fa384e03cf7504ba43c">PERIOD_64mS</a> = 6, 
+<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea1a59208198b0e559db5966e0edf4f0a8">PERIOD_128mS</a> = 7, 
 <br />
-&#160;&#160;<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea81803b8474f0c5ec82c30e1fe5bca880">PERIOD_4mS</a> = 8, 
-<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea07b06815d591aa752c56b95e0f2b42c4">PERIOD_2mS</a> = 9, 
-<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266eac85dd02fdde8a7247a5872646afde36f">PERIOD_1mS</a> = 10
+&#160;&#160;<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea0a7eb7d215647d946eb82d2d574e29a5">PERIOD_256mS</a> = 8, 
+<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266ea9061d789d70e1505f4d8c2c13bf8b457">PERIOD_512mS</a> = 9, 
+<a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266eadc8ec96b47c83c6a7762cb14642dba9f">PERIOD_1024mS</a> = 10
 <br />
  }</td></tr>
 <tr class="separator:ae98e5ae800e55696f88a067dab46266e inherit pub_types_class_serial_wombat_abstract_scaled_output"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -245,7 +245,7 @@ Additional Inherited Members</h2></td></tr>
 <p>This mode creates rapid pulse outputs by using a PWM rather than pulse generation mode. This makes it well suited for fast updates, (200 Hz or better) but a poor choice for driving standard 50Hz servos as it will have worse resolution at low speeds than the standard mode.</p>
 <p>The <a class="el" href="class_serial_wombat_servo.html" title="A class to control Servos attached to the Serial Wombat chip.">SerialWombatServo</a> and <a class="el" href="class_serial_wombat_servo__18_a_b.html" title="A derived class that adds additional Servo Functionality for the Serial Wombat 18AB Chip.">SerialWombatServo_18AB</a> interface void <a class="el" href="class_serial_wombat_high_frequency_servo.html#ac9a72c7f5818455be41a6ab7075aa039" title="Do not use this interface for High Frequency Servos.">attach(uint8_t pin, bool reverse)</a> is not available in this mode, as it must be explicitly configured for minimum and maximum pulse width. <br  />
 </p>
-<p>The pulse update rate can be set with <a class="el" href="class_serial_wombat_high_frequency_servo.html#aa0d7c32465167027b3978d1c2533ae2d">writeFrequency()</a> or <a class="el" href="class_serial_wombat_high_frequency_servo.html#a1624f075937735c2f0baf23bec17ae66">writePeriod()</a>.</p>
+<p>The pulse update rate can be set with writeFrequency() or writePeriod().</p>
 <p>This class uses "attach" rather than "begin" to initialize servos to be consistent with the Arduino Servo native API. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1ac4b09a90b9fe95467375a4b17c1f22"></a>
@@ -343,7 +343,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize a high Speed servo on the specified pin. </p>
-<p>This function must be called after the <a class="el" href="class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.">SerialWombatChip</a> instance specified in the constructor has been initialized with a begin call. This function must be followed by a call to <a class="el" href="class_serial_wombat_high_frequency_servo.html#aa0d7c32465167027b3978d1c2533ae2d">writeFrequency()</a> or <a class="el" href="class_serial_wombat_high_frequency_servo.html#a1624f075937735c2f0baf23bec17ae66">writePeriod()</a></p>
+<p>This function must be called after the <a class="el" href="class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.">SerialWombatChip</a> instance specified in the constructor has been initialized with a begin call. This function must be followed by a call to writeFrequency() or writePeriod()</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pin</td><td>The Serial Wombat pin to set. The Serial Wombat pin to set. This must be an enhanced capability pin ( WP0-4, WP7, or WP9-19) </td></tr>
@@ -357,14 +357,14 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="aa0d7c32465167027b3978d1c2533ae2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0d7c32465167027b3978d1c2533ae2d">&#9670;&nbsp;</a></span>writeFrequency()</h2>
+<a id="a78b5d95dfdeb98df02617deba1ec1e87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78b5d95dfdeb98df02617deba1ec1e87">&#9670;&nbsp;</a></span>writeFrequency_Hz()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int16_t SerialWombatHighFrequencyServo::writeFrequency </td>
+          <td class="memname">int16_t SerialWombatHighFrequencyServo::writeFrequency_Hz </td>
           <td>(</td>
           <td class="paramtype">uint16_t&#160;</td>
           <td class="paramname"><em>frequency_hZ</em></td><td>)</td>
@@ -375,14 +375,14 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a1624f075937735c2f0baf23bec17ae66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1624f075937735c2f0baf23bec17ae66">&#9670;&nbsp;</a></span>writePeriod()</h2>
+<a id="a8185cb930d5fb900496ae33c2ff6ced9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8185cb930d5fb900496ae33c2ff6ced9">&#9670;&nbsp;</a></span>writePeriod_uS()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int16_t SerialWombatHighFrequencyServo::writePeriod </td>
+          <td class="memname">int16_t SerialWombatHighFrequencyServo::writePeriod_uS </td>
           <td>(</td>
           <td class="paramtype">uint16_t&#160;</td>
           <td class="paramname"><em>period_uS</em></td><td>)</td>
