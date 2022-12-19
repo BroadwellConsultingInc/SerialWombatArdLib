@@ -2,3 +2,5 @@
 *.un~
 *.swp
 *.ino~
+*.cpp~
+*.properties~

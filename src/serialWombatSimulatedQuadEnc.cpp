@@ -1,5 +1,5 @@
 #include "SerialWombat.h"
-#include "serialWombatSimulatedQuadEnc.h"
+#include "SerialWombatSimulatedQuadEnc.h"
 #include <stdint.h>
 
 SerialWombatSimulatedQuadEnc::SerialWombatSimulatedQuadEnc(SerialWombatChip& serialWombat0, SerialWombatChip& serialWombat1, uint8_t _pin0, uint8_t _pin1, bool openDrain, bool doubleTransition) : sw0(serialWombat0), sw1(serialWombat1)
