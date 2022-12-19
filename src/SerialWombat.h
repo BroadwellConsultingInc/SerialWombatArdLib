@@ -647,7 +647,7 @@ public:
 	/// 
 	/// \return 0 or positive for success or negative error code
 	/// 
-	int16_t enable2ndCommandInterface(bool enabled);
+	int16_t enable2ndCommandInterface(bool enabled = true);
 
 
 

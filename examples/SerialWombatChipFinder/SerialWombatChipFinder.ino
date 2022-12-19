@@ -54,7 +54,11 @@ void loop() {
 
         Serial.print("UniqueID: ");
         for (int i = 0; i < sw.uniqueIdentifierLength; ++i)
-          Serial.printf("%X ", sw.uniqueIdentifier[i]);
+        {
+          char st[5];
+          sprintf(st,"%X ", sw.uniqueIdentifier[i]);
+          Serial.print(st);
+        }
         Serial.println();
 
         Serial.print("Microcontroller DeviceId: ");
