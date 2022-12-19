@@ -50,7 +50,7 @@ int16_t SerialWombatWS2812::write(uint8_t led, uint8_t length, uint32_t colors[]
 
 int16_t SerialWombatWS2812::writeAnimationLED(uint8_t frame, uint8_t led, uint32_t color)
 {
-	uint8_t tx[8] = { 203,_pin,12,frame,led,(color >>16 ) & 0xFF,(color >> 8) & 0xFF, color & 0xFF };
+	uint8_t tx[8] = { 203,_pin,12,frame,led,(uint8_t)((color >>16 ) & 0xFF),(uint8_t)((color >> 8) & 0xFF),(uint8_t)( color & 0xFF) };
 	return _sw.sendPacket(tx);
 }
 

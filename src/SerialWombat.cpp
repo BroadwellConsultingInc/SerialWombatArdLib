@@ -524,7 +524,7 @@ uint32_t SerialWombatChip::readFlashAddress(uint32_t address)
 	uint8_t tx[8] = { 0xA1,SW_LE32(address),0x55,0x55,0x55 };
 	uint8_t rx[8];
 	sendPacket(tx, rx);
-	return(rx[4] + (rx[5] <<8) + (rx[6] <<16) + (rx[7] <<24));
+	return(((uint32_t)rx[4]) + (((uint32_t)rx[5]) <<8) + (((uint32_t)rx[6]) <<16) + (((uint32_t)rx[7]) <<24));
 }
 
 void SerialWombatChip::sleep()
