@@ -2,7 +2,7 @@
 #define SERIAL_WOMBAT_H__
 
 /*
-Copyright 2020-2021 Broadwell Consulting Inc.
+Copyright 2020-2023 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -28,7 +28,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 
 #include <stdint.h>
 #include "Stream.h"
-#include "HardwareSerial.h" // Using "" rather than <> for compatibility with Visual C++ simulation project
+//#include "Serial.h" // Using "" rather than <> for compatibility with Visual C++ simulation project
 #include "Wire.h"// Using "" rather than <> for compatibility with Visual C++ simulation project
 #include "Arduino.h"
 
@@ -217,6 +217,7 @@ enum class SerialWombatCommands
 	CONFIGURE_PIN_MODE9 = 209, ///< (209)
 	CONFIGURE_PIN_MODE10 = 210, ///< (210)
 	CONFIGURE_PIN_OUTPUTSCALE = 210, ///< (210)
+	CONFIGURE_PIN_MODE_DISABLE = 219, ///< (219)
 	CONFIGURE_PIN_INPUTPROCESS = 211, ///< (211)
 	CONFIGURE_PIN_MODE_HW_0 = 220, ///< (220)
 	CONFIGURE_CHANNEL_MODE_HW_1 = 221, ///< (221)
@@ -252,6 +253,10 @@ typedef enum {
 	PIN_MODE_HS_SERVO = 26, ///< (26)
 	PIN_MODE_ULTRASONIC_DISTANCE = 27, ///< (27)
 	PIN_MODE_LIQUIDCRYSTAL = 28, ///< (28)
+	PIN_MODE_HS_CLOCK = 29, /// < (29)
+	PIN_MODE_HS_COUNTER = 30, ///< (30)
+	PIN_MODE_VGA = 31, ///<(31)
+	PIN_MODE_PS2KEYBOARD = 32, ///<(32)
 	PIN_MODE_UNKNOWN = 255, ///< (0xFF)
 }SerialWombatPinMode_t;
 
@@ -341,6 +346,25 @@ public:
 	/// \return The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip
 	int sendPacket(uint8_t tx[]);
 
+	/// \brief Send an 8 byte packet to the Serial Wombat chip and wait for 8 bytes back
+	/// 
+	/// This method sends 8 bytes via I2C or Serial and blocks until 8 bytes are receieved
+	/// back
+	/// 
+	/// \param tx address of an array of 8 bytes to send
+	/// \param rx address of an array of 8 bytes into which to put response.
+	/// \return The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip
+	int sendPacket(uint8_t tx[], uint8_t rx[], bool retryIfEchoDoesntMatch, uint8_t beginningBytesToMatch = 8, uint8_t endBytesToMatch = 0);
+
+	/// \brief Send an 8 byte packet to the Serial Wombat chip.
+	/// 
+	/// This method sends 8 bytes and processes the response to check for errors.
+	/// 
+	/// 
+	/// \param tx address of an array of 8 bytes to send
+	/// \return The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip
+	int sendPacket(uint8_t tx[], bool retryIfEchoDoesntMatch);
+
 	/// \brief Send an 8 byte packet to the Serial Wombat chip, don't wait for a response.
 		/// 
 		/// This method sends 8 bytes.  Used for resetting the chip prior to bootloading
@@ -358,6 +382,12 @@ public:
 	/// This is stored in a string in the Serial Wombat object.  A pointer to this string
 	/// is returned.
 	char* readVersion(void);
+
+	/// \brief Request version as a uint32
+	/// 
+	/// This queries the Serial Wombat chip for its version information, and returns the
+	/// firmware version as a uint32 0x0XYZ where X,Y,and Z represent firmwre version X.Y.Z
+	uint32_t readVersion_uint32(void);
 
 	/// \brief Read the 16 Bit public data associated with a Serial Wombat Pin Mode 
 	/// 
@@ -555,8 +585,8 @@ public:
 	/// This command stops the Serial Wombat chip's internal clock, greatly reducing power consumption.
 	/// The host is responsible for configuring outputs to a safe state prior to calling sleep.
 	/// 
-	/// \warning This command does not cause any sort of shutdown routine to run.  The chip just stops.  \
-	/// Outputs, including PWM, Servo and Protected Outputs, may retain their logic levels \
+	/// \warning This command does not cause any sort of shutdown routine to run.  The chip just stops.
+	/// Outputs, including PWM, Servo and Protected Outputs, may retain their logic levels 
 	/// at the moment the sleep command is processed.  In other words, they may stay high or low as long as the chip is in sleep.
 	void sleep();
 
@@ -649,7 +679,43 @@ public:
 	/// 
 	int16_t enable2ndCommandInterface(bool enabled = true);
 
+	/// \brief Start capture of startup commands (SW18AB Only)
+	/// \return 0 or positive for success or negative error code
+	/// 
+	/// This command begins startup command capture.  On the SW18AB up to 256 commands can be captured
+	/// This command is followed by a stopStartupCommandCapture command which stops command capture
+	/// and a writeStartupCommandCapture command which writes the captured commands to flash.
+	/// Calling this command discards any prior unwritten capture commands.
+	int16_t startStartupCommandCapture();
 
+	/// \brief Stop capture of startup commands (SW18AB Only)
+	/// \return 0 or positive for success or negative error code
+	int16_t stopStartupCommandCapture();
+
+
+	/// \brief Write captured startup commands to flash (SW18AB Only)
+	/// \return 0 or positive for success or negative error code
+	/// 
+	/// This command writes the commands captured between startStartupCommandCapture and stopStartupCommandCapture 
+	/// to flash.  These commands will be executed each time the chip is reset in the future.
+	/// The command will return success but do nothing if the data to be stored matches the data already stored in
+	/// flash.  This allows the  startStartupCommandCapture / stopStartupCommandCapture / writeStartupCommandCapture
+	/// sequence to be placed around the initialization code of a sketch without concern that flash write endurance
+	/// will be an issue (assuming the exact same initalization sequence occurs each time).  
+	int16_t writeStartupCommandCapture();
+
+
+	/// \brief Set a pin to be a frame timer for system utilization (SW18AB Only)
+	/// \return 0 or positive for success or negative error code
+	/// 
+	/// This command configures a Serial Wombat 18AB Pin to be a frame timer.  This frame goes high at
+	/// the beginning of pin processing, and low after all pins have been serviced.  The duty cycle of 
+	/// this pin is an indicator of the Serial Wombat Chip's CPU utilization.  This pin has a frequency
+	/// of 1kHz corresponding to the 1000 frames per second executive.  Most multimeters will filter this
+	/// pin to a voltage, so the CPU utilization can be seen as a fraction of the system voltage.
+	/// Only one pin can be the Frame Timer pin at a time.
+	int16_t writeFrameTimerPin(uint8_t pin);
+	
 
 	/// \brief Search the I2C Bus addresses 0x68 to 0x6F for I2C devices, and test to see if they respond to
 	/// Serial Wombat version commands.  Returns first address that responds properly or 0 if none found
@@ -681,6 +747,11 @@ public:
 	/// \brief The I2C address of the SerialWombatChip instance
 	uint8_t address = 0;
 
+	/// <summary>
+	///  \brief How many times to retry a packet if communcation bus (such as I2C) error
+	/// </summary>
+	uint8_t communicationErrorRetries = 5;
+
 	int16_t echo(uint8_t data[], uint8_t count = 7);
 	int16_t echo(char* data);
 
@@ -704,6 +775,7 @@ private:
 	void readDeviceIdentifier();
 	uint16_t returnErrorCode(uint8_t* rx);
 	SerialWombatErrorHandler_t errorHandler = NULL;
+	bool _currentlyCommunicating = false;
 };
 
 /// \brief This class name is depricated.  Do not use for new development.  Use SerialWombatChip instead.
@@ -793,6 +865,8 @@ public:
 	uint8_t swPinModeNumber() { return _pinMode; }
 
 
+
+
 protected:
 	uint8_t _pin = 255;
 	SerialWombatChip& _sw;
@@ -815,12 +889,16 @@ void SerialWombatSerialErrorHandlerVerbose(uint16_t error, SerialWombatChip* sw)
 #include "SerialWombatAbstractProcessedInput.h"
 #include "SerialWombatAbstractScaledOutput.h"
 #include "SerialWombat18CapTouch.h"
+#include "SerialWombat18ABVGA.h"
 #include "SerialWombatAnalogInput.h"
 #include "SerialWombatDebouncedInput.h"
+#include "SerialWombatHSClock.h"
+#include "SerialWombatHSCounter.h"
 #include "SerialWombatLiquidCrystal.h"
 #include "SerialWombatMatrixKeypad.h"
 #include "SerialWombatProcessedInputPin.h"
 #include "SerialWombatProtectedOutput.h"
+#include "SerialWombatPS2Keyboard.h"
 #include "SerialWombatPulseOnChange.h"
 #include "SerialWombatPulseTimer.h"
 #include "SerialWombatPWM.h"

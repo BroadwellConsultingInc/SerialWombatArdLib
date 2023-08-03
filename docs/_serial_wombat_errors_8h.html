@@ -138,7 +138,8 @@ Enumerations</h2></td></tr>
 <a class="el" href="_serial_wombat_errors_8h.html#a864855f9b7396b3a518a57030f961dc8a60bb63b6c8eb66c0c2b06a57d40ab1cb">SW_ERROR_PULSE_ON_CHANGE_ENTRY_OUT_OF_RANGE</a> = 46, 
 <a class="el" href="_serial_wombat_errors_8h.html#a864855f9b7396b3a518a57030f961dc8afd9b7d0a0139d2b2f1eaab785e711a2f">SW_ERROR_PULSE_ON_CHANGE_UNKNOWN_MODE</a> = 47, 
 <br />
-&#160;&#160;<a class="el" href="_serial_wombat_errors_8h.html#a864855f9b7396b3a518a57030f961dc8a1d6e946f75af68ed9f2090756a97afba">SW_ERROR_LESS_THAN_8_BYTES_RETURNED</a> = 48
+&#160;&#160;<a class="el" href="_serial_wombat_errors_8h.html#a864855f9b7396b3a518a57030f961dc8a1d6e946f75af68ed9f2090756a97afba">SW_ERROR_LESS_THAN_8_BYTES_RETURNED</a> = 48, 
+<a class="el" href="_serial_wombat_errors_8h.html#a864855f9b7396b3a518a57030f961dc8ab3552afbdbea59bd55c10bf7132711b8">SW_ERROR_REENTRANCY_NOT_SUPPORTED</a> = 49
 <br />
  }</td></tr>
 <tr class="separator:a864855f9b7396b3a518a57030f961dc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -254,6 +255,8 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="a864855f9b7396b3a518a57030f961dc8afd9b7d0a0139d2b2f1eaab785e711a2f"></a>SW_ERROR_PULSE_ON_CHANGE_UNKNOWN_MODE&#160;</td><td class="fielddoc"><p>(#47) The pulse on change Mode requested is unknown </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a864855f9b7396b3a518a57030f961dc8a1d6e946f75af68ed9f2090756a97afba"></a>SW_ERROR_LESS_THAN_8_BYTES_RETURNED&#160;</td><td class="fielddoc"><p>(#48) The Serial Wombat Chip returned less than 8 bytes (Used at host level, not firmware) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a864855f9b7396b3a518a57030f961dc8ab3552afbdbea59bd55c10bf7132711b8"></a>SW_ERROR_REENTRANCY_NOT_SUPPORTED&#160;</td><td class="fielddoc"><p>(#49) The library was used in an unsupported manner, such as calling a communication command from an interrupt when communication was in progress </p>
 </td></tr>
 </table>
 

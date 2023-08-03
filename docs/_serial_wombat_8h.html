@@ -78,7 +78,6 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &quot;Stream.h&quot;</code><br />
-<code>#include &quot;HardwareSerial.h&quot;</code><br />
 <code>#include &quot;Wire.h&quot;</code><br />
 <code>#include &quot;Arduino.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_errors_8h_source.html">SerialWombatErrors.h</a>&quot;</code><br />
@@ -87,12 +86,16 @@ $(function() {
 <code>#include &quot;<a class="el" href="_serial_wombat_abstract_processed_input_8h_source.html">SerialWombatAbstractProcessedInput.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat18_cap_touch_8h_source.html">SerialWombat18CapTouch.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_wombat18_a_b_v_g_a_8h_source.html">SerialWombat18ABVGA.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_debounced_input_8h_source.html">SerialWombatDebouncedInput.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_wombat_h_s_clock_8h_source.html">SerialWombatHSClock.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_wombat_h_s_counter_8h_source.html">SerialWombatHSCounter.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_processed_input_pin_8h_source.html">SerialWombatProcessedInputPin.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_protected_output_8h_source.html">SerialWombatProtectedOutput.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_wombat_p_s2_keyboard_8h_source.html">SerialWombatPS2Keyboard.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_p_w_m_8h_source.html">SerialWombatPWM.h</a>&quot;</code><br />
@@ -284,12 +287,14 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656abcbc3edac6ae45c6ae170dc5998c74ad">SerialWombatCommands::CONFIGURE_PIN_MODE9</a> = 209, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656aa8b90ffa5e9063eace9d7e654eb99e21">SerialWombatCommands::CONFIGURE_PIN_MODE10</a> = 210, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656afd18c52a0206bc47c4006d98e9aa8888">SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE</a> = 210, 
-<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a899a7ef5728aa122f31f1104e5435960">SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS</a> = 211, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a3d9e2af1e541ee89d826c9ce0e814299">SerialWombatCommands::CONFIGURE_PIN_MODE_DISABLE</a> = 219, 
 <br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a7140a1af2f75dbd9e99a362f6ad7ff48">SerialWombatCommands::CONFIGURE_PIN_MODE_HW_0</a> = 220, 
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a899a7ef5728aa122f31f1104e5435960">SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS</a> = 211, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a7140a1af2f75dbd9e99a362f6ad7ff48">SerialWombatCommands::CONFIGURE_PIN_MODE_HW_0</a> = 220, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ad8ad5e5ce6dedebc33ac78742ab5c095">SerialWombatCommands::CONFIGURE_CHANNEL_MODE_HW_1</a> = 221, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ad1db8637b0f5c303a1b8b239401d5054">SerialWombatCommands::CONFIGURE_CHANNEL_MODE_HW_2</a> = 222, 
-<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ae1b00f139a96c93649bb891e924ff2bd">SerialWombatCommands::CONFIGURE_CHANNEL_MODE_HW_3</a> = 223
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ae1b00f139a96c93649bb891e924ff2bd">SerialWombatCommands::CONFIGURE_CHANNEL_MODE_HW_3</a> = 223
 <br />
  }</td></tr>
 <tr class="separator:a4a7ddba5bce899934c59634db4be3656"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -325,6 +330,11 @@ Enumerations</h2></td></tr>
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8acc200ab586dc6928cbd9aaa830ab1add">PIN_MODE_ULTRASONIC_DISTANCE</a> = 27, 
 <br />
 &#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a73c84d7359f5749cff35140b2d71755e">PIN_MODE_LIQUIDCRYSTAL</a> = 28, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8ad7d3628be381ba32858b7a7fe8a6a1bd">PIN_MODE_HS_CLOCK</a> = 29, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8aa3715218308b61a7ddbe90520029f050">PIN_MODE_HS_COUNTER</a> = 30, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8af85948198e0af77371baf2ad3164154c">PIN_MODE_VGA</a> = 31, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a392932f80b475965e55d68c9f4e3a29b">PIN_MODE_PS2KEYBOARD</a> = 32, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a2046afaf5bf267d81101eec029cdf5bc">PIN_MODE_UNKNOWN</a> = 255
 <br />
  }</td></tr>
@@ -596,6 +606,8 @@ Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656afd18c52a0206bc47c4006d98e9aa8888"></a>CONFIGURE_PIN_OUTPUTSCALE&#160;</td><td class="fielddoc"><p>(210) </p>
 </td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a3d9e2af1e541ee89d826c9ce0e814299"></a>CONFIGURE_PIN_MODE_DISABLE&#160;</td><td class="fielddoc"><p>(219) </p>
+</td></tr>
 <tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a899a7ef5728aa122f31f1104e5435960"></a>CONFIGURE_PIN_INPUTPROCESS&#160;</td><td class="fielddoc"><p>(211) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a7140a1af2f75dbd9e99a362f6ad7ff48"></a>CONFIGURE_PIN_MODE_HW_0&#160;</td><td class="fielddoc"><p>(220) </p>
@@ -807,6 +819,14 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8acc200ab586dc6928cbd9aaa830ab1add"></a>PIN_MODE_ULTRASONIC_DISTANCE&#160;</td><td class="fielddoc"><p>(27) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a73c84d7359f5749cff35140b2d71755e"></a>PIN_MODE_LIQUIDCRYSTAL&#160;</td><td class="fielddoc"><p>(28) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8ad7d3628be381ba32858b7a7fe8a6a1bd"></a>PIN_MODE_HS_CLOCK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8aa3715218308b61a7ddbe90520029f050"></a>PIN_MODE_HS_COUNTER&#160;</td><td class="fielddoc"><p>&lt; (29) </p>
+<p>(30) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8af85948198e0af77371baf2ad3164154c"></a>PIN_MODE_VGA&#160;</td><td class="fielddoc"><p>(31) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a392932f80b475965e55d68c9f4e3a29b"></a>PIN_MODE_PS2KEYBOARD&#160;</td><td class="fielddoc"><p>(32) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a2046afaf5bf267d81101eec029cdf5bc"></a>PIN_MODE_UNKNOWN&#160;</td><td class="fielddoc"><p>(0xFF) </p>
 </td></tr>

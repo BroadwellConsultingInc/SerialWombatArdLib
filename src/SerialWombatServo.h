@@ -166,6 +166,13 @@ public:
 
 The SerialWombatHighFrequencyServo class is used to control hobby high frequency servos attached to the Serial Wombat chip.
 
+\htmlonly
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sCQGRyau40g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+\endhtmlonly
+
+https://youtu.be/sCQGRyau40g
+
+
 This class SerialWombatServo_18AB SerialWombatServo by adding support for a frequency/period setting and by
 changing the on-chip pin mode to one optimized for high speed servos.
 

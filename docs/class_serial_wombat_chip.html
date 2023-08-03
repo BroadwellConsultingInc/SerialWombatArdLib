@@ -113,12 +113,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a34cd02f246f5269296dfbb22c4ba62bc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a34cd02f246f5269296dfbb22c4ba62bc">sendPacket</a> (uint8_t tx[])</td></tr>
 <tr class="memdesc:a34cd02f246f5269296dfbb22c4ba62bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send an 8 byte packet to the Serial Wombat chip.  <a href="class_serial_wombat_chip.html#a34cd02f246f5269296dfbb22c4ba62bc">More...</a><br /></td></tr>
 <tr class="separator:a34cd02f246f5269296dfbb22c4ba62bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf596ac2a3db004c12d264a61bf4be8f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#acf596ac2a3db004c12d264a61bf4be8f">sendPacket</a> (uint8_t tx[], uint8_t rx[], bool retryIfEchoDoesntMatch, uint8_t beginningBytesToMatch=8, uint8_t endBytesToMatch=0)</td></tr>
+<tr class="memdesc:acf596ac2a3db004c12d264a61bf4be8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send an 8 byte packet to the Serial Wombat chip and wait for 8 bytes back.  <a href="class_serial_wombat_chip.html#acf596ac2a3db004c12d264a61bf4be8f">More...</a><br /></td></tr>
+<tr class="separator:acf596ac2a3db004c12d264a61bf4be8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf5a91c64cc1b52e936c55464dea277b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#aaf5a91c64cc1b52e936c55464dea277b">sendPacket</a> (uint8_t tx[], bool retryIfEchoDoesntMatch)</td></tr>
+<tr class="memdesc:aaf5a91c64cc1b52e936c55464dea277b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send an 8 byte packet to the Serial Wombat chip.  <a href="class_serial_wombat_chip.html#aaf5a91c64cc1b52e936c55464dea277b">More...</a><br /></td></tr>
+<tr class="separator:aaf5a91c64cc1b52e936c55464dea277b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a752b3962efb3da7df1e045cb1ca3d7df"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a752b3962efb3da7df1e045cb1ca3d7df">sendPacketNoResponse</a> (uint8_t tx[])</td></tr>
 <tr class="memdesc:a752b3962efb3da7df1e045cb1ca3d7df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send an 8 byte packet to the Serial Wombat chip, don't wait for a response.  <a href="class_serial_wombat_chip.html#a752b3962efb3da7df1e045cb1ca3d7df">More...</a><br /></td></tr>
 <tr class="separator:a752b3962efb3da7df1e045cb1ca3d7df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4497f098ad2074a5bec90f2affbaafcb"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a4497f098ad2074a5bec90f2affbaafcb">readVersion</a> (void)</td></tr>
 <tr class="memdesc:a4497f098ad2074a5bec90f2affbaafcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request version string (combined model and firmware) and return pointer to it.  <a href="class_serial_wombat_chip.html#a4497f098ad2074a5bec90f2affbaafcb">More...</a><br /></td></tr>
 <tr class="separator:a4497f098ad2074a5bec90f2affbaafcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99303ae424de2b27b9dbaf2b1bfa971c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a99303ae424de2b27b9dbaf2b1bfa971c">readVersion_uint32</a> (void)</td></tr>
+<tr class="memdesc:a99303ae424de2b27b9dbaf2b1bfa971c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request version as a uint32.  <a href="class_serial_wombat_chip.html#a99303ae424de2b27b9dbaf2b1bfa971c">More...</a><br /></td></tr>
+<tr class="separator:a99303ae424de2b27b9dbaf2b1bfa971c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56030bf411a9d0c5827ae48b1dec39f5"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a56030bf411a9d0c5827ae48b1dec39f5">readPublicData</a> (uint8_t pin)</td></tr>
 <tr class="memdesc:a56030bf411a9d0c5827ae48b1dec39f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the 16 Bit public data associated with a Serial Wombat Pin Mode.  <a href="class_serial_wombat_chip.html#a56030bf411a9d0c5827ae48b1dec39f5">More...</a><br /></td></tr>
 <tr class="separator:a56030bf411a9d0c5827ae48b1dec39f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,9 +216,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4672bc1f8eaa4f82e3294c72c153771f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a4672bc1f8eaa4f82e3294c72c153771f">readUserBuffer</a> (uint16_t index, uint8_t *buffer, uint16_t count)</td></tr>
 <tr class="memdesc:a4672bc1f8eaa4f82e3294c72c153771f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read bytes from the User Memory Buffer in the Serial Wombat chip.  <a href="class_serial_wombat_chip.html#a4672bc1f8eaa4f82e3294c72c153771f">More...</a><br /></td></tr>
 <tr class="separator:a4672bc1f8eaa4f82e3294c72c153771f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57b0e126bbc85e4b9dfd6c5c68a30e16"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a57b0e126bbc85e4b9dfd6c5c68a30e16">enable2ndCommandInterface</a> (bool enabled)</td></tr>
-<tr class="memdesc:a57b0e126bbc85e4b9dfd6c5c68a30e16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable UART command interface in addition to I2C (SW18AB Only)  <a href="class_serial_wombat_chip.html#a57b0e126bbc85e4b9dfd6c5c68a30e16">More...</a><br /></td></tr>
-<tr class="separator:a57b0e126bbc85e4b9dfd6c5c68a30e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac442ab7bdf05e52f04b4c9f21c0c997b"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#ac442ab7bdf05e52f04b4c9f21c0c997b">enable2ndCommandInterface</a> (bool enabled=true)</td></tr>
+<tr class="memdesc:ac442ab7bdf05e52f04b4c9f21c0c997b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable UART command interface in addition to I2C (SW18AB Only)  <a href="class_serial_wombat_chip.html#ac442ab7bdf05e52f04b4c9f21c0c997b">More...</a><br /></td></tr>
+<tr class="separator:ac442ab7bdf05e52f04b4c9f21c0c997b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a073ec0ba2c57ef9b3df2f5ed24f7bea0"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a073ec0ba2c57ef9b3df2f5ed24f7bea0">startStartupCommandCapture</a> ()</td></tr>
+<tr class="memdesc:a073ec0ba2c57ef9b3df2f5ed24f7bea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start capture of startup commands (SW18AB Only)  <a href="class_serial_wombat_chip.html#a073ec0ba2c57ef9b3df2f5ed24f7bea0">More...</a><br /></td></tr>
+<tr class="separator:a073ec0ba2c57ef9b3df2f5ed24f7bea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7876619ce15788c75d5f83044405e966"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a7876619ce15788c75d5f83044405e966">stopStartupCommandCapture</a> ()</td></tr>
+<tr class="memdesc:a7876619ce15788c75d5f83044405e966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop capture of startup commands (SW18AB Only)  <a href="class_serial_wombat_chip.html#a7876619ce15788c75d5f83044405e966">More...</a><br /></td></tr>
+<tr class="separator:a7876619ce15788c75d5f83044405e966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add10e714891d5fb17cc298a4e1caf87c"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#add10e714891d5fb17cc298a4e1caf87c">writeStartupCommandCapture</a> ()</td></tr>
+<tr class="memdesc:add10e714891d5fb17cc298a4e1caf87c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write captured startup commands to flash (SW18AB Only)  <a href="class_serial_wombat_chip.html#add10e714891d5fb17cc298a4e1caf87c">More...</a><br /></td></tr>
+<tr class="separator:add10e714891d5fb17cc298a4e1caf87c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac54539fb33ef6195b5f9bd3bf8b4111f"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#ac54539fb33ef6195b5f9bd3bf8b4111f">writeFrameTimerPin</a> (uint8_t pin)</td></tr>
+<tr class="memdesc:ac54539fb33ef6195b5f9bd3bf8b4111f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a pin to be a frame timer for system utilization (SW18AB Only)  <a href="class_serial_wombat_chip.html#ac54539fb33ef6195b5f9bd3bf8b4111f">More...</a><br /></td></tr>
+<tr class="separator:ac54539fb33ef6195b5f9bd3bf8b4111f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae60b33dc9fc1a52e97cdbe04581889ca"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#ae60b33dc9fc1a52e97cdbe04581889ca">readLastErrorCommand</a> (uint8_t *cmd)</td></tr>
 <tr class="memdesc:ae60b33dc9fc1a52e97cdbe04581889ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last Serial Wombat command that produced a protocol error.  <a href="class_serial_wombat_chip.html#ae60b33dc9fc1a52e97cdbe04581889ca">More...</a><br /></td></tr>
 <tr class="separator:ae60b33dc9fc1a52e97cdbe04581889ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -261,6 +282,8 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a11041c4ff7e6bcc040ef11bbad83f758"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a11041c4ff7e6bcc040ef11bbad83f758">address</a> = 0</td></tr>
 <tr class="memdesc:a11041c4ff7e6bcc040ef11bbad83f758"><td class="mdescLeft">&#160;</td><td class="mdescRight">The I2C address of the <a class="el" href="class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.">SerialWombatChip</a> instance.  <a href="class_serial_wombat_chip.html#a11041c4ff7e6bcc040ef11bbad83f758">More...</a><br /></td></tr>
 <tr class="separator:a11041c4ff7e6bcc040ef11bbad83f758"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f4aa4a9b06d677abd17453a1ead3e45"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a5f4aa4a9b06d677abd17453a1ead3e45">communicationErrorRetries</a> = 5</td></tr>
+<tr class="separator:a5f4aa4a9b06d677abd17453a1ead3e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance. </p>
@@ -648,8 +671,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a57b0e126bbc85e4b9dfd6c5c68a30e16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57b0e126bbc85e4b9dfd6c5c68a30e16">&#9670;&nbsp;</a></span>enable2ndCommandInterface()</h2>
+<a id="ac442ab7bdf05e52f04b4c9f21c0c997b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac442ab7bdf05e52f04b4c9f21c0c997b">&#9670;&nbsp;</a></span>enable2ndCommandInterface()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -658,7 +681,7 @@ Public Attributes</h2></td></tr>
           <td class="memname">int16_t SerialWombatChip::enable2ndCommandInterface </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td class="paramname"><em>enabled</em> = <code>true</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1236,6 +1259,27 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a99303ae424de2b27b9dbaf2b1bfa971c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99303ae424de2b27b9dbaf2b1bfa971c">&#9670;&nbsp;</a></span>readVersion_uint32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t SerialWombatChip::readVersion_uint32 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Request version as a uint32. </p>
+<p>This queries the Serial Wombat chip for its version information, and returns the firmware version as a uint32 0x0XYZ where X,Y,and Z represent firmwre version X.Y.Z </p>
+
+</div>
+</div>
 <a id="ac9657776e3da2c820ea90adc80eb025d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac9657776e3da2c820ea90adc80eb025d">&#9670;&nbsp;</a></span>registerErrorHandler()</h2>
 
@@ -1257,7 +1301,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a34cd02f246f5269296dfbb22c4ba62bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34cd02f246f5269296dfbb22c4ba62bc">&#9670;&nbsp;</a></span>sendPacket() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a34cd02f246f5269296dfbb22c4ba62bc">&#9670;&nbsp;</a></span>sendPacket() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1284,8 +1328,46 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aaf5a91c64cc1b52e936c55464dea277b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf5a91c64cc1b52e936c55464dea277b">&#9670;&nbsp;</a></span>sendPacket() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SerialWombatChip::sendPacket </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>tx</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>retryIfEchoDoesntMatch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send an 8 byte packet to the Serial Wombat chip. </p>
+<p>This method sends 8 bytes and processes the response to check for errors.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tx</td><td>address of an array of 8 bytes to send </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip </dd></dl>
+
+</div>
+</div>
 <a id="a93a62e8cab628873742c0d608e4f2400"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93a62e8cab628873742c0d608e4f2400">&#9670;&nbsp;</a></span>sendPacket() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a93a62e8cab628873742c0d608e4f2400">&#9670;&nbsp;</a></span>sendPacket() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1301,6 +1383,63 @@ Public Attributes</h2></td></tr>
           <td></td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>rx</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send an 8 byte packet to the Serial Wombat chip and wait for 8 bytes back. </p>
+<p>This method sends 8 bytes via I2C or Serial and blocks until 8 bytes are receieved back</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tx</td><td>address of an array of 8 bytes to send </td></tr>
+    <tr><td class="paramname">rx</td><td>address of an array of 8 bytes into which to put response. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip </dd></dl>
+
+</div>
+</div>
+<a id="acf596ac2a3db004c12d264a61bf4be8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf596ac2a3db004c12d264a61bf4be8f">&#9670;&nbsp;</a></span>sendPacket() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SerialWombatChip::sendPacket </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>tx</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>rx</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>retryIfEchoDoesntMatch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>beginningBytesToMatch</em> = <code>8</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>endBytesToMatch</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1389,7 +1528,48 @@ Public Attributes</h2></td></tr>
 
 <p>Shuts down most functions of the Serial Wombat chip reducing power consumption. </p>
 <p>This command stops the Serial Wombat chip's internal clock, greatly reducing power consumption. The host is responsible for configuring outputs to a safe state prior to calling sleep.</p>
-<dl class="section warning"><dt>Warning</dt><dd>This command does not cause any sort of shutdown routine to run. The chip just stops. \ Outputs, including PWM, Servo and Protected Outputs, may retain their logic levels \ at the moment the sleep command is processed. In other words, they may stay high or low as long as the chip is in sleep. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>This command does not cause any sort of shutdown routine to run. The chip just stops. Outputs, including PWM, Servo and Protected Outputs, may retain their logic levels at the moment the sleep command is processed. In other words, they may stay high or low as long as the chip is in sleep. </dd></dl>
+
+</div>
+</div>
+<a id="a073ec0ba2c57ef9b3df2f5ed24f7bea0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a073ec0ba2c57ef9b3df2f5ed24f7bea0">&#9670;&nbsp;</a></span>startStartupCommandCapture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatChip::startStartupCommandCapture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Start capture of startup commands (SW18AB Only) </p>
+<dl class="section return"><dt>Returns</dt><dd>0 or positive for success or negative error code</dd></dl>
+<p>This command begins startup command capture. On the SW18AB up to 256 commands can be captured This command is followed by a stopStartupCommandCapture command which stops command capture and a writeStartupCommandCapture command which writes the captured commands to flash. Calling this command discards any prior unwritten capture commands. </p>
+
+</div>
+</div>
+<a id="a7876619ce15788c75d5f83044405e966"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7876619ce15788c75d5f83044405e966">&#9670;&nbsp;</a></span>stopStartupCommandCapture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatChip::stopStartupCommandCapture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stop capture of startup commands (SW18AB Only) </p>
+<dl class="section return"><dt>Returns</dt><dd>0 or positive for success or negative error code </dd></dl>
 
 </div>
 </div>
@@ -1429,6 +1609,28 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Writes a row in flash. Intended for use with the Bootloader, not by end users outside of bootloading sketc. </p>
+
+</div>
+</div>
+<a id="ac54539fb33ef6195b5f9bd3bf8b4111f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac54539fb33ef6195b5f9bd3bf8b4111f">&#9670;&nbsp;</a></span>writeFrameTimerPin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatChip::writeFrameTimerPin </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set a pin to be a frame timer for system utilization (SW18AB Only) </p>
+<dl class="section return"><dt>Returns</dt><dd>0 or positive for success or negative error code</dd></dl>
+<p>This command configures a Serial Wombat 18AB Pin to be a frame timer. This frame goes high at the beginning of pin processing, and low after all pins have been serviced. The duty cycle of this pin is an indicator of the Serial Wombat Chip's CPU utilization. This pin has a frequency of 1kHz corresponding to the 1000 frames per second executive. Most multimeters will filter this pin to a voltage, so the CPU utilization can be seen as a fraction of the system voltage. Only one pin can be the Frame Timer pin at a time. </p>
 
 </div>
 </div>
@@ -1507,6 +1709,28 @@ Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="add10e714891d5fb17cc298a4e1caf87c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add10e714891d5fb17cc298a4e1caf87c">&#9670;&nbsp;</a></span>writeStartupCommandCapture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatChip::writeStartupCommandCapture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Write captured startup commands to flash (SW18AB Only) </p>
+<dl class="section return"><dt>Returns</dt><dd>0 or positive for success or negative error code</dd></dl>
+<p>This command writes the commands captured between startStartupCommandCapture and stopStartupCommandCapture to flash. These commands will be executed each time the chip is reset in the future. The command will return success but do nothing if the data to be stored matches the data already stored in flash. This allows the startStartupCommandCapture / stopStartupCommandCapture / writeStartupCommandCapture sequence to be placed around the initialization code of a sketch without concern that flash write endurance will be an issue (assuming the exact same initalization sequence occurs each time). <br  />
+ </p>
 
 </div>
 </div>
@@ -1662,6 +1886,23 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The I2C address of the <a class="el" href="class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.">SerialWombatChip</a> instance. </p>
+
+</div>
+</div>
+<a id="a5f4aa4a9b06d677abd17453a1ead3e45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f4aa4a9b06d677abd17453a1ead3e45">&#9670;&nbsp;</a></span>communicationErrorRetries</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SerialWombatChip::communicationErrorRetries = 5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p></p>
+<p>How many times to retry a packet if communcation bus (such as I2C) error</p>
 
 </div>
 </div>

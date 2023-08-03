@@ -223,6 +223,14 @@ public:
 	/// \return returns 0 or higher if success, or a negative error code
 	int16_t writePID(uint16_t kp, uint16_t ki, uint16_t kd,uint16_t target,Period samplePeriod);
 
+
+	/// \brief Request Last Output Value
+	/// 
+	/// This function is useful to see intermediate output values when the scaled output is using its
+	/// same pin's public data for input (so the output value is not written back to public data)
+	/// \return Last 16 bit value output to hardware
+	uint16_t readLastOutputValue();
+
 	/// \brief Facilitates inheritance
 	virtual uint8_t pin() = 0;
 	/// \brief Facilitates inheritance

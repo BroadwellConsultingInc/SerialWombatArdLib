@@ -171,6 +171,68 @@ void SerialWombatChip::readDeviceIdentifier()
 	}
 }
 
+int SerialWombatChip::sendPacket(uint8_t tx[], bool retryIfEchoDoesntMatch)
+{
+	uint8_t rx[8];
+	return  (sendPacket(tx,rx, retryIfEchoDoesntMatch));
+}
+
+int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[], bool retryIfEchoDoesntMatch, uint8_t startBytesToMatch, uint8_t endBytesToMatch)
+{
+	uint8_t retry = 4; //TODO communicationErrorRetries;
+
+	
+	if (!retryIfEchoDoesntMatch)
+	{
+		retry = 1;
+	}
+	
+	int result = 0;
+	for (int i = 0; i < 8; ++i)
+	{
+		rx[i] = 0;
+	}
+	while (retry)
+	{
+		 result = sendPacket(tx, rx);
+		
+		if (rx[0] = 'E')
+		{
+			return result;
+		}
+		uint8_t i;
+		bool success = true;
+		for (i = 0; i < startBytesToMatch; ++i)
+		{
+			if ( tx[i] != rx[i])
+			{
+				success = false;
+			}
+		}
+		for (i = 8- endBytesToMatch; i < 8; ++i)
+		{
+			if (tx[i] != rx[i])
+			{
+				success = false;
+			}
+		}
+		if (success)
+		{
+			return (result);
+		}
+		--retry;
+		delayMicroseconds(50);
+		{
+			char echoTx[] = "!COM_ERR";
+			sendPacket((uint8_t*)echoTx);
+		}
+		delayMicroseconds(50);
+		
+	}
+
+	return(result);
+}
+
 int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 {
 	if (sendReadyTime != 0 )
@@ -182,18 +244,23 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 
 		}
 		sendReadyTime = 0;
-		initialize();
+		initialize(); 
 	}
 
 	if (Serial != NULL)
 	{
+		if (_currentlyCommunicating)
+		{
+			//TODO return (-1 * SW_ERROR_REENTRANCY_NOT_SUPPORTED);
+		}
+		_currentlyCommunicating = true;
 		uint32_t milisStart = millis();
-		while (Serial->read() > 0);
+		while (Serial->read() >= 0);
 		uint32_t milisFlush = millis();
 		Serial->write(tx, 8);  //TODO add addressing, CRC
 		uint32_t millisWrite = millis();
 		int bytesRx = 0;
-		uint8_t debugRx[8]; //TODO remove
+
 		uint32_t timenow = millis();
 		while (bytesRx < 8 && timenow <= (millisWrite + 50))
 		{
@@ -201,7 +268,6 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 			if (data >= 0)
 			{
 				rx[bytesRx] = data;
-				debugRx[8];
 				++bytesRx;
 			}
 			timenow = millis();
@@ -214,6 +280,7 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 				errorHandler(SW_ERROR_LESS_THAN_8_BYTES_RETURNED,this);
 			}
 			++errorCount;
+			_currentlyCommunicating = false;
 			return (-1 * SW_ERROR_LESS_THAN_8_BYTES_RETURNED);
 		}
 		if (rx[0] == 'E')
@@ -225,40 +292,102 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 			}
 			lastErrorCode *= -1;
 			++errorCount;
+			_currentlyCommunicating = false;
 			return (lastErrorCode);
 		}
+		_currentlyCommunicating = false;
 		return (8);
 	}
 
 	if (i2cInterface != NULL)
 	{
+		int bytesWritten;
+		uint8_t retry = communicationErrorRetries;
+		int i2cResult;
 		int count = 8;
 		//while (tx[count - 1] == 0x55)
 		//{
 		//	--count;
 		//}
-		i2cInterface->beginTransmission(address);
-		i2cInterface->write(tx, 8);
-		i2cInterface->endTransmission();
+		if (_currentlyCommunicating)
+		{
+			//TODO return (-1 * SW_ERROR_REENTRANCY_NOT_SUPPORTED);
+		}
+		_currentlyCommunicating = true;
+		while (retry)
+		{
+			--retry;
+			i2cInterface->beginTransmission(address);
+			bytesWritten = i2cInterface->write(tx, 8);
+			i2cResult = i2cInterface->endTransmission();
+
+			if (bytesWritten == 8 && i2cResult == 0)
+			{
+				retry = 0;
+			}
+			else
+			{
+				delayMicroseconds(50);
+				char echoTx[] = "!COM_ERR";
+			
+				i2cInterface->beginTransmission(address);
+				bytesWritten = i2cInterface->write((uint8_t*)echoTx, 8);
+				i2cResult = i2cInterface->endTransmission();
+				delayMicroseconds(50);
+			}
+		}
 		//delay(3);
+		//Serial->setTimeout(10);
 		delayMicroseconds(50);
 		i2cInterface->requestFrom(address, (uint8_t)8);
 
 		count = 0;
-		while (i2cInterface->available() && count < 8)
+		int r = 0;
+		while (r >= 0 && count < 8)
 		{
-			rx[count] = i2cInterface->read();
-			++count;
+			r = i2cInterface->read();
+
+			if (r >= 0)
+			{
+				rx[count] = (uint8_t) r;
+				++count;
+			}
+			else
+			{
+				break;
+			}
 		}
 
 		if (count < 8)
 		{
-			if (errorHandler != NULL)
+			delayMicroseconds(50);
+			i2cInterface->requestFrom(address, (uint8_t)8);
+
+			count = 0;
+			while (i2cInterface->available() && count < 8)
 			{
-				errorHandler(SW_ERROR_LESS_THAN_8_BYTES_RETURNED,this);
+				int r = i2cInterface->read();
+
+				if (r >= 0)
+				{
+					rx[count] = (uint8_t)r;
+					++count;
+				}
+				else
+				{
+					break;
+				}
 			}
-			++errorCount;
-			return (-1 * SW_ERROR_LESS_THAN_8_BYTES_RETURNED);
+			if (count < 8)
+			{
+				if (errorHandler != NULL)
+				{
+					errorHandler(SW_ERROR_LESS_THAN_8_BYTES_RETURNED, this);
+				}
+				++errorCount;
+				_currentlyCommunicating = false;
+				return (-1 * SW_ERROR_LESS_THAN_8_BYTES_RETURNED);
+			}
 		}
 		if (rx[0] == 'E')
 		{
@@ -269,9 +398,11 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 			}
 			lastErrorCode *= -1;
 			++errorCount;
+			_currentlyCommunicating = false;
 			return (lastErrorCode);
 		}
 	}
+	_currentlyCommunicating = false;
 	return(0);
 
 }
@@ -357,9 +488,15 @@ char* SerialWombatChip::readVersion()
 	fwVersion[0] = rx[5];
 	fwVersion[1] = rx[6];
 	fwVersion[2] = rx[7];
-
-
 	return (version);
+}
+
+uint32_t SerialWombatChip::readVersion_uint32(void)
+{
+	readVersion();
+	return ((((uint32_t)fwVersion[0]) << 16) |
+		(((uint32_t)fwVersion[1]) << 8) |
+		fwVersion[2]);
 }
 
 uint16_t SerialWombatChip::readSupplyVoltage_mV()
@@ -681,7 +818,7 @@ void SerialWombatChip::configureDigitalPin(uint8_t pin,uint8_t highLow)
 	}
 	tx[6] = _openDrain[pin];
 	tx[5] = _pullDown[pin];
-	sendPacket(tx, rx);
+	sendPacket(tx, rx, true);
 }
 
 uint16_t SerialWombatChip::readPublicData(SerialWombatDataSource dataSource)
@@ -811,6 +948,30 @@ int16_t SerialWombatChip::enable2ndCommandInterface(bool enabled)
 	{
 		tx[1] = 1;
 	}
+	return sendPacket(tx);
+}
+
+int16_t SerialWombatChip::startStartupCommandCapture()
+{
+	uint8_t tx[] = { 0xB3,0,(uint8_t)'C', (uint8_t)'A', (uint8_t)'P',(uint8_t)'T',(uint8_t)'U',(uint8_t)'R' };
+	return sendPacket(tx);
+}
+
+int16_t SerialWombatChip::stopStartupCommandCapture()
+{
+	uint8_t tx[] = { 0xB3,1,(uint8_t)'C', (uint8_t)'A', (uint8_t)'P',(uint8_t)'T',(uint8_t)'U',(uint8_t)'R' };
+	return sendPacket(tx);
+}
+
+int16_t SerialWombatChip::writeStartupCommandCapture()
+{
+	uint8_t tx[] = { 0xB3,2,(uint8_t)'C', (uint8_t)'A', (uint8_t)'P',(uint8_t)'T',(uint8_t)'U',(uint8_t)'R' };
+	return sendPacket(tx);
+}
+
+int16_t SerialWombatChip::writeFrameTimerPin(uint8_t pin)
+{
+	uint8_t tx[] = { 0xC8 ,pin,(uint8_t)PIN_MODE_FRAME_TIMER,0x55,0x55,0x55,0x55,0x55 };
 	return sendPacket(tx);
 }
 

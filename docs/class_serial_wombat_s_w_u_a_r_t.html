@@ -202,9 +202,9 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>A class for the Serial Wombat 4B or SW18AB chips which creates a software based UART on the SW18AB. </p>
 <p>A Tutorial video is avaialble:</p>
 <p> 
-TODO
+<iframe width="560" height="315" src="https://www.youtube.com/embed/C1FjcaiBYZs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
-<p>TODO</p>
+<p><a href="https://youtu.be/C1FjcaiBYZs">https://youtu.be/C1FjcaiBYZs</a></p>
 <p>The class inherits from the Arduino Sream class, so functions such as println() can be used once the Software UART is initialized.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Due to the overhead of querying and retreiving data from the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a>, data loss is likely when receiving streams of data greater than the buffer size at higher baud rates.</dd></dl>
 <p>Multiple instances of this class can be created on the Serial Wombat 18AB chip. This pin mode requires more CPU time than most, particularly for higher baud rate ports. Serial Wombat chip CPU usage should be checked if multiple software uarts are used. Exceeding the available SW18AB CPU resources will cause bit errors in the UART.</p>

@@ -199,6 +199,7 @@ size_t SerialWombatTM1637::write(uint8_t data)
 	}
 }
 
+
 size_t SerialWombatTM1637::write(const uint8_t* buffer, size_t size)
 {
 	size_t initialSize = size;

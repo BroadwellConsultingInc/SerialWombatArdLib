@@ -71,6 +71,7 @@ typedef enum {
     SW_ERROR_PULSE_ON_CHANGE_ENTRY_OUT_OF_RANGE = 46, ///< (#46) The pulse on change entry number exceeded the number of entries
     SW_ERROR_PULSE_ON_CHANGE_UNKNOWN_MODE = 47, ///< (#47) The pulse on change Mode requested is unknown
     SW_ERROR_LESS_THAN_8_BYTES_RETURNED = 48, ///< (#48) The Serial Wombat Chip returned less than 8 bytes (Used at host level, not firmware)
+    SW_ERROR_REENTRANCY_NOT_SUPPORTED = 49, ///<(#49) The library was used in an unsupported manner, such as calling a communication command from an interrupt when communication was in progress
 }SW_ERROR_t;
 
 #endif

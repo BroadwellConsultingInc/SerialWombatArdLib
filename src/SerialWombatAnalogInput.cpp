@@ -52,7 +52,7 @@ uint16_t SerialWombatAnalogInput::readFilteredCounts()
 	uint8_t tx[] = { 204,_pin,PIN_MODE_ANALOGINPUT,0x55,0x55,0x55,0x55,0x55 };
 	uint8_t rx[8];
 
-	_sw.sendPacket(tx, rx);
+	_sw.sendPacket(tx, rx, true, 3,1);
 
 	return(rx[5] + rx[6] * 256);
 }
@@ -70,7 +70,7 @@ uint16_t SerialWombatAnalogInput::readAveragedCounts()
 	uint8_t tx[] = { 204,_pin,PIN_MODE_ANALOGINPUT,0x55,0x55,0x55,0x55,0x55 };
 	uint8_t rx[8];
 
-	_sw.sendPacket(tx, rx);
+	_sw.sendPacket(tx, rx,true,3,1); 
 
 	return(rx[3] + rx[4] * 256);
 }

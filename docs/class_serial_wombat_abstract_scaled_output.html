@@ -140,6 +140,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abd24ad0af57b03617ff56fc609779f95"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#abd24ad0af57b03617ff56fc609779f95">writePID</a> (uint16_t kp, uint16_t ki, uint16_t kd, uint16_t target, <a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266e">Period</a> samplePeriod)</td></tr>
 <tr class="memdesc:abd24ad0af57b03617ff56fc609779f95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the scaled output block into PID control mode.  <a href="class_serial_wombat_abstract_scaled_output.html#abd24ad0af57b03617ff56fc609779f95">More...</a><br /></td></tr>
 <tr class="separator:abd24ad0af57b03617ff56fc609779f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a228980168436ac153106ef67347261"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#a8a228980168436ac153106ef67347261">readLastOutputValue</a> ()</td></tr>
+<tr class="memdesc:a8a228980168436ac153106ef67347261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request Last Output Value.  <a href="class_serial_wombat_abstract_scaled_output.html#a8a228980168436ac153106ef67347261">More...</a><br /></td></tr>
+<tr class="separator:a8a228980168436ac153106ef67347261"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70dbe9dfc661608efcb21214c0a881c9"><td class="memItemLeft" align="right" valign="top">virtual uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#a70dbe9dfc661608efcb21214c0a881c9">pin</a> ()=0</td></tr>
 <tr class="memdesc:a70dbe9dfc661608efcb21214c0a881c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Facilitates inheritance.  <a href="class_serial_wombat_abstract_scaled_output.html#a70dbe9dfc661608efcb21214c0a881c9">More...</a><br /></td></tr>
 <tr class="separator:a70dbe9dfc661608efcb21214c0a881c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -251,6 +254,26 @@ Public Member Functions</h2></td></tr>
 <p>Facilitates inheritance. </p>
 
 <p>Implemented in <a class="el" href="class_serial_wombat_servo__18_a_b.html#ab7b0f69006e736509d283582106039ff">SerialWombatServo_18AB</a>, and <a class="el" href="class_serial_wombat_p_w_m__18_a_b.html#a9b99507a30152a9bbb07083c1b17f490">SerialWombatPWM_18AB</a>.</p>
+
+</div>
+</div>
+<a id="a8a228980168436ac153106ef67347261"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a228980168436ac153106ef67347261">&#9670;&nbsp;</a></span>readLastOutputValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t SerialWombatAbstractScaledOutput::readLastOutputValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Request Last Output Value. </p>
+<p>This function is useful to see intermediate output values when the scaled output is using its same pin's public data for input (so the output value is not written back to public data) </p><dl class="section return"><dt>Returns</dt><dd>Last 16 bit value output to hardware </dd></dl>
 
 </div>
 </div>

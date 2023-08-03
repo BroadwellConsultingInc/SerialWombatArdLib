@@ -194,6 +194,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abd24ad0af57b03617ff56fc609779f95 inherit pub_methods_class_serial_wombat_abstract_scaled_output"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#abd24ad0af57b03617ff56fc609779f95">writePID</a> (uint16_t kp, uint16_t ki, uint16_t kd, uint16_t target, <a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266e">Period</a> samplePeriod)</td></tr>
 <tr class="memdesc:abd24ad0af57b03617ff56fc609779f95 inherit pub_methods_class_serial_wombat_abstract_scaled_output"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the scaled output block into PID control mode.  <a href="class_serial_wombat_abstract_scaled_output.html#abd24ad0af57b03617ff56fc609779f95">More...</a><br /></td></tr>
 <tr class="separator:abd24ad0af57b03617ff56fc609779f95 inherit pub_methods_class_serial_wombat_abstract_scaled_output"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a228980168436ac153106ef67347261 inherit pub_methods_class_serial_wombat_abstract_scaled_output"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#a8a228980168436ac153106ef67347261">readLastOutputValue</a> ()</td></tr>
+<tr class="memdesc:a8a228980168436ac153106ef67347261 inherit pub_methods_class_serial_wombat_abstract_scaled_output"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request Last Output Value.  <a href="class_serial_wombat_abstract_scaled_output.html#a8a228980168436ac153106ef67347261">More...</a><br /></td></tr>
+<tr class="separator:a8a228980168436ac153106ef67347261 inherit pub_methods_class_serial_wombat_abstract_scaled_output"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -238,6 +241,10 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class for the Serial Wombat 18AB Chip that adds support for high frequency hobby Servos(200 Hz, 333Hz, 560Hz, etc) </p>
 <p>The <a class="el" href="class_serial_wombat_high_frequency_servo.html" title="A class for the Serial Wombat 18AB Chip that adds support for high frequency hobby Servos(200 Hz,...">SerialWombatHighFrequencyServo</a> class is used to control hobby high frequency servos attached to the Serial Wombat chip.</p>
+<p> 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sCQGRyau40g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<p><a href="https://youtu.be/sCQGRyau40g">https://youtu.be/sCQGRyau40g</a></p>
 <p>This class <a class="el" href="class_serial_wombat_servo__18_a_b.html" title="A derived class that adds additional Servo Functionality for the Serial Wombat 18AB Chip.">SerialWombatServo_18AB</a> <a class="el" href="class_serial_wombat_servo.html" title="A class to control Servos attached to the Serial Wombat chip.">SerialWombatServo</a> by adding support for a frequency/period setting and by changing the on-chip pin mode to one optimized for high speed servos.</p>
 <p>Only Enhanced Digital Capability output pins (0-4,7,9-19) pins can be used for this pin mode.</p>
 <p>Up to six High Frequency Servo pins may be assigned per Serial Wombat 18AB Chip. This pin mode claims and holds one of the 6 timing resources also used by PWM output, standard servo output, etc. <br  />

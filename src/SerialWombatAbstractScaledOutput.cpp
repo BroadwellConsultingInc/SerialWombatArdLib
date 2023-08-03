@@ -105,7 +105,7 @@ int16_t SerialWombatAbstractScaledOutput::writeRateControl(SerialWombatAbstractS
 		pin(),
 		swPinModeNumber(),
 		7, // Set Sample Rate
-		sampleRate,
+		(uint8_t)sampleRate,
 		0x55,0x55,0x55,
 	};
 	return(_asosw.sendPacket(tx));
@@ -133,7 +133,7 @@ int16_t SerialWombatAbstractScaledOutput::write1stOrderFiltering(Period sampleRa
 		pin(),
 		swPinModeNumber(),
 		7, // Set Sample Rate
-		sampleRate,
+		(uint8_t)sampleRate,
 		0x55,0x55,0x55,
 		};
 		return(_asosw.sendPacket(tx));
@@ -204,7 +204,7 @@ int16_t SerialWombatAbstractScaledOutput::writePID(uint16_t kp, uint16_t ki, uin
 		pin(),
 		swPinModeNumber(),
 		7, // Set Sample Rate
-		sampleRate,
+		(uint8_t)sampleRate,
 		0x55,0x55,0x55,
 		};
 		int16_t result = _asosw.sendPacket(tx); if (result < 0) { return(result); }
@@ -219,5 +219,25 @@ int16_t SerialWombatAbstractScaledOutput::writePID(uint16_t kp, uint16_t ki, uin
 		int16_t result = _asosw.sendPacket(tx); if (result < 0) { return(result); }
 	}
 	return 0;
+
+}
+
+uint16_t SerialWombatAbstractScaledOutput::readLastOutputValue()
+{
+	uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
+		pin(),
+		swPinModeNumber(),
+		9, // Read Last Value
+		0x55, 0x55,0x55,0x55,
+	};
+	uint8_t rx[8];
+	if (_asosw.sendPacket(tx, rx) >= 0)
+	{
+		return(rx[4] + (uint16_t)rx[5] * 256);
+	}
+	else
+	{
+		return (0);
+	}
 
 }

@@ -61,7 +61,7 @@ enum SWTM1637Mode {
 /// https://youtu.be/AwW12n6o_T0
 /// 
 /// \htmlonly
-/// <iframe width = "560" height = "315" src = "https://youtu.be/AwW12n6o_T0" title = "YouTube video player"
+/// <iframe width = "560" height = "315" src = "https://www.youtube.com/embed/AwW12n6o_T0" title = "YouTube video player"
 /// 	frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
 /// 	picture - in - picture" allowfullscreen></iframe>
 /// 	\endhtmlonly
@@ -161,9 +161,9 @@ public:
 	/// \param data Byte to be written to display
 	/// \return Number of bytes written
 	/// 
-	virtual size_t write(uint8_t data);
+	 size_t write(uint8_t data);
 
-	virtual size_t write(const uint8_t* buffer, size_t size);
+	 size_t write(const uint8_t* buffer, size_t size);
 
 	virtual int availableForWrite() { return 100; } // We will throw out everthing but the last 6.
 	using Print::write;

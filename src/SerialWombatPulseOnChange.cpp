@@ -14,8 +14,8 @@ int16_t SerialWombatPulseOnChange::begin(uint8_t pin, SerialWombatPinState_t act
 		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE0,
 						_pin,
 						_pinMode,
-						activeMode,
-						inactiveMode,
+						(uint8_t)activeMode,
+						(uint8_t)inactiveMode,
 						orNotAnd,
 						0x55,
 						0x55
