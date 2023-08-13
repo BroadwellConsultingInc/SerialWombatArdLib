@@ -196,7 +196,7 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[], bool retryIfEchoDoe
 	{
 		 result = sendPacket(tx, rx);
 		
-		if (rx[0] = 'E')
+		if (rx[0] == 'E')
 		{
 			return result;
 		}
@@ -223,10 +223,11 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[], bool retryIfEchoDoe
 		--retry;
 		delayMicroseconds(50);
 		{
-			char echoTx[] = "!COM_ERR";
-			sendPacket((uint8_t*)echoTx);
+			//char echoTx[] = "!COM_ERR";
+			//sendPacket((uint8_t*)echoTx);
+			continue;
 		}
-		delayMicroseconds(50);
+		delayMicroseconds(100);
 		
 	}
 
@@ -327,18 +328,21 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 			}
 			else
 			{
-				delayMicroseconds(50);
+				delayMicroseconds(100);
 				char echoTx[] = "!COM_ERR";
+				/*
 			
 				i2cInterface->beginTransmission(address);
 				bytesWritten = i2cInterface->write((uint8_t*)echoTx, 8);
 				i2cResult = i2cInterface->endTransmission();
-				delayMicroseconds(50);
+				*/
+				continue;
+				delayMicroseconds(100);
 			}
 		}
 		//delay(3);
 		//Serial->setTimeout(10);
-		delayMicroseconds(50);
+		delayMicroseconds(100);
 		i2cInterface->requestFrom(address, (uint8_t)8);
 
 		count = 0;
@@ -360,7 +364,7 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 
 		if (count < 8)
 		{
-			delayMicroseconds(50);
+			delayMicroseconds(100);
 			i2cInterface->requestFrom(address, (uint8_t)8);
 
 			count = 0;
@@ -733,7 +737,7 @@ uint8_t SerialWombatChip::find(bool keepTrying)
 				}
 				if (count == 8)
 				{
-					if (rx[0] = 'V' && rx[1] == 'S')
+					if (rx[0] == 'V' && rx[1] == 'S')
 					{
 						return(i2cAddress); // Found one.
 					}
