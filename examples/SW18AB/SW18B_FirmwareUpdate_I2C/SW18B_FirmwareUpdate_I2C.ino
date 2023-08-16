@@ -23707,6 +23707,16 @@ void setup() {
 
   delay(500);
 
+  #ifndef ESP8266
+  {
+    Serial.println("This Sketch is currently only compatible with ESP8266 based boards.  Attempting to run it on other processors will result in firmware update failure.");
+    while (1)
+    {
+      yield();
+    }
+  }
+  #endif
+
   WombatFinder();
 
   
@@ -23727,6 +23737,15 @@ void setup() {
   sw.begin(Wire,I2C_ADDRESS,false);
   uint32_t address;
 
+  Serial.print("Connecting to Serial Wombat chip");
+  bool found = false;
+  while (!found)
+  {
+    found = sw.queryVersion();
+    Serial.print('.');
+    delay(200);
+  }
+  Serial.println();
   for (address = 0x4000 * 2;  address <= (0x1F800 * 2); address += 0x800 * 2)
   {
     char str[200];

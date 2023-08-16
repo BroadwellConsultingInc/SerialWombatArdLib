@@ -15,8 +15,8 @@ Connections:
 VGA VSYNC (VGA Pin 14) -> 100 ohm Resistor -> SW Pin 18
 VGA HSYNC (VGA Pin 13) -> 100 ohm Resistor ->SW Pin 17
 VGA Red   (VGA Pin 1) -> 280 ohm Resistor -> SW Pin 16
-VGA Blue (VGA Pin 2) -> 280 ohm Resistor -> SW Pin 15
-VGA Green (VGA Pin 3) -> 280 ohm Resistor -> SW Pin 14
+VGA Green (VGA Pin 2) -> 280 ohm Resistor -> SW Pin 15
+VGA Blue (VGA Pin 3) -> 280 ohm Resistor -> SW Pin 14
 
 A video demonstrating the use of the VGA pin mode on the Serial Wombat 18AB chip is available at:
 TODO

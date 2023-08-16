@@ -221,7 +221,7 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[], bool retryIfEchoDoe
 			return (result);
 		}
 		--retry;
-		delayMicroseconds(50);
+		delayMicroseconds(100);
 		{
 			//char echoTx[] = "!COM_ERR";
 			//sendPacket((uint8_t*)echoTx);
