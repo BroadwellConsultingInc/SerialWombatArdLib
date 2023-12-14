@@ -1,6 +1,6 @@
 #pragma once
 /*
-Copyright 2020-2021 Broadwell Consulting Inc.
+Copyright 2020-2023 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -41,7 +41,8 @@ class SerialWombatProcessedInputPin : public SerialWombatPin, public SerialWomba
 public:
 	/// \brief Class constructor for SerialWombatPulseTimer
 	/// \param serialWombat The Serial Wombat chip on which the SerialWombatPulseTimer pinmode will be run
-	SerialWombatProcessedInputPin(SerialWombatChip& serialWombat);
+	SerialWombatProcessedInputPin(SerialWombatChip& serialWombat):SerialWombatPin(serialWombat),SerialWombatAbstractProcessedInput(serialWombat)
+	{}
 
 	/// \brief Initialize by providing the pin or public data source to read data from.
 	/// 
@@ -49,7 +50,21 @@ public:
 	/// \param pin pin or public data source to read data from.
 	///
 	///
-	int16_t begin(uint8_t pin, uint8_t dataSourcePin);
+	int16_t begin(uint8_t pin, uint8_t dataSourcePin)
+{
+	delay(500); //TODO
+	_pin = pin;
+	_pinMode = (uint8_t)SerialWombatPinMode_t::PIN_MODE_INPUT_PROCESSOR;
+	uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE0,
+	_pin,
+	_pinMode,
+	dataSourcePin,
+	0x55,
+	0x55,
+	0x55,
+	0x55 };
+	return _sw.sendPacket(tx);
+}
 	int16_t begin(uint8_t pin, SerialWombatDataSource dataSource) { return begin(pin, (uint8_t)dataSource); }
 
 	uint8_t pin() { return _pin; }

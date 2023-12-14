@@ -29,7 +29,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #include "SerialWombat.h"
 /*! \file SerialWombat18ABVGA.h
 */
-/*! \brief A class for the Serial Wombat SW18AB chip VGA Driver
+/*! @brief A class for the Serial Wombat SW18AB chip VGA Driver
 
 
 A Tutorial video is avaialble:
@@ -78,51 +78,153 @@ system utilization is higher than normal metrics indicate.
 
 
 
-class SerialWombat18ABVGA :  public SerialWombatPin
+class SerialWombat18ABVGA : public SerialWombatPin
 {
 public:
-    /// \brief Constructor for the SerialWombat18ABVGA class.  
-    /// \param serialWombat The Serial Wombat Chip on which the SerialWombat18ABVGA instance will run.
-    SerialWombat18ABVGA(SerialWombatChip& serialWombat);
-    /// \brief Initalize the SerialWombat18ABVGA.  
-    /// \param vsyncPin Pin attached to the VGA VSync pin (Must be 18)
-    /// \param bufferIndex   - Index into the buffer where the  2520 byte frame buffer will be stored
-    /// \return 0 or higher for success, negative number for error
-    int16_t begin(uint8_t vsyncPin,uint16_t bufferIndex = 0);
-    
-    ///  \brief Write a pixel to the buffer.
-    /// \param x The x coordinate.  0 - 159
-    /// \param y The y coordinate 0-119
-    /// \param color 0 - off (black) 1- on (assigned line color)
-    /// \return 0 or higher for success, negative number for error
-    int16_t writePixel(uint8_t x, uint8_t y, uint8_t color);
+	/*!
+	@brief Constructor for the SerialWombat18ABVGA class.
+	@param serialWombat The Serial Wombat Chip on which the SerialWombat18ABVGA instance will run.
+	*/
+	SerialWombat18ABVGA(SerialWombatChip& serialWombat) :SerialWombatPin(serialWombat)
+	{
+	}
+	/*!
+	@brief Initalize the SerialWombat18ABVGA.
+	@param vsyncPin Pin attached to the VGA VSync pin (Must be 18)
+	@param bufferIndex   - Index into the buffer where the  2520 byte frame buffer will be stored
+	@return 0 or higher for success, negative number for error
+	*/
+	int16_t begin(uint8_t vsyncPin, uint16_t bufferIndex = 0)
+	{
+		_pin = vsyncPin;
+		_pinMode = (uint8_t)PIN_MODE_VGA;
 
-    /// \brief fill the entire screen 
-    /// \param color  0 - off (black) 1- on (assigned line color)
-    /// \return 0 or higher for success, negative number for error
-    int16_t fillScreen(uint8_t color);
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE0,
+							_pin,
+							(uint8_t)_pinMode ,
+							0x55,
+							0x55,
+							SW_LE16(bufferIndex),
+							0x55
+		};
+		return _sw.sendPacket(tx);
+	}
 
-    /// \brief Draw a filled rectangle on the screen
-    /// \param x The x coordinate.  0 - 159
-    /// \param y The y coordinate 0-119
-    /// \param w Width 
-    /// \param h Height 
-    /// \param color 0 - off (black) 1- on (assigned line color)
-    /// \return 0 or higher for success, negative number for error
-    int16_t fillRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h,
-        uint8_t color);
 
-    /// \brief Set the color of a horizontal line
-    /// \brief color : 1 = Blue, 2 = Green 3= Cyan, 4 = Red, 5 = Magenta, 6 = Yellow, 7 = White
-    /// \brief y Line to set
-    /// \return 0 or higher for success, negative number for error
-    int16_t setLineColor(uint8_t color, uint8_t y);
-    /// \brief Set the color of a horizontal line
-    /// \brief color : 1 = Blue, 2 = Green 3= Cyan, 4 = Red, 5 = Magenta, 6 = Yellow, 7 = White
-    /// \brief start first y Line to set
-    /// \brief end last y Line to set
-    /// \return 0 or higher for success, negative number for error
-    int16_t setLineColor(uint8_t color, uint8_t start, uint8_t end);
+	/*!
+	 @brief Write a pixel to the buffer.
+	@param x The x coordinate.  0 - 159
+	@param y The y coordinate 0-119
+	@param color 0 - off (black) 1- on (assigned line color)
+	@return 0 or higher for success, negative number for error
+	*/
+	int16_t writePixel(uint8_t x, uint8_t y, uint8_t color)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE1,
+							_pin,
+							(uint8_t)_pinMode ,
+							0, //Single pixel
+							x,
+							y,
+							color,
+							0x55,
+
+		};
+		return _sw.sendPacket(tx);
+	}
+
+	/*!
+	@brief fill the entire screen
+	@param color  0 - off (black) 1- on (assigned line color)
+	@return 0 or higher for success, negative number for error
+	*/
+	int16_t fillScreen(uint8_t color)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE1,
+							_pin,
+							(uint8_t)_pinMode ,
+							1, //FillScreen
+							color,
+							0x55,
+							0x55,
+			0x55
+
+		};
+		return _sw.sendPacket(tx);
+	}
+
+
+	/*!
+	@brief Draw a filled rectangle on the screen
+	@param x The x coordinate.  0 - 159
+	@param y The y coordinate 0-119
+	@param w Width
+	@param h Height
+	@param color 0 - off (black) 1- on (assigned line color)
+	@return 0 or higher for success, negative number for error
+	*/
+	int16_t fillRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h,
+		uint8_t color)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE1,
+							_pin,
+							(uint8_t)_pinMode ,
+							2, //Fill Rect
+							x,
+							y,
+							(uint8_t)(x + w - 1),
+			(uint8_t)(y + h - 1)
+
+		};
+		if (color == 0)
+		{
+			tx[3] = 3; // Make clear rect
+		}
+		return _sw.sendPacket(tx);
+	}
+
+	/*!
+	@brief Set the color of a horizontal line
+	@param color : 1 = Blue, 2 = Green 3= Cyan, 4 = Red, 5 = Magenta, 6 = Yellow, 7 = White
+	@param y Line to set
+	@return 0 or higher for success, negative number for error
+	*/
+	int16_t setLineColor(uint8_t color, uint8_t y)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE2,
+							_pin,
+							(uint8_t)_pinMode ,
+							y,
+							y,
+							color,
+			0x55,
+			0x55
+
+		};
+		return _sw.sendPacket(tx);
+
+	}
+	/*!
+	@brief Set the color of a horizontal line
+	@param color : 1 = Blue, 2 = Green 3= Cyan, 4 = Red, 5 = Magenta, 6 = Yellow, 7 = White
+	@param start first y Line to set
+	@param end last y Line to set
+	@return 0 or higher for success, negative number for error
+	*/
+	int16_t setLineColor(uint8_t color, uint8_t start, uint8_t end)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE2,
+							_pin,
+							(uint8_t)_pinMode ,
+
+							start,
+							end,
+							color,
+			0x55,
+			0x55
+
+		};
+		return _sw.sendPacket(tx);
+
+	}
 };
-
-

@@ -1,27 +1,27 @@
 #pragma once
 /*
-Copyright 2020-2021 Broadwell Consulting Inc.
+Copyright 2020-2023 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
 
 Permission is hereby granted, free of charge, to any person obtaining a
- * copy of this software and associated documentation files (the "Software"),
- * to deal in the Software without restriction, including without limitation
- * the rights to use, copy, modify, merge, publish, distribute, sublicense,
- * and/or sell copies of the Software, and to permit persons to whom the
- * Software is furnished to do so, subject to the following conditions:
+  copy of this software and associated documentation files (the "Software"),
+  to deal in the Software without restriction, including without limitation
+  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+  and/or sell copies of the Software, and to permit persons to whom the
+  Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+  all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
- * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
- * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
- * OTHER DEALINGS IN THE SOFTWARE.
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+  OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+  OTHER DEALINGS IN THE SOFTWARE.
 */
 
 #include "SerialWombat.h"
@@ -68,55 +68,101 @@ https://youtu.be/WiciAtS1ng0
 class SerialWombatServo : public SerialWombatPin
 {
 public:
-	/// \brief Constructor for the SerialWombatServo Class
-	/// 
-	/// \param sw A reference to a previously declared SerialWombatChip to which the Servo is connected.
-	SerialWombatServo(SerialWombatChip& sw);
-	~SerialWombatServo();
-
+	/*!
+	\brief Constructor for the SerialWombatServo Class
 	
+	\param sw A reference to a previously declared SerialWombatChip to which the Servo is connected.
+	*/
+	SerialWombatServo(SerialWombatChip& sw):SerialWombatPin(sw)
+	{
+	_pinMode = PIN_MODE_SERVO;
+	}
+
+	/*!	
+	\brief Initialize a servo on the specified pin
 	
-	/// \brief Initialize a servo on the specified pin
-	/// 
-	/// This function must be called after the SerialWombatChip instance specified in the constructor
-	/// has been initialized with a begin call.
-	/// 
-	/// This function initializes a servo with a minimum pulse of 544 uS and a maximum pulse of 2400uS
-	/// to be consistent with the native Arduino API attach function.
-	/// \param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3
-	/// \param reverse  If true, the pulse widths will be reversed, with the longest pulse width corresponding to 0 position.
-	void attach(uint8_t pin, bool reverse);
+	This function must be called after the SerialWombatChip instance specified in the constructor
+	has been initialized with a begin call.
 	
-	/// \brief Initialize a servo on the specified pin
-	/// 
-	/// This function must be called after the SerialWombatChip instance specified in the constructor
-	/// has been initialized with a begin call.
-	/// 
-	/// \param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3
-	/// \param min Minimum pulse width in uS.  Minimum functional value is 100.
-	/// \param max Maximum pulse width in uS
- 	/// \param reverse  If true, the pulse widths will be reversed, with the longest pulse width corresponding to 0 position.
-	void attach(uint8_t pin, uint16_t min = 544, uint16_t max = 2400, bool reverse = false);
+	This function initializes a servo with a minimum pulse of 544 uS and a maximum pulse of 2400uS
+	to be consistent with the native Arduino API attach function.
+	\param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3
+	\param reverse  If true, the pulse widths will be reversed, with the longest pulse width corresponding to 0 position.
+	*/
+	void attach(uint8_t pin, bool reverse)
+	{
+		_pin = pin;
+		_pinMode = PIN_MODE_SERVO;
+		_reverse = reverse;
+		initializeServo();
+	}
+	
+	/*!	
+	\brief Initialize a servo on the specified pin
+	
+	This function must be called after the SerialWombatChip instance specified in the constructor
+	has been initialized with a begin call.
+	
+	\param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3
+	\param min Minimum pulse width in uS.  Minimum functional value is 100.
+	\param max Maximum pulse width in uS
+ 	\param reverse  If true, the pulse widths will be reversed, with the longest pulse width corresponding to 0 position.
+	*/
+	void attach(uint8_t pin, uint16_t min = 544, uint16_t max = 2400, bool reverse = false)
+	{
+		_pin = pin;
+		_min = min;
+		_max = max;
+		_reverse = reverse;
+		_pinMode = PIN_MODE_SERVO;
+		initializeServo();
+	}
 
-	/// \brief Writes a value to the servo
-	/// 
-	/// This funciton allows setting the "angle" of a servo, although actual travel may vary.
-	/// Consider using the SerialWombatServo function write16bit() for higher resolution
-	/// 
-	/// \param angle  A value from 0 to 180
-	void write(uint8_t angle);
+	/*!
+	\brief Writes a value to the servo
+	
+	This funciton allows setting the "angle" of a servo, although actual travel may vary.
+	Consider using the SerialWombatServo function write16bit() for higher resolution
+	
+	\param angle  A value from 0 to 180
+	*/
+	void write(uint8_t angle)
+	{
+		if (angle < 180)
+		{
+			write16bit((uint16_t)(65536uL * angle / 180));
+		}
+		else
+		{
+			write16bit(65535uL);
+		}
 
-	/// \brief Writes a 16 bit value to the servo
-	/// 
-	/// This funciton scales the pulse width of the signal being sent to the  servo.
-	/// 
-	/// \param position Servo position.  0 sends the minimum pulse width.  65535 sends the maximum pulse width (unless Reverse is enabled)
-	void write16bit(uint16_t position);
+	}
 
-	/// \brief returns the last position of the servo scaled to a number from 0 to 180.
-	/// 
-	/// \return A position value from 0 to 180.
-	uint8_t read(void);
+	/*!
+	\brief Writes a 16 bit value to the servo
+	
+	This funciton scales the pulse width of the signal being sent to the  servo.
+	
+	\param position Servo position.  0 sends the minimum pulse width.  65535 sends the maximum pulse width (unless Reverse is enabled)
+	*/
+	void write16bit(uint16_t position)
+	{
+		_position = position;
+		_sw.writePublicData(_pin, _position);
+	}
+
+	/*!
+	\brief returns the last position of the servo scaled to a number from 0 to 180.
+	
+	\return A position value from 0 to 180.
+	*/
+	uint8_t read(void)
+	{
+		uint32_t returnval = _position;
+		returnval *= 180;
+		return (uint8_t)(returnval >> 16);
+	}
 
 protected:
 	
@@ -124,7 +170,15 @@ protected:
 	uint16_t _min = 544;  // Default for Arduino Servo library
 	uint16_t _max = 2400; // Default for Arduino Servo Library
 	bool _reverse = false;
-	void initializeServo();
+	void initializeServo()
+	{
+		uint8_t tx[] = { 200,_pin,_pinMode,_pin,SW_LE16(_position), _reverse,0x55 };
+		uint8_t rx[8];
+		_sw.sendPacket(tx, rx);
+		uint8_t tx2[] = { 201,_pin,_pinMode,SW_LE16(_min), SW_LE16(_max-_min),0x55, 0x55 };
+		_sw.sendPacket(tx2, rx);
+
+	}
 };
 
 /*!
@@ -154,10 +208,11 @@ Arduino Servo native API.
 class SerialWombatServo_18AB : public SerialWombatServo, public SerialWombatAbstractScaledOutput
 {
 public:
-	SerialWombatServo_18AB(SerialWombatChip& serialWombat);
-	uint8_t pin();
-	uint8_t swPinModeNumber();
-
+	SerialWombatServo_18AB(SerialWombatChip& serialWombat):SerialWombatAbstractScaledOutput(serialWombat), SerialWombatServo(serialWombat)
+	{
+	}
+	uint8_t pin()	{return SerialWombatPin::_pin;}
+	uint8_t swPinModeNumber() {	return SerialWombatPin::_pinMode;}
 };
 
 /*!
@@ -199,27 +254,46 @@ class SerialWombatHighFrequencyServo : public SerialWombatServo_18AB
 {
 
 public:
-	SerialWombatHighFrequencyServo(SerialWombatChip& serialWombat);
-	/// \brief Do not use this interface for High Frequency Servos
-	/// 
-	/// \param pin The Serial Wombat pin to set.  Do not use this interface.  Use the one below.
-	/// \param reverse  Do not use this interface.  Use the one below.
+	SerialWombatHighFrequencyServo(SerialWombatChip& serialWombat) :SerialWombatServo_18AB(serialWombat) {}
+	/*!
+	\brief Do not use this interface for High Frequency Servos
+	
+	\param pin The Serial Wombat pin to set.  Do not use this interface.  Use the one below.
+	\param reverse  Do not use this interface.  Use the one below.
+	*/
 	void attach(uint8_t pin, bool reverse);
 
-	/// \brief Initialize a high Speed servo on the specified pin
-	/// 
-	/// This function must be called after the SerialWombatChip instance specified in the constructor
-	/// has been initialized with a begin call.  This function must be followed by a call to writeFrequency() or
-	/// writePeriod()
-	/// 
-	/// \param pin The Serial Wombat pin to set. The Serial Wombat pin to set.  This must be an enhanced capability pin ( WP0-4, WP7, or WP9-19)
-	/// \param min Minimum pulse width in uS.  
-	/// \param max Maximum pulse width in uS.  Needs to be less than the value specified after in writePeriod / write Frequency
-	/// \param reverse  If true, the pulse widths will be reversed, with the longest pulse width corresponding to 0 position.
-	void attach(uint8_t pin, uint16_t min , uint16_t max , bool reverse = false);
 
+	/*!
+	\brief Initialize a high Speed servo on the specified pin
+	
+	This function must be called after the SerialWombatChip instance specified in the constructor
+	has been initialized with a begin call.  This function must be followed by a call to writeFrequency() or
+	writePeriod()
+	
+	\param pin The Serial Wombat pin to set. The Serial Wombat pin to set.  This must be an enhanced capability pin ( WP0-4, WP7, or WP9-19)
+	\param min Minimum pulse width in uS.  
+	\param max Maximum pulse width in uS.  Needs to be less than the value specified after in writePeriod / write Frequency
+	\param reverse  If true, the pulse widths will be reversed, with the longest pulse width corresponding to 0 position.
+	*/
+	void attach(uint8_t pin, uint16_t min , uint16_t max , bool reverse = false)
+	{
+		_pin = pin;
+		_min = min;
+		_max = max;
+		_reverse = reverse;
+		_pinMode = PIN_MODE_HS_SERVO;
+		initializeServo();
+	}
 
-	int16_t writeFrequency_Hz(uint16_t frequency_hZ);
-	int16_t writePeriod_uS(uint16_t period_uS);
+	int16_t writeFrequency_Hz(uint16_t frequency_hZ)
+	{
+		return writePeriod_uS((uint16_t)(1000000ul / frequency_hZ));
+	}
+	int16_t writePeriod_uS(uint16_t period_uS)
+	{
+		uint8_t tx[] = { 203,_pin,_pinMode,SW_LE16(period_uS), 0x55,0x55,0x55 };
+		uint8_t rx[8];
+		return _sw.sendPacket(tx, rx);
+	}
 };
-

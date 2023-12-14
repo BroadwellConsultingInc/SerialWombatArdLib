@@ -1,6 +1,6 @@
 #pragma once
 /*
-Copyright 2020-2021 Broadwell Consulting Inc.
+Copyright 2020-2023 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -82,80 +82,146 @@ most recent.
 class SerialWombatPulseTimer : public SerialWombatPin
 {
 public:
-	/// \brief Class constructor for SerialWombatPulseTimer
-	/// \param serialWombat The Serial Wombat chip on which the SerialWombatPulseTimer pinmode will be run
-	SerialWombatPulseTimer(SerialWombatChip& serialWombat);
+	/*!
+	\brief Class constructor for SerialWombatPulseTimer
+	\param serialWombat The Serial Wombat chip on which the SerialWombatPulseTimer pinmode will be run
+	*/
+	SerialWombatPulseTimer(SerialWombatChip& serialWombat):SerialWombatPin(serialWombat)
+	{
+	}
 
+	/*!	
+	\brief Initialization routine for SerialWombatPulseTimer
 	
-	/// \brief Initialization routine for SerialWombatPulseTimer
-	/// 
-	/// \param pin The Serial Wombat pin used for pulse measurments.  All 4 pins on the SW4A/SW4B and all 20 pins on the SW18AB  may be used.
-	/// \param units SW_PULSETIMER_uS or SW_PULSETIMER_mS.  Default uS
-	/// \param pullUpEnabled TRUE = Pull Up Enabled, FALSE = Pull Up Disabled.  Default disabled.
-	void begin(uint8_t pin, SerialWombatPulseTimerUnits units = SW_PULSETIMER_uS, bool pullUpEnabled = false);
+	\param pin The Serial Wombat pin used for pulse measurments.  All 4 pins on the SW4A/SW4B and all 20 pins on the SW18AB  may be used.
+	\param units SW_PULSETIMER_uS or SW_PULSETIMER_mS.  Default uS
+	\param pullUpEnabled TRUE = Pull Up Enabled, FALSE = Pull Up Disabled.  Default disabled.
+	*/
+	void begin(uint8_t pin, SerialWombatPulseTimerUnits units = SW_PULSETIMER_uS, bool pullUpEnabled = false)
+	{
+		_pin = pin;
+		_pinMode = PIN_MODE_PULSETIMER;
+		uint8_t tx[] = { 200,_pin,_pinMode,pullUpEnabled,(uint8_t)units,0x55,0x55,0x55 };
+		uint8_t rx[8];
+		_sw.sendPacket(tx, rx);
+	}
 
-	/// \brief Retreive the latest values for HighCounts, LowCounts, Pulses, and MeasurementOverflowOccured
-	/// 
-	/// This happens in two packets to the Serial Wombat chip, so data may not be coherent
-	void refresh();
+	/*!
+	\brief Retreive the latest values for HighCounts, LowCounts, Pulses, and MeasurementOverflowOccured
+	
+	This happens in two packets to the Serial Wombat chip, so data may not be coherent
+	*/
+	void refresh()
+	{
+		refreshHighCountsLowCounts();
+		{
+			uint8_t tx[] = { 202,_pin,_pinMode,0x55,0x55,0x55,0x55,0x55 };
+			uint8_t rx[8];
+			_sw.sendPacket(tx, rx);
+			Pulses = rx[5] + 256 * rx[6];
+			MeasurementOverflowOccurred = rx[7];
+		}
+	}
 
-	/// \brief Retreive the High and Low counts from the Serial Wombat chip in a single transaction
-	/// 
-	/// This command will retreive consecutive high and low periods from the Serial Wombat chip.
-	/// It it not guaranteed which is the most recent.
-	void refreshHighCountsLowCounts();
+	/*!
+	\brief Retreive the High and Low counts from the Serial Wombat chip in a single transaction
+	
+	This command will retreive consecutive high and low periods from the Serial Wombat chip.
+	It it not guaranteed which is the most recent.
+	*/
+	void refreshHighCountsLowCounts()
+	{
+		uint8_t tx[] = { 201,_pin,_pinMode,0x55,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+		_sw.sendPacket(tx, rx);
+		HighCounts = rx[3] + 256 * rx[4];
+		LowCounts = rx[5] + 256 * rx[6];
+	}
 
-	/// \brief Retreive the High counts and number of pulses Serial Wombat chip in a single transaction
-	/// 
-	/// This command will retreive consecutive high and low periods from the Serial Wombat chip.
-	/// It it not guaranteed which is the most recent.
-	void refreshHighCountsPulses();
+	/*
+	\brief Retreive the High counts and number of pulses Serial Wombat chip in a single transaction
+	
+	This command will retreive consecutive high and low periods from the Serial Wombat chip.
+	It it not guaranteed which is the most recent.
+	*/
+	void refreshHighCountsPulses()
+	{
+		uint8_t tx[] = { 202,_pin,_pinMode,0x55,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+		_sw.sendPacket(tx, rx);
+		HighCounts = rx[3] + 256 * rx[4];
+		Pulses = rx[5] + 256 * rx[6];
+		MeasurementOverflowOccurred = rx[7];
+	}
 
-	/// \brief Retreives the most recent Counts in the configured units for the most recent high pulse
-	/// 
-	/// \return Counts in mS or uS depending on configuration.
-	uint16_t readHighCounts();
+	/*
+	\brief Retreives the most recent Counts in the configured units for the most recent high pulse
+	
+	\return Counts in mS or uS depending on configuration.
+	*/
+	uint16_t readHighCounts()
+	{
+		refreshHighCountsLowCounts();
+		return (HighCounts);
+	}
 
 
-	/// \brief Retreives the most recent Counts in the configured units for the most recent low pulse
-	/// 
-	/// \return Counts in mS or uS depending on configuration.
-	uint16_t readLowCounts();
+	/*
+	\brief Retreives the most recent Counts in the configured units for the most recent low pulse
+	
+	\return Counts in mS or uS depending on configuration.
+	*/
+	uint16_t readLowCounts()
+	{
+		refreshHighCountsLowCounts();
+		return (LowCounts);
+	}
 
-	/// \brief Retreives the number of pulses
-	/// 
-	/// This value overflows at 65535.  Reading this value does not clear it.
-	/// This function has a side effect of reading MeasurementOverflowOccured from the Serial Wombat chip,
-	/// which clears it for future readings.
-	/// \return Number of pulses counted (1 count per high/low cycle).  Rolls over at 65535 to 0
-	uint16_t readPulses();
+	/*
+	\brief Retreives the number of pulses
+	
+	This value overflows at 65535.  Reading this value does not clear it.
+	This function has a side effect of reading MeasurementOverflowOccured from the Serial Wombat chip,
+	which clears it for future readings.
+	\return Number of pulses counted (1 count per high/low cycle).  Rolls over at 65535 to 0
+	*/
+	uint16_t readPulses()
+	{
+		refreshHighCountsPulses();
+		return(Pulses);
+	}
 
-	/// \brief Count in selected units of last retreived high pulse
-	///  
-	/// This value is updated by refresh, refreshHighCountsLowCounts, refreshHighCountsPulses, readHighCounts, readLowCounts
+	/*
+	\brief Count in selected units of last retreived high pulse
+	 
+	This value is updated by refresh, refreshHighCountsLowCounts, refreshHighCountsPulses, readHighCounts, readLowCounts
+	*/
 	uint16_t HighCounts = 0;
-	/// \brief Count in selected units of last retreived low pulse
-	///  
-	/// This value is updated by refresh, refreshHighCountsLowCounts, readHighCounts, readLowCounts
+	/*
+	\brief Count in selected units of last retreived low pulse
+	 
+	This value is updated by refresh, refreshHighCountsLowCounts, readHighCounts, readLowCounts
+	*/
 	uint16_t LowCounts = 0;
 
-	/// \brief Count of last retreived pulses
-	/// 
-	/// This value is updated by refresh, and refreshHighCountsPulses
+	/*
+	\brief Count of last retreived pulses
+	
+	This value is updated by refresh, and refreshHighCountsPulses
+	*/
 	uint16_t Pulses = 0;
 	bool MeasurementOverflowOccurred = false;
-
-	
-
 
 private:
 
 };
 
-/// \brief extends the SerialWombatPulseTimer class with SW18AB specific functionality 
+/*!
+\brief extends the SerialWombatPulseTimer class with SW18AB specific functionality 
 ///
-/// This class adds functionality that is specific to the SW18AB firmware in addition
-/// to generic SerialWombatPulseTimer functionality avaialble on all Serial Wombat chips
+This class adds functionality that is specific to the SW18AB firmware in addition
+to generic SerialWombatPulseTimer functionality avaialble on all Serial Wombat chips
+*/
 
 class SerialWombatPulseTimer_18AB : public SerialWombatPulseTimer, public SerialWombatAbstractProcessedInput
 {
@@ -172,18 +238,28 @@ public:
 		DUTYCYCLE_ON_HTL_TRANSITION = 8, ///< Duty cycle of the pulse as a ratio from 0 to 65535, updated on high to low transition
 	};
 
-	/// \brief constructor for SerialWombatPulseTimer_18AB
-	/// \param serialWombat reference to the SerialWombat chip on which the SerialWombatPulseTimer_18AB will run
-	SerialWombatPulseTimer_18AB(SerialWombatChip& serialWombat);
+	/*!
+	\brief constructor for SerialWombatPulseTimer_18AB
+	\param serialWombat reference to the SerialWombat chip on which the SerialWombatPulseTimer_18AB will run
+	*/
+	SerialWombatPulseTimer_18AB(SerialWombatChip& serialWombat):SerialWombatPulseTimer(serialWombat), SerialWombatAbstractProcessedInput(serialWombat)
+	{
+	}
 
-	/// \brief configures which measurement is the Public Data Output of this pin mode
-	///  
-	///  This function sets what data is avaialble through the public data 
-	///  This function is only avaialble on the Serial Wombat 18AB chip
-	/// 
-	/// \param publicDataOutput An enumerated type indicating what data to output
-	/// \return returns 0 or higher for success or a negative error code.
-	int16_t configurePublicDataOutput(SerialWombatPulseTimer_18AB::publicDataOutput publicDataOutput);
+	/*
+	\brief configures which measurement is the Public Data Output of this pin mode
+	 
+	 This function sets what data is avaialble through the public data 
+	 This function is only avaialble on the Serial Wombat 18AB chip
+	
+	\param publicDataOutput An enumerated type indicating what data to output
+	\return returns 0 or higher for success or a negative error code.
+	*/
+	int16_t configurePublicDataOutput(SerialWombatPulseTimer_18AB::publicDataOutput publicDataOutput)
+	{
+		uint8_t tx[] = { 203,_pin,_pinMode,(uint8_t) publicDataOutput};
+		return _sw.sendPacket(tx);
+	}
 	
 	/// \brief Facilitates multi-inheritance
 	uint8_t pin() { return _pin; }

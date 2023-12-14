@@ -78,8 +78,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8ec32db1e542942b06558cd842e5af9a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_simulated_quad_enc.html#a8ec32db1e542942b06558cd842e5af9a">SerialWombatSimulatedQuadEnc</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat0, <a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat1, uint8_t pin0, uint8_t pin1, bool <a class="el" href="class_serial_wombat_simulated_quad_enc.html#a6a5630df5d9d192483d0835a932d5994">openDrain</a>, bool <a class="el" href="class_serial_wombat_simulated_quad_enc.html#af95fbcd959cfa32b2593c4be15038e74">doubleTransition</a>)</td></tr>
-<tr class="separator:a8ec32db1e542942b06558cd842e5af9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c93dcdd23a88374a3ede6c625b0dc1c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_simulated_quad_enc.html#a2c93dcdd23a88374a3ede6c625b0dc1c">SerialWombatSimulatedQuadEnc</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat0, <a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat1, uint8_t _pin0, uint8_t _pin1, bool <a class="el" href="class_serial_wombat_simulated_quad_enc.html#a6a5630df5d9d192483d0835a932d5994">openDrain</a>, bool <a class="el" href="class_serial_wombat_simulated_quad_enc.html#af95fbcd959cfa32b2593c4be15038e74">doubleTransition</a>)</td></tr>
+<tr class="separator:a2c93dcdd23a88374a3ede6c625b0dc1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c6d85b3936406a3ec30a06b60e66332"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_simulated_quad_enc.html#a2c6d85b3936406a3ec30a06b60e66332">bothPinsHigh</a> ()</td></tr>
 <tr class="separator:a2c6d85b3936406a3ec30a06b60e66332"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bece6f3b91156484927a15d38c55749"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_simulated_quad_enc.html#a5bece6f3b91156484927a15d38c55749">togglePin0</a> ()</td></tr>
@@ -126,11 +126,14 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>A class for testing <a class="el" href="class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input.">SerialWombatQuadEnc</a> inputs. </p>
 <p>This class uses digital IO calls to simulate the output of a quadrature encoder. This is used to unit test the <a class="el" href="class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input.">SerialWombatQuadEnc</a> class. All processing occurs on the Arduino side. This class does not currently wrap a pin mode on the Serial Wombat chip. See the Unit Test example sketch for usage. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8ec32db1e542942b06558cd842e5af9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ec32db1e542942b06558cd842e5af9a">&#9670;&nbsp;</a></span>SerialWombatSimulatedQuadEnc()</h2>
+<a id="a2c93dcdd23a88374a3ede6c625b0dc1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c93dcdd23a88374a3ede6c625b0dc1c">&#9670;&nbsp;</a></span>SerialWombatSimulatedQuadEnc()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">SerialWombatSimulatedQuadEnc::SerialWombatSimulatedQuadEnc </td>
@@ -148,13 +151,13 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>pin0</em>, </td>
+          <td class="paramname"><em>_pin0</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>pin1</em>, </td>
+          <td class="paramname"><em>_pin1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -174,6 +177,11 @@ Public Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -184,6 +192,9 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SerialWombatSimulatedQuadEnc::bothPinsHigh </td>
@@ -192,6 +203,11 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -201,6 +217,9 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SerialWombatSimulatedQuadEnc::initialize </td>
@@ -209,6 +228,11 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -218,6 +242,9 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SerialWombatSimulatedQuadEnc::pin0High </td>
@@ -226,6 +253,11 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -235,6 +267,9 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SerialWombatSimulatedQuadEnc::pin0Low </td>
@@ -243,6 +278,11 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -252,6 +292,9 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SerialWombatSimulatedQuadEnc::pin1High </td>
@@ -260,6 +303,11 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -269,6 +317,9 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SerialWombatSimulatedQuadEnc::pin1Low </td>
@@ -277,6 +328,11 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -286,6 +342,9 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool SerialWombatSimulatedQuadEnc::service </td>
@@ -294,6 +353,11 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -303,6 +367,9 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SerialWombatSimulatedQuadEnc::togglePin0 </td>
@@ -311,6 +378,11 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -320,6 +392,9 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SerialWombatSimulatedQuadEnc::togglePin1 </td>
@@ -328,6 +403,11 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

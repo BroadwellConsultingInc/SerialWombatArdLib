@@ -31,7 +31,7 @@ SerialWombat sw;
 SerialWombat18CapTouch penny(sw);
 SerialWombat18CapTouch quarter(sw);
 
-SerialWombat18CapTouchCounter quarterCounter(&quarter), pennyCounter(&penny);
+SerialWombatButtonCounter quarterCounter(&quarter), pennyCounter(&penny);
 
 long int moneyCount = 0;  //Place to keep track of total money count in pennies
 

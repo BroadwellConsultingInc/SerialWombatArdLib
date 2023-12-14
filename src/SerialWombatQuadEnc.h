@@ -46,8 +46,8 @@ typedef enum
 
 /*! \brief A class that uses two Serial Wombat input pins to read quadrature encoder input
 
-The SerialWombatQuadEnc class configures two pins on the Serial Wombat chip to work together to 
-read quadrature encoder inputs.  
+The SerialWombatQuadEnc class configures two pins on the Serial Wombat chip to work together to
+read quadrature encoder inputs.
 
 By offloading the reading of an encoder to the Serial Wombat chip, it makes it easy for the host
 to track multiple encoders at once.  The host need only periodically retreive the net change
@@ -62,10 +62,10 @@ Video Tutorial:
 
 https://youtu.be/_wO8cOada3w
 
-An instance of the SerialWombatQuadEnc class should be declared for each encoder (2 pins) 
+An instance of the SerialWombatQuadEnc class should be declared for each encoder (2 pins)
 connected to the Serial Wombat chip.
 
-The quadrature encoder is capable of running in either polled or interrupt/DMA driven modes.  
+The quadrature encoder is capable of running in either polled or interrupt/DMA driven modes.
 
 Polled mode is recommended for manual inputs such as rotary encoder knobs.  It polls at 1 kHz
 which is fast enough for most applications.
@@ -86,7 +86,7 @@ in the begin call.
 
 The reported position can be changed on low to high transitions of "pin", high to low transitions,
 or both transitions.  This allows knobs that make and break connection on each click/detent and knobs
-that either make or break connection on each detent to report one change per detent to the host.  
+that either make or break connection on each detent to report one change per detent to the host.
 
 The default mode for simple initialization is to measure both, which will result in 2 increments per
 detent for encoders that make and break connection on each detent.
@@ -101,60 +101,69 @@ The Serial Wombat 4A and 4B chips can measure a maxium of 8 transitions per mS a
 this may result pin mode malfunction.
 */
 
-class SerialWombatQuadEnc:public SerialWombatPin
+class SerialWombatQuadEnc :public SerialWombatPin
 {
 public:
 
-	/// \brief Constructor for the SerialWombatQuadEnc class
-	/// \param serialWombatChip The Serial Wombat chip running the quadrature encoder
-	SerialWombatQuadEnc(SerialWombatChip& serialWombatChip);
+	/*!
+	@brief Constructor for the SerialWombatQuadEnc class
+	@param serialWombatChip The Serial Wombat chip running the quadrature encoder
+	*/
+	SerialWombatQuadEnc(SerialWombatChip& serialWombatChip) :SerialWombatPin(serialWombatChip)
+	{
+		_secondPin = 255;
+	}
 
-	/// \brief Simple initialization for SerialWombatQuadEnc
-	/// \param pin The first pin to be used as a Quadrature Encoder input. All 4 pins on the SW4A/SW4B may be used.  All 20 pins on the SW18AB chip may be used
-	/// \param secondPin The second pin to be used as a Quadrature Encoder input. All I/O pins on Serial Wombat chip may be used, except the first specified pin.
-	/// 
-	/// This initialization assumes a simple Rotary Encoder knob that is connected to ground.  Polling mode is used, and both transitions generate increments.
-	/// Pull ups are enabled, and 10ms of debouncing is used.
-	/// Position is initialized to 0.
-	void begin(uint8_t pin, uint8_t secondPin);
+	/*!
+	@brief Initialization for SerialWombatQuadEnc that allows configuration of debounce time, pullUps and transition detection mode
+	@param pin The first pin to be used as a Quadrature Encoder input. All 4 pins on the SW4A/SW4B may be used.  All 20 pins on the SW18AB chip may be used
+	@param secondPin The second pin to be used as a Quadrature Encoder input. All I/O pins on Serial Wombat chip may be used, except the first specified pin.
+	@param debounce_mS The number of mS after a transition is detected and increment occurs before another increment is allowed.
+	@param pullUpsEnabled TRUE: both pins have weak pull ups enabled.  FALSE: Neither pin has weak pull up enabled.
+	@param readState #QE_READ_MODE_t determine if Polling or Interrupt/DMA mode is used, and which transitions cause increments.
 
-	/// \brief Initialization for SerialWombatQuadEnc that allows configuration of debounce time and pullUps
-/// \param pin The first pin to be used as a Quadrature Encoder input. All 4 pins on the SW4A/SW4B may be used.  All 20 pins on the SW18AB chip may be used
-	/// \param secondPin The second pin to be used as a Quadrature Encoder input. All I/O pins on Serial Wombat chip may be used, except the first specified pin.
-		/// \param debounce_mS The number of mS after a transition is detected and increment occurs before another increment is allowed.
-	/// \param pullUpsEnabled TRUE: both pins have weak pull ups enabled.  FALSE: Neither pin has weak pull up enabled.
-	/// 
-	/// Polling mode is used, and both transitions generate increments.
-	/// Position is initialized to 0.
-	void begin(uint8_t pin, uint8_t secondPin, uint16_t debounce_mS, bool pullUpsEnabled);
+	Position is initialized to 0.
+	*/
+	void begin(uint8_t pin, uint8_t secondPin, uint16_t debounce_mS = 10, bool pullUpsEnabled = true, QE_READ_MODE_t readState = QE_ONBOTH_POLL)
+	{
+		_pin = pin;
+		_secondPin = secondPin;
+		uint8_t tx[] = { 200,_pin,PIN_MODE_QUADRATUREENCODER,SW_LE16(debounce_mS), _secondPin,(uint8_t)readState,pullUpsEnabled };
+		uint8_t rx[8];
+		_sw.sendPacket(tx, rx);
+	}
 
-	/// \brief Initialization for SerialWombatQuadEnc that allows configuration of debounce time, pullUps and transition detection mode
-/// \param pin The first pin to be used as a Quadrature Encoder input. All 4 pins on the SW4A/SW4B may be used.  All 20 pins on the SW18AB chip may be used
-	/// \param secondPin The second pin to be used as a Quadrature Encoder input. All I/O pins on Serial Wombat chip may be used, except the first specified pin.
-		/// \param debounce_mS The number of mS after a transition is detected and increment occurs before another increment is allowed.
-	/// \param pullUpsEnabled TRUE: both pins have weak pull ups enabled.  FALSE: Neither pin has weak pull up enabled.
-	/// \param readState #QE_READ_MODE_t determine if Polling or Interrupt/DMA mode is used, and which transitions cause increments.
-	/// 
-	/// Position is initialized to 0.
-	void begin(uint8_t pin, uint8_t secondPin, uint16_t debounce_mS, bool pullUpsEnabled, QE_READ_MODE_t readState);
+	/*!
+	@brief Read the quadrature encoder position from the Serial Wombat chip
+	@return a 16 bit unsigned value indicating position.  Rolls from 0 to 65535 when decrementing below 0
+	*/
+	uint16_t read()
+	{
+		return _sw.readPublicData(_pin);
+	}
 
-	/// \brief Read the quadrature encoder position from the Serial Wombat chip
-	/// \return a 16 bit unsigned value indicating position.  Rolls from 0 to 65535 when decrementing below 0
-	uint16_t read();
+	/*!
+	@brief Read the quadrature encoder position from the Serial Wombat chip then set the position value
+	@return a 16 bit unsigned value indicating position.  Rolls from 0 to 65535 when decrementing below 0
+	@param replacementValue  The 16 bit value to set the position to after read.
 
-	/// \brief Read the quadrature encoder position from the Serial Wombat chip then set the position value
-	/// \return a 16 bit unsigned value indicating position.  Rolls from 0 to 65535 when decrementing below 0
-	/// \param replacementValue  The 16 bit value to set the position to after read.
-	///
-	/// This method is useful when looking for relative change since last call.  By setting the position to center (32768)
-	/// after each read, the net postion change can easily be measured.  This is conceptually simplier than using read() 
-	/// and adjusting for rollover between 65535 and 0.
+	This method is useful when looking for relative change since last call.  By setting the position to center (32768)
+	after each read, the net postion change can easily be measured.  This is conceptually simplier than using read()
+	and adjusting for rollover between 65535 and 0.
+	*/
+	uint16_t read(uint16_t replacementValue)
+	{
+		return _sw.writePublicData(_pin, replacementValue);
+	}
 
-	uint16_t read(uint16_t replacementValue);
-
-	/// \brief This function initializes the position of the encoder
-	/// \param value A starting value between 0 and 65535 for the encoder
-	void write(uint16_t value);
+	/*!
+	@brief This function initializes the position of the encoder
+	@param value A starting value between 0 and 65535 for the encoder
+	*/
+	void write(uint16_t value)
+	{
+		_sw.writePublicData(_pin, value);
+	}
 private:
 
 	uint8_t _secondPin;

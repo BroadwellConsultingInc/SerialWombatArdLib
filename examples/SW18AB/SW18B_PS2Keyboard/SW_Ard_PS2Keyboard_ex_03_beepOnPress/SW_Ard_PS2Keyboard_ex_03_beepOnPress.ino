@@ -16,10 +16,11 @@ increment its 16 bit public data each time a make-code is detected.  The SerialW
 then pulse high for a short period of time on each increment, creating an audible tone.
 
 A video demonstrating the use of the PS2 Keyboard pin mode on the Serial Wombat 18AB chip is available at:
-TODO
+https://www.youtube.com/watch?v=YV00GfyxFJU
 
-Documentation for the SerialPS2Keyboard Arduino class is available at:
-TODO
+Documentation for the SerialWombatTM1637 Arduino class is available at:
+https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_p_s2_keyboard.html
+
 */
 
 SerialWombatChip sw;

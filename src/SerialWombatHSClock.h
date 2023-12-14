@@ -43,35 +43,72 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   
 In the case of the SW18AB chip, the output frequency is determined by a hardware clock divider that either outputs 32MHZ or 32Mhz / 2 * an integer.  So 32MHz and 16MHz are possible, but 24MHz (for example) is not.  The divisor can range from 1 *2 to 32767 * 2, so the minimum output frequency is 32000000 / 32767 / 2 = 488 Hz
 
-\warning The SW18AB uses an internal oscillator which has an accuracy of +/- 2 percent.  So the accuracy of the output frequency can vary with the accuarcy of the internal oscillator.
+@warning The SW18AB uses an internal oscillator which has an accuracy of +/- 2 percent.  So the accuracy of the output frequency can vary with the accuarcy of the internal oscillator.
 
 If assigning a new pin mode to a pin in HS Clock mode, call the disable method first. 
 
 A video Tutorial on this pin mode is available:
 
-\htmlonly
+@htmlonly
 //TODO  - Video coming soon
-\endhtmlonly
+@endhtmlonly
 
 //TODO https://youtu.be/
 
 
 */
 
-class 
-	SerialWombatHSClock :  public SerialWombatPin 
+class SerialWombatHSClock :  public SerialWombatPin 
 { 
 		public: 
-/// \brief Class constructor for SerialWombatHSClock pin mode 
-/// \param serialWombat The Serial Wombat chip on which the SerialWombatLiquidCrystal pin mode will run SerialWombatHSClock(SerialWombatChip& serialWombat); 
-			SerialWombatHSClock(SerialWombatChip &sw);
+		/*!
+		@brief Class constructor for SerialWombatHSClock pin mode 
+		@param serialWombat The Serial Wombat chip on which the SerialWombatLiquidCrystal pin mode will run SerialWombatHSClock(SerialWombatChip& serialWombat); 
+		*/
+			SerialWombatHSClock(SerialWombatChip &sw):SerialWombatPin(sw){}
 
-/// \brief Begin outputing a clock at a frequency on a specified pin
-/// \param  pin The pin used to output the High Speed Clock.  On the Serial Wombat 18AB chip this must be an enhanced digital capability pin.
-/// \param frequency_Hz The frequency in Hz of the output.  The hardware may not be able to exactly produce the commanded frequency
-/// \return The frequency that is output based on the chip's hardware capabilities, or a negative number if an error occured.
-	int32_t begin(uint8_t pin, uint32_t frequency_Hz);
+	/*!
+	/// @brief Begin outputing a clock at a frequency on a specified pin
+	/// @param  pin The pin used to output the High Speed Clock.  On the Serial Wombat 18AB chip this must be an enhanced digital capability pin.
+	/// @param frequency_Hz The frequency in Hz of the output.  The hardware may not be able to exactly produce the commanded frequency
+	/// @return The frequency that is output based on the chip's hardware capabilities, or a negative number if an error occured.
+	*/
+	int32_t begin(uint8_t pin, uint32_t frequency_Hz)
+	{
+	    _pin = pin;
+	    _pinMode = PIN_MODE_HS_CLOCK;
 
-/// \brief Disables the high speed clock output
-	int16_t disable ();
+	    uint8_t tx[] =
+	    {
+		(uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE0,
+		_pin,
+		_pinMode,
+		SW_LE32(frequency_Hz),
+		0x55
+	    };
+	    uint8_t rx[8];
+	    int16_t result = _sw.sendPacket(tx, rx);
+	    if (result < 0)
+	    {
+		return (result);
+	    }
+
+	    int32_t returnval = (((uint32_t)rx[5]) << 16) + (((uint32_t)rx[4]) << 8) + rx[3];
+	    return (returnval);
+	}
+
+	/*!
+	@brief Disables the high speed clock output
+	*/
+	int16_t disable ()
+	{
+	    uint8_t tx[] =
+	    {
+		(uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE_DISABLE,
+		_pin,
+		_pinMode,
+		0x55,0x55,0x55,0x55,0x55
+	    };
+	   return _sw.sendPacket(tx);
+	}
 };

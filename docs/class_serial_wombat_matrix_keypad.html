@@ -90,8 +90,6 @@ Public Member Functions</h2></td></tr>
   <a href="class_serial_wombat_matrix_keypad.html#a1eae48bf2d0282f287fe32ee738c32c9">More...</a><br /></td></tr>
 <tr class="separator:a1eae48bf2d0282f287fe32ee738c32c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e83f100ae78bf6f2b9c19bff7c8718b"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_matrix_keypad.html#a3e83f100ae78bf6f2b9c19bff7c8718b">begin</a> (uint8_t controlPin, uint8_t row0pin, uint8_t row1pin, uint8_t row2pin, uint8_t row3pin, uint8_t column0pin, uint8_t column1pin, uint8_t column2pin, uint8_t column3pin, uint8_t bufferMode=0, uint8_t queueMode=1)</td></tr>
-<tr class="memdesc:a3e83f100ae78bf6f2b9c19bff7c8718b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalize the <a class="el" href="class_serial_wombat_matrix_keypad.html" title="A class for the Serial Wombat SW18AB chips which scans matrix keypads up to 4x4.">SerialWombatMatrixKeypad</a>. <br  />
-  <a href="class_serial_wombat_matrix_keypad.html#a3e83f100ae78bf6f2b9c19bff7c8718b">More...</a><br /></td></tr>
 <tr class="separator:a3e83f100ae78bf6f2b9c19bff7c8718b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a938927badeb36c302ed6a5575babbab1"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_matrix_keypad.html#a938927badeb36c302ed6a5575babbab1">writeQueueMask</a> (uint16_t mask)</td></tr>
 <tr class="memdesc:a938927badeb36c302ed6a5575babbab1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a binary mask for which keys are added to Queue.  <a href="class_serial_wombat_matrix_keypad.html#a938927badeb36c302ed6a5575babbab1">More...</a><br /></td></tr>
@@ -310,26 +308,6 @@ With 16 being used for no current press, depending on mode setting
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Initalize the <a class="el" href="class_serial_wombat_matrix_keypad.html" title="A class for the Serial Wombat SW18AB chips which scans matrix keypads up to 4x4.">SerialWombatMatrixKeypad</a>. <br  />
- </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">controlPin</td><td>Keypad scanning transitions will occur while this pin is being serviced by the Serial Wombat executive. Typically this will be the same as the row0 pin </td></tr>
-    <tr><td class="paramname">row0pin</td><td>pin attached to the topmost keypad row. On many marked keypads this row has 1,2,3 and A in it. Enter 255 if this column is unused </td></tr>
-    <tr><td class="paramname">row1pin</td><td>pin attached to the topcenter keypad row. On many marked keypads this row has 4,5,6 and B in it. Enter 255 if this row is unused </td></tr>
-    <tr><td class="paramname">row2pin</td><td>pin attached to the topmost keypad row. On many marked keypads this row has 7,8,9 and C in it. Enter 255 if this row is unused </td></tr>
-    <tr><td class="paramname">row3pin</td><td>pin attached to the topmost keypad row. On many marked keypads this row has *,0,# and D in it. Enter 255 if this row is unused </td></tr>
-    <tr><td class="paramname">column0pin</td><td>pin attached to the leftmost keypad column. On many marked keypads this column has 1,4,7 and * in it. Enter 255 if this column is unused </td></tr>
-    <tr><td class="paramname">column1pin</td><td>pin attached to the leftcenter keypad column. On many marked keypads this column has 1,5,8 and 0 in it. Enter 255 if this column is unused </td></tr>
-    <tr><td class="paramname">column2pin</td><td>pin attached to the rightcenter keypad column. On many marked keypads this column has 3,5,9 and # in it. Enter 255 if this column is unused </td></tr>
-    <tr><td class="paramname">column3pin</td><td>pin attached to the rightmost keypad column. On many marked keypads this column has A,B,C and D in it. Enter 255 if this column is unused </td></tr>
-    <tr><td class="paramname">bufferMode</td><td>0: Public data is Binary of 16 keys (Default) 1: Public data is last key index pressed 2: Public data is last key pressed or 16 for no key index 3: Public data is Ascii of last key pressed <br  />
- </td></tr>
-    <tr><td class="paramname">queueMode</td><td>0: Button presses are queued as indexes 1: Button Presses are queued as ASCII </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

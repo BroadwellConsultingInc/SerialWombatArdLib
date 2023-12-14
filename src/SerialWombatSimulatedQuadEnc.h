@@ -22,17 +22,198 @@ wrap a pin mode on the Serial Wombat chip.  See the Unit Test example sketch for
 class SerialWombatSimulatedQuadEnc
 {
 public:
-	SerialWombatSimulatedQuadEnc(SerialWombatChip& serialWombat0, SerialWombatChip& serialWombat1, uint8_t pin0, uint8_t pin1, bool openDrain, bool doubleTransition);
+	SerialWombatSimulatedQuadEnc(SerialWombatChip& serialWombat0, SerialWombatChip& serialWombat1, uint8_t _pin0, uint8_t _pin1, bool openDrain, bool doubleTransition): sw0(serialWombat0), sw1(serialWombat1)
+	{
+		pin0State = true;
+		pin1State = true;
+		pin0 = _pin0;
+		pin1 = _pin1;
+		this->openDrain = openDrain;
 
-	void bothPinsHigh();
-	void togglePin0();
-	void togglePin1();
-	void pin0High();
-	void pin1High();
-	void pin0Low();
-	void pin1Low();
-	bool service();
-	void initialize();
+		initialize();
+	}
+
+	void bothPinsHigh()
+	{
+		pin0High();
+		pin1High();
+	}
+	void togglePin0()
+	{
+		if (pin0State)
+		{
+			pin0Low();
+		}
+		else
+		{
+			pin0High();
+		}
+	}
+
+	void togglePin1()
+	{
+		if (pin1State)
+		{
+			pin1Low();
+		}
+		else
+		{
+			pin1High();
+		}
+	}
+	void pin0High()
+	{
+		sw0.digitalWrite(pin0, HIGH);
+		pin0State = true;
+	}
+
+	void pin1High()
+	{
+		sw1.digitalWrite(pin1, HIGH);
+		pin1State = true;
+	}
+
+
+	void pin0Low()
+	{
+		sw0.digitalWrite(pin0, LOW);
+		pin0State = false;
+	}
+
+	void pin1Low()
+	{
+		sw1.digitalWrite(pin1, LOW);
+		pin1State = false;
+	}
+
+	bool service()
+	{
+		if (currentPosition != targetPosition)
+		{
+			switch (state)
+			{
+			case SIMQE_IDLE:
+			{
+				if (currentPosition != targetPosition)
+				{
+					lastTransitionTime_millis = millis();
+					if (currentPosition < targetPosition)
+					{
+						togglePin0();
+					}
+					else 
+					{
+						togglePin1();
+					}
+					
+					state = SIMQE_1ST_TRANSITION_1ST_PIN_COMPLETED;
+				}
+
+			}
+			break;
+
+			case SIMQE_1ST_TRANSITION_1ST_PIN_COMPLETED:
+			{
+				if (millis() > lastTransitionTime_millis + delayAfterFirstPinFirstTransition_mS)
+				{
+					lastTransitionTime_millis = millis();
+					if (currentPosition < targetPosition)
+					{
+						togglePin1();
+						if (!doubleTransition)
+						{
+							++currentPosition;
+						}
+					}
+					else
+					{
+						togglePin0();
+						if (!doubleTransition)
+						{
+							--currentPosition;
+						}
+
+					}
+					
+					
+					state = SIMQE_1ST_TRANSITION_2ND_PIN_COMPLETED;
+				}
+
+			}
+			break;
+
+			case SIMQE_1ST_TRANSITION_2ND_PIN_COMPLETED:
+			{
+				if (millis() > lastTransitionTime_millis + delayAfterFirstPinSecondTransition_mS)
+				{
+					if (doubleTransition)
+					{
+						lastTransitionTime_millis = millis();
+						if (currentPosition < targetPosition)
+						{
+							togglePin0();
+						}
+						else
+						{
+							togglePin1();
+						}
+						
+						state = SIMQE_2ND_TRANSITION_2ND_PIN_COMPLETED;
+					}
+					else
+					{
+						state = SIMQE_IDLE;
+					}
+				}
+
+			}
+			break;
+			case SIMQE_2ND_TRANSITION_1ST_PIN_COMPLETED:
+			{
+				if (millis() > lastTransitionTime_millis + delayAfterSecondPinFirstTransition_mS)
+				{
+					lastTransitionTime_millis = millis();
+					if (currentPosition < targetPosition)
+					{
+						togglePin1();
+						++currentPosition;
+
+					}
+					else
+					{
+						togglePin0();
+						--currentPosition;
+
+					}
+					state = SIMQE_1ST_TRANSITION_2ND_PIN_COMPLETED;
+				}
+
+			}
+			break;
+
+			case SIMQE_2ND_TRANSITION_2ND_PIN_COMPLETED:
+			{
+				if (millis() > lastTransitionTime_millis + delayAfterFirstPinSecondTransition_mS)
+				{
+					
+						state = SIMQE_IDLE;
+				}
+
+			}
+			break;
+			}
+		}
+		return state == SIMQE_IDLE;
+	}
+	void initialize()
+	{
+		sw0.pinMode(pin0, OUTPUT, false, openDrain);
+		sw1.pinMode(pin1, OUTPUT, false, openDrain);
+		bothPinsHigh();
+		currentPosition = 0;
+		targetPosition = 0;
+		lastTransitionTime_millis = 0;
+	}
 
 
 	bool doubleTransition = false;

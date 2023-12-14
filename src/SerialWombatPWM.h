@@ -50,49 +50,66 @@ typedef enum
     SW4AB_PWMFrequency_31250_Hz = 0x01,
 }Wombat4A_B_PWMFrequencyValues_t;
 
-/// \brief A class representing a Serial Wombat PWM output
-/// 
-/// An instance of this class should be declared for each pin
-/// to be used as a Serial Wombat PWM.  
-/// 
-/// SW4A / SW4B PWMs are initialized to a frequency of 31250 Hz at startup.
-/// This frequency can be changed using the setFrequency_SW4AB method.
-/// All PWM outputs use the same clock divider, so a change in frequency
-/// to one PWM output will affect other outputs.
-/// 
-/// SW4A/4B PWM inputs are either 8 or 10 bit resolution, depending on frequency
-/// selection.  The duty cycle parameter of methods that set duty cycle
-/// take a 16 bit value ranging from 0 to 65535 as an input regardless of
-/// resolution, with 0 being
-/// always low, and 65535 being always high.
-/// 
-/// Serial Wombat 18AB PWM outputs are driven either by hardware peripherals
-/// or by a DMA based software PWM scheme.  Up to 6 hardware PWM outputs are avaialble
-/// on Enhanced Digital Performance pins (0-4,7,9-19).  The first six Enhanced Digitial
-/// Performance pins configured after reset will claim hardware resources.  Any additional
-/// pins configured for PWM will use DMA based output.  Hardware capable pins can 
-/// generate high resolution signals up to about 100kHz.  DMA based output is limited
-/// to transitions every 17uS, so a 1kHz output will have about 6 bits of resolution and
-/// a 100 Hz output will have about 9 bit resolution.
+/*!
+\brief A class representing a Serial Wombat PWM output
+
+An instance of this class should be declared for each pin
+to be used as a Serial Wombat PWM.  
+
+SW4A / SW4B PWMs are initialized to a frequency of 31250 Hz at startup.
+This frequency can be changed using the setFrequency_SW4AB method.
+All PWM outputs use the same clock divider, so a change in frequency
+to one PWM output will affect other outputs.
+
+SW4A/4B PWM inputs are either 8 or 10 bit resolution, depending on frequency
+selection.  The duty cycle parameter of methods that set duty cycle
+take a 16 bit value ranging from 0 to 65535 as an input regardless of
+resolution, with 0 being
+always low, and 65535 being always high.
+
+Serial Wombat 18AB PWM outputs are driven either by hardware peripherals
+or by a DMA based software PWM scheme.  Up to 6 hardware PWM outputs are avaialble
+on Enhanced Digital Performance pins (0-4,7,9-19).  The first six Enhanced Digitial
+Performance pins configured after reset will claim hardware resources.  Any additional
+pins configured for PWM will use DMA based output.  Hardware capable pins can 
+generate high resolution signals up to about 100kHz.  DMA based output is limited
+to transitions every 17uS, so a 1kHz output will have about 6 bits of resolution and
+a 100 Hz output will have about 9 bit resolution.
+*/
 
 class SerialWombatPWM : public SerialWombatPin
 {
 public:
-    /// \brief Constructor for SerialWombatPWM class
-    /// \param serialWombat SerialWombat  chip on which the PWM will run
-	SerialWombatPWM(SerialWombatChip& serialWombat );
+	/*!
+    \brief Constructor for SerialWombatPWM class
+    \param serialWombat SerialWombat  chip on which the PWM will run
+    */
+    SerialWombatPWM(SerialWombatChip& serialWombat) :SerialWombatPin(serialWombat) {}
 
-    /// \brief Initialize a pin that has been declared as PWM. 
-   /// \param pin The pin to become a PWM.  Valid values for SW4A: 0-3  SW4B: 1-3 
-   /// \param dutyCycle A value from 0 to 65535 representing duty cycle
-   /// \param invert if true, internally adjust duty cycle to 65535-duty cycle
-    void begin(uint8_t pin, uint16_t dutyCycle = 0,bool invert = false);
+	/*!
+    \brief Initialize a pin that has been declared as PWM. 
+   \param pin The pin to become a PWM.  Valid values for SW4A: 0-3  SW4B: 1-3 
+   \param dutyCycle A value from 0 to 65535 representing duty cycle
+   \param invert if true, internally adjust duty cycle to 65535-duty cycle
+   */
+    void begin(uint8_t pin, uint16_t dutyCycle = 0,bool invert = false)
+	{
+		_pin = pin;
+		_pinMode = (uint8_t)PIN_MODE_PWM;
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE0,_pin,PIN_MODE_PWM,_pin,(uint8_t)(dutyCycle & 0xFF),(uint8_t)(dutyCycle >> 8),invert,0x55 };
+		_sw.sendPacket(tx);
+	}
 
-    /// \brief Set PWM duty cycle
-    /// \param dutyCycle A value from 0 to 65535 representing duty cycle
-	void writeDutyCycle(uint16_t dutyCycle);
+    /*
+    \brief Set PWM duty cycle
+    \param dutyCycle A value from 0 to 65535 representing duty cycle
+    */
+	void writeDutyCycle(uint16_t dutyCycle)
+	{	
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::COMMAND_BINARY_SET_PIN_BUFFFER,_pin,(uint8_t)(dutyCycle & 0xFF),(uint8_t)(dutyCycle >>8),255,0x55,0x55 };
+		_sw.sendPacket(tx);
+	}
 
-	~SerialWombatPWM();
 private:
 };
 
@@ -101,45 +118,73 @@ private:
 class SerialWombatPWM_4AB : public SerialWombatPWM
 {
 public:
-    SerialWombatPWM_4AB(SerialWombatChip& serialWombat);
-    /// \brief Set PWM Frequency (Adjusts all PWM outputs' frequency on a SerialWombat 4A/B chip)
-    /// \param frequency  A value of the #Wombat4A_B_PWMFrequencyValues_t enumeration
-    /// 
-    /// This function changes the Serial Wombat 4A and 4B PWM output frequncy by adjusting
-    /// the clock divisor for the PWM generation hardware.  By default the value is 31250Hz.
-    /// Changing the frequency may reduce PWM resolution from 10 bits to 8 bits for some
-    /// frequencies.  However, the input value for duty cycle for methods of this class
-    /// continue to be 0 to 65535 and are scaled accordingly.
-    /// 
-    /// \warning This function will likely not be compatible with other models in the Serial Wombat
-    /// family based on other hardware that are released in the future because it is tightly coupled to the
-    /// PIC16F15214 hardware.
-    void setFrequency_SW4AB(Wombat4A_B_PWMFrequencyValues_t frequency);
+    SerialWombatPWM_4AB(SerialWombatChip& serialWombat):SerialWombatPWM(serialWombat){}
+    /*
+    \brief Set PWM Frequency (Adjusts all PWM outputs' frequency on a SerialWombat 4A/B chip)
+    \param frequency  A value of the #Wombat4A_B_PWMFrequencyValues_t enumeration
+    
+    This function changes the Serial Wombat 4A and 4B PWM output frequncy by adjusting
+    the clock divisor for the PWM generation hardware.  By default the value is 31250Hz.
+    Changing the frequency may reduce PWM resolution from 10 bits to 8 bits for some
+    frequencies.  However, the input value for duty cycle for methods of this class
+    continue to be 0 to 65535 and are scaled accordingly.
+    
+    \warning This function will likely not be compatible with other models in the Serial Wombat
+    family based on other hardware that are released in the future because it is tightly coupled to the
+    PIC16F15214 hardware.
+    */
+    void setFrequency_SW4AB(Wombat4A_B_PWMFrequencyValues_t frequency)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE_HW_0,_pin,PIN_MODE_PWM,(uint8_t)(frequency),0x55,0x55,0x55,0x55 };
+		_sw.sendPacket(tx);
+	}
 };
 
 /// \brief Extends the SerialWombatPWM class with SW18AB specific functionality, including SerialWombatAbstractScaledOutput
 class SerialWombatPWM_18AB: public SerialWombatPWM, public SerialWombatAbstractScaledOutput
 {
 public:
-    SerialWombatPWM_18AB(SerialWombatChip& serialWombat);
+    SerialWombatPWM_18AB(SerialWombatChip& serialWombat) :SerialWombatPWM(serialWombat), SerialWombatAbstractScaledOutput(serialWombat)
+    {}
 
-    
+    /*!
+    \brief Set the PWM frequency on a Serial Wombat 18AB chip's PWM
+   
+   \param frequency_Hz  Frequency in Hz.  Note that actual frequency may vary based on hardware capabilities of the pin.
+   */
+    void writeFrequency_Hz(uint32_t frequency_Hz)
+	{
+		uint8_t tx[] = { 220,_pin,PIN_MODE_PWM,SW_LE32(1000000 / frequency_Hz),0x55 };
+		_sw.sendPacket(tx);
 
-    /// \brief Set the PWM frequency on a Serial Wombat 18AB chip's PWM
-   ///
-   /// \param frequency_Hz  Frequency in Hz.  Note that actual frequency may vary based on hardware capabilities of the pin.
-    void writeFrequency_Hz(uint32_t frequency_Hz);
+	}
 
-    /// \brief Set the PWM period on a Serial Wombat 18AB chip's PWM
- ///
- /// \param period_uS  Period in microseconds.  Note that actual period may vary based on hardware capabilities of the pin.
-    void writePeriod_uS(uint32_t period_uS);
+    /*!
+    \brief Set the PWM period on a Serial Wombat 18AB chip's PWM
+ 
+ \param period_uS  Period in microseconds.  Note that actual period may vary based on hardware capabilities of the pin.
+	 */
+    void writePeriod_uS(uint32_t period_uS)
+	{
+		uint8_t tx[] = { 220,_pin,PIN_MODE_PWM,SW_LE32(period_uS),0x55 };
+		_sw.sendPacket(tx);
+	}
 
-    /// \brief fulfills a virtual function requirement of SerialWombatAbstractScaledOutput
-    /// \return current pin number
-    uint8_t pin();
-    /// \brief fulfills a virtual function requirement of SerialWombatAbstractScaledOutput
-    /// \return current pin mode number
-    uint8_t swPinModeNumber();
+    /*!
+    \brief fulfills a virtual function requirement of SerialWombatAbstractScaledOutput
+    \return current pin number
+    */
+    uint8_t pin()
+{
+	return SerialWombatPin::_pin;
+}
+    /*!
+    \brief fulfills a virtual function requirement of SerialWombatAbstractScaledOutput
+    \return current pin mode number
+    */
+    uint8_t swPinModeNumber()
+	{
+		return SerialWombatPin::_pinMode;
+	}
 };
 

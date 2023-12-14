@@ -1,7 +1,7 @@
 #pragma once
 
 /*
-Copyright 2020-2021 Broadwell Consulting Inc.
+Copyright 2020-2023 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -42,7 +42,7 @@ enum ResistanceInputPublicDataOutput {
 
 /*!
 
-\brief A class to make resistance measurements with the Serial Wombat 18AB chip.
+@brief A class to make resistance measurements with the Serial Wombat 18AB chip.
 
 The SerialWombatResistanceInput class is used to make resistance measurements on a given pin up to about 60 kOhm.
 
@@ -64,89 +64,159 @@ A tutorial is available here:
 
 https://youtu.be/8ynBmxZSE_M
 
-\htmlonly
+@htmlonly
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8ynBmxZSE_M" title="YouTube video player" 
 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
 picture-in-picture" allowfullscreen></iframe>
-\endhtmlonly
+@endhtmlonly
 
 */
 class SerialWombatResistanceInput : public SerialWombatPin, public SerialWombatAbstractProcessedInput
 {
 public:
-	/// \brief Constructor for the SerialWombatResistanceInput class.
-	/// 
-	/// \param SerialWombat a reference to the Serial Wombat chip on which the Resistance Input will be measured
-	SerialWombatResistanceInput(SerialWombatChip& SerialWombat);
+	/*!
+	@brief Constructor for the SerialWombatResistanceInput class.
+	
+	@param SerialWombat a reference to the Serial Wombat chip on which the Resistance Input will be measured
+	*/
+	SerialWombatResistanceInput(SerialWombatChip& serialWombatChip):SerialWombatPin(serialWombatChip), SerialWombatAbstractProcessedInput(serialWombatChip){}
 
-	/// \brief Initialize a resistance input on a given pin.
-	/// 
-	/// This intialization turns on sample averaging to 64 samples 
-	/// 
-	/// \param pin The Serial Wombat pin to set.  Must be an analog pin (0-4, 16-19)
-	/// 
-	/// \return Returns a negative error code if initialization failed.
-	int16_t begin(uint8_t pin);
+	/*!
+	@brief Initialize a resistance input on a given pin.
+	
+	This intialization turns on sample averaging to 64 samples 
+	
+	@param pin The Serial Wombat pin to set.  Must be an analog pin (0-4, 16-19)
+	
+	@return Returns a negative error code if initialization failed.
+	*/
+	int16_t begin(uint8_t pin)
+	{
+		_pin = pin;
+		uint8_t tx[] = { 200,_pin,PIN_MODE_RESISTANCEINPUT,0,0,0,0,0 };
+		uint8_t rx[8];
+		_sw.sendPacket(tx, rx);
+		uint8_t tx1[] = { 201,_pin,PIN_MODE_RESISTANCEINPUT,4,0,0xFF,0x80,0 };
+		return _sw.sendPacket(tx1, rx);
+	}
 
-	/// \brief Initialize a resistance input on a given pin.
-	/// 
-	/// \param pin The Serial Wombat pin to set.   Must be an analog pin (0-4, 16-19)
-	/// \param averageSamples Number of samples to average.  
-	/// \param filterConstant First Order IIR filter constant, expressed as 1/65536ths .
-	/// Values closer to 65536 give heavier filtering.  Sample frequency is 20Hz.
-	/// \return Returns a negative error code if initialization failed.
-	int16_t begin(uint8_t pin, uint16_t averageSamples, uint16_t filterConstant);
+	/*!
+	@brief Initialize a resistance input on a given pin.
+	
+	@param pin The Serial Wombat pin to set.   Must be an analog pin (0-4, 16-19)
+	@param averageSamples Number of samples to average.  
+	@param filterConstant First Order IIR filter constant, expressed as 1/65536ths .
+	Values closer to 65536 give heavier filtering.  Sample frequency is 20Hz.
+	@return Returns a negative error code if initialization failed.
+	*/
+	int16_t begin(uint8_t pin, uint16_t averageSamples, uint16_t filterConstant)
+	{
+		begin(pin);
+		uint8_t tx[] = { 201,_pin,PIN_MODE_RESISTANCEINPUT,SW_LE16(averageSamples) ,SW_LE16(filterConstant),0 };
+		return _sw.sendPacket(tx);
+	}
 
-	/// \brief Initialize a resistance input on a given pin.
-	/// 
-	/// \param pin The Serial Wombat pin to set.  Must be an analog pin (0-4, 16-19)
-	/// \param averageSamples Number of samples to average. 
-	/// \param filterConstant First Order IIR filter constant, expressed as 1/65536ths .
-	/// Values closer to 65536 give heavier filtering.  Sample frequency is 20 Hz.
-	/// \param publicDataOutput What to output as pin public data
-	/// \return Returns a negative error code if initialization failed.
-	int16_t begin(uint8_t pin, uint16_t averageSamples, uint16_t filterConstant, ResistanceInputPublicDataOutput output);
+	/*!
+	@brief Initialize a resistance input on a given pin.
+	
+	@param pin The Serial Wombat pin to set.  Must be an analog pin (0-4, 16-19)
+	@param averageSamples Number of samples to average. 
+	@param filterConstant First Order IIR filter constant, expressed as 1/65536ths .
+	Values closer to 65536 give heavier filtering.  Sample frequency is 20 Hz.
+	@param publicDataOutput What to output as pin public data
+	@return Returns a negative error code if initialization failed.
+	*/
+	int16_t begin(uint8_t pin, uint16_t averageSamples, uint16_t filterConstant, ResistanceInputPublicDataOutput output)
+	{
+		begin(pin);
+		uint8_t tx[] = { 201,_pin,PIN_MODE_RESISTANCEINPUT,SW_LE16(averageSamples) ,SW_LE16(filterConstant),(uint8_t)output };
+		return _sw.sendPacket(tx);
+	}
+
+	/*!
+	@brief Retreive a filtered Resistance measurement
+	
+	Conversion is based on the most recent filtered Resistance value taken by the 
+	Serial Wombat at the command time.
+	
+	
+	@return A 16 bit unsigned value indicating the filtered Resistance result
+	*/
+	uint16_t readFilteredOhms()
+	{
+		uint8_t tx[] = { 204,_pin,PIN_MODE_RESISTANCEINPUT,0x55,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+
+		_sw.sendPacket(tx, rx);
+
+		return(rx[5] + rx[6] * 256);
+	}
 
 
+	/*!
+	@brief Retreive an averaged Resistance measurement
+	
+	Conversion is based on the most recent averaged Resistance value taken by the 
+	Serial Wombat at the command time.
+	
+	@return A 16 bit unsigned value indicating the ohms of the Resistance conversion
+	*/
+	uint16_t readAveragedOhms()
+	{
+		uint8_t tx[] = { 204,_pin,PIN_MODE_RESISTANCEINPUT,0x55,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+
+		_sw.sendPacket(tx, rx);
+
+		return(rx[3] + rx[4] * 256);
+	}
 
 
-	/// \brief Retreive a filtered Resistance measurement
-	/// 
-	/// Conversion is based on the most recent filtered Resistance value taken by the 
-	/// Serial Wombat at the command time.
-	/// 
-	/// 
-	/// \return A 16 bit unsigned value indicating the filtered Resistance result
-	uint16_t readFilteredOhms();
+	/*!
+	@brief Retreive the maximum single sample Resistance value in Ohms
+	 
+	The maximum value the Serial Wombat chip has seen on that pin since last reset of Min/Max
+	
+	@param resetAfterRead If True, maximum value is set to 0 after read so that subsequent values become maximum.  Also resets minimum to next sample.
+	
+	@return A 16 bit unsigned value indicating maximum Resistance Ohms
+	*/
+	uint16_t readMaximumOhms(bool resetAfterRead)
+	{
+		uint8_t tx[] = { 203,_pin,PIN_MODE_RESISTANCEINPUT,0,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
 
+		if (resetAfterRead)
+		{
+			tx[3] = 1;
+		}
+		_sw.sendPacket(tx, rx);
 
-	/// \brief Retreive an averaged Resistance measurement
-	/// 
-	/// Conversion is based on the most recent averaged Resistance value taken by the 
-	/// Serial Wombat at the command time.
-	/// 
-	/// \return A 16 bit unsigned value indicating the ohms of the Resistance conversion
-	uint16_t readAveragedOhms();
+		return(rx[5] + rx[6] * 256);
+	}
 
+	/*!
+	@brief Retreive the maximum single sample Resistance value in Ohms
+	 
+	The maximum value the Serial Wombat chip has seen on that pin since last reset of Min/Max
+	
+	@param resetAfterRead If True, maximum value is set to 0 after read so that subsequent values become maximum.  Also resets minimum to next sample.
+	
+	@return A 16 bit unsigned value indicating maximum Resistance Ohms
+	*/
+	uint16_t readMinimumOhms(bool resetAfterRead)
+	{
+		uint8_t tx[] = { 203,_pin,PIN_MODE_RESISTANCEINPUT,0,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
 
-	/// \brief Retreive the maximum single sample Resistance value in Ohms
-	///  
-	/// The maximum value the Serial Wombat chip has seen on that pin since last reset of Min/Max
-	///
-	/// \param resetAfterRead If True, maximum value is set to 0 after read so that subsequent values become maximum.  Also resets minimum to next sample.
-	/// 
-	/// \return A 16 bit unsigned value indicating maximum Resistance Ohms
-	uint16_t readMaximumOhms(bool resetAfterRead);
+		if (resetAfterRead)
+		{
+			tx[3] = 1;
+		}
+		_sw.sendPacket(tx, rx);
 
-
-	/// \brief Retreive the maximum single sample Resistance value in Ohms
-	///  
-	/// The maximum value the Serial Wombat chip has seen on that pin since last reset of Min/Max
-	///
-	/// \param resetAfterRead If True, maximum value is set to 0 after read so that subsequent values become maximum.  Also resets minimum to next sample.
-	/// 
-	/// \return A 16 bit unsigned value indicating maximum Resistance Ohms
-	uint16_t readMinimumOhms(bool resetAfterRead);
+		return(rx[3] + rx[4] * 256);
+	}
 
 	uint8_t pin() { return _pin; }
 	uint8_t swPinModeNumber() { return _pinMode; }

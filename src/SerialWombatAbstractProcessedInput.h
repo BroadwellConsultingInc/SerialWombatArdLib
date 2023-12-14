@@ -79,10 +79,12 @@ then call writeProcessedInputEnable(true) to enable processing.
 class SerialWombatAbstractProcessedInput 
 {
 public:
-	/// \brief Constructor for the SerialWombatAbstractScaledOutput Class
-	/// 
-	/// \param sw A reference to a previously declared SerialWombatPin to which the output is connected.
-	SerialWombatAbstractProcessedInput(SerialWombatChip& sw);
+	/*!
+	\brief Constructor for the SerialWombatAbstractScaledOutput Class
+	
+	\param sw A reference to a previously declared SerialWombatPin to which the output is connected.
+	*/
+	SerialWombatAbstractProcessedInput(SerialWombatChip& sw):_pisw(sw){}
 
 
 	enum  Period {
@@ -112,137 +114,349 @@ public:
 		LINEAR_MXB = 2  ///< Scale the input signal based on a linear mx+b equation
 	};
 
-	/// \brief if enabled subtract the input value from 65535 before doing any other processing.
-	///
-	/// \param inverted False - input value isn't changed.  True- input value is subtracted from 65535
-	///
-	/// \return returns 0 or higher if success, or a negative error code
-	int16_t writeInverted(bool inverted);  
+	/*!
+	\brief if enabled subtract the input value from 65535 before doing any other processing.
+	
+	\param inverted False - input value isn't changed.  True- input value is subtracted from 65535
+	
+	\return returns 0 or higher if success, or a negative error code
+	*/
+	int16_t writeInverted(bool inverted)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+			3,
+			(uint8_t) inverted,
+			0x55,0x55,0x55
+		};
 
-	/// \brief Set a first order filtering constant to be applied to the signal  Higher is heavier filtering
-	/// 
-	/// The filter samples at 1kHz.
-/// For a good explanation of 1st order IIR filter calculations, see:
-/// https://www.monocilindro.com/2017/04/08/how-to-implement-a-1st-order-iir-filter-in-5-minutes/
-/// 
-/// Some filter cut-off (3dB down) frequency and constant values:
-///       - 0.5 Hz  65417
-/// 	  - 1 Hz 65298   
-/// 	  - 2 Hz 65062
-/// 	  - 5 Hz 64358
-/// 	  - 10 Hz 63202
-/// 
-/// Filtering adds lag.  The higher the filter constant value, the longer it takes for the filter to settle 
-/// when given a steady input.
-	/// 
-	/// \param constant  The first order filter constant from 0 to 65535.  Larger constant is heavier filtering
-	/// \return returns 0 or higher if success, or a negative error code
-	int16_t writeFirstOrderFilteringConstant(uint16_t constant);
+		int16_t result = _pisw.sendPacket(tx);
 
-	/// \brief Set a number of samples to average for each update of the downstream signal
-	///
-	/// The average is a typical average, not a moving average so the more samples comprise the averaged value
-	/// the less often the downstream value will update.
-	///
-	/// \param A number of samples to include in each output average.  Samples are typically taken each mS, although
-	/// some modes such as SerialWombatUltrasonicDistanceSensor sample at other periods.
-	/// \return returns 0 or higher if success, or a negative error code
-	int16_t writeAveragingNumberOfSamples(uint16_t numberOfSamples);
+		return(result);
+	}
 
-	/// \brief Sets input value ranges which are discarded rather than processed
-	///
-	///  Input values that are below the low parameter  or above the high parameter are not processed.
-	///  The last valid input value is repeated instead.  This feature is designed to reject 
-	///  outlier values, not to act as a high or low limiting clamp
-	///
-	/// \param low input values below this value will not be processed
-	/// \param high input values above this value will not be processsed.
-	/// \return returns 0 or higher if success, or a negative error code
-	int16_t writeExcludeBelowAbove(uint16_t low, uint16_t high);
+	/*!
+	\brief Set a first order filtering constant to be applied to the signal  Higher is heavier filtering
+	
+	The filter samples at 1kHz.
+	For a good explanation of 1st order IIR filter calculations, see:
+	https://www.monocilindro.com/2017/04/08/how-to-implement-a-1st-order-iir-filter-in-5-minutes/
 
+	Some filter cut-off (3dB down) frequency and constant values:
+	- 0.5 Hz  65417
+	- 1 Hz 65298   
+	- 2 Hz 65062
+	- 5 Hz 64358
+	- 10 Hz 63202
 
-	/// \brief Sets up the queueing feature for this pin mode.  Queue must have been initialized prior to this queue
-	///
-	///  Allows periodic storage of the public data value into a previously initialized queue in the user memory buffer.
-	/// The high byte, the low byte, or both can be stored into the queue.  This is useful to increase the number of 
-	/// Samples that can be stored and transferred if 8 bit resolution is sufficent.   
-	/// 
-	/// Note that the sampling period is an enumerated type, not a numerical value
-	/// 
-	/// \param queue The index into the User Memory Buffer where the queue is located
-	/// \param period The sampling period.  See the enumerated type for values
-	/// \param queueHighByte  Whether to put the high byte of the sample into the queue
-	/// \param queueLowByte Whether to put the low byte of the sample into the queue
-	/// \return returns 0 or higher if success, or a negative error code
-	int16_t configureQueue(SerialWombatQueue* queue, Period period, bool queueHighByte = true, bool queueLowByte = true);
+	Filtering adds lag.  The higher the filter constant value, the longer it takes for the filter to settle 
+	when given a steady input.
+	
+	\param constant  The first order filter constant from 0 to 65535.  Larger constant is heavier filtering
+	\return returns 0 or higher if success, or a negative error code
+	*/
+	int16_t writeFirstOrderFilteringConstant(uint16_t constant)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+			11,
+			SW_LE16(constant),
+			0x55,0x55
+		};
+		return (_pisw.sendPacket(tx));
+	}
 
-	/// \brief Configures whether the pin's public data value is averaged, filtered, or neither
-	///
-	/// \param outputValue An enumerated type for filtered, averaged, or raw
-	int16_t configureOutputValue(OutputValue outputValue);
+	/*!
+	\brief Set a number of samples to average for each update of the downstream signal
+	
+	The average is a typical average, not a moving average so the more samples comprise the averaged value
+	the less often the downstream value will update.
+	
+	\param A number of samples to include in each output average.  Samples are typically taken each mS, although
+	some modes such as SerialWombatUltrasonicDistanceSensor sample at other periods.
+	\return returns 0 or higher if success, or a negative error code
+	*/
+	int16_t writeAveragingNumberOfSamples(uint16_t numberOfSamples)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+			1,
+			SW_LE16(numberOfSamples),
+			0x55,0x55
+		};
 
-	/// \brief Scale incoming values to a range of 0 to 65535
-	///
-	/// This function allows configuration of an input scaling range that maps to 0-65535.  
-	/// For example, if a sensor returns a range from 2000 to 5000, setting the minimum to 2000 and
-	/// maximum to 5000 will cause values below 2000 to be 0, values above 5000 to be 65535, and values
-	/// in between will be scaled accordingly.  This allows a sensor or other input device to scale to the
-	/// Serial Wombat philosophy of using a 16 bit resolution number to represent the the possible range of values
-	///
-	/// Calling this feature disables writeTransformLinearMXB until the pin is reinitialized with begin().
-	///
-	/// \param min The minimum value of the input range.  Input values less than or equal to that will be scaled to 0
-	/// \param max The maximum value of the input range.  Input values greater or equal to that will be scaled to 65535
-	/// \return returns 0 or higher if success, or a negative error code
-	int16_t writeTransformScaleRange(uint16_t min, uint16_t max);
+		int16_t result = _pisw.sendPacket(tx);
 
-	/// \brief Scale incoming values based on an mx+b linear equation
-	///
-	/// Allows scaling of an input by multiplying by m, dividing by 256, and adding b.
-	/// The m value can be thought of as a fraction with a divisor of 256.  This allows the scaling
-	/// value to make the input bigger or smaller.  After the multiplication, division and addition
-	/// the result is limited to the range of 0 to 65535.
-	//
-	/// Calling this feature disables writeTransformScaleRange until the pin is reinitialized with begin().
-	///
-	/// \param m A value between -16777215 and +1677215 representing the number of 256th by which to multiply the input 
-	/// \param b A value between -65535 and 65535 to add to the result of the multiplication
-	/// \return returns 0 or higher if success, or a negative error code
-	int16_t writeTransformLinearMXB(int32_t m, int32_t b);
+		return(result);
+	}
 
-	/// \brief Enables or disables all input processing functions
-	///  If disabled, the raw input value is placed directly in the pin's 16 bit public data buffer
-	int16_t writeProcessedInputEnable(bool enabled);
+	/*!
+	\brief Sets input value ranges which are discarded rather than processed
+	
+	Input values that are below the low parameter  or above the high parameter are not processed.
+	The last valid input value is repeated instead.  This feature is designed to reject 
+	outlier values, not to act as a high or low limiting clamp
+	
+	\param low input values below this value will not be processed
+	\param high input values above this value will not be processsed.
+	\return returns 0 or higher if success, or a negative error code
+	*/
+	int16_t writeExcludeBelowAbove(uint16_t low, uint16_t high)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+			2,
+			SW_LE16(low),
+			SW_LE16(high)
+		};
+
+		int16_t result = _pisw.sendPacket(tx);
+
+		return(result);
+	}
 
 
-	/// \brief Retreive the maximum public data output  value since the last call with reset= true
-	///  
-	/// \param resetAfterRead If True, maximum value is set to 0 after read so that subsequent values become maximum.  
-	/// 
-	/// \return A 16 bit unsigned value indicating the maximum value
-	uint16_t readMinimum(bool resetAfterRead = false);
-	/// \brief Retreive the minimum public data output  value since the last call with reset= true
-	///  
-	/// \param resetAfterRead If True, minimum value is set to 65535 after read so that subsequent values become minimum.  
-	/// 
-	/// \return A 16 bit unsigned value indicating the minimum value
-	uint16_t readMaximum(bool resetAfterRead = false);
+	/*!
+	\brief Sets up the queueing feature for this pin mode.  Queue must have been initialized prior to this queue
+	
+	Allows periodic storage of the public data value into a previously initialized queue in the user memory buffer.
+	The high byte, the low byte, or both can be stored into the queue.  This is useful to increase the number of 
+	Samples that can be stored and transferred if 8 bit resolution is sufficent.   
+	
+	Note that the sampling period is an enumerated type, not a numerical value
+	
+	\param queue The index into the User Memory Buffer where the queue is located
+	\param period The sampling period.  See the enumerated type for values
+	\param queueHighByte  Whether to put the high byte of the sample into the queue
+	\param queueLowByte Whether to put the low byte of the sample into the queue
+	\return returns 0 or higher if success, or a negative error code
+	*/
+	int16_t configureQueue(SerialWombatQueue* queue, Period period, bool queueHighByte = true, bool queueLowByte = true)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+			5,
+			SW_LE16(queue->startIndex)
+			,(uint8_t)period,
+			(uint8_t)((((uint8_t) queueHighByte) << (uint8_t)1) | (uint8_t)queueLowByte)
+		};
+		int16_t result = _pisw.sendPacket(tx);
+		return(result);
+	}
 
-	/// \brief Retreive the last completed averaged value
-	///
-	/// \return The last completed result of the averaging.  Note that because the average is a normal average and not
-	/// a moving average, this value is unlikely to include the most recent raw samples.
-	uint16_t readAverage();
+	/*!
+	\brief Configures whether the pin's public data value is averaged, filtered, or neither
+	
+	\param outputValue An enumerated type for filtered, averaged, or raw
+	*/
+	int16_t configureOutputValue(OutputValue outputValue)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+			4,
+			(uint8_t)outputValue,
+			0x55,0x55,0x55
+		};
 
-	/// \brief Retreive the filtered value
-	/// 
-	/// \brief A 16 bit value representing the First Order IIR filtered result of the input
-	uint16_t readFiltered();
+		int16_t result = _pisw.sendPacket(tx);
 
-	/// \brief Used for inheritance
+		return(result);
+	}
+
+	/*!
+	\brief Scale incoming values to a range of 0 to 65535
+	
+	This function allows configuration of an input scaling range that maps to 0-65535.  
+	For example, if a sensor returns a range from 2000 to 5000, setting the minimum to 2000 and
+	maximum to 5000 will cause values below 2000 to be 0, values above 5000 to be 65535, and values
+	in between will be scaled accordingly.  This allows a sensor or other input device to scale to the
+	Serial Wombat philosophy of using a 16 bit resolution number to represent the the possible range of values
+	
+	Calling this feature disables writeTransformLinearMXB until the pin is reinitialized with begin().
+	
+	\param min The minimum value of the input range.  Input values less than or equal to that will be scaled to 0
+	\param max The maximum value of the input range.  Input values greater or equal to that will be scaled to 65535
+	\return returns 0 or higher if success, or a negative error code
+	*/
+	int16_t writeTransformScaleRange(uint16_t min, uint16_t max)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+			6,
+			SW_LE16(min),
+			SW_LE16(max)
+		};
+
+		int16_t result = _pisw.sendPacket(tx);
+
+		return(result);
+	}
+
+	/*!
+	\brief Scale incoming values based on an mx+b linear equation
+	
+	Allows scaling of an input by multiplying by m, dividing by 256, and adding b.
+	The m value can be thought of as a fraction with a divisor of 256.  This allows the scaling
+	value to make the input bigger or smaller.  After the multiplication, division and addition
+	the result is limited to the range of 0 to 65535.
+	Calling this feature disables writeTransformScaleRange until the pin is reinitialized with begin().
+	
+	\param m A value between -16777215 and +1677215 representing the number of 256th by which to multiply the input 
+	\param b A value between -65535 and 65535 to add to the result of the multiplication
+	\return returns 0 or higher if success, or a negative error code
+	*/
+	int16_t writeTransformLinearMXB(int32_t m, int32_t b)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+			7,
+			SW_LE32(((uint32_t)m)),
+		};
+
+		int16_t result = _pisw.sendPacket(tx);
+		if (result < 0)
+		{
+			return(result);
+		}
+
+		uint8_t tx2[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+			8,
+			SW_LE32(((uint32_t)b)),
+		};
+	    result = _pisw.sendPacket(tx2);
+		return(result);
+	}
+
+	/*!
+	\brief Enables or disables all input processing functions
+	If disabled, the raw input value is placed directly in the pin's 16 bit public data buffer
+	*/
+	int16_t writeProcessedInputEnable(bool enabled)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+			0,
+			(uint8_t)enabled,
+			0x55,0x55,0x55
+		};
+
+		int16_t result = _pisw.sendPacket(tx);
+
+		return(result);
+	}
+
+	/*!
+	\brief Retreive the maximum public data output  value since the last call with reset= true
+	
+	\param resetAfterRead If True, maximum value is set to 0 after read so that subsequent values become maximum.  
+	
+	\return A 16 bit unsigned value indicating the maximum value
+	*/
+	uint16_t readMinimum(bool resetAfterRead = false)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+			9,
+			(uint8_t)resetAfterRead,
+			0x55,0x55,0x55
+		};
+		uint8_t rx[8];
+		int16_t result = _pisw.sendPacket(tx,rx);
+		if (result < 0)
+		{
+			return (65535);
+		}
+		return(rx[4] + 256*rx[5]);
+	}
+
+	/*!
+	\brief Retreive the minimum public data output  value since the last call with reset= true
+	
+	\param resetAfterRead If True, minimum value is set to 65535 after read so that subsequent values become minimum.  
+	
+	\return A 16 bit unsigned value indicating the minimum value
+	*/
+	uint16_t readMaximum(bool resetAfterRead = false)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+			10,
+			(uint8_t)resetAfterRead,
+			0x55,0x55,0x55
+		};
+		uint8_t rx[8];
+		int16_t result = _pisw.sendPacket(tx, rx);
+		if (result < 0)
+		{
+			return (65535);
+		}
+		return(rx[4] + 256 * rx[5]);
+	}
+
+	/*!
+	\brief Retreive the last completed averaged value
+	
+	\return The last completed result of the averaging.  Note that because the average is a normal average and not
+	a moving average, this value is unlikely to include the most recent raw samples.
+	*/
+	uint16_t readAverage()
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+			11,
+			0x55,0x55,0x55,0x55
+		};
+		uint8_t rx[8];
+		int16_t result = _pisw.sendPacket(tx, rx);
+		if (result < 0)
+		{
+			return (0);
+		}
+		return(rx[4] + 256 * rx[5]);
+	}
+	/*!
+	\brief Retreive the filtered value
+	
+	\brief A 16 bit value representing the First Order IIR filtered result of the input
+	*/
+	uint16_t readFiltered()
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+			11,
+			0x55,0x55,0x55,0x55
+		};
+		uint8_t rx[8];
+		int16_t result = _pisw.sendPacket(tx, rx);
+		if (result < 0)
+		{
+			return (0);
+		}
+		return(rx[6] + 256 * rx[7]);
+	}
+	/*!
+	\brief Used for inheritance
+	*/
 	virtual uint8_t pin() = 0;
 
-	/// \brief Used for ineheritance
+	/*!
+	\brief Used for ineheritance
+	*/
 	virtual uint8_t swPinModeNumber() = 0;
 
 private:

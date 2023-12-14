@@ -11,10 +11,10 @@ Keyboard data and clock lines should be pulled up to +5v using a 2k resistor.  5
 be used.
 
 A video demonstrating the use of the PS2 Keyboard pin mode on the Serial Wombat 18AB chip is available at:
-TODO
+https://www.youtube.com/watch?v=YV00GfyxFJU
 
 Documentation for the SerialWombatTM1637 Arduino class is available at:
-TODO
+https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_p_s2_keyboard.html
 */
 
 SerialWombatChip sw;

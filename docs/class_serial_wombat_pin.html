@@ -117,12 +117,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a60b32aa6eb6cbce89b5ea0b8114b8370"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a60b32aa6eb6cbce89b5ea0b8114b8370">readPublicData</a> ()</td></tr>
 <tr class="memdesc:a60b32aa6eb6cbce89b5ea0b8114b8370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the 16 Bit public data associated with this pin.  <a href="class_serial_wombat_pin.html#a60b32aa6eb6cbce89b5ea0b8114b8370">More...</a><br /></td></tr>
 <tr class="separator:a60b32aa6eb6cbce89b5ea0b8114b8370"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae349fe9a08ac0abf8d290c0106411843"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#ae349fe9a08ac0abf8d290c0106411843">pinMode</a> (uint8_t mode)</td></tr>
-<tr class="memdesc:ae349fe9a08ac0abf8d290c0106411843"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set pin to INPUT or OUTPUT.  <a href="class_serial_wombat_pin.html#ae349fe9a08ac0abf8d290c0106411843">More...</a><br /></td></tr>
-<tr class="separator:ae349fe9a08ac0abf8d290c0106411843"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc198b70b435f4a48510a1136e1db304"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#abc198b70b435f4a48510a1136e1db304">pinMode</a> (uint8_t mode, bool pullDown, bool openDrain)</td></tr>
-<tr class="memdesc:abc198b70b435f4a48510a1136e1db304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set pin to INPUT or OUTPUT, with options for pull Ups and open Drain settings.  <a href="class_serial_wombat_pin.html#abc198b70b435f4a48510a1136e1db304">More...</a><br /></td></tr>
-<tr class="separator:abc198b70b435f4a48510a1136e1db304"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e976bca649ed3a679a76039470f3b69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a8e976bca649ed3a679a76039470f3b69">pinMode</a> (uint8_t mode, bool pullDown=false, bool openDrain=false)</td></tr>
+<tr class="memdesc:a8e976bca649ed3a679a76039470f3b69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set pin to INPUT or OUTPUT, with options for pull Ups and open Drain settings.  <a href="class_serial_wombat_pin.html#a8e976bca649ed3a679a76039470f3b69">More...</a><br /></td></tr>
+<tr class="separator:a8e976bca649ed3a679a76039470f3b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65687a37ab977c08185b8b1269065d2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a65687a37ab977c08185b8b1269065d2d">digitalWrite</a> (uint8_t val)</td></tr>
 <tr class="memdesc:a65687a37ab977c08185b8b1269065d2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set output pin High or Low.  <a href="class_serial_wombat_pin.html#a65687a37ab977c08185b8b1269065d2d">More...</a><br /></td></tr>
 <tr class="separator:a65687a37ab977c08185b8b1269065d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -158,6 +155,9 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">SerialWombatPin::SerialWombatPin </td>
@@ -167,6 +167,11 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Instantiates a Serial Wombat Pin. </p>
@@ -184,6 +189,9 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">SerialWombatPin::SerialWombatPin </td>
@@ -203,6 +211,11 @@ Protected Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Instantiates a Serial Wombat Pin. </p>
@@ -222,6 +235,9 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int SerialWombatPin::digitalRead </td>
@@ -230,6 +246,11 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Reads the state of the Pin. </p>
@@ -243,6 +264,9 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SerialWombatPin::digitalWrite </td>
@@ -252,10 +276,15 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Set output pin High or Low. </p>
-<p>Before calling this function, the pin should be configured as an input or output with <a class="el" href="class_serial_wombat_pin.html#ae349fe9a08ac0abf8d290c0106411843" title="Set pin to INPUT or OUTPUT.">pinMode()</a> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Before calling this function, the pin should be configured as an input or output with <a class="el" href="class_serial_wombat_pin.html#a8e976bca649ed3a679a76039470f3b69" title="Set pin to INPUT or OUTPUT, with options for pull Ups and open Drain settings.">pinMode()</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pin</td><td>The Serial Wombat pin to set. Valid values for SW4A: 0-3 SW4B: 1-3 </td></tr>
     <tr><td class="paramname">val</td><td>Valid values are HIGH or LOW not use SW_INPUT, SW_HIGH or SW_LOW here, as these have different meanings </td></tr>
@@ -293,39 +322,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ae349fe9a08ac0abf8d290c0106411843"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae349fe9a08ac0abf8d290c0106411843">&#9670;&nbsp;</a></span>pinMode() <span class="overload">[1/2]</span></h2>
+<a id="a8e976bca649ed3a679a76039470f3b69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e976bca649ed3a679a76039470f3b69">&#9670;&nbsp;</a></span>pinMode()</h2>
 
 <div class="memitem">
 <div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SerialWombatPin::pinMode </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>mode</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set pin to INPUT or OUTPUT. </p>
-<p>This method matches the Arduino Digital io pinMode command It should only be used on pins that have not been configured to a more sophisticated (e.g. debounce or servo) pin mode. <br  />
-</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">mode</td><td>Valid values are INPUT or OUTPUT as defined by arduino. Do not use SW_INPUT, SW_HIGH or SW_LOW here, as these have different meanings </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="abc198b70b435f4a48510a1136e1db304"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc198b70b435f4a48510a1136e1db304">&#9670;&nbsp;</a></span>pinMode() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SerialWombatPin::pinMode </td>
@@ -337,13 +341,13 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>pullDown</em>, </td>
+          <td class="paramname"><em>pullDown</em> = <code>false</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>openDrain</em>&#160;</td>
+          <td class="paramname"><em>openDrain</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -351,6 +355,11 @@ Protected Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Set pin to INPUT or OUTPUT, with options for pull Ups and open Drain settings. </p>

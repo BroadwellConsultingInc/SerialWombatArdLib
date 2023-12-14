@@ -1,6 +1,6 @@
 #pragma once
 /*
-Copyright 2020-2021 Broadwell Consulting Inc.
+Copyright 2020-2023 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -43,6 +43,9 @@ A video Tutorial on this pin mode is available:
 
 //TODO https://youtu.be/
 
+Documentation for the SerialWombatUltrasonicDistanceSensor class is available at:
+https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_ultrasonic_distance_sensor.html
+
 
 */
 
@@ -51,7 +54,8 @@ class SerialWombatUltrasonicDistanceSensor : public SerialWombatPin, public Seri
 public:
 	/// \brief Class constructor for SerialWombatPulseTimer
 	/// \param serialWombat The Serial Wombat chip on which the SerialWombatPulseTimer pinmode will be run
-	SerialWombatUltrasonicDistanceSensor(SerialWombatChip& serialWombat);
+	SerialWombatUltrasonicDistanceSensor(SerialWombatChip& serialWombat): SerialWombatPin(serialWombat),SerialWombatAbstractProcessedInput(serialWombat)
+	{}
 
 	enum driver {
 	HC_SR04 = 0,  ///< Standard buffered mode.  Colors are uploaded by the host
@@ -64,18 +68,45 @@ public:
 	/// \param driver Chip used for distance measurement.  Currently only HC_SR04 is supported.
 	/// \param triggerPin Pin used for triggering the sensor.  If same as echo pin (e.g. 3 pin sensors) set equal to echoPin
 	/// \return 0 or higher if successful, negative error code if not successful.
-	int16_t begin(uint8_t echoPin, driver driver, uint8_t triggerPin,bool autoTrigger = true, bool pullUp = false);
+	int16_t begin(uint8_t echoPin, driver driver, uint8_t triggerPin,bool autoTrigger = true, bool pullUp = false)
+	{
+		_pin = echoPin;
+		_pinMode = PIN_MODE_ULTRASONIC_DISTANCE;
+
+		uint8_t tx[] = { 200,_pin,_pinMode,(uint8_t)driver, triggerPin, (uint8_t)pullUp,(uint8_t)autoTrigger, 0x55 };
+		return(_sw.sendPacket(tx));
+	}
 
 	/// \brief get the number of pulses that have been sent.  
 	///
 	/// \return The number of pulses that have been sent.  Rolls over at 65536
-	uint16_t readPulseCount();
+	uint16_t readPulseCount()
+	{
+
+		uint8_t tx[] = { 202,_pin,_pinMode,0x55,0x55,0x55,0x55, 0x55 };
+		uint8_t rx[8];
+		if(_sw.sendPacket(tx,rx) >= 0)
+		{
+			return (rx[5] + 256 * rx[6]);
+		}
+		else
+		{
+			return 0;
+		}
+
+
+	}
 
 	/// \brief Manually trigger a distance reading
 	///
 	/// Use this interface to trigger a reading if begin was called with autoTrigger = false
 	/// \return 0 or higher if successful, negative error code if not successful.
-	int16_t manualTrigger();
+	int16_t manualTrigger()
+	{
+		uint8_t tx[] = { 201,_pin,_pinMode,1,0x55,0x55,0x55, 0x55 };
+		
+		return _sw.sendPacket(tx);
+	}
 
 	/// \brief Facilitates Inheritance
 	uint8_t pin() { return _pin; }

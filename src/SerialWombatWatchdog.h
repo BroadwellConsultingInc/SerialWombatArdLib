@@ -5,7 +5,7 @@
 
 /*! \brief A class to wrap around a Serial Wombat Watchdog Pin
 
-The Serial Wombat Watchdog is designed to improve system reliability in case of communications loss with the
+The Serial Wombat Watchdog Pin Mode is designed to improve system reliability in case of communications loss with the
 host device.  This may be because the communications lines are no longer functional (e.g. I2C bus locked up)
 or the host ceases to communicate (Such as when an Arduino malfunctions due to issues allocating string memory).
 

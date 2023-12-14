@@ -31,44 +31,55 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 */
 
 
-/// \brief SerialWombat18CapTouch, SerialWombatDebouncedInput and SerialWombatMatrixButton inherit from this class
-///
-/// This class provides a basic set of interface for any pin mode class that has a button-like interface
-/// It allows classes like SerialWombatButtonCounter to work uniformly with any button-like class.
+/*!
+\brief SerialWombat18CapTouch, SerialWombatDebouncedInput and SerialWombatMatrixButton inherit from this class
+
+This class provides a basic set of interface for any pin mode class that has a button-like interface
+It allows classes like SerialWombatButtonCounter to work uniformly with any button-like class.
+*/
 class SerialWombatAbstractButton
 {
 public:
 
-	SerialWombatAbstractButton();
-	/// \brief Returns the state of the input
-	/// 
-	/// This function reads the status of an input
-	/// \return TRUE or FALSE.  Meaning depends on inversion setting
+	SerialWombatAbstractButton() {}
+	/*!
+	\brief Returns the state of the input
+	
+	This function reads the status of an input
+	\return TRUE or FALSE.  Meaning depends on inversion setting
+	*/
 	virtual bool digitalRead() = 0;
 
-	/// \brief return the number of mS that the input has been in true state
-	/// 
-	/// Note that this value starts incrementing after the debounce period, not after the physical pin transition.
-	/// 
-	/// \return returns a value in mS which saturates at 65535.  Returns 0 if currently false.
+	/*!
+	\brief return the number of mS that the input has been in true state
+	
+	Note that this value starts incrementing after the debounce period, not after the physical pin transition.
+	
+	\return returns a value in mS which saturates at 65535.  Returns 0 if currently false.
+	*/
 	virtual	uint16_t readDurationInTrueState_mS() = 0;
-	/// \brief return the number of mS that the input has been in false state
-	/// 
-	/// Note that this value starts incrementing after any debounce period, not after the physical pin transition.
-	/// 
-	/// \return returns a value in mS which saturates at 65535.  Returns 0 if currently true.
+
+	/*!
+	\brief return the number of mS that the input has been in false state
+	
+	Note that this value starts incrementing after any debounce period, not after the physical pin transition.
+	
+	\return returns a value in mS which saturates at 65535.  Returns 0 if currently true.
+	*/
 	virtual uint16_t readDurationInFalseState_mS() = 0;
 
 	/// \brief Number of transitions returned by last call to readTransitionsState()
 	uint16_t transitions = 0;
 
-	/// \brief Queries the number of transistions that have occured on the debounced input
-	/// 
-	/// This function queries the debounced input for current state and transitions since last call.
-	/// transition count is put in the global member transitions.  The debounced input in the Serial
-	/// Wombat resets its count to zero after this call.
-	/// 
-	/// \return TRUE or FALSE, current status of debounced input
+	/*!
+	\brief Queries the number of transistions that have occured on the debounced input
+	
+	This function queries the debounced input for current state and transitions since last call.
+	transition count is put in the global member transitions.  The debounced input in the Serial
+	Wombat resets its count to zero after this call.
+	
+	\return TRUE or FALSE, current status of debounced input
+	*/
 	virtual bool readTransitionsState() = 0;
 
 };

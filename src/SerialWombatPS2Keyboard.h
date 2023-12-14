@@ -136,7 +136,7 @@ typedef enum
 }PS2KeyboardScanCode;
 
 
-/*! \brief A class for the Serial Wombat SW18AB chips which recieves input from IBM PS2 Keyboards
+/*! @brief A class for the Serial Wombat SW18AB chips which recieves input from IBM PS2 Keyboards
 
 
 
@@ -182,74 +182,424 @@ class SerialWombatPS2Keyboard :
     public Stream, public SerialWombatPin
 {
 public:
-    /// \brief Constructor for the SerialWombatPS2Keyboard class.  
-    /// \param serialWombat The Serial Wombat Chip on which the SerialWombatPS2Keyboard instance will run.
-    SerialWombatPS2Keyboard(SerialWombatChip& serialWombat);
-    /// \brief Initalize the SerialWombatPS2Keyboard.  
-    /// \param clockPin Pin attached to the PS2 Keyboard Clock line.  This line shoudl be pulled up to 5V with a resistor (5.1k suggested).  This pin should be a 5V tolerant pin.
-    /// \param dataPin Pin attached to the PS2 Keyboard data line.  This line shoudl be pulled up to 5V with a resistor (5.1k suggested).  This pin should be a 5V tolerant pin.
-    /// \param bufferMode 0: Public data is lower case ASCII of key pressed (Default)  1:  Public data is PS2 Keyboard 'make' code of last key pressed or released.
-    /// \param queueMode  0: Queued data is ASCII values, taking into account shift keys 1: Queued data is make codes of keys when pressed  2:  All PS2 codes are queued 3: A bitfield of held keys is maintained instead of a queue
-    /// \param queueAddress An optional parameter that allows a previously initialized queue in User RAM on the SW18AB chip to be used instead of the pin mode's internal 16 byte buffer.  0xFFFF uses pin mode buffer.
-    /// \param pullUpDown 0: No pull ups or pull downs 1:  Internal 3.3v pullup (not recommended) 2: Internal Pulldown (not recommended)
-    int16_t begin(uint8_t clockPin, uint8_t dataPin, uint8_t bufferMode = 0, uint8_t queueMode = 0, uint16_t queueAddress = 0xFFFF, uint8_t pullUpDown = 0);
+	/*!
+    @brief Constructor for the SerialWombatPS2Keyboard class.  
+    @param serialWombat The Serial Wombat Chip on which the SerialWombatPS2Keyboard instance will run.
+    */
+    SerialWombatPS2Keyboard(SerialWombatChip& serialWombat):SerialWombatPin(serialWombat){}
+    /*!
+    @brief Initalize the SerialWombatPS2Keyboard.  
+    @param clockPin Pin attached to the PS2 Keyboard Clock line.  This line shoudl be pulled up to 5V with a resistor (5.1k suggested).  This pin should be a 5V tolerant pin.
+    @param dataPin Pin attached to the PS2 Keyboard data line.  This line shoudl be pulled up to 5V with a resistor (5.1k suggested).  This pin should be a 5V tolerant pin.
+    @param bufferMode 0: Public data is lower case ASCII of key pressed (Default)  1:  Public data is PS2 Keyboard 'make' code of last key pressed or released.
+    @param queueMode  0: Queued data is ASCII values, taking into account shift keys 1: Queued data is make codes of keys when pressed  2:  All PS2 codes are queued 3: A bitfield of held keys is maintained instead of a queue
+    @param queueAddress An optional parameter that allows a previously initialized queue in User RAM on the SW18AB chip to be used instead of the pin mode's internal 16 byte buffer.  0xFFFF uses pin mode buffer.
+    @param pullUpDown 0: No pull ups or pull downs 1:  Internal 3.3v pullup (not recommended) 2: Internal Pulldown (not recommended)
+    */
+    int16_t begin(uint8_t clockPin, uint8_t dataPin, uint8_t bufferMode = 0, uint8_t queueMode = 0, uint16_t queueAddress = 0xFFFF, uint8_t pullUpDown = 0)
+	{
+		_pin = clockPin;
+		_pinMode = (uint8_t)PIN_MODE_PS2KEYBOARD;
+
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE0,
+							_pin,
+							(uint8_t)_pinMode ,
+							dataPin,
+							queueMode,
+							bufferMode,
+							0x55,
+							 pullUpDown};
+		int16_t result = _sw.sendPacket(tx);
+		if (result < 0)
+		{
+			return result;
+		}
+
+		if (queueAddress != 0xFFFF)
+		{
+		uint8_t tx6[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE6,
+							_pin,
+							_pinMode,
+							SW_LE16(queueAddress),
+							0x55,
+							0x55,
+							0x55 };
+
+		return _sw.sendPacket(tx6);
+		}
+		return (result);
+	}
     
 
 
-    /// \brief Queries the SerialWombatPS2Keyboard for number bytes available to read
-    /// \return Number of bytes available to read.
-    int available();
-    /// \brief Reads a byte from the SerialWombatPS2Keyboard queue
-    /// \return A byte from 0-255, or -1 if no bytes were avaialble
-    int read();
-    /// \brief  Discard all bytes from the SerialWombatPS2Keyboard queue
-    void flush();
-    /// \brief Query the SerialWombatPS2Keyboard queue for the next avaialble byte, but don't remove it from the queue
-    /// \return A byte from 0-255, or -1 if no bytes were avaialble
-    int peek();
-    /// \brief Write a byte to the SerialWombatPS2Keyboard queue  (Does Nothing)
-    /// \param data  Byte to write
-    /// \return Number of bytes written
-    /// 
-    /// This function exists to fully implement the Stream class.  It throws away the byte.
-    size_t write(uint8_t data);
+    /*!
+    @brief Queries the SerialWombatPS2Keyboard for number bytes available to read
+    @return Number of bytes available to read.
+    */
+    int available()
+	{
+		uint8_t tx[8] = { 201, _pin, _pinMode, 0,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+		_sw.sendPacket(tx, rx);
+		return (rx[4]);
+	}
+    /*!
+    @brief Reads a byte from the SerialWombatPS2Keyboard queue
+    @return A byte from 0-255, or -1 if no bytes were avaialble
+    */
+    int read()
+	{
+		uint8_t tx[8] = { 202, _pin,_pinMode, 1,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+		if (_sw.sendPacket(tx, rx) < 0)
+		{
+			return -1;
+		}
 
-    /// \brief Write bytes to the SerialWombatPS2Keyboard queue (Does nothing)
-    /// \param buffer  An array of uint8_t bytes to send
-    /// \param size the number of bytes to send
-    /// \return the number of bytes sent
-    /// 
-    /// This function exists to fully implement the Stream class.  It throws away the bytes.
-    size_t write(const uint8_t* buffer, size_t size);
+		if (rx[3] != 0)
+		{
+			return (rx[4]);
+		}
+		else
+		{
+			return (-1);
+		}
+	}
+    /*!
+    @brief  Discard all bytes from the SerialWombatPS2Keyboard queue
+    */
+    void flush()
+	{
+		
+	}
 
-    /// \brief Number of bytes avaialble to write to SerialWombatPS2Keyboard queue.  Returns 0
-    /// \return Zero.  Writes are not suppored.
-    int availableForWrite();
+    /*!
+    @brief Query the SerialWombatPS2Keyboard queue for the next avaialble byte, but don't remove it from the queue
+    @return A byte from 0-255, or -1 if no bytes were avaialble
+    */
+    int peek()
+	{
+		uint8_t tx[8] = { 203, _pin,_pinMode,0x55,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+		_sw.sendPacket(tx, rx);
+		if (rx[4] > 0)
+		{
+			return (rx[5]);
+		}
+		else
+		{
+			return (-1);
+		}
+	}
+    
+    /*!
+    @brief Write a byte to the SerialWombatPS2Keyboard queue  (Does Nothing)
+    @param data  Byte to write
+    @return Number of bytes written
+    
+    This function exists to fully implement the Stream class.  It throws away the byte.
+    */
+    size_t write(uint8_t data)
+{
+	
+	return (1);
+}
 
-    /// \brief Reads a specified number of bytes from the SerialWombatPS2Keyboard queue queue
-    /// \param buffer  An array into which to put received bytes
-    /// \param length  The maximum number of bytes to be received
-    /// \return the number of bytes written to buffer
-    /// 
-    /// This function will read bytes from the SerialWombatPS2Keyboard queue into buffer.
-    /// If 'length' characters are not available to read then the value returned
-    /// will be less than length.
-    size_t readBytes(char* buffer, size_t length);
+	/*!
+    @brief Write bytes to the SerialWombatPS2Keyboard queue (Does nothing)
+    @param buffer  An array of uint8_t bytes to send
+    @param size the number of bytes to send
+    @return the number of bytes sent
+    
+    This function exists to fully implement the Stream class.  It throws away the bytes.
+    */
+    size_t write(const uint8_t* buffer, size_t size)
+{
+	return(size);
+}
 
-    int16_t readCurrentScanCodes(uint8_t* buffer, uint8_t startValue);
+	/*!
+    @brief Number of bytes avaialble to write to SerialWombatPS2Keyboard queue.  Returns 0
+    @return Zero.  Writes are not suppored.
+    */
+    int availableForWrite()
+{
+	return(0);
+}
 
-    /// \brief implemented to fulfill Stream requirement.
-    void setTimeout(long timeout_mS);
+	/*!
+    @brief Reads a specified number of bytes from the SerialWombatPS2Keyboard queue queue
+    @param buffer  An array into which to put received bytes
+    @param length  The maximum number of bytes to be received
+    @return the number of bytes written to buffer
+    
+    This function will read bytes from the SerialWombatPS2Keyboard queue into buffer.
+    If 'length' characters are not available to read then the value returned
+    will be less than length.
+    */
+    size_t readBytes(char* buffer, size_t length)
+	{
+		int index = 0;
+		int bytesAvailable = 0;
+		uint32_t timeoutMillis = millis() + timeout;
+		while (length > 0 && timeoutMillis > millis())
+		{
+			int bytecount = 4;
+			if (length < 4)
+			{
+				bytecount = length;
+			}
+			{
 
-    /// \brief convernts a set 2 Scan Code to Ascii
-    uint8_t scanCodeToAscii(uint8_t scanCode, bool shiftActive = false);
+				uint8_t tx[8] = { 202, _pin,_pinMode, (uint8_t)bytecount,0x55,0x55,0x55,0x55 };
+				uint8_t rx[8];
+				_sw.sendPacket(tx, rx);
+				bytesAvailable = rx[3];
 
-    /// \brief Check to see if a key is currently pressed (pin mode must be configured for bitfield mode)
-    /// \param scanCode The scan code of the key being checked.  Set the 0x80 bit if it's an extended code
-    /// \return returns true if the key is currently pressed
-    bool isKeyPressed(uint8_t scanCode);
+				if (bytesAvailable == 0)
+				{
+					continue;
+				}
+				else
+				{
+					timeoutMillis = millis() + timeout;
+				}
+				uint8_t bytesReturned = bytecount;
+				if (rx[3] < bytecount)
+				{
+					bytesReturned = rx[3];
+				}
+				for (int i = 0; i < bytesReturned; ++i)
+				{
+					buffer[index] = rx[i + 4];
+					++index;
+					--bytesAvailable;
+					--length;
 
-    bool isKeyPressed(PS2KeyboardScanCode scanCode);
+				}
+			}
+
+		}
+		return (index);
+	}
+
+    int16_t readCurrentScanCodes(uint8_t* buffer, uint8_t startValue)
+	{
+		uint8_t tx[8] = { 207, _pin,_pinMode, startValue,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+
+		int16_t result = _sw.sendPacket(tx, rx);
+
+		if (result < 0)
+		{
+			return result;
+		}
+		int count = 0;
+		for (int i = 3; i < 8; ++i)
+		{
+			if (rx[i] != 0)
+			{
+				++count;
+			}
+			buffer[i - 3] = rx[i];
+		}
+		return count;
+	}
+
+    /*!
+  	 @brief implemented to fulfill Stream requirement.
+	*/
+    void setTimeout(long timeout_mS)
+	{
+		if (timeout_mS == 0)
+		{
+			timeout = 0x80000000;
+		}
+		else
+		{
+			timeout = timeout_mS;
+		}
+	}
+
+	/*!
+     @brief convernts a set 2 Scan Code to Ascii
+    */
+    uint8_t scanCodeToAscii(uint8_t scanCode, bool shiftActive = false)
+	{
+
+		if (scanCode >= 0x80)
+		{
+			return 0;
+		}
+		//This array is used to convert PS2 Code set 2 codes to Ascii. The first column is unshfited data, the second if shift is active
+		const uint8_t KBSCSet2[][2] =
+		{
+		{ ' ' , ' ' },  /* 0 */
+		{ ' ' , ' ' },  /* 1 */
+		{ ' ' , ' ' },  /* 2 */
+		{ ' ' , ' ' },  /* 3 */
+		{ ' ' , ' ' },  /* 4 */
+		{ ' ' , ' ' },  /* 5 */
+		{ ' ' , ' ' },  /* 6 */
+		{ ' ' , ' ' },  /* 7 */
+		{ ' ' , ' ' },  /* 8 */
+		{ ' ' , ' ' },  /* 9 */
+		{ ' ' , ' ' },  /* A */
+		{ ' ' , ' ' },  /* B */
+		{ ' ' , ' ' },  /* C */
+		{ 9 , 9 },  /* D */
+		{ '`' , '~' },  /* E */
+		{ ' ' , ' ' },  /* F */
+		{ ' ' , ' ' },  /* 10 */
+		{ ' ' , ' ' },  /* 11 */
+		{ 0 , 0 },  /* 12 */
+		{ ' ' , ' ' },  /* 13 */
+		{ ' ' , ' ' },  /* 14 */
+		{ 'q' , 'Q' },  /* 15 */
+		{ '1' , '!' },  /* 16 */
+		{ ' ' , ' ' },  /* 17 */
+		{ ' ' , ' ' },  /* 18 */
+		{ ' ' , ' ' },  /* 19 */
+		{ 'z' , 'Z' },  /* 1A */
+		{ 's' , 'S' },  /* 1B */
+		{ 'a' , 'A' },  /* 1C */
+		{ 'w' , 'W' },  /* 1D */
+		{ '2' , '@' },  /* 1E */
+		{ ' ' , ' ' },  /* 1F */
+		{ ' ' , ' ' },  /* 20 */
+		{ 'c' , 'C' },  /* 21 */
+		{ 'x' , 'X' },  /* 22 */
+		{ 'd' , 'D' },  /* 23 */
+		{ 'e' , 'E' },  /* 24 */
+		{ '4' , '$' },  /* 25 */
+		{ '3' , '#' },  /* 26 */
+		{ ' ' , ' ' },  /* 27 */
+		{ ' ' , ' ' },  /* 28 */
+		{ ' ' , ' ' },  /* 29 - SPACE */
+		{ 'v' , 'V' },  /* 2A */
+		{ 'f' , 'F' },  /* 2B */
+		{ 't' , 'T' },  /* 2C */
+		{ 'r' , 'R' },  /* 2D */
+		{ '5' , '%' },  /* 2E */
+		{ ' ' , ' ' },  /* 2F */
+		{ ' ' , ' ' },  /* 30 */
+		{ 'n' , 'N' },  /* 31 */
+		{ 'b' , 'B' },  /* 32 */
+		{ 'h' , 'H' },  /* 33 */
+		{ 'g' , 'G' },  /* 34 */
+		{ 'y' , 'Y' },  /* 35 */
+		{ '6' , '^' },  /* 36 */
+		{ ' ' , ' ' },  /* 37 */
+		{ ' ' , ' ' },  /* 38 */
+		{ ' ' , ' ' },  /* 39 */
+		{ 'm' , 'M' },  /* 3A */
+		{ 'j' , 'J' },  /* 3B */
+		{ 'u' , 'U' },  /* 3C */
+		{ '7' , '&' },  /* 3D */
+		{ '8' , '*' },  /* 3E */
+		{ ' ' , ' ' },  /* 3F */
+		{ ' ' , ' ' },  /* 40 */
+		{ ',' , '>' },  /* 41 */
+		{ 'k' , 'K' },  /* 42 */
+		{ 'i' , 'I' },  /* 43 */
+		{ 'o' , 'O' },  /* 44 */
+		{ '0' , ')' },  /* 45 */
+		{ '9' , '(' },  /* 46 */
+		{ ' ' , ' ' },  /* 47 */
+		{ ' ' , ' ' },  /* 48 */
+		{ '.' , '<' },  /* 49 */
+		{ '/' , '?' },  /* 4A */
+		{ 'l' , 'L' },  /* 4B */
+		{ ';' , ':' },  /* 4C */
+		{ 'p' , 'P' },  /* 4D */
+		{ '-' , '_' },  /* 4E */
+		{ ' ' , ' ' },  /* 4F */
+		{ ' ' , ' ' },  /* 50 */
+		{ ' ' , ' ' },  /* 51 */
+		{ '\'' , '"' },  /* 52 */
+		{ ' ' , ' ' },  /* 53 */
+		{ '[' , '{' },  /* 54 */
+		{ '=' , '+' },  /* 55 */
+		{ ' ' , ' ' },  /* 56 */
+		{ ' ' , ' ' },  /* 57 */
+		{ ' ' , ' ' },  /* 58 */
+		{ 0 , 0 },  /* 59 */
+		{ 0xD , 0xD },  /* 5A */
+		{ ']' , '}' },  /* 5B */
+		{ ' ' , ' ' },  /* 5C */
+		{ '\\' , '|' },  /* 5D */
+		{ ' ' , ' ' },  /* 5E */
+		{ ' ' , ' ' },  /* 5F */
+		{ ' ' , ' ' },  /* 60 */
+		{ ' ' , ' ' },  /* 61 */
+		{ ' ' , ' ' },  /* 62 */
+		{ ' ' , ' ' },  /* 63 */
+		{ ' ' , ' ' },  /* 64 */
+		{ ' ' , ' ' },  /* 65 */
+		{ 8 , 8 },  /* 66 */
+		{ ' ' , ' ' },  /* 67 */
+		{ ' ' , ' ' },  /* 68 */
+		{ '1' , '1' },  /* 69 */
+		{ ' ' , ' ' },  /* 6A */
+		{ '4' , '4' },  /* 6B */
+		{ '7' , '7' },  /* 6C */
+		{ ' ' , ' ' },  /* 6D */
+		{ ' ' , ' ' },  /* 6E */
+		{ ' ' , ' ' },  /* 6F */
+		{ '0' , '0' },  /* 70 */
+		{ ' ' , ' ' },  /* 71 */
+		{ '2' , '2' },  /* 72 */
+		{ '5' , '5' },  /* 73 */
+		{ '6' , '6' },  /* 74 */
+		{ '8' , '8' },  /* 75 */
+		{ 0x1B , 0x1B },  /* 76 */
+		{ ' ' , ' ' },  /* 77 */
+		{ ' ' , ' ' },  /* 78 */
+		{ ' ' , ' ' },  /* 79 */
+		{ '3' , '3' },  /* 7A */
+		{ ' ' , ' ' },  /* 7B */
+		{ ' ' , ' ' },  /* 7C */
+		{ '9' , '9' },  /* 7D */
+		{ ' ' , ' ' },  /* 7E */
+		{ ' ' , ' ' },  /* 7F */
+		};
+
+		if (shiftActive)
+		{
+			return ( KBSCSet2[scanCode][ 1]);
+		}
+
+		return  (  KBSCSet2[scanCode][0]);
+	}
+
+	/*!
+    @brief Check to see if a key is currently pressed (pin mode must be configured for bitfield mode)
+    @param scanCode The scan code of the key being checked.  Set the 0x80 bit if it's an extended code
+    @return returns true if the key is currently pressed
+    */
+    bool isKeyPressed(uint8_t scanCode)
+{
+	uint8_t buffer[5];
+	int16_t result = readCurrentScanCodes(buffer, scanCode);
+
+	if (result < 0)
+	{
+		return false;
+	}
+
+	if (buffer[0] == scanCode)
+	{
+		return true;
+	}
+
+	return false;
+
+}
+
+    bool isKeyPressed(PS2KeyboardScanCode scanCode)
+{
+	return isKeyPressed((uint8_t) scanCode);
+}
 
      uint8_t _pin = 255;
 protected:

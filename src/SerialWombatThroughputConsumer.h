@@ -1,8 +1,9 @@
 #pragma once
 /*
-Copyright 2021 Broadwell Consulting Inc.
+Copyright 2021-2023 Broadwell Consulting Inc.
 
-Serial Wombat is a registered trademark of Broadwell Consulting Inc. in the United States.
+"Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
+the United States.  See SerialWombat.com for usage guidance.
 
 Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -26,55 +27,101 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #include <stdint.h>
 #include "SerialWombat.h"
 
+/*!
+@brief A Class that consumes CPU time on the Serial Wombat chip in order to facilitate testing 
 
-/// \brief A Class that consumes CPU time on the Serial Wombat chip in order to facilitate testing 
-///
-/// This class is only supported on the Serial Wombat SW18AB chip.  It is not supported on the
-/// Serial Wombat 4X line.
-/// 
-/// This class provides a means to consume throughput inside of a pin in order to test different CPU loading secenarios.  
-/// 
-/// This class provides an array of 16 delays measured in uS.  When each
-/// frame runs the cumulative frame counter is taken mod 16 to determine
-/// which delay to use.  During this delay the pin goes high and waits in a 
-/// loop for approximately the specified number of uS. 
-/// 
+This class is only supported on the Serial Wombat SW18AB chip.  It is not supported on the
+Serial Wombat 4X line.
+
+This class provides a means to consume throughput inside of a pin in order to test different CPU loading secenarios.  
+
+This class provides an array of 16 delays measured in uS.  When each
+frame runs the cumulative frame counter is taken mod 16 to determine
+which delay to use.  During this delay the pin goes high and waits in a 
+loop for approximately the specified number of uS. 
+
+*/
 class SerialWombatThroughputConsumer: public SerialWombatPin
 {
 public:
-	/// \brief Constructor for SerialWombatThroughputConsumer class
-   /// \param serialWombat SerialWombatChip on which the ThroughputConsumer will run
-	SerialWombatThroughputConsumer(SerialWombatChip& serialWombat);
+	/*!
+	@brief Constructor for SerialWombatThroughputConsumer class
+   @param serialWombat SerialWombatChip on which the ThroughputConsumer will run
+   	*/
+	SerialWombatThroughputConsumer(SerialWombatChip& serialWombat):SerialWombatPin(serialWombat){}
 
-	/// \brief Initialize an instance of the Throughput Conumer class.  All delays are set to 0.
+	/*
+	@brief Initialize an instance of the Throughput Conumer class.  All delays are set to 0.
+	@return Returns a negative error code if initialization failed.
+	*/
+	int16_t begin(uint8_t pin)
+	{
+		_pin = pin;
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE0,pin,
+						(uint8_t)PIN_MODE_THROUGHPUT_CONSUMER,
+						0x55,0x55,0x55,0x55,0x55 };
+		return _sw.sendPacket(tx);
+	}
+
+
+	/*!
+	/// @brief Set all delay times to a specified number of uS
 	///
-	/// \return Returns a negative error code if initialization failed.
-	int16_t begin(uint8_t pin);
+	/// @param delay  The number of uS to delay in each frame
+	/// @return Returns a negative error code if errors occur during configuration 
+	*/
+	int16_t writeAll(uint16_t delay)
+	{
+		for (int i = 0; i < 16; ++i)
+		{
+			uint8_t tx[] = {(uint8_t) SerialWombatCommands::CONFIGURE_PIN_MODE1,
+							_pin,
+							(uint8_t) PIN_MODE_THROUGHPUT_CONSUMER ,
+							(uint8_t)i,
+							SW_LE16(delay), 0x55,0x55 };
+			int16_t result = _sw.sendPacket(tx);
+			if (result < 0)
+			{
+				return (result);
+			}
+		}
+		return 0;
+	}
+
+	/*!
+	@brief Set a frame delay time to a specified number of uS
+	
+	@param frame The frame number (0-15) to set
+	@param delay  The number of uS to delay in each frame
+	@return Returns a negative error code if errors occur during configuration 
+	
+	*/
+	int16_t write(uint8_t frame, uint16_t delay)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE1,
+							_pin,
+							(uint8_t)PIN_MODE_THROUGHPUT_CONSUMER ,
+							frame,
+							SW_LE16(delay), 0x55,0x55 };
+		return( _sw.sendPacket(tx));
+	}
 
 
-	/// \brief Set all delay times to a specified number of uS
-	///
-	/// \param delay  The number of uS to delay in each frame
-	/// \return Returns a negative error code if errors occur during configuration 
-	/// 
-	int16_t writeAll(uint16_t delay);
+	/*!
+	@brief Delay a specified number of uS within the packet processing routine
 
-	/// \brief Set a frame delay time to a specified number of uS
-	///
-	/// \param frame The frame number (0-15) to set
-	/// \param delay  The number of uS to delay in each frame
-	/// \return Returns a negative error code if errors occur during configuration 
-	/// 
-	int16_t write(uint8_t frame, uint16_t delay);
-
-
-	/// \brief Delay a specified number of uS within the packet processing routine
-	///
-	/// \param delay  The number of uS to delay in each frame
-	/// \return Returns a negative error code if errors occur during configuration 
-	/// 
-	int16_t delayInCommProcessing(uint16_t delay);
-private:
+	@param delay  The number of uS to delay in each frame
+	@return Returns a negative error code if errors occur during configuration 
+	
+	*/
+	int16_t delayInCommProcessing(uint16_t delay)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE2,
+							_pin,
+							(uint8_t)PIN_MODE_THROUGHPUT_CONSUMER ,
+							SW_LE16(delay), 0x55,0x55, 0x55 };
+		return(_sw.sendPacket(tx));
+	}
 
 };
 

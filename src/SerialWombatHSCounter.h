@@ -34,7 +34,7 @@ class SerialWombat;
 */
 
 
-/*! \brief
+/*! @brief
 
 This class is used to measure the frequency or cycles of a high speed input.  On the Serial Wombat 18AB
 chip this class can be used two times, as two clock inputs are avaialble.  An enhanced digital capability
@@ -55,9 +55,9 @@ frequency can still create a varying public data buffer rather than saturating a
 
 A video Tutorial on this pin mode may be available in the future:
 
-\htmlonly
+@htmlonly
 TODO - Video coming Soon
-\endhtmlonly
+@endhtmlonly
 //TODO - Video coming soon
 */
 
@@ -69,23 +69,94 @@ public:
 		FREQUENCY_ON_LTH_TRANSITION = 5, ///< The frequency of the pulse in Hz
 	};
 
-	/// \brief Class constructor for SerialWombatHSCounter
-	/// \param serialWombat The Serial Wombat chip on which the SerialWombatHSCounter pinmode will be run
-	SerialWombatHSCounter(SerialWombatChip& serialWombat);
+	/*!
+	@brief Class constructor for SerialWombatHSCounter
+	@param serialWombat The Serial Wombat chip on which the SerialWombatHSCounter pinmode will be run
+	*/
+	SerialWombatHSCounter(SerialWombatChip& serialWombat):SerialWombatPin(serialWombat), SerialWombatAbstractProcessedInput(serialWombat){}
 
+	/*!	
+	@brief Initialization routine for SerialWombatHSCounter
 	
-	/// \brief Initialization routine for SerialWombatHSCounter
-	/// 
-	/// \param pin 
-	/// \param 
-	/// \param 
-	int16_t begin(uint8_t pin, SerialWombatHSCounter::publicDataOutput publicDataOutput = publicDataOutput::FREQUENCY_ON_LTH_TRANSITION ,uint16_t framesBetweenUpdates = 100, uint16_t publicOutputDivisor = 1);
+	@param pin 
+	@param 
+	@param 
+	*/
+	int16_t begin(uint8_t pin, SerialWombatHSCounter::publicDataOutput publicDataOutput = publicDataOutput::FREQUENCY_ON_LTH_TRANSITION ,uint16_t framesBetweenUpdates = 100, uint16_t publicOutputDivisor = 1)
+	{
+		_pin = pin;
+		_pinMode = PIN_MODE_HS_COUNTER;
 
-	uint32_t readCounts(bool resetCounts = false);
+		uint8_t tx[8] =
+		{
+		(uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE0,
+		_pin,
+		_pinMode,
+		SW_LE16(framesBetweenUpdates),
+		SW_LE16(publicOutputDivisor),
+		(uint8_t)publicDataOutput };
 
-	int32_t readFrequency();
-	/// \brief Disables the high speed clock output
-	int16_t disable ();
+		return(_sw.sendPacket(tx));
+
+	}
+
+	uint32_t readCounts(bool resetCounts = false)
+	{
+		uint8_t tx[8] =
+		{
+		(uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE1,
+		_pin,
+		_pinMode,
+		(uint8_t)(resetCounts?1:0),
+		0x55,
+		0x55,
+		0x55,
+		0x55};
+		uint8_t rx[8];
+		int16_t result = _sw.sendPacket(tx, rx);
+		if (result < 0)
+		{
+			return 0;
+		}
+		uint32_t returnval = (((uint32_t)rx[6]) << 24) + (((uint32_t)rx[5]) << 16) + (((uint16_t)rx[4]) << 8) + rx[3];
+		return(returnval);
+	}
+
+	int32_t readFrequency()
+	{
+		uint8_t tx[8] =
+		{
+		(uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE1,
+		_pin,
+		_pinMode,
+		0x55,
+		0x55,
+		0x55,
+		0x55,
+		0x55 };
+		uint8_t rx[8];
+		int16_t result = _sw.sendPacket(tx, rx);
+		if (result < 0)
+		{
+			return result;
+		}
+		uint32_t returnval = (((uint32_t)rx[6]) << 24) + (((uint32_t)rx[5]) << 16) + (((uint16_t)rx[4]) << 8) + rx[3];
+		return(returnval);
+	}
+	/*!
+	@brief Disables the high speed clock output
+	*/
+	int16_t disable ()
+	{
+		uint8_t tx[] =
+		{
+			(uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE_DISABLE,
+			_pin,
+			_pinMode,
+			0x55,0x55,0x55,0x55,0x55
+		};
+		return _sw.sendPacket(tx);
+	}
 
 	uint8_t pin() { return _pin; }
 	uint8_t swPinModeNumber() { return _pinMode; }

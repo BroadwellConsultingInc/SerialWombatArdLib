@@ -206,6 +206,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">SerialWombatAbstractScaledOutput::SerialWombatAbstractScaledOutput </td>
@@ -215,6 +218,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Constructor for the <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class....">SerialWombatAbstractScaledOutput</a> Class. </p>
@@ -262,6 +270,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">uint16_t SerialWombatAbstractScaledOutput::readLastOutputValue </td>
@@ -270,6 +281,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Request Last Output Value. </p>
@@ -311,6 +327,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatAbstractScaledOutput::write1stOrderFiltering </td>
@@ -330,6 +349,11 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>\begin Controls how fast an ouput can change based on filtering</p>
 <p>This function allows configuration of how fast an output's value is allowed to change based on a first order filter. The Rate control runs on a fixed period based on the Period enumerated type. Every samplePeriod ms the target is reevaluated. The requested output is combined with the current output using filterConstant. Higher values for filterConstant cause heavier filtering</p>
@@ -349,6 +373,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatAbstractScaledOutput::writeHysteresis </td>
@@ -386,6 +413,11 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Controls the output based on hystersis control. </p>
@@ -410,6 +442,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatAbstractScaledOutput::writeInputScaling </td>
@@ -429,6 +464,11 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Scale incoming values to a range of 0 to 65535. </p>
@@ -450,6 +490,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatAbstractScaledOutput::writeOutputScaling </td>
@@ -469,6 +512,11 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Reduces the output range from 0 to 65535 to user specified range. </p>
@@ -490,6 +538,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatAbstractScaledOutput::writePID </td>
@@ -518,8 +569,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266e">SerialWombatAbstractScaledOutput::Period</a>&#160;</td>
-          <td class="paramname"><em>sampleRate</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266e">Period</a>&#160;</td>
+          <td class="paramname"><em>samplePeriod</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -527,10 +578,16 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Configure the scaled output block into PID control mode. </p>
-<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code This pin mode implements Propotional / Integral / Derivative (PID) control. It attempts to drive the input to a target value based on calibration constants provided by the host.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code</dd></dl>
+<p>This pin mode implements Propotional / Integral / Derivative (PID) control. It attempts to drive the input to a target value based on calibration constants provided by the host.</p>
 <p>For a discussion of PID control in general, this link is suggested: <a href="https://www.ni.com/en-us/innovations/white-papers/06/pid-theory-explained.html">https://www.ni.com/en-us/innovations/white-papers/06/pid-theory-explained.html</a> <br  />
 </p>
 <p>This block implements PID using the diagram shown in this link where the kP term is applied after the sum of the error, 1/ki * integration and kd * derivative sum. This is different from the order used in some PID algorithms. The net effect is the same but the values of the ki and kd are different than if the constants were all applied first and the sum taken afterwards. This was done to best distribute values so that calculations could be done using integral math rather than floating point due to the performance cost of floating point on small microcontrollers.</p>
@@ -556,12 +613,15 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatAbstractScaledOutput::writeRateControl </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266e">SerialWombatAbstractScaledOutput::Period</a>&#160;</td>
-          <td class="paramname"><em>sampleRate</em>, </td>
+          <td class="paramtype"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#ae98e5ae800e55696f88a067dab46266e">Period</a>&#160;</td>
+          <td class="paramname"><em>samplePeriod</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -575,6 +635,11 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>\begin Controls how fast an ouput can change in counts</p>
 <p>This function allows configuration of how fast an output's value is allowed to change in counts on a 0-65535 scale. The Rate control runs on a fixed period based on the Period enumerated type. Every samplePeriod ms the target is reevaluated. If the expected output would change the output by more than maximumChangecounts, then the output only changes by maximumChangecounts</p>
@@ -594,6 +659,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatAbstractScaledOutput::writeScalingEnabled </td>
@@ -613,6 +681,11 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Enable scaling and set which pin or public data is used as the input source. </p>
@@ -632,6 +705,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatAbstractScaledOutput::writeScalingInvertedInput </td>
@@ -641,6 +717,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>if enabled subtract the input value from 65535 before doing any other processing. </p>
@@ -659,6 +740,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatAbstractScaledOutput::writeScalingTargetValue </td>
@@ -668,6 +752,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>The target input value for PID control. </p>
@@ -687,6 +776,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatAbstractScaledOutput::writeTimeout </td>
@@ -706,6 +798,11 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Enable a timeout value which will cause the output to go to a default value if not updated. </p>

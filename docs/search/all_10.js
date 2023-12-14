@@ -42,7 +42,7 @@ var searchData=
   ['readtemperature_5f100thsdegc_269',['readTemperature_100thsDegC',['../class_serial_wombat_chip.html#a6d1e6333b6b56f234f6e4a64b44a95f7',1,'SerialWombatChip']]],
   ['readtransitionsstate_270',['readTransitionsState',['../class_serial_wombat18_cap_touch.html#aaf9c4c84d4a1bb31ee284fdb726d69d9',1,'SerialWombat18CapTouch::readTransitionsState()'],['../class_serial_wombat_abstract_button.html#a236e74e5eba38a939981acb5fcc83968',1,'SerialWombatAbstractButton::readTransitionsState()'],['../class_serial_wombat_debounced_input.html#af4036b5a1f3b6de3c2df296e110e8b11',1,'SerialWombatDebouncedInput::readTransitionsState()'],['../class_serial_wombat_matrix_button.html#a346a1da0cb80bb8292c68b46f114c909',1,'SerialWombatMatrixButton::readTransitionsState()']]],
   ['readuserbuffer_271',['readUserBuffer',['../class_serial_wombat_chip.html#a4672bc1f8eaa4f82e3294c72c153771f',1,'SerialWombatChip']]],
-  ['readversion_272',['readVersion',['../class_serial_wombat_chip.html#a4497f098ad2074a5bec90f2affbaafcb',1,'SerialWombatChip']]],
+  ['readversion_272',['readVersion',['../class_serial_wombat_chip.html#a009d3c1692c31f20fe2300cbc57f090a',1,'SerialWombatChip']]],
   ['readversion_5fuint32_273',['readVersion_uint32',['../class_serial_wombat_chip.html#a99303ae424de2b27b9dbaf2b1bfa971c',1,'SerialWombatChip']]],
   ['readvoltage_5fmv_274',['readVoltage_mV',['../class_serial_wombat_analog_input.html#ab2c7a9154241e26805d0d36f77324a90',1,'SerialWombatAnalogInput']]],
   ['refresh_275',['refresh',['../class_serial_wombat_pulse_timer.html#a1528974b4eef9ab9e0135d356551840e',1,'SerialWombatPulseTimer']]],

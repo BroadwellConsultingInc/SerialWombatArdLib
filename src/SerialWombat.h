@@ -37,6 +37,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /*! \file SerialWombat.h
 */
 
+/// Convert a uint16_t to two bytes in little endian format for array initialization
+#define SW_LE16(_a)  (uint8_t)((_a) & 0xFF), (uint8_t)((_a) >>8)  
+
+/// Convert a uint32_t to four bytes in little endian format for array initialization
+#define SW_LE32(_a)  (uint8_t)((_a) & 0xFF), (uint8_t)((_a) >>8) , (uint8_t)((_a) >>16), (uint8_t)((_a) >>24)
+
+
 typedef enum
 {
 	SW_LOW = 0,
@@ -271,494 +278,7 @@ This class describes the capabilties of a Serial Wombat Chip that are not Pin Mo
 */
 class SerialWombatChip
 {
-public:
-	SerialWombatChip();
-	/// \brief initialize a Serial Wombat chip to use a Serial Interface.
-	/// 
-	/// This call causes the Serial Wombat chip to be reset through its reset
-	/// command as the first operation.  The Serial Wombat chips's source 
-	/// voltage is then read as well as its version.
-	/// 
-	/// \param serial Serial Interface to be used by the Serial Wombat library	
-	int16_t begin(HardwareSerial &serial);
-	/// \brief initialize a Serial Wombat chip to use a Serial Interface.
-	/// 
-	/// The reset parameter determines if the Serial Wombat chip is reset
-	/// prior to other initialization operations.  If false,
-	/// then any prior pin modes and configurations may still be in
-	/// place.
-	/// The Serial Wombat chips's source 
-	/// voltage is then read as well as its version.
-	/// 
-	/// \param serial Serial Interface to be used by the Serial Wombat library
-	/// \param reset Whether or not to reset the Serial Wombat chip via command as the first initialization operation
-	int16_t begin(HardwareSerial& serial, bool reset);
-
-	/// \brief initialize a Serial Wombat chip to use a specified I2C Interface and address.
-	/// 
-	/// This call causes the Serial Wombat chip to be reset through its reset
-	/// command as the first operation.  The Serial Wombat chip's source 
-	/// voltage is then read as well as its version.
-	/// 
-	/// \param wire I2C interface to be used by the Serial Wombat Library
-	/// \param i2cAddress I2C Follower address of the Serial Wombat chip commanded by this instance
-	int16_t begin(TwoWire &wire, uint8_t i2cAddress);
-	
-	/// \brief initialize a Serial Wombat chip to use the default Wire I2C Interface and specified address.
-	/// 
-	/// This call causes the Serial Wombat chip to be reset through its reset
-	/// command as the first operation.  The Serial Wombat chip's source 
-	/// voltage is then read as well as its version.
-	/// 
-	/// \param i2cAddress I2C Follower address of the Serial Wombat chip commanded by this instance
-	int16_t begin(uint8_t i2cAddress);
-
-	/// \brief initialize a Serial Wombat chip to use a specified I2C Interface and address.
-	/// 
-	/// This call causes the Serial Wombat chip to optionally reset through its reset
-	/// command as the first operation.  The Serial Wombat chip's source 
-	/// voltage is then read as well as its version.
-	/// 
-	/// \param wire I2C interface to be used by the Serial Wombat Library
-	/// \param i2cAddress I2C Follower address of the Serial Wombat chip commanded by this instance
-	/// \param reset Whether or not to reset the Serial Wombat chip via command as the first initialization operation. If false,
-	/// then any prior pin modes and configurations may still be in
-	/// place.
-	int16_t begin(TwoWire& wire, uint8_t i2cAddress, bool reset);
-	~SerialWombatChip();
-
-	/// \brief Send an 8 byte packet to the Serial Wombat chip and wait for 8 bytes back
-	/// 
-	/// This method sends 8 bytes via I2C or Serial and blocks until 8 bytes are receieved
-	/// back
-	/// 
-	/// \param tx address of an array of 8 bytes to send
-	/// \param rx address of an array of 8 bytes into which to put response.
-	/// \return The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip
-	int sendPacket( uint8_t tx[], uint8_t rx[]);
-
-	/// \brief Send an 8 byte packet to the Serial Wombat chip.
-	/// 
-	/// This method sends 8 bytes and processes the response to check for errors.
-	/// 
-	/// 
-	/// \param tx address of an array of 8 bytes to send
-	/// \return The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip
-	int sendPacket(uint8_t tx[]);
-
-	/// \brief Send an 8 byte packet to the Serial Wombat chip and wait for 8 bytes back
-	/// 
-	/// This method sends 8 bytes via I2C or Serial and blocks until 8 bytes are receieved
-	/// back
-	/// 
-	/// \param tx address of an array of 8 bytes to send
-	/// \param rx address of an array of 8 bytes into which to put response.
-	/// \return The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip
-	int sendPacket(uint8_t tx[], uint8_t rx[], bool retryIfEchoDoesntMatch, uint8_t beginningBytesToMatch = 8, uint8_t endBytesToMatch = 0);
-
-	/// \brief Send an 8 byte packet to the Serial Wombat chip.
-	/// 
-	/// This method sends 8 bytes and processes the response to check for errors.
-	/// 
-	/// 
-	/// \param tx address of an array of 8 bytes to send
-	/// \return The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip
-	int sendPacket(uint8_t tx[], bool retryIfEchoDoesntMatch);
-
-	/// \brief Send an 8 byte packet to the Serial Wombat chip, don't wait for a response.
-		/// 
-		/// This method sends 8 bytes.  Used for resetting the chip prior to bootloading
-		/// 
-		/// 
-		/// \param tx address of an array of 8 bytes to send
-		/// \return returns a non-error 0 or higher
-
-	int sendPacketNoResponse(uint8_t tx[]);
-
-	/// \brief Request version string (combined model and firmware) and return pointer to it
-	/// 
-	/// This queries the Serial Wombat chip for the 7 characters:   product line (1 character)
-	/// Model (3 characters) and firmware version (3 characters)
-	/// This is stored in a string in the Serial Wombat object.  A pointer to this string
-	/// is returned.
-	char* readVersion(void);
-
-	/// \brief Request version as a uint32
-	/// 
-	/// This queries the Serial Wombat chip for its version information, and returns the
-	/// firmware version as a uint32 0x0XYZ where X,Y,and Z represent firmwre version X.Y.Z
-	uint32_t readVersion_uint32(void);
-
-	/// \brief Read the 16 Bit public data associated with a Serial Wombat Pin Mode 
-	/// 
-	/// Reads and returns the 16 bit value associated with a Serial Wombat Pin Mode.
-	/// Additionally, values of 65 and higher have special meanings.  See
-	/// Serial Wombat firmware documentation for details.
-	/// \return 16 bit public data for pin specified
-	/// \param pin The pin (or special meaning value) for which to retreive data
-	uint16_t readPublicData(uint8_t pin);
-
-	/// \brief Read the 16 Bit public data associated with a Serial Wombat Pin Mode 
-	/// 
-	/// Reads and returns the 16 bit value associated with a Serial Wombat Pin Mode.
-	/// Additionally, values of 65 and higher have special meanings.  See
-	/// Serial Wombat firmware documentation for details.
-	/// \return 16 bit public data for pin specified
-	/// \param dataSource The pin (or special meaning value) for which to retreive data
-	uint16_t readPublicData(SerialWombatDataSource dataSource);
-
-	/// \brief Write a 16 bit value to a Serial Wombat pin Mode
-	/// \param pin The pin number to which to write
-	/// \param value The 16 bit value to write
-	uint16_t writePublicData(uint8_t pin, uint16_t value);
-
-	/// \brief Measure the Serial Wombat chip's Supply voltage
-	/// 
-	/// Causes the Serial Wombat chip to measure the counts for the 
-	/// internal reference voltage.  The Arduino library
-	/// then converts these counts to a Source votlage in mV
-	/// 
-	/// \return The Serial Wombat chip's source voltage in mV
-	uint16_t readSupplyVoltage_mV(void);
-
-	/// \brief Measure the Serial Wombat chip's internal temperature
-	/// 
-	/// This command is only supported by the SerialWombat 18 Series.
-	/// The Arduino library will return 25 deg. C for other models
-	/// 
-	/// This value is low accuracy unless a calibration has been performed
-	/// 
-	/// \return The Serial Wombat chip's temperature in 100ths deg C
-	int16_t readTemperature_100thsDegC(void);
-
-
-	/// \brief Send a reset command to the Serial Wombat chip
-	/// 
-	/// Sends a reset command to the Serial Wombat chip.  The calling function
-	/// should wait 500mS before sending additional commands.
-	void hardwareReset();
-
-	/// \brief Set a pin to INPUT or OUTPUT
-	/// 
-	/// This method matches the Arduino Digital io pinMode command
-	/// It should only be used on pins that have not been configured to a more
-	/// sophisticated (e.g. debounce or servo) pin mode.  
-	/// 
-	/// \param pin The Serial Wombat pin to set
-	/// \param mode Valid values are INPUT or OUTPUT as defined by arduino.  Do 
-	/// not use SW_INPUT, SW_HIGH or SW_LOW here, as these have different meanings
-	void pinMode(uint8_t pin, uint8_t mode);
-
-	/// \brief Set a pin to INPUT or OUTPUT, with options for pull Ups and open Drain settings
-	/// 
-	/// \param pin The Serial Wombat pin to set
-	/// \param mode Valid values are INPUT, OUTPUT or INPUT_PULLUP as defined by arduino.  Do 
-	/// not use SW_INPUT, SW_HIGH or SW_LOW here, as these have different meanings
-	/// \param pullDown  If True, a weak pull down will be enabled on this pin (No effect on SW4A/SW4B)
-	/// \param openDrain If True, output becomes openDrain output rather than push / pull
-	void pinMode(uint8_t pin, uint8_t mode, bool pullDown, bool openDrain);
-
-	/// \brief Set an output pin High or Low
-	/// 
-	/// Before calling this function, the pin should be configured as an input or output with pinMode()
-	/// \param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3
-	/// \param val  Valid values are HIGH or LOW
-	/// not use SW_INPUT, SW_HIGH or SW_LOW here, as these have different meanings
-	void digitalWrite(uint8_t pin, uint8_t val);
-
-	/// \brief Reads the state of a Pin
-	/// 
-	/// \return Returns LOW if pin is low or public data is 0.  Returns HIGH if pin is high or public data is > 0
-	int digitalRead(uint8_t pin);
-
-	/// \brief Configures pin as analog input and does an immediate A/D conversion.  
-	/// 
-	/// This function is compatible with the Arduino Uno analogRead function.  
-	/// It does not make use of advanced Serial Wombat chip's functionality such as averaging and
-	/// filtering.  Consider declaring a SerialWombatAnalogInput instead.
-	/// \param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3
-	/// \return An Analog to Digital conversion ranging from 0 to 1023 (10-bit)
-	int analogRead(uint8_t pin);
-
-	/// \brief Set a pin to PWM output
-	/// 
-	/// This function is compatible with the Arduino Uno analogWrite function, but will
-	/// output a PWM with a different frequency.
-	/// Consider declaring a SerialWombatPWM instead.  It has higher resolution and
-	/// the ability to choose frequency.
-	/// 
-	/// \param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3
-	/// \param val A value from 0 (always low) to 255(always high) for the PWM duty cycle
-	void analogWrite(uint8_t pin, int val);
-
-
-	/// \brief Send a version request to the Serial Wombat chip
-	/// 
-	/// This function queries the Serial Wombat chip for its model and version
-	/// and stores the result in the public members model and fwVersion
-	/// as zero terminated strings.  Returns true if the response is
-	/// likely a proper version response and false otherwise.
-	/// 
-	/// \return TRUE if response was likely a valid version, FALSE otherwise
-	bool queryVersion();
-
-	/// \brief Get the number of 1mS frames that have been executed since Serial Wombat chip reset
-	/// 
-	/// This value should be roughly equal to the mS since reset.  It will vary based on the Serial Wombat chip's
-	/// internal oscillator variation, and may run slow if Overflow frames are occuring.
-	uint32_t readFramesExecuted();
-
-	/// \brief Get the number of times an overflow Frame has occured.
-	/// 
-	/// This value increments each time the Serial Wombat firmware determines it is time to start a new 1 mS frame,
-	/// but the previous frame is still executing.  Indicates processor loading over 100% of real-time.  Overflows
-	/// back to 0 when incremented from 65535.
-
-	uint16_t readOverflowFrames();
-
-	/// \brief Jump to Bootloader and wait for a UART download of new firmware
-	/// 
-	/// This function causes a reset of the Serial Wombat chip and causes it to remain
-	/// in the bootloader until a power-cycle occurs.  This allows loading new
-	/// firmware via a UART connection to the bottom two pins (DIP pins 4 (RX) and 5(TX))
-	/// on the SW4A/SW4B.  When jumping to boot the TX pin will go high.  All other 
-	/// communication or functional pins will become inputs (i.e. PWMS, etc will stop).
-	void jumpToBoot();
-
-	/// \brief Read Address from RAM based on 16 bit address
-	///
-	/// Most Arduino users should not need this command.
-	/// 
-	/// This command can be used to read variables and registers within the Serial Wombat Chip
-	/// Note that reading registers may have unintended side effects.  See the microcontroller datasheet
-	/// for details.
-	/// 
-	/// Note that Note that the PIC16F15214 used in the SW4A and SW4B chips
-	/// is a Microchip Enhanced Mid-Range chip with both a banked RAM area and a Linear RAM area at an offset address.
-	/// See the datasheet for details.  It's wierd to people who are unfamilliar with it.  The same location
-	/// can have two different addresses.
-	/// 
-	/// Addresses are not validated to be available in a given chip's address range.
-	/// 
-	/// \param address  A 16-bit address pointing to a location in the Serial Wombat Chip's memory map
-	/// 
-	/// \return An 8 bit value returned from the Serial Wombat chip.
-	uint8_t readRamAddress(uint16_t address);
-
-	/// \brief Write byte to Address in RAM based on 16 bit address
-	///
-	/// Most Arduino users should not need this command.
-	/// 
-	/// This command can be used to write variables and registers within the Serial Wombat Chip
-	/// Note that write registers may have unintended side effects.  See the microcontroller datasheet
-	/// for details.
-	/// 
-	/// Note that Note that the PIC16F15214 used in the SW4A and SW4B chips
-	/// is a Microchip Enhanced Mid-Range chip with both a banked RAM area and a Linear RAM area at an offset address.
-	/// See the datasheet for details.  It's wierd to people who are unfamilliar with it.  The same location
-	/// can have two different addresses.
-	/// 
-	/// Addresses are not validated to be available in a given chip's address range.
-	/// 
-	/// \param address  A 16-bit address pointing to a location in the Serial Wombat Chip's memory map
-	/// \param value An 8 bit value to be written to RAM
-
-	int16_t writeRamAddress(uint16_t address, uint8_t value);
-
-	/// \brief Read Address from Flash based on 32 bit address
-	///
-	/// Most Arduino users should not need this command.
-	/// 
-	/// This command can be used to read flash locations within the Serial Wombat Chip
-	/// 
-	/// 
-	/// Addresses are not validated to be available in a given chip's address range.
-	/// 
-	/// \param address  A 32-bit address pointing to a location in the Serial Wombat Chip's memory map
-	/// 
-	/// \return An 32 bit value returned from the Serial Wombat chip.  32 bits are used to accomodate different chips.  The SW18 series has a 24 bit flash word, whereas the SW4A and SW4B have a 14 bit word.
-
-	uint32_t readFlashAddress(uint32_t address);
-
-	/// \brief Shuts down most functions of the Serial Wombat chip reducing power consumption
-	/// 
-	/// This command stops the Serial Wombat chip's internal clock, greatly reducing power consumption.
-	/// The host is responsible for configuring outputs to a safe state prior to calling sleep.
-	/// 
-	/// \warning This command does not cause any sort of shutdown routine to run.  The chip just stops.
-	/// Outputs, including PWM, Servo and Protected Outputs, may retain their logic levels 
-	/// at the moment the sleep command is processed.  In other words, they may stay high or low as long as the chip is in sleep.
-	void sleep();
-
-	/// \brief Called to send a dummy packet to the Serial Wombat chip to wake it from sleep and ready it for other commands
-	void wake();
-
-	/// \brief Returns true if the instance received a model number corresponding to the Serial Wombat 18 series of chips at begin
-	bool isSW18();
-
-	/// \brief Erases a page in flash.  Intended for use with the Bootloader, not by end users outside of bootloading sketch
-	int16_t eraseFlashPage(uint32_t address);
-	/// \brief Writes a row in flash.  Intended for use with the Bootloader, not by end users outside of bootloading sketc
-	int16_t writeFlashRow(uint32_t address);
-
-	/// Stores the last value retreived by readSupplyVoltage_mV().  Used by SerialWombatAnalogInput 
-	/// class to calculate mV outputs from retreived A/D counts.
-	/// Don't access this member, as it may become private and SerialWombatAnalog input be made
-	/// a friend of SerialWombat in the future.  Call readSupplyVoltage_mV instead.
-	uint16_t _supplyVoltagemV = 0;
-
-	/// Contains the last model retreived by queryVersion() as a zero-terminated string
-	uint8_t model[4] = { 0 };
-
-	/// Contains the last firmware Version retreived by queryVersion() as a zero-terminated string
-	uint8_t fwVersion[4] = { 0 };
-
-	/// Contains the unique identifier stored in microcontroller at its manufacturing.  
-	/// Length and format vary by model.  uniqueIdentifier holds the length in bytes.  
-	/// Call queryVersion() to populate this value.
-	uint8_t uniqueIdentifier[16];
-
-	/// Contains the unique identifier length in bytes.  This value varies by model. 
-	/// Call queryVersion() to populate this value.
-	uint8_t uniqueIdentifierLength = 0;
-
-	/// Contains a Microchip device identifier for Microchip based Serial Wombat Models.
-	/// Call queryVersion() to populate this value.
-	uint16_t deviceIdentifier;
-	/// Contains a Microchip device revision for Microchip based Serial Wombat Models.
-	/// Call queryVersion() to populate this value.
-	uint16_t deviceRevision;
-	/// Incremented every time a communication or command error is detected.
-	uint16_t errorCount = 0;
-
-	/// Set to true if boot mode is indicated by a version query
-	bool inBoot = false;
-
-	/// \brief Set a pin to be a throughput monitoring pin. 
-	///
-	/// This pin goes high when pin processing begins in each 1mS frame, and goes low
-	/// after pin processing is complete.  This allows the CPU utilization of the Serial
-	/// Wombat chip to be measured using a logic analyzer.  This function can only be applied
-	/// to one pin, and is only disabled by resetting the chip.  This function is supported on
-	/// the SW18AB chip.  It is not supported on the SW4 series of chips.
-	int16_t setThroughputPin(uint8_t pin);
-
-	/// \brief Write bytes to the User Memory Buffer in the Serial Wombat chip
-	/// \param index The index into the User Buffer array of bytes where the data should be loaded
-	/// \param buffer a pointer to an array of bytes to be loaded into the User Buffer array
-	/// \param number of bytes to load
-	/// \return Number of bytes written or error code.
-	int writeUserBuffer(uint16_t index, uint8_t* buffer, uint16_t count);
-
-		/// \brief Write bytes to the User Memory Buffer in the Serial Wombat chip
-	/// \param index The index into the User Buffer array of bytes where the data should be loaded
-	/// \param buffer a pointer to an array of bytes to be loaded into the User Buffer array
-	/// \param s string to convert to Ascii bytes and load
-	/// \return Number of bytes written or error code.
-		int writeUserBuffer(uint16_t index, char* s);
-
-		/// \brief Write bytes to the User Memory Buffer in the Serial Wombat chip
-/// \param index The index into the User Buffer array of bytes where the data should be loaded
-/// \param buffer a pointer to an array of bytes to be loaded into the User Buffer array
-/// \param s string to convert to Ascii bytes and load
-/// \return Number of bytes written or error code.
-		int writeUserBuffer(uint16_t index, const char s[]);
-
-	/// \brief Read bytes from the User Memory Buffer in the Serial Wombat chip
-	/// \param index The index into the User Buffer array of bytes from which data should be read 
-	/// \param buffer a pointer to an array of bytes to be loaded from the User Buffer array
-	/// \param number of bytes to read
-	/// \return Number of bytes read or error code.
-
-	int readUserBuffer(uint16_t index, uint8_t* buffer, uint16_t count);
-
-	/// \brief Enable UART command interface in addition to I2C (SW18AB Only)
-	/// \param 2nd communication interface is enabled
-	/// 
-	/// \return 0 or positive for success or negative error code
-	/// 
-	int16_t enable2ndCommandInterface(bool enabled = true);
-
-	/// \brief Start capture of startup commands (SW18AB Only)
-	/// \return 0 or positive for success or negative error code
-	/// 
-	/// This command begins startup command capture.  On the SW18AB up to 256 commands can be captured
-	/// This command is followed by a stopStartupCommandCapture command which stops command capture
-	/// and a writeStartupCommandCapture command which writes the captured commands to flash.
-	/// Calling this command discards any prior unwritten capture commands.
-	int16_t startStartupCommandCapture();
-
-	/// \brief Stop capture of startup commands (SW18AB Only)
-	/// \return 0 or positive for success or negative error code
-	int16_t stopStartupCommandCapture();
-
-
-	/// \brief Write captured startup commands to flash (SW18AB Only)
-	/// \return 0 or positive for success or negative error code
-	/// 
-	/// This command writes the commands captured between startStartupCommandCapture and stopStartupCommandCapture 
-	/// to flash.  These commands will be executed each time the chip is reset in the future.
-	/// The command will return success but do nothing if the data to be stored matches the data already stored in
-	/// flash.  This allows the  startStartupCommandCapture / stopStartupCommandCapture / writeStartupCommandCapture
-	/// sequence to be placed around the initialization code of a sketch without concern that flash write endurance
-	/// will be an issue (assuming the exact same initalization sequence occurs each time).  
-	int16_t writeStartupCommandCapture();
-
-
-	/// \brief Set a pin to be a frame timer for system utilization (SW18AB Only)
-	/// \return 0 or positive for success or negative error code
-	/// 
-	/// This command configures a Serial Wombat 18AB Pin to be a frame timer.  This frame goes high at
-	/// the beginning of pin processing, and low after all pins have been serviced.  The duty cycle of 
-	/// this pin is an indicator of the Serial Wombat Chip's CPU utilization.  This pin has a frequency
-	/// of 1kHz corresponding to the 1000 frames per second executive.  Most multimeters will filter this
-	/// pin to a voltage, so the CPU utilization can be seen as a fraction of the system voltage.
-	/// Only one pin can be the Frame Timer pin at a time.
-	int16_t writeFrameTimerPin(uint8_t pin);
-	
-
-	/// \brief Search the I2C Bus addresses 0x68 to 0x6F for I2C devices, and test to see if they respond to
-	/// Serial Wombat version commands.  Returns first address that responds properly or 0 if none found
-	/// 
-	/// \param keepTrying if True, go into a loop and do not exit until a Serial Wombat Chip is found
-	/// 
-	/// \return I2C address of first found Seirla Wombat chip or 0 if none found
-
-	/// \brief Search the I2C Bus addresses 0x68 to 0x6F for I2C devices, and test to see if they respond to
-	/// Serial Wombat version commands.  Returns first address that responds properly or 0 if none found
-	///
-	/// \param keepTrying If true, find will stay in a loop  and continue polling until a Serial Wombat chip is detected. 
-	/// \return I2C address of first found Seirla Wombat chip or 0 if none found
-	static uint8_t find(bool keepTrying = false);
-
-	/// The last error code returned as part of a protocol error message expressed as a positive integer
-	int16_t lastErrorCode = 0;
-
-	/// \brief Returns the last Serial Wombat command that produced a protocol error
-	///
-	/// \return Returns the error code associated with the command
-	/// \param cmd pointer to a uint8_t [8] array into which the error command will be copied
-	int16_t readLastErrorCommand(uint8_t* cmd);
-
-	/// \brief Registers an error handler that is called by the SerialWombatChip sendPacket() command when a protocol error is returned by the Serial Wombat
-	/// \handler A function pointer to a function of SerialWombatErrorHandler_t type.
-	void registerErrorHandler(SerialWombatErrorHandler_t handler);
-
-	/// \brief The I2C address of the SerialWombatChip instance
-	uint8_t address = 0;
-
-	/// <summary>
-	///  \brief How many times to retry a packet if communcation bus (such as I2C) error
-	/// </summary>
-	uint8_t communicationErrorRetries = 5;
-
-	int16_t echo(uint8_t data[], uint8_t count = 7);
-	int16_t echo(char* data);
-
-	uint32_t readBirthday();
-	int16_t readBrand(char* data);
 private:
-
 
 	char version[8] = { 0 };
 	HardwareSerial * Serial = NULL;
@@ -768,121 +288,1108 @@ private:
 	bool _openDrain[WOMBAT_MAXIMUM_PINS]={};
 	bool _highLow[WOMBAT_MAXIMUM_PINS] = {};
 	bool _asleep = false;
-	void configureDigitalPin(uint8_t pin, uint8_t highLow);
-	uint32_t sendReadyTime = 0;
-	int16_t initialize();
-	void readUniqueIdentifier();
-	void readDeviceIdentifier();
-	uint16_t returnErrorCode(uint8_t* rx);
 	SerialWombatErrorHandler_t errorHandler = NULL;
 	bool _currentlyCommunicating = false;
+public:
+/*!
+	Stores the last value retreived by readSupplyVoltage_mV().  Used by SerialWombatAnalogInput 
+	class to calculate mV outputs from retreived A/D counts.
+	Don't access this member, as it may become private and SerialWombatAnalog input be made
+	a friend of SerialWombat in the future.  Call readSupplyVoltage_mV instead.
+*/
+	uint16_t _supplyVoltagemV = 0;
+
+	/// Contains the last model retreived by queryVersion() as a zero-terminated string
+	uint8_t model[4] = { 0 };
+
+	/// Contains the last firmware Version retreived by queryVersion() as a zero-terminated string
+	uint8_t fwVersion[4] = { 0 };
+
+/*!
+	Contains the unique identifier stored in microcontroller at its manufacturing.  
+	Length and format vary by model.  uniqueIdentifier holds the length in bytes.  
+	Call queryVersion() to populate this value.
+*/
+	uint8_t uniqueIdentifier[16];
+
+/*!
+	Contains the unique identifier length in bytes.  This value varies by model. 
+	Call queryVersion() to populate this value.
+*/
+	uint8_t uniqueIdentifierLength = 0;
+
+/*!
+	Contains a Microchip device identifier for Microchip based Serial Wombat Models.
+	Call queryVersion() to populate this value.
+*/
+	uint16_t deviceIdentifier;
+
+/*!
+	Contains a Microchip device revision for Microchip based Serial Wombat Models.
+	Call queryVersion() to populate this value.
+*/
+	uint16_t deviceRevision;
+	/// Incremented every time a communication or command error is detected.
+	uint16_t errorCount = 0;
+
+	/// Set to true if boot mode is indicated by a version query
+	bool inBoot = false;
+
+	/// The last error code returned as part of a protocol error message expressed as a positive integer
+	int16_t lastErrorCode = 0;
+
+	void configureDigitalPin(uint8_t pin, uint8_t highLow)
+	{
+		uint8_t tx[8] = { 200,pin,0,0,0,0,0,0x55 };
+		uint8_t rx[8];
+		switch (_pinmode[pin])
+		{
+		case INPUT: // Arduino input
+		{
+			tx[3] = 2; //Input
+		}
+		break;
+		case OUTPUT:
+		{
+			if (highLow == LOW)
+			{
+				tx[3] = 0;
+			}
+			else if (highLow == HIGH)
+			{
+				tx[3] = 1;
+			}
+			else 
+			{ 
+				return; 
+			}
+		}
+		break;
+		case INPUT_PULLUP:
+		{
+			tx[3] = 2; //Input
+			tx[4] = 1; //Pullup on
+		}
+		break;
+		default:
+		{
+			return;
+		}
+		}
+		tx[6] = _openDrain[pin];
+		tx[5] = _pullDown[pin];
+		sendPacket(tx, rx, true);
+	}
+	uint32_t sendReadyTime = 0;
+	int16_t initialize() 
+	{
+		int16_t retvalue = -1;
+		lastErrorCode = 0;
+		readVersion();
+		readSupplyVoltage_mV();
+		readUniqueIdentifier();
+		readDeviceIdentifier();
+		return(lastErrorCode);
+	}
+		
+	void readUniqueIdentifier()
+	{
+		uniqueIdentifierLength = 0;
+		if (version[0] == 'S' && version[1] == '0' && version[2] == '4')
+		{ //16F15214
+			for (uint32_t address = 0x8100; address <= 0x8108; ++address)
+			{
+				uint32_t data = readFlashAddress(address);
+				uniqueIdentifier[uniqueIdentifierLength] = (uint8_t)data;
+				++uniqueIdentifierLength;
+				/* Always zero... leave out
+				uniqueIdentifier[uniqueIdentifierLength] = (uint8_t)(data>>8);
+				++uniqueIdentifierLength;
+				*/
+			}
+		}
+		else if (isSW18())
+		{
+			for (uint32_t address = 0x801600; address <= 0x801608; address += 2)
+			{
+				uint32_t data = readFlashAddress(address);
+				uniqueIdentifier[uniqueIdentifierLength] = data;
+				++uniqueIdentifierLength;
+				uniqueIdentifier[uniqueIdentifierLength] = data >> 8;
+				++uniqueIdentifierLength;
+				uniqueIdentifier[uniqueIdentifierLength] = data >> 16;
+				++uniqueIdentifierLength;
+			}
+		}
+	}
+
+	void readDeviceIdentifier() 
+	{
+		if (version[0] == 'S' && version[1] == '0' && version[2] == '4')
+		{ //16F15214
+			
+				uint32_t data = readFlashAddress(0x8006);
+				deviceIdentifier = (uint16_t)data;
+				data = readFlashAddress(0x8005);
+				deviceRevision = (uint16_t)data;
+		}
+		else if (isSW18())
+		{
+			uint32_t data = readFlashAddress(0xFF0000);
+			deviceIdentifier = (uint16_t)data;
+			data = readFlashAddress(0xFF0002);
+			deviceRevision = (uint16_t)data & 0xF;
+		}
+	}
+
+	uint16_t returnErrorCode(uint8_t* rx)
+	{
+		uint16_t result = rx[1] - '0';
+		result *= 10;
+		result += rx[2] - '0';
+		result *= 10;
+		result += rx[3] - '0';
+		result *= 10;
+		result += rx[4] - '0';
+		result *= 10;
+		result += rx[5] - '0';
+		return(result);
+	}
+
+
+	
+public:
+	SerialWombatChip();
+/*!
+	\brief initialize a Serial Wombat chip to use a Serial Interface.
+	
+	The reset parameter determines if the Serial Wombat chip is reset
+	prior to other initialization operations.  If false,
+	then any prior pin modes and configurations may still be in
+	place.
+	The Serial Wombat chips's source 
+	voltage is then read as well as its version.
+	
+	\param serial Serial Interface to be used by the Serial Wombat library
+	\param reset Whether or not to reset the Serial Wombat chip via command as the first initialization operation
+*/
+	int16_t begin(HardwareSerial& serial, bool reset = true)
+	{
+		Serial = &serial;
+		Serial->begin(115200);
+		Serial->setTimeout(2);
+		Serial->write((uint8_t*)"UUUUUUUU", 8);
+		delay(5);
+		while (Serial->read() >= 0);
+		if (reset)
+		{
+			hardwareReset();
+			sendReadyTime = millis() + 1000;
+			return(1);
+		}
+		else
+		{
+			return initialize();
+		}
+		
+		
+	}
+
+/*!
+	\brief initialize a Serial Wombat chip to use the default Wire I2C Interface and specified address.
+	
+	This call causes the Serial Wombat chip to be reset through its reset
+	command as the first operation.  The Serial Wombat chip's source 
+	voltage is then read as well as its version.
+	
+	\param i2cAddress I2C Follower address of the Serial Wombat chip commanded by this instance
+*/
+	int16_t begin(uint8_t i2cAddress);
+
+/*!
+	\brief initialize a Serial Wombat chip to use a specified I2C Interface and address.
+	
+	This call causes the Serial Wombat chip to optionally reset through its reset
+	command as the first operation.  The Serial Wombat chip's source 
+	voltage is then read as well as its version.
+	
+	\param wire I2C interface to be used by the Serial Wombat Library
+	\param i2cAddress I2C Follower address of the Serial Wombat chip commanded by this instance
+	\param reset Whether or not to reset the Serial Wombat chip via command as the first initialization operation. If false,
+	then any prior pin modes and configurations may still be in
+	place.
+*/
+	int16_t begin(TwoWire& wire, uint8_t i2cAddress, bool reset = true) 
+	{	
+			i2cInterface = &wire;
+			address = i2cAddress;
+
+			Wire.beginTransmission(i2cAddress);
+			int error = Wire.endTransmission();
+
+
+			if (error != 0)
+			{
+				return(-1);
+			}
+
+			if (reset)
+			{
+				hardwareReset();
+				sendReadyTime = millis() + 1000;
+				return(1);
+			}
+			else
+			{
+				sendReadyTime = 0;
+				return initialize();
+
+			}
+	}
+
+	~SerialWombatChip();
+
+/*!
+	\brief Send an 8 byte packet to the Serial Wombat chip and wait for 8 bytes back
+	
+	This method sends 8 bytes via I2C or Serial and blocks until 8 bytes are receieved
+	back
+	
+	\param tx address of an array of 8 bytes to send
+	\param rx address of an array of 8 bytes into which to put response.
+	\return The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip
+*/
+	int sendPacket( uint8_t tx[], uint8_t rx[]);
+
+/*!
+	\brief Send an 8 byte packet to the Serial Wombat chip.
+	
+	This method sends 8 bytes and processes the response to check for errors.
+	
+	
+	\param tx address of an array of 8 bytes to send
+	\return The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip
+*/
+	int sendPacket(uint8_t tx[]);
+
+/*!
+	\brief Send an 8 byte packet to the Serial Wombat chip and wait for 8 bytes back
+	
+	This method sends 8 bytes via I2C or Serial and blocks until 8 bytes are receieved
+	back
+	
+	\param tx address of an array of 8 bytes to send
+	\param rx address of an array of 8 bytes into which to put response.
+	\return The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip
+*/
+	int sendPacket(uint8_t tx[], uint8_t rx[], bool retryIfEchoDoesntMatch, uint8_t beginningBytesToMatch = 8, uint8_t endBytesToMatch = 0);
+/*!
+	\brief Send an 8 byte packet to the Serial Wombat chip.
+	
+	This method sends 8 bytes and processes the response to check for errors.
+	
+	
+	\param tx address of an array of 8 bytes to send
+	\return The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip
+*/
+	int sendPacket(uint8_t tx[], bool retryIfEchoDoesntMatch);
+
+/*!
+	\brief Send an 8 byte packet to the Serial Wombat chip, don't wait for a response.
+	
+	This method sends 8 bytes.  Used for resetting the chip prior to bootloading
+	
+	\param tx address of an array of 8 bytes to send
+	\return returns a non-error 0 or higher
+*/
+
+	int sendPacketNoResponse(uint8_t tx[]);
+
+/*!
+	\brief Request version string (combined model and firmware) and return pointer to it
+	
+	This queries the Serial Wombat chip for the 7 characters:   product line (1 character)
+	Model (3 characters) and firmware version (3 characters)
+	This is stored in a string in the Serial Wombat object.  A pointer to this string
+	is returned.
+*/
+	char* readVersion(void) 
+	{
+		uint8_t tx[] = { 'V',0x55,0x55,0x55,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+		sendPacket(tx, rx);
+		memcpy(version, &rx[1], 7);
+		version[7] = '\0';
+		memcpy(model, &rx[1], 3);
+		model[3] = '\0';
+		fwVersion[0] = rx[5];
+		fwVersion[1] = rx[6];
+		fwVersion[2] = rx[7];
+		return (version);
+	}
+
+/*!
+	\brief Request version as a uint32
+	
+	This queries the Serial Wombat chip for its version information, and returns the
+	firmware version as a uint32 0x0XYZ where X,Y,and Z represent firmwre version X.Y.Z
+*/
+	uint32_t readVersion_uint32(void) 
+	{
+		readVersion();
+		return ((((uint32_t)fwVersion[0]) << 16) |
+			(((uint32_t)fwVersion[1]) << 8) |
+			fwVersion[2]);
+	}
+
+/*!
+	\brief Read the 16 Bit public data associated with a Serial Wombat Pin Mode 
+	
+	Reads and returns the 16 bit value associated with a Serial Wombat Pin Mode.
+	Additionally, values of 65 and higher have special meanings.  See
+	Serial Wombat firmware documentation for details.
+	\return 16 bit public data for pin specified
+	\param pin The pin (or special meaning value) for which to retreive data
+*/
+	uint16_t readPublicData(uint8_t pin)
+	{
+		uint8_t tx[] = { 0x81,pin,255,255,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+		sendPacket(tx, rx);
+		return(rx[2] + (uint16_t)rx[3] * 256);
+	}
+
+/*!
+	\brief Read the 16 Bit public data associated with a Serial Wombat Pin Mode 
+	
+	Reads and returns the 16 bit value associated with a Serial Wombat Pin Mode.
+	Additionally, values of 65 and higher have special meanings.  See
+	Serial Wombat firmware documentation for details.
+	\return 16 bit public data for pin specified
+	\param dataSource The pin (or special meaning value) for which to retreive data
+*/
+	uint16_t readPublicData(SerialWombatDataSource dataSource)
+	{
+		return (readPublicData((uint8_t)dataSource));
+	}
+
+/*!
+	\brief Write a 16 bit value to a Serial Wombat pin Mode
+	\param pin The pin number to which to write
+	\param value The 16 bit value to write
+*/
+	uint16_t writePublicData(uint8_t pin, uint16_t value)
+	{
+		uint8_t tx[] = { 0x82,pin,(uint8_t)(value & 0xFF),(uint8_t)(value >> 8) ,255,0x55,0x55,0x55 };
+		uint8_t rx[8];
+		sendPacket(tx, rx);
+		return (rx[2] + rx[3] * 256);
+	}
+
+/*!
+	\brief Measure the Serial Wombat chip's Supply voltage
+	
+	Causes the Serial Wombat chip to measure the counts for the 
+	internal reference voltage.  The Arduino library
+	then converts these counts to a Source votlage in mV
+	
+	\return The Serial Wombat chip's source voltage in mV
+*/
+
+	uint16_t readSupplyVoltage_mV(void) 
+	{
+		if (isSW18())
+		{
+			_supplyVoltagemV = readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_VCC_mVOLTS);
+		}
+		else
+		{
+			int32_t counts = readPublicData(66); // Get FVR counts (1.024 v)
+			if (counts > 0)
+			{
+				uint32_t mv = 1024 * 65536 / counts;
+				_supplyVoltagemV = (uint16_t)mv;
+			}
+			else
+			{
+				_supplyVoltagemV = 0;
+			}
+		}
+		return(_supplyVoltagemV);
+	}
+
+
+/*!
+	\brief Measure the Serial Wombat chip's internal temperature
+	
+	This command is only supported by the SerialWombat 18 Series.
+	The Arduino library will return 25 deg. C for other models
+	
+	This value is low accuracy unless a calibration has been performed
+	
+	\return The Serial Wombat chip's temperature in 100ths deg C
+*/
+	int16_t readTemperature_100thsDegC(void)
+	{
+		if (isSW18())
+		{
+			int32_t result = readPublicData(70);
+			if (result >= 32768)
+			{
+				result = result - 65536;
+			}
+			return ((int16_t)result);
+		}
+		else
+		{
+			return 2500;
+		}
+	}
+
+/*!
+	\brief Send a reset command to the Serial Wombat chip
+	
+	Sends a reset command to the Serial Wombat chip.  The calling function
+	should wait 500mS before sending additional commands.
+*/
+	void hardwareReset() 
+	{
+		uint8_t tx[9] = "ReSeT!#*";
+		uint8_t rx[8];
+		sendPacket(tx, rx);
+	}
+
+/*!
+	\brief Set a pin to INPUT or OUTPUT, with options for pull Ups and open Drain settings
+	
+	\param pin The Serial Wombat pin to set
+	\param mode Valid values are INPUT, OUTPUT or INPUT_PULLUP as defined by arduino.  Do not use SW_INPUT, SW_HIGH or SW_LOW here, as these have different meanings
+	\param pullDown  If True, a weak pull down will be enabled on this pin (No effect on SW4A/SW4B)
+	\param openDrain If True, output becomes openDrain output rather than push / pull
+*/
+	void pinMode(uint8_t pin, uint8_t mode, bool pullDown = false, bool openDrain = false) 
+	{
+		if (pin >= WOMBAT_MAXIMUM_PINS)
+		{
+			return;
+		}
+		_pullDown[pin] = openDrain;
+		_openDrain[pin] = openDrain;
+		_pinmode[pin] = mode;
+		configureDigitalPin(pin, mode);
+	}
+
+/*!
+	\brief Set an output pin High or Low
+	
+	Before calling this function, the pin should be configured as an input or output with pinMode()
+	\param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3
+	\param val  Valid values are HIGH or LOW not use SW_INPUT, SW_HIGH or SW_LOW here, as these have different meanings
+*/
+	void digitalWrite(uint8_t pin, uint8_t val)
+	{
+		configureDigitalPin(pin, val);
+	}
+
+/*!
+	@brief Reads the state of a Pin
+	
+	@return Returns LOW if pin is low or public data is 0.  Returns HIGH if pin is high or public data is > 0
+*/
+	int digitalRead(uint8_t pin) 
+	{
+		if (readPublicData(pin) > 0)
+		{
+			return (HIGH);
+		}
+		else
+		{
+			return (LOW);
+		}
+	}
+
+/*!
+	\brief Configures pin as analog input and does an immediate A/D conversion.  
+	
+	This function is compatible with the Arduino Uno analogRead function.  
+	It does not make use of advanced Serial Wombat chip's functionality such as averaging and
+	filtering.  Consider declaring a SerialWombatAnalogInput instead.
+	\param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3
+	\return An Analog to Digital conversion ranging from 0 to 1023 (10-bit)
+*/
+	int analogRead(uint8_t pin)
+	{
+		uint8_t tx[] = { 200,pin,PIN_MODE_ANALOGINPUT,0,0,0,0,0 };
+		uint8_t rx[8];
+		sendPacket(tx, rx);
+		return (readPublicData(pin) >> 6); // Scale from 16 bit value to 10 bit value.
+	}
+
+/*!
+	\brief Set a pin to PWM output
+	
+	This function is compatible with the Arduino Uno analogWrite function, but will
+	output a PWM with a different frequency.
+	Consider declaring a SerialWombatPWM instead.  It has higher resolution and
+	the ability to choose frequency.
+	
+	\param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3
+	\param val A value from 0 (always low) to 255(always high) for the PWM duty cycle
+*/
+	void analogWrite(uint8_t pin, int val)
+	{
+		uint8_t dutyCycleLow = 0;
+		if (val == 255)
+		{
+			dutyCycleLow = 255;
+		}
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE0,pin,PIN_MODE_PWM,pin,dutyCycleLow,(uint8_t) val,false,0x55 };
+		uint8_t rx[8];
+		sendPacket(tx, rx);
+	}
+
+/*!
+	\brief Send a version request to the Serial Wombat chip
+	
+	This function queries the Serial Wombat chip for its model and version
+	and stores the result in the public members model and fwVersion
+	as zero terminated strings.  Returns true if the response is
+	likely a proper version response and false otherwise.
+	
+	\return TRUE if response was likely a valid version, FALSE otherwise
+*/
+	bool queryVersion()
+	{
+		uint8_t tx[8] = { 'V',0x55,0x55,0x55,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+		sendPacket(tx, rx);
+		if (rx[0] == 'V' && (rx[1] == 'S' || rx[1] == 'B'))
+		{
+			model[0] = rx[1];
+			model[1] = rx[2];
+			model[2] = rx[3];
+			model[3] = 0;
+			fwVersion[0] = rx[5];
+			fwVersion[1] = rx[6];
+			fwVersion[2] = rx[7];
+			fwVersion[3] = 0;
+
+			inBoot = (rx[1] == 'B');
+			return (true);
+		}
+		return (false);
+	}
+
+/*!
+	\brief Get the number of 1mS frames that have been executed since Serial Wombat chip reset
+	
+	This value should be roughly equal to the mS since reset.  It will vary based on the Serial Wombat chip's
+	internal oscillator variation, and may run slow if Overflow frames are occuring.
+*/
+	uint32_t readFramesExecuted()
+	{
+		uint8_t tx[8] = { 0x81,67,68,0x55,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+		sendPacket(tx, rx);
+		uint32_t returnval = rx[2] + (((uint32_t)rx[3]) << 8) + (((uint32_t)rx[4]) << 16) + (((uint32_t)rx[5]) << 24);
+			return (returnval);
+	}
+
+/*!
+	\brief Get the number of times an overflow Frame has occured.
+	
+	This value increments each time the Serial Wombat firmware determines it is time to start a new 1 mS frame,
+	but the previous frame is still executing.  Indicates processor loading over 100% of real-time.  Overflows
+	back to 0 when incremented from 65535.
+*/
+
+	uint16_t readOverflowFrames()
+	{
+		return readPublicData(69);
+	}
+
+/*!
+	\brief Jump to Bootloader and wait for a UART download of new firmware
+	
+	This function causes a reset of the Serial Wombat chip and causes it to remain
+	in the bootloader until a power-cycle occurs.  This allows loading new
+	firmware via a UART connection to the bottom two pins (DIP pins 4 (RX) and 5(TX))
+	on the SW4A/SW4B.  When jumping to boot the TX pin will go high.  All other 
+	communication or functional pins will become inputs (i.e. PWMS, etc will stop).
+*/
+	void jumpToBoot()
+	{
+		uint8_t tx[] = "BoOtLoAd";
+		sendPacket(tx);
+	}
+
+/*!
+	\brief Read Address from RAM based on 16 bit address
+	
+	Most Arduino users should not need this command.
+	
+	This command can be used to read variables and registers within the Serial Wombat Chip
+	Note that reading registers may have unintended side effects.  See the microcontroller datasheet
+	for details.
+	
+	Note that Note that the PIC16F15214 used in the SW4A and SW4B chips
+	is a Microchip Enhanced Mid-Range chip with both a banked RAM area and a Linear RAM area at an offset address.
+	See the datasheet for details.  It's wierd to people who are unfamilliar with it.  The same location
+	can have two different addresses.
+	
+	Addresses are not validated to be available in a given chip's address range.
+	
+	\param address  A 16-bit address pointing to a location in the Serial Wombat Chip's memory map
+	
+	\return An 8 bit value returned from the Serial Wombat chip.
+*/
+	uint8_t readRamAddress(uint16_t address)
+	{
+		uint8_t tx[8] = { 0xA0,SW_LE16(address),0x55,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+		sendPacket(tx, rx);
+		return(rx[3]);
+	}
+
+/*!
+	\brief Write byte to Address in RAM based on 16 bit address
+	
+	Most Arduino users should not need this command.
+	
+	This command can be used to write variables and registers within the Serial Wombat Chip
+	Note that write registers may have unintended side effects.  See the microcontroller datasheet
+	for details.
+	
+	Note that Note that the PIC16F15214 used in the SW4A and SW4B chips
+	is a Microchip Enhanced Mid-Range chip with both a banked RAM area and a Linear RAM area at an offset address.
+	See the datasheet for details.  It's wierd to people who are unfamilliar with it.  The same location
+	can have two different addresses.
+	
+	Addresses are not validated to be available in a given chip's address range.
+	
+	\param address  A 16-bit address pointing to a location in the Serial Wombat Chip's memory map
+	\param value An 8 bit value to be written to RAM
+*/
+
+	int16_t writeRamAddress(uint16_t address, uint8_t value)
+	{
+		uint8_t tx[8] = { 0xA3,SW_LE16(address),0,0,value,0x55,0x55};
+		return sendPacket(tx);
+	}
+
+/*!
+	\brief Read Address from Flash based on 32 bit address
+	
+	Most Arduino users should not need this command.
+	
+	This command can be used to read flash locations within the Serial Wombat Chip
+	
+	
+	Addresses are not validated to be available in a given chip's address range.
+	
+	\param address  A 32-bit address pointing to a location in the Serial Wombat Chip's memory map
+	
+	\return An 32 bit value returned from the Serial Wombat chip.  32 bits are used to accomodate different chips.  The SW18 series has a 24 bit flash word, whereas the SW4A and SW4B have a 14 bit word.
+*/
+
+	uint32_t readFlashAddress(uint32_t address)
+	{
+		uint8_t tx[8] = { 0xA1,SW_LE32(address),0x55,0x55,0x55 };
+		uint8_t rx[8];
+		sendPacket(tx, rx);
+		return(((uint32_t)rx[4]) + (((uint32_t)rx[5]) <<8) + (((uint32_t)rx[6]) <<16) + (((uint32_t)rx[7]) <<24));
+	}
+
+/*!
+	\brief Shuts down most functions of the Serial Wombat chip reducing power consumption
+	
+	This command stops the Serial Wombat chip's internal clock, greatly reducing power consumption.
+	The host is responsible for configuring outputs to a safe state prior to calling sleep.
+	
+	\warning This command does not cause any sort of shutdown routine to run.  The chip just stops.
+	Outputs, including PWM, Servo and Protected Outputs, may retain their logic levels 
+	at the moment the sleep command is processed.  In other words, they may stay high or low as long as the chip is in sleep.
+*/
+	void sleep()
+	{
+		uint8_t tx[8] = { 'S','l','E','e','P','!','#','*'};
+		sendPacket(tx);
+		_asleep = true;
+	}
+
+	/// \brief Called to send a dummy packet to the Serial Wombat chip to wake it from sleep and ready it for other commands
+	void wake()
+	{
+		uint8_t tx[8] = { '!','!','!','!','!','!','!','!' };
+		sendPacket(tx);
+	}
+
+	/// \brief Returns true if the instance received a model number corresponding to the Serial Wombat 18 series of chips at begin
+	bool isSW18()
+	{
+		return ( model[1] == '1' && model[2] == '8');
+	}
+
+	/// \brief Erases a page in flash.  Intended for use with the Bootloader, not by end users outside of bootloading sketch
+	int16_t eraseFlashPage(uint32_t address)
+	{
+		uint8_t tx[8] = { (uint8_t)SerialWombatCommands::COMMAND_BINARY_WRITE_FLASH,
+			0, //Erase Page
+			SW_LE32(address),
+			0x55,0x55 };
+		return sendPacket(tx);
+	}
+
+
+	/// \brief Writes a row in flash.  Intended for use with the Bootloader, not by end users outside of bootloading sketc
+	int16_t writeFlashRow(uint32_t address)
+	{
+		uint8_t tx[8] = { (uint8_t)SerialWombatCommands::COMMAND_BINARY_WRITE_FLASH,
+			1, // Write entire row
+			SW_LE32(address),0x55,0x55 };
+		return sendPacket(tx);
+	}
+
+
+
+
+/*!
+	\brief Set a pin to be a throughput monitoring pin. 
+	
+	This pin goes high when pin processing begins in each 1mS frame, and goes low
+	after pin processing is complete.  This allows the CPU utilization of the Serial
+	Wombat chip to be measured using a logic analyzer.  This function can only be applied
+	to one pin, and is only disabled by resetting the chip.  This function is supported on
+	the SW18AB chip.  It is not supported on the SW4 series of chips.
+*/
+	int16_t setThroughputPin(uint8_t pin)
+	{
+		uint8_t tx[8] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE0,pin,PIN_MODE_FRAME_TIMER,0x55,0x55,0x55,0x55,0x55 };
+		return sendPacket(tx);
+	}
+
+/*!
+	\brief Write bytes to the User Memory Buffer in the Serial Wombat chip
+	\param index The index into the User Buffer array of bytes where the data should be loaded
+	\param buffer a pointer to an array of bytes to be loaded into the User Buffer array
+	\param number of bytes to load
+	\return Number of bytes written or error code.
+*/
+	int writeUserBuffer(uint16_t index, uint8_t* buffer, uint16_t count)
+	{
+		uint16_t bytesSent = 0;
+		if (count == 0)
+		{
+			return 0;
+		}
+
+		{ // Send first packet of up to 4 bytes
+			uint8_t bytesToSend = 4;
+			if (count < 4)
+			{
+				bytesToSend = (uint8_t)count;
+				count = 0;
+			}
+			else
+			{
+				count -= 4;
+			}
+
+			uint8_t tx[8] = { 0x84,SW_LE16(index), bytesToSend,0x55,0x55,0x55,0x55 };
+			uint8_t rx[8];
+
+			uint8_t i;
+			for (i = 0; i < bytesToSend; ++i)
+			{
+				tx[4 + i] = buffer[i];
+			}
+			int result = sendPacket(tx, rx);
+			if (rx[0] == 'E')
+			{
+				return (result);
+			}
+			bytesSent = bytesToSend;
+		}
+		while (count >= 7)  // Continue sending
+		{
+
+			count -= 7;
+			uint8_t tx[8] = { 0x85,0x55,0x55,0x55,0x55,0x55,0x55,0x55 };
+			uint8_t rx[8];
+			uint8_t i;
+			for (i = 0; i < 7; ++i)
+			{
+				tx[1 + i] = buffer[bytesSent + i];
+			}
+			int result = sendPacket(tx, rx);
+			if (rx[0] == 'E')
+			{
+				return (result);
+			}
+			bytesSent += 7;
+		}
+		while (count > 0)
+		{
+
+			{ // Send first packet of up to 4 bytes
+				uint8_t bytesToSend = 4;
+				if (count < 4)
+				{
+					bytesToSend = (uint8_t)count;
+					count = 0;
+				}
+				else
+				{
+					count -= 4;
+				}
+
+				uint8_t tx[8] = { 0x84,SW_LE16(index + bytesSent), bytesToSend,0x55,0x55,0x55,0x55 };
+				uint8_t rx[8];
+
+				uint8_t i;
+				for (i = 0; i < bytesToSend; ++i)
+				{
+					tx[4 + i] = buffer[i + bytesSent];
+				}
+				int result = sendPacket(tx, rx);
+				if (rx[0] == 'E')
+				{
+					return (result);
+				}
+				bytesSent += bytesToSend;
+			}
+		}
+		return(bytesSent);
+		
+
+	}
+
+/*!
+	\brief Write bytes to the User Memory Buffer in the Serial Wombat chip
+	\param index The index into the User Buffer array of bytes where the data should be loaded
+	\param buffer a pointer to an array of bytes to be loaded into the User Buffer array
+	\param s string to convert to Ascii bytes and load
+	\return Number of bytes written or error code.
+*/
+	int writeUserBuffer(uint16_t index, char* s)
+	{
+		return writeUserBuffer(index, (uint8_t*)s, (uint16_t)strlen(s));
+	}
+
+/*!
+	\brief Write bytes to the User Memory Buffer in the Serial Wombat chip
+	\param index The index into the User Buffer array of bytes where the data should be loaded
+	\param buffer a pointer to an array of bytes to be loaded into the User Buffer array
+	\param s string to convert to Ascii bytes and load
+	\return Number of bytes written or error code.
+*/
+	int writeUserBuffer(uint16_t index, const char s[])
+	{
+		return writeUserBuffer(index, (uint8_t*)s, (uint16_t)strlen(s));
+	}
+
+
+
+/*!
+	\brief Set a pin to be a frame timer for system utilization (SW18AB Only)
+	\return 0 or positive for success or negative error code
+	
+	This command configures a Serial Wombat 18AB Pin to be a frame timer.  This frame goes high at
+	the beginning of pin processing, and low after all pins have been serviced.  The duty cycle of 
+	this pin is an indicator of the Serial Wombat Chip's CPU utilization.  This pin has a frequency
+	of 1kHz corresponding to the 1000 frames per second executive.  Most multimeters will filter this
+	pin to a voltage, so the CPU utilization can be seen as a fraction of the system voltage.
+	Only one pin can be the Frame Timer pin at a time.
+*/
+	int16_t writeFrameTimerPin(uint8_t pin)
+{
+	uint8_t tx[] = { 0xC8 ,pin,(uint8_t)PIN_MODE_FRAME_TIMER,0x55,0x55,0x55,0x55,0x55 };
+	return sendPacket(tx);
+}
+	
+
+/*!
+	\brief Search the I2C Bus addresses 0x68 to 0x6F for I2C devices, and test to see if they respond to Serial Wombat version commands.  Returns first address that responds properly or 0 if none found
+	
+	\param keepTrying if True, go into a loop and do not exit until a Serial Wombat Chip is found
+	
+	\return I2C address of first found Seirla Wombat chip or 0 if none found
+*/
+	static uint8_t find(bool keepTrying = false)
+	{
+		do
+		{
+			for (int i2cAddress = 0x68; i2cAddress <= 0x6F; ++i2cAddress)
+			{
+				Wire.beginTransmission(i2cAddress);
+				int error = Wire.endTransmission();
+
+
+				if (error == 0)
+				{
+					uint8_t tx[8] = { 'V',0x55,0x55,0x55,0x55,0x55,0x55,0x55 };
+					uint8_t rx[8];
+					Wire.beginTransmission(i2cAddress);
+					Wire.write(tx, 8);
+					Wire.endTransmission();
+					Wire.requestFrom((uint8_t)i2cAddress, (uint8_t)8);
+
+					int count = 0;
+					while (Wire.available() && count < 8)
+					{
+						rx[count] = Wire.read();
+						++count;
+					}
+					if (count == 8)
+					{
+						if (rx[0] == 'V' && rx[1] == 'S')
+						{
+							return(i2cAddress); // Found one.
+						}
+					}
+				}
+			}
+			delay(0);
+		}while (keepTrying);
+				return(0);  // Didn't find one.
+	}
+
+
+/*!
+	\brief Returns the last Serial Wombat command that produced a protocol error
+	
+	\return Returns the error code associated with the command
+	\param cmd pointer to a uint8_t [8] array into which the error command will be copied
+*/
+	int16_t readLastErrorCommand(uint8_t* cmd)
+{
+	//TODO this doen't look like it returns the error
+	uint8_t tx[8] = { (uint8_t)SerialWombatCommands::COMMAND_READ_LAST_ERROR_PACKET, 0,0x55,0x55,0x55,0x55,0x55,0x55 };
+	uint8_t rx[8];
+	if (sendPacket(tx, rx) >= 0)
+	{
+		for (int i = 1; i < 8; ++i)
+		{
+			cmd[i - 1] = rx[i];
+		}
+	}
+	else
+	{
+		return (lastErrorCode);
+	}
+	tx[1] = 7;
+	if (sendPacket(tx, rx) >= 0)
+	{
+		cmd[7] = rx[1];
+	}
+	return(lastErrorCode);
+}
+
+/*!
+	\brief Registers an error handler that is called by the SerialWombatChip sendPacket() command when a protocol error is returned by the Serial Wombat
+	\handler A function pointer to a function of SerialWombatErrorHandler_t type.
+*/
+	void registerErrorHandler(SerialWombatErrorHandler_t handler)
+	{
+		errorHandler = handler;
+	}
+
+	/// \brief The I2C address of the SerialWombatChip instance
+	uint8_t address = 0;
+
+	///  \brief How many times to retry a packet if communcation bus (such as I2C) error
+	uint8_t communicationErrorRetries = 5;
+
+	int16_t echo(uint8_t data[], uint8_t count = 7)
+	{
+		uint8_t tx[] = "!UUUUUUU";
+		for (int i = 0; i < 7 && i < count; ++i)
+		{
+			tx[i + 1] = (uint8_t)data[i];
+		}
+		return sendPacket(tx);
+	}
+
+
+	int16_t echo(char* data)
+	{
+		int length = strlen(data);
+		uint8_t tx[] = "!UUUUUUU";
+		for (int i = 0; i < 7 && i < length; ++i)
+		{
+			tx[i + 1] = (uint8_t)data[i];
+		}
+		return sendPacket(tx);
+	}
+
+	uint32_t readBirthday()
+	{
+		if (isSW18())
+		{
+			uint32_t birthday = (readFlashAddress(0x2A00C) >> 8) & 0xFF;
+			birthday *= 100;
+			birthday += (readFlashAddress(0x2A00C)) & 0xFF;
+			birthday *= 100;
+			birthday += readFlashAddress(0x2A00E) & 0xFF;
+			birthday *= 100;
+			birthday += readFlashAddress(0x2A010) & 0xFF;
+			return (birthday);
+		}
+		return 0;
+	}
+
+	int16_t readBrand(char* data)
+	{
+		uint8_t length = 0;
+		if (isSW18())
+		{
+			for (int i = 0; i < 32; ++i)
+			{
+				uint32_t val = readFlashAddress(0x2A020 + i * 2) ;
+				if ((val & 0xFF) != 0xFF)
+				{
+					data[i ] = (char)(val & 0xFF);
+					++length;
+				}		
+				else
+				{
+					data[length] = 0;
+					return (length);
+				}
+			}
+			data[length] = 0;
+			return (length);
+		}
+
+		data[0] = 0;
+		return 0 ;
+	}
+
 };
+
+/*
+End of cross platform code synchronization.  Random string to help the compare tool sync lines:
+asdkj38vjn1nasdnvuwlamafdjiivnowalskive
+*/
 
 /// \brief This class name is depricated.  Do not use for new development.  Use SerialWombatChip instead.
 class SerialWombat : public SerialWombatChip {};  
-/// Convert a uint16_t to two bytes in little endian format for array initialization
-#define SW_LE16(_a)  (uint8_t)((_a) & 0xFF), (uint8_t)((_a) >>8)  
-
-/// Convert a uint32_t to four bytes in little endian format for array initialization
-#define SW_LE32(_a)  (uint8_t)((_a) & 0xFF), (uint8_t)((_a) >>8) , (uint8_t)((_a) >>16), (uint8_t)((_a) >>24)
-
-
-/// \brief Describes a Serial Wombat Pin.  Is base class for other pin modes
-///
-/// This class describes a Serial Wombat Pin on a Serial Wombat Chip.  This class
-/// can be used to control a pin as a simple Digital I/O pin.
-/// This class is used as a base class for many other pin mode classes.
-///
-/// Digital I/O related members such as digitalWrite or pinMode should not be
-/// called against derived classes as this may have unpredicable effects on
-/// the state machines run by those derived classes.
-class SerialWombatPin
-{
-public:
-	/// \brief Instantiates a Serial Wombat Pin 
-	/// \param serialWombatChip The chip on which the Serial Wombat Pin exists
-	SerialWombatPin(SerialWombatChip& serialWombatChip);
-
-	/// \brief Instantiates a Serial Wombat Pin 
-	/// \param serialWombatChip The chip on which the Serial Wombat Pin exists
-	/// \param pin The pin number of the pin (WP number, not package pin number) of the pin
-	SerialWombatPin(SerialWombatChip& serialWombatChip, uint8_t pin);
-
-	/// \brief Read the 16 Bit public data associated with this pin 
-	/// 
-	/// Reads and returns the 16 bit value associated with this pin.
-	/// \return 16 bit public data for this pin.
-	uint16_t readPublicData() 
-	{
-		return _sw.readPublicData(_pin);
-	};
-
-	/// \brief Set pin to INPUT or OUTPUT
-	/// 
-	/// This method matches the Arduino Digital io pinMode command
-	/// It should only be used on pins that have not been configured to a more
-	/// sophisticated (e.g. debounce or servo) pin mode.  
-	/// 
-	/// \param mode Valid values are INPUT or OUTPUT as defined by arduino.  Do 
-	/// not use SW_INPUT, SW_HIGH or SW_LOW here, as these have different meanings
-	void pinMode(uint8_t mode);
-
-	/// \brief Set pin to INPUT or OUTPUT, with options for pull Ups and open Drain settings
-	/// 
-	/// \param mode Valid values are INPUT, OUTPUT or INPUT_PULLUP as defined by arduino.  Do 
-	/// not use SW_INPUT, SW_HIGH or SW_LOW here, as these have different meanings
-	/// \param pullDown  If True, a weak pull down will be enabled on this pin (No effect on SW4A/SW4B)
-	/// \param openDrain If True, output becomes openDrain output rather than push / pull
-	void pinMode(uint8_t mode, bool pullDown, bool openDrain);
-
-	/// \brief Set output pin High or Low
-	/// 
-	/// Before calling this function, the pin should be configured as an input or output with pinMode()
-	/// \param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3
-	/// \param val  Valid values are HIGH or LOW
-	/// not use SW_INPUT, SW_HIGH or SW_LOW here, as these have different meanings
-	void digitalWrite(uint8_t val);
-
-	/// \brief Reads the state of the Pin
-	/// 
-	/// This function is based on the pin's public data, not a raw reading.
-	/// 
-	/// \return Returns LOW if pin is low or public data is 0.  Returns HIGH if pin is high or public data is > 0
-	int digitalRead();
-
-
-	/// \brief Write a 16 bit value to this pin
-	/// \param value The 16 bit value to write
-	uint16_t writePublicData(uint16_t value) 
-	{ return _sw.writePublicData(_pin, value); }
-
-	/// \brief Returns the current SW pin number.  Used primarily for virtual calls by derived classes
-	/// \return Returns the current SW pin number.
-	uint8_t pin() {return _pin;}
-
-	/// \brief Returns the Mode number.  Used primarily by derived classes to populate packet data
-	/// \return Returns the pin mode number
-	uint8_t swPinModeNumber() { return _pinMode; }
 
 
 
 
-protected:
-	uint8_t _pin = 255;
-	SerialWombatChip& _sw;
-	uint8_t _pinMode = 0;
 
-};
+/*!
+\brief a sample error handler that can be registered with registerErrorHandler to report protocol errors on Serial.  
 
-
-/// \brief a sample error handler that can be registered with registerErrorHandler to report protocol errors on Serial.  
-/// 
-/// Do not use this when using Serial to control the Serial Wombat Chip
-/// \param error The error number that was reported
-/// \param pointer to the Serial Wombat Chip instance that generated the error
+Do not use this when using Serial to control the Serial Wombat Chip
+\param error The error number that was reported
+\param pointer to the Serial Wombat Chip instance that generated the error
+*/
 void SerialWombatSerialErrorHandlerBrief(uint16_t error, SerialWombatChip* sw);
 void SerialWombatSerialErrorHandlerVerbose(uint16_t error, SerialWombatChip* sw);
 
+#include "SerialWombatPin.h"
 #include "SerialWombatErrors.h"
 #include "SerialWombatQueue.h"
 #include "SerialWombatAbstractButton.h"
