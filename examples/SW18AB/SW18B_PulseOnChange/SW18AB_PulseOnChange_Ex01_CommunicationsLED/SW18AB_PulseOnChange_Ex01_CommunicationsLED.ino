@@ -48,7 +48,7 @@ sw.begin(0x6B);  //<<<<<<<<<<<<<<<<<   PUT YOUR I2C Address in here
 
 Serial.begin(115200);
 
-poc.begin  ( 8);
+poc.begin  ( 8);// Implied values active high, inactive low, 50mS pulse time, 50mS pulse off, OR entries, No PWM
 poc.setEntryOnChange(0, // first entry (valid values are 0-7)
 (uint8_t)SerialWombatDataSource::SW_DATA_SOURCE_PACKETS_RECEIVED);  // The data source we're monitoring for change
 

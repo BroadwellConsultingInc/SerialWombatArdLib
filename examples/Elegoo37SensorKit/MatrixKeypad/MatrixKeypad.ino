@@ -44,15 +44,15 @@ void setup() {
   delay(100);
   sw.begin(Wire,0x6B);
 
-  keypad.begin(10, // Command pin, typically the same as the row0 pin
-  10, //row 0
-  11, // row 1
-  12, // row 2
-  13, // row 3
-  16, // column 0
-  17, // column 1
-  18, // column 2
-  19); // column 3
+  keypad.begin(19, // Command pin, typically the same as the row0 pin
+  19, //row 0
+  18, // row 1
+  17, // row 2
+  16, // row 3
+  15, // column 0
+  14, // column 1
+  13, // column 2
+  12); // column 3
 }
 
 void loop() {

@@ -1000,6 +1000,45 @@ public:
 		return(((uint32_t)rx[4]) + (((uint32_t)rx[5]) <<8) + (((uint32_t)rx[6]) <<16) + (((uint32_t)rx[7]) <<24));
 	}
 
+	/*!
+	\brief Read data from the Serial Wombat 18AB's internal RAM buffer
+
+	
+
+	\param index  A 16-bit index into the Serial Wombat Chip's User RAM Buffer
+	\param buffer a pointer to an array into which bytes will be written
+	\param count Number of bytes to read
+
+	\return Number of bytes read, or negative error code
+*/
+	 int16_t readUserBuffer(uint16_t index, uint8_t* buffer, uint16_t count)
+	{
+		uint16_t bytesRead = 0;
+		while (bytesRead < count)
+		{
+			byte tx[] = {(byte)SerialWombatCommands::COMMAND_BINARY_READ_USER_BUFFER, (byte)(index & 0xFF), (byte)(index >> 8), 0x55, 0x55, 0x55, 0x55, 0x55};
+			byte rx[8];
+			int16_t result = sendPacket(tx,  rx);
+			if (result >= 0)
+			{
+				for (int i = 1; i < 8; ++i)
+				{
+					buffer[bytesRead] = rx[i];
+					++bytesRead;
+					++index;
+					if (bytesRead >= count)
+					{
+						break;
+					}
+				}
+			}
+			else
+			{
+				return (bytesRead);
+			}
+		}
+		return (bytesRead);
+	}
 /*!
 	\brief Shuts down most functions of the Serial Wombat chip reducing power consumption
 	

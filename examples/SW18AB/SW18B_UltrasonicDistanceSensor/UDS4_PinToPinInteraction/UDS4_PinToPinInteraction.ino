@@ -10,7 +10,7 @@ Serial Wombat 18AB Firmware 2.1 or later is needed to use this example.
 An HC_SR04 sensor needs to be powered by 5V, and outputs a 5V signal.  The echo pin should be connected to one of the 
 Serial Wombat 18AB chip's 5V tolerant pins (9,10,11,12, 14 and 15)
 
-
+E:\3m\1_4300\sas\43204_CherieDeville_SummerDay.mp4,4,2673
 A video demonstrating the use of the UltrasonicDistanceSensor pin mode on the Serial Wombat 18AB chip is available at:
 TODO
 

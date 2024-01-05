@@ -170,9 +170,9 @@ public:
 	
 	\return TRUE or FALSE, current status of debounced input
 	*/
-	bool readTransitionsState()
+	bool readTransitionsState(bool resetTransitionCounts = true)
 	{
-		uint8_t tx[8] = { 201,_pin,10,1,0x55,0x55,0x55,0x55 };
+		uint8_t tx[8] = { 201,_pin,10,(uint8_t)resetTransitionCounts,0x55,0x55,0x55,0x55 };
 		uint8_t rx[8];
 		_sw.sendPacket(tx, rx);
 		transitions = (256 * rx[5] + rx[4]);

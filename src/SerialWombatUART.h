@@ -288,7 +288,7 @@ public:
 
 		while (bytesSent < size && bytesAvailable > 0)
 		{
-
+			yield();
 			if ((size - bytesSent) < 7 || bytesAvailable < 7)
 			{
 				uint8_t tx[8] = { 201, _pin,_pinMode,0,0x55,0x55,0x55,0x55 };
@@ -396,6 +396,7 @@ public:
 				--length;
 
 			}
+			yield();
 		}
 
 	}

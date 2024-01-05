@@ -80,7 +80,7 @@ public:
 	
 	\return TRUE or FALSE, current status of debounced input
 	*/
-	virtual bool readTransitionsState() = 0;
+	virtual bool readTransitionsState(bool resetTransitionCounts = true) = 0;
 
 };
 

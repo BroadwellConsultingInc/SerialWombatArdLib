@@ -108,11 +108,58 @@ public:
 		return _sw.sendPacket(tx);
 	}
 
+  /// \brief Configure a Servo sweep of Ultrasonic Distance Sensor
+        
+         int16_t configureServoSweep(uint8_t servoPin,uint16_t memoryIndex,uint16_t servoPositions_,uint16_t servoIncrement, bool reverse = false,  uint16_t servoMoveDelay = 100, uint16_t servoReturnDelay = 1000)
+        {
+            {
+                uint8_t tx[] = { 203, _pin, _pinMode, servoPin, (uint8_t)(memoryIndex & 0xFF), (uint8_t)(memoryIndex >>8),
+                (uint8_t)(servoPositions & 0xFF),(uint8_t)(servoPositions >>8)};
+                int16_t result = _sw.sendPacket(tx);
+                if (result < 0) { return result; }
+            }
+            {
+                uint8_t tx[] = {204, _pin, _pinMode,  (uint8_t)(servoIncrement & 0xFF), (uint8_t)(servoIncrement >> 8),
+                0x55,0x55, (uint8_t)(reverse?1:0)};
+                int16_t result = _sw.sendPacket(tx);
+                if (result < 0) { return result; }
+            }
+            {
+                uint8_t tx[] = {205, _pin, _pinMode,  (uint8_t)(servoMoveDelay & 0xFF), (uint8_t)(servoMoveDelay >> 8),
+                (uint8_t)(servoReturnDelay & 0xFF),(uint8_t)(servoReturnDelay >>8), 0x55};
+                int16_t result = _sw.sendPacket(tx);
+                if (result < 0) { return result; }
+            }
+            servoMemoryIndex = memoryIndex;
+            servoPositions = servoPositions_;
+            return 0;
+        }
+         int16_t enableServoSweep(bool enable)
+        {
+            uint8_t tx[] = {206, _pin, _pinMode,  (uint8_t)(enable ? 1 : 0),0x55,0x55,0x55, 0x55};
+           return _sw.sendPacket(tx);
+        }
+
+         uint16_t readServoSweepEntry(uint16_t servoSweepEntry)
+        {
+            uint8_t b[2];
+            _sw.readUserBuffer((uint16_t)(servoMemoryIndex + 2 * servoSweepEntry), b, 2);
+            return ((uint16_t)(b[0] + 256 * b[1]));
+        }
+
+         int16_t readServoSweepEntries(uint16_t* entries, uint16_t count)
+        {
+           return  _sw.readUserBuffer(servoMemoryIndex,(uint8_t*) entries,(uint16_t)( 2 * count));
+            
+        }
+
 	/// \brief Facilitates Inheritance
 	uint8_t pin() { return _pin; }
 	/// \brief Facilitates Inheritance
 	uint8_t swPinModeNumber() { return _pinMode; }
-
+	
+	uint16_t servoMemoryIndex = 0;
+	uint16_t servoPositions = 1;
 private:
 
 };
