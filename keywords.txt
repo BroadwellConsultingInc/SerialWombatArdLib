@@ -328,3 +328,5 @@ tm1637Animation	LITERAL2
 SerialWombatUltrasonicDistanceSensor	KEYWORD1
 HC_SR04	LITERAL2
 manualTrigger	KEYWORD1
+
+SerialWombat18ABOscillatorTuner	KEYWORD1

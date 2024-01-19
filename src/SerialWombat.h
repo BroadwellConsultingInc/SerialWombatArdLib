@@ -212,6 +212,10 @@ enum class SerialWombatCommands
 	COMMAND_UART0_RX_7BYTES = 0xB1, ///< (0xB1)
 	COMMAND_UART1_TX_7BYTES = 0xB2, ///< (0xB2)
 	COMMAND_UART1_RX_7BYTES = 0xB3, ///< (0xB3)
+	COMMAND_BINARY_TEST_SEQUENCE = 0xB4,///< (0xB4)
+	COMMAND_BINARY_RW_PIN_MEMORY = 0xB5,///< (0xB5)
+	COMMAND_CAPTURE_STARTUP_SEQUENCE = 0xB6,///< (0xB6)
+	COMMAND_ADJUST_FREQUENCY = 0xB7,///< (0xB7)
 	CONFIGURE_PIN_MODE0 = 200, ///< (200)
 	CONFIGURE_PIN_MODE1 = 201, ///< (201)
 	CONFIGURE_PIN_MODE2 = 202, ///< (202)
@@ -1404,6 +1408,106 @@ public:
 		return 0 ;
 	}
 
+};
+
+/*! 
+	@brief A class which tunes the oscillator on a Serial Wombat 18AB chip
+	
+	This class is designed to be called periodically in the program main loop.  It compares
+	the 1mS execution frame count to the millis() funciton provided by the host.  When
+	at least 10 seconds of execution have occured the class compares the counts and
+	issues a command to tune the Serial Wombat Chip's oscillator slightly slower or faster.
+	This can reduce the error in the Serial Wombat's 32MHz nominal clock to less than +/- 0.1%
+	vs. the +/- 1.5% limit in the datasheet.   Simply call update() periodically and the class
+	will take care of the rest.  Allow up to 10 calls at least 10 seconds apart each to reach
+	optimal timing.
+	See the example sketch for an example.
+	*/
+class SerialWombat18ABOscillatorTuner
+{
+private:
+	SerialWombatChip& _sw;
+	uint32_t lastMillis = 0;
+	uint32_t lastFrames = 0;
+public:
+	/*!
+	@brief Class constructor for SerialWombat18OscillatorTuner
+	@param serialWombat The Serial Wombat chip on which the Oscillator will be tuned;
+	*/
+	SerialWombat18ABOscillatorTuner(SerialWombatChip& serialWombatChip) : _sw(serialWombatChip) { }
+
+	/*!
+	@brief   Call periodically to tune the SW18AB oscillator to reported millis
+	*/
+	void update() {
+		uint32_t m = millis();
+		if (lastMillis == 0)
+		{
+			lastMillis = m;
+			uint32_t frames = _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_MSW);
+			uint16_t frameslsb = _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_LSW);
+			if (frames != _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_MSW))
+			{
+				frameslsb = _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_LSW);
+				frames = _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_MSW);
+			}
+			frames <<= 16;
+			frames += frameslsb;
+			lastFrames = frames;
+
+		}
+		else if ((m - lastMillis) < 10000)
+		{
+			//Do nothing
+		}
+		else if (m < lastMillis)
+		{
+			//Has it been 47 days already?
+			lastMillis = 0;
+		}
+		else
+		{
+			uint32_t diff = m - lastMillis;
+
+			uint32_t frames = _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_MSW);
+			uint16_t frameslsb = _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_LSW);
+			
+			if (frames != _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_MSW))
+			{
+				frameslsb = _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_LSW);
+				frames = _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_MSW);
+			}
+			frames <<= 16;
+			frames += frameslsb;
+			uint32_t framesDif = frames - lastFrames;
+
+			if (diff > framesDif )
+			{
+				// Running  slow
+				uint8_t tx[] = { (uint8_t)SerialWombatCommands::COMMAND_ADJUST_FREQUENCY,
+					SW_LE16(1),//Counts to increment
+					SW_LE16(0), // Counts to decrement
+					0x55,0x55,0x55};
+				_sw.sendPacket(tx);
+			}
+			else if (diff < framesDif)
+			{
+				// Running mfast
+				uint8_t tx[] = { (uint8_t)SerialWombatCommands::COMMAND_ADJUST_FREQUENCY,
+					SW_LE16(0),//Counts to increment
+					SW_LE16(1), // Counts to decrement
+					0x55,0x55,0x55 };
+				_sw.sendPacket(tx);
+
+			}
+
+			lastMillis = m;
+			lastFrames = frames;
+
+		}
+		
+	}
+	
 };
 
 /*

@@ -349,6 +349,7 @@ public:
 	uint32_t timeoutMillis = millis() + timeout;
 	while (length > 0 && timeoutMillis > millis())
 	{
+		yield();
 		int bytecount = 4;
 		if (length < 4)
 		{

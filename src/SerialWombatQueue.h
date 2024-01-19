@@ -195,6 +195,7 @@ public:
 	}
 	while ((size - bytesWritten) >= 7)
 	{
+		yield();
 		uint8_t tx[] = { (uint8_t)SerialWombatCommands::COMMAND_BINARY_QUEUE_ADD_7BYTES ,
 			buffer[bytesWritten],
 			buffer[bytesWritten + 1],
@@ -220,6 +221,7 @@ public:
 
 	while (size - bytesWritten > 0)
 	{
+		yield();
 		if (size - bytesWritten >= 4)
 		{
 			nextWriteSize = 4;
@@ -300,6 +302,7 @@ public:
 	uint16_t bytesRead = 0;
 	while (bytesRead < length)
 	{
+		yield();
 		uint8_t bytesToRead =(uint8_t)( length - bytesRead);
 		if (bytesToRead > 6)
 		{
