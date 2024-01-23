@@ -59,6 +59,7 @@ readMinimumCounts	KEYWORD2
 readMaximumCounts	KEYWORD2
 
 SerialWombatPulseTimer	KEYWORD1
+SerialWombatPulseTimer_18AB	KEYWORD1
 refresh	KEYWORD2
 refreshHighCountsLowCounts	KEYWORD2
 refreshHighCountsPulses	KEYWORD2
@@ -158,7 +159,7 @@ writeExcludeBelowAbove	KEYWORD2
 writeAveragingNumberOfSamples	KEYWORD2
 readAverage	KEYWORD2
 writeTransformLinearMXB	KEYWORD2
-
+writeTransformScaleRange KEYWORD2
 
 SerialWombatThroughputConsumer	KEYWORD1
 SerialWombatTM1637	KEYWORD1

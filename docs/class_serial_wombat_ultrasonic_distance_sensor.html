@@ -65,6 +65,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_serial_wombat_ultrasonic_distance_sensor-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SerialWombatUltrasonicDistanceSensor Class Reference</div>  </div>
@@ -136,6 +137,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8f75d916a6b8144598e258f6cf3c1266"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#a8f75d916a6b8144598e258f6cf3c1266">manualTrigger</a> ()</td></tr>
 <tr class="memdesc:a8f75d916a6b8144598e258f6cf3c1266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manually trigger a distance reading.  <a href="class_serial_wombat_ultrasonic_distance_sensor.html#a8f75d916a6b8144598e258f6cf3c1266">More...</a><br /></td></tr>
 <tr class="separator:a8f75d916a6b8144598e258f6cf3c1266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09d1b7759405f26dc57c34c1c22c87b0"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#a09d1b7759405f26dc57c34c1c22c87b0">configureServoSweep</a> (uint8_t servoPin, uint16_t memoryIndex, uint16_t servoPositions_, uint16_t servoIncrement, bool reverse=false, uint16_t servoMoveDelay=100, uint16_t servoReturnDelay=1000)</td></tr>
+<tr class="memdesc:a09d1b7759405f26dc57c34c1c22c87b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure a Servo sweep of Ultrasonic Distance Sensor.  <a href="class_serial_wombat_ultrasonic_distance_sensor.html#a09d1b7759405f26dc57c34c1c22c87b0">More...</a><br /></td></tr>
+<tr class="separator:a09d1b7759405f26dc57c34c1c22c87b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf9e79360148db8de6a62a74faad2c0c"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#aaf9e79360148db8de6a62a74faad2c0c">enableServoSweep</a> (bool enable)</td></tr>
+<tr class="separator:aaf9e79360148db8de6a62a74faad2c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2418d20fdb609e0a18e4c89f81e7441a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#a2418d20fdb609e0a18e4c89f81e7441a">readServoSweepEntry</a> (uint16_t servoSweepEntry)</td></tr>
+<tr class="separator:a2418d20fdb609e0a18e4c89f81e7441a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac35df3815e44fa68c0f79b8003e01066"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#ac35df3815e44fa68c0f79b8003e01066">readServoSweepEntries</a> (uint16_t *entries, uint16_t count)</td></tr>
+<tr class="separator:ac35df3815e44fa68c0f79b8003e01066"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35e0e42cedda4f5268cb23e081bbbe10"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#a35e0e42cedda4f5268cb23e081bbbe10">pin</a> ()</td></tr>
 <tr class="memdesc:a35e0e42cedda4f5268cb23e081bbbe10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Facilitates Inheritance.  <a href="class_serial_wombat_ultrasonic_distance_sensor.html#a35e0e42cedda4f5268cb23e081bbbe10">More...</a><br /></td></tr>
 <tr class="separator:a35e0e42cedda4f5268cb23e081bbbe10"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -214,6 +224,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6e95e7677c7570c7f57b32914515e94e inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreive the filtered value.  <a href="class_serial_wombat_abstract_processed_input.html#a6e95e7677c7570c7f57b32914515e94e">More...</a><br /></td></tr>
 <tr class="separator:a6e95e7677c7570c7f57b32914515e94e inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:afc4dbadc3d833477b1d538381ba6822c"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#afc4dbadc3d833477b1d538381ba6822c">servoMemoryIndex</a> = 0</td></tr>
+<tr class="separator:afc4dbadc3d833477b1d538381ba6822c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59b073f01755d97fb16cc989dcd72e16"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#a59b073f01755d97fb16cc989dcd72e16">servoPositions</a> = 1</td></tr>
+<tr class="separator:a59b073f01755d97fb16cc989dcd72e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_serial_wombat_pin"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_serial_wombat_pin')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_serial_wombat_pin.html">SerialWombatPin</a></td></tr>
@@ -231,7 +248,8 @@ Additional Inherited Members</h2></td></tr>
 <p> 
 //TODO
 </p>
-<p>TODO <a href="https://youtu.be/">https://youtu.be/</a> </p>
+<p>TODO <a href="https://youtu.be/">https://youtu.be/</a></p>
+<p>Documentation for the <a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html" title="A Class which uses one or two Serial Wombat 18AB pins to measure distance using an Ultrasonic distanc...">SerialWombatUltrasonicDistanceSensor</a> class is available at: <a href="https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_ultrasonic_distance_sensor.html">https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_ultrasonic_distance_sensor.html</a> </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a23427ed7fec2f894cdd0c3d0d12b3630"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a23427ed7fec2f894cdd0c3d0d12b3630">&#9670;&nbsp;</a></span>driver</h2>
@@ -257,6 +275,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">SerialWombatUltrasonicDistanceSensor::SerialWombatUltrasonicDistanceSensor </td>
@@ -266,6 +287,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Class constructor for <a class="el" href="class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time.">SerialWombatPulseTimer</a>. </p>
@@ -284,6 +310,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatUltrasonicDistanceSensor::begin </td>
@@ -321,6 +350,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Initialization routine for <a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html" title="A Class which uses one or two Serial Wombat 18AB pins to measure distance using an Ultrasonic distanc...">SerialWombatUltrasonicDistanceSensor</a>. </p>
@@ -336,11 +370,108 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a09d1b7759405f26dc57c34c1c22c87b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09d1b7759405f26dc57c34c1c22c87b0">&#9670;&nbsp;</a></span>configureServoSweep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatUltrasonicDistanceSensor::configureServoSweep </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>servoPin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>memoryIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>servoPositions_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>servoIncrement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>reverse</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>servoMoveDelay</em> = <code>100</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>servoReturnDelay</em> = <code>1000</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Configure a Servo sweep of Ultrasonic Distance Sensor. </p>
+
+</div>
+</div>
+<a id="aaf9e79360148db8de6a62a74faad2c0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf9e79360148db8de6a62a74faad2c0c">&#9670;&nbsp;</a></span>enableServoSweep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatUltrasonicDistanceSensor::enableServoSweep </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8f75d916a6b8144598e258f6cf3c1266"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8f75d916a6b8144598e258f6cf3c1266">&#9670;&nbsp;</a></span>manualTrigger()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatUltrasonicDistanceSensor::manualTrigger </td>
@@ -349,6 +480,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Manually trigger a distance reading. </p>
@@ -390,6 +526,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">uint16_t SerialWombatUltrasonicDistanceSensor::readPulseCount </td>
@@ -398,11 +537,78 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>get the number of pulses that have been sent. <br  />
  </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of pulses that have been sent. Rolls over at 65536 </dd></dl>
+
+</div>
+</div>
+<a id="ac35df3815e44fa68c0f79b8003e01066"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac35df3815e44fa68c0f79b8003e01066">&#9670;&nbsp;</a></span>readServoSweepEntries()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatUltrasonicDistanceSensor::readServoSweepEntries </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t *&#160;</td>
+          <td class="paramname"><em>entries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2418d20fdb609e0a18e4c89f81e7441a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2418d20fdb609e0a18e4c89f81e7441a">&#9670;&nbsp;</a></span>readServoSweepEntry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t SerialWombatUltrasonicDistanceSensor::readServoSweepEntry </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>servoSweepEntry</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -432,6 +638,35 @@ Additional Inherited Members</h2></td></tr>
 <p>Facilitates Inheritance. </p>
 
 <p>Implements <a class="el" href="class_serial_wombat_abstract_processed_input.html#abc6a028ff5841c91f9770bd4611c4527">SerialWombatAbstractProcessedInput</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="afc4dbadc3d833477b1d538381ba6822c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc4dbadc3d833477b1d538381ba6822c">&#9670;&nbsp;</a></span>servoMemoryIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t SerialWombatUltrasonicDistanceSensor::servoMemoryIndex = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a59b073f01755d97fb16cc989dcd72e16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59b073f01755d97fb16cc989dcd72e16">&#9670;&nbsp;</a></span>servoPositions</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t SerialWombatUltrasonicDistanceSensor::servoPositions = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

@@ -95,9 +95,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab33d245bdc6ec579d509b983e9db7f6b"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_liquid_crystal.html#ab33d245bdc6ec579d509b983e9db7f6b">clear</a> (bool delayAfterClear=true)</td></tr>
 <tr class="memdesc:ab33d245bdc6ec579d509b983e9db7f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the LCD display.  <a href="class_serial_wombat_liquid_crystal.html#ab33d245bdc6ec579d509b983e9db7f6b">More...</a><br /></td></tr>
 <tr class="separator:ab33d245bdc6ec579d509b983e9db7f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86668ed31a1d268271fbb4fcb99253c3"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_liquid_crystal.html#a86668ed31a1d268271fbb4fcb99253c3">home</a> (bool delay=true)</td></tr>
-<tr class="memdesc:a86668ed31a1d268271fbb4fcb99253c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the LCD cursor / entry position to the 0,0 position.  <a href="class_serial_wombat_liquid_crystal.html#a86668ed31a1d268271fbb4fcb99253c3">More...</a><br /></td></tr>
-<tr class="separator:a86668ed31a1d268271fbb4fcb99253c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64dad5ac0a69d33ab9bfe5614e680a96"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_liquid_crystal.html#a64dad5ac0a69d33ab9bfe5614e680a96">home</a> (bool delayAfterHome=true)</td></tr>
+<tr class="memdesc:a64dad5ac0a69d33ab9bfe5614e680a96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the LCD cursor / entry position to the 0,0 position.  <a href="class_serial_wombat_liquid_crystal.html#a64dad5ac0a69d33ab9bfe5614e680a96">More...</a><br /></td></tr>
+<tr class="separator:a64dad5ac0a69d33ab9bfe5614e680a96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a504ad3f0a211e3d65061a3f0c9e3a1f2"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_liquid_crystal.html#a504ad3f0a211e3d65061a3f0c9e3a1f2">setCursor</a> (uint8_t col, uint8_t row)</td></tr>
 <tr class="memdesc:a504ad3f0a211e3d65061a3f0c9e3a1f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the cursor / next entry position.  <a href="class_serial_wombat_liquid_crystal.html#a504ad3f0a211e3d65061a3f0c9e3a1f2">More...</a><br /></td></tr>
 <tr class="separator:a504ad3f0a211e3d65061a3f0c9e3a1f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,7 +114,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6562e8d0637c7a7732f44803f416ab13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the cursor not blink.  <a href="class_serial_wombat_liquid_crystal.html#a6562e8d0637c7a7732f44803f416ab13">More...</a><br /></td></tr>
 <tr class="separator:a6562e8d0637c7a7732f44803f416ab13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29acc503c120e6822fff6c5b9321e6a8"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_liquid_crystal.html#a29acc503c120e6822fff6c5b9321e6a8">display</a> ()</td></tr>
-<tr class="memdesc:a29acc503c120e6822fff6c5b9321e6a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enabled LCD display.  <a href="class_serial_wombat_liquid_crystal.html#a29acc503c120e6822fff6c5b9321e6a8">More...</a><br /></td></tr>
+<tr class="memdesc:a29acc503c120e6822fff6c5b9321e6a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables LCD display.  <a href="class_serial_wombat_liquid_crystal.html#a29acc503c120e6822fff6c5b9321e6a8">More...</a><br /></td></tr>
 <tr class="separator:a29acc503c120e6822fff6c5b9321e6a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a567fbf31af0cc36ccc2cae9d60efd1b8"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_liquid_crystal.html#a567fbf31af0cc36ccc2cae9d60efd1b8">noDisplay</a> ()</td></tr>
 <tr class="memdesc:a567fbf31af0cc36ccc2cae9d60efd1b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables LCD display.  <a href="class_serial_wombat_liquid_crystal.html#a567fbf31af0cc36ccc2cae9d60efd1b8">More...</a><br /></td></tr>
@@ -222,6 +222,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">SerialWombatLiquidCrystal::SerialWombatLiquidCrystal </td>
@@ -271,6 +274,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Class constructor for <a class="el" href="class_serial_wombat_liquid_crystal.html" title="A Class which connects to HD44780 / 1602 / 4002 / 2004 or similar interface Character LCDs.">SerialWombatLiquidCrystal</a>. </p>
@@ -295,6 +303,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::autoscroll </td>
@@ -303,6 +314,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Turn on autoscrolling mode on the LCD display (not in the Serial Wombat chip) </p>
@@ -315,6 +331,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::begin </td>
@@ -334,6 +353,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Initialization routine for <a class="el" href="class_serial_wombat_liquid_crystal.html" title="A Class which connects to HD44780 / 1602 / 4002 / 2004 or similar interface Character LCDs.">SerialWombatLiquidCrystal</a>. </p>
@@ -353,6 +377,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::beginE2 </td>
@@ -362,6 +389,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Add a second e pin for use wtih 40x4 LCD displays. </p>
@@ -376,6 +408,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::blink </td>
@@ -384,6 +419,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Makes the cursor blink. </p>
@@ -396,6 +436,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::clear </td>
@@ -405,13 +448,18 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Clear the LCD display. </p>
 <p>By default this function delays 2 to 3 mS after issuing the command to be compatible with LiquidCrystal::clear This library adds an optional parameter that eliminates this delay.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">delay</td><td>Whether or not to block for 2mS after issuing the command</td></tr>
+    <tr><td class="paramname">delay</td><td>Whether or not to block for 2mS after issuing the command </td></tr>
   </table>
   </dd>
 </dl>
@@ -424,6 +472,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::command </td>
@@ -433,6 +484,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>send a command directly to the LCD </p>
@@ -451,6 +507,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::createChar </td>
@@ -470,6 +529,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Write bitmap data to the display for custom characters. </p>
@@ -489,6 +553,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::cursor </td>
@@ -497,6 +564,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Makes the cursor visible. </p>
@@ -509,6 +581,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::display </td>
@@ -517,27 +592,40 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Enabled LCD display. </p>
+<p>Enables LCD display. </p>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
 </div>
 </div>
-<a id="a86668ed31a1d268271fbb4fcb99253c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86668ed31a1d268271fbb4fcb99253c3">&#9670;&nbsp;</a></span>home()</h2>
+<a id="a64dad5ac0a69d33ab9bfe5614e680a96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64dad5ac0a69d33ab9bfe5614e680a96">&#9670;&nbsp;</a></span>home()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::home </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>delay</em> = <code>true</code></td><td>)</td>
+          <td class="paramname"><em>delayAfterHome</em> = <code>true</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Set the LCD cursor / entry position to the 0,0 position. </p>
@@ -557,6 +645,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::initializeBufferCopy </td>
@@ -576,6 +667,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>kicks off the Serial Wombat chip state machine that copies one character to the LCD each second from a buffer </p>
@@ -596,6 +692,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::leftToRight </td>
@@ -604,6 +703,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>LCD Display entry occurs left to right. </p>
@@ -617,6 +721,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::noAutoscroll </td>
@@ -625,6 +732,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Turn off autoscrolling mode on the LCD display (not in the Serial Wombat chip) </p>
@@ -637,6 +749,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::noBlink </td>
@@ -645,6 +760,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Makes the cursor not blink. </p>
@@ -657,6 +777,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::noCursor </td>
@@ -665,6 +788,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Makes the cursor invisible. </p>
@@ -677,6 +805,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::noDisplay </td>
@@ -685,6 +816,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Disables LCD display. </p>
@@ -725,6 +861,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::rightToLeft </td>
@@ -733,6 +872,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>LCD Display entry occurs right to left. </p>
@@ -746,6 +890,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::scrollDisplayLeft </td>
@@ -754,6 +901,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Display moves left when scrolling. </p>
@@ -767,6 +919,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::scrollDisplayRight </td>
@@ -775,6 +930,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Display moves right when scrolling. </p>
@@ -788,6 +948,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::setCursor </td>
@@ -807,6 +970,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Set the cursor / next entry position. </p>
@@ -826,6 +994,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatLiquidCrystal::setRowOffsets </td>
@@ -857,6 +1028,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Set the offsets in the LCD on-board memory for the beginning of each row. </p>
@@ -908,6 +1084,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">size_t SerialWombatLiquidCrystal::write </td>
@@ -927,6 +1106,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Write an array of data directly to the LCD. </p>
@@ -947,6 +1131,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">size_t SerialWombatLiquidCrystal::write </td>
@@ -956,6 +1143,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Write a byte of data directly to the LCD. </p>

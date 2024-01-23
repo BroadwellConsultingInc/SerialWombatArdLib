@@ -80,6 +80,7 @@ $(function() {
 <code>#include &quot;Stream.h&quot;</code><br />
 <code>#include &quot;Wire.h&quot;</code><br />
 <code>#include &quot;Arduino.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_wombat_pin_8h_source.html">SerialWombatPin.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_errors_8h_source.html">SerialWombatErrors.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_queue_8h_source.html">SerialWombatQueue.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_abstract_button_8h_source.html">SerialWombatAbstractButton.h</a>&quot;</code><br />
@@ -116,11 +117,11 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.  <a href="class_serial_wombat_chip.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat18_a_b_oscillator_tuner.html">SerialWombat18ABOscillatorTuner</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class which tunes the oscillator on a Serial Wombat 18AB chip.  <a href="class_serial_wombat18_a_b_oscillator_tuner.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat.html">SerialWombat</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class name is depricated. Do not use for new development. Use <a class="el" href="class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.">SerialWombatChip</a> instead.  <a href="class_serial_wombat.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html">SerialWombatPin</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a Serial Wombat Pin. Is base class for other pin modes.  <a href="class_serial_wombat_pin.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -272,6 +273,11 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac306a5279bb13ad23d91eede098b2359">SerialWombatCommands::COMMAND_UART0_RX_7BYTES</a> = 0xB1, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656abcf96be96295605dd043a1f88e984fbf">SerialWombatCommands::COMMAND_UART1_TX_7BYTES</a> = 0xB2, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a1a827551d8fab9bb235dd02b7a16610e">SerialWombatCommands::COMMAND_UART1_RX_7BYTES</a> = 0xB3, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac8d3490a6f8590b4105b5c50f3c9d98f">SerialWombatCommands::COMMAND_BINARY_TEST_SEQUENCE</a> = 0xB4, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac3ad0bd8d16f18e63888a0b8129a6638">SerialWombatCommands::COMMAND_BINARY_RW_PIN_MEMORY</a> = 0xB5, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a02cd3218782064facc2e763837e6dabf">SerialWombatCommands::COMMAND_CAPTURE_STARTUP_SEQUENCE</a> = 0xB6, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a1dd3185ebed0b3e3ffed0e7d98c52b9c">SerialWombatCommands::COMMAND_ADJUST_FREQUENCY</a> = 0xB7, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a0a5c29666fc22fc2b0800512658c15e0">SerialWombatCommands::CONFIGURE_PIN_MODE0</a> = 200, 
 <br />
 &#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656af03261d0311912591fcc92ed179f4176">SerialWombatCommands::CONFIGURE_PIN_MODE1</a> = 201, 
@@ -581,6 +587,14 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656abcf96be96295605dd043a1f88e984fbf"></a>COMMAND_UART1_TX_7BYTES&#160;</td><td class="fielddoc"><p>(0xB2) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a1a827551d8fab9bb235dd02b7a16610e"></a>COMMAND_UART1_RX_7BYTES&#160;</td><td class="fielddoc"><p>(0xB3) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656ac8d3490a6f8590b4105b5c50f3c9d98f"></a>COMMAND_BINARY_TEST_SEQUENCE&#160;</td><td class="fielddoc"><p>(0xB4) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656ac3ad0bd8d16f18e63888a0b8129a6638"></a>COMMAND_BINARY_RW_PIN_MEMORY&#160;</td><td class="fielddoc"><p>(0xB5) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a02cd3218782064facc2e763837e6dabf"></a>COMMAND_CAPTURE_STARTUP_SEQUENCE&#160;</td><td class="fielddoc"><p>(0xB6) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a1dd3185ebed0b3e3ffed0e7d98c52b9c"></a>COMMAND_ADJUST_FREQUENCY&#160;</td><td class="fielddoc"><p>(0xB7) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a0a5c29666fc22fc2b0800512658c15e0"></a>CONFIGURE_PIN_MODE0&#160;</td><td class="fielddoc"><p>(200) </p>
 </td></tr>

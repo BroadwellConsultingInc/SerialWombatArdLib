@@ -136,7 +136,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class to wrap around a Serial Wombat Watchdog Pin. </p>
-<p>The Serial Wombat Watchdog is designed to improve system reliability in case of communications loss with the host device. This may be because the communications lines are no longer functional (e.g. I2C bus locked up) or the host ceases to communicate (Such as when an Arduino malfunctions due to issues allocating string memory).</p>
+<p>The Serial Wombat Watchdog Pin Mode is designed to improve system reliability in case of communications loss with the host device. This may be because the communications lines are no longer functional (e.g. I2C bus locked up) or the host ceases to communicate (Such as when an Arduino malfunctions due to issues allocating string memory).</p>
 <p>Once enabled, the Serial Wombat Watchdog will change its output and optionally other Serial Wombat outputs to predefined states and optionally reset the Serial Wombat itself if a new Watchdog feeding message isn't received within a period of time specified in the initialization.</p>
 <p>The output can be used to reset the host, for instance when connected to an Arduino reset pin, or used to shut off an output. For instance, a motor controlled by a <a class="el" href="class_serial_wombat_watchdog.html" title="A class to wrap around a Serial Wombat Watchdog Pin.">SerialWombatWatchdog</a> pin could be configured to turn off if the host doesn't periodically feed the watchdog.</p>
 <p>A video tutorial is available:</p>

@@ -103,8 +103,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a3e41a3894e6393d0041d6ba8d96fbd4e inherit pub_methods_class_serial_wombat_u_a_r_t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> class. Only one instance is allowed per <a class="el" href="class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.">SerialWombatChip</a> 4B.  <a href="class_serial_wombat_u_a_r_t.html#a3e41a3894e6393d0041d6ba8d96fbd4e">More...</a><br /></td></tr>
 <tr class="separator:a3e41a3894e6393d0041d6ba8d96fbd4e inherit pub_methods_class_serial_wombat_u_a_r_t"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61b548bb7ee4246a7220481b84d085c6 inherit pub_methods_class_serial_wombat_u_a_r_t"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a61b548bb7ee4246a7220481b84d085c6">begin</a> (uint32_t baudRate, uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, uint8_t rxPin, uint8_t txPin, uint8_t HWinterface=1)</td></tr>
-<tr class="memdesc:a61b548bb7ee4246a7220481b84d085c6 inherit pub_methods_class_serial_wombat_u_a_r_t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalize the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a>. <br  />
-  <a href="class_serial_wombat_u_a_r_t.html#a61b548bb7ee4246a7220481b84d085c6">More...</a><br /></td></tr>
 <tr class="separator:a61b548bb7ee4246a7220481b84d085c6 inherit pub_methods_class_serial_wombat_u_a_r_t"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02e26314e1223dbcec78be03433e45ad inherit pub_methods_class_serial_wombat_u_a_r_t"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a02e26314e1223dbcec78be03433e45ad">available</a> ()</td></tr>
 <tr class="memdesc:a02e26314e1223dbcec78be03433e45ad inherit pub_methods_class_serial_wombat_u_a_r_t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> for number bytes available to read.  <a href="class_serial_wombat_u_a_r_t.html#a02e26314e1223dbcec78be03433e45ad">More...</a><br /></td></tr>
@@ -221,7 +219,7 @@ Additional Inherited Members</h2></td></tr>
 <li>9600 <br  />
 </li>
 <li>19200</li>
-<li>28800 (Transmit only, receive may be unreliable )</li>
+<li>38400 (Transmit only, receive may be unreliable )</li>
 <li>57600 (Transmit only, receive may be unreliable ) </li>
 </ul>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -230,6 +228,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">SerialWombatSWUART::SerialWombatSWUART </td>
@@ -239,6 +240,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -249,6 +255,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int16_t SerialWombatSWUART::begin </td>
@@ -298,6 +307,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -377,6 +391,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">size_t SerialWombatSWUART::write </td>
@@ -396,6 +413,11 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Write bytes to the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> for Transmit. </p>
