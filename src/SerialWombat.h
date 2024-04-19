@@ -245,6 +245,7 @@ typedef enum {
 	PIN_MODE_SERVO = 3, ///< (3)
 	PIN_MODE_THROUGHPUT_CONSUMER = 4, ///< (4)
 	PIN_MODE_QUADRATUREENCODER = 5, ///< (5)
+	PIN_MODE_HBRIDGE = 6, ///<(6)
 	PIN_MODE_WATCHDOG = 7, ///< (7)
 	PIN_MODE_PROTECTED_OUTPUT = 8, ///< (8)
 	PIN_MODE_DEBOUNCE = 10, ///< (10)
@@ -268,6 +269,8 @@ typedef enum {
 	PIN_MODE_HS_COUNTER = 30, ///< (30)
 	PIN_MODE_VGA = 31, ///<(31)
 	PIN_MODE_PS2KEYBOARD = 32, ///<(32)
+	PIN_MODE_I2C_CONTROLLER = 33, ///<(33)
+	PIN_MODE_QUEUED_PULSE_OUTPUT = 34, ///<(34)
 	PIN_MODE_UNKNOWN = 255, ///< (0xFF)
 }SerialWombatPinMode_t;
 
@@ -1542,6 +1545,7 @@ void SerialWombatSerialErrorHandlerVerbose(uint16_t error, SerialWombatChip* sw)
 #include "SerialWombat18ABVGA.h"
 #include "SerialWombatAnalogInput.h"
 #include "SerialWombatDebouncedInput.h"
+#include "SerialWombatHBridge.h"
 #include "SerialWombatHSClock.h"
 #include "SerialWombatHSCounter.h"
 #include "SerialWombatLiquidCrystal.h"
@@ -1553,6 +1557,7 @@ void SerialWombatSerialErrorHandlerVerbose(uint16_t error, SerialWombatChip* sw)
 #include "SerialWombatPulseTimer.h"
 #include "SerialWombatPWM.h"
 #include "SerialWombatQuadEnc.h"
+#include "SerialWombatQueuedPulseOutput.h"
 #include "SerialWombatResistanceInput.h"
 #include "SerialWombatServo.h"
 #include "SerialWombatTM1637.h"

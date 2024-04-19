@@ -114,7 +114,7 @@ public:
         {
             {
                 uint8_t tx[] = { 203, _pin, _pinMode, servoPin, (uint8_t)(memoryIndex & 0xFF), (uint8_t)(memoryIndex >>8),
-                (uint8_t)(servoPositions & 0xFF),(uint8_t)(servoPositions >>8)};
+                (uint8_t)(servoPositions_ & 0xFF),(uint8_t)(servoPositions_ >>8)};
                 int16_t result = _sw.sendPacket(tx);
                 if (result < 0) { return result; }
             }
@@ -134,7 +134,7 @@ public:
             servoPositions = servoPositions_;
             return 0;
         }
-         int16_t enableServoSweep(bool enable)
+         int16_t enableServoSweep(bool enable = true)
         {
             uint8_t tx[] = {206, _pin, _pinMode,  (uint8_t)(enable ? 1 : 0),0x55,0x55,0x55, 0x55};
            return _sw.sendPacket(tx);

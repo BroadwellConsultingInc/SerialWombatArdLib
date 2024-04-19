@@ -1,6 +1,6 @@
 #pragma once
 /*
-Copyright 2023 Broadwell Consulting Inc.
+Copyright 2023-2024 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -126,7 +126,7 @@ public:
 	{
 		uint8_t tx[8] =
 		{
-		(uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE1,
+		(uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE2,
 		_pin,
 		_pinMode,
 		0x55,

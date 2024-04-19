@@ -82,12 +82,12 @@ https://youtu.be/c4B0_DRVHs0
 \endhtmlonly
 
 */
-class SerialWombat18CapTouch :public SerialWombatAbstractButton, public SerialWombatPin
+class SerialWombat18CapTouch :public SerialWombatAbstractButton, public SerialWombatPin, public SerialWombatAbstractProcessedInput
 {
 public:
 
 	/// \brief Instantiate a  SerialWombat18CapTouch class on a specified Serial Wombat Chip
-	SerialWombat18CapTouch(SerialWombatChip& serialWombat):SerialWombatAbstractButton(),SerialWombatPin(serialWombat){_sw = serialWombat;}
+	SerialWombat18CapTouch(SerialWombatChip& serialWombat):SerialWombatAbstractButton(),SerialWombatPin(serialWombat) , SerialWombatAbstractProcessedInput(serialWombat) { _sw = serialWombat; }
 
 
 	/*!	
@@ -251,16 +251,17 @@ public:
 	
 	\return TRUE or FALSE, current status of debounced input
 	*/
-	bool readTransitionsState()
+	bool readTransitionsState(bool resetTransitionCounts = true)
 	{
-	    uint8_t tx[8] = { 204,_pin,22,1,0x55,0x55,0x55,0x55 };
+	    uint8_t tx[8] = { 204,_pin,22,1,(uint8_t)resetTransitionCounts,0x55,0x55,0x55 };
 	    uint8_t rx[8];
 	    _sw.sendPacket(tx, rx);
 	    transitions = (256 * rx[5] + rx[4]);
 	    return (rx[3] > 0);
 	}
 
-
+	uint8_t pin() { return _pin; }
+	uint8_t swPinModeNumber() { return _pinMode; }
 
 private:
 

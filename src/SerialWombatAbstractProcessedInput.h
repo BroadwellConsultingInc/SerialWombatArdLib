@@ -1,6 +1,6 @@
 #pragma once
 /*
-Copyright 2021 Broadwell Consulting Inc.
+Copyright 2021-2024 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -336,7 +336,101 @@ public:
 	    result = _pisw.sendPacket(tx2);
 		return(result);
 	}
+	/*!
+	@brief Sort incoming data into one of 5 ranges, and integrate based on linear interpolation in those ranges.
 
+	This funciton is designed to allow a binary or analog input to proportionally increment or decrement a value, such as allowing a joystick to control the position of a servo by changing it over time proportional to the position of the stick.	
+		
+	@return Returns a negative value if the configuration caused an error.
+
+	*/
+
+ 	int16_t configureIntegrator(
+			uint16_t negativeMaxIndex, ///< Values more negative than this will decrement the output value by maxIncrement per sample.
+			uint16_t negativeMidIndex, ///< Values more negative than this will be linearly scaled with negativeMaxIndex, maxIncrement and midIncrement.
+            		uint16_t negativeDeadZone, ///< Values between negativeDeadZone and positiveDeadZone will not affect the output value.  Values between negativeDeadZone and negativeMidIndex will be scaled linearly based on 0 and midIncrement
+			uint16_t positiveDeadZone, ///< Values between negativeDeadZone and positiveDeadZone will not affect the output value.  Values between positiveDeadZone and positiveMidIndex will be scaled linearly based on 0 and midIncrement
+			uint16_t positiveMidIndex,///< Values more positive than this will nearly increment the value scaled with negativeMaxIndex, maxIncrement and midIncrement.
+            		uint16_t positiveMaxIndex,///< Values more positive than this will increment the output value by maxIncrement per sample. 
+			uint16_t midIncrement,  ///< forms a line for scaling between 0 and midIncrement for values between negative or positive deadzone and negative or positive MidIndex
+			uint16_t maxIncrement,  ///< forms a line for scaling between midIncrement and maxIncrement for values between negative or positive midIncrement and negative or positive maxIncrement
+			uint16_t initialValue, ///< intial integrator value,
+		    uint8_t updateFrequencyMask = 0 ///< When the frame counter and this mask anded = 0, perform integration.  For instance 0 = every mS, 0x0F = every 16 mS, 0x1F = every 2mS
+			)
+        {
+            {
+                uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+				12,
+                SW_LE16(negativeMaxIndex),
+                SW_LE16(negativeMidIndex)
+                };
+                int16_t result = _pisw.sendPacket(tx);
+
+                if (result < 0) return (result);
+            }
+            {
+                uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+                13,
+                SW_LE16(negativeDeadZone),
+                SW_LE16(positiveDeadZone),
+                };
+                int16_t result = _pisw.sendPacket(tx);
+
+                if (result < 0) return (result);
+            }
+            {
+                uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+                14,
+                SW_LE16(positiveMidIndex),
+                SW_LE16(positiveMaxIndex),
+                };
+                int16_t result = _pisw.sendPacket(tx);
+
+                if (result < 0) return (result);
+            }
+            {
+                uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+                15,
+                SW_LE16(initialValue),
+                0,0
+                };
+                int16_t result = _pisw.sendPacket(tx);
+
+                if (result < 0)  return (result);
+            }
+            {
+                uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+                16,
+                SW_LE16(midIncrement),
+                SW_LE16(maxIncrement),
+                };
+                int16_t result = _pisw.sendPacket(tx);
+
+                return (result);
+            }
+			{
+				uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS,
+			pin(),
+			swPinModeNumber(),
+				17,
+				updateFrequencyMask,
+				0,0,0
+				};
+				int16_t result = _pisw.sendPacket(tx);
+
+				return (result);
+			}
+        }
 	/*!
 	\brief Enables or disables all input processing functions
 	If disabled, the raw input value is placed directly in the pin's 16 bit public data buffer

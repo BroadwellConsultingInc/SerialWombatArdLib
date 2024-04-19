@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['first_5forder_5ffiltered_1162',['FIRST_ORDER_FILTERED',['../class_serial_wombat_abstract_processed_input.html#a97bd681af788e782ea10d847068300f4a3470d6ca72f7d90564aef2da52d21f14',1,'SerialWombatAbstractProcessedInput']]],
-  ['frequency_5fon_5fhtl_5ftransition_1163',['FREQUENCY_ON_HTL_TRANSITION',['../class_serial_wombat_pulse_timer__18_a_b.html#a486e3029fae457e18763e324dbc47084a3af21c8baf5458c349a239bcce50ee9a',1,'SerialWombatPulseTimer_18AB']]],
-  ['frequency_5fon_5flth_5ftransition_1164',['FREQUENCY_ON_LTH_TRANSITION',['../class_serial_wombat_h_s_counter.html#a626015b261ad6153e2e52737ec9983cba796ed5a12948e602ae38b5df76ff62a9',1,'SerialWombatHSCounter::FREQUENCY_ON_LTH_TRANSITION()'],['../class_serial_wombat_pulse_timer__18_a_b.html#a486e3029fae457e18763e324dbc47084a9883484862726ea27d2fd54f94590dd9',1,'SerialWombatPulseTimer_18AB::FREQUENCY_ON_LTH_TRANSITION()']]]
+  ['drv8833_1223',['DRV8833',['../_serial_wombat_h_bridge_8h.html#a0913e87f6960616896b5eb3fe7443beaa925fc96cd0972df40b5f24a4202f01ba',1,'SerialWombatHBridge.h']]],
+  ['drv8871_1224',['DRV8871',['../_serial_wombat_h_bridge_8h.html#a0913e87f6960616896b5eb3fe7443beaac529426f19cd5e1a79a7deabb779adc5',1,'SerialWombatHBridge.h']]],
+  ['dutycycle_5fon_5fhtl_5ftransition_1225',['DUTYCYCLE_ON_HTL_TRANSITION',['../class_serial_wombat_pulse_timer__18_a_b.html#a486e3029fae457e18763e324dbc47084a1df4629557562605a82606c68f8cdf03',1,'SerialWombatPulseTimer_18AB']]],
+  ['dutycycle_5fon_5flth_5ftransition_1226',['DUTYCYCLE_ON_LTH_TRANSITION',['../class_serial_wombat_pulse_timer__18_a_b.html#a486e3029fae457e18763e324dbc47084a5b23e7f6376ead5a1d83e2ea633b7007',1,'SerialWombatPulseTimer_18AB']]]
 ];

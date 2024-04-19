@@ -128,6 +128,7 @@ public:
 	{
 		_pin = pin;
 		_secondPin = secondPin;
+		_pinMode = PIN_MODE_QUADRATUREENCODER;
 		uint8_t tx[] = { 200,_pin,PIN_MODE_QUADRATUREENCODER,SW_LE16(debounce_mS), _secondPin,(uint8_t)readState,pullUpsEnabled };
 		uint8_t rx[8];
 		_sw.sendPacket(tx, rx);
@@ -168,4 +169,75 @@ private:
 
 	uint8_t _secondPin;
 };
+
+/// \brief Extends the SerialWombatPWM class with SW18AB specific functionality, including frequency measurement and min/max/increment/target pin options
+class SerialWombatQuadEnc_18AB : public SerialWombatQuadEnc, public SerialWombatAbstractProcessedInput
+{
+public:
+	SerialWombatQuadEnc_18AB(SerialWombatChip& serialWombat) :SerialWombatQuadEnc(serialWombat) , SerialWombatAbstractProcessedInput(serialWombat)
+	{}
+
+	int16_t writeMinMaxIncrementTargetPin(uint16_t min = 65535, uint16_t max = 0, uint16_t increment = 1, uint8_t targetPin = 255)
+	{
+		
+		{
+			uint8_t tx[] = { 201,_pin,PIN_MODE_QUADRATUREENCODER,SW_LE16(increment), 0x55,0x55,0x55 };
+			int16_t result = _sw.sendPacket(tx);
+			if (result < 0)
+			{
+				return(result);
+			}
+		}
+		{
+			uint8_t tx[] = { 202,_pin,PIN_MODE_QUADRATUREENCODER,SW_LE16(min), SW_LE16(max),0x55 };
+			int16_t result = _sw.sendPacket(tx);
+			if (result < 0)
+			{
+				return(result);
+			}
+		}
+		{
+			uint8_t tx[] = { 203,_pin,PIN_MODE_QUADRATUREENCODER,targetPin,0x55,0x55,0x55,0x55 };
+			return _sw.sendPacket(tx);
+
+		}
+
+	}
+
+	int16_t writeFrequencyPeriodmS(uint16_t period)
+	{
+		uint8_t tx[] = { 204,_pin,PIN_MODE_QUADRATUREENCODER,SW_LE16(period),0x55,0x55,0x55 };
+		 return _sw.sendPacket(tx);
+		
+	}
+
+	uint16_t readFrequency()
+	{
+		uint8_t tx[] = { 205,_pin,PIN_MODE_QUADRATUREENCODER,0x55,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+		int16_t result = _sw.sendPacket(tx,rx);
+		if (result < 0) return 0;
+
+		return ((uint16_t)(rx[3] + 256 * rx[4]));
+	}
+
+
+	/*!
+	\brief fulfills a virtual function requirement of SerialWombatAbstractProcessedInput
+	\return current pin number
+	*/
+	uint8_t pin()
+	{
+		return SerialWombatPin::_pin;
+	}
+	/*!
+	\brief fulfills a virtual function requirement of SerialWombatAbstractProcessedInput
+	\return current pin mode number
+	*/
+	uint8_t swPinModeNumber()
+	{
+		return SerialWombatPin::_pinMode;
+	}
+};
+
 

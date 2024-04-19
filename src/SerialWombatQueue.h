@@ -150,6 +150,60 @@ public:
 	return (0);
 }
 
+	/*!
+	/// \brief Write an unsigned word to the Serial Wombat Queue
+	/// \param data  Word to write
+	/// \return Number of bytes written
+	*/
+
+	size_t write(uint16_t data)
+	{
+		if (availableForWrite() < 2) return 0;
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::COMMAND_BINARY_QUEUE_ADD_BYTES ,SW_LE16(startIndex),2,SW_LE16(data),0x55,0x55};
+		uint8_t rx[8];
+		int16_t sendResult = _sw.sendPacket(tx, rx);
+		if (sendResult >= 0)
+		{
+
+			return(rx[3]);
+		}
+		return (0);
+	}
+	/*!
+	/// \brief Write unsigned words to the Serial Wombat Queue
+	/// \param buffer  An array of uint16_t words to send
+	/// \param size the number of words (not bytes) to send
+	/// \return the number of words sent
+	///
+	/// This function queries the Serial Wombat Queue
+	/// buffer space, and sends words as buffer space is avaialble.
+	/// If avaialable buffer space is not sufficient to send the entire
+	/// array then the function will block and continue trying until the
+	/// entire message has been sent to the Serial Wombat  queue.
+	*/
+
+	size_t write(uint16_t buffer[], size_t size)
+	{
+		return (write((const uint8_t*)buffer, size * 2));
+	}
+	/*!
+	/// \brief Write unsigned words to the Serial Wombat Queue
+	/// \param buffer  An array of uint16_t words to send
+	/// \param size the number of words (not bytes) to send
+	/// \return the number of words sent
+	///
+	/// This function queries the Serial Wombat Queue
+	/// buffer space, and sends words as buffer space is avaialble.
+	/// If avaialable buffer space is not sufficient to send the entire
+	/// array then the function will block and continue trying until the
+	/// entire message has been sent to the Serial Wombat  queue.
+	*/
+
+	size_t write(const uint16_t* buffer, size_t size)
+	{
+		return (write((const uint8_t*)buffer,size*2));
+	}
+
     /*!
     /// \brief Write bytes to the Serial Wombat Queue
     /// \param buffer  An array of uint8_t bytes to send
@@ -342,6 +396,35 @@ public:
 {
 	_timeout = timeout_mS;
 }
+
+	/*!
+   /// \brief Reads a specified number of unsigned 16 bit words from the Serial Wombat Queue
+   /// \param buffer  An array into which to put received words
+   /// \param length  The maximum number of words (not bytes) to be received
+   /// \return the number of words written to buffer
+   ///
+   /// This function will read bytes from the Serial Wombat Queue into buffer.
+   /// If 'length' characters are not available to read then the value returned
+   /// will be less than length.
+   */
+	size_t readUInt16(uint16_t* buffer, size_t length)
+	{
+		uint16_t bytesAvailable = 0;
+	
+			uint8_t tx[] = { (uint8_t)SerialWombatCommands::COMMAND_BINARY_QUEUE_INFORMATION ,SW_LE16(startIndex),0x55,0x55,0x55,0x55,0x55 };
+			uint8_t rx[8];
+			int16_t sendResult = _sw.sendPacket(tx, rx);
+			if (sendResult >= 0)
+			{
+				bytesAvailable = (rx[4] + 256 * rx[5]);
+			}
+			uint16_t wordsAvailable = bytesAvailable /2;
+			if (wordsAvailable < length)
+			{
+				length = wordsAvailable ;
+			}
+			return readBytes((char*)buffer, length * 2) / 2;
+	}
 
     //TODO add copy interface
 private:

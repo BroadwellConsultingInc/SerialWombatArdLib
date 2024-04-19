@@ -140,8 +140,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a09d1b7759405f26dc57c34c1c22c87b0"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#a09d1b7759405f26dc57c34c1c22c87b0">configureServoSweep</a> (uint8_t servoPin, uint16_t memoryIndex, uint16_t servoPositions_, uint16_t servoIncrement, bool reverse=false, uint16_t servoMoveDelay=100, uint16_t servoReturnDelay=1000)</td></tr>
 <tr class="memdesc:a09d1b7759405f26dc57c34c1c22c87b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure a Servo sweep of Ultrasonic Distance Sensor.  <a href="class_serial_wombat_ultrasonic_distance_sensor.html#a09d1b7759405f26dc57c34c1c22c87b0">More...</a><br /></td></tr>
 <tr class="separator:a09d1b7759405f26dc57c34c1c22c87b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf9e79360148db8de6a62a74faad2c0c"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#aaf9e79360148db8de6a62a74faad2c0c">enableServoSweep</a> (bool enable)</td></tr>
-<tr class="separator:aaf9e79360148db8de6a62a74faad2c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5358b2530213272b643e5618e73ac40b"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#a5358b2530213272b643e5618e73ac40b">enableServoSweep</a> (bool enable=true)</td></tr>
+<tr class="separator:a5358b2530213272b643e5618e73ac40b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2418d20fdb609e0a18e4c89f81e7441a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#a2418d20fdb609e0a18e4c89f81e7441a">readServoSweepEntry</a> (uint16_t servoSweepEntry)</td></tr>
 <tr class="separator:a2418d20fdb609e0a18e4c89f81e7441a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac35df3815e44fa68c0f79b8003e01066"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#ac35df3815e44fa68c0f79b8003e01066">readServoSweepEntries</a> (uint16_t *entries, uint16_t count)</td></tr>
@@ -208,6 +208,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3f215350d4edd8e7d343a8a1186adfb2 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a3f215350d4edd8e7d343a8a1186adfb2">writeTransformLinearMXB</a> (int32_t m, int32_t b)</td></tr>
 <tr class="memdesc:a3f215350d4edd8e7d343a8a1186adfb2 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale incoming values based on an mx+b linear equation.  <a href="class_serial_wombat_abstract_processed_input.html#a3f215350d4edd8e7d343a8a1186adfb2">More...</a><br /></td></tr>
 <tr class="separator:a3f215350d4edd8e7d343a8a1186adfb2 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a833a40cc07a9c0e551080a69b56a3ea3 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a833a40cc07a9c0e551080a69b56a3ea3">configureIntegrator</a> (uint16_t negativeMaxIndex, uint16_t negativeMidIndex, uint16_t negativeDeadZone, uint16_t positiveDeadZone, uint16_t positiveMidIndex, uint16_t positiveMaxIndex, uint16_t midIncrement, uint16_t maxIncrement, uint16_t initialValue, uint8_t updateFrequencyMask=0)</td></tr>
+<tr class="memdesc:a833a40cc07a9c0e551080a69b56a3ea3 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort incoming data into one of 5 ranges, and integrate based on linear interpolation in those ranges.  <a href="class_serial_wombat_abstract_processed_input.html#a833a40cc07a9c0e551080a69b56a3ea3">More...</a><br /></td></tr>
+<tr class="separator:a833a40cc07a9c0e551080a69b56a3ea3 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af93fb556cddd0853d3370b2a2e7b5681 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#af93fb556cddd0853d3370b2a2e7b5681">writeProcessedInputEnable</a> (bool enabled)</td></tr>
 <tr class="memdesc:af93fb556cddd0853d3370b2a2e7b5681 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables all input processing functions If disabled, the raw input value is placed directly in the pin's 16 bit public data buffer.  <a href="class_serial_wombat_abstract_processed_input.html#af93fb556cddd0853d3370b2a2e7b5681">More...</a><br /></td></tr>
 <tr class="separator:af93fb556cddd0853d3370b2a2e7b5681 inherit pub_methods_class_serial_wombat_abstract_processed_input"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -438,8 +441,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="aaf9e79360148db8de6a62a74faad2c0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf9e79360148db8de6a62a74faad2c0c">&#9670;&nbsp;</a></span>enableServoSweep()</h2>
+<a id="a5358b2530213272b643e5618e73ac40b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5358b2530213272b643e5618e73ac40b">&#9670;&nbsp;</a></span>enableServoSweep()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -451,7 +454,7 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">int16_t SerialWombatUltrasonicDistanceSensor::enableServoSweep </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>enable</em></td><td>)</td>
+          <td class="paramname"><em>enable</em> = <code>true</code></td><td>)</td>
           <td></td>
         </tr>
       </table>

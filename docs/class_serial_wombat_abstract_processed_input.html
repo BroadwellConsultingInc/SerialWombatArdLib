@@ -81,12 +81,14 @@ Inheritance diagram for SerialWombatAbstractProcessedInput:</div>
  <div class="center">
   <img src="class_serial_wombat_abstract_processed_input.png" usemap="#SerialWombatAbstractProcessedInput_map" alt=""/>
   <map id="SerialWombatAbstractProcessedInput_map" name="SerialWombatAbstractProcessedInput_map">
-<area href="class_serial_wombat_analog_input__18_a_b.html" title="This class extends SerialWombatAnalogInput with SW18AB specific capabilities." alt="SerialWombatAnalogInput_18AB" shape="rect" coords="0,56,234,80"/>
-<area href="class_serial_wombat_h_s_counter.html" title="This class is used to measure the frequency or cycles of a high speed input. On the Serial Wombat 18A..." alt="SerialWombatHSCounter" shape="rect" coords="244,56,478,80"/>
-<area href="class_serial_wombat_processed_input_pin.html" title="A Class which reads data from another pin&#39;s public data and runs it through SerialWombatAbstractInput..." alt="SerialWombatProcessedInputPin" shape="rect" coords="488,56,722,80"/>
-<area href="class_serial_wombat_pulse_timer__18_a_b.html" title="extends the SerialWombatPulseTimer class with SW18AB specific functionality / This class adds functio..." alt="SerialWombatPulseTimer_18AB" shape="rect" coords="732,56,966,80"/>
-<area href="class_serial_wombat_resistance_input.html" title="A class to make resistance measurements with the Serial Wombat 18AB chip." alt="SerialWombatResistanceInput" shape="rect" coords="976,56,1210,80"/>
-<area href="class_serial_wombat_ultrasonic_distance_sensor.html" title="A Class which uses one or two Serial Wombat 18AB pins to measure distance using an Ultrasonic distanc..." alt="SerialWombatUltrasonicDistanceSensor" shape="rect" coords="1220,56,1454,80"/>
+<area href="class_serial_wombat18_cap_touch.html" title="A class that controls a Cap Touch Pin on the Serial Wombat 18AB chip." alt="SerialWombat18CapTouch" shape="rect" coords="244,56,478,80"/>
+<area href="class_serial_wombat_analog_input__18_a_b.html" title="This class extends SerialWombatAnalogInput with SW18AB specific capabilities." alt="SerialWombatAnalogInput_18AB" shape="rect" coords="244,112,478,136"/>
+<area href="class_serial_wombat_h_s_counter.html" title="This class is used to measure the frequency or cycles of a high speed input. On the Serial Wombat 18A..." alt="SerialWombatHSCounter" shape="rect" coords="244,168,478,192"/>
+<area href="class_serial_wombat_processed_input_pin.html" title="A Class which reads data from another pin&#39;s public data and runs it through SerialWombatAbstractInput..." alt="SerialWombatProcessedInputPin" shape="rect" coords="244,224,478,248"/>
+<area href="class_serial_wombat_pulse_timer__18_a_b.html" title="extends the SerialWombatPulseTimer class with SW18AB specific functionality / This class adds functio..." alt="SerialWombatPulseTimer_18AB" shape="rect" coords="244,280,478,304"/>
+<area href="class_serial_wombat_quad_enc__18_a_b.html" title="Extends the SerialWombatPWM class with SW18AB specific functionality, including frequency measurement..." alt="SerialWombatQuadEnc_18AB" shape="rect" coords="244,336,478,360"/>
+<area href="class_serial_wombat_resistance_input.html" title="A class to make resistance measurements with the Serial Wombat 18AB chip." alt="SerialWombatResistanceInput" shape="rect" coords="244,392,478,416"/>
+<area href="class_serial_wombat_ultrasonic_distance_sensor.html" title="A Class which uses one or two Serial Wombat 18AB pins to measure distance using an Ultrasonic distanc..." alt="SerialWombatUltrasonicDistanceSensor" shape="rect" coords="244,448,478,472"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -149,6 +151,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3f215350d4edd8e7d343a8a1186adfb2"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a3f215350d4edd8e7d343a8a1186adfb2">writeTransformLinearMXB</a> (int32_t m, int32_t b)</td></tr>
 <tr class="memdesc:a3f215350d4edd8e7d343a8a1186adfb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale incoming values based on an mx+b linear equation.  <a href="class_serial_wombat_abstract_processed_input.html#a3f215350d4edd8e7d343a8a1186adfb2">More...</a><br /></td></tr>
 <tr class="separator:a3f215350d4edd8e7d343a8a1186adfb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a833a40cc07a9c0e551080a69b56a3ea3"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#a833a40cc07a9c0e551080a69b56a3ea3">configureIntegrator</a> (uint16_t negativeMaxIndex, uint16_t negativeMidIndex, uint16_t negativeDeadZone, uint16_t positiveDeadZone, uint16_t positiveMidIndex, uint16_t positiveMaxIndex, uint16_t midIncrement, uint16_t maxIncrement, uint16_t initialValue, uint8_t updateFrequencyMask=0)</td></tr>
+<tr class="memdesc:a833a40cc07a9c0e551080a69b56a3ea3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort incoming data into one of 5 ranges, and integrate based on linear interpolation in those ranges.  <a href="class_serial_wombat_abstract_processed_input.html#a833a40cc07a9c0e551080a69b56a3ea3">More...</a><br /></td></tr>
+<tr class="separator:a833a40cc07a9c0e551080a69b56a3ea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af93fb556cddd0853d3370b2a2e7b5681"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_processed_input.html#af93fb556cddd0853d3370b2a2e7b5681">writeProcessedInputEnable</a> (bool enabled)</td></tr>
 <tr class="memdesc:af93fb556cddd0853d3370b2a2e7b5681"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables all input processing functions If disabled, the raw input value is placed directly in the pin's 16 bit public data buffer.  <a href="class_serial_wombat_abstract_processed_input.html#af93fb556cddd0853d3370b2a2e7b5681">More...</a><br /></td></tr>
 <tr class="separator:af93fb556cddd0853d3370b2a2e7b5681"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -301,6 +306,110 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a833a40cc07a9c0e551080a69b56a3ea3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a833a40cc07a9c0e551080a69b56a3ea3">&#9670;&nbsp;</a></span>configureIntegrator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatAbstractProcessedInput::configureIntegrator </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>negativeMaxIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>negativeMidIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>negativeDeadZone</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>positiveDeadZone</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>positiveMidIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>positiveMaxIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>midIncrement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>maxIncrement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>initialValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>updateFrequencyMask</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sort incoming data into one of 5 ranges, and integrate based on linear interpolation in those ranges. </p>
+<p>This funciton is designed to allow a binary or analog input to proportionally increment or decrement a value, such as allowing a joystick to control the position of a servo by changing it over time proportional to the position of the stick. <br  />
+</p>
+<dl class="section return"><dt>Returns</dt><dd>Returns a negative value if the configuration caused an error. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">negativeMaxIndex</td><td>Values more negative than this will decrement the output value by maxIncrement per sample. </td></tr>
+    <tr><td class="paramname">negativeMidIndex</td><td>Values more negative than this will be linearly scaled with negativeMaxIndex, maxIncrement and midIncrement. </td></tr>
+    <tr><td class="paramname">negativeDeadZone</td><td>Values between negativeDeadZone and positiveDeadZone will not affect the output value. Values between negativeDeadZone and negativeMidIndex will be scaled linearly based on 0 and midIncrement </td></tr>
+    <tr><td class="paramname">positiveDeadZone</td><td>Values between negativeDeadZone and positiveDeadZone will not affect the output value. Values between positiveDeadZone and positiveMidIndex will be scaled linearly based on 0 and midIncrement </td></tr>
+    <tr><td class="paramname">positiveMidIndex</td><td>Values more positive than this will nearly increment the value scaled with negativeMaxIndex, maxIncrement and midIncrement. </td></tr>
+    <tr><td class="paramname">positiveMaxIndex</td><td>Values more positive than this will increment the output value by maxIncrement per sample. </td></tr>
+    <tr><td class="paramname">midIncrement</td><td>forms a line for scaling between 0 and midIncrement for values between negative or positive deadzone and negative or positive MidIndex </td></tr>
+    <tr><td class="paramname">maxIncrement</td><td>forms a line for scaling between midIncrement and maxIncrement for values between negative or positive midIncrement and negative or positive maxIncrement </td></tr>
+    <tr><td class="paramname">initialValue</td><td>intial integrator value, </td></tr>
+    <tr><td class="paramname">updateFrequencyMask</td><td>When the frame counter and this mask anded = 0, perform integration. For instance 0 = every mS, 0x0F = every 16 mS, 0x1F = every 2mS </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a45492953887a3ac73e8593c196a9c7df"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a45492953887a3ac73e8593c196a9c7df">&#9670;&nbsp;</a></span>configureOutputValue()</h2>
 
@@ -423,7 +532,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Used for inheritance. </p>
 
-<p>Implemented in <a class="el" href="class_serial_wombat_analog_input__18_a_b.html#a0e39384e67901c79c49f2a9c06661241">SerialWombatAnalogInput_18AB</a>, <a class="el" href="class_serial_wombat_pulse_timer__18_a_b.html#a8f6a1cb6d112cc5511838ccc5e2414a7">SerialWombatPulseTimer_18AB</a>, <a class="el" href="class_serial_wombat_resistance_input.html#af674a9f0a2944380ce163e10058b77ac">SerialWombatResistanceInput</a>, <a class="el" href="class_serial_wombat_h_s_counter.html#aaee89164115194ce836426b381315b15">SerialWombatHSCounter</a>, <a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#a35e0e42cedda4f5268cb23e081bbbe10">SerialWombatUltrasonicDistanceSensor</a>, and <a class="el" href="class_serial_wombat_processed_input_pin.html#aebb7c54c531270c5a2d1139640c38a7f">SerialWombatProcessedInputPin</a>.</p>
+<p>Implemented in <a class="el" href="class_serial_wombat_analog_input__18_a_b.html#a0e39384e67901c79c49f2a9c06661241">SerialWombatAnalogInput_18AB</a>, <a class="el" href="class_serial_wombat_pulse_timer__18_a_b.html#a8f6a1cb6d112cc5511838ccc5e2414a7">SerialWombatPulseTimer_18AB</a>, <a class="el" href="class_serial_wombat18_cap_touch.html#a2912896444c7ca797ce676105021ff86">SerialWombat18CapTouch</a>, <a class="el" href="class_serial_wombat_quad_enc__18_a_b.html#adc3c72696d5c726963000666a925ae7a">SerialWombatQuadEnc_18AB</a>, <a class="el" href="class_serial_wombat_resistance_input.html#af674a9f0a2944380ce163e10058b77ac">SerialWombatResistanceInput</a>, <a class="el" href="class_serial_wombat_h_s_counter.html#aaee89164115194ce836426b381315b15">SerialWombatHSCounter</a>, <a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#a35e0e42cedda4f5268cb23e081bbbe10">SerialWombatUltrasonicDistanceSensor</a>, and <a class="el" href="class_serial_wombat_processed_input_pin.html#aebb7c54c531270c5a2d1139640c38a7f">SerialWombatProcessedInputPin</a>.</p>
 
 </div>
 </div>
@@ -580,7 +689,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Used for ineheritance. </p>
 
-<p>Implemented in <a class="el" href="class_serial_wombat_analog_input__18_a_b.html#a45104a31a717fc32891cdd5df77da6d8">SerialWombatAnalogInput_18AB</a>, <a class="el" href="class_serial_wombat_pulse_timer__18_a_b.html#ae65383d055a2196bfa58533a9c18be75">SerialWombatPulseTimer_18AB</a>, <a class="el" href="class_serial_wombat_resistance_input.html#a4dc5fb9dc28ae529255ad3f11add0cce">SerialWombatResistanceInput</a>, <a class="el" href="class_serial_wombat_h_s_counter.html#a793204f02f63b854034c316916e86c87">SerialWombatHSCounter</a>, <a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#a3e0bb019d7700a76ce33593548ddc862">SerialWombatUltrasonicDistanceSensor</a>, and <a class="el" href="class_serial_wombat_processed_input_pin.html#a97af11685d079adc4a571f159e0ad3cc">SerialWombatProcessedInputPin</a>.</p>
+<p>Implemented in <a class="el" href="class_serial_wombat_analog_input__18_a_b.html#a45104a31a717fc32891cdd5df77da6d8">SerialWombatAnalogInput_18AB</a>, <a class="el" href="class_serial_wombat_pulse_timer__18_a_b.html#ae65383d055a2196bfa58533a9c18be75">SerialWombatPulseTimer_18AB</a>, <a class="el" href="class_serial_wombat18_cap_touch.html#a3d75c8b346b61dd5c8268118c8f512a1">SerialWombat18CapTouch</a>, <a class="el" href="class_serial_wombat_quad_enc__18_a_b.html#a9e02046d3ef3a8e49d998c5e22e8ad21">SerialWombatQuadEnc_18AB</a>, <a class="el" href="class_serial_wombat_resistance_input.html#a4dc5fb9dc28ae529255ad3f11add0cce">SerialWombatResistanceInput</a>, <a class="el" href="class_serial_wombat_h_s_counter.html#a793204f02f63b854034c316916e86c87">SerialWombatHSCounter</a>, <a class="el" href="class_serial_wombat_ultrasonic_distance_sensor.html#a3e0bb019d7700a76ce33593548ddc862">SerialWombatUltrasonicDistanceSensor</a>, and <a class="el" href="class_serial_wombat_processed_input_pin.html#a97af11685d079adc4a571f159e0ad3cc">SerialWombatProcessedInputPin</a>.</p>
 
 </div>
 </div>

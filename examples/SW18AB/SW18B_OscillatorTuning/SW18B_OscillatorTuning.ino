@@ -8,10 +8,9 @@ then begins calling the update function of SerialWombat18ABOscillatorTuner.  The
 the improvement in accurary as the oscillator is tuned.
 
 A video demonstrating the use of the SerialWombat18ABOscillatorTuner class on the Serial Wombat 18AB chip is available at:
-TBD
-
+https://youtu.be/T2uBQM3s_JM
 Documentation for the SerialWombat18ABOscillatorTuner Arduino class is available at:
-TBD
+https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat18_a_b_oscillator_tuner.html
 */
 
 #include <SerialWombat.h>

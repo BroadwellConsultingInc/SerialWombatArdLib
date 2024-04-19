@@ -48,6 +48,7 @@ SerialWombatHighFrequencyServo	KEYWORD1
 
 
 SerialWombatAnalogInput	KEYWORD1
+SerialWombatAnalogInput_18AB	KEYWORD1
 readVoltage_mV	KEYWORD2
 readCounts	KEYWORD2
 readFilteredCounts	KEYWORD2
@@ -117,6 +118,7 @@ updateResetCountdown	KEYWORD2
 SerialWombatButtonCounter	KEYWORD1
 
 SerialWombatQuadEnc	KEYWORD1
+SerialWombatQuadEnc_18AB	KEYWORD1
 QE_ONLOW_INT	LITERAL1
 QE_ONHIGH_INT	LITERAL1
 QE_ONBOTH_INT	LITERAL1
@@ -331,3 +333,11 @@ HC_SR04	LITERAL2
 manualTrigger	KEYWORD1
 
 SerialWombat18ABOscillatorTuner	KEYWORD1
+
+SerialWombatHSCounter	KEYWORD1
+SerialWombatHSClock	KEYWORD1
+SerialWombatHBridge	KEYWORD1
+SerialWombatHBridge_18AB	KEYWORD1
+
+SerialWombatQueuedPulseOutput	KEYWORD1
+

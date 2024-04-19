@@ -90,6 +90,7 @@ $(function() {
 <code>#include &quot;<a class="el" href="_serial_wombat18_a_b_v_g_a_8h_source.html">SerialWombat18ABVGA.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_debounced_input_8h_source.html">SerialWombatDebouncedInput.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_wombat_h_bridge_8h_source.html">SerialWombatHBridge.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_h_s_clock_8h_source.html">SerialWombatHSClock.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_h_s_counter_8h_source.html">SerialWombatHSCounter.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>&quot;</code><br />
@@ -101,6 +102,7 @@ $(function() {
 <code>#include &quot;<a class="el" href="_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_p_w_m_8h_source.html">SerialWombatPWM.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_wombat_queued_pulse_output_8h_source.html">SerialWombatQueuedPulseOutput.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_resistance_input_8h_source.html">SerialWombatResistanceInput.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>&quot;</code><br />
@@ -312,36 +314,40 @@ Enumerations</h2></td></tr>
 <br />
 &#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8ae627b7ee28f5dd335ae087bed32fbadf">PIN_MODE_THROUGHPUT_CONSUMER</a> = 4, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a800d600e3236c534eed6bd6fadc90bad">PIN_MODE_QUADRATUREENCODER</a> = 5, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a6fe7362799d997b2fbca97f17b4c236f">PIN_MODE_HBRIDGE</a> = 6, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a8ee1fa6ebf82d5b84fc5ac42c5fca3fd">PIN_MODE_WATCHDOG</a> = 7, 
-<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8aa3e33fe94256c6c2efe2356dbcc7391f">PIN_MODE_PROTECTED_OUTPUT</a> = 8, 
 <br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8ac238d3648eb7eaf80f7d5de3d59e8777">PIN_MODE_DEBOUNCE</a> = 10, 
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8aa3e33fe94256c6c2efe2356dbcc7391f">PIN_MODE_PROTECTED_OUTPUT</a> = 8, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8ac238d3648eb7eaf80f7d5de3d59e8777">PIN_MODE_DEBOUNCE</a> = 10, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a2b24c431f930e83cc30a9771e08689ee">PIN_MODE_TM1637</a> = 11, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8afabc17cf3d235f3c2477611712004742">PIN_MODE_WS2812</a> = 12, 
-<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8af1c6a5a62a5d96efb80e7ae52ba43fce">PIN_MODE_SW_UART</a> = 13, 
 <br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8ac8b35584664f8b44895b408d51cb1afc">PIN_MODE_INPUT_PROCESSOR</a> = 14, 
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8af1c6a5a62a5d96efb80e7ae52ba43fce">PIN_MODE_SW_UART</a> = 13, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8ac8b35584664f8b44895b408d51cb1afc">PIN_MODE_INPUT_PROCESSOR</a> = 14, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8aede8b4979a3ece80061a803adac4e312">PIN_MODE_MATRIX_KEYPAD</a> = 15, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8abdce35ac73e5bc7e07d09d21ffddc54c">PIN_MODE_PWM</a> = 16, 
-<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a8d2d9f25291ed9e89a430ad6d0095154">PIN_MODE_UART_RX_TX</a> = 17, 
 <br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a389da8a100bf41e0e663cb4a98485ac9">PIN_MODE_PULSETIMER</a> = 18, 
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a8d2d9f25291ed9e89a430ad6d0095154">PIN_MODE_UART_RX_TX</a> = 17, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a389da8a100bf41e0e663cb4a98485ac9">PIN_MODE_PULSETIMER</a> = 18, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a1fae8b037ba8bfe3d8b4401a38e90398">PIN_MODE_FRAME_TIMER</a> = 21, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a71e20b50330cf9f46f9d422152814f2f">PIN_MODE_SW18AB_CAPTOUCH</a> = 22, 
-<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8aaa8e07e4973e78a53794974a0a00d394">PIN_MODE_UART1_RX_TX</a> = 23, 
 <br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8abe8729f835dab7c809823e46e5d985b3">PIN_MODE_RESISTANCEINPUT</a> = 24, 
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8aaa8e07e4973e78a53794974a0a00d394">PIN_MODE_UART1_RX_TX</a> = 23, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8abe8729f835dab7c809823e46e5d985b3">PIN_MODE_RESISTANCEINPUT</a> = 24, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a034a98f985c45dd4de6475b547632030">PIN_MODE_PULSE_ON_CHANGE</a> = 25, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a4867429e56a8fbcd51e1abffd1637048">PIN_MODE_HS_SERVO</a> = 26, 
-<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8acc200ab586dc6928cbd9aaa830ab1add">PIN_MODE_ULTRASONIC_DISTANCE</a> = 27, 
 <br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a73c84d7359f5749cff35140b2d71755e">PIN_MODE_LIQUIDCRYSTAL</a> = 28, 
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8acc200ab586dc6928cbd9aaa830ab1add">PIN_MODE_ULTRASONIC_DISTANCE</a> = 27, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a73c84d7359f5749cff35140b2d71755e">PIN_MODE_LIQUIDCRYSTAL</a> = 28, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8ad7d3628be381ba32858b7a7fe8a6a1bd">PIN_MODE_HS_CLOCK</a> = 29, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8aa3715218308b61a7ddbe90520029f050">PIN_MODE_HS_COUNTER</a> = 30, 
-<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8af85948198e0af77371baf2ad3164154c">PIN_MODE_VGA</a> = 31, 
 <br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a392932f80b475965e55d68c9f4e3a29b">PIN_MODE_PS2KEYBOARD</a> = 32, 
-<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a2046afaf5bf267d81101eec029cdf5bc">PIN_MODE_UNKNOWN</a> = 255
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8af85948198e0af77371baf2ad3164154c">PIN_MODE_VGA</a> = 31, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a392932f80b475965e55d68c9f4e3a29b">PIN_MODE_PS2KEYBOARD</a> = 32, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8ab9a1e22b7c4e69552c1d966bb57892ce">PIN_MODE_I2C_CONTROLLER</a> = 33, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a5b647570ffbf1e8a8ee03750f1eb9e9a">PIN_MODE_QUEUED_PULSE_OUTPUT</a> = 34, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a2046afaf5bf267d81101eec029cdf5bc">PIN_MODE_UNKNOWN</a> = 255
 <br />
  }</td></tr>
 <tr class="separator:a9278a533e9aa8dc988bbcdd76ff043b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -795,6 +801,8 @@ Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a800d600e3236c534eed6bd6fadc90bad"></a>PIN_MODE_QUADRATUREENCODER&#160;</td><td class="fielddoc"><p>(5) </p>
 </td></tr>
+<tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a6fe7362799d997b2fbca97f17b4c236f"></a>PIN_MODE_HBRIDGE&#160;</td><td class="fielddoc"><p>(6) </p>
+</td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a8ee1fa6ebf82d5b84fc5ac42c5fca3fd"></a>PIN_MODE_WATCHDOG&#160;</td><td class="fielddoc"><p>(7) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8aa3e33fe94256c6c2efe2356dbcc7391f"></a>PIN_MODE_PROTECTED_OUTPUT&#160;</td><td class="fielddoc"><p>(8) </p>
@@ -841,6 +849,10 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8af85948198e0af77371baf2ad3164154c"></a>PIN_MODE_VGA&#160;</td><td class="fielddoc"><p>(31) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a392932f80b475965e55d68c9f4e3a29b"></a>PIN_MODE_PS2KEYBOARD&#160;</td><td class="fielddoc"><p>(32) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8ab9a1e22b7c4e69552c1d966bb57892ce"></a>PIN_MODE_I2C_CONTROLLER&#160;</td><td class="fielddoc"><p>(33) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a5b647570ffbf1e8a8ee03750f1eb9e9a"></a>PIN_MODE_QUEUED_PULSE_OUTPUT&#160;</td><td class="fielddoc"><p>(34) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a2046afaf5bf267d81101eec029cdf5bc"></a>PIN_MODE_UNKNOWN&#160;</td><td class="fielddoc"><p>(0xFF) </p>
 </td></tr>

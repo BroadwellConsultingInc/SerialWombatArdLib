@@ -470,6 +470,156 @@ public:
 
 	}
 
+	int16_t writeScalingTargetValueResetIntegrator(uint16_t target)
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
+			pin(),
+			swPinModeNumber(),
+		110, // Write target Value and Reset Integrator
+		(byte)(target & 0xFF),(byte)(target >> 8),0x55,0x55
+		};
+		return _asosw.sendPacket(tx);
+	}
+	int32_t PIDGetLastError()
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
+			pin(),
+			swPinModeNumber(),
+		103, // Get Last Error
+		0x55,0x55,0x55,0x55
+		};
+		uint8_t rx[8];
+
+		_asosw.sendPacket(tx, rx);
+		int32_t returnVal;
+		memcpy(&returnVal,&rx[4],4);
+		return returnVal;
+
+	}
+
+
+	int32_t PIDGetLastIntegrator()
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
+			pin(),
+			swPinModeNumber(),
+		104, // Get Last Integrator
+		0x55,0x55,0x55,0x55
+		};
+		uint8_t rx[8];
+
+		_asosw.sendPacket(tx, rx);
+
+		int32_t returnVal;
+		memcpy(&returnVal,&rx[4],4);
+		return returnVal;
+	}
+
+	int32_t PIDGetLastIntegratorEffort()
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
+			pin(),
+			swPinModeNumber(),
+		105, // Get Last Integrator Effort
+		0x55,0x55,0x55,0x55
+		};
+		uint8_t rx[8];
+
+		_asosw.sendPacket(tx, rx);
+
+		int32_t returnVal;
+		memcpy(&returnVal,&rx[4],4);
+		return returnVal;
+	}
+
+	int32_t PIDGetLastProportionalEffort()
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
+			pin(),
+			swPinModeNumber(),
+		106, // Get Last Proportional Effort
+		0x55,0x55,0x55,0x55
+		};
+		uint8_t rx[8];
+
+		_asosw.sendPacket(tx, rx);
+
+		int32_t returnVal;
+		memcpy(&returnVal,&rx[4],4);
+		return returnVal;
+	}
+
+	int32_t PIDGetLastDerivativeEffort()
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
+			pin(),
+			swPinModeNumber(),
+		107, // Get Last Derivative Effort
+		0x55,0x55,0x55,0x55
+		};
+		uint8_t rx[8];
+
+		_asosw.sendPacket(tx, rx);
+
+		int32_t returnVal;
+		memcpy(&returnVal,&rx[4],4);
+		return returnVal;
+	}
+
+	int32_t PIDGetLastEffort()
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
+			pin(),
+			swPinModeNumber(),
+		108, // Get Last Total Effort
+		0x55,0x55,0x55,0x55
+		};
+		uint8_t rx[8];
+
+		_asosw.sendPacket(tx, rx);
+
+		int32_t returnVal;
+		memcpy(&returnVal,&rx[4],4);
+		return returnVal;
+	}
+
+	uint16_t ReadLastTarget()
+	{
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
+			pin(),
+			swPinModeNumber(),
+		111, // Get Last Target
+		0x55,0x55,0x55,0x55
+		};
+		uint8_t rx[8];
+
+		_asosw.sendPacket(tx, rx);
+
+		return ((uint16_t)(rx[4] + 256 * rx[5]));
+	}
+
+	/*!
+	 \brief Set Up 2D Lookup Output Scaling
+
+	 Configure 2d Lookup scaling based on an array of 16 bit unsigned numbers in user memory
+	 at index IndexInUserMemory .  The first entry must be 0x0000 0xYYYY where YYYY is the output
+	 when 0x0000 is the input.  The final entry must be 0xFFFF 0xZZZZ where ZZZZ is the output
+	 when 0xFFFF is the input.  Any number of additional point pairs can come between 0x0000 and 0xFFFF.
+	 Point pairs must be in assending order by input.
+
+	 \return Returns a negative error code if configuration generated an error.
+	*/
+	int16_t Enable2DLookupOutputScaling(uint16_t IndexInUserMemory ///< Index in user memory where 2d lookup table is located
+	)
+	{
+		uint8_t tx[] = {(uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
+			pin(),
+			swPinModeNumber(),
+		10, // Set 2D Lookup Index 
+		SW_LE16(IndexInUserMemory),0x55,0x55 };
+		return _asosw.sendPacket(tx);
+	}
+
 	/// \brief Facilitates inheritance
 	virtual uint8_t pin() = 0;
 	/// \brief Facilitates inheritance

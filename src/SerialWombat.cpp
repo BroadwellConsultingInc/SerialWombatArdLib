@@ -1,3 +1,4 @@
+#include "Arduino.h"
 #include "SerialWombat.h"
 /*
 Copyright 2020-2022 Broadwell Consulting Inc.
@@ -207,14 +208,12 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 			{
 				delayMicroseconds(100);
 				char echoTx[] = "!COM_ERR";
-				/*
-			
+				/*		
 				i2cInterface->beginTransmission(address);
 				bytesWritten = i2cInterface->write((uint8_t*)echoTx, 8);
 				i2cResult = i2cInterface->endTransmission();
 				*/
 				continue;
-				delayMicroseconds(100);
 			}
 		}
 		//delay(3);
