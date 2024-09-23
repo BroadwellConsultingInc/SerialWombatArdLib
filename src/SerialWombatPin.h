@@ -1,6 +1,6 @@
 #pragma once
 /*
-Copyright 2023 Broadwell Consulting Inc.
+Copyright 2023-2024 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -128,7 +128,36 @@ public:
 
 
 
+  int16_t initPacketNoResponse(uint8_t packetNumber,uint8_t param0 = 0x55, uint8_t param1 = 0x55, uint8_t param2 = 0x55, uint8_t param3 = 0x55, uint8_t param4 = 0x55)
+        {
+            uint8_t tx[] = { (uint8_t)(200 +packetNumber), _pin, _pinMode,param0,param1,param2,param3,param4} ;
+            return (_sw.sendPacket(tx));
+        }
 
+  int16_t initPacketNoResponse(uint8_t packetNumber,uint16_t param0 = 0x55, uint8_t param1 = 0x55, uint8_t param2 = 0x55, uint8_t param3 = 0x55 )
+        {
+            uint8_t tx[] = { (uint8_t)(200 +packetNumber), _pin, _pinMode,SW_LE16(param0),param1,param2,param3} ;
+            return (_sw.sendPacket(tx));
+        }
+  int16_t initPacketNoResponse(uint8_t packetNumber,uint16_t param0,uint16_t param1, uint8_t param2 = 0x55)
+        {
+            uint8_t tx[] = { (uint8_t)(200 +packetNumber), _pin, _pinMode, SW_LE16(param0),SW_LE16(param1),param2 };
+            return (_sw.sendPacket(tx));
+        }
+	/*!
+	@brief Disables the pin mode (if applicable) 
+	*/
+	int16_t disable ()
+	{
+	    uint8_t tx[] =
+	    {
+		(uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE_DISABLE,
+		_pin,
+		_pinMode,
+		0x55,0x55,0x55,0x55,0x55
+	    };
+	   return _sw.sendPacket(tx);
+	}
 protected:
 	uint8_t _pin = 255;
 	SerialWombatChip& _sw;

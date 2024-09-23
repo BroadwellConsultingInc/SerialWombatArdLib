@@ -1,6 +1,6 @@
 #pragma once
 /*
-Copyright 2020-2021 Broadwell Consulting Inc.
+Copyright 2020-2024 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -90,11 +90,11 @@ public:
 	\param invert FALSE: pin reading is returned  TRUE: inverted pin reading is returned
 	\param usePullUp Whether the pin's weak pull up is enabled
 	*/
-	void begin(uint8_t pin, uint16_t debounce_mS = 30, bool invert = true, bool usePullUp = true)
+	int16_t begin(uint8_t pin, uint16_t debounce_mS = 30, bool invert = true, bool usePullUp = true)
 	{
 		_pin = pin;
-		uint8_t tx[8] = { 200,_pin,10,SW_LE16(debounce_mS),invert,0,usePullUp };
-		_sw.sendPacket(tx);
+		_pinMode = PIN_MODE_DEBOUNCE;
+		return( initPacketNoResponse(0,debounce_mS,(uint8_t)invert,0,(uint8_t)usePullUp));
 	}
 
 	/*!
@@ -120,7 +120,7 @@ public:
 	uint16_t readDurationInTrueState_mS()
 	{
 		
-		uint8_t tx[8] = { 201,_pin,10,1,0x55,0x55,0x55,0x55 };
+		uint8_t tx[8] = { 201,_pin,_pinMode,1,0x55,0x55,0x55,0x55 };
 		uint8_t rx[8];
 		_sw.sendPacket(tx,rx);
 
@@ -145,7 +145,7 @@ public:
 	uint16_t readDurationInFalseState_mS()
 	{
 
-		uint8_t tx[8] = { 201,_pin,10,1,0x55,0x55,0x55,0x55 };
+		uint8_t tx[8] = { 201,_pin,_pinMode,1,0x55,0x55,0x55,0x55 };
 		uint8_t rx[8];
 		_sw.sendPacket(tx, rx);
 
@@ -172,7 +172,7 @@ public:
 	*/
 	bool readTransitionsState(bool resetTransitionCounts = true)
 	{
-		uint8_t tx[8] = { 201,_pin,10,(uint8_t)resetTransitionCounts,0x55,0x55,0x55,0x55 };
+		uint8_t tx[8] = { 201,_pin,_pinMode,(uint8_t)resetTransitionCounts,0x55,0x55,0x55,0x55 };
 		uint8_t rx[8];
 		_sw.sendPacket(tx, rx);
 		transitions = (256 * rx[5] + rx[4]);
@@ -180,7 +180,6 @@ public:
 	}
 
 private:
-	uint8_t _pin = 255;
 };
 
 

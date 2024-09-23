@@ -1,6 +1,6 @@
 #pragma once
 /*
-Copyright 2020-2023 Broadwell Consulting Inc.
+Copyright 2020-2024 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -106,11 +106,10 @@ public:
 	{
 		_pin = pin;
 		_pinMode = PIN_MODE_ANALOGINPUT;
-		uint8_t tx[] = { 200,_pin,PIN_MODE_ANALOGINPUT,0,0,0,0,0 };
-		int16_t result = _sw.sendPacket(tx);
+		int16_t result = initPacketNoResponse(0,0,0,0,0,0);
 		if (result < 0) { return result; }
-		uint8_t tx1[] = { 201,_pin,PIN_MODE_ANALOGINPUT,SW_LE16(averageSamples) ,SW_LE16(filterConstant),(uint8_t)output };
-		return _sw.sendPacket(tx1);
+		//uint8_t tx1[] = { 201,_pin,PIN_MODE_ANALOGINPUT,SW_LE16(averageSamples) ,SW_LE16(filterConstant),(uint8_t)output };
+		return initPacketNoResponse(1,averageSamples,filterConstant,(uint8_t)output);
 	}
 
 

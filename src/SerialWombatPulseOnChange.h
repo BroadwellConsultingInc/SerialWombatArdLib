@@ -1,6 +1,6 @@
 #pragma once
 /*
-Copyright 2022-2023 Broadwell Consulting Inc.
+Copyright 2022-2024 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -107,43 +107,11 @@ public:
 	int16_t result;
 	_pin = pin;
 
-	{
-		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE0,
-						_pin,
-						_pinMode,
-						(uint8_t)activeMode,
-						(uint8_t)inactiveMode,
-						orNotAnd,
-						0x55,
-						0x55
-		};
-		result = _sw.sendPacket(tx);
-		if (result < 0) { return result; }
-	}
-	{
-		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE1,
-						_pin,
-						_pinMode,
-						SW_LE16(pulseOnTime),
-			SW_LE16(pulseOffTime),
-						0x55
-		};
-		result = _sw.sendPacket(tx);
-		if (result < 0) { return result; }
-	}
-	{
-		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE2,
-						_pin,
-						_pinMode,
-						SW_LE16(PWMperiod),
-			SW_LE16(PWMdutyCycle),
-						0x55
-		};
-		result = _sw.sendPacket(tx);
-		if (result < 0) { return result; }
-	}
-	return(0);
+	result = initPacketNoResponse(0,(uint8_t)activeMode,(uint8_t)inactiveMode, orNotAnd); if (result < 0) { return result; }
+	result = initPacketNoResponse(1,pulseOnTime,pulseOffTime); if (result < 0) { return result; }
+	return initPacketNoResponse(2,PWMperiod,PWMdutyCycle); 
 }
+
 	/*!
 	@brief Configure a change entry to pulse when a pin or public data changes
 	
@@ -347,39 +315,12 @@ public:
 	int16_t setEntryOnPinOutsideRange(uint8_t entryID, uint8_t sourcePin, uint16_t lowValue, uint16_t highValue);
 private:
 	int16_t setEntryParams(uint8_t entryID, uint16_t firstParam, uint16_t secondParam)
-{
 	{
-		int16_t result;
-		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE3,
-						_pin,
-						_pinMode,
-						entryID,
-						SW_LE16(firstParam),
-						SW_LE16(secondParam),
-		};
-		result = _sw.sendPacket(tx);
-		if (result < 0) { return result; }
+		return initPacketNoResponse(3, entryID, SW_LE16(firstParam), SW_LE16(secondParam));
 	}
-	return 0;
-}
 	int16_t setEntryMode(uint8_t entryID, uint8_t pin, uint8_t mode)
-{
 	{
-		int16_t result;
-		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE4,
-						_pin,
-						_pinMode,
-						entryID,
-						mode,
-						pin,
-						
-			0x55,
-			0x55
-		};
-		result = _sw.sendPacket(tx);
-		if (result < 0) { return result; }
+		return initPacketNoResponse(4, entryID, mode,pin);
 	}
-	return 0;
-}
 };
 

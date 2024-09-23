@@ -199,6 +199,8 @@ enum class SerialWombatCommands
 	COMMAND_BINARY_QUEUE_ADD_7BYTES = 0x92, ///< (0x92)
 	COMMAND_BINARY_QUEUE_READ_BYTES = 0x93, ///< (0x93)
 	COMMAND_BINARY_QUEUE_INFORMATION = 0x94, ///< (0x94)
+	COMMAND_BINARY_QUEUE_CLONE = 0x95, ///< (0x95)
+	COMMAND_BINARY_CONFIG_DATALOGGER = 0x96, ///< (0x96)
 	COMMAND_BINARY_CONFIGURE = 0x9F, ///< (0x9F)
 	COMMAND_BINARY_READ_RAM = 0xA0, ///< (0xA0)
 	COMMAND_BINARY_READ_FLASH = 0xA1, ///< (0xA1)
@@ -271,6 +273,7 @@ typedef enum {
 	PIN_MODE_PS2KEYBOARD = 32, ///<(32)
 	PIN_MODE_I2C_CONTROLLER = 33, ///<(33)
 	PIN_MODE_QUEUED_PULSE_OUTPUT = 34, ///<(34)
+	PIN_MODE_FREQUENCY_OUTPUT = 36, ///<(36)
 	PIN_MODE_UNKNOWN = 255, ///< (0xFF)
 }SerialWombatPinMode_t;
 
@@ -1538,6 +1541,7 @@ void SerialWombatSerialErrorHandlerVerbose(uint16_t error, SerialWombatChip* sw)
 #include "SerialWombatPin.h"
 #include "SerialWombatErrors.h"
 #include "SerialWombatQueue.h"
+#include "SerialWombat18ABDataLogger.h"
 #include "SerialWombatAbstractButton.h"
 #include "SerialWombatAbstractProcessedInput.h"
 #include "SerialWombatAbstractScaledOutput.h"
@@ -1545,6 +1549,7 @@ void SerialWombatSerialErrorHandlerVerbose(uint16_t error, SerialWombatChip* sw)
 #include "SerialWombat18ABVGA.h"
 #include "SerialWombatAnalogInput.h"
 #include "SerialWombatDebouncedInput.h"
+#include "SerialWombatFrequencyOutput.h"
 #include "SerialWombatHBridge.h"
 #include "SerialWombatHSClock.h"
 #include "SerialWombatHSCounter.h"

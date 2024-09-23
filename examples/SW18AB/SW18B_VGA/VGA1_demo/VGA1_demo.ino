@@ -9,7 +9,6 @@ wrapper to provide AdaFruitGFX compatible interfaces.
 Serial Wombat 18AB Firmware 2.1 or later is needed to use this example.
 
 This example assumes a Serial Wombat 18AB chip is attached to the Arduino board via I2C.
-In this case we're assuming an ESP-01 module with I2C Data and Clock lines on ESP-02 pins 2 and 0.
 
 Connections:
 VGA VSYNC (VGA Pin 14) -> 100 ohm Resistor -> SW Pin 18
@@ -22,7 +21,7 @@ A video demonstrating the use of the VGA pin mode on the Serial Wombat 18AB chip
 TODO
 
 Documentation for the VGA class is available at:
-TODO
+https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat18_a_b_v_g_a.html
 
 */
 
@@ -33,7 +32,7 @@ SerialWombatChip sw;
 
 void setup() {
   // put your setup code here, to run once:
-  Wire.begin(2,0);  //Setting Pins for ESP-01 Module
+  Wire.begin();
   Serial.begin(115200);
   delay(500);
 

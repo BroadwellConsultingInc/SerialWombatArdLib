@@ -1,6 +1,6 @@
 #pragma once
 /*
-Copyright 2023 Broadwell Consulting Inc.
+Copyright 2023-2024 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -97,18 +97,4 @@ class SerialWombatHSClock :  public SerialWombatPin
 	    return (returnval);
 	}
 
-	/*!
-	@brief Disables the high speed clock output
-	*/
-	int16_t disable ()
-	{
-	    uint8_t tx[] =
-	    {
-		(uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE_DISABLE,
-		_pin,
-		_pinMode,
-		0x55,0x55,0x55,0x55,0x55
-	    };
-	   return _sw.sendPacket(tx);
-	}
 };

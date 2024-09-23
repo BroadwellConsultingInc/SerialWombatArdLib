@@ -1,6 +1,6 @@
 #pragma once
 /*
-Copyright 2020-2021 Broadwell Consulting Inc.
+Copyright 2020-2024 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -92,12 +92,15 @@ public:
    \param dutyCycle A value from 0 to 65535 representing duty cycle
    \param invert if true, internally adjust duty cycle to 65535-duty cycle
    */
-    void begin(uint8_t pin, uint16_t dutyCycle = 0,bool invert = false)
+    int16_t begin(uint8_t pin, uint16_t dutyCycle = 0,bool invert = false)
 	{
 		_pin = pin;
 		_pinMode = (uint8_t)PIN_MODE_PWM;
+		/*
 		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE0,_pin,PIN_MODE_PWM,_pin,(uint8_t)(dutyCycle & 0xFF),(uint8_t)(dutyCycle >> 8),invert,0x55 };
 		_sw.sendPacket(tx);
+		*/
+		return initPacketNoResponse(0,_pin,SW_LE16(dutyCycle),(uint8_t) invert);
 	}
 
     /*
@@ -105,9 +108,8 @@ public:
     \param dutyCycle A value from 0 to 65535 representing duty cycle
     */
 	void writeDutyCycle(uint16_t dutyCycle)
-	{	
-		uint8_t tx[] = { (uint8_t)SerialWombatCommands::COMMAND_BINARY_SET_PIN_BUFFFER,_pin,(uint8_t)(dutyCycle & 0xFF),(uint8_t)(dutyCycle >>8),255,0x55,0x55 };
-		_sw.sendPacket(tx);
+	{
+		writePublicData(dutyCycle);
 	}
 
 private:
@@ -133,10 +135,12 @@ public:
     family based on other hardware that are released in the future because it is tightly coupled to the
     PIC16F15214 hardware.
     */
-    void setFrequency_SW4AB(Wombat4A_B_PWMFrequencyValues_t frequency)
+    int16_t setFrequency_SW4AB(Wombat4A_B_PWMFrequencyValues_t frequency)
 	{
+		/*
 		uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE_HW_0,_pin,PIN_MODE_PWM,(uint8_t)(frequency),0x55,0x55,0x55,0x55 };
-		_sw.sendPacket(tx);
+		_sw.sendPacket(tx);*/
+		return initPacketNoResponse(20,(uint8_t) frequency);
 	}
 };
 

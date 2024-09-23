@@ -83,6 +83,7 @@ $(function() {
 <code>#include &quot;<a class="el" href="_serial_wombat_pin_8h_source.html">SerialWombatPin.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_errors_8h_source.html">SerialWombatErrors.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_queue_8h_source.html">SerialWombatQueue.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_wombat18_a_b_data_logger_8h_source.html">SerialWombat18ABDataLogger.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_abstract_button_8h_source.html">SerialWombatAbstractButton.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_abstract_processed_input_8h_source.html">SerialWombatAbstractProcessedInput.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>&quot;</code><br />
@@ -90,6 +91,7 @@ $(function() {
 <code>#include &quot;<a class="el" href="_serial_wombat18_a_b_v_g_a_8h_source.html">SerialWombat18ABVGA.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_debounced_input_8h_source.html">SerialWombatDebouncedInput.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serial_wombat_frequency_output_8h_source.html">SerialWombatFrequencyOutput.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_h_bridge_8h_source.html">SerialWombatHBridge.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_h_s_clock_8h_source.html">SerialWombatHSClock.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serial_wombat_h_s_counter_8h_source.html">SerialWombatHSCounter.h</a>&quot;</code><br />
@@ -259,50 +261,52 @@ Enumerations</h2></td></tr>
 <br />
 &#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a84e31a4bf35b4b5aae64917446ab3044">SerialWombatCommands::COMMAND_BINARY_QUEUE_READ_BYTES</a> = 0x93, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a09ca1c341116d0dddc52b0571b109591">SerialWombatCommands::COMMAND_BINARY_QUEUE_INFORMATION</a> = 0x94, 
-<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656afd34d09e24542c05c8d07fa3c45566e7">SerialWombatCommands::COMMAND_BINARY_CONFIGURE</a> = 0x9F, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a4a2669f0a15a4b8d596dff2309e5e20c">SerialWombatCommands::COMMAND_BINARY_QUEUE_CLONE</a> = 0x95, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ab5eb45fff9a3fa031f7b8b6d66d41873">SerialWombatCommands::COMMAND_BINARY_CONFIG_DATALOGGER</a> = 0x96, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656afd34d09e24542c05c8d07fa3c45566e7">SerialWombatCommands::COMMAND_BINARY_CONFIGURE</a> = 0x9F, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac7e445e5413fca6ed7fa1a97a3c10f41">SerialWombatCommands::COMMAND_BINARY_READ_RAM</a> = 0xA0, 
-<br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656adddbe618ff8a9de95a9ee65ffa7491e1">SerialWombatCommands::COMMAND_BINARY_READ_FLASH</a> = 0xA1, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656adddbe618ff8a9de95a9ee65ffa7491e1">SerialWombatCommands::COMMAND_BINARY_READ_FLASH</a> = 0xA1, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a5fe71852d4351f67c0a3b997ae5cfc01">SerialWombatCommands::COMMAND_BINARY_READ_EEPROM</a> = 0xA2, 
-<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac60b38355d6cf534874ab1d6ce51ad1d">SerialWombatCommands::COMMAND_BINARY_WRITE_RAM</a> = 0xA3, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac60b38355d6cf534874ab1d6ce51ad1d">SerialWombatCommands::COMMAND_BINARY_WRITE_RAM</a> = 0xA3, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a02f1ca553c92bacd190021ae2ece33fc">SerialWombatCommands::COMMAND_BINARY_WRITE_FLASH</a> = 0xA4, 
-<br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656aea60f554e3f34ae009afd9711b3921a4">SerialWombatCommands::COMMAND_CALIBRATE_ANALOG</a> = 0xA5, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656aea60f554e3f34ae009afd9711b3921a4">SerialWombatCommands::COMMAND_CALIBRATE_ANALOG</a> = 0xA5, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a18e48c53b04ef91c44b2b8135b8c7974">SerialWombatCommands::COMMAND_ENABLE_2ND_UART</a> = 0xA6, 
-<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac5eea87283ec2e4d386dcafd9cfcea59">SerialWombatCommands::COMMAND_READ_LAST_ERROR_PACKET</a> = 0xA7, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac5eea87283ec2e4d386dcafd9cfcea59">SerialWombatCommands::COMMAND_READ_LAST_ERROR_PACKET</a> = 0xA7, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a804870d6054af17edf46f3c0d10d7635">SerialWombatCommands::COMMAND_UART0_TX_7BYTES</a> = 0xB0, 
-<br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac306a5279bb13ad23d91eede098b2359">SerialWombatCommands::COMMAND_UART0_RX_7BYTES</a> = 0xB1, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac306a5279bb13ad23d91eede098b2359">SerialWombatCommands::COMMAND_UART0_RX_7BYTES</a> = 0xB1, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656abcf96be96295605dd043a1f88e984fbf">SerialWombatCommands::COMMAND_UART1_TX_7BYTES</a> = 0xB2, 
-<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a1a827551d8fab9bb235dd02b7a16610e">SerialWombatCommands::COMMAND_UART1_RX_7BYTES</a> = 0xB3, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a1a827551d8fab9bb235dd02b7a16610e">SerialWombatCommands::COMMAND_UART1_RX_7BYTES</a> = 0xB3, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac8d3490a6f8590b4105b5c50f3c9d98f">SerialWombatCommands::COMMAND_BINARY_TEST_SEQUENCE</a> = 0xB4, 
-<br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac3ad0bd8d16f18e63888a0b8129a6638">SerialWombatCommands::COMMAND_BINARY_RW_PIN_MEMORY</a> = 0xB5, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac3ad0bd8d16f18e63888a0b8129a6638">SerialWombatCommands::COMMAND_BINARY_RW_PIN_MEMORY</a> = 0xB5, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a02cd3218782064facc2e763837e6dabf">SerialWombatCommands::COMMAND_CAPTURE_STARTUP_SEQUENCE</a> = 0xB6, 
-<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a1dd3185ebed0b3e3ffed0e7d98c52b9c">SerialWombatCommands::COMMAND_ADJUST_FREQUENCY</a> = 0xB7, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a1dd3185ebed0b3e3ffed0e7d98c52b9c">SerialWombatCommands::COMMAND_ADJUST_FREQUENCY</a> = 0xB7, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a0a5c29666fc22fc2b0800512658c15e0">SerialWombatCommands::CONFIGURE_PIN_MODE0</a> = 200, 
-<br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656af03261d0311912591fcc92ed179f4176">SerialWombatCommands::CONFIGURE_PIN_MODE1</a> = 201, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656af03261d0311912591fcc92ed179f4176">SerialWombatCommands::CONFIGURE_PIN_MODE1</a> = 201, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a7e247b2751e006849b40fb2b8f7e316c">SerialWombatCommands::CONFIGURE_PIN_MODE2</a> = 202, 
-<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a2830ca104339fe5629462b36b95a3863">SerialWombatCommands::CONFIGURE_PIN_MODE3</a> = 203, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a2830ca104339fe5629462b36b95a3863">SerialWombatCommands::CONFIGURE_PIN_MODE3</a> = 203, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a399614445f12bd00e57f21c5389d5d84">SerialWombatCommands::CONFIGURE_PIN_MODE4</a> = 204, 
-<br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a61fe64358e647486d32225c3d7ae9182">SerialWombatCommands::CONFIGURE_PIN_MODE5</a> = 205, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a61fe64358e647486d32225c3d7ae9182">SerialWombatCommands::CONFIGURE_PIN_MODE5</a> = 205, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a71b2e1c36ec8a5bad3a0773ca0039057">SerialWombatCommands::CONFIGURE_PIN_MODE6</a> = 206, 
-<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656aef7b9f17c6c33d89706553607398752e">SerialWombatCommands::CONFIGURE_PIN_MODE7</a> = 207, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656aef7b9f17c6c33d89706553607398752e">SerialWombatCommands::CONFIGURE_PIN_MODE7</a> = 207, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a6f0d11febb67968e0b668f8b844b7c31">SerialWombatCommands::CONFIGURE_PIN_MODE8</a> = 208, 
-<br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656abcbc3edac6ae45c6ae170dc5998c74ad">SerialWombatCommands::CONFIGURE_PIN_MODE9</a> = 209, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656abcbc3edac6ae45c6ae170dc5998c74ad">SerialWombatCommands::CONFIGURE_PIN_MODE9</a> = 209, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656aa8b90ffa5e9063eace9d7e654eb99e21">SerialWombatCommands::CONFIGURE_PIN_MODE10</a> = 210, 
-<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656afd18c52a0206bc47c4006d98e9aa8888">SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE</a> = 210, 
+<br />
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656afd18c52a0206bc47c4006d98e9aa8888">SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE</a> = 210, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a3d9e2af1e541ee89d826c9ce0e814299">SerialWombatCommands::CONFIGURE_PIN_MODE_DISABLE</a> = 219, 
-<br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a899a7ef5728aa122f31f1104e5435960">SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS</a> = 211, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a899a7ef5728aa122f31f1104e5435960">SerialWombatCommands::CONFIGURE_PIN_INPUTPROCESS</a> = 211, 
 <a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a7140a1af2f75dbd9e99a362f6ad7ff48">SerialWombatCommands::CONFIGURE_PIN_MODE_HW_0</a> = 220, 
-<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ad8ad5e5ce6dedebc33ac78742ab5c095">SerialWombatCommands::CONFIGURE_CHANNEL_MODE_HW_1</a> = 221, 
-<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ad1db8637b0f5c303a1b8b239401d5054">SerialWombatCommands::CONFIGURE_CHANNEL_MODE_HW_2</a> = 222, 
 <br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ae1b00f139a96c93649bb891e924ff2bd">SerialWombatCommands::CONFIGURE_CHANNEL_MODE_HW_3</a> = 223
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ad8ad5e5ce6dedebc33ac78742ab5c095">SerialWombatCommands::CONFIGURE_CHANNEL_MODE_HW_1</a> = 221, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ad1db8637b0f5c303a1b8b239401d5054">SerialWombatCommands::CONFIGURE_CHANNEL_MODE_HW_2</a> = 222, 
+<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ae1b00f139a96c93649bb891e924ff2bd">SerialWombatCommands::CONFIGURE_CHANNEL_MODE_HW_3</a> = 223
 <br />
  }</td></tr>
 <tr class="separator:a4a7ddba5bce899934c59634db4be3656"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -347,7 +351,8 @@ Enumerations</h2></td></tr>
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8ab9a1e22b7c4e69552c1d966bb57892ce">PIN_MODE_I2C_CONTROLLER</a> = 33, 
 <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a5b647570ffbf1e8a8ee03750f1eb9e9a">PIN_MODE_QUEUED_PULSE_OUTPUT</a> = 34, 
 <br />
-&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a2046afaf5bf267d81101eec029cdf5bc">PIN_MODE_UNKNOWN</a> = 255
+&#160;&#160;<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a39734db2d3b7dd33b01cf5e73d5d7698">PIN_MODE_FREQUENCY_OUTPUT</a> = 36, 
+<a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a2046afaf5bf267d81101eec029cdf5bc">PIN_MODE_UNKNOWN</a> = 255
 <br />
  }</td></tr>
 <tr class="separator:a9278a533e9aa8dc988bbcdd76ff043b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -567,6 +572,10 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a84e31a4bf35b4b5aae64917446ab3044"></a>COMMAND_BINARY_QUEUE_READ_BYTES&#160;</td><td class="fielddoc"><p>(0x93) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a09ca1c341116d0dddc52b0571b109591"></a>COMMAND_BINARY_QUEUE_INFORMATION&#160;</td><td class="fielddoc"><p>(0x94) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656a4a2669f0a15a4b8d596dff2309e5e20c"></a>COMMAND_BINARY_QUEUE_CLONE&#160;</td><td class="fielddoc"><p>(0x95) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656ab5eb45fff9a3fa031f7b8b6d66d41873"></a>COMMAND_BINARY_CONFIG_DATALOGGER&#160;</td><td class="fielddoc"><p>(0x96) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a4a7ddba5bce899934c59634db4be3656afd34d09e24542c05c8d07fa3c45566e7"></a>COMMAND_BINARY_CONFIGURE&#160;</td><td class="fielddoc"><p>(0x9F) </p>
 </td></tr>
@@ -853,6 +862,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8ab9a1e22b7c4e69552c1d966bb57892ce"></a>PIN_MODE_I2C_CONTROLLER&#160;</td><td class="fielddoc"><p>(33) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a5b647570ffbf1e8a8ee03750f1eb9e9a"></a>PIN_MODE_QUEUED_PULSE_OUTPUT&#160;</td><td class="fielddoc"><p>(34) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a39734db2d3b7dd33b01cf5e73d5d7698"></a>PIN_MODE_FREQUENCY_OUTPUT&#160;</td><td class="fielddoc"><p>(36) </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a9278a533e9aa8dc988bbcdd76ff043b8a2046afaf5bf267d81101eec029cdf5bc"></a>PIN_MODE_UNKNOWN&#160;</td><td class="fielddoc"><p>(0xFF) </p>
 </td></tr>

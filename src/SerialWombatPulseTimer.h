@@ -1,6 +1,6 @@
 #pragma once
 /*
-Copyright 2020-2023 Broadwell Consulting Inc.
+Copyright 2020-2024 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -97,13 +97,11 @@ public:
 	\param units SW_PULSETIMER_uS or SW_PULSETIMER_mS.  Default uS
 	\param pullUpEnabled TRUE = Pull Up Enabled, FALSE = Pull Up Disabled.  Default disabled.
 	*/
-	void begin(uint8_t pin, SerialWombatPulseTimerUnits units = SW_PULSETIMER_uS, bool pullUpEnabled = false)
+	int16_t begin(uint8_t pin, SerialWombatPulseTimerUnits units = SW_PULSETIMER_uS, bool pullUpEnabled = false)
 	{
 		_pin = pin;
 		_pinMode = PIN_MODE_PULSETIMER;
-		uint8_t tx[] = { 200,_pin,_pinMode,pullUpEnabled,(uint8_t)units,0x55,0x55,0x55 };
-		uint8_t rx[8];
-		_sw.sendPacket(tx, rx);
+		return initPacketNoResponse(0,(uint8_t)pullUpEnabled,(uint8_t)units);
 	}
 
 	/*!
@@ -257,8 +255,10 @@ public:
 	*/
 	int16_t configurePublicDataOutput(SerialWombatPulseTimer_18AB::publicDataOutput publicDataOutput)
 	{
-		uint8_t tx[] = { 203,_pin,_pinMode,(uint8_t) publicDataOutput};
-		return _sw.sendPacket(tx);
+		
+	uint8_t tx[] = { 203,_pin,_pinMode,(uint8_t) publicDataOutput};
+		return _sw.sendPacket(tx);	
+//		return initPacketNoResponse(3,(uint8_t)publicDataOutput);
 	}
 	
 	/// \brief Facilitates multi-inheritance

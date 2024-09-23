@@ -68,18 +68,15 @@ public:
    \param PWMPeriod_uS A value  representing the period of the  PWM duty cycle in uS
    \param chip   The Driver chip being driven.  
    */
-    void begin(uint8_t pin, uint8_t secondPin, uint16_t PWMPeriod_uS,SerialWombatHBridgeDriverChip chip)
+    int16_t begin(uint8_t pin, uint8_t secondPin, uint16_t PWMPeriod_uS,SerialWombatHBridgeDriverChip chip)
 	{
 		_pin = pin;
 		_pinMode = (uint8_t)PIN_MODE_HBRIDGE;
-        {
-            uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE0,_pin,PIN_MODE_HBRIDGE,secondPin,(uint8_t)chip,0x55,0x55,0x55 };
-            _sw.sendPacket(tx);
-        }
-        {
+	    int16_t result = initPacketNoResponse(0,secondPin,chip);
+	    if (result < 0) return result;
             uint8_t tx2[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE_HW_0,_pin,PIN_MODE_HBRIDGE,SW_LE16(PWMPeriod_uS),0x55,0x55,0x55 };
             _sw.sendPacket(tx2);
-        }
+	    return initPacketNoResponse(20,PWMPeriod_uS);
 	}
 
 

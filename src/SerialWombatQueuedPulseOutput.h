@@ -77,20 +77,7 @@ class SerialWombatQueuedPulseOutput :  public SerialWombatPin
 		{
 			_pin = pin;
 			_pinMode = PIN_MODE_QUEUED_PULSE_OUTPUT;
-
-			uint8_t tx[] =
-			{
-				(uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE0,
-				_pin,
-				_pinMode,
-				initialState,
-				idleState,
-				unitsMs, 
-				SW_LE16(QueueIndex)
-			};
-			uint8_t rx[8];
-			int16_t result = _sw.sendPacket(tx, rx);
-			return (result);
+			return (initPacketNoResponse(0,(uint8_t) initialState, idleState,unitsMs,SW_LE16(QueueIndex)));
 		}
 
 		/*!
@@ -129,15 +116,6 @@ class SerialWombatQueuedPulseOutput :  public SerialWombatPin
 		 */
 		int16_t pause(bool paused)
 		{
-			uint8_t tx[] =
-			{
-				(uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE2,
-				_pin,
-				_pinMode,
-				paused,
-				0x55,0x55,0x55, 0x55
-			};
-			int16_t result = _sw.sendPacket(tx);
-				return (result);
+			return (initPacketNoResponse(2,(uint8_t) paused));
 		}
 };

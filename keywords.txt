@@ -341,3 +341,8 @@ SerialWombatHBridge_18AB	KEYWORD1
 
 SerialWombatQueuedPulseOutput	KEYWORD1
 
+SerialWombatFrequencyOutput	KEYWORD1
+SerialWombatFrequencyOutput_18AB	KEYWORD1
+
+SerialWombat18ABDataLogger	KEYWORD1
+

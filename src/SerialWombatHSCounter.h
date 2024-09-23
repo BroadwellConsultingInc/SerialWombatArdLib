@@ -86,18 +86,7 @@ public:
 	{
 		_pin = pin;
 		_pinMode = PIN_MODE_HS_COUNTER;
-
-		uint8_t tx[8] =
-		{
-		(uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE0,
-		_pin,
-		_pinMode,
-		SW_LE16(framesBetweenUpdates),
-		SW_LE16(publicOutputDivisor),
-		(uint8_t)publicDataOutput };
-
-		return(_sw.sendPacket(tx));
-
+		return initPacketNoResponse(0,framesBetweenUpdates, publicOutputDivisor, (uint8_t)publicDataOutput );
 	}
 
 	uint32_t readCounts(bool resetCounts = false)

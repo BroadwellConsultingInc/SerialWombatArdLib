@@ -26,7 +26,7 @@ A video demonstrating the use of the VGA pin mode on the Serial Wombat 18AB chip
 TODO
 
 Documentation for the VGA class is available at:
-TODO
+https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat18_a_b_v_g_a.html
 
 
 The original TFT Pong Header:
@@ -64,7 +64,7 @@ int ballX, ballY, oldBallX, oldBallY;
 
 void setup() {
   // initialize the display
-  Wire.begin(2, 0); //Setting Pins for ESP-01 Module
+  Wire.begin();
   Serial.begin(115200);
   delay(500);
 
