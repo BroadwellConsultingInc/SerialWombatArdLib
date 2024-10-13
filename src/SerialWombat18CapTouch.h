@@ -1,6 +1,6 @@
 #pragma once
 /*
-Copyright 2021-2023 Broadwell Consulting Inc.
+Copyright 2021-2024 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -76,10 +76,10 @@ impact performance of real-time control pin modes run on the Serial Wombat chip
 such as PID control.
 
 A Tutorial video is also avaialble:
-https://youtu.be/c4B0_DRVHs0
 \htmlonly
-<iframe width = "560" height = "315" src = "https://www.youtube.com/embed/c4B0_DRVHs0" frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>< / iframe>
+<iframe width = "560" height = "315" src = "https://www.youtube.com/embed/c4B0_DRVHs0" frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 \endhtmlonly
+https://youtu.be/c4B0_DRVHs0
 
 */
 class SerialWombat18CapTouch :public SerialWombatAbstractButton, public SerialWombatPin, public SerialWombatAbstractProcessedInput
