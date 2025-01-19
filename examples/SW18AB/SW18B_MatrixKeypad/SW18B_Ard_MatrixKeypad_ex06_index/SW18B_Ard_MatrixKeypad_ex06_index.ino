@@ -72,7 +72,7 @@ CDEF
 
 */
 
-char keymap[] = "0123456789ABCDEF";
+const char KEYMAP[] = "0123456789ABCDEF";
 
 void setup() {
 
@@ -102,7 +102,7 @@ void loop() {
   if (index >= 0)
   {
     // Optionally map the index to a custom key value
-    char key = keymap[index];
+    char key = KEYMAP[index];
     // Print the index and the mapped character
     Serial.printf("\nIndex: %d, Key: %c", index, (char) key);
   }
