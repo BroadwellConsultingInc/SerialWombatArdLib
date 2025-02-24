@@ -29311,6 +29311,29 @@ void setup() {
 
   
   delay(1000);
+while(Serial.available())
+{
+char t= Serial.read();
+}
+  if (sw.isLatestFirmware())
+{
+	Serial.println("Firmware is already the latest version.  Update?  Send 'Y' to update");
+	int i = -1;
+	while (i == -1)
+{
+delay(0);
+i = Serial.read();
+}
+
+	if (i != 'Y')
+{
+	Serial.println("Non 'Y' character received.  Going into infinite loop.  Reset to try again");
+	while(1){
+delay(0);
+}
+
+}
+}
   Serial.println("Jumping to boot");
   sw.hardwareReset();
   for (int i = 0; i < 50; ++i)

@@ -1,7 +1,7 @@
 #pragma once
 
 /*
-Copyright 2021-2023 Broadwell Consulting Inc.
+Copyright 2021-2025 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -96,7 +96,7 @@ public:
 	{
 		_sw = serialWombat;
 	}
-    /*
+    /*!
     @brief Initalize the SerialWombatMatrixKeypad.  
     @param controlPin Keypad scanning transitions will occur while this pin is being serviced by the Serial Wombat executive.  Typically this will be the same as the row0 pin
    @param row0pin pin attached to the topmost keypad row.  On many marked keypads this row has 1,2,3 and A in it.  Enter 255 if this column is unused
@@ -109,11 +109,12 @@ public:
     @param column3pin pin attached to the rightmost keypad column.  On many marked keypads this column has A,B,C and D in it. Enter 255 if this column is unused
      @param bufferMode 0: Public data is Binary of 16 keys (Default)  1:  Public data is last key index pressed  2:  Public data is last key pressed or 16 for no key index  3: Public data is Ascii of last key pressed 
     @param queueMode 0: Button presses are queued as indexes 1: Button Presses are queued as ASCII
+    @param rowTiming  mS to delay after setting a pin row low before reading columns
     */
     int16_t begin(uint8_t controlPin, 
         uint8_t row0pin, uint8_t row1pin, uint8_t row2pin, uint8_t row3pin, 
         uint8_t column0pin, uint8_t column1pin, uint8_t column2pin, uint8_t column3pin, 
-        uint8_t bufferMode = 0, uint8_t queueMode = 1)
+        uint8_t bufferMode = 0, uint8_t queueMode = 1, uint8_t rowTiming = 5)
 	{
 		_pin = controlPin;
 
@@ -139,7 +140,21 @@ public:
 							column3pin,
 							bufferMode,
 							queueMode };
-		return _sw.sendPacket(tx5);
+		result =  _sw.sendPacket(tx5);
+		if (result < 0)
+		{
+			return result;
+		}
+		uint8_t tx8[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE8,
+							_pin,
+							(uint8_t)PIN_MODE_MATRIX_KEYPAD ,
+rowTiming, 
+0x55,
+0x55,
+0x55,
+0x55
+							};
+		return _sw.sendPacket(tx8);
 	}
     
 
@@ -164,6 +179,29 @@ public:
 		return _sw.sendPacket(tx);
 	}
 
+    /*!
+    @brief  Change the default ASCII output for each key
+   
+	By default the keypad outputs 123A / 456B / 789C / *0#D
+	This can be changed by calling this function.  Each call
+	sets one byte in a 16 byte array changing the output.
+	For example, the pin which normally outputs B could be made to
+	output 'G' by calling this function with an index 7 and a value
+	(byte)'G'.
+
+	This function would be called 16 times to configure the whole table
+    
+    @param tableIndex A value from 0 to 15 indicating the key index .
+    @param asciiValue  The Ascii Vaule to store in the table
+    @return Returns 0 or higher if successfully set or a negative error code otherwise.
+    */
+    int16_t writeAsciiTable(uint8_t tableIndex, uint8_t asciiValue )
+	{
+		uint8_t tx[8] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE9,
+			_pin, (uint8_t)PIN_MODE_MATRIX_KEYPAD,
+			tableIndex,asciiValue,0x55,0x55,0x55};
+		return _sw.sendPacket(tx);
+	}
     /*!
     @brief Queries the SerialWombatMatrixKeypad for number bytes available to read
     @return Number of bytes available to read.
@@ -201,7 +239,7 @@ public:
     /// @brief  Discard all bytes from the SerialWombatMatrixKeypad queue
     void flush()
 	{
-		
+	//TODO	
 	}
     /*!
     \brief Query the SerialWombatMatrixKeypad queue for the next avaialble byte, but don't remove it from the queue

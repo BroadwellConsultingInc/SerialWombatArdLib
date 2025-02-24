@@ -1,5 +1,47 @@
 #include <SerialWombat.h>
 
+const PROGMEM  char pinModeArray[][40] = {
+  "DIGITAL_IO",
+  "CONTROLLED",
+  "ANALOGINPUT",
+  "SERVO",
+  "THROUGHPUT_CONSUMER",
+  "QUADRATURE_ENC",
+  "HBRIDGE",
+  "WATCHDOG",
+  "PROTECTEDOUTPUT",
+  "COUNTER",
+  "DEBOUNCE",
+  "TM1637",
+  "WS2812",
+  "SW_UART",
+  "INPUT_PROCESSOR",
+  "MATRIX_KEYPAD",
+  "PWM",
+  "UART0_TXRX",
+  "PULSE_TIMER",
+  "DMA_PULSE_OUTPUT",
+  "ANALOG_THROUGHPUT",
+  "FRAME_TIMER",
+  "TOUCH",
+  "UART1_TXRX",
+  "RESISTANCE_INPUT",
+  "PULSE_ON_CHANGE",
+  "HF_SERVO",
+  "ULTRASONIC_DISTANCE",
+  "LIQUID_CRYSTAL",
+  "HS_CLOCK",
+  "HS_COUNTER",
+  "VGA",
+  "PS2_KEYBOARD",
+  "I2C_CONTROLLER",
+  "QUEUED_PULSE_OUTPUT",
+  "MAX7219MATRIX",
+  "FREQUENCY_OUTPUT",
+  "IR_RX",
+  "IR_TX",
+  "RC_PPM", // 39
+};
 
 // A video tutorial on this example is available at:
 SerialWombatChip sw;
@@ -56,7 +98,7 @@ void loop() {
         for (int i = 0; i < sw.uniqueIdentifierLength; ++i)
         {
           char st[5];
-          sprintf(st,"%X ", sw.uniqueIdentifier[i]);
+          sprintf(st, "%X ", sw.uniqueIdentifier[i]);
           Serial.print(st);
         }
         Serial.println();
@@ -69,8 +111,30 @@ void loop() {
         Serial.print("Source voltage (mV):  ");
         Serial.println(sw.readSupplyVoltage_mV());
 
+        if (sw.isSW18() || sw.isSW08())
+        {
+          Serial.println("Supported Pin Modes: ");
+          for (int pinModeNumber = 1; pinModeNumber < 256; ++ pinModeNumber)
+          {
+            uint8_t tx[8] = {201, 1, pinModeNumber, 0x55, 0x55, 0x55, 0x55, 0x55};
+            int16_t returnVal = sw.sendPacket(tx);
+            returnVal *= -1;
+            if (returnVal == SW_ERROR_PIN_CONFIG_WRONG_ORDER)
+            {
+             
+              if (pinModeNumber <= 39)
+              {
+                Serial.print((const __FlashStringHelper *)(&pinModeArray[pinModeNumber][0]));
+              }
+               Serial.print(" ("); Serial.print(pinModeNumber);  Serial.println(")");
+
+            }
+
+          }
+        }
         if (sw.isSW18())
         {
+          Serial.println();
           Serial.print("Low Accuracy Temperature (deg C):  ");
           uint16_t temperature = sw.readTemperature_100thsDegC();
           Serial.print (temperature / 100);
@@ -83,6 +147,8 @@ void loop() {
           sw.readBrand(brand);
           Serial.print("Brand: ");
           Serial.println(brand);
+
+
         }
       }
       else

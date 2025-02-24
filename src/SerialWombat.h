@@ -43,6 +43,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// Convert a uint32_t to four bytes in little endian format for array initialization
 #define SW_LE32(_a)  (uint8_t)((_a) & 0xFF), (uint8_t)((_a) >>8) , (uint8_t)((_a) >>16), (uint8_t)((_a) >>24)
 
+#define ARRAY_UINT32(_array,_index) ((((uint32_t) _array[_index +3])<<24) + (((uint32_t) _array[_index +2])<<16) + (((uint32_t) _array[_index +1])<<8) + _array[_index])
+#define SW18AB_LATEST_FIRMWARE 214
+#define SW08B_LATEST_FIRMWARE 215
+#define SW4B_LATEST_FIRMWARE 203
 
 typedef enum
 {
@@ -194,6 +198,7 @@ enum class SerialWombatCommands
 	COMMAND_BINARY_READ_USER_BUFFER = 0x83, ///< (0x83)
 	COMMAND_BINARY_WRITE_USER_BUFFER = 0x84, ///< (0x84)
 	COMMAND_BINARY_WRITE_USER_BUFFER_CONTINUE = 0x85, ///< (0x85)
+	COMMAND_BINARY_PIN_POLL_THRESHOLD = 0x8F, ///< (0x8F)
 	COMMAND_BINARY_QUEUE_INITIALIZE = 0x90, ///< (0x90)
 	COMMAND_BINARY_QUEUE_ADD_BYTES = 0x91, ///< (0x91)
 	COMMAND_BINARY_QUEUE_ADD_7BYTES = 0x92, ///< (0x92)
@@ -218,6 +223,7 @@ enum class SerialWombatCommands
 	COMMAND_BINARY_RW_PIN_MEMORY = 0xB5,///< (0xB5)
 	COMMAND_CAPTURE_STARTUP_SEQUENCE = 0xB6,///< (0xB6)
 	COMMAND_ADJUST_FREQUENCY = 0xB7,///< (0xB7)
+        COMMAND_SET_PIN_HW = 0xB8, ///< (0xB8)
 	CONFIGURE_PIN_MODE0 = 200, ///< (200)
 	CONFIGURE_PIN_MODE1 = 201, ///< (201)
 	CONFIGURE_PIN_MODE2 = 202, ///< (202)
@@ -647,9 +653,28 @@ public:
 	uint32_t readVersion_uint32(void) 
 	{
 		readVersion();
-		return ((((uint32_t)fwVersion[0]) << 16) |
-			(((uint32_t)fwVersion[1]) << 8) |
-			fwVersion[2]);
+		return (
+			((uint32_t)fwVersion[0] - '0') * 100 +
+			((uint32_t)fwVersion[1] - '0') * 10 +
+		(uint32_t)fwVersion[2] - '0');
+	}
+
+	bool isLatestFirmware(void)
+	{
+		uint32_t v = readVersion_uint32();
+		if (isSW18())
+		{
+			return (v == SW18AB_LATEST_FIRMWARE);
+		}
+		else if (isSW08())
+		{
+			return (v == SW08B_LATEST_FIRMWARE);
+		}
+		else
+		{
+			return (v == SW4B_LATEST_FIRMWARE);
+
+		}
 	}
 
 /*!
@@ -696,6 +721,14 @@ public:
 		return (rx[2] + rx[3] * 256);
 	}
 
+	uint32_t comparePublicDataToThreshold(uint16_t threshold = 0)
+	{
+		uint8_t tx[] = { (uint8_t) SerialWombatCommands::COMMAND_BINARY_PIN_POLL_THRESHOLD,SW_LE16(threshold) ,0x55, 0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+		sendPacket(tx, rx);
+		return (ARRAY_UINT32(rx,1));
+	}
+
 /*!
 	\brief Measure the Serial Wombat chip's Supply voltage
 	
@@ -708,7 +741,7 @@ public:
 
 	uint16_t readSupplyVoltage_mV(void) 
 	{
-		if (isSW18())
+		if (isSW18() || isSW08())
 		{
 			_supplyVoltagemV = readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_VCC_mVOLTS);
 		}
@@ -1077,6 +1110,11 @@ public:
 	bool isSW18()
 	{
 		return ( model[1] == '1' && model[2] == '8');
+	}
+	/// \brief Returns true if the instance received a model number corresponding to the Serial Wombat 08 series of chips at begin
+	bool isSW08()
+	{
+		return ( model[1] == '0' && model[2] == '8');
 	}
 
 	/// \brief Erases a page in flash.  Intended for use with the Bootloader, not by end users outside of bootloading sketch

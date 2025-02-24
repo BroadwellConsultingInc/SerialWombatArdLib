@@ -131,6 +131,12 @@ public:
 	int16_t write(uint8_t led, uint32_t color)
 	{
 		uint8_t tx[8] = { 201,_pin,12,led,SW_LE32(color) };
+		if (swapRG)
+		{
+			uint8_t x = tx[6];
+			tx[6] = tx[5];
+			tx[5] = x;
+		}
 		tx[7] = 0x55;
 		return _sw.sendPacket(tx);
 	}
@@ -300,6 +306,11 @@ public:
 
 		
 	}
+
+	/*!
+	\brief Swap the Red and Green byte values.  Set this to true for WS2811 chips which reverse the red and green byte order.
+	*/
+	bool swapRG = false;
 private:
 	uint8_t _numLEDS = 0;
 	uint16_t _userBufferIndex=0;

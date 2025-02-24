@@ -396,7 +396,7 @@ public:
 	 \param samplePeriod an enumerated time for how often the PID controller updates.  This value should be based on how fast the system responds to change in output so that integral and derivative terms work correctly.
 	 \return returns 0 or higher if success, or a negative error code
 	 */
-	int16_t writePID(uint16_t kp, uint16_t ki, uint16_t kd,uint16_t target,Period samplePeriod)
+	int16_t writePID(uint16_t kp, uint16_t ki, uint16_t kd,uint16_t target,Period samplePeriod, uint8_t targetPin = 255, bool biDirectional = false)
 	{
 		{
 			uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
@@ -435,6 +435,17 @@ public:
 				swPinModeNumber(),
 				102, // Reset Integrator
 				0x55,0x55,0x55,0x55
+			};
+			int16_t result = _asosw.sendPacket(tx); if (result < 0) { return(result); }
+		}
+		{
+			uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
+				pin(),
+				swPinModeNumber(),
+				109, // Configure target and bidirectional
+				targetPin,
+				biDirectional,
+				0x55,0x55
 			};
 			int16_t result = _asosw.sendPacket(tx); if (result < 0) { return(result); }
 		}

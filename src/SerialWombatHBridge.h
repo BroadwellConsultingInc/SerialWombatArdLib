@@ -32,17 +32,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 
 typedef enum 
 {
-        RelayAndPWM = 0,
-        LG9110_HG7881 = 1,
-        DRV8833 = 2,
-        DRV8871 = 3,
-        L298N = 4,
-        MX1508 = 5,
-        BTS7960 = 6,
-        IBT4 = 7,
-        A4990 = 8,
-        TB67H420FTG = 9,
-}SerialWombatHBridgeDriverChip;
+        HBRIDGE_OFF_BOTH_LOW = 0,
+        HBRIDGE_OFF_BOTH_HIGH = 1,
+        HBRIDGE_RELAY_AND_PWM = 2,
+}SerialWombatHBridgeDriverMode;
 
 /*!
 \brief A class representing a Serial Wombat H Bridge Output
@@ -68,11 +61,11 @@ public:
    \param PWMPeriod_uS A value  representing the period of the  PWM duty cycle in uS
    \param chip   The Driver chip being driven.  
    */
-    int16_t begin(uint8_t pin, uint8_t secondPin, uint16_t PWMPeriod_uS,SerialWombatHBridgeDriverChip chip)
+    int16_t begin(uint8_t pin, uint8_t secondPin, uint16_t PWMPeriod_uS = 1000,SerialWombatHBridgeDriverMode driverMode = HBRIDGE_OFF_BOTH_LOW)
 	{
 		_pin = pin;
 		_pinMode = (uint8_t)PIN_MODE_HBRIDGE;
-	    int16_t result = initPacketNoResponse(0,secondPin,chip);
+	    int16_t result = initPacketNoResponse(0,secondPin,(uint8_t) driverMode);
 	    if (result < 0) return result;
             uint8_t tx2[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE_HW_0,_pin,PIN_MODE_HBRIDGE,SW_LE16(PWMPeriod_uS),0x55,0x55,0x55 };
             _sw.sendPacket(tx2);

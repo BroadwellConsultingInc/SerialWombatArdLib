@@ -158,6 +158,37 @@ public:
 	    };
 	   return _sw.sendPacket(tx);
 	}
+
+	/*!
+	\brief Enables the weak pull up on a pin.  Implemented on SW18AB only
+	\return Returns a negative error code, or positive number if successful
+	\param enabled Boolean indicating if weak pull up should be enabled or disabled
+*/
+  int16_t enablePullup(bool enabled)
+  {
+	  uint8_t tx[] = {(uint8_t)SerialWombatCommands::COMMAND_SET_PIN_HW,_pin,(uint8_t)(enabled?1:0),0x55,0x55,0x55,0x55,0x55};
+            return (_sw.sendPacket(tx));
+  }
+/*!
+	\brief Enables the weak pull down on a pin.  Implemented on SW18AB only
+	\return Returns a negative error code, or positive number if successful
+	\param enabled Boolean indicating if weak pull down should be enabled or disabled
+*/
+  int16_t enablePullDown(bool enabled)
+  {
+	  uint8_t tx[] = {(uint8_t)SerialWombatCommands::COMMAND_SET_PIN_HW,_pin,0x55,(uint8_t)(enabled?1:0),0x55,0x55,0x55,0x55};
+            return (_sw.sendPacket(tx));
+  }
+/*!
+	\brief Enables open drain mode on a pin.  Implemented on SW18AB only
+	\return Returns a negative error code, or positive number if successful
+	\param enabled Boolean indicating if open drain mode should be enabled or disabled
+*/
+  int16_t enableOpenDrain(bool enabled)
+  {
+	  uint8_t tx[] = {(uint8_t)SerialWombatCommands::COMMAND_SET_PIN_HW,_pin,0x55,0x55,(uint8_t)(enabled?1:0),0x55,0x55,0x55};
+            return (_sw.sendPacket(tx));
+  }
 protected:
 	uint8_t _pin = 255;
 	SerialWombatChip& _sw;
