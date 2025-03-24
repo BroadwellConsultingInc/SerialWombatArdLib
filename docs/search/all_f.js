@@ -1,14 +1,12 @@
 var searchData=
 [
-  ['qe_5fonboth_5fint_253',['QE_ONBOTH_INT',['../_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5dbae0f0ded51b8cdc47aea40e5cdc91afe2',1,'SerialWombatQuadEnc.h']]],
-  ['qe_5fonboth_5fpoll_254',['QE_ONBOTH_POLL',['../_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5dbaa30b8c6efac02c1e4449c0ef93f3db73',1,'SerialWombatQuadEnc.h']]],
-  ['qe_5fonhigh_5fint_255',['QE_ONHIGH_INT',['../_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5dbaf4e7410d532301ee4494eef7b3fa6259',1,'SerialWombatQuadEnc.h']]],
-  ['qe_5fonhigh_5fpoll_256',['QE_ONHIGH_POLL',['../_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5dbae1ade31253f823d5b44a7b198203fa3e',1,'SerialWombatQuadEnc.h']]],
-  ['qe_5fonlow_5fint_257',['QE_ONLOW_INT',['../_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5dba29c8da3224e29637df997e3734b1170e',1,'SerialWombatQuadEnc.h']]],
-  ['qe_5fonlow_5fpoll_258',['QE_ONLOW_POLL',['../_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5dba4092f0596eefc991cfbd4ee1b8899f73',1,'SerialWombatQuadEnc.h']]],
-  ['qe_5fread_5fmode_5ft_259',['QE_READ_MODE_t',['../_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5db',1,'SerialWombatQuadEnc.h']]],
-  ['queryversion_260',['queryVersion',['../class_serial_wombat_chip.html#adb573e75fa99a67ba18b79801a449797',1,'SerialWombatChip']]],
-  ['queue_5ftype_5fram_5fbyte_261',['QUEUE_TYPE_RAM_BYTE',['../_serial_wombat_queue_8h.html#ae590461897f6809b2b60297b96d7e46dafe7f527b63d26ece5ec657006256b687',1,'SerialWombatQueue.h']]],
-  ['queue_5ftype_5fram_5fbyte_5fshift_262',['QUEUE_TYPE_RAM_BYTE_SHIFT',['../_serial_wombat_queue_8h.html#ae590461897f6809b2b60297b96d7e46da2f5417730a384e7d7c91db81f66681d8',1,'SerialWombatQueue.h']]],
-  ['queuepulses_263',['queuePulses',['../class_serial_wombat_queued_pulse_output.html#a85bfb2f9fda0760dedca86730426f8d5',1,'SerialWombatQueuedPulseOutput']]]
+  ['hardwarereset_0',['hardwareReset',['../class_serial_wombat_chip.html#adeb5a4974a3288f4f384e355466c0e15',1,'SerialWombatChip']]],
+  ['hbridge_5foff_5fboth_5fhigh_1',['HBRIDGE_OFF_BOTH_HIGH',['../_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faad6e9fcb03e039b5a1a51890f5658eddb',1,'SerialWombatHBridge.h']]],
+  ['hbridge_5foff_5fboth_5flow_2',['HBRIDGE_OFF_BOTH_LOW',['../_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faa98e7c0c3810146120eb514cc8b751b60',1,'SerialWombatHBridge.h']]],
+  ['hbridge_5frelay_5fand_5fpwm_3',['HBRIDGE_RELAY_AND_PWM',['../_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faaba16c7d8de8eb8093e3a264ebf90095e',1,'SerialWombatHBridge.h']]],
+  ['hc_5fsr04_4',['HC_SR04',['../class_serial_wombat_ultrasonic_distance_sensor.html#a23427ed7fec2f894cdd0c3d0d12b3630a92d15a5acd54365b157a0dede22a0e69',1,'SerialWombatUltrasonicDistanceSensor']]],
+  ['high_5ftime_5',['HIGH_TIME',['../class_serial_wombat_pulse_timer__18_a_b.html#a486e3029fae457e18763e324dbc47084a7ede09489a1778e04e99fb16c7757e7f',1,'SerialWombatPulseTimer_18AB']]],
+  ['highcounts_6',['HighCounts',['../class_serial_wombat_pulse_timer.html#aa6120417cebec86fd6966a2460f9d12d',1,'SerialWombatPulseTimer']]],
+  ['highlimit_7',['highLimit',['../class_serial_wombat_button_counter.html#a5d70e0ffb4af29834193f0a0cbe0f54b',1,'SerialWombatButtonCounter']]],
+  ['home_8',['home',['../class_serial_wombat_liquid_crystal.html#a64dad5ac0a69d33ab9bfe5614e680a96',1,'SerialWombatLiquidCrystal']]]
 ];

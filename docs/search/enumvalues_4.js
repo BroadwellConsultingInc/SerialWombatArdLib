@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['first_5forder_5ffiltered_1253',['FIRST_ORDER_FILTERED',['../class_serial_wombat_abstract_processed_input.html#a97bd681af788e782ea10d847068300f4a3470d6ca72f7d90564aef2da52d21f14',1,'SerialWombatAbstractProcessedInput']]],
-  ['frequency_5fon_5fhtl_5ftransition_1254',['FREQUENCY_ON_HTL_TRANSITION',['../class_serial_wombat_pulse_timer__18_a_b.html#a486e3029fae457e18763e324dbc47084a3af21c8baf5458c349a239bcce50ee9a',1,'SerialWombatPulseTimer_18AB']]],
-  ['frequency_5fon_5flth_5ftransition_1255',['FREQUENCY_ON_LTH_TRANSITION',['../class_serial_wombat_h_s_counter.html#a626015b261ad6153e2e52737ec9983cba796ed5a12948e602ae38b5df76ff62a9',1,'SerialWombatHSCounter::FREQUENCY_ON_LTH_TRANSITION()'],['../class_serial_wombat_pulse_timer__18_a_b.html#a486e3029fae457e18763e324dbc47084a9883484862726ea27d2fd54f94590dd9',1,'SerialWombatPulseTimer_18AB::FREQUENCY_ON_LTH_TRANSITION()']]]
+  ['hbridge_5foff_5fboth_5fhigh_0',['HBRIDGE_OFF_BOTH_HIGH',['../_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faad6e9fcb03e039b5a1a51890f5658eddb',1,'SerialWombatHBridge.h']]],
+  ['hbridge_5foff_5fboth_5flow_1',['HBRIDGE_OFF_BOTH_LOW',['../_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faa98e7c0c3810146120eb514cc8b751b60',1,'SerialWombatHBridge.h']]],
+  ['hbridge_5frelay_5fand_5fpwm_2',['HBRIDGE_RELAY_AND_PWM',['../_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faaba16c7d8de8eb8093e3a264ebf90095e',1,'SerialWombatHBridge.h']]],
+  ['hc_5fsr04_3',['HC_SR04',['../class_serial_wombat_ultrasonic_distance_sensor.html#a23427ed7fec2f894cdd0c3d0d12b3630a92d15a5acd54365b157a0dede22a0e69',1,'SerialWombatUltrasonicDistanceSensor']]],
+  ['high_5ftime_4',['HIGH_TIME',['../class_serial_wombat_pulse_timer__18_a_b.html#a486e3029fae457e18763e324dbc47084a7ede09489a1778e04e99fb16c7757e7f',1,'SerialWombatPulseTimer_18AB']]]
 ];

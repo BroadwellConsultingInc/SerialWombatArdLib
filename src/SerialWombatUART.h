@@ -177,7 +177,7 @@ public:
     @brief Queries the SerialWombatUART for number bytes available to read
     @return Number of bytes available to read.
     */
-    int available()
+    virtual int available()
 {
 	uint8_t tx[8] = { 201, _pin,_pinMode, 0,0x55,0x55,0x55,0x55 };
 	uint8_t rx[8];
@@ -188,7 +188,7 @@ public:
     @brief Reads a byte from the SerialWombatUART
     @return A byte from 0-255, or -1 if no bytes were avaialble
     */
-    int read()
+    virtual int read()
 {
 	uint8_t tx[8] = { 202, _pin,_pinMode, 1,0x55,0x55,0x55,0x55 };
 	uint8_t rx[8];
@@ -209,7 +209,7 @@ public:
 /*!
     @brief  Discard all received bytes
    */
-    void flush()
+    virtual void flush()
 {
 	uint8_t tx[8] = { 200, _pin,_pinMode, _baudMarker,_rxPin,_txPin,0x55 };
 	uint8_t rx[8];
@@ -219,7 +219,7 @@ public:
     @brief Query the SerialWombatUART for the next avaialble byte, but don't remove it from the queue
     @return A byte from 0-255, or -1 if no bytes were avaialble
     */
-    int peek()
+    virtual int peek()
 {
 	uint8_t tx[8] = { 203, _pin,_pinMode,0x55,0x55,0x55,0x55,0x55 };
 	uint8_t rx[8];
@@ -244,7 +244,7 @@ public:
     by the UART.  This could
     be a problem at very low baud rates and high I2C bus speeds.
     */
-    size_t write(uint8_t data)
+    virtual size_t write(uint8_t data)
 {
 	uint8_t tx[8] = { 201, _pin,_pinMode,1,data,0x55,0x55,0x55 };
 	_sw.sendPacket(tx);
@@ -263,7 +263,7 @@ public:
     array then the function will block and continue trying until the
     entire message has been sent to the SerialWombatUART transmit queue.
     */
-    size_t write(const uint8_t* buffer, size_t size)
+    virtual size_t write(const uint8_t* buffer, size_t size)
 {
 	size_t bytesAvailable = 0;
 	size_t bytesSent;
@@ -325,7 +325,7 @@ public:
     @brief Queries the SerialWombatUART for the amount of free TX queue space
     @return A value between 0 and 64 for the SW4B
 	*/
-    int availableForWrite()
+    virtual int availableForWrite()
 {
 	uint8_t peektx[8] = { 203, _pin,_pinMode,0x55,0x55,0x55,0x55,0x55 };
 	uint8_t peekrx[8];
@@ -342,7 +342,7 @@ public:
     If 'length' characters are not available to read then the value returned
     will be less than length.
     */
-    size_t readBytes(char* buffer, size_t length)
+    virtual size_t readBytes(char* buffer, size_t length)
 {
 	int index = 0;
 	int bytesAvailable = 0;
@@ -406,7 +406,7 @@ public:
 }
 
 
-    void setTimeout(long timeout_mS)
+    virtual void setTimeout(long timeout_mS)
 {
 	if (timeout_mS == 0)
 	{
@@ -611,6 +611,22 @@ public:
     size_t write(const uint8_t* buffer, size_t size)
 {
 	return (txQueue.write(buffer, size));
+}
+
+/*
+    @brief Reads a specified number of bytes from the SerialWombatUART RX queue
+    @param buffer  An array into which to put received bytes
+    @param length  The maximum number of bytes to be received
+    @return the number of bytes written to buffer
+    
+    This function will read bytes from the SerialWombatUART RX queue into buffer.
+    If 'length' characters are not available to read then the value returned
+    will be less than length.
+    */
+    size_t readBytes(char* buffer, size_t length)
+{
+	return (rxQueue.readBytes(buffer, length));
+
 }
 
 	/*!

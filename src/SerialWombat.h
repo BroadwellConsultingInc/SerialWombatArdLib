@@ -552,7 +552,7 @@ public:
 			if (reset)
 			{
 				hardwareReset();
-				sendReadyTime = millis() + 1000;
+				sendReadyTime = millis() + 250;
 				return(1);
 			}
 			else
@@ -799,7 +799,7 @@ public:
 	{
 		uint8_t tx[9] = "ReSeT!#*";
 		uint8_t rx[8];
-		sendPacket(tx, rx);
+		sendPacketNoResponse(tx);
 	}
 
 /*!
@@ -1306,7 +1306,7 @@ public:
 	{
 		do
 		{
-			for (int i2cAddress = 0x68; i2cAddress <= 0x6F; ++i2cAddress)
+			for (int i2cAddress = 0x60; i2cAddress <= 0x6F; ++i2cAddress)
 			{
 				Wire.beginTransmission(i2cAddress);
 				int error = Wire.endTransmission();
@@ -1329,7 +1329,7 @@ public:
 					}
 					if (count == 8)
 					{
-						if (rx[0] == 'V' && rx[1] == 'S')
+						if (rx[0] == 'V' && rx[1] == 'S' || rx[1]=='B')
 						{
 							return(i2cAddress); // Found one.
 						}

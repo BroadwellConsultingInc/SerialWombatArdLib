@@ -1,0 +1,7 @@
+<map id="SerialWombatPWM_4AB" name="SerialWombatPWM_4AB">
+<area shape="rect" id="Node000001" title="Extends the SerialWombatPWM class with SW4A/SW4B specific functionality." alt="" coords="5,155,173,181"/>
+<area shape="rect" id="Node000002" href="$class_serial_wombat_p_w_m.html" title="A class representing a Serial Wombat PWM output." alt="" coords="21,80,157,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,122,92,154,86,154,86,122"/>
+<area shape="rect" id="Node000003" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="28,5,150,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="92,48,92,80,86,80,86,48"/>
+</map>

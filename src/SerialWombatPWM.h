@@ -158,6 +158,10 @@ public:
    */
     void writeFrequency_Hz(uint32_t frequency_Hz)
 	{
+		if (frequency_Hz == 0)
+		{
+			frequency_Hz = 1;
+		}
 		uint8_t tx[] = { 220,_pin,PIN_MODE_PWM,SW_LE32(1000000 / frequency_Hz),0x55 };
 		_sw.sendPacket(tx);
 
