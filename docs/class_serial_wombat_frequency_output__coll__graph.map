@@ -1,7 +1,0 @@
-<map id="SerialWombatFrequencyOutput" name="SerialWombatFrequencyOutput">
-<area shape="rect" id="Node000001" title="A class representing a Serial Wombat Frequency Output." alt="" coords="5,172,208,199"/>
-<area shape="rect" id="Node000002" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="46,96,167,123"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,138,109,172,104,172,104,138"/>
-<area shape="rect" id="Node000003" href="$class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="42,5,171,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="109,48,109,95,104,95,104,48"/>
-</map>

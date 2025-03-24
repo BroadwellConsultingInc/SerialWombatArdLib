@@ -1,0 +1,7 @@
+<map id="SerialWombatHBridge" name="SerialWombatHBridge">
+<area shape="rect" id="Node000001" title="A class representing a Serial Wombat H Bridge Output." alt="" coords="25,80,174,107"/>
+<area shape="rect" id="Node000003" href="$a00183.html" title="Extends the SerialWombatHBridge class with SW18AB specific functionality, including SerialWombatAbstr..." alt="" coords="5,155,194,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="102,122,102,154,97,154,97,122"/>
+<area shape="rect" id="Node000002" href="$a00207.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="39,5,160,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,48,102,80,97,80,97,48"/>
+</map>

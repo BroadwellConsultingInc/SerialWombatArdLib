@@ -1,0 +1,9 @@
+<map id="SerialWombatDebouncedInput" name="SerialWombatDebouncedInput">
+<area shape="rect" id="Node000001" title="A pin mode class that debounces inputs." alt="" coords="17,172,215,199"/>
+<area shape="rect" id="Node000002" href="$a00143.html" title="SerialWombat18CapTouch, SerialWombatDebouncedInput and SerialWombatMatrixButton inherit from this cla..." alt="" coords="5,96,195,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,137,116,171,111,172,103,138"/>
+<area shape="rect" id="Node000003" href="$a00207.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="219,96,341,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="239,132,145,174,143,169,237,127"/>
+<area shape="rect" id="Node000004" href="$a00119.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="215,5,345,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="283,48,283,95,277,95,277,48"/>
+</map>

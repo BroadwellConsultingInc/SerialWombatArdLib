@@ -1,9 +1,0 @@
-<map id="SerialWombatPS2Keyboard" name="SerialWombatPS2Keyboard">
-<area shape="rect" id="Node000001" title="A class for the Serial Wombat SW18AB chips which recieves input from IBM PS2 Keyboards." alt="" coords="5,172,188,199"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="28,96,91,123"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,135,93,170,88,173,70,137"/>
-<area shape="rect" id="Node000003" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="114,96,236,123"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,135,111,174,108,170,149,131"/>
-<area shape="rect" id="Node000004" href="$class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="110,5,240,32"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="178,48,178,95,172,95,172,48"/>
-</map>

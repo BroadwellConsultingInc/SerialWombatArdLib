@@ -1,0 +1,7 @@
+<map id="SerialWombatPulseTimer" name="SerialWombatPulseTimer">
+<area shape="rect" id="Node000001" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time." alt="" coords="5,172,174,199"/>
+<area shape="rect" id="Node000002" href="$a00207.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="29,96,150,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,138,92,172,87,172,87,138"/>
+<area shape="rect" id="Node000003" href="$a00119.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="25,5,154,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="92,48,92,95,87,95,87,48"/>
+</map>

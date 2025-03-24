@@ -1,9 +1,0 @@
-<map id="SerialWombatServo" name="SerialWombatServo">
-<area shape="rect" id="Node000001" title="A class to control Servos attached to the Serial Wombat chip." alt="" coords="32,80,169,107"/>
-<area shape="rect" id="Node000003" href="$class_serial_wombat_servo__18_a_b.html" title="A derived class that adds additional Servo Functionality for the Serial Wombat 18AB Chip." alt="" coords="13,155,188,181"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="103,122,103,154,98,154,98,122"/>
-<area shape="rect" id="Node000002" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="40,5,161,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,48,103,80,98,80,98,48"/>
-<area shape="rect" id="Node000004" href="$class_serial_wombat_high_frequency_servo.html" title="A class for the Serial Wombat 18AB Chip that adds support for high frequency hobby Servos(200 Hz,..." alt="" coords="5,229,196,272"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="103,197,103,229,98,229,98,197"/>
-</map>

@@ -1,0 +1,7 @@
+<map id="SerialWombatPulseOnChange" name="SerialWombatPulseOnChange">
+<area shape="rect" id="Node000001" title="Monitors other pin(s) or public data in the Serial Wombat chip and generates a pin pulse on change." alt="" coords="5,172,203,199"/>
+<area shape="rect" id="Node000002" href="$a00207.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="43,96,165,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,138,107,172,101,172,101,138"/>
+<area shape="rect" id="Node000003" href="$a00119.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="39,5,169,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="107,48,107,95,101,95,101,48"/>
+</map>

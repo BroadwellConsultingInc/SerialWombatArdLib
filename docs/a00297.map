@@ -1,0 +1,9 @@
+<map id="SerialWombatUltrasonicDistanceSensor" name="SerialWombatUltrasonicDistanceSensor">
+<area shape="rect" id="Node000001" title="A Class which uses one or two Serial Wombat 18AB pins to measure distance using an Ultrasonic distanc..." alt="" coords="59,188,273,231"/>
+<area shape="rect" id="Node000002" href="$a00207.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="9,104,131,131"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,140,146,185,142,189,93,143"/>
+<area shape="rect" id="Node000003" href="$a00119.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="5,5,135,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="73,48,73,104,67,104,67,48"/>
+<area shape="rect" id="Node000004" href="$a00147.html" title="SerialWombatAnalogInput, SerialWombatPulseTimer, SerialWombatResistanceInput and others inherit from ..." alt="" coords="155,96,369,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="231,151,190,190,186,186,227,147"/>
+</map>

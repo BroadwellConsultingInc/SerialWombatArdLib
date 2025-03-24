@@ -1,5 +1,0 @@
-<map id="SerialWombatThroughputConsumer" name="SerialWombatThroughputConsumer">
-<area shape="rect" id="Node000001" title="A Class that consumes CPU time on the Serial Wombat chip in order to facilitate testing." alt="" coords="5,80,233,107"/>
-<area shape="rect" id="Node000002" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="58,5,180,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,48,122,80,116,80,116,48"/>
-</map>

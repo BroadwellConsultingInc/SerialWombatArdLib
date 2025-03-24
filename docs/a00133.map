@@ -1,0 +1,7 @@
+<map id="SerialWombat18ABVGA" name="SerialWombat18ABVGA">
+<area shape="rect" id="Node000001" title="A class for the Serial Wombat SW18AB chip VGA Driver." alt="" coords="5,172,168,199"/>
+<area shape="rect" id="Node000002" href="$a00207.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="26,96,147,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,138,89,172,84,172,84,138"/>
+<area shape="rect" id="Node000003" href="$a00119.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="22,5,151,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,48,89,95,84,95,84,48"/>
+</map>

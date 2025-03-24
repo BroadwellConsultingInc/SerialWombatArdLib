@@ -1,0 +1,5 @@
+<map id="SerialWombatQueuedPulseOutput" name="SerialWombatQueuedPulseOutput">
+<area shape="rect" id="Node000001" title="A Class which outputs pulses of a duration stored in a queue." alt="" coords="5,80,225,107"/>
+<area shape="rect" id="Node000002" href="$a00207.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="54,5,176,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,48,118,80,112,80,112,48"/>
+</map>

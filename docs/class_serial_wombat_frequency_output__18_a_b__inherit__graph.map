@@ -1,9 +1,0 @@
-<map id="SerialWombatFrequencyOutput_18AB" name="SerialWombatFrequencyOutput_18AB">
-<area shape="rect" id="Node000001" title="Extends the SerialWombatFrequencyOutput class with SW18AB specific functionality, including SerialWom..." alt="" coords="96,171,338,197"/>
-<area shape="rect" id="Node000002" href="$class_serial_wombat_frequency_output.html" title="A class representing a Serial Wombat Frequency Output." alt="" coords="5,88,208,115"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,122,202,168,198,172,135,126"/>
-<area shape="rect" id="Node000003" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="46,5,167,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="109,48,109,88,104,88,104,48"/>
-<area shape="rect" id="Node000004" href="$class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class...." alt="" coords="232,80,424,123"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="289,134,236,172,233,168,286,130"/>
-</map>
