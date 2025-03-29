@@ -1,6 +1,6 @@
 #pragma once
 /*
-Copyright 2021 Broadwell Consulting Inc.
+Copyright 2021-2025 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -82,6 +82,13 @@ public:
 		PERIOD_512mS = 9,
 		PERIOD_1024mS = 10,
 	};
+
+	enum RampMode{
+	 RAMP_MODE_BOTH = 0,
+    RAMP_MODE_INCREMENT = 1,
+    RAMP_MODE_DECREMENT = 2,	
+	};
+
 
 	/*!
 	 \brief Enable a timeout value which will cause the output to go to a default value if not updated
@@ -362,6 +369,62 @@ public:
 		return(0);
 	}
 
+	/*!
+	 \return returns 0 or higher if success, or a negative error code
+	
+	 \brief Configure the scaled output block into Ramp control mode
+	
+	Configure the scaled output block into Ramp control mode
+
+	This pin mode allows this pin's output to be incremented or decremented to chase an input.
+
+	It is useful for cases where the transfer function of the system is not predictable, such as a servo robot gripper with current feedback that needs to grip object of different sizes and densities. 
+
+	The system increments a fast increment to get within a range of the input, then switches to slow increment to fine tune.  The system can be set to increment and decrement to chase a value (BOTH), increment only, or decrement only.	
+
+	 \param slowIncrement  The value added to the output each sample period if the difference between input and target is less than incrementThreshold
+	 \param incrementThreshold  The difference between input and target below which slowIncrement should be used
+	 \param fastIncrement  The value added to the output each sample period if the difference between input and target is greater than incrementThreshold
+	 \param rampMode  The derivative contant applied to the derivative.  This value is scaled to 1/16384.  
+	 \param samplePeriod an enumerated time for how often the PID controller updates.  This value should be based on how fast the system responds to change in output so that integral and derivative terms work correctly.
+	 \return returns 0 or higher if success, or a negative error code
+	 */
+	int16_t writeRamp(uint16_t slowIncrement, uint16_t incrementThreshold, uint16_t fastIncrement,Period samplePeriod, RampMode rampMode)
+	{
+		{
+			uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
+				pin(),
+				swPinModeNumber(),
+				7, // Set Sample Rate
+			        (uint8_t) samplePeriod,	
+				0x55,0x55,0x55
+			};
+			int16_t result = _asosw.sendPacket(tx); if (result < 0) { return(result); }
+		}
+		{
+			uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
+				pin(),
+				swPinModeNumber(),
+				60, // Set ramp slow increment, threshold
+				SW_LE16(slowIncrement),
+				SW_LE16(incrementThreshold)
+			
+			};
+			int16_t result = _asosw.sendPacket(tx); if (result < 0) { return(result); }
+		}
+		{
+			uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
+				pin(),
+				swPinModeNumber(),
+				61, // Set ramp fast increment, mode
+				SW_LE16(fastIncrement),
+				(uint8_t) rampMode, 0x55
+			};
+			int16_t result = _asosw.sendPacket(tx); if (result < 0) { return(result); }
+		}
+		return 0;
+
+	}
 	/*!
 	 \return returns 0 or higher if success, or a negative error code
 	

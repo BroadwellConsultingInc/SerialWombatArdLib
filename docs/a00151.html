@@ -134,6 +134,11 @@ Public Types</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:ae98e5ae800e55696f88a067dab46266e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa80b59d9db954557d37e733b328d4902" id="r_aa80b59d9db954557d37e733b328d4902"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa80b59d9db954557d37e733b328d4902">RampMode</a> { <a class="el" href="#aa80b59d9db954557d37e733b328d4902a5e274e9ca6e4cf59f9d69bfb56376053">RAMP_MODE_BOTH</a> = 0
+, <a class="el" href="#aa80b59d9db954557d37e733b328d4902aaba21a28f5009d26a50d54c1b599a647">RAMP_MODE_INCREMENT</a> = 1
+, <a class="el" href="#aa80b59d9db954557d37e733b328d4902a361526fa828bd4e2031ce46619ea0117">RAMP_MODE_DECREMENT</a> = 2
+ }</td></tr>
+<tr class="separator:aa80b59d9db954557d37e733b328d4902"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -165,6 +170,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a25e299c7fab3a592bc68e58e5ad3a956" id="r_a25e299c7fab3a592bc68e58e5ad3a956"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25e299c7fab3a592bc68e58e5ad3a956">writeHysteresis</a> (uint16_t lowLimit, uint16_t lowOutputValue, uint16_t highLimit, uint16_t highOutputValue, uint16_t initialOutputValue)</td></tr>
 <tr class="memdesc:a25e299c7fab3a592bc68e58e5ad3a956"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls the output based on hystersis control.  <br /></td></tr>
 <tr class="separator:a25e299c7fab3a592bc68e58e5ad3a956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a664e75e474d15835396672463281c0e6" id="r_a664e75e474d15835396672463281c0e6"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a664e75e474d15835396672463281c0e6">writeRamp</a> (uint16_t slowIncrement, uint16_t incrementThreshold, uint16_t fastIncrement, <a class="el" href="#ae98e5ae800e55696f88a067dab46266e">Period</a> samplePeriod, <a class="el" href="#aa80b59d9db954557d37e733b328d4902">RampMode</a> rampMode)</td></tr>
+<tr class="memdesc:a664e75e474d15835396672463281c0e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the scaled output block into Ramp control mode.  <br /></td></tr>
+<tr class="separator:a664e75e474d15835396672463281c0e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac47f304dd61a498bbc8072115a67b841" id="r_ac47f304dd61a498bbc8072115a67b841"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac47f304dd61a498bbc8072115a67b841">writePID</a> (uint16_t kp, uint16_t ki, uint16_t kd, uint16_t target, <a class="el" href="#ae98e5ae800e55696f88a067dab46266e">Period</a> samplePeriod, uint8_t targetPin=255, bool biDirectional=false)</td></tr>
 <tr class="memdesc:ac47f304dd61a498bbc8072115a67b841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the scaled output block into PID control mode.  <br /></td></tr>
 <tr class="separator:ac47f304dd61a498bbc8072115a67b841"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -251,6 +259,27 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aa80b59d9db954557d37e733b328d4902" name="aa80b59d9db954557d37e733b328d4902"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa80b59d9db954557d37e733b328d4902">&#9670;&#160;</a></span>RampMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#aa80b59d9db954557d37e733b328d4902">SerialWombatAbstractScaledOutput::RampMode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa80b59d9db954557d37e733b328d4902a5e274e9ca6e4cf59f9d69bfb56376053" name="aa80b59d9db954557d37e733b328d4902a5e274e9ca6e4cf59f9d69bfb56376053"></a>RAMP_MODE_BOTH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa80b59d9db954557d37e733b328d4902aaba21a28f5009d26a50d54c1b599a647" name="aa80b59d9db954557d37e733b328d4902aaba21a28f5009d26a50d54c1b599a647"></a>RAMP_MODE_INCREMENT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa80b59d9db954557d37e733b328d4902a361526fa828bd4e2031ce46619ea0117" name="aa80b59d9db954557d37e733b328d4902a361526fa828bd4e2031ce46619ea0117"></a>RAMP_MODE_DECREMENT&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00086">86</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4a0d75669fab72c813db6f916ebd7303" name="a4a0d75669fab72c813db6f916ebd7303"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4a0d75669fab72c813db6f916ebd7303">&#9670;&#160;</a></span>SerialWombatAbstractScaledOutput()</h2>
@@ -321,7 +350,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00623">623</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00686">686</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -348,7 +377,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00563">563</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00626">626</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -375,7 +404,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00580">580</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00643">643</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -402,7 +431,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00494">494</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00557">557</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -429,7 +458,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00512">512</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00575">575</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -456,7 +485,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00529">529</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00592">592</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -483,7 +512,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00546">546</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00609">609</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -542,7 +571,7 @@ Public Member Functions</h2></td></tr>
 <p>Request Last Output Value. </p>
 <p>This function is useful to see intermediate output values when the scaled output is using its same pin's public data for input (so the output value is not written back to public data) </p><dl class="section return"><dt>Returns</dt><dd>Last 16 bit value output to hardware </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00464">464</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00527">527</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -569,7 +598,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00597">597</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00660">660</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -639,7 +668,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00287">287</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00294">294</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -700,7 +729,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00329">329</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00336">336</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -743,7 +772,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00152">152</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00159">159</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -786,7 +815,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00179">179</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00186">186</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -863,7 +892,73 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00399">399</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00462">462</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+
+</div>
+</div>
+<a id="a664e75e474d15835396672463281c0e6" name="a664e75e474d15835396672463281c0e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a664e75e474d15835396672463281c0e6">&#9670;&#160;</a></span>writeRamp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatAbstractScaledOutput::writeRamp </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>slowIncrement</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>incrementThreshold</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>fastIncrement</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ae98e5ae800e55696f88a067dab46266e">Period</a></td>          <td class="paramname"><span class="paramname"><em>samplePeriod</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aa80b59d9db954557d37e733b328d4902">RampMode</a></td>          <td class="paramname"><span class="paramname"><em>rampMode</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Configure the scaled output block into Ramp control mode. </p>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code</dd></dl>
+<p>Configure the scaled output block into Ramp control mode</p>
+<p>This pin mode allows this pin's output to be incremented or decremented to chase an input.</p>
+<p>It is useful for cases where the transfer function of the system is not predictable, such as a servo robot gripper with current feedback that needs to grip object of different sizes and densities.</p>
+<p>The system increments a fast increment to get within a range of the input, then switches to slow increment to fine tune. The system can be set to increment and decrement to chase a value (BOTH), increment only, or decrement only. <br  />
+</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slowIncrement</td><td>The value added to the output each sample period if the difference between input and target is less than incrementThreshold </td></tr>
+    <tr><td class="paramname">incrementThreshold</td><td>The difference between input and target below which slowIncrement should be used </td></tr>
+    <tr><td class="paramname">fastIncrement</td><td>The value added to the output each sample period if the difference between input and target is greater than incrementThreshold </td></tr>
+    <tr><td class="paramname">rampMode</td><td>The derivative contant applied to the derivative. This value is scaled to 1/16384. <br  />
+ </td></tr>
+    <tr><td class="paramname">samplePeriod</td><td>an enumerated time for how often the PID controller updates. This value should be based on how fast the system responds to change in output so that integral and derivative terms work correctly. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00392">392</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -904,7 +999,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00246">246</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00253">253</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -945,7 +1040,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00126">126</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00133">133</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -981,7 +1076,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00198">198</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00205">205</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -1018,7 +1113,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00222">222</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00229">229</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -1045,7 +1140,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00484">484</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00547">547</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -1087,7 +1182,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00101">101</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00108">108</a> of file <a class="el" href="a00026_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>

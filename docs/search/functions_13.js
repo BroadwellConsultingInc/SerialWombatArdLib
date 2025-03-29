@@ -37,13 +37,14 @@ var searchData=
   ['writepublicdata_34',['writePublicData',['../a00119.html#a99bcf77ea4c2ff0ff5ffd773e85b8ec3',1,'SerialWombatChip::writePublicData()'],['../a00207.html#a0c103c1bb8e1777c9d59104bb8e24d4c',1,'SerialWombatPin::writePublicData()']]],
   ['writequeuemask_35',['writeQueueMask',['../a00199.html#a938927badeb36c302ed6a5575babbab1',1,'SerialWombatMatrixKeypad']]],
   ['writeramaddress_36',['writeRamAddress',['../a00119.html#abff293c6a6bc0831e906146f142e2098',1,'SerialWombatChip']]],
-  ['writeratecontrol_37',['writeRateControl',['../a00151.html#a05c3163a4364e087b04f4ccad0195aad',1,'SerialWombatAbstractScaledOutput']]],
-  ['writescalingenabled_38',['writeScalingEnabled',['../a00151.html#a014d42b447b5cb6b4a804d4b713b9540',1,'SerialWombatAbstractScaledOutput']]],
-  ['writescalinginvertedinput_39',['writeScalingInvertedInput',['../a00151.html#aca44013e915e42cce28f486f9368470c',1,'SerialWombatAbstractScaledOutput']]],
-  ['writescalingtargetvalue_40',['writeScalingTargetValue',['../a00151.html#a6ab26ad6b229e9d48ac953424d1762e6',1,'SerialWombatAbstractScaledOutput']]],
-  ['writescalingtargetvalueresetintegrator_41',['writeScalingTargetValueResetIntegrator',['../a00151.html#ac39c64ed1141442cde8fbba9b6b73d4f',1,'SerialWombatAbstractScaledOutput']]],
-  ['writetimeout_42',['writeTimeout',['../a00151.html#a05117e5116d65afc07df4912d2e0b070',1,'SerialWombatAbstractScaledOutput']]],
-  ['writetransformlinearmxb_43',['writeTransformLinearMXB',['../a00147.html#a3f215350d4edd8e7d343a8a1186adfb2',1,'SerialWombatAbstractProcessedInput']]],
-  ['writetransformscalerange_44',['writeTransformScaleRange',['../a00147.html#a24d57fbe5233494ae4149e5b438a15e1',1,'SerialWombatAbstractProcessedInput']]],
-  ['writeuserbuffer_45',['writeUserBuffer',['../a00119.html#a6c6069f5601d82a7ec45ce3ce5bf2504',1,'SerialWombatChip::writeUserBuffer(uint16_t index, uint8_t *buffer, uint16_t count)'],['../a00119.html#aa01c0b5ff23e06a995ad124376d5b3c6',1,'SerialWombatChip::writeUserBuffer(uint16_t index, char *s)'],['../a00119.html#ad6a296d93785a50883155be930bf4d2a',1,'SerialWombatChip::writeUserBuffer(uint16_t index, const char s[])']]]
+  ['writeramp_37',['writeRamp',['../a00151.html#a664e75e474d15835396672463281c0e6',1,'SerialWombatAbstractScaledOutput']]],
+  ['writeratecontrol_38',['writeRateControl',['../a00151.html#a05c3163a4364e087b04f4ccad0195aad',1,'SerialWombatAbstractScaledOutput']]],
+  ['writescalingenabled_39',['writeScalingEnabled',['../a00151.html#a014d42b447b5cb6b4a804d4b713b9540',1,'SerialWombatAbstractScaledOutput']]],
+  ['writescalinginvertedinput_40',['writeScalingInvertedInput',['../a00151.html#aca44013e915e42cce28f486f9368470c',1,'SerialWombatAbstractScaledOutput']]],
+  ['writescalingtargetvalue_41',['writeScalingTargetValue',['../a00151.html#a6ab26ad6b229e9d48ac953424d1762e6',1,'SerialWombatAbstractScaledOutput']]],
+  ['writescalingtargetvalueresetintegrator_42',['writeScalingTargetValueResetIntegrator',['../a00151.html#ac39c64ed1141442cde8fbba9b6b73d4f',1,'SerialWombatAbstractScaledOutput']]],
+  ['writetimeout_43',['writeTimeout',['../a00151.html#a05117e5116d65afc07df4912d2e0b070',1,'SerialWombatAbstractScaledOutput']]],
+  ['writetransformlinearmxb_44',['writeTransformLinearMXB',['../a00147.html#a3f215350d4edd8e7d343a8a1186adfb2',1,'SerialWombatAbstractProcessedInput']]],
+  ['writetransformscalerange_45',['writeTransformScaleRange',['../a00147.html#a24d57fbe5233494ae4149e5b438a15e1',1,'SerialWombatAbstractProcessedInput']]],
+  ['writeuserbuffer_46',['writeUserBuffer',['../a00119.html#a6c6069f5601d82a7ec45ce3ce5bf2504',1,'SerialWombatChip::writeUserBuffer(uint16_t index, uint8_t *buffer, uint16_t count)'],['../a00119.html#aa01c0b5ff23e06a995ad124376d5b3c6',1,'SerialWombatChip::writeUserBuffer(uint16_t index, char *s)'],['../a00119.html#ad6a296d93785a50883155be930bf4d2a',1,'SerialWombatChip::writeUserBuffer(uint16_t index, const char s[])']]]
 ];
