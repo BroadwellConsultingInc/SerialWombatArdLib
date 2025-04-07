@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+ >
   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/a00005_source.html</loc>
   </url>
@@ -611,9 +609,6 @@
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_w.html</loc>
   </url>
   <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_~.html</loc>
-  </url>
-  <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_func.html</loc>
   </url>
   <url>
@@ -674,99 +669,15 @@
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_func_w.html</loc>
   </url>
   <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_func_~.html</loc>
-  </url>
-  <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_vars.html</loc>
   </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_vars.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_vars.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_vars.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_vars.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_vars.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_vars.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_vars.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_vars.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_vars.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_vars.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_vars.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_vars.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_vars.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_vars.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_vars.html</loc>
-  </url>
-  <url>
+    <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_enum.html</loc>
   </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_enum.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_enum.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_enum.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_enum.html</loc>
-  </url>
-  <url>
+   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_eval.html</loc>
   </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_eval.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_eval.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_eval.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_eval.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_eval.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_eval.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_eval.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_eval.html</loc>
-  </url>
-  <url>
+   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/files.html</loc>
   </url>
   <url>
@@ -809,24 +720,6 @@
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/globals_enum.html</loc>
   </url>
   <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/globals_enum.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/globals_enum.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/globals_enum.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/globals_enum.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/globals_enum.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/globals_enum.html</loc>
-  </url>
-  <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/globals_eval.html</loc>
   </url>
   <url>
@@ -846,15 +739,6 @@
   </url>
   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/globals_eval_w.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/globals_defs.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/globals_defs.html</loc>
-  </url>
-  <url>
-    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/globals_defs.html</loc>
   </url>
   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/globals_defs.html</loc>
