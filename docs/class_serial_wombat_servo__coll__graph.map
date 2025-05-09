@@ -1,0 +1,7 @@
+<map id="SerialWombatServo" name="SerialWombatServo">
+<area shape="rect" id="Node000001" title="A class to control Servos attached to the Serial Wombat chip." alt="" coords="5,172,142,199"/>
+<area shape="rect" id="Node000002" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="13,96,134,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,138,76,172,71,172,71,138"/>
+<area shape="rect" id="Node000003" href="$class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="9,5,138,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="76,48,76,95,71,95,71,48"/>
+</map>

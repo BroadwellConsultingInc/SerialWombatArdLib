@@ -1,6 +1,6 @@
 #pragma once
 /*
-Copyright 2020-2023 Broadwell Consulting Inc.
+Copyright 2020-2025 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -208,7 +208,7 @@ Arduino Servo native API.
 class SerialWombatServo_18AB : public SerialWombatServo, public SerialWombatAbstractScaledOutput
 {
 public:
-	SerialWombatServo_18AB(SerialWombatChip& serialWombat):SerialWombatAbstractScaledOutput(serialWombat), SerialWombatServo(serialWombat)
+	SerialWombatServo_18AB(SerialWombatChip& serialWombat): SerialWombatServo(serialWombat),SerialWombatAbstractScaledOutput(serialWombat)
 	{
 	}
 	uint8_t pin()	{return SerialWombatPin::_pin;}

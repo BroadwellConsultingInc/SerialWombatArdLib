@@ -1,0 +1,7 @@
+<map id="SerialWombatMatrixKeypad" name="SerialWombatMatrixKeypad">
+<area shape="rect" id="Node000001" title="A class for the Serial Wombat SW18AB chips which scans matrix keypads up to 4x4." alt="" coords="6,96,188,123"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,69,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="56,44,91,94,86,97,52,47"/>
+<area shape="rect" id="Node000003" href="$class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="92,5,222,32"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="142,47,108,97,103,94,138,44"/>
+</map>

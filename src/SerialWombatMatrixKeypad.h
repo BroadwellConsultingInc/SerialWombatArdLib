@@ -269,6 +269,7 @@ rowTiming,
     */
     size_t write(uint8_t data)
 {
+	(void)data; // Avoid compiler warning about unused parameter
 	
 	return (1);
 }
@@ -283,6 +284,7 @@ rowTiming,
     */
     size_t write(const uint8_t* buffer, size_t size)
 {
+	(void)buffer; // Avoid compiler warning about unused parameter
 	return(size);
 }
 
@@ -398,7 +400,7 @@ public:
     @param kp An initialized SerialWombatMatrixKeypad
     @param keyIndex a number 0-15 indicating which key (index, not ascii value) is treated as a button
     */
-    SerialWombatMatrixButton(SerialWombatMatrixKeypad& kp, uint8_t keyIndex):_keypad(kp),SerialWombatAbstractButton()
+    SerialWombatMatrixButton(SerialWombatMatrixKeypad& kp, uint8_t keyIndex):SerialWombatAbstractButton(),_keypad(kp)
 	{
 		_keypad = kp;
 		_keyIndex = keyIndex;
@@ -491,7 +493,7 @@ public:
     
     @return TRUE or FALSE, current status of debounced input
     */
-    bool readTransitionsState()
+    bool readTransitionsState(bool resetTransitionCount = true)
 {
 	return digitalRead();
 }

@@ -301,6 +301,7 @@ public:
     */
     size_t write(uint8_t data)
 {
+	(void)data; // Avoid compiler warning for unused parameter
 	
 	return (1);
 }
@@ -315,6 +316,7 @@ public:
     */
     size_t write(const uint8_t* buffer, size_t size)
 {
+	(void)buffer; // Avoid compiler warning for unused parameter
 	return(size);
 }
 

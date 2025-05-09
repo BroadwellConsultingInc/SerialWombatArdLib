@@ -442,7 +442,6 @@ public:
 	size_t write(uint8_t* buffer, size_t count)
 	{
 		size_t sent = 0;
-		uint32_t startTime = millis();
 		while (sent < count - 5) 
 		{
 			uint8_t tx[8] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE5,
@@ -493,7 +492,6 @@ public:
 				++sent;
 			}
 		}
-		uint32_t endTime = millis();
 		return sent;
 	}
 

@@ -133,9 +133,7 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 			//TODO return (-1 * SW_ERROR_REENTRANCY_NOT_SUPPORTED);
 		}
 		_currentlyCommunicating = true;
-		uint32_t milisStart = millis();
 		while (Serial->read() >= 0);
-		uint32_t milisFlush = millis();
 		Serial->write(tx, 8);  //TODO add addressing, CRC
 		uint32_t millisWrite = millis();
 		int bytesRx = 0;
@@ -151,7 +149,6 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 			}
 			timenow = millis();
 		}
-		uint32_t milisread = millis();
 		if (bytesRx < 8)
 		{
 			if (errorHandler != NULL)
@@ -207,12 +204,6 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 			else
 			{
 				delayMicroseconds(100);
-				char echoTx[] = "!COM_ERR";
-				/*		
-				i2cInterface->beginTransmission(address);
-				bytesWritten = i2cInterface->write((uint8_t*)echoTx, 8);
-				i2cResult = i2cInterface->endTransmission();
-				*/
 				continue;
 			}
 		}
@@ -297,11 +288,6 @@ int SerialWombatChip::sendPacketNoResponse(uint8_t tx[])
 
 	if (i2cInterface != NULL)
 	{
-		int count = 8;
-		//while (tx[count - 1] == 0x55)
-		//{
-		//	--count;
-		//}
 		i2cInterface->beginTransmission(address);
 		i2cInterface->write(tx, 8);
 		i2cInterface->endTransmission();
@@ -343,11 +329,6 @@ int SerialWombatChip::sendPacket(uint8_t tx[])
 
 	if (i2cInterface != NULL)
 	{
-		int count = 8;
-	//	while (tx[count - 1] == 0x55)
-		//{
-		//	--count;
-		//}
 		i2cInterface->beginTransmission(address);
 		i2cInterface->write(tx, 8);
 		i2cInterface->endTransmission();

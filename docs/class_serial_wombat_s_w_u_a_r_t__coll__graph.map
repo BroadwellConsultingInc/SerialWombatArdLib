@@ -1,0 +1,14 @@
+<map id="SerialWombatSWUART" name="SerialWombatSWUART">
+<area shape="rect" id="Node000001" title="A class for the Serial Wombat 4B or SW18AB chips which creates a software based UART on the SW18AB." alt="" coords="89,279,249,305"/>
+<area shape="rect" id="Node000002" href="$class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge." alt="" coords="170,172,309,199"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,213,179,280,175,277,220,210"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="80,96,143,123"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="148,128,219,169,216,174,145,133"/>
+<area shape="rect" id="Node000006" href="$class_serial_wombat_queue.html" title="A Class representing a Queue in the User Ram area on the Serial Wombat Chip." alt="" coords="5,172,146,199"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="101,138,84,173,79,170,96,135"/>
+<area shape="rect" id="Node000004" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="179,96,300,123"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="242,138,242,172,237,172,237,138"/>
+<area shape="rect" id="Node000005" href="$class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="175,5,304,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="242,48,242,95,237,95,237,48"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="99,209,138,253,159,276,155,280,134,256,95,212"/>
+</map>

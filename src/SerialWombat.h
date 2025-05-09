@@ -2,7 +2,7 @@
 #define SERIAL_WOMBAT_H__
 
 /*
-Copyright 2020-2023 Broadwell Consulting Inc.
+Copyright 2020-2025 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -44,8 +44,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #define SW_LE32(_a)  (uint8_t)((_a) & 0xFF), (uint8_t)((_a) >>8) , (uint8_t)((_a) >>16), (uint8_t)((_a) >>24)
 
 #define ARRAY_UINT32(_array,_index) ((((uint32_t) _array[_index +3])<<24) + (((uint32_t) _array[_index +2])<<16) + (((uint32_t) _array[_index +1])<<8) + _array[_index])
-#define SW18AB_LATEST_FIRMWARE 214
-#define SW08B_LATEST_FIRMWARE 215
+#define SW18AB_LATEST_FIRMWARE 220
+#define SW08B_LATEST_FIRMWARE 220
 #define SW4B_LATEST_FIRMWARE 203
 
 typedef enum
@@ -224,6 +224,7 @@ enum class SerialWombatCommands
 	COMMAND_CAPTURE_STARTUP_SEQUENCE = 0xB6,///< (0xB6)
 	COMMAND_ADJUST_FREQUENCY = 0xB7,///< (0xB7)
         COMMAND_SET_PIN_HW = 0xB8, ///< (0xB8)
+        COMMAND_BINARY_SET_ADDRESS = 0xB9, ///< (0xB9)
 	CONFIGURE_PIN_MODE0 = 200, ///< (200)
 	CONFIGURE_PIN_MODE1 = 201, ///< (201)
 	CONFIGURE_PIN_MODE2 = 202, ///< (202)
@@ -399,7 +400,6 @@ public:
 	uint32_t sendReadyTime = 0;
 	int16_t initialize() 
 	{
-		int16_t retvalue = -1;
 		lastErrorCode = 0;
 		readVersion();
 		readSupplyVoltage_mV();
@@ -798,7 +798,6 @@ public:
 	void hardwareReset() 
 	{
 		uint8_t tx[9] = "ReSeT!#*";
-		uint8_t rx[8];
 		sendPacketNoResponse(tx);
 	}
 
@@ -816,7 +815,7 @@ public:
 		{
 			return;
 		}
-		_pullDown[pin] = openDrain;
+		_pullDown[pin] = pullDown;
 		_openDrain[pin] = openDrain;
 		_pinmode[pin] = mode;
 		configureDigitalPin(pin, mode);
@@ -1156,6 +1155,25 @@ public:
 	}
 
 /*!
+	\brief Set  this chip Address (SW8B only)
+	
+	Sets the i2c or other address of the chip.  This value is
+	stored in flash and applies to both bootloader and application.
+	Persistent across application bootloads.  Causes address selection
+	pins to be ignored.  Set to 0xFF to restore address pins.
+	Requires reset after calling to change I2C address.	
+
+	\param Address to set.  7 Bit value for I2C, defined as 32 bit for future applications like CAN
+	\return Number of bytes written or error code.
+
+*/
+	int16_t setThroughputPin(uint32_t address)
+	{
+		uint8_t tx[8] = { (uint8_t)SerialWombatCommands::COMMAND_BINARY_SET_ADDRESS,SW_LE32(address),0x55,0x55,0x55 };
+		return sendPacket(tx);
+	}
+
+/*!
 	\brief Write bytes to the User Memory Buffer in the Serial Wombat chip
 	\param index The index into the User Buffer array of bytes where the data should be loaded
 	\param buffer a pointer to an array of bytes to be loaded into the User Buffer array
@@ -1329,7 +1347,7 @@ public:
 					}
 					if (count == 8)
 					{
-						if (rx[0] == 'V' && rx[1] == 'S' || rx[1]=='B')
+						if (rx[0] == 'V' && (rx[1] == 'S' || rx[1]=='B'))
 						{
 							return(i2cAddress); // Found one.
 						}

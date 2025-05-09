@@ -1,0 +1,9 @@
+<map id="SerialWombatPulseTimer_18AB" name="SerialWombatPulseTimer_18AB">
+<area shape="rect" id="Node000001" title="extends the SerialWombatPulseTimer class with SW18AB specific functionality / This class adds functio..." alt="" coords="92,171,300,197"/>
+<area shape="rect" id="Node000002" href="$class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time." alt="" coords="5,88,174,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,122,181,168,178,172,117,126"/>
+<area shape="rect" id="Node000003" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="29,5,150,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="92,48,92,88,87,88,87,48"/>
+<area shape="rect" id="Node000004" href="$class_serial_wombat_abstract_processed_input.html" title="SerialWombatAnalogInput, SerialWombatPulseTimer, SerialWombatResistanceInput and others inherit from ..." alt="" coords="198,80,411,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="266,135,215,172,212,168,262,130"/>
+</map>
