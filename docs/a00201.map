@@ -1,5 +1,0 @@
-<map id="SerialWombatMatrixButton" name="SerialWombatMatrixButton">
-<area shape="rect" id="Node000001" title="Class that runs on top of SerialWombatMatrixKeypad to treat a key as an individual button." alt="" coords="12,80,188,107"/>
-<area shape="rect" id="Node000002" href="$a00143.html" title="SerialWombat18CapTouch, SerialWombatDebouncedInput and SerialWombatMatrixButton inherit from this cla..." alt="" coords="5,5,195,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,48,103,80,97,80,97,48"/>
-</map>

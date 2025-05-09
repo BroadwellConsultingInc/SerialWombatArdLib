@@ -1,6 +1,0 @@
-# This robots.txt file controls crawling of URLs under https://example.com.
-# All crawlers are disallowed to crawl files in the "includes" directory, such
-# as .css, .js, but Google needs them for rendering, so Googlebot is allowed
-# to crawl them.
-
-Sitemap: https://broadwellconsultinginc.github.io/SerialWombatArdLib/sitemap.xml

@@ -1,9 +1,0 @@
-<map id="SerialWombatAbstractButton" name="SerialWombatAbstractButton">
-<area shape="rect" id="Node000001" title="SerialWombat18CapTouch, SerialWombatDebouncedInput and SerialWombatMatrixButton inherit from this cla..." alt="" coords="209,5,398,32"/>
-<area shape="rect" id="Node000002" href="$a00139.html" title="A class that controls a Cap Touch Pin on the Serial Wombat 18AB chip." alt="" coords="5,80,181,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,40,131,82,129,77,252,35"/>
-<area shape="rect" id="Node000003" href="$a00163.html" title="A pin mode class that debounces inputs." alt="" coords="205,80,402,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="306,48,306,80,301,80,301,48"/>
-<area shape="rect" id="Node000004" href="$a00203.html" title="Class that runs on top of SerialWombatMatrixKeypad to treat a key as an individual button." alt="" coords="426,80,602,107"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="356,35,478,77,476,82,354,40"/>
-</map>

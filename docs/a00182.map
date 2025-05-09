@@ -1,9 +1,0 @@
-<map id="SerialWombatHBridge_18AB" name="SerialWombatHBridge_18AB">
-<area shape="rect" id="Node000001" title="Extends the SerialWombatHBridge class with SW18AB specific functionality, including SerialWombatAbstr..." alt="" coords="83,171,272,197"/>
-<area shape="rect" id="Node000002" href="$a00179.html" title="A class representing a Serial Wombat H Bridge Output." alt="" coords="5,88,155,115"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,123,164,168,161,173,105,127"/>
-<area shape="rect" id="Node000003" href="$a00207.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="19,5,141,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="83,48,83,88,77,88,77,48"/>
-<area shape="rect" id="Node000004" href="$a00151.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class...." alt="" coords="179,80,370,123"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="240,135,194,172,191,168,236,131"/>
-</map>

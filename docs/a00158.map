@@ -1,9 +1,0 @@
-<map id="SerialWombatAnalogInput_18AB" name="SerialWombatAnalogInput_18AB">
-<area shape="rect" id="Node000001" title="This class extends SerialWombatAnalogInput with SW18AB specific capabilities." alt="" coords="94,171,304,197"/>
-<area shape="rect" id="Node000002" href="$a00155.html" title="A class to make analog measurements with the Serial Wombat." alt="" coords="5,88,177,115"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,122,184,168,181,172,118,126"/>
-<area shape="rect" id="Node000003" href="$a00207.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="30,5,152,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,48,94,88,88,88,88,48"/>
-<area shape="rect" id="Node000004" href="$a00147.html" title="SerialWombatAnalogInput, SerialWombatPulseTimer, SerialWombatResistanceInput and others inherit from ..." alt="" coords="200,80,414,123"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="268,135,218,172,214,168,265,130"/>
-</map>

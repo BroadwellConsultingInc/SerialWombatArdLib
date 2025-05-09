@@ -1,9 +1,0 @@
-<map id="SerialWombatQuadEnc_18AB" name="SerialWombatQuadEnc_18AB">
-<area shape="rect" id="Node000001" title="Extends the SerialWombatPWM class with SW18AB specific functionality, including frequency measurement..." alt="" coords="90,171,285,197"/>
-<area shape="rect" id="Node000002" href="$a00247.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input." alt="" coords="5,88,162,115"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,122,173,168,170,172,110,126"/>
-<area shape="rect" id="Node000003" href="$a00207.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="23,5,144,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="86,48,86,88,81,88,81,48"/>
-<area shape="rect" id="Node000004" href="$a00147.html" title="SerialWombatAnalogInput, SerialWombatPulseTimer, SerialWombatResistanceInput and others inherit from ..." alt="" coords="186,80,400,123"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="255,135,206,172,202,168,252,130"/>
-</map>

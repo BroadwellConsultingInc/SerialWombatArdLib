@@ -1,7 +1,0 @@
-<map id="SerialWombatWatchdog" name="SerialWombatWatchdog">
-<area shape="rect" id="Node000001" title="A class to wrap around a Serial Wombat Watchdog Pin." alt="" coords="5,172,166,199"/>
-<area shape="rect" id="Node000002" href="$a00207.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="25,96,146,123"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,138,88,172,83,172,83,138"/>
-<area shape="rect" id="Node000003" href="$a00119.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="21,5,150,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="88,48,88,95,83,95,83,48"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="SerialWombatWatchdog" name="SerialWombatWatchdog">
-<area shape="rect" id="Node000001" title="A class to wrap around a Serial Wombat Watchdog Pin." alt="" coords="5,80,166,107"/>
-<area shape="rect" id="Node000002" href="$a00207.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="25,5,146,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,48,88,80,83,80,83,48"/>
-</map>
