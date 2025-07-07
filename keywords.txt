@@ -346,3 +346,5 @@ SerialWombatFrequencyOutput_18AB	KEYWORD1
 
 SerialWombat18ABDataLogger	KEYWORD1
 
+SerialWombatIRRx	KEYWORD1
+

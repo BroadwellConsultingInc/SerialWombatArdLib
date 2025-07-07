@@ -281,6 +281,7 @@ typedef enum {
 	PIN_MODE_I2C_CONTROLLER = 33, ///<(33)
 	PIN_MODE_QUEUED_PULSE_OUTPUT = 34, ///<(34)
 	PIN_MODE_FREQUENCY_OUTPUT = 36, ///<(36)
+	PIN_MODE_IRRX = 37, ///<(37)
 	PIN_MODE_UNKNOWN = 255, ///< (0xFF)
 }SerialWombatPinMode_t;
 
@@ -1609,6 +1610,7 @@ void SerialWombatSerialErrorHandlerVerbose(uint16_t error, SerialWombatChip* sw)
 #include "SerialWombatHBridge.h"
 #include "SerialWombatHSClock.h"
 #include "SerialWombatHSCounter.h"
+#include "SerialWombatIRRx.h"
 #include "SerialWombatLiquidCrystal.h"
 #include "SerialWombatMatrixKeypad.h"
 #include "SerialWombatProcessedInputPin.h"

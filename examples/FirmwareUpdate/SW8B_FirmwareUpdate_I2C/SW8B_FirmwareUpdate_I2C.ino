@@ -35,16 +35,22 @@ PROGMEM
 #endif
 
 // comment in one of the firmware defines below or else appimage will be undefined at compile
-//#define MOTOR_CONTROL_FIRMWARE
-//#define FRONT_PANEL_FIRMWARE
+//#define DEFAULT_FIRMWARE
+//#define BRUSHED_MOTOR_FIRMWARE
 //#define COMMUNICATIONS_FIRMWARE
-//#define TM1637_FIRMWARE
+//#define FRONT_PANEL_FIRMWARE
 //#define KEYPAD_FIRMWARE
+//#define MOTOR_CONTROL_FIRMWARE
+//#define TM1637_FIRMWARE
+//#define ULTRASONIC_FIRMWARE
 
+#include "default_fw.c"
+#include "brushedMotor_fw.c"
 #include "frontpanel_fw.c"
 #include "motorcontrol_fw.c"
 #include "communications_fw.c"
 #include "tm1637_fw.c"
+#include "ultrasonic_fw.c"
 #include "keypad_fw.c"
 
 

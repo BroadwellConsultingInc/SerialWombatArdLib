@@ -62,6 +62,7 @@ void loop() {
   Serial.println();
 
   Serial.println();
+  Serial.println("Special Thanks to SW8B Kickstarter Backers Joshua Sefchek and Joshua De Yonge");
   Serial.println("=======================================================");
   Serial.println();
   for (int i2cAddress = 0x0E; i2cAddress <= 0x77; ++ i2cAddress)  // Scan through all valid addresses

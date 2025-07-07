@@ -32,7 +32,7 @@ SerialWombatChip sw;
 #define ARDUINO_PIN_TO_SWC_RESET D5
 uint32_t appStartAddress = 0x00008000;
 const uint32_t PROGMEM appImage[] = 
-const uint32_t appImage[] = //2.2.0
+const uint32_t appImage[] = //2.2.1
 { 
 0x44800,
 0x0,
