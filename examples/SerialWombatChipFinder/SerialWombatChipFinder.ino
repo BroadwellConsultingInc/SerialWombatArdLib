@@ -51,13 +51,8 @@ void setup() {
   Wire.begin(); //Initialize I2C
   Serial.begin(115200);  //Initialize Serial
   while (!Serial); // Wait for initialization
+  delay(200);
 
-
-
-}
-
-void loop() {
-  // put your main code here, to run repeatedly:
   Serial.println("Serial Wombat chip Finder");
   Serial.println();
 
@@ -65,6 +60,12 @@ void loop() {
   Serial.println("Special Thanks to SW8B Kickstarter Backers Joshua Sefchek and Joshua De Yonge");
   Serial.println("=======================================================");
   Serial.println();
+
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
   for (int i2cAddress = 0x0E; i2cAddress <= 0x77; ++ i2cAddress)  // Scan through all valid addresses
   {
     Wire.beginTransmission(i2cAddress); // Look for an I2C Ack
@@ -162,4 +163,7 @@ void loop() {
     }
   }
   delay(30000);  // Wait 30 seconds and do it again.
+  Serial.println("Serial Wombat chip Finder");
+  Serial.println("=======================================================");
+  Serial.println();
 }
