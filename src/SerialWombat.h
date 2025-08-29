@@ -31,7 +31,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //#include "Serial.h" // Using "" rather than <> for compatibility with Visual C++ simulation project
 #include "Wire.h"// Using "" rather than <> for compatibility with Visual C++ simulation project
 #include "Arduino.h"
-
+#ifndef INPUT 
+#define INPUT 0x0
+#endif
 
 
 /*! \file SerialWombat.h
@@ -1629,5 +1631,6 @@ void SerialWombatSerialErrorHandlerVerbose(uint16_t error, SerialWombatChip* sw)
 #include "SerialWombatWatchdog.h"
 #include "SerialWombatWS2812.h"
 #include "SerialWombatThroughputConsumer.h"
+#include "PCB0031_Grip.h"
 
 #endif

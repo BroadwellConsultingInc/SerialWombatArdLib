@@ -1,15 +1,12 @@
 var searchData=
 [
-  ['inboot_0',['inBoot',['../class_serial_wombat_chip.html#a35a3eec0a7ab1043ddc572d4f90cbd9c',1,'SerialWombatChip']]],
-  ['index_1',['index',['../md_src_2index.html',1,'']]],
-  ['index_2emd_2',['index.md',['../index_8md.html',1,'']]],
-  ['initialize_3',['initialize',['../class_serial_wombat_chip.html#ac2623370951be7b18334372f0ece753a',1,'SerialWombatChip::initialize()'],['../class_serial_wombat_simulated_quad_enc.html#a30baae160e67cac4cbc8dadb0de42763',1,'SerialWombatSimulatedQuadEnc::initialize()']]],
-  ['initializebuffercopy_4',['initializeBufferCopy',['../class_serial_wombat_liquid_crystal.html#af589bcf2fe64185d8844e99b6e569ebf',1,'SerialWombatLiquidCrystal']]],
-  ['initializeservo_5',['initializeServo',['../class_serial_wombat_servo.html#a554eda9814a7600270088911f6ec3730',1,'SerialWombatServo']]],
-  ['initpacketnoresponse_6',['initPacketNoResponse',['../class_serial_wombat_pin.html#ab664a40d515354662d66a84fc1943d24',1,'SerialWombatPin::initPacketNoResponse(uint8_t packetNumber, uint8_t param0=0x55, uint8_t param1=0x55, uint8_t param2=0x55, uint8_t param3=0x55, uint8_t param4=0x55)'],['../class_serial_wombat_pin.html#a07306653acebe8e1e22f3dc4548efada',1,'SerialWombatPin::initPacketNoResponse(uint8_t packetNumber, uint16_t param0=0x55, uint8_t param1=0x55, uint8_t param2=0x55, uint8_t param3=0x55)'],['../class_serial_wombat_pin.html#ac1be8157e92d6432883ee16efb1463bd',1,'SerialWombatPin::initPacketNoResponse(uint8_t packetNumber, uint16_t param0, uint16_t param1, uint8_t param2=0x55)']]],
-  ['isinsafestate_7',['isInSafeState',['../class_serial_wombat_protected_output.html#adb8e46e44dd34a8a652911c55377ddb2',1,'SerialWombatProtectedOutput']]],
-  ['iskeypressed_8',['isKeyPressed',['../class_serial_wombat_p_s2_keyboard.html#a2b4928d35cea7f35e392cf3ed866baf8',1,'SerialWombatPS2Keyboard::isKeyPressed(uint8_t scanCode)'],['../class_serial_wombat_p_s2_keyboard.html#aa13698c6681340978078657743e61c80',1,'SerialWombatPS2Keyboard::isKeyPressed(PS2KeyboardScanCode scanCode)']]],
-  ['islatestfirmware_9',['isLatestFirmware',['../class_serial_wombat_chip.html#a0f41d08e5ce9017d3e2dcee30e534af3',1,'SerialWombatChip']]],
-  ['issw08_10',['isSW08',['../class_serial_wombat_chip.html#a3a973a607d58e933a25f61f325bddff0',1,'SerialWombatChip']]],
-  ['issw18_11',['isSW18',['../class_serial_wombat_chip.html#a8095bb3b174d74a05fdc42bf6c9070c7',1,'SerialWombatChip']]]
+  ['hardwarereset_0',['hardwareReset',['../class_serial_wombat_chip.html#adeb5a4974a3288f4f384e355466c0e15',1,'SerialWombatChip']]],
+  ['hbridge_5foff_5fboth_5fhigh_1',['HBRIDGE_OFF_BOTH_HIGH',['../_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faad6e9fcb03e039b5a1a51890f5658eddb',1,'SerialWombatHBridge.h']]],
+  ['hbridge_5foff_5fboth_5flow_2',['HBRIDGE_OFF_BOTH_LOW',['../_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faa98e7c0c3810146120eb514cc8b751b60',1,'SerialWombatHBridge.h']]],
+  ['hbridge_5frelay_5fand_5fpwm_3',['HBRIDGE_RELAY_AND_PWM',['../_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faaba16c7d8de8eb8093e3a264ebf90095e',1,'SerialWombatHBridge.h']]],
+  ['hc_5fsr04_4',['HC_SR04',['../class_serial_wombat_ultrasonic_distance_sensor.html#a23427ed7fec2f894cdd0c3d0d12b3630a92d15a5acd54365b157a0dede22a0e69',1,'SerialWombatUltrasonicDistanceSensor']]],
+  ['high_5ftime_5',['HIGH_TIME',['../class_serial_wombat_pulse_timer__18_a_b.html#a486e3029fae457e18763e324dbc47084a7ede09489a1778e04e99fb16c7757e7f',1,'SerialWombatPulseTimer_18AB']]],
+  ['highcounts_6',['HighCounts',['../class_serial_wombat_pulse_timer.html#aa6120417cebec86fd6966a2460f9d12d',1,'SerialWombatPulseTimer']]],
+  ['highlimit_7',['highLimit',['../class_serial_wombat_button_counter.html#a5d70e0ffb4af29834193f0a0cbe0f54b',1,'SerialWombatButtonCounter']]],
+  ['home_8',['home',['../class_serial_wombat_liquid_crystal.html#a64dad5ac0a69d33ab9bfe5614e680a96',1,'SerialWombatLiquidCrystal']]]
 ];

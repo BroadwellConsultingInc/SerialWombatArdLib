@@ -29423,6 +29423,8 @@ void bootload()
     delay(200);
   }
   Serial.println();
+
+  sw.eraseFlashPage(0x1F800 * 2);
   for (address = 0x4000 * 2;  address <= (0x1F800 * 2); address += 0x800 * 2)
   {
     char str[200];
@@ -29441,7 +29443,55 @@ void bootload()
   uint32_t data;
 
 
-  while (address < 0x20000 * 2)
+  while (address < 0x1F800 * 2)
+  {
+    if (rlecount == 0)
+    {
+#ifdef ESP8266
+      data = pgm_read_byte(((uint8_t*)appImage) + 4 * tableindex);
+      data += ((uint32_t) pgm_read_byte(((uint8_t*)appImage) + 4 * tableindex + 1)) << 8;
+      data += ((uint32_t) pgm_read_byte(((uint8_t*)appImage) + 4 * tableindex + 2)) << 16;
+      rlecount = pgm_read_byte(((uint8_t*)appImage) + 4 * tableindex + 3) + 1;
+#else
+      data = appImage[tableindex] & 0xFFFFFF;
+      rlecount = (appImage[tableindex] >> 24) + 1;
+
+#endif
+
+      ++tableindex;
+      char str[200];
+      sprintf(str, "Processing rle entry 0x%X count: %X  address: 0x%X", data, rlecount, address);
+     // Serial.println(str);
+    }
+    --rlecount;
+    pagebuffer[pagebytecount] = data & 0xFF;
+    ++pagebytecount;
+    pagebuffer[pagebytecount] = (data >> 8) & 0xFF;
+    ++pagebytecount;
+    pagebuffer[pagebytecount] = (data >> 16) & 0xFF;
+    ++pagebytecount;
+    pagebuffer[pagebytecount] = 0;
+    ++pagebytecount;
+    address += 4;
+    if (pagebytecount == 512)
+    {
+      char str[200];
+      sprintf(str, "Writing 0x%X  / 0x3FE00", pageaddress);
+      Serial.println(str);
+
+      pagebytecount = 0;
+      sw.writeUserBuffer(0x00, pagebuffer, 512);
+      sw.writeFlashRow(pageaddress);
+      pageaddress = address;
+      delay(2);// Datasheet worst case is 1.5
+    }
+    delay(0);
+
+  }
+
+  //Serial.println("Unpacking last line.");
+  
+  while (address < 0x1F900 * 2)
   {
     if (rlecount == 0)
     {
@@ -29471,7 +29521,41 @@ void bootload()
     pagebuffer[pagebytecount] = 0;
     ++pagebytecount;
     address += 4;
-    if (pagebytecount == 512)
+   
+    delay(1);
+    
+
+  }
+  Serial.println("Appload complete.  Calculating CRC...");
+uint16_t expectedCRC = 0;
+uint16_t calculatedCrc = 1;
+  //Calculate CRC
+  {
+    uint8_t tx[8] = {0xA4, 2, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55};
+    uint8_t rx[8];
+    sw.sendPacket(tx, rx);
+
+    delay(15000);
+    uint8_t tx3[8] = {0xA4, 3, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55};
+
+    calculatedCrc = 0;
+    while (calculatedCrc == 0)
+    {
+    sw.sendPacket(tx3, rx);
+    calculatedCrc = (uint16_t) rx[2] + ((uint16_t)rx[3]) * 256;      
+    }
+    Serial.print("Calculated CRC: ");
+    Serial.println(rx[2] + rx[3] * 256);
+    Serial.print("Expected CRC: ");
+    expectedCRC = (uint16_t)pagebuffer[8] + ((uint16_t)pagebuffer[9]) * 256;
+    Serial.println(expectedCRC);
+
+    Serial.println();
+    Serial.println();
+
+  }
+  
+  if (expectedCRC == calculatedCrc)
     {
       char str[200];
       sprintf(str, "Writing 0x%X  / 0x3FE00", pageaddress);
@@ -29482,30 +29566,15 @@ void bootload()
       sw.writeFlashRow(pageaddress);
       pageaddress = address;
       delay(4);// Datasheet worst case is 1.5
+      Serial.println("Download success");
+    }
+    else
+    {
+      Serial.println("Download failed");
     }
     delay(0);
-
-  }
-
-  Serial.println("Bootload complete.  Calculating CRC...");
-
-  //Calculate CRC
-  {
-    uint8_t tx[8] = {0xA4, 2, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55};
-    uint8_t rx[8];
-    sw.sendPacket(tx, rx);
-
-    delay(15000);
-    uint8_t tx3[8] = {0xA4, 3, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55};
-
-    sw.sendPacket(tx3, rx);
-    Serial.print("Calculated CRC: ");
-    Serial.println(rx[2] + rx[3] * 256);
-    Serial.print("Expected CRC: ");
-    Serial.println(rx[4] + rx[5] * 256);
-    Serial.println();
-
-  }
+    while (1){delay(10);}
+  
 }
 void loop() {
 
@@ -29519,15 +29588,13 @@ void loop() {
   WombatFinder();
 
   Serial.println();
-  Serial.println("Update complete.  Load a new sketch such as the SerialWombatChipFinder sketch, then power cycle the Arduino and Serial Wombat chip.");
+  Serial.println("Load a new sketch such as the SerialWombatChipFinder sketch, then power cycle the Arduino and Serial Wombat chip.");
   Serial.println();
   Serial.println("Resetting or power cycling without loading a new sketch will cause the flash download to happen again.");
   Serial.println();
   char t = Serial.read();
-  if (t == '0')
-  {
-    bootload();
-    delay(10000);
-  }
+ 
+  bootload();
+  
   delay(1000);
 }

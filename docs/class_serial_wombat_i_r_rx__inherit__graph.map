@@ -1,0 +1,7 @@
+<map id="SerialWombatIRRx" name="SerialWombatIRRx">
+<area shape="rect" id="Node000001" title="A class for the Serial Wombat SW8B or SW18AB chips which received IR remote signals...." alt="" coords="28,80,161,107"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,69,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="58,43,87,78,82,81,54,46"/>
+<area shape="rect" id="Node000003" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="92,5,214,32"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="135,46,107,81,102,78,131,43"/>
+</map>

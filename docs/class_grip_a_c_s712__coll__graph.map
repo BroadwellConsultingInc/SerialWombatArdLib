@@ -1,0 +1,13 @@
+<map id="GripACS712" name="GripACS712">
+<area shape="rect" id="Node000001" title="A class representing an Allegro ACS712 5A current sensor connected to a SW8B Analog input on a PCB003..." alt="" coords="205,340,300,367"/>
+<area shape="rect" id="Node000002" href="$class_serial_wombat_analog_input__18_a_b.html" title="This class extends SerialWombatAnalogInput with SW18AB specific capabilities." alt="" coords="147,264,358,291"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="255,306,255,340,250,340,250,306"/>
+<area shape="rect" id="Node000003" href="$class_serial_wombat_analog_input.html" title="A class to make analog measurements with the Serial Wombat." alt="" coords="5,180,177,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="131,212,229,261,227,266,128,216"/>
+<area shape="rect" id="Node000004" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="30,96,152,123"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,138,94,180,88,180,88,138"/>
+<area shape="rect" id="Node000005" href="$class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="26,5,156,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,48,94,95,88,95,88,48"/>
+<area shape="rect" id="Node000006" href="$class_serial_wombat_abstract_processed_input.html" title="SerialWombatAnalogInput, SerialWombatPulseTimer, SerialWombatResistanceInput and others inherit from ..." alt="" coords="200,172,414,215"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="287,229,263,265,258,262,283,226"/>
+</map>

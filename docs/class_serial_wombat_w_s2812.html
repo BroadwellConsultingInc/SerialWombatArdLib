@@ -95,7 +95,7 @@ $(function(){ initResizable(false); });
 <p>A Class representing a WS2812 or compatible RGB LED string connected to a Serial Wombat pin.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="us_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SerialWombatWS2812:</div>
 <div class="dyncontent">
@@ -158,7 +158,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6385eb4022c3ed5d8296f17e02cfb65d" id="r_a6385eb4022c3ed5d8296f17e02cfb65d"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6385eb4022c3ed5d8296f17e02cfb65d">readBufferSize</a> ()</td></tr>
 <tr class="memdesc:a6385eb4022c3ed5d8296f17e02cfb65d"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the number of bytes of UserBuffer required to service the configured number of LEDs  <br /></td></tr>
 <tr class="separator:a6385eb4022c3ed5d8296f17e02cfb65d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73bd7f0c288dfc77b7062da7be9cd230" id="r_a73bd7f0c288dfc77b7062da7be9cd230"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73bd7f0c288dfc77b7062da7be9cd230">writeMode</a> (<a class="el" href="us_serial_wombat_w_s2812_8h.html#af60b041753fafc2c37d877430e1fcfe3">SWWS2812Mode</a> mode)</td></tr>
+<tr class="memitem:a73bd7f0c288dfc77b7062da7be9cd230" id="r_a73bd7f0c288dfc77b7062da7be9cd230"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73bd7f0c288dfc77b7062da7be9cd230">writeMode</a> (<a class="el" href="_serial_wombat_w_s2812_8h.html#af60b041753fafc2c37d877430e1fcfe3">SWWS2812Mode</a> mode)</td></tr>
 <tr class="memdesc:a73bd7f0c288dfc77b7062da7be9cd230"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the mode of the WS2812 LED Driver.  <br /></td></tr>
 <tr class="separator:a73bd7f0c288dfc77b7062da7be9cd230"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a995fd6fa6f552dca58544bab89784e44" id="r_a995fd6fa6f552dca58544bab89784e44"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a995fd6fa6f552dca58544bab89784e44">barGraph</a> (uint8_t sourcePin, uint32_t offRGB, uint32_t onRGB, uint16_t min, uint16_t max)</td></tr>
@@ -202,14 +202,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa5d1dce19c16fad8669795ff798dd30d inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the pin mode (if applicable)  <br /></td></tr>
 <tr class="separator:aa5d1dce19c16fad8669795ff798dd30d inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin" id="r_a024e347ecb01f1acba1e63332647dfe7"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a024e347ecb01f1acba1e63332647dfe7">enablePullup</a> (bool enabled)</td></tr>
-<tr class="memdesc:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull up on a pin. Implemented on SW18AB only.  <br /></td></tr>
+<tr class="memdesc:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull up on a pin. Implemented on SW18AB and SW8B only.  <br /></td></tr>
 <tr class="separator:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d0d8100d96c9db19eebb32538fcd9c4 inherit pub_methods_class_serial_wombat_pin" id="r_a4d0d8100d96c9db19eebb32538fcd9c4"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a4d0d8100d96c9db19eebb32538fcd9c4">enablePullDown</a> (bool enabled)</td></tr>
-<tr class="memdesc:a4d0d8100d96c9db19eebb32538fcd9c4 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull down on a pin. Implemented on SW18AB only.  <br /></td></tr>
-<tr class="separator:a4d0d8100d96c9db19eebb32538fcd9c4 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a3f1ac8c6b708f1858eafee254ae7b7 inherit pub_methods_class_serial_wombat_pin" id="r_a2a3f1ac8c6b708f1858eafee254ae7b7"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a2a3f1ac8c6b708f1858eafee254ae7b7">enablePulldown</a> (bool enabled)</td></tr>
+<tr class="memdesc:a2a3f1ac8c6b708f1858eafee254ae7b7 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull down on a pin. Implemented on SW18AB and SW8B only.  <br /></td></tr>
+<tr class="separator:a2a3f1ac8c6b708f1858eafee254ae7b7 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin" id="r_a12f5f05f8fc59f06169261d1c5e4852b"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a12f5f05f8fc59f06169261d1c5e4852b">enableOpenDrain</a> (bool enabled)</td></tr>
-<tr class="memdesc:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables open drain mode on a pin. Implemented on SW18AB only.  <br /></td></tr>
+<tr class="memdesc:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables open drain mode on a pin. Implemented on SW18AB and SW8B only.  <br /></td></tr>
 <tr class="separator:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin" id="r_a5a97a8c687f9f5ffb1c22679851d0372"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a5a97a8c687f9f5ffb1c22679851d0372">forceDMA</a> (bool enabled)</td></tr>
+<tr class="memdesc:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces use of DMA instead of hardware timing resources on SW18AB.  <br /></td></tr>
+<tr class="separator:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -251,7 +254,7 @@ frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-m
 picture - in - picture" allowfullscreen></iframe>
  </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_w_s2812_8h_source.html#l00088">88</a> of file <a class="el" href="us_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_w_s2812_8h_source.html#l00088">88</a> of file <a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a07bd3bda13bfd01798645c7b817c7456" name="a07bd3bda13bfd01798645c7b817c7456"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a07bd3bda13bfd01798645c7b817c7456">&#9670;&#160;</a></span>SerialWombatWS2812()</h2>
@@ -284,7 +287,7 @@ picture - in - picture" allowfullscreen></iframe>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_w_s2812_8h_source.html#l00095">95</a> of file <a class="el" href="us_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_w_s2812_8h_source.html#l00095">95</a> of file <a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
 
 </div>
 </div>
@@ -343,7 +346,7 @@ picture - in - picture" allowfullscreen></iframe>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_w_s2812_8h_source.html#l00296">296</a> of file <a class="el" href="us_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_w_s2812_8h_source.html#l00296">296</a> of file <a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
 
 </div>
 </div>
@@ -391,7 +394,7 @@ picture - in - picture" allowfullscreen></iframe>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_w_s2812_8h_source.html#l00115">115</a> of file <a class="el" href="us_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_w_s2812_8h_source.html#l00115">115</a> of file <a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
 
 </div>
 </div>
@@ -421,7 +424,7 @@ picture - in - picture" allowfullscreen></iframe>
 <p>returns the number of bytes of UserBuffer required to service the configured number of LEDs </p>
 <p>This number does not include any animation frames. </p><dl class="section return"><dt>Returns</dt><dd>0 or higher for success or a negative number indicating an error code from the Serial Wombat chip. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_w_s2812_8h_source.html#l00259">259</a> of file <a class="el" href="us_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_w_s2812_8h_source.html#l00259">259</a> of file <a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
 
 </div>
 </div>
@@ -454,7 +457,7 @@ picture - in - picture" allowfullscreen></iframe>
 
 <p>An overload for Write in case write(x,0); is interpreted as an int16_t rather than uint32_t. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_w_s2812_8h_source.html#l00145">145</a> of file <a class="el" href="us_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_w_s2812_8h_source.html#l00145">145</a> of file <a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
 
 </div>
 </div>
@@ -487,7 +490,7 @@ picture - in - picture" allowfullscreen></iframe>
 
 <p>An overload for Write in case write(x,0); is interpreted as an int32_t rather than uint32_t. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_w_s2812_8h_source.html#l00151">151</a> of file <a class="el" href="us_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_w_s2812_8h_source.html#l00151">151</a> of file <a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
 
 </div>
 </div>
@@ -528,7 +531,7 @@ picture - in - picture" allowfullscreen></iframe>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_w_s2812_8h_source.html#l00131">131</a> of file <a class="el" href="us_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_w_s2812_8h_source.html#l00131">131</a> of file <a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
 
 </div>
 </div>
@@ -564,7 +567,7 @@ picture - in - picture" allowfullscreen></iframe>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_w_s2812_8h_source.html#l00164">164</a> of file <a class="el" href="us_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_w_s2812_8h_source.html#l00164">164</a> of file <a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
 
 </div>
 </div>
@@ -605,7 +608,7 @@ picture - in - picture" allowfullscreen></iframe>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 or higher for success or a negative number indicating an error code from the Serial Wombat chip. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_w_s2812_8h_source.html#l00213">213</a> of file <a class="el" href="us_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_w_s2812_8h_source.html#l00213">213</a> of file <a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
 
 </div>
 </div>
@@ -646,7 +649,7 @@ picture - in - picture" allowfullscreen></iframe>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 or higher for success or a negative number indicating an error code from the Serial Wombat chip. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_w_s2812_8h_source.html#l00234">234</a> of file <a class="el" href="us_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_w_s2812_8h_source.html#l00234">234</a> of file <a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
 
 </div>
 </div>
@@ -684,7 +687,7 @@ picture - in - picture" allowfullscreen></iframe>
 
 <p>An overload color is interpreted as an int16_t rather than uint32_t. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_w_s2812_8h_source.html#l00195">195</a> of file <a class="el" href="us_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_w_s2812_8h_source.html#l00195">195</a> of file <a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
 
 </div>
 </div>
@@ -722,7 +725,7 @@ picture - in - picture" allowfullscreen></iframe>
 
 <p>An overload color is interpreted as an int32_t rather than uint32_t. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_w_s2812_8h_source.html#l00201">201</a> of file <a class="el" href="us_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_w_s2812_8h_source.html#l00201">201</a> of file <a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
 
 </div>
 </div>
@@ -758,7 +761,7 @@ picture - in - picture" allowfullscreen></iframe>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_w_s2812_8h_source.html#l00188">188</a> of file <a class="el" href="us_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_w_s2812_8h_source.html#l00188">188</a> of file <a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
 
 </div>
 </div>
@@ -799,7 +802,7 @@ picture - in - picture" allowfullscreen></iframe>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 or higher for success or a negative number indicating an error code from the Serial Wombat chip. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_w_s2812_8h_source.html#l00247">247</a> of file <a class="el" href="us_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_w_s2812_8h_source.html#l00247">247</a> of file <a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
 
 </div>
 </div>
@@ -815,7 +818,7 @@ picture - in - picture" allowfullscreen></iframe>
         <tr>
           <td class="memname">int16_t SerialWombatWS2812::writeMode </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="us_serial_wombat_w_s2812_8h.html#af60b041753fafc2c37d877430e1fcfe3">SWWS2812Mode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="_serial_wombat_w_s2812_8h.html#af60b041753fafc2c37d877430e1fcfe3">SWWS2812Mode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -829,7 +832,7 @@ picture - in - picture" allowfullscreen></iframe>
 <p>Sets the mode of the WS2812 LED Driver. </p>
 <dl class="section return"><dt>Returns</dt><dd>0 or higher for success or a negative number indicating an error code from the Serial Wombat chip. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_w_s2812_8h_source.html#l00281">281</a> of file <a class="el" href="us_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_w_s2812_8h_source.html#l00281">281</a> of file <a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
 
 </div>
 </div>
@@ -848,7 +851,7 @@ picture - in - picture" allowfullscreen></iframe>
 
 <p>Swap the Red and Green byte values. Set this to true for WS2811 chips which reverse the red and green byte order. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_w_s2812_8h_source.html#l00313">313</a> of file <a class="el" href="us_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_w_s2812_8h_source.html#l00313">313</a> of file <a class="el" href="_serial_wombat_w_s2812_8h_source.html">SerialWombatWS2812.h</a>.</p>
 
 </div>
 </div>

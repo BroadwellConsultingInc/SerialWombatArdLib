@@ -1,0 +1,5 @@
+<map id="PCB0031_Grip" name="PCB0031_Grip">
+<area shape="rect" id="Node000001" title="A class representing a PCB0031 Grip PCB." alt="" coords="16,80,124,107"/>
+<area shape="rect" id="Node000002" href="$class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="5,5,135,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,48,73,80,67,80,67,48"/>
+</map>

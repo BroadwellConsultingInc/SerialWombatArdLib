@@ -94,7 +94,7 @@ $(function(){ initResizable(false); });
 <p>Monitors other pin(s) or public data in the Serial Wombat chip and generates a pin pulse on change.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SerialWombatPulseOnChange:</div>
 <div class="dyncontent">
@@ -123,7 +123,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac67ec8c6466c5e0aa1f5176a769dd403" id="r_ac67ec8c6466c5e0aa1f5176a769dd403"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac67ec8c6466c5e0aa1f5176a769dd403">SerialWombatPulseOnChange</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat)</td></tr>
 <tr class="memdesc:ac67ec8c6466c5e0aa1f5176a769dd403"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor for <a class="el" href="class_serial_wombat_pulse_on_change.html" title="Monitors other pin(s) or public data in the Serial Wombat chip and generates a pin pulse on change.">SerialWombatPulseOnChange</a>.  <br /></td></tr>
 <tr class="separator:ac67ec8c6466c5e0aa1f5176a769dd403"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68a367b3ab4d7ae572b09d5f5749e0e8" id="r_a68a367b3ab4d7ae572b09d5f5749e0e8"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68a367b3ab4d7ae572b09d5f5749e0e8">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, <a class="el" href="us_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a> activeMode=<a class="el" href="us_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8a5a6289abae95d398ec1b53a56bf2a71a">SW_HIGH</a>, <a class="el" href="us_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a> inactiveMode=<a class="el" href="us_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8ab22ed2957b068ad839e5f2d0f5de1eb0">SW_LOW</a>, uint16_t pulseOnTime=50, uint16_t pulseOffTime=50, uint8_t orNotAnd=1, uint16_t PWMperiod=0, uint16_t PWMdutyCycle=0x8000)</td></tr>
+<tr class="memitem:a68a367b3ab4d7ae572b09d5f5749e0e8" id="r_a68a367b3ab4d7ae572b09d5f5749e0e8"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68a367b3ab4d7ae572b09d5f5749e0e8">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, <a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a> activeMode=<a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8a5a6289abae95d398ec1b53a56bf2a71a">SW_HIGH</a>, <a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a> inactiveMode=<a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8ab22ed2957b068ad839e5f2d0f5de1eb0">SW_LOW</a>, uint16_t pulseOnTime=50, uint16_t pulseOffTime=50, uint8_t orNotAnd=1, uint16_t PWMperiod=0, uint16_t PWMdutyCycle=0x8000)</td></tr>
 <tr class="memdesc:a68a367b3ab4d7ae572b09d5f5749e0e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization routine for <a class="el" href="class_serial_wombat_pulse_on_change.html" title="Monitors other pin(s) or public data in the Serial Wombat chip and generates a pin pulse on change.">SerialWombatPulseOnChange</a>.  <br /></td></tr>
 <tr class="separator:a68a367b3ab4d7ae572b09d5f5749e0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad17a306fe4fabcc9f48c5c392261edda" id="r_ad17a306fe4fabcc9f48c5c392261edda"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad17a306fe4fabcc9f48c5c392261edda">setEntryOnChange</a> (uint8_t entryID, uint8_t sourcePin)</td></tr>
@@ -212,14 +212,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa5d1dce19c16fad8669795ff798dd30d inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the pin mode (if applicable)  <br /></td></tr>
 <tr class="separator:aa5d1dce19c16fad8669795ff798dd30d inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin" id="r_a024e347ecb01f1acba1e63332647dfe7"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a024e347ecb01f1acba1e63332647dfe7">enablePullup</a> (bool enabled)</td></tr>
-<tr class="memdesc:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull up on a pin. Implemented on SW18AB only.  <br /></td></tr>
+<tr class="memdesc:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull up on a pin. Implemented on SW18AB and SW8B only.  <br /></td></tr>
 <tr class="separator:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d0d8100d96c9db19eebb32538fcd9c4 inherit pub_methods_class_serial_wombat_pin" id="r_a4d0d8100d96c9db19eebb32538fcd9c4"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a4d0d8100d96c9db19eebb32538fcd9c4">enablePullDown</a> (bool enabled)</td></tr>
-<tr class="memdesc:a4d0d8100d96c9db19eebb32538fcd9c4 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull down on a pin. Implemented on SW18AB only.  <br /></td></tr>
-<tr class="separator:a4d0d8100d96c9db19eebb32538fcd9c4 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a3f1ac8c6b708f1858eafee254ae7b7 inherit pub_methods_class_serial_wombat_pin" id="r_a2a3f1ac8c6b708f1858eafee254ae7b7"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a2a3f1ac8c6b708f1858eafee254ae7b7">enablePulldown</a> (bool enabled)</td></tr>
+<tr class="memdesc:a2a3f1ac8c6b708f1858eafee254ae7b7 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull down on a pin. Implemented on SW18AB and SW8B only.  <br /></td></tr>
+<tr class="separator:a2a3f1ac8c6b708f1858eafee254ae7b7 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin" id="r_a12f5f05f8fc59f06169261d1c5e4852b"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a12f5f05f8fc59f06169261d1c5e4852b">enableOpenDrain</a> (bool enabled)</td></tr>
-<tr class="memdesc:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables open drain mode on a pin. Implemented on SW18AB only.  <br /></td></tr>
+<tr class="memdesc:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables open drain mode on a pin. Implemented on SW18AB and SW8B only.  <br /></td></tr>
 <tr class="separator:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin" id="r_a5a97a8c687f9f5ffb1c22679851d0372"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a5a97a8c687f9f5ffb1c22679851d0372">forceDMA</a> (bool enabled)</td></tr>
+<tr class="memdesc:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces use of DMA instead of hardware timing resources on SW18AB.  <br /></td></tr>
+<tr class="separator:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -261,7 +264,7 @@ TODO
 </p>
 <p>TODO <a href="https://youtu.be/">https://youtu.be/</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html#l00082">82</a> of file <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html#l00082">82</a> of file <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac67ec8c6466c5e0aa1f5176a769dd403" name="ac67ec8c6466c5e0aa1f5176a769dd403"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac67ec8c6466c5e0aa1f5176a769dd403">&#9670;&#160;</a></span>SerialWombatPulseOnChange()</h2>
@@ -294,7 +297,7 @@ TODO
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html#l00089">89</a> of file <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html#l00089">89</a> of file <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
 
 </div>
 </div>
@@ -316,12 +319,12 @@ TODO
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="us_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a></td>          <td class="paramname"><span class="paramname"><em>activeMode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="us_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8a5a6289abae95d398ec1b53a56bf2a71a">SW_HIGH</a></span>, </td>
+          <td class="paramtype"><a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a></td>          <td class="paramname"><span class="paramname"><em>activeMode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8a5a6289abae95d398ec1b53a56bf2a71a">SW_HIGH</a></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="us_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a></td>          <td class="paramname"><span class="paramname"><em>inactiveMode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="us_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8ab22ed2957b068ad839e5f2d0f5de1eb0">SW_LOW</a></span>, </td>
+          <td class="paramtype"><a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a></td>          <td class="paramname"><span class="paramname"><em>inactiveMode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8ab22ed2957b068ad839e5f2d0f5de1eb0">SW_LOW</a></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -369,7 +372,7 @@ TODO
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html#l00105">105</a> of file <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html#l00105">105</a> of file <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
 
 </div>
 </div>
@@ -410,7 +413,7 @@ TODO
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html#l00123">123</a> of file <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html#l00123">123</a> of file <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
 
 </div>
 </div>
@@ -451,7 +454,7 @@ TODO
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html#l00147">147</a> of file <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html#l00147">147</a> of file <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
 
 </div>
 </div>
@@ -498,7 +501,7 @@ TODO
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html#l00160">160</a> of file <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html#l00160">160</a> of file <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
 
 </div>
 </div>
@@ -545,7 +548,7 @@ TODO
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html#l00188">188</a> of file <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html#l00188">188</a> of file <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
 
 </div>
 </div>
@@ -586,7 +589,7 @@ TODO
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html#l00135">135</a> of file <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html#l00135">135</a> of file <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
 
 </div>
 </div>
@@ -633,7 +636,7 @@ TODO
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html#l00174">174</a> of file <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html#l00174">174</a> of file <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
 
 </div>
 </div>
@@ -680,7 +683,7 @@ TODO
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html#l00204">204</a> of file <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html#l00204">204</a> of file <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
 
 </div>
 </div>
@@ -955,7 +958,7 @@ TODO
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html#l00218">218</a> of file <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html#l00218">218</a> of file <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
 
 </div>
 </div>
@@ -1002,7 +1005,7 @@ TODO
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html#l00233">233</a> of file <a class="el" href="us_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html#l00233">233</a> of file <a class="el" href="_serial_wombat_pulse_on_change_8h_source.html">SerialWombatPulseOnChange.h</a>.</p>
 
 </div>
 </div>

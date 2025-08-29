@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['hardwarereset_0',['hardwareReset',['../class_serial_wombat_chip.html#adeb5a4974a3288f4f384e355466c0e15',1,'SerialWombatChip']]],
-  ['hbridge_5foff_5fboth_5fhigh_1',['HBRIDGE_OFF_BOTH_HIGH',['../us_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faad6e9fcb03e039b5a1a51890f5658eddb',1,'SerialWombatHBridge.h']]],
-  ['hbridge_5foff_5fboth_5flow_2',['HBRIDGE_OFF_BOTH_LOW',['../us_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faa98e7c0c3810146120eb514cc8b751b60',1,'SerialWombatHBridge.h']]],
-  ['hbridge_5frelay_5fand_5fpwm_3',['HBRIDGE_RELAY_AND_PWM',['../us_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faaba16c7d8de8eb8093e3a264ebf90095e',1,'SerialWombatHBridge.h']]],
-  ['hc_5fsr04_4',['HC_SR04',['../class_serial_wombat_ultrasonic_distance_sensor.html#a23427ed7fec2f894cdd0c3d0d12b3630a92d15a5acd54365b157a0dede22a0e69',1,'SerialWombatUltrasonicDistanceSensor']]],
-  ['high_5ftime_5',['HIGH_TIME',['../class_serial_wombat_pulse_timer__18_a_b.html#a486e3029fae457e18763e324dbc47084a7ede09489a1778e04e99fb16c7757e7f',1,'SerialWombatPulseTimer_18AB']]],
-  ['highcounts_6',['HighCounts',['../class_serial_wombat_pulse_timer.html#aa6120417cebec86fd6966a2460f9d12d',1,'SerialWombatPulseTimer']]],
-  ['highlimit_7',['highLimit',['../class_serial_wombat_button_counter.html#a5d70e0ffb4af29834193f0a0cbe0f54b',1,'SerialWombatButtonCounter']]],
-  ['home_8',['home',['../class_serial_wombat_liquid_crystal.html#a64dad5ac0a69d33ab9bfe5614e680a96',1,'SerialWombatLiquidCrystal']]]
+  ['grip_0',['grip',['../class_grip_servo.html#a4ffcd5f9baf2194ddf519852882dea02',1,'GripServo']]],
+  ['gripacs712_1',['GripACS712',['../class_grip_a_c_s712.html',1,'GripACS712'],['../class_grip_a_c_s712.html#a9181ca2afe5a0f018f9a8bd2fc963ab3',1,'GripACS712::GripACS712()']]],
+  ['gripservo_2',['GripServo',['../class_grip_servo.html',1,'GripServo'],['../class_grip_servo.html#a711718d58fa0cea6c135d2b39b7bd64e',1,'GripServo::GripServo()']]],
+  ['gs0_3',['gs0',['../class_p_c_b0031___grip.html#a582a5b53d29db898dac4253281a80488',1,'PCB0031_Grip']]],
+  ['gs1_4',['gs1',['../class_p_c_b0031___grip.html#ad6222896398e1f8bd501a4f8ebe9642b',1,'PCB0031_Grip']]],
+  ['gs2_5',['gs2',['../class_p_c_b0031___grip.html#a93dd1fe546ecd40ed789bf646fb08008',1,'PCB0031_Grip']]],
+  ['gs3_6',['gs3',['../class_p_c_b0031___grip.html#a0c38c04fb4ca0b9f3b11fb5b6ab26327',1,'PCB0031_Grip']]],
+  ['gsarray_7',['gsArray',['../class_p_c_b0031___grip.html#adfc5429b9221f9d86e12d5af67e81c82',1,'PCB0031_Grip']]]
 ];

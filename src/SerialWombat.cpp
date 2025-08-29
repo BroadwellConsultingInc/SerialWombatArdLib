@@ -116,7 +116,7 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 {
 	if (sendReadyTime != 0 )
 	{
-		unsigned long currentTime = millis();
+		uint32_t currentTime = millis();
 		if (currentTime < sendReadyTime)
 		{
 			delay(sendReadyTime - currentTime);

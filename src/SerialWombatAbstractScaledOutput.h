@@ -250,7 +250,7 @@ public:
 	 \param maximumChangecounts The maximum number of counts of change allowed over samplePeriod
 	 \return returns 0 or higher if success, or a negative error code
 	*/
-	int16_t writeRateControl(Period samplePeriod, uint16_t maximumChangecounts)
+	int16_t writeRateControl(Period samplePeriod, uint16_t maximumChangecounts, uint16_t maximumDecrementCounts = 0)
 	{
 		{
 			uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
@@ -259,6 +259,19 @@ public:
 				4, // Set filter mode
 				1, // Filter mode rate control
 				SW_LE16(maximumChangecounts),0x55,
+			};
+			int16_t result = _asosw.sendPacket(tx);
+			if (result < 0)
+			{
+				return(result);
+			}
+		}
+		{
+			uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
+				pin(),
+				swPinModeNumber(),
+				8, // Set filter mode
+				SW_LE16(maximumDecrementCounts),0x55,0x55
 			};
 			int16_t result = _asosw.sendPacket(tx);
 			if (result < 0)

@@ -96,19 +96,21 @@ $(function(){ initResizable(false); });
 <p>A class to control Servos attached to the Serial Wombat chip.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="us_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SerialWombatServo:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_serial_wombat_servo__inherit__graph.png" border="0" usemap="#a_serial_wombat_servo_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_serial_wombat_servo_inherit__map" id="a_serial_wombat_servo_inherit__map">
-<area shape="rect" title="A class to control Servos attached to the Serial Wombat chip." alt="" coords="32,80,169,107"/>
-<area shape="rect" href="class_serial_wombat_servo__18_a_b.html" title="A derived class that adds additional Servo Functionality for the Serial Wombat 18AB Chip." alt="" coords="13,155,188,181"/>
-<area shape="poly" title=" " alt="" coords="103,122,103,154,98,154,98,122"/>
-<area shape="rect" href="class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="40,5,161,32"/>
-<area shape="poly" title=" " alt="" coords="103,48,103,80,98,80,98,48"/>
-<area shape="rect" href="class_serial_wombat_high_frequency_servo.html" title="A class for the Serial Wombat 18AB Chip that adds support for high frequency hobby Servos(200 Hz,..." alt="" coords="5,229,196,272"/>
-<area shape="poly" title=" " alt="" coords="103,197,103,229,98,229,98,197"/>
+<area shape="rect" title="A class to control Servos attached to the Serial Wombat chip." alt="" coords="56,80,192,107"/>
+<area shape="rect" href="class_serial_wombat_servo__18_a_b.html" title="A derived class that adds additional Servo Functionality for the Serial Wombat 18AB Chip." alt="" coords="36,155,211,181"/>
+<area shape="poly" title=" " alt="" coords="126,122,126,154,121,154,121,122"/>
+<area shape="rect" href="class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="63,5,184,32"/>
+<area shape="poly" title=" " alt="" coords="126,48,126,80,121,80,121,48"/>
+<area shape="rect" href="class_grip_servo.html" title="A class representing a servo output and an Allegro ACS712 5A current sensor connected to a SW8B Analo..." alt="" coords="5,237,85,264"/>
+<area shape="poly" title=" " alt="" coords="103,194,59,239,55,235,99,191"/>
+<area shape="rect" href="class_serial_wombat_high_frequency_servo.html" title="A class for the Serial Wombat 18AB Chip that adds support for high frequency hobby Servos(200 Hz,..." alt="" coords="108,229,299,272"/>
+<area shape="poly" title=" " alt="" coords="149,191,185,227,182,231,145,194"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -182,14 +184,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa5d1dce19c16fad8669795ff798dd30d inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the pin mode (if applicable)  <br /></td></tr>
 <tr class="separator:aa5d1dce19c16fad8669795ff798dd30d inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin" id="r_a024e347ecb01f1acba1e63332647dfe7"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a024e347ecb01f1acba1e63332647dfe7">enablePullup</a> (bool enabled)</td></tr>
-<tr class="memdesc:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull up on a pin. Implemented on SW18AB only.  <br /></td></tr>
+<tr class="memdesc:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull up on a pin. Implemented on SW18AB and SW8B only.  <br /></td></tr>
 <tr class="separator:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d0d8100d96c9db19eebb32538fcd9c4 inherit pub_methods_class_serial_wombat_pin" id="r_a4d0d8100d96c9db19eebb32538fcd9c4"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a4d0d8100d96c9db19eebb32538fcd9c4">enablePullDown</a> (bool enabled)</td></tr>
-<tr class="memdesc:a4d0d8100d96c9db19eebb32538fcd9c4 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull down on a pin. Implemented on SW18AB only.  <br /></td></tr>
-<tr class="separator:a4d0d8100d96c9db19eebb32538fcd9c4 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a3f1ac8c6b708f1858eafee254ae7b7 inherit pub_methods_class_serial_wombat_pin" id="r_a2a3f1ac8c6b708f1858eafee254ae7b7"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a2a3f1ac8c6b708f1858eafee254ae7b7">enablePulldown</a> (bool enabled)</td></tr>
+<tr class="memdesc:a2a3f1ac8c6b708f1858eafee254ae7b7 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull down on a pin. Implemented on SW18AB and SW8B only.  <br /></td></tr>
+<tr class="separator:a2a3f1ac8c6b708f1858eafee254ae7b7 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin" id="r_a12f5f05f8fc59f06169261d1c5e4852b"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a12f5f05f8fc59f06169261d1c5e4852b">enableOpenDrain</a> (bool enabled)</td></tr>
-<tr class="memdesc:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables open drain mode on a pin. Implemented on SW18AB only.  <br /></td></tr>
+<tr class="memdesc:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables open drain mode on a pin. Implemented on SW18AB and SW8B only.  <br /></td></tr>
 <tr class="separator:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin" id="r_a5a97a8c687f9f5ffb1c22679851d0372"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a5a97a8c687f9f5ffb1c22679851d0372">forceDMA</a> (bool enabled)</td></tr>
+<tr class="memdesc:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces use of DMA instead of hardware timing resources on SW18AB.  <br /></td></tr>
+<tr class="separator:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -229,7 +234,7 @@ Protected Attributes</h2></td></tr>
 </p>
 <p><a href="https://youtu.be/WiciAtS1ng0">https://youtu.be/WiciAtS1ng0</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_servo_8h_source.html#l00068">68</a> of file <a class="el" href="us_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_servo_8h_source.html#l00068">68</a> of file <a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afa8d369e09ccfd350fbb38fda3c920aa" name="afa8d369e09ccfd350fbb38fda3c920aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afa8d369e09ccfd350fbb38fda3c920aa">&#9670;&#160;</a></span>SerialWombatServo()</h2>
@@ -262,7 +267,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_servo_8h_source.html#l00076">76</a> of file <a class="el" href="us_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_servo_8h_source.html#l00076">76</a> of file <a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
 
 </div>
 </div>
@@ -304,7 +309,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_servo_8h_source.html#l00092">92</a> of file <a class="el" href="us_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_servo_8h_source.html#l00092">92</a> of file <a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
 
 </div>
 </div>
@@ -357,7 +362,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_servo_8h_source.html#l00111">111</a> of file <a class="el" href="us_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_servo_8h_source.html#l00111">111</a> of file <a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
 
 </div>
 </div>
@@ -384,7 +389,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_servo_8h_source.html#l00173">173</a> of file <a class="el" href="us_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_servo_8h_source.html#l00173">173</a> of file <a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
 
 </div>
 </div>
@@ -414,7 +419,7 @@ Protected Attributes</h2></td></tr>
 <p>returns the last position of the servo scaled to a number from 0 to 180. </p>
 <dl class="section return"><dt>Returns</dt><dd>A position value from 0 to 180. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_servo_8h_source.html#l00160">160</a> of file <a class="el" href="us_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_servo_8h_source.html#l00160">160</a> of file <a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
 
 </div>
 </div>
@@ -450,7 +455,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_servo_8h_source.html#l00129">129</a> of file <a class="el" href="us_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_servo_8h_source.html#l00129">129</a> of file <a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
 
 </div>
 </div>
@@ -486,7 +491,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_servo_8h_source.html#l00149">149</a> of file <a class="el" href="us_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_servo_8h_source.html#l00149">149</a> of file <a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
 
 </div>
 </div>
@@ -511,7 +516,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_servo_8h_source.html#l00171">171</a> of file <a class="el" href="us_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_servo_8h_source.html#l00171">171</a> of file <a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
 
 </div>
 </div>
@@ -535,7 +540,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_servo_8h_source.html#l00170">170</a> of file <a class="el" href="us_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_servo_8h_source.html#l00170">170</a> of file <a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
 
 </div>
 </div>
@@ -559,7 +564,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_servo_8h_source.html#l00169">169</a> of file <a class="el" href="us_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_servo_8h_source.html#l00169">169</a> of file <a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
 
 </div>
 </div>
@@ -583,7 +588,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_servo_8h_source.html#l00172">172</a> of file <a class="el" href="us_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_servo_8h_source.html#l00172">172</a> of file <a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
 
 </div>
 </div>

@@ -228,12 +228,12 @@ public:
 	 \param fastIncrement the amount that the variable should increment (or decrement if negative) per increment
 	 \param fast_mS_betweenIncrements how often an increment should happen in fast mode
 	 */
-	 void begin(long* variableToIncrement,
-		 long slowIncrement = 1, unsigned long slow_mS_betweenIncrements = 250,
+	 void begin(int32_t* variableToIncrement,
+		 int32_t slowIncrement = 1, uint32_t slow_mS_betweenIncrements = 250,
 		 uint16_t slowToMediumTransition_mS = 1000, 
-		 long mediumIncrement = 1,	 unsigned long medium_mS_betweenIncrements = 100, 
+		 int32_t mediumIncrement = 1, uint32_t medium_mS_betweenIncrements = 100,
 		 uint16_t mediumToFastTransition_mS = 1000 , 
-		 long fastIncrement = 1, unsigned long fast_mS_betweenIncrements = 50)
+		 int32_t fastIncrement = 1, uint32_t fast_mS_betweenIncrements = 50)
 	{
 		_variableToIncrement = variableToIncrement;
 		
@@ -323,22 +323,22 @@ public:
 
 private:
 	SerialWombatAbstractButton& _debouncedInput;
-	long* _variableToIncrement;
+	int32_t* _variableToIncrement;
 
-	long _slowIncrement;
-	unsigned long _slow_mS_betweenIncrements;
+	int32_t _slowIncrement;
+	uint32_t _slow_mS_betweenIncrements;
 	
 	uint16_t _slowToMediumTransition_mS;
 
-	long _mediumIncrement; 
-	unsigned long _medium_mS_betweenIncrements;
+	int32_t _mediumIncrement; 
+	uint32_t _medium_mS_betweenIncrements;
 	
 	uint16_t _mediumToFastTransistion_mS;
 
-	long _fastIncrement;
-	unsigned long _fast_mS_betweenIncrements;
+	int32_t _fastIncrement;
+	uint32_t _fast_mS_betweenIncrements;
 
-	unsigned long _lastPressDuration;
+	uint32_t _lastPressDuration;
 	
 };
 

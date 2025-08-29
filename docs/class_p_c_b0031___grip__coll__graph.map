@@ -1,0 +1,26 @@
+<map id="PCB0031_Grip" name="PCB0031_Grip">
+<area shape="rect" id="Node000001" title="A class representing a PCB0031 Grip PCB." alt="" coords="142,585,251,612"/>
+<area shape="rect" id="Node000002" href="$class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="5,5,135,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,47,55,76,51,108,51,445,55,469,64,492,78,512,95,531,134,561,171,583,168,587,131,566,91,535,74,515,59,494,50,471,46,446,46,108,50,76,57,46"/>
+<area shape="rect" id="Node000006" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="111,96,232,123"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="97,40,159,93,155,97,94,44"/>
+<area shape="rect" id="Node000003" href="$class_grip_servo.html" title="A class representing a servo output and an Allegro ACS712 5A current sensor connected to a SW8B Analo..." alt="" coords="270,431,350,457"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="294,471,208,586,204,583,290,468"/>
+<area shape="rect" id="Node000004" href="$class_serial_wombat_servo__18_a_b.html" title="A derived class that adds additional Servo Functionality for the Serial Wombat 18AB Chip." alt="" coords="526,264,702,291"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="579,301,335,432,332,428,576,296"/>
+<area shape="rect" id="Node000005" href="$class_serial_wombat_servo.html" title="A class to control Servos attached to the Serial Wombat chip." alt="" coords="734,180,870,207"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="760,216,644,266,642,261,758,211"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="248,113,462,133,592,149,722,169,757,177,756,182,722,175,592,154,461,138,247,119"/>
+<area shape="rect" id="Node000010" href="$class_serial_wombat_analog_input.html" title="A class to make analog measurements with the Serial Wombat." alt="" coords="86,180,257,207"/>
+<area shape="poly" id="edge11_Node000010_Node000006" title=" " alt="" coords="174,138,174,180,169,180,169,138"/>
+<area shape="rect" id="Node000007" href="$class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class...." alt="" coords="518,172,710,215"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="617,230,617,264,611,264,611,230"/>
+<area shape="rect" id="Node000008" href="$class_grip_a_c_s712.html" title="A class representing an Allegro ACS712 5A current sensor connected to a SW8B Analog input on a PCB003..." alt="" coords="250,340,344,367"/>
+<area shape="poly" id="edge8_Node000003_Node000008" title=" " alt="" coords="303,382,311,430,305,430,298,383"/>
+<area shape="rect" id="Node000009" href="$class_serial_wombat_analog_input__18_a_b.html" title="This class extends SerialWombatAnalogInput with SW18AB specific capabilities." alt="" coords="142,264,352,291"/>
+<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="241,306,217,391,204,503,200,585,194,585,198,503,212,390,235,304"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="266,302,291,338,286,341,262,305"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="195,216,238,262,234,265,191,220"/>
+<area shape="rect" id="Node000011" href="$class_serial_wombat_abstract_processed_input.html" title="SerialWombatAnalogInput, SerialWombatPulseTimer, SerialWombatResistanceInput and others inherit from ..." alt="" coords="281,172,494,215"/>
+<area shape="poly" id="edge12_Node000009_Node000011" title=" " alt="" coords="341,225,270,266,268,261,338,220"/>
+</map>

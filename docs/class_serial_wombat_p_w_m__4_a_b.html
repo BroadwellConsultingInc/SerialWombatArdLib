@@ -94,7 +94,7 @@ $(function(){ initResizable(false); });
 <p>Extends the <a class="el" href="class_serial_wombat_p_w_m.html" title="A class representing a Serial Wombat PWM output.">SerialWombatPWM</a> class with SW4A/SW4B specific functionality.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="us_serial_wombat_p_w_m_8h_source.html">SerialWombatPWM.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_serial_wombat_p_w_m_8h_source.html">SerialWombatPWM.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SerialWombatPWM_4AB:</div>
 <div class="dyncontent">
@@ -126,7 +126,7 @@ Collaboration diagram for SerialWombatPWM_4AB:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae74c7d33030670464061fbb14af78b94" id="r_ae74c7d33030670464061fbb14af78b94"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae74c7d33030670464061fbb14af78b94">SerialWombatPWM_4AB</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat)</td></tr>
 <tr class="separator:ae74c7d33030670464061fbb14af78b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81d17a450288202e9e03cf668ef9c14a" id="r_a81d17a450288202e9e03cf668ef9c14a"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81d17a450288202e9e03cf668ef9c14a">setFrequency_SW4AB</a> (<a class="el" href="us_serial_wombat_p_w_m_8h.html#a2088b99b4668da0234cd4564f5a328ba">Wombat4A_B_PWMFrequencyValues_t</a> frequency)</td></tr>
+<tr class="memitem:a81d17a450288202e9e03cf668ef9c14a" id="r_a81d17a450288202e9e03cf668ef9c14a"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81d17a450288202e9e03cf668ef9c14a">setFrequency_SW4AB</a> (<a class="el" href="_serial_wombat_p_w_m_8h.html#a2088b99b4668da0234cd4564f5a328ba">Wombat4A_B_PWMFrequencyValues_t</a> frequency)</td></tr>
 <tr class="separator:a81d17a450288202e9e03cf668ef9c14a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_serial_wombat_p_w_m"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_serial_wombat_p_w_m')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_serial_wombat_p_w_m.html">SerialWombatPWM</a></td></tr>
 <tr class="memitem:ae5d43d4a1eacdeb52e5368aa92ceed26 inherit pub_methods_class_serial_wombat_p_w_m" id="r_ae5d43d4a1eacdeb52e5368aa92ceed26"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_p_w_m.html#ae5d43d4a1eacdeb52e5368aa92ceed26">SerialWombatPWM</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat)</td></tr>
@@ -175,14 +175,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa5d1dce19c16fad8669795ff798dd30d inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the pin mode (if applicable)  <br /></td></tr>
 <tr class="separator:aa5d1dce19c16fad8669795ff798dd30d inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin" id="r_a024e347ecb01f1acba1e63332647dfe7"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a024e347ecb01f1acba1e63332647dfe7">enablePullup</a> (bool enabled)</td></tr>
-<tr class="memdesc:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull up on a pin. Implemented on SW18AB only.  <br /></td></tr>
+<tr class="memdesc:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull up on a pin. Implemented on SW18AB and SW8B only.  <br /></td></tr>
 <tr class="separator:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d0d8100d96c9db19eebb32538fcd9c4 inherit pub_methods_class_serial_wombat_pin" id="r_a4d0d8100d96c9db19eebb32538fcd9c4"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a4d0d8100d96c9db19eebb32538fcd9c4">enablePullDown</a> (bool enabled)</td></tr>
-<tr class="memdesc:a4d0d8100d96c9db19eebb32538fcd9c4 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull down on a pin. Implemented on SW18AB only.  <br /></td></tr>
-<tr class="separator:a4d0d8100d96c9db19eebb32538fcd9c4 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a3f1ac8c6b708f1858eafee254ae7b7 inherit pub_methods_class_serial_wombat_pin" id="r_a2a3f1ac8c6b708f1858eafee254ae7b7"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a2a3f1ac8c6b708f1858eafee254ae7b7">enablePulldown</a> (bool enabled)</td></tr>
+<tr class="memdesc:a2a3f1ac8c6b708f1858eafee254ae7b7 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull down on a pin. Implemented on SW18AB and SW8B only.  <br /></td></tr>
+<tr class="separator:a2a3f1ac8c6b708f1858eafee254ae7b7 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin" id="r_a12f5f05f8fc59f06169261d1c5e4852b"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a12f5f05f8fc59f06169261d1c5e4852b">enableOpenDrain</a> (bool enabled)</td></tr>
-<tr class="memdesc:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables open drain mode on a pin. Implemented on SW18AB only.  <br /></td></tr>
+<tr class="memdesc:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables open drain mode on a pin. Implemented on SW18AB and SW8B only.  <br /></td></tr>
 <tr class="separator:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin" id="r_a5a97a8c687f9f5ffb1c22679851d0372"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a5a97a8c687f9f5ffb1c22679851d0372">forceDMA</a> (bool enabled)</td></tr>
+<tr class="memdesc:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces use of DMA instead of hardware timing resources on SW18AB.  <br /></td></tr>
+<tr class="separator:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -197,7 +200,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Extends the <a class="el" href="class_serial_wombat_p_w_m.html" title="A class representing a Serial Wombat PWM output.">SerialWombatPWM</a> class with SW4A/SW4B specific functionality. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_p_w_m_8h_source.html#l00120">120</a> of file <a class="el" href="us_serial_wombat_p_w_m_8h_source.html">SerialWombatPWM.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_p_w_m_8h_source.html#l00120">120</a> of file <a class="el" href="_serial_wombat_p_w_m_8h_source.html">SerialWombatPWM.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae74c7d33030670464061fbb14af78b94" name="ae74c7d33030670464061fbb14af78b94"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae74c7d33030670464061fbb14af78b94">&#9670;&#160;</a></span>SerialWombatPWM_4AB()</h2>
@@ -222,7 +225,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_p_w_m_8h_source.html#l00123">123</a> of file <a class="el" href="us_serial_wombat_p_w_m_8h_source.html">SerialWombatPWM.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_p_w_m_8h_source.html#l00123">123</a> of file <a class="el" href="_serial_wombat_p_w_m_8h_source.html">SerialWombatPWM.h</a>.</p>
 
 </div>
 </div>
@@ -239,7 +242,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">int16_t SerialWombatPWM_4AB::setFrequency_SW4AB </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="us_serial_wombat_p_w_m_8h.html#a2088b99b4668da0234cd4564f5a328ba">Wombat4A_B_PWMFrequencyValues_t</a></td>          <td class="paramname"><span class="paramname"><em>frequency</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="_serial_wombat_p_w_m_8h.html#a2088b99b4668da0234cd4564f5a328ba">Wombat4A_B_PWMFrequencyValues_t</a></td>          <td class="paramname"><span class="paramname"><em>frequency</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -250,7 +253,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_p_w_m_8h_source.html#l00138">138</a> of file <a class="el" href="us_serial_wombat_p_w_m_8h_source.html">SerialWombatPWM.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_p_w_m_8h_source.html#l00138">138</a> of file <a class="el" href="_serial_wombat_p_w_m_8h_source.html">SerialWombatPWM.h</a>.</p>
 
 </div>
 </div>

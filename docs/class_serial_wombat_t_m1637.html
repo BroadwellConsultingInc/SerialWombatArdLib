@@ -94,7 +94,7 @@ $(function(){ initResizable(false); });
 <p>A Class representing a TM1637 Seven-Segment Display connected to two Serial Wombat pins.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="us_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SerialWombatTM1637:</div>
 <div class="dyncontent">
@@ -127,7 +127,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebb3ad1145246989e8e9c0e4e94a582d" id="r_aebb3ad1145246989e8e9c0e4e94a582d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebb3ad1145246989e8e9c0e4e94a582d">SerialWombatTM1637</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat)</td></tr>
 <tr class="memdesc:aebb3ad1145246989e8e9c0e4e94a582d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_serial_wombat_t_m1637.html" title="A Class representing a TM1637 Seven-Segment Display connected to two Serial Wombat pins.">SerialWombatTM1637</a> class.  <br /></td></tr>
 <tr class="separator:aebb3ad1145246989e8e9c0e4e94a582d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb7793949050f79da6f3cb55a73664d1" id="r_abb7793949050f79da6f3cb55a73664d1"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb7793949050f79da6f3cb55a73664d1">begin</a> (uint8_t clkPin, uint8_t dioPin, uint8_t digits, <a class="el" href="us_serial_wombat_t_m1637_8h.html#ad90c9ba4941a8b78da88c392aace5255">SWTM1637Mode</a> mode, uint8_t dataSourcePin, uint8_t brightness0to7)</td></tr>
+<tr class="memitem:abb7793949050f79da6f3cb55a73664d1" id="r_abb7793949050f79da6f3cb55a73664d1"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb7793949050f79da6f3cb55a73664d1">begin</a> (uint8_t clkPin, uint8_t dioPin, uint8_t digits, <a class="el" href="_serial_wombat_t_m1637_8h.html#ad90c9ba4941a8b78da88c392aace5255">SWTM1637Mode</a> mode, uint8_t dataSourcePin, uint8_t brightness0to7)</td></tr>
 <tr class="memdesc:abb7793949050f79da6f3cb55a73664d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize an instance of the TM1637 class.  <br /></td></tr>
 <tr class="separator:abb7793949050f79da6f3cb55a73664d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29e21a0cf5e8ec84b7a046dc43275a8e" id="r_a29e21a0cf5e8ec84b7a046dc43275a8e"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29e21a0cf5e8ec84b7a046dc43275a8e">writeDigitOrder</a> (uint8_t first, uint8_t second, uint8_t third, uint8_t fourth, uint8_t fifth, uint8_t sixth)</td></tr>
@@ -188,14 +188,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa5d1dce19c16fad8669795ff798dd30d inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the pin mode (if applicable)  <br /></td></tr>
 <tr class="separator:aa5d1dce19c16fad8669795ff798dd30d inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin" id="r_a024e347ecb01f1acba1e63332647dfe7"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a024e347ecb01f1acba1e63332647dfe7">enablePullup</a> (bool enabled)</td></tr>
-<tr class="memdesc:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull up on a pin. Implemented on SW18AB only.  <br /></td></tr>
+<tr class="memdesc:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull up on a pin. Implemented on SW18AB and SW8B only.  <br /></td></tr>
 <tr class="separator:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d0d8100d96c9db19eebb32538fcd9c4 inherit pub_methods_class_serial_wombat_pin" id="r_a4d0d8100d96c9db19eebb32538fcd9c4"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a4d0d8100d96c9db19eebb32538fcd9c4">enablePullDown</a> (bool enabled)</td></tr>
-<tr class="memdesc:a4d0d8100d96c9db19eebb32538fcd9c4 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull down on a pin. Implemented on SW18AB only.  <br /></td></tr>
-<tr class="separator:a4d0d8100d96c9db19eebb32538fcd9c4 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a3f1ac8c6b708f1858eafee254ae7b7 inherit pub_methods_class_serial_wombat_pin" id="r_a2a3f1ac8c6b708f1858eafee254ae7b7"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a2a3f1ac8c6b708f1858eafee254ae7b7">enablePulldown</a> (bool enabled)</td></tr>
+<tr class="memdesc:a2a3f1ac8c6b708f1858eafee254ae7b7 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull down on a pin. Implemented on SW18AB and SW8B only.  <br /></td></tr>
+<tr class="separator:a2a3f1ac8c6b708f1858eafee254ae7b7 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin" id="r_a12f5f05f8fc59f06169261d1c5e4852b"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a12f5f05f8fc59f06169261d1c5e4852b">enableOpenDrain</a> (bool enabled)</td></tr>
-<tr class="memdesc:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables open drain mode on a pin. Implemented on SW18AB only.  <br /></td></tr>
+<tr class="memdesc:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables open drain mode on a pin. Implemented on SW18AB and SW8B only.  <br /></td></tr>
 <tr class="separator:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin" id="r_a5a97a8c687f9f5ffb1c22679851d0372"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a5a97a8c687f9f5ffb1c22679851d0372">forceDMA</a> (bool enabled)</td></tr>
+<tr class="memdesc:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces use of DMA instead of hardware timing resources on SW18AB.  <br /></td></tr>
+<tr class="separator:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -223,7 +226,7 @@ frameborder = "0" allow = "accelerometer; autoplay; clipboard-write; encrypted-m
 picture - in - picture" allowfullscreen></iframe>
  </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_t_m1637_8h_source.html#l00074">74</a> of file <a class="el" href="us_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_t_m1637_8h_source.html#l00074">74</a> of file <a class="el" href="_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aebb3ad1145246989e8e9c0e4e94a582d" name="aebb3ad1145246989e8e9c0e4e94a582d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aebb3ad1145246989e8e9c0e4e94a582d">&#9670;&#160;</a></span>SerialWombatTM1637()</h2>
@@ -256,7 +259,7 @@ picture - in - picture" allowfullscreen></iframe>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_t_m1637_8h_source.html#l00081">81</a> of file <a class="el" href="us_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_t_m1637_8h_source.html#l00081">81</a> of file <a class="el" href="_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
 
 </div>
 </div>
@@ -284,7 +287,7 @@ picture - in - picture" allowfullscreen></iframe>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_t_m1637_8h_source.html#l00390">390</a> of file <a class="el" href="us_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_t_m1637_8h_source.html#l00390">390</a> of file <a class="el" href="_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
 
 </div>
 </div>
@@ -315,7 +318,7 @@ picture - in - picture" allowfullscreen></iframe>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="us_serial_wombat_t_m1637_8h.html#ad90c9ba4941a8b78da88c392aace5255">SWTM1637Mode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_serial_wombat_t_m1637_8h.html#ad90c9ba4941a8b78da88c392aace5255">SWTM1637Mode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -349,7 +352,7 @@ picture - in - picture" allowfullscreen></iframe>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_t_m1637_8h_source.html#l00096">96</a> of file <a class="el" href="us_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_t_m1637_8h_source.html#l00096">96</a> of file <a class="el" href="_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
 
 </div>
 </div>
@@ -376,7 +379,7 @@ picture - in - picture" allowfullscreen></iframe>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_t_m1637_8h_source.html#l00277">277</a> of file <a class="el" href="us_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_t_m1637_8h_source.html#l00277">277</a> of file <a class="el" href="_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
 
 </div>
 </div>
@@ -407,7 +410,7 @@ picture - in - picture" allowfullscreen></iframe>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_t_m1637_8h_source.html#l00349">349</a> of file <a class="el" href="us_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_t_m1637_8h_source.html#l00349">349</a> of file <a class="el" href="_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
 
 </div>
 </div>
@@ -434,7 +437,7 @@ picture - in - picture" allowfullscreen></iframe>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_t_m1637_8h_source.html#l00327">327</a> of file <a class="el" href="us_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_t_m1637_8h_source.html#l00327">327</a> of file <a class="el" href="_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
 
 </div>
 </div>
@@ -475,7 +478,7 @@ picture - in - picture" allowfullscreen></iframe>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_t_m1637_8h_source.html#l00258">258</a> of file <a class="el" href="us_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_t_m1637_8h_source.html#l00258">258</a> of file <a class="el" href="_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
 
 </div>
 </div>
@@ -502,7 +505,7 @@ picture - in - picture" allowfullscreen></iframe>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_t_m1637_8h_source.html#l00168">168</a> of file <a class="el" href="us_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_t_m1637_8h_source.html#l00168">168</a> of file <a class="el" href="_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
 
 </div>
 </div>
@@ -529,7 +532,7 @@ picture - in - picture" allowfullscreen></iframe>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_t_m1637_8h_source.html#l00302">302</a> of file <a class="el" href="us_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_t_m1637_8h_source.html#l00302">302</a> of file <a class="el" href="_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
 
 </div>
 </div>
@@ -556,7 +559,7 @@ picture - in - picture" allowfullscreen></iframe>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_t_m1637_8h_source.html#l00231">231</a> of file <a class="el" href="us_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_t_m1637_8h_source.html#l00231">231</a> of file <a class="el" href="_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
 
 </div>
 </div>
@@ -583,7 +586,7 @@ picture - in - picture" allowfullscreen></iframe>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_t_m1637_8h_source.html#l00210">210</a> of file <a class="el" href="us_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_t_m1637_8h_source.html#l00210">210</a> of file <a class="el" href="_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
 
 </div>
 </div>
@@ -634,7 +637,7 @@ picture - in - picture" allowfullscreen></iframe>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_t_m1637_8h_source.html#l00130">130</a> of file <a class="el" href="us_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_t_m1637_8h_source.html#l00130">130</a> of file <a class="el" href="_serial_wombat_t_m1637_8h_source.html">SerialWombatTM1637.h</a>.</p>
 
 </div>
 </div>

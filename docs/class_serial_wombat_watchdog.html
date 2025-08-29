@@ -94,7 +94,7 @@ $(function(){ initResizable(false); });
 <p>A class to wrap around a Serial Wombat Watchdog Pin.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="us_serial_wombat_watchdog_8h_source.html">SerialWombatWatchdog.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_serial_wombat_watchdog_8h_source.html">SerialWombatWatchdog.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SerialWombatWatchdog:</div>
 <div class="dyncontent">
@@ -123,7 +123,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad4b26e6e10e3185dc7e5124255c0a9f5" id="r_ad4b26e6e10e3185dc7e5124255c0a9f5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4b26e6e10e3185dc7e5124255c0a9f5">SerialWombatWatchdog</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat)</td></tr>
 <tr class="memdesc:ad4b26e6e10e3185dc7e5124255c0a9f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_serial_wombat_watchdog.html" title="A class to wrap around a Serial Wombat Watchdog Pin.">SerialWombatWatchdog</a>.  <br /></td></tr>
 <tr class="separator:ad4b26e6e10e3185dc7e5124255c0a9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dd1ae43434f0fae8df00e6c5511a9c1" id="r_a6dd1ae43434f0fae8df00e6c5511a9c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dd1ae43434f0fae8df00e6c5511a9c1">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, <a class="el" href="us_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a> normalState, <a class="el" href="us_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a> resetState, uint16_t timeout_mS, bool resetWombatAfterTimeout)</td></tr>
+<tr class="memitem:a6dd1ae43434f0fae8df00e6c5511a9c1" id="r_a6dd1ae43434f0fae8df00e6c5511a9c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dd1ae43434f0fae8df00e6c5511a9c1">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, <a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a> normalState, <a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a> resetState, uint16_t timeout_mS, bool resetWombatAfterTimeout)</td></tr>
 <tr class="memdesc:a6dd1ae43434f0fae8df00e6c5511a9c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a <a class="el" href="class_serial_wombat_watchdog.html" title="A class to wrap around a Serial Wombat Watchdog Pin.">SerialWombatWatchdog</a>.  <br /></td></tr>
 <tr class="separator:a6dd1ae43434f0fae8df00e6c5511a9c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaefe4670731ac49995ab16f011c550f0" id="r_aaefe4670731ac49995ab16f011c550f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaefe4670731ac49995ab16f011c550f0">updateResetCountdown</a> (uint16_t time_mS)</td></tr>
@@ -167,14 +167,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa5d1dce19c16fad8669795ff798dd30d inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the pin mode (if applicable)  <br /></td></tr>
 <tr class="separator:aa5d1dce19c16fad8669795ff798dd30d inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin" id="r_a024e347ecb01f1acba1e63332647dfe7"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a024e347ecb01f1acba1e63332647dfe7">enablePullup</a> (bool enabled)</td></tr>
-<tr class="memdesc:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull up on a pin. Implemented on SW18AB only.  <br /></td></tr>
+<tr class="memdesc:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull up on a pin. Implemented on SW18AB and SW8B only.  <br /></td></tr>
 <tr class="separator:a024e347ecb01f1acba1e63332647dfe7 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d0d8100d96c9db19eebb32538fcd9c4 inherit pub_methods_class_serial_wombat_pin" id="r_a4d0d8100d96c9db19eebb32538fcd9c4"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a4d0d8100d96c9db19eebb32538fcd9c4">enablePullDown</a> (bool enabled)</td></tr>
-<tr class="memdesc:a4d0d8100d96c9db19eebb32538fcd9c4 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull down on a pin. Implemented on SW18AB only.  <br /></td></tr>
-<tr class="separator:a4d0d8100d96c9db19eebb32538fcd9c4 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a3f1ac8c6b708f1858eafee254ae7b7 inherit pub_methods_class_serial_wombat_pin" id="r_a2a3f1ac8c6b708f1858eafee254ae7b7"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a2a3f1ac8c6b708f1858eafee254ae7b7">enablePulldown</a> (bool enabled)</td></tr>
+<tr class="memdesc:a2a3f1ac8c6b708f1858eafee254ae7b7 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the weak pull down on a pin. Implemented on SW18AB and SW8B only.  <br /></td></tr>
+<tr class="separator:a2a3f1ac8c6b708f1858eafee254ae7b7 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin" id="r_a12f5f05f8fc59f06169261d1c5e4852b"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a12f5f05f8fc59f06169261d1c5e4852b">enableOpenDrain</a> (bool enabled)</td></tr>
-<tr class="memdesc:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables open drain mode on a pin. Implemented on SW18AB only.  <br /></td></tr>
+<tr class="memdesc:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables open drain mode on a pin. Implemented on SW18AB and SW8B only.  <br /></td></tr>
 <tr class="separator:a12f5f05f8fc59f06169261d1c5e4852b inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin" id="r_a5a97a8c687f9f5ffb1c22679851d0372"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a5a97a8c687f9f5ffb1c22679851d0372">forceDMA</a> (bool enabled)</td></tr>
+<tr class="memdesc:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces use of DMA instead of hardware timing resources on SW18AB.  <br /></td></tr>
+<tr class="separator:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -197,7 +200,7 @@ Additional Inherited Members</h2></td></tr>
 </p>
 <p><a href="https://youtu.be/fIObjmHmprY">https://youtu.be/fIObjmHmprY</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_watchdog_8h_source.html#l00029">29</a> of file <a class="el" href="us_serial_wombat_watchdog_8h_source.html">SerialWombatWatchdog.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_watchdog_8h_source.html#l00029">29</a> of file <a class="el" href="_serial_wombat_watchdog_8h_source.html">SerialWombatWatchdog.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad4b26e6e10e3185dc7e5124255c0a9f5" name="ad4b26e6e10e3185dc7e5124255c0a9f5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad4b26e6e10e3185dc7e5124255c0a9f5">&#9670;&#160;</a></span>SerialWombatWatchdog()</h2>
@@ -222,7 +225,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_watchdog_8cpp_source.html#l00003">3</a> of file <a class="el" href="us_serial_wombat_watchdog_8cpp_source.html">SerialWombatWatchdog.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_watchdog_8cpp_source.html#l00003">3</a> of file <a class="el" href="_serial_wombat_watchdog_8cpp_source.html">SerialWombatWatchdog.cpp</a>.</p>
 
 </div>
 </div>
@@ -241,12 +244,12 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="us_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a></td>          <td class="paramname"><span class="paramname"><em>normalState</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a></td>          <td class="paramname"><span class="paramname"><em>normalState</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="us_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a></td>          <td class="paramname"><span class="paramname"><em>resetState</em></span>, </td>
+          <td class="paramtype"><a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a></td>          <td class="paramname"><span class="paramname"><em>resetState</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -273,7 +276,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_watchdog_8cpp_source.html#l00007">7</a> of file <a class="el" href="us_serial_wombat_watchdog_8cpp_source.html">SerialWombatWatchdog.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_watchdog_8cpp_source.html#l00007">7</a> of file <a class="el" href="_serial_wombat_watchdog_8cpp_source.html">SerialWombatWatchdog.cpp</a>.</p>
 
 </div>
 </div>
@@ -300,7 +303,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_watchdog_8cpp_source.html#l00024">24</a> of file <a class="el" href="us_serial_wombat_watchdog_8cpp_source.html">SerialWombatWatchdog.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_serial_wombat_watchdog_8cpp_source.html#l00024">24</a> of file <a class="el" href="_serial_wombat_watchdog_8cpp_source.html">SerialWombatWatchdog.cpp</a>.</p>
 
 </div>
 </div>

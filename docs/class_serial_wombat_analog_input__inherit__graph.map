@@ -4,4 +4,6 @@
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="113,122,113,154,108,154,108,122"/>
 <area shape="rect" id="Node000002" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="50,5,171,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,48,113,80,108,80,108,48"/>
+<area shape="rect" id="Node000004" href="$class_grip_a_c_s712.html" title="A class representing an Allegro ACS712 5A current sensor connected to a SW8B Analog input on a PCB003..." alt="" coords="63,229,158,256"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="113,197,113,229,108,229,108,197"/>
 </map>

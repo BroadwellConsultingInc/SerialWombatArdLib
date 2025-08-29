@@ -1,5 +1,7 @@
 <map id="SerialWombatAnalogInput_18AB" name="SerialWombatAnalogInput_18AB">
 <area shape="rect" id="Node000001" title="This class extends SerialWombatAnalogInput with SW18AB specific capabilities." alt="" coords="94,171,304,197"/>
+<area shape="rect" id="Node000005" href="$class_grip_a_c_s712.html" title="A class representing an Allegro ACS712 5A current sensor connected to a SW8B Analog input on a PCB003..." alt="" coords="152,245,246,272"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="202,213,202,245,196,245,196,213"/>
 <area shape="rect" id="Node000002" href="$class_serial_wombat_analog_input.html" title="A class to make analog measurements with the Serial Wombat." alt="" coords="5,88,177,115"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,122,184,168,181,172,118,126"/>
 <area shape="rect" id="Node000003" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="30,5,152,32"/>

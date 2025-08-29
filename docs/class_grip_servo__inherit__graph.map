@@ -1,0 +1,11 @@
+<map id="GripServo" name="GripServo">
+<area shape="rect" id="Node000001" title="A class representing a servo output and an Allegro ACS712 5A current sensor connected to a SW8B Analo..." alt="" coords="127,245,206,272"/>
+<area shape="rect" id="Node000002" href="$class_serial_wombat_servo__18_a_b.html" title="A derived class that adds additional Servo Functionality for the Serial Wombat 18AB Chip." alt="" coords="79,171,254,197"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,213,170,245,164,245,164,213"/>
+<area shape="rect" id="Node000003" href="$class_serial_wombat_servo.html" title="A class to control Servos attached to the Serial Wombat chip." alt="" coords="5,88,142,115"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="101,123,154,168,151,173,98,127"/>
+<area shape="rect" id="Node000004" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="13,5,134,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="76,48,76,88,71,88,71,48"/>
+<area shape="rect" id="Node000005" href="$class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class...." alt="" coords="166,80,357,123"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="227,135,183,172,180,168,224,131"/>
+</map>
