@@ -325,7 +325,7 @@ public:
 	This is a blocking function that takes a few seconds to complete.
 	
 	*/
-	void calibrateGripper(bool reverse = false)
+	void calibrateGripper(bool reverse = false, uint16_t rangeConstant = 49152)
 	{
 		uint32_t position = 0;
 
@@ -350,9 +350,12 @@ public:
 		}
 
 		writePublicData(minCurrentPosition);
-		delay(500);
+		delay(1000);
 		sensor.calibrateIdleCurrent();
-		calibrateServoRange((calibratedMaxCurrent - calibratedMinCurrent) * 3 / 4, minCurrentPosition);
+		uint32_t range = (calibratedMaxCurrent - calibratedMinCurrent);
+		range *= rangeConstant;
+		range >>= 16;
+		calibrateServoRange((uint16_t) range, minCurrentPosition);
 
 	}
 

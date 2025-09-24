@@ -22,13 +22,13 @@ Serial Wombat is a registered trademark in the United States of Broadwell Consul
 
 SerialWombat sw;
 SerialWombatTM1637 myDisplay(sw);
-#define DISPLAY_CLK_PIN 19  // <<<<<<<<<   Set this to the Serial Wombat pin connected to your Display Clock Pin
-#define DISPLAY_DIN_PIN 18  // <<<<<<<<<   Set this to the Serial Wombat pin connected to your Display Data Pin
+#define DISPLAY_CLK_PIN 6  // <<<<<<<<<   Set this to the Serial Wombat pin connected to your Display Clock Pin
+#define DISPLAY_DIN_PIN 7  // <<<<<<<<<   Set this to the Serial Wombat pin connected to your Display Data Pin
 
 
 // CONFIG: pick one
-#define ANIMATION_ARRAY snake_6_digit
-//#define ANIMATION_ARRAY snake_4_digit
+//#define ANIMATION_ARRAY snake_6_digit
+#define ANIMATION_ARRAY snake_4_digit
 // #define ANIMATION_ARRAY leftToRight
 
 
@@ -160,17 +160,23 @@ void setup() {
   
   sw.begin(Wire,i2cAddress,false);
 
-  myDisplay.begin(19,  //Clk Pin
-  18, // Data Pin
-  6, // Number of digits
+   sw.registerErrorHandler(SerialWombatSerialErrorHandlerBrief); //Register an error handler that will print communication errors to Serial
+
+  if (!sw.isLatestFirmware()) {
+    Serial.println("Firmware version mismatch.  Download latest Serial Wombat Arduino Library and update Serial Wombat Firmware to latest version");
+  }
+
+  myDisplay.begin(DISPLAY_CLK_PIN,  //Clk Pin
+  DISPLAY_DIN_PIN, // Data Pin
+  4, // Number of digits
   tm1637Animation, // Mode enumeration
   0, // source pin Not used in Animation mode
   4);   // Brightness 
   
-  myDisplay.writeDigitOrder(0,1,2,3,4,5);
+  //myDisplay.writeDigitOrder(0,1,2,3,4,5);
 
   
-  myDisplay.writeAnimation(0x180, // Place array at index 0x180 in the user buffer
+  myDisplay.writeAnimation(0x0, // Place array at index 0x180 in the user buffer
         SPEED,
         sizeof(ANIMATION_ARRAY)/6,  //Number of frames.  Suggest using sizeof like this to calculate.
         ANIMATION_ARRAY);  // Array to load.

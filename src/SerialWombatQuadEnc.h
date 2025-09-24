@@ -1,7 +1,7 @@
 #pragma once
 
 /*
-Copyright 2020-2021 Broadwell Consulting Inc.
+Copyright 2020-2025 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -171,6 +171,8 @@ private:
 };
 
 /// \brief Extends the SerialWombatPWM class with SW18AB specific functionality, including frequency measurement and min/max/increment/target pin options
+/// 
+/// This class is applicable to both the Serial Wombat 18AB and 8B
 class SerialWombatQuadEnc_18AB : public SerialWombatQuadEnc, public SerialWombatAbstractProcessedInput
 {
 public:

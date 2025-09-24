@@ -20,7 +20,8 @@ A video demonstrating this example is available at
 https://youtu.be/TODO
 
 Documentation for the Grip board classes are available at:
-https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_t_m1637.html#details
+https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_p_c_b0031___grip.html
+
 
 */
 
