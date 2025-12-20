@@ -401,12 +401,13 @@ TODO - Video coming Soon
 <p>Initialization routine for <a class="el" href="class_serial_wombat_h_s_counter.html" title="This class is used to measure the frequency or cycles of a high speed input. On the Serial Wombat 18A...">SerialWombatHSCounter</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pin</td><td></td></tr>
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">pin</td><td>The pin number on the Serial Wombat chip to use for the high speed counter </td></tr>
+    <tr><td class="paramname"><a class="el" href="#a626015b261ad6153e2e52737ec9983cb">publicDataOutput</a></td><td>The type of data to output in the public data buffer. Defaults to FREQUENCY_ON_LTH_TRANSITION </td></tr>
+    <tr><td class="paramname">framesBetweenUpdates</td><td>The number of 1ms frames between updates to the public data buffer. Defaults to 100ms </td></tr>
+    <tr><td class="paramname">publicOutputDivisor</td><td>A divisor that's applied to the counter or frequency before it's copied to the public data buffer. Defaults to 1 </td></tr>
   </table>
   </dd>
 </dl>
-<p>param </p>
 
 <p class="definition">Definition at line <a class="el" href="us_serial_wombat_h_s_counter_8h_source.html#l00085">85</a> of file <a class="el" href="us_serial_wombat_h_s_counter_8h_source.html">SerialWombatHSCounter.h</a>.</p>
 

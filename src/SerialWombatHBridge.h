@@ -38,7 +38,7 @@ typedef enum
 }SerialWombatHBridgeDriverMode;
 
 /*!
-\brief A class representing a Serial Wombat H Bridge Output
+@brief A class representing a Serial Wombat H Bridge Output
 
 An instance of this class should be declared for each pair of pins
 to be used as a Serial Wombat H Bridge.  
@@ -49,17 +49,17 @@ class SerialWombatHBridge : public SerialWombatPin
 {
 public:
 	/*!
-    \brief Constructor for SerialWombatHBridge class
-    \param serialWombat SerialWombat  chip on which the PWM will run
+    @brief Constructor for SerialWombatHBridge class
+    @param serialWombat SerialWombat  chip on which the PWM will run
     */
     SerialWombatHBridge(SerialWombatChip& serialWombat) :SerialWombatPin(serialWombat) {}
 
 	/*!
-    \brief Initialize a pin that has been declared as HBridge. 
-   \param pin The pin to become the first pin of the HBridge control.  
-   \param secondPin The 2nd pin to become the first pin of the HBridge control.  
-   \param PWMPeriod_uS A value  representing the period of the  PWM duty cycle in uS
-   \param chip   The Driver chip being driven.  
+    @brief Initialize a pin that has been declared as HBridge. 
+   @param pin The pin to become the first pin of the HBridge control.  
+   @param secondPin The 2nd pin to become the first pin of the HBridge control.  
+   @param PWMPeriod_uS A value  representing the period of the  PWM duty cycle in uS
+   @param driverMode   The Driver Mode (recirculation method, etc) 
    */
     int16_t begin(uint8_t pin, uint8_t secondPin, uint16_t PWMPeriod_uS = 1000,SerialWombatHBridgeDriverMode driverMode = HBRIDGE_OFF_BOTH_LOW)
 	{
@@ -86,16 +86,16 @@ public:
 
 
     /*!
-    \brief fulfills a virtual function requirement of SerialWombatAbstractScaledOutput
-    \return current pin number
+    @brief fulfills a virtual function requirement of SerialWombatAbstractScaledOutput
+    @return current pin number
     */
     uint8_t pin()
 {
 	return SerialWombatPin::_pin;
 }
     /*!
-    \brief fulfills a virtual function requirement of SerialWombatAbstractScaledOutput
-    \return current pin mode number
+    @brief fulfills a virtual function requirement of SerialWombatAbstractScaledOutput
+    @return current pin mode number
     */
     uint8_t swPinModeNumber()
 	{

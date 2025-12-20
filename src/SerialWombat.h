@@ -1,6 +1,6 @@
 #ifndef SERIAL_WOMBAT_H__
 #define SERIAL_WOMBAT_H__
- 
+
 /*
 Copyright 2020-2025 Broadwell Consulting Inc.
 
@@ -302,7 +302,11 @@ typedef void  (*SerialWombatErrorHandler_t) (uint16_t errorNumber, SerialWombatC
 
 /*! \brief Class for a Serial Wombat chip.  Each Serial Wombat chip on a project should have its own instance.
 
-This class describes the capabilties of a Serial Wombat Chip that are not Pin Mode functionalities
+This class describes the capabilties of a Serial Wombat Chip that are not Pin Mode functionalities.  This
+class is used for all variety of Serial Wombat chips and is the parent class for Serial Wombat Boards
+such as PCB0030, PCB0031, etc.
+
+Certain features may not be available on all models of Serial Wombat chips. 
 
 */
 class SerialWombatChip
@@ -367,6 +371,15 @@ public:
 	/// The last error code returned as part of a protocol error message expressed as a positive integer
 	int16_t lastErrorCode = 0;
 
+	/*!
+	@brief Configure a pin to a digital state with the same parameters as Arduino's digitalWrite() function.
+
+	This function is convenient if not using SerialWombatPin class which provides additonal funcitonalities.
+
+	@param pin The pin number to configure	
+	@param highLow The desired state of the pin.  INPUT, LOW or HIGH or INPUT_PULLUP
+	*/
+	
 	void configureDigitalPin(uint8_t pin, uint8_t highLow)
 	{
 		uint8_t tx[8] = { 200,pin,0,0,0,0,0,0x55 };
@@ -409,7 +422,15 @@ public:
 		tx[5] = _pullDown[pin];
 		sendPacket(tx, rx, true);
 	}
+
+	/*!
+	@brief Used as a countdown after a reset command is issued
+	*/
 	uint32_t sendReadyTime = 0;
+
+	/*!
+	@brief An internal function used to set up the Serial Wombat chip and this class.  Call begin() instead of this function.
+	*/
 	int16_t initialize() 
 	{
 		lastErrorCode = 0;
@@ -420,6 +441,12 @@ public:
 		return(lastErrorCode);
 	}
 		
+	/*!
+	@brief Read the unique identifier from the Serial Wombat chip and store it in uniqueIdentifier.
+
+	Each Serial Wombat Chip has a unique identifier stored in its flash memory at manufacturing.
+	The length of this identifier varies by model.   See the public value uniqueIdentifierLength to determine the length of the identifier.
+	*/
 	void readUniqueIdentifier()
 	{
 		uniqueIdentifierLength = 0;
@@ -449,7 +476,19 @@ public:
 				++uniqueIdentifierLength;
 			}
 		}
+		else if (isSW08())
+		{
+			//TODO
+		}
+		
 	}
+
+	/*!
+	@brief Read the device identifier from the Serial Wombat chip and store it in deviceIdentifier.
+
+	This function makes various chip identification (such as mask revision) available to the user.
+	See the datasheet for the specific Serial Wombat chip's microcontroller for details on what this identifier means.
+	*/
 
 	void readDeviceIdentifier() 
 	{
@@ -470,6 +509,11 @@ public:
 		}
 	}
 
+	/*!
+	@brief Convert an ASCII Error code from a received packet into an integer error code.
+	@param rx The received packet
+	@return The integer error code
+	*/
 	uint16_t returnErrorCode(uint8_t* rx)
 	{
 		uint16_t result = rx[1] - '0';
@@ -608,6 +652,9 @@ public:
 	
 	\param tx address of an array of 8 bytes to send
 	\param rx address of an array of 8 bytes into which to put response.
+	\param retryIfEchoDoesntMatch If true, the packet will be retried if the echo doesn't match
+	\param beginningBytesToMatch The number of bytes at the beginning of the packet to check for a match
+	\param endBytesToMatch The number of bytes at the end of the packet to check for a match
 	\return The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip
 */
 	int sendPacket(uint8_t tx[], uint8_t rx[], bool retryIfEchoDoesntMatch, uint8_t beginningBytesToMatch = 8, uint8_t endBytesToMatch = 0);
@@ -618,6 +665,7 @@ public:
 	
 	
 	\param tx address of an array of 8 bytes to send
+	@param retryIfEchoDoesntMatch If true, the packet will be retried if the echo doesn't match
 	\return The number of bytes received as a response, or a negative value if an error was returned from the Serial Wombat chip
 */
 	int sendPacket(uint8_t tx[], bool retryIfEchoDoesntMatch);
@@ -671,6 +719,10 @@ public:
 		(uint32_t)fwVersion[2] - '0');
 	}
 
+	/*!
+	@brief Check if the firmware is the latest version (or more precisely, if the firmware matches this verison of the Library)
+	@return true if the firmware matches the library.  False if the firmware is newer or older than the library
+	*/
 	bool isLatestFirmware(void)
 	{
 		uint32_t v = readVersion_uint32();
@@ -1135,10 +1187,20 @@ public:
 		return ( model[1] == '0' && model[2] == '8');
 	}
 
+	/*!
+	@brief Check if a specific pin mode is supported by the firmware in the Serial Wombat chip. (8B and 18AB only)
+	@param pinMode The pin mode to check
+	@return true if the pin mode is supported, false otherwise.
+	*/
 	bool isPinModeSupported(int pinMode)
 	{
 		return isPinModeSupported((SerialWombatPinMode_t)pinMode);
 	}
+	/*!
+	@brief Check if a specific pin mode is supported by the firmware in the Serial Wombat chip. (8B and 18AB only)
+	@param pinMode The pin mode to check
+	@return true if the pin mode is supported, false otherwise.
+	*/
 	bool isPinModeSupported(SerialWombatPinMode_t pinMode)
 	{
 		if (isSW04())
@@ -1218,7 +1280,7 @@ public:
 	pins to be ignored.  Set to 0xFF to restore address pins.
 	Requires reset after calling to change I2C address.	
 
-	\param Address to set.  7 Bit value for I2C, defined as 32 bit for future applications like CAN
+	\param address to set.  7 Bit value for I2C, defined as 32 bit for future applications like CAN
 	\return Number of bytes written or error code.
 
 */
@@ -1232,7 +1294,7 @@ public:
 	\brief Write bytes to the User Memory Buffer in the Serial Wombat chip
 	\param index The index into the User Buffer array of bytes where the data should be loaded
 	\param buffer a pointer to an array of bytes to be loaded into the User Buffer array
-	\param number of bytes to load
+	\param count number of bytes to load
 	\return Number of bytes written or error code.
 */
 	int writeUserBuffer(uint16_t index, uint8_t* buffer, uint16_t count)
@@ -1327,7 +1389,6 @@ public:
 /*!
 	\brief Write bytes to the User Memory Buffer in the Serial Wombat chip
 	\param index The index into the User Buffer array of bytes where the data should be loaded
-	\param buffer a pointer to an array of bytes to be loaded into the User Buffer array
 	\param s string to convert to Ascii bytes and load
 	\return Number of bytes written or error code.
 */
@@ -1339,7 +1400,6 @@ public:
 /*!
 	\brief Write bytes to the User Memory Buffer in the Serial Wombat chip
 	\param index The index into the User Buffer array of bytes where the data should be loaded
-	\param buffer a pointer to an array of bytes to be loaded into the User Buffer array
 	\param s string to convert to Ascii bytes and load
 	\return Number of bytes written or error code.
 */
@@ -1423,7 +1483,7 @@ public:
 */
 	int16_t readLastErrorCommand(uint8_t* cmd)
 {
-	//TODO this doen't look like it returns the error
+
 	uint8_t tx[8] = { (uint8_t)SerialWombatCommands::COMMAND_READ_LAST_ERROR_PACKET, 0,0x55,0x55,0x55,0x55,0x55,0x55 };
 	uint8_t rx[8];
 	if (sendPacket(tx, rx) >= 0)
@@ -1446,8 +1506,8 @@ public:
 }
 
 /*!
-	\brief Registers an error handler that is called by the SerialWombatChip sendPacket() command when a protocol error is returned by the Serial Wombat
-	\handler A function pointer to a function of SerialWombatErrorHandler_t type.
+	@brief Registers an error handler that is called by the SerialWombatChip sendPacket() command when a protocol error is returned by the Serial Wombat
+	@param handler A function pointer to a function of SerialWombatErrorHandler_t type.
 */
 	void registerErrorHandler(SerialWombatErrorHandler_t handler)
 	{
@@ -1460,6 +1520,12 @@ public:
 	///  \brief How many times to retry a packet if communcation bus (such as I2C) error
 	uint8_t communicationErrorRetries = 5;
 
+	/*!
+	@brief Echo a byte array back to the host.  Used for testing and debugging
+	@param data The byte array to echo back to the host
+	@param count The number of bytes to echo.  Default is 7 bytes.  Maximum is 7 bytes.
+	@return 0 for success or negative error code.  Success is successful transmit, not echo verification.
+	*/
 	int16_t echo(uint8_t data[], uint8_t count = 7)
 	{
 		uint8_t tx[] = "!UUUUUUU";
@@ -1470,6 +1536,11 @@ public:
 		return sendPacket(tx);
 	}
 
+	/*!
+	@brief Echo a byte array back to the host.  Used for testing and debugging
+	@param data The 7 byte array to echo back to the host
+	@return 0 for success or negative error code.  Success is successful transmit, not echo verification.
+	*/
 
 	int16_t echo(char* data)
 	{
@@ -1482,6 +1553,10 @@ public:
 		return sendPacket(tx);
 	}
 
+	/*!
+	@brief Read the birthday of the Serial Wombat 18AB chip
+	\return The birthday as a 32 bit value, or 0 if not a SW18AB chip
+	*/
 	uint32_t readBirthday()
 	{
 		if (isSW18())
@@ -1498,6 +1573,10 @@ public:
 		return 0;
 	}
 
+	/*!
+	@brief Read the brand of the Serial Wombat 18AB chip
+	\return The brand as a string, or empty string if not a SW18AB chip
+	*/
 	int16_t readBrand(char* data)
 	{
 		uint8_t length = 0;
@@ -1549,7 +1628,7 @@ private:
 public:
 	/*!
 	@brief Class constructor for SerialWombat18OscillatorTuner
-	@param serialWombat The Serial Wombat chip on which the Oscillator will be tuned;
+	@param serialWombatChip The Serial Wombat chip on which the Oscillator will be tuned;
 	*/
 	SerialWombat18ABOscillatorTuner(SerialWombatChip& serialWombatChip) : _sw(serialWombatChip) { }
 
@@ -1640,13 +1719,21 @@ class SerialWombat : public SerialWombatChip {};
 
 
 /*!
-\brief a sample error handler that can be registered with registerErrorHandler to report protocol errors on Serial.  
+@brief a sample error handler that can be registered with registerErrorHandler to report protocol errors on Serial.  
 
 Do not use this when using Serial to control the Serial Wombat Chip
-\param error The error number that was reported
-\param pointer to the Serial Wombat Chip instance that generated the error
+@param error The error number that was reported
+@param sw to the Serial Wombat Chip instance that generated the error
 */
 void SerialWombatSerialErrorHandlerBrief(uint16_t error, SerialWombatChip* sw);
+
+/*!
+@brief a sample error handler that can be registered with registerErrorHandler to report protocol errors on Serial.  
+
+Do not use this when using Serial to control the Serial Wombat Chip
+@param error The error number that was reported
+@param sw to the Serial Wombat Chip instance that generated the error
+*/
 void SerialWombatSerialErrorHandlerVerbose(uint16_t error, SerialWombatChip* sw);
 
 #include "SerialWombatPin.h"

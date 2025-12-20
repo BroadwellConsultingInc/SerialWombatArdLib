@@ -174,7 +174,7 @@ public:
 	The average is a typical average, not a moving average so the more samples comprise the averaged value
 	the less often the downstream value will update.
 	
-	\param A number of samples to include in each output average.  Samples are typically taken each mS, although
+	\param numberOfSamples A number of samples to include in each output average.  Samples are typically taken each mS, although
 	some modes such as SerialWombatUltrasonicDistanceSensor sample at other periods.
 	\return returns 0 or higher if success, or a negative error code
 	*/

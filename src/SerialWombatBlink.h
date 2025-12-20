@@ -32,7 +32,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 
 
 /*!
-\brief A class representing a Serial Wombat Blink Output
+@brief A class representing a Serial Wombat Blink Output
 
 An instance of this class should be declared for each pin
 to be used as a Serial Wombat Blink Output.  
@@ -53,14 +53,16 @@ class SerialWombatBlink : public SerialWombatPin
 {
 public:
 	/*!
-    \brief Constructor for SerialWombatBlink class
-    \param serialWombat SerialWombat  chip on which the Blink output will run
+    @brief Constructor for SerialWombatBlink class
+    @param serialWombat SerialWombat  chip on which the Blink output will run
     */
     SerialWombatBlink(SerialWombatChip& serialWombat) :SerialWombatPin(serialWombat) {}
 
 	/*!
-    \brief Initialize a pin that has been declared as Blink. 
-   \param publicDataSource Pin that will cause a blink if it changes.
+    @brief Initialize a pin that has been declared as Blink. 
+    @param pin  Pin to initialize to Blink mode.
+   @param publicDataSource Pin that will cause a blink if it changes.
+      @returns 0 if successful, non-zero otherwise.
    */
     int16_t begin(uint8_t pin, uint8_t publicDataSource)
 	{
@@ -70,8 +72,10 @@ public:
 	}
 
     /*!
-    \brief Initialize a pin that has been declared as Blink. 
-   \param publicDataSource Pin that will cause a blink if it changes.
+    @brief Initialize a pin that has been declared as Blink. 
+    @param pin  Pin to initialize to Blink mode.
+   @param publicDataSource Pin that will cause a blink if it changes.
+   @returns 0 if successful, non-zero otherwise.
    */
     int16_t begin(uint8_t pin, SerialWombatDataSource publicDataSource)
 	{

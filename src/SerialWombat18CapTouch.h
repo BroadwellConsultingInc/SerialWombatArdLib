@@ -133,10 +133,12 @@ public:
 	pin report digitally rather than analog.  See video and example
 	for calibration routine.
 	
-	\param touchLimit The calibrated value below which an A/D reading indicates touch present
-	\param noTouchLimit The calibrated value above which an A/D reading indicates no touch present
-	\param invert Invert the touch result
-	\param debounceCount number of consecutive digital samples that must match to change state
+	@param touchLimit The calibrated value below which an A/D reading indicates touch present
+	@param noTouchLimit The calibrated value above which an A/D reading indicates no touch present
+	@param touchValue The value to output when touched
+	@param noTouchValue The value to output when not touched
+	@param invert Invert the touch result
+	@param debounceCount number of consecutive digital samples that must match to change state
 	*/
 	int16_t makeDigital(uint16_t touchLimit, uint16_t noTouchLimit, uint16_t touchValue, uint16_t noTouchValue, bool invert,uint16_t debounceCount)
 	{

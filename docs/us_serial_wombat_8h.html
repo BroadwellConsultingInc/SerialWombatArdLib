@@ -686,6 +686,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a2d1a78b3db4f2690a984a78b0bd7603c"><td class="mdescLeft">&#160;</td><td class="mdescRight">a sample error handler that can be registered with registerErrorHandler to report protocol errors on Serial.  <br /></td></tr>
 <tr class="separator:a2d1a78b3db4f2690a984a78b0bd7603c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98ffb182b50442e4016499ec4eb747bf" id="r_a98ffb182b50442e4016499ec4eb747bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98ffb182b50442e4016499ec4eb747bf">SerialWombatSerialErrorHandlerVerbose</a> (uint16_t error, <a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> *sw)</td></tr>
+<tr class="memdesc:a98ffb182b50442e4016499ec4eb747bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">a sample error handler that can be registered with registerErrorHandler to report protocol errors on Serial.  <br /></td></tr>
 <tr class="separator:a98ffb182b50442e4016499ec4eb747bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -1366,7 +1367,7 @@ Functions</h2></td></tr>
 <p>Do not use this when using Serial to control the Serial Wombat Chip </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">error</td><td>The error number that was reported </td></tr>
-    <tr><td class="paramname">pointer</td><td>to the Serial Wombat Chip instance that generated the error </td></tr>
+    <tr><td class="paramname">sw</td><td>to the Serial Wombat Chip instance that generated the error </td></tr>
   </table>
   </dd>
 </dl>
@@ -1393,6 +1394,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>a sample error handler that can be registered with registerErrorHandler to report protocol errors on Serial. </p>
+<p>Do not use this when using Serial to control the Serial Wombat Chip </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">error</td><td>The error number that was reported </td></tr>
+    <tr><td class="paramname">sw</td><td>to the Serial Wombat Chip instance that generated the error </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

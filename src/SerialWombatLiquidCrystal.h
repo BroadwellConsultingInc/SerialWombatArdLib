@@ -130,7 +130,7 @@ public:
 	By default this function delays 2 to 3 mS after issuing the command to be compatible with LiquidCrystal::clear
 	This library adds an optional parameter that eliminates this delay.
 	
-	@param delay Whether or not to block for 2mS after issuing the command
+	@param delayAfterClear Whether or not to block for 2mS after issuing the command
 	@return returns a number 0 or greater for success, negative numbers indicate an error occured.
 	*/
 	int16_t clear(bool delayAfterClear = true)
@@ -149,7 +149,7 @@ public:
 	By default this function delays 2 to 3 mS after issuing the command to be compatible with LiquidCrystal::home
 	This library adds an optional parameter that eliminates this delay.
 
-	@param delay Whether or not to block for 2mS after issuing the command
+	@param delayAfterHome Whether or not to block for 2mS after issuing the command
 
 	@return returns a number 0 or greater for success, negative numbers indicate an error occured.
 	*/

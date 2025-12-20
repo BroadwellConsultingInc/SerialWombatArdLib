@@ -77,10 +77,10 @@ public:
 
 	/*!	
 	@brief Initialization routine for SerialWombatHSCounter
-	
-	@param pin 
-	@param 
-	@param 
+	@param pin The pin number on the Serial Wombat chip to use for the high speed counter
+	@param publicDataOutput The type of data to output in the public data buffer.  Defaults to FREQUENCY_ON_LTH_TRANSITION
+	@param framesBetweenUpdates The number of 1ms frames between updates to the public data buffer.  Defaults to 100ms
+	@param publicOutputDivisor A divisor that's applied to the counter or frequency before it's copied to the public data buffer.  Defaults to 1
 	*/
 	int16_t begin(uint8_t pin, SerialWombatHSCounter::publicDataOutput publicDataOutput = publicDataOutput::FREQUENCY_ON_LTH_TRANSITION ,uint16_t framesBetweenUpdates = 100, uint16_t publicOutputDivisor = 1)
 	{

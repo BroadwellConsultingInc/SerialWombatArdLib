@@ -85,9 +85,8 @@ public:
 	\brief Set output pin High or Low
 	
 	Before calling this function, the pin should be configured as an input or output with pinMode()
-	\param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3
-	\param val  Valid values are HIGH or LOW
-	not use SW_INPUT, SW_HIGH or SW_LOW here, as these have different meanings
+	\param val  Valid values are HIGH or LOW, as defined by arduino.
+	do not use SW_INPUT, SW_HIGH or SW_LOW here, as these have different meanings
 */
 	void digitalWrite(uint8_t val)
 	{

@@ -55,7 +55,7 @@ VGA Green (VGA Pin 3) -> 280 ohm Resistor -> SW Pin 14
 Thank you to Nick Gammon who published a very informative article on driving a VGA monitor here:
 http://www.gammon.com.au/forum/?id=11608
 
-\warn This pin mode stretches the limits of what the SW18AB chip can do while still being able to do other things - some flicker / jitter is to be expected
+\warning This pin mode stretches the limits of what the SW18AB chip can do while still being able to do other things - some flicker / jitter is to be expected
 
 The rate at which the display can be updated is slower than with a hardware connected LCD or OLED.  The Serial Wombat protocol's 8 byte in / 8 byte out 
 packet structure is not ideal for moving large blocks of data such as screen pixel data.  This mode is better suited to data displays than

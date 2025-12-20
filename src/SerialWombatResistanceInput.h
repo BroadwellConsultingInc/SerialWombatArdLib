@@ -77,7 +77,7 @@ public:
 	/*!
 	@brief Constructor for the SerialWombatResistanceInput class.
 	
-	@param SerialWombat a reference to the Serial Wombat chip on which the Resistance Input will be measured
+	@param serialWombatChip a reference to the Serial Wombat chip on which the Resistance Input will be measured
 	*/
 	SerialWombatResistanceInput(SerialWombatChip& serialWombatChip):SerialWombatPin(serialWombatChip), SerialWombatAbstractProcessedInput(serialWombatChip){}
 
@@ -126,10 +126,10 @@ public:
 	@param publicDataOutput What to output as pin public data
 	@return Returns a negative error code if initialization failed.
 	*/
-	int16_t begin(uint8_t pin, uint16_t averageSamples, uint16_t filterConstant, ResistanceInputPublicDataOutput output)
+	int16_t begin(uint8_t pin, uint16_t averageSamples, uint16_t filterConstant, ResistanceInputPublicDataOutput publicDataOutput)
 	{
 		begin(pin);
-		uint8_t tx[] = { 201,_pin,PIN_MODE_RESISTANCEINPUT,SW_LE16(averageSamples) ,SW_LE16(filterConstant),(uint8_t)output };
+		uint8_t tx[] = { 201,_pin,PIN_MODE_RESISTANCEINPUT,SW_LE16(averageSamples) ,SW_LE16(filterConstant),(uint8_t)publicDataOutput };
 		return _sw.sendPacket(tx);
 	}
 

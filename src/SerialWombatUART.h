@@ -487,7 +487,7 @@ public:
 	@param pin  The pin that will host the state machine.  This can be either the rxPin or txPin
 	@param rxPin The pin that will receive.  All 4 pins on the SW4B may be used.  255 if no receive function is needed
 	@param txPin The pin that will transmit.  Valid values for the SW4B are 1-3.  255 if no transmit function is needed
-	@param userMemoryoffset The offset into User Memory where the software storage queues begin
+	@param userMemoryOffset The offset into User Memory where the software storage queues begin
 	@param rxLength The length in bytes of the on-chip rx queue (can be 0 if rxPin == 255).  
 	@param txLength The length in bytes of the on-chip tx queue (can be 0 if txPin == 255).  
 	*/

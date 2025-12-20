@@ -91,7 +91,7 @@ public:
 	\param digits The number of digits in the display.  This is used to optimze displays shorter than 6 digits
 	\param mode  The mode (decimal, hex, char array, raw or animation) of the display driver
 	\param dataSourcePin if in decimal or hex mode, the pin from which the 16 bit data will be read.  Set this to the clkPin setting if you want to be able to write 16 bit (5 digit) numbers using the SerialWombat.writePublicData() function.  Numbers larger than 65535 must be written as strings using the Character Mode
-	\param Brightness - a value from 0 (dimmest) to 7 (brightest) based on the TM1637 hardware.  This scale is not linear.
+	\param brightness0to7 - a value from 0 (dimmest) to 7 (brightest) based on the TM1637 hardware.  This scale is not linear.
 	*/
 	int16_t begin(uint8_t clkPin, uint8_t dioPin, uint8_t digits, SWTM1637Mode mode, uint8_t dataSourcePin, uint8_t brightness0to7)
 	{

@@ -63,9 +63,9 @@ class SerialWombatHSClock :  public SerialWombatPin
 		public: 
 		/*!
 		@brief Class constructor for SerialWombatHSClock pin mode 
-		@param serialWombat The Serial Wombat chip on which the SerialWombatLiquidCrystal pin mode will run SerialWombatHSClock(SerialWombatChip& serialWombat); 
+		@param serialWombatChip The Serial Wombat chip on which the SerialWombatLiquidCrystal pin mode will run SerialWombatHSClock(SerialWombatChip& serialWombat); 
 		*/
-			SerialWombatHSClock(SerialWombatChip &sw):SerialWombatPin(sw){}
+			SerialWombatHSClock(SerialWombatChip &serialWombatChip):SerialWombatPin(serialWombatChip){}
 
 	/*!
 	/// @brief Begin outputing a clock at a frequency on a specified pin

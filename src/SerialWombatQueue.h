@@ -55,6 +55,7 @@ public:
     ///
     /// \param index  An index in bytes for the beginning of the Queue location in Serial Wombat User Memory Area
     /// \param length The length in bytes of avaialble queue space
+	/// \param qtype  The type of queue to initialize (SerialWombatQueueType::QUEUE_TYPE_RAM_BYTE or SerialWombatQueueType::QUEUE_TYPE_RAM_BYTE_SHIFT)
     /// \return A positive number indicating the number of bytes used in User Memory Area (Will be more than
     /// length due to queue management variables) or a negative number indicating an error code.
     	*/

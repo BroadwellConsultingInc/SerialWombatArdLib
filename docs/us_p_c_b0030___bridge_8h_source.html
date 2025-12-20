@@ -134,54 +134,54 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span></div>
-<div class="foldopen" id="foldopen00082" data-start="{" data-end="}">
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="class_p_c_b0030___bridge.html#a167f520e9b6099aa409e4e13f62684ba">   82</a></span>    int16_t <a class="code hl_function" href="class_p_c_b0030___bridge.html#a167f520e9b6099aa409e4e13f62684ba">begin</a>(uint8_t i2cAddress,<span class="keywordtype">bool</span> pin3IsVoltage = <span class="keyword">false</span>, uint16_t pwmFrequency = 1000)</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    {</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_function" href="class_serial_wombat_chip.html#a8e8bbf0b6d51f4cabc64413b80979043">SerialWombatChip::begin</a>(Wire, i2cAddress, <span class="keyword">true</span>);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <a class="code hl_variable" href="class_p_c_b0030___bridge.html#ab4998f3509999ce4555e0d59d10d8354">hBridge45</a>.begin(4, 5, pwmFrequency,<a class="code hl_enumvalue" href="us_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faad6e9fcb03e039b5a1a51890f5658eddb">HBRIDGE_OFF_BOTH_HIGH</a>); <span class="comment">// Short Brake mode</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <a class="code hl_variable" href="class_p_c_b0030___bridge.html#aa6c14256610c355be3527c0ab6875b40">hBridge67</a>.begin(6, 7, pwmFrequency,<a class="code hl_enumvalue" href="us_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faad6e9fcb03e039b5a1a51890f5658eddb">HBRIDGE_OFF_BOTH_HIGH</a>); <span class="comment">// Short Brake mode</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">if</span> (pin3IsVoltage)</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        {</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <a class="code hl_variable" href="class_p_c_b0030___bridge.html#a2fb0deb6d57d7e96db1b9ac86530f90b">powerVoltage</a>.begin(3);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            pin3VoltageEnable = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        }</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keywordflow">return</span> (0);</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="class_p_c_b0030___bridge.html#a167f520e9b6099aa409e4e13f62684ba">   83</a></span>    int16_t <a class="code hl_function" href="class_p_c_b0030___bridge.html#a167f520e9b6099aa409e4e13f62684ba">begin</a>(uint8_t i2cAddress,<span class="keywordtype">bool</span> pin3IsVoltage = <span class="keyword">false</span>, uint16_t pwmFrequency = 1000)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_function" href="class_serial_wombat_chip.html#a8e8bbf0b6d51f4cabc64413b80979043">SerialWombatChip::begin</a>(Wire, i2cAddress, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <a class="code hl_variable" href="class_p_c_b0030___bridge.html#ab4998f3509999ce4555e0d59d10d8354">hBridge45</a>.begin(4, 5, pwmFrequency,<a class="code hl_enumvalue" href="us_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faad6e9fcb03e039b5a1a51890f5658eddb">HBRIDGE_OFF_BOTH_HIGH</a>); <span class="comment">// Short Brake mode</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <a class="code hl_variable" href="class_p_c_b0030___bridge.html#aa6c14256610c355be3527c0ab6875b40">hBridge67</a>.begin(6, 7, pwmFrequency,<a class="code hl_enumvalue" href="us_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faad6e9fcb03e039b5a1a51890f5658eddb">HBRIDGE_OFF_BOTH_HIGH</a>); <span class="comment">// Short Brake mode</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordflow">if</span> (pin3IsVoltage)</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <a class="code hl_variable" href="class_p_c_b0030___bridge.html#a2fb0deb6d57d7e96db1b9ac86530f90b">powerVoltage</a>.begin(3);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            pin3VoltageEnable = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
 </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span></div>
-<div class="foldopen" id="foldopen00108" data-start="{" data-end="}">
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="class_p_c_b0030___bridge.html#a3481982db89d3aa2fb8c3d60e2e5f222">  108</a></span>    uint16_t <a class="code hl_function" href="class_p_c_b0030___bridge.html#a3481982db89d3aa2fb8c3d60e2e5f222">readPowerVoltage_mv</a>()</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    {</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="keywordflow">if</span> (pin3VoltageEnable)</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        {</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            uint32_t v = <a class="code hl_variable" href="class_p_c_b0030___bridge.html#a2fb0deb6d57d7e96db1b9ac86530f90b">powerVoltage</a>.readAveraged_mV();</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            v *= (8200 + 2000);  <span class="comment">// Board has an 8200 / 2000 ohm voltage divider</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            v /= 2000;</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            <span class="keywordflow">return</span> ((uint16_t)v);</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        }</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="keywordflow">return</span> (0);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span></div>
+<div class="foldopen" id="foldopen00109" data-start="{" data-end="}">
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="class_p_c_b0030___bridge.html#a3481982db89d3aa2fb8c3d60e2e5f222">  109</a></span>    uint16_t <a class="code hl_function" href="class_p_c_b0030___bridge.html#a3481982db89d3aa2fb8c3d60e2e5f222">readPowerVoltage_mv</a>()</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keywordflow">if</span> (pin3VoltageEnable)</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            uint32_t v = <a class="code hl_variable" href="class_p_c_b0030___bridge.html#a2fb0deb6d57d7e96db1b9ac86530f90b">powerVoltage</a>.readAveraged_mV();</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            v *= (8200 + 2000);  <span class="comment">// Board has an 8200 / 2000 ohm voltage divider</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            v /= 2000;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            <span class="keywordflow">return</span> ((uint16_t)v);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    }</div>
 </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">bool</span> pin3VoltageEnable = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>};</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">bool</span> pin3VoltageEnable = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>};</div>
 </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
 <div class="ttc" id="a_serial_wombat_8h_html"><div class="ttname"><a href="us_serial_wombat_8h.html">SerialWombat.h</a></div></div>
 <div class="ttc" id="a_serial_wombat_h_bridge_8h_html_a0fc65e8ee1c1305c3309fa257c4467faad6e9fcb03e039b5a1a51890f5658eddb"><div class="ttname"><a href="us_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faad6e9fcb03e039b5a1a51890f5658eddb">HBRIDGE_OFF_BOTH_HIGH</a></div><div class="ttdeci">@ HBRIDGE_OFF_BOTH_HIGH</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_h_bridge_8h_source.html#l00036">SerialWombatHBridge.h:36</a></div></div>
-<div class="ttc" id="aclass_p_c_b0030___bridge_html_a167f520e9b6099aa409e4e13f62684ba"><div class="ttname"><a href="class_p_c_b0030___bridge.html#a167f520e9b6099aa409e4e13f62684ba">PCB0030_Bridge::begin</a></div><div class="ttdeci">int16_t begin(uint8_t i2cAddress, bool pin3IsVoltage=false, uint16_t pwmFrequency=1000)</div><div class="ttdoc">Initialize a PCB0030_Bridge pcb on a given I2C address.</div><div class="ttdef"><b>Definition</b> <a href="#l00082">PCB0030_Bridge.h:82</a></div></div>
+<div class="ttc" id="aclass_p_c_b0030___bridge_html_a167f520e9b6099aa409e4e13f62684ba"><div class="ttname"><a href="class_p_c_b0030___bridge.html#a167f520e9b6099aa409e4e13f62684ba">PCB0030_Bridge::begin</a></div><div class="ttdeci">int16_t begin(uint8_t i2cAddress, bool pin3IsVoltage=false, uint16_t pwmFrequency=1000)</div><div class="ttdoc">Initialize a PCB0030_Bridge pcb on a given I2C address.</div><div class="ttdef"><b>Definition</b> <a href="#l00083">PCB0030_Bridge.h:83</a></div></div>
 <div class="ttc" id="aclass_p_c_b0030___bridge_html_a2fb0deb6d57d7e96db1b9ac86530f90b"><div class="ttname"><a href="class_p_c_b0030___bridge.html#a2fb0deb6d57d7e96db1b9ac86530f90b">PCB0030_Bridge::powerVoltage</a></div><div class="ttdeci">SerialWombatAnalogInput_18AB powerVoltage</div><div class="ttdef"><b>Definition</b> <a href="#l00068">PCB0030_Bridge.h:68</a></div></div>
-<div class="ttc" id="aclass_p_c_b0030___bridge_html_a3481982db89d3aa2fb8c3d60e2e5f222"><div class="ttname"><a href="class_p_c_b0030___bridge.html#a3481982db89d3aa2fb8c3d60e2e5f222">PCB0030_Bridge::readPowerVoltage_mv</a></div><div class="ttdeci">uint16_t readPowerVoltage_mv()</div><div class="ttdoc">Returns the voltage provided to the Bridge in mV.</div><div class="ttdef"><b>Definition</b> <a href="#l00108">PCB0030_Bridge.h:108</a></div></div>
+<div class="ttc" id="aclass_p_c_b0030___bridge_html_a3481982db89d3aa2fb8c3d60e2e5f222"><div class="ttname"><a href="class_p_c_b0030___bridge.html#a3481982db89d3aa2fb8c3d60e2e5f222">PCB0030_Bridge::readPowerVoltage_mv</a></div><div class="ttdeci">uint16_t readPowerVoltage_mv()</div><div class="ttdoc">Returns the voltage provided to the Bridge in mV.</div><div class="ttdef"><b>Definition</b> <a href="#l00109">PCB0030_Bridge.h:109</a></div></div>
 <div class="ttc" id="aclass_p_c_b0030___bridge_html_aa6c14256610c355be3527c0ab6875b40"><div class="ttname"><a href="class_p_c_b0030___bridge.html#aa6c14256610c355be3527c0ab6875b40">PCB0030_Bridge::hBridge67</a></div><div class="ttdeci">SerialWombatHBridge hBridge67</div><div class="ttdef"><b>Definition</b> <a href="#l00067">PCB0030_Bridge.h:67</a></div></div>
 <div class="ttc" id="aclass_p_c_b0030___bridge_html_ab4998f3509999ce4555e0d59d10d8354"><div class="ttname"><a href="class_p_c_b0030___bridge.html#ab4998f3509999ce4555e0d59d10d8354">PCB0030_Bridge::hBridge45</a></div><div class="ttdeci">SerialWombatHBridge hBridge45</div><div class="ttdef"><b>Definition</b> <a href="#l00067">PCB0030_Bridge.h:67</a></div></div>
 <div class="ttc" id="aclass_p_c_b0030___bridge_html_aed2a7f61d93fb11893f109cfef57d50b"><div class="ttname"><a href="class_p_c_b0030___bridge.html#aed2a7f61d93fb11893f109cfef57d50b">PCB0030_Bridge::PCB0030_Bridge</a></div><div class="ttdeci">PCB0030_Bridge()</div><div class="ttdef"><b>Definition</b> <a href="#l00064">PCB0030_Bridge.h:64</a></div></div>
 <div class="ttc" id="aclass_serial_wombat_analog_input__18_a_b_html"><div class="ttname"><a href="class_serial_wombat_analog_input__18_a_b.html">SerialWombatAnalogInput_18AB</a></div><div class="ttdoc">This class extends SerialWombatAnalogInput with SW18AB specific capabilities.</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_analog_input_8h_source.html#l00316">SerialWombatAnalogInput.h:317</a></div></div>
 <div class="ttc" id="aclass_serial_wombat_chip_html_a1a715682d0bb31179ec9d3540599fe8d"><div class="ttname"><a href="class_serial_wombat_chip.html#a1a715682d0bb31179ec9d3540599fe8d">SerialWombatChip::SerialWombatChip</a></div><div class="ttdeci">SerialWombatChip()</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_8cpp_source.html#l00031">SerialWombat.cpp:31</a></div></div>
-<div class="ttc" id="aclass_serial_wombat_chip_html_a8e8bbf0b6d51f4cabc64413b80979043"><div class="ttname"><a href="class_serial_wombat_chip.html#a8e8bbf0b6d51f4cabc64413b80979043">SerialWombatChip::begin</a></div><div class="ttdeci">int16_t begin(HardwareSerial &amp;serial, bool reset=true)</div><div class="ttdoc">initialize a Serial Wombat chip to use a Serial Interface.</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_8h_source.html#l00504">SerialWombat.h:504</a></div></div>
+<div class="ttc" id="aclass_serial_wombat_chip_html_a8e8bbf0b6d51f4cabc64413b80979043"><div class="ttname"><a href="class_serial_wombat_chip.html#a8e8bbf0b6d51f4cabc64413b80979043">SerialWombatChip::begin</a></div><div class="ttdeci">int16_t begin(HardwareSerial &amp;serial, bool reset=true)</div><div class="ttdoc">initialize a Serial Wombat chip to use a Serial Interface.</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_8h_source.html#l00548">SerialWombat.h:548</a></div></div>
 <div class="ttc" id="aclass_serial_wombat_h_bridge_html"><div class="ttname"><a href="class_serial_wombat_h_bridge.html">SerialWombatHBridge</a></div><div class="ttdoc">A class representing a Serial Wombat H Bridge Output.</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_h_bridge_8h_source.html#l00048">SerialWombatHBridge.h:49</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

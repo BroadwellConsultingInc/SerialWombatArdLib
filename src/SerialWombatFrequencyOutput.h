@@ -61,17 +61,17 @@ class SerialWombatFrequencyOutput : public SerialWombatPin
 {
 public:
 	/*!
-    \brief Constructor for SerialWombatFrequencyOutput class
-    \param serialWombat SerialWombat  chip on which the FrequencyOutput will run
+    @brief Constructor for SerialWombatFrequencyOutput class
+    @param serialWombat SerialWombat  chip on which the FrequencyOutput will run
     */
     SerialWombatFrequencyOutput(SerialWombatChip& serialWombat) :SerialWombatPin(serialWombat) {}
 
 	/*!
-    \brief Initialize a pin that has been declared as FrequencyOutput. 
-   \param pin Pin to use for Frequency Output.  Use an enhanced Digital Capability pin for high frequencies
-   \param maxFrequency_Hz  Maximum frequency to be output (used to pick best timing hardware)
-   \param lowFrequency  Set to true if signals slower than 20Hz need to be generated.  Has negative effect on higher frequencies
-   \param dutyCycle  Duty cycle of frequency to be output
+    @brief Initialize a pin that has been declared as FrequencyOutput. 
+   @param pin Pin to use for Frequency Output.  Use an enhanced Digital Capability pin for high frequencies
+   @param maxFrequency_Hz  Maximum frequency to be output (used to pick best timing hardware)
+   @param lowFrequency  Set to true if signals slower than 20Hz need to be generated.  Has negative effect on higher frequencies
+   @param dutyCycle  Duty cycle of frequency to be output
    */
     int16_t begin(uint8_t pin, uint16_t maxFrequency_Hz = 65535, bool lowFrequency = false,  uint16_t dutyCycle = 0x8000)
 	{
@@ -95,16 +95,16 @@ public:
 
 
     /*!
-    \brief fulfills a virtual function requirement of SerialWombatAbstractScaledOutput
-    \return current pin number
+    @brief fulfills a virtual function requirement of SerialWombatAbstractScaledOutput
+    @return current pin number
     */
     uint8_t pin()
 {
 	return SerialWombatPin::_pin;
 }
     /*!
-    \brief fulfills a virtual function requirement of SerialWombatAbstractScaledOutput
-    \return current pin mode number
+    @brief fulfills a virtual function requirement of SerialWombatAbstractScaledOutput
+    @return current pin mode number
     */
     uint8_t swPinModeNumber()
 	{

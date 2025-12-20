@@ -81,9 +81,9 @@ class SerialWombatAnalogInput : public SerialWombatPin
 {
 public:
 	/*!
-	\brief Constructor for the SerialWombatAnalogInput class.
+	@brief Constructor for the SerialWombatAnalogInput class.
 	
-	\param SerialWombatChip a reference to the Serial Wombat chip on which the Analog Input will be measured
+	@param SerialWombatChip a reference to the Serial Wombat chip on which the Analog Input will be measured
 	*/
 	SerialWombatAnalogInput(SerialWombatChip& SerialWombatChip):SerialWombatPin(SerialWombatChip){}
 
@@ -92,24 +92,24 @@ public:
 	
 
 	/*!
-	\brief Initialize an analog input on a given pin.
+	@brief Initialize an analog input on a given pin.
 	
-	\param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3 SW18AB: 0-4 and 16-19 
-	\param averageSamples Number of samples to average.  Valid values for SW4A and SW4B are 0 or 64.
+	@param pin The Serial Wombat pin to set.  Valid values for SW4A: 0-3  SW4B: 1-3 SW18AB: 0-4 and 16-19 
+	@param averageSamples Number of samples to average.  Valid values for SW4A and SW4B are 0 or 64.
 	All non-zero values will be treated as 64 on these platforms.  Default is 64.
-	\param filterConstant First Order IIR filter constant, expressed as 1/65536ths .  Default is 65508
+	@param filterConstant First Order IIR filter constant, expressed as 1/65536ths .  Default is 65508
 	Values closer to 65536 give heavier filtering.  Sample frequency is 1kHz.
-	\param publicDataOutput What to output as pin public data.  Default is raw.
-	\return Returns a negative error code if initialization failed.
+	@param publicDataOutput What to output as pin public data.  Default is raw.
+	@return Returns a negative error code if initialization failed.
 	*/
-	int16_t begin(uint8_t pin, uint16_t averageSamples = 64, uint16_t filterConstant = 0xFF80, AnalogInputPublicDataOutput output = AnalogInputPublicDataOutput::AnalogInputPublicDataOutput_Raw)
+	int16_t begin(uint8_t pin, uint16_t averageSamples = 64, uint16_t filterConstant = 0xFF80, AnalogInputPublicDataOutput publicDataOutput = AnalogInputPublicDataOutput::AnalogInputPublicDataOutput_Raw)
 	{
 		_pin = pin;
 		_pinMode = PIN_MODE_ANALOGINPUT;
 		int16_t result = initPacketNoResponse(0,0,0,0,0,0);
 		if (result < 0) { return result; }
 		//uint8_t tx1[] = { 201,_pin,PIN_MODE_ANALOGINPUT,SW_LE16(averageSamples) ,SW_LE16(filterConstant),(uint8_t)output };
-		return initPacketNoResponse(1,averageSamples,filterConstant,(uint8_t)output);
+		return initPacketNoResponse(1,averageSamples,filterConstant,(uint8_t)publicDataOutput);
 	}
 
 

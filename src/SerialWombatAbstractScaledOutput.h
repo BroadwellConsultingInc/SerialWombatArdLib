@@ -152,8 +152,8 @@ public:
 	 in between will be scaled accordingly.  This allows a sensor or other input device to scale to the
 	 Serial Wombat philosophy of using a 16 bit resolution number to represent the the possible range of values
 	
-	 \param min The minimum value of the input range.  Input values less than or equal to that will be scaled to 0
-	 \param max The maximum value of the input range.  Input values greater or equal to that will be scaled to 65535
+	 \param inputMin The minimum value of the input range.  Input values less than or equal to that will be scaled to 0
+	 \param inputMax The maximum value of the input range.  Input values greater or equal to that will be scaled to 65535
 	 \return returns 0 or higher if success, or a negative error code
 	*/
 	int16_t writeInputScaling(uint16_t inputMin, uint16_t inputMax)
@@ -238,7 +238,7 @@ public:
 	}
 
 	/*!
-	 \begin Controls how fast an ouput can change in counts
+	 \brief Controls how fast an ouput can change in counts
 	
 	 This function allows configuration of how fast an output's value is allowed
 	 to change in counts on a 0-65535 scale.  The Rate control runs on a fixed
@@ -248,6 +248,7 @@ public:
 	
 	 \param samplePeriod How often the output is updated (enumerated type)
 	 \param maximumChangecounts The maximum number of counts of change allowed over samplePeriod
+	 \param maximumDecrementCounts The maximum number of counts of decrement allowed over samplePeriod.  0 = maximumChangecounts
 	 \return returns 0 or higher if success, or a negative error code
 	*/
 	int16_t writeRateControl(Period samplePeriod, uint16_t maximumChangecounts, uint16_t maximumDecrementCounts = 0)
@@ -293,7 +294,7 @@ public:
 	}
 
 	/*!
-	 \begin Controls how fast an ouput can change based on filtering 
+	 \brief Controls how fast an ouput can change based on filtering 
 	
 	 This function allows configuration of how fast an output's value is allowed
 	 to change based on a first order filter.  The Rate control runs on a fixed
@@ -305,7 +306,7 @@ public:
 	 \param filterConstant A value from 0 to 65535 indicating the amount of filtering.  Higher is more filtering.
 	 \return returns 0 or higher if success, or a negative error code
 	*/
-	int16_t write1stOrderFiltering(Period sampleRate, uint16_t filterConstant)
+	int16_t write1stOrderFiltering(Period samplePeriod, uint16_t filterConstant)
 	{
 		{
 			uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
@@ -326,7 +327,7 @@ public:
 			pin(),
 			swPinModeNumber(),
 			7, // Set Sample Rate
-			(uint8_t)sampleRate,
+			(uint8_t)samplePeriod,
 			0x55,0x55,0x55,
 			};
 			return(_asosw.sendPacket(tx));
@@ -471,6 +472,8 @@ public:
 	 \param kd  The derivative contant applied to the derivative.  This value is scaled to 1/16384.  
 	 \param target  The value the output will attempt to control the input to
 	 \param samplePeriod an enumerated time for how often the PID controller updates.  This value should be based on how fast the system responds to change in output so that integral and derivative terms work correctly.
+	 \param targetPin  The pin number or public data id that should be read to get the target value from.  If set to 255 the target value is read from the target value provided by the host.
+	 \param biDirectional If true then the output can go up or down to chase the input, and 32768 is neutral instead of 0.
 	 \return returns 0 or higher if success, or a negative error code
 	 */
 	int16_t writePID(uint16_t kp, uint16_t ki, uint16_t kd,uint16_t target,Period samplePeriod, uint8_t targetPin = 255, bool biDirectional = false)

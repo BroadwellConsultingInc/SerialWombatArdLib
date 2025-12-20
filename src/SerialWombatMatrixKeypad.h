@@ -182,7 +182,7 @@ rowTiming,
     /*!
     @brief  Change the default ASCII output for each key
    
-	By default the keypad outputs 123A / 456B / 789C / *0#D
+	By default the keypad outputs 123A / 456B / 789C / *0 # D
 	This can be changed by calling this function.  Each call
 	sets one byte in a 16 byte array changing the output.
 	For example, the pin which normally outputs B could be made to

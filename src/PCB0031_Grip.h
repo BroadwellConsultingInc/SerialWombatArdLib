@@ -54,7 +54,7 @@ public:
 	/*!
 	\brief Constructor for the GripACS712 Class
 	
-	@param sw A reference to a previously declared SerialWombatChip to which the Servo is connected.
+	@param serialWombatChip A reference to a previously declared SerialWombatChip to which the Servo is connected.
 	*/
 	GripACS712(SerialWombatChip& serialWombatChip) :SerialWombatAnalogInput_18AB(serialWombatChip) {}
 
@@ -142,7 +142,7 @@ public:
 	/*!
 	@brief Constructor for the GripServo Class
 	
-	@param sw A reference to a previously declared SerialWombatChip to which the Servo is connected.
+	@param serialWombatChip A reference to a previously declared SerialWombatChip to which the Servo is connected.
 	*/
 	GripServo(SerialWombatChip & serialWombatChip):SerialWombatServo_18AB(serialWombatChip), sensor(serialWombatChip)
 	{
@@ -321,6 +321,7 @@ public:
 	assembly can be damaged by attempts to move the servo through its full 180 degrees of motion
 
 	@param reverse   Reverse the direction of the servo.
+	@param rangeConstant A constant to scale the range of motion of the servo.  The default value works well for an SG90 servo.
 
 	This is a blocking function that takes a few seconds to complete.
 	

@@ -1,6 +1,6 @@
 #pragma once
 /*
-Copyright 2021 Broadwell Consulting Inc.
+Copyright 2021-2025 Broadwell Consulting Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -228,7 +228,7 @@ public:
 	/*!
 	\brief Set how long an animation frame should be displayed before moving to the next frame
 	\param frame The index of the frame being set
-	\param dealy_mS the amount of time to display the frame in mS
+	\param delay_mS the amount of time to display the frame in mS
 	\return 0 or higher for success or a negative number indicating an error code from the Serial Wombat chip.
 	*/
 	int16_t writeAnimationFrameDelay(uint8_t frame, uint16_t delay_mS)

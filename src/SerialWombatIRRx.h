@@ -57,25 +57,23 @@ class SerialWombatIRRx :
 
 		/*!
 		  @brief Constructor for the SerialWombatIRRx class.  
-		  @param serialWombat The Serial Wombat Chip on which the SerialWombatUART instance will run.
+		  @param serialWombatChip The Serial Wombat Chip on which the SerialWombatUART instance will run.
 		  */
-		SerialWombatIRRx(SerialWombatChip &sw ):SerialWombatPin(sw)
+		SerialWombatIRRx(SerialWombatChip &serialWombatChip ):SerialWombatPin(serialWombatChip)
 	{
 	}
 		/*!
 		  @brief Initalize the SerialWombatIRRx.  
-		  @param controlPin Keypad scanning transitions will occur while this pin is being serviced by the Serial Wombat executive.  Typically this will be the same as the row0 pin
-		  @param row0pin pin attached to the topmost keypad row.  On many marked keypads this row has 1,2,3 and A in it.  Enter 255 if this column is unused
-		  @param row1pin pin attached to the topcenter keypad row.  On many marked keypads this row has 4,5,6 and B in it.  Enter 255 if this row is unused
-		  @param row2pin pin attached to the topmost keypad row.  On many marked keypads this row has 7,8,9 and C in it.  Enter 255 if this row is unused
-		  @param row3pin pin attached to the topmost keypad row.  On many marked keypads this row has *,0,# and D in it.  Enter 255 if this row is unused
-		  @param column0pin pin attached to the leftmost keypad column.  On many marked keypads this column has 1,4,7 and * in it.  Enter 255 if this column is unused
-		  @param column1pin pin attached to the leftcenter keypad column.  On many marked keypads this column has 1,5,8 and 0 in it. Enter 255 if this column is unused
-		  @param column2pin pin attached to the rightcenter keypad column.  On many marked keypads this column has 3,5,9 and # in it. Enter 255 if this column is unused
-		  @param column3pin pin attached to the rightmost keypad column.  On many marked keypads this column has A,B,C and D in it. Enter 255 if this column is unused
-		  @param bufferMode 0: Public data is Binary of 16 keys (Default)  1:  Public data is last key index pressed  2:  Public data is last key pressed or 16 for no key index  3: Public data is Ascii of last key pressed 
-		  @param queueMode 0: Button presses are queued as indexes 1: Button Presses are queued as ASCII
-		  @param rowTiming  mS to delay after setting a pin row low before reading columns
+		  @param pin The Serial Wombat pin number to use for the IR receiver
+		  @param irMode 0 for NEC protocol, other values reserved for future protocols
+		  @param useRepeat If true, queue value on repeat commands
+		  @param activeState The state of the pin which indicates an active IR signal (SW_LOW or SW_HIGH)
+		  @param publicDataTimeoutPeriod_mS The number of milliseconds to wait for the next byte to be received before timing out
+		  @param publicDataTimeoutValue The value to return when a timeout occurs
+		  @param useAddressFilter If true, only queue commands from the specified address
+		  @param addressFilterValue The address to filter on if useAddressFilter is true
+		  @param dataOutput The type of data to output (COMMAND, ADDRESS, or DATACOUNT)
+		  @return 0 on success, negative value on error
 		  */
 		int16_t begin(
 				uint8_t pin, uint8_t irMode = 0, bool useRepeat = true, SerialWombatPinState_t activeState = SW_LOW,
@@ -121,7 +119,10 @@ class SerialWombatIRRx :
 
 		}
 
-
+		/*!
+		@brief Returns the number of bytes available in the SerialWombatIRRx queue
+		@return The number of bytes available
+		*/
 		int available()
 		{
 			uint8_t tx[8] = { 201, _pin, _pinMode, 0,0x55,0x55,0x55,0x55 };
@@ -158,8 +159,8 @@ class SerialWombatIRRx :
 			//TODO	
 		}
 		/*!
-		  \brief Query the SerialWombatIRRx queue for the next avaialble byte, but don't remove it from the queue
-		  \return A byte from 0-255, or -1 if no bytes were avaialble
+		  @brief Query the SerialWombatIRRx queue for the next avaialble byte, but don't remove it from the queue
+		  @return A byte from 0-255, or -1 if no bytes were avaialble
 		  */
 		int peek()
 		{
@@ -293,7 +294,10 @@ class SerialWombatIRRx :
 			return irrx;
 		}
 
-
+		/*!
+		@brief Returns the address of the last received IR command
+		@return The address as a uint16_t
+		*/
 		uint16_t readAddress()
 		{
 			uint8_t tx[8] = { 204, _pin,_pinMode, 0x55,0x55,0x55,0x55,0x55 };
@@ -305,6 +309,9 @@ class SerialWombatIRRx :
 			return returnVal;
 		}
 
+		/*!
+		@brief Returns the total number of queued commands (rolls over at 65535)
+		*/
 		uint16_t readDataCount()
 		{
 			uint8_t tx[8] = { 204, _pin,_pinMode, 0x55,0x55,0x55,0x55,0x55 };

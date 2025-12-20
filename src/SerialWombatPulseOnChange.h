@@ -96,6 +96,8 @@ public:
 	@brief Initialization routine for SerialWombatPulseOnChange
 	
 	@param pin The Serial Wombat pin that will pulse on change
+	@param activeMode The mode the pin will be set to when the true condition occurs.  Default is SW_HIGH
+	@param inactiveMode The mode the pin will be set to when the true condition does not occur.  Default is SW_LOW
 	@param pulseOnTime The Number of mS that the pulse will last when the true condition occurs.  Set to 65535 to stay on constantly until condition is false
 	@param pulseOffTime the number of mS that the pulse will stay off until another pulse can be triggered.
 	@param orNotAnd 0 = all initialized entries must be true to generate pulse.  1 = Any intitialized entry will generate a pulse if true

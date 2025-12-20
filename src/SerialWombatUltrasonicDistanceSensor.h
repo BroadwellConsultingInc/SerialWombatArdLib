@@ -67,6 +67,8 @@ public:
 	/// \param echoPin Pin used to time input pulses.  For 5V sensors, 5V tolerant pins 9,10,11,12, 14 and 15 are good choices
 	/// \param driver Chip used for distance measurement.  Currently only HC_SR04 is supported.
 	/// \param triggerPin Pin used for triggering the sensor.  If same as echo pin (e.g. 3 pin sensors) set equal to echoPin
+	/// \param autoTrigger If true, the sensor will be triggered automatically.  If false, manualTrigger() must be called to trigger a reading.
+	/// \param pullUp If true, an internal pullup resistor will be used on the echo pin.
 	/// \return 0 or higher if successful, negative error code if not successful.
 	int16_t begin(uint8_t echoPin, driver driver, uint8_t triggerPin,bool autoTrigger = true, bool pullUp = false)
 	{

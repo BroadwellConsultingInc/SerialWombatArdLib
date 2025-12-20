@@ -86,6 +86,15 @@ public:
             }
 }
 
+/*!
+@brief Enable or disable the Data Logger
+        @param enable True to enable the Data Logger, False to disable it
+        @return 0 on success or a negative number indicating an error code.
+
+        This function enables or disables the Data Logger.  Enable should be called after
+        begin() has been called to start logging data.
+        */
+
  int16_t enable(bool enable = true)
         {
             uint8_t tx[] = {(uint8_t)SerialWombatCommands::COMMAND_BINARY_CONFIG_DATALOGGER,
@@ -95,6 +104,13 @@ public:
             return (_sw.sendPacket(tx));
         }
 
+        /*@
+        @brief Configure an individual pin to be logged by the Data Logger
+        @param pin The Serial Wombat pin number to be configured    
+        @param queueLowByte True to queue the low byte of the pin's value, False to not queue it
+        @param queueHighByte True to queue the high byte of the pin's value, False to not queue it
+        @return 0 on success or a negative number indicating an error code.
+        */
         int16_t configurePin(uint8_t pin, bool queueLowByte, bool queueHighByte)
         {
             uint8_t tx[] = {(uint8_t)SerialWombatCommands::COMMAND_BINARY_CONFIG_DATALOGGER,

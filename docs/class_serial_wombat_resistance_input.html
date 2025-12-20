@@ -133,9 +133,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a43e279a52d50c966cebcfe2147be04b0" id="r_a43e279a52d50c966cebcfe2147be04b0"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43e279a52d50c966cebcfe2147be04b0">begin</a> (uint8_t <a class="el" href="#af674a9f0a2944380ce163e10058b77ac">pin</a>, uint16_t averageSamples, uint16_t filterConstant)</td></tr>
 <tr class="memdesc:a43e279a52d50c966cebcfe2147be04b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a resistance input on a given pin.  <br /></td></tr>
 <tr class="separator:a43e279a52d50c966cebcfe2147be04b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43b0e104b259e8773d821fad039c7331" id="r_a43b0e104b259e8773d821fad039c7331"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43b0e104b259e8773d821fad039c7331">begin</a> (uint8_t <a class="el" href="#af674a9f0a2944380ce163e10058b77ac">pin</a>, uint16_t averageSamples, uint16_t filterConstant, <a class="el" href="us_serial_wombat_resistance_input_8h.html#ac08b0b586869df2557fa063a42771e43">ResistanceInputPublicDataOutput</a> output)</td></tr>
-<tr class="memdesc:a43b0e104b259e8773d821fad039c7331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a resistance input on a given pin.  <br /></td></tr>
-<tr class="separator:a43b0e104b259e8773d821fad039c7331"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a125a30b6a0f31bfffee4026de0ca685f" id="r_a125a30b6a0f31bfffee4026de0ca685f"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a125a30b6a0f31bfffee4026de0ca685f">begin</a> (uint8_t <a class="el" href="#af674a9f0a2944380ce163e10058b77ac">pin</a>, uint16_t averageSamples, uint16_t filterConstant, <a class="el" href="us_serial_wombat_resistance_input_8h.html#ac08b0b586869df2557fa063a42771e43">ResistanceInputPublicDataOutput</a> publicDataOutput)</td></tr>
+<tr class="memdesc:a125a30b6a0f31bfffee4026de0ca685f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a resistance input on a given pin.  <br /></td></tr>
+<tr class="separator:a125a30b6a0f31bfffee4026de0ca685f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3070078db46adfe17daff5b376302398" id="r_a3070078db46adfe17daff5b376302398"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3070078db46adfe17daff5b376302398">readFilteredOhms</a> ()</td></tr>
 <tr class="memdesc:a3070078db46adfe17daff5b376302398"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retreive a filtered Resistance measurement.  <br /></td></tr>
 <tr class="separator:a3070078db46adfe17daff5b376302398"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -336,7 +336,7 @@ picture-in-picture" allowfullscreen></iframe>
 <p>Constructor for the <a class="el" href="class_serial_wombat_resistance_input.html" title="A class to make resistance measurements with the Serial Wombat 18AB chip.">SerialWombatResistanceInput</a> class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_serial_wombat.html" title="This class name is depricated. Do not use for new development. Use SerialWombatChip instead.">SerialWombat</a></td><td>a reference to the Serial Wombat chip on which the Resistance Input will be measured </td></tr>
+    <tr><td class="paramname">serialWombatChip</td><td>a reference to the Serial Wombat chip on which the Resistance Input will be measured </td></tr>
   </table>
   </dd>
 </dl>
@@ -431,8 +431,8 @@ picture-in-picture" allowfullscreen></iframe>
 
 </div>
 </div>
-<a id="a43b0e104b259e8773d821fad039c7331" name="a43b0e104b259e8773d821fad039c7331"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43b0e104b259e8773d821fad039c7331">&#9670;&#160;</a></span>begin() <span class="overload">[3/3]</span></h2>
+<a id="a125a30b6a0f31bfffee4026de0ca685f" name="a125a30b6a0f31bfffee4026de0ca685f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a125a30b6a0f31bfffee4026de0ca685f">&#9670;&#160;</a></span>begin() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -458,7 +458,7 @@ picture-in-picture" allowfullscreen></iframe>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="us_serial_wombat_resistance_input_8h.html#ac08b0b586869df2557fa063a42771e43">ResistanceInputPublicDataOutput</a></td>          <td class="paramname"><span class="paramname"><em>output</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="us_serial_wombat_resistance_input_8h.html#ac08b0b586869df2557fa063a42771e43">ResistanceInputPublicDataOutput</a></td>          <td class="paramname"><span class="paramname"><em>publicDataOutput</em></span>&#160;)</td>
         </tr>
       </table>
   </td>

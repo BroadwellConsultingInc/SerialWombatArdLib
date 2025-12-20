@@ -27,10 +27,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #include "SerialWombat.h"
 #include "limits.h"
 
-/*! \file SerialWombatDebouncedInput.h
+/*! @file SerialWombatDebouncedInput.h
 */
 
-/*! \brief A pin mode class that debounces inputs
+/*! @brief A pin mode class that debounces inputs
 
 The SerialWombatDebouncedInput class is used to debounce inputs such as switches.
 
@@ -75,20 +75,20 @@ class SerialWombatDebouncedInput:public SerialWombatAbstractButton , public Seri
 {
 public:
 	/*!
-	\brief Constructor for the SerialWombatDebouncedInput class.
+	@brief Constructor for the SerialWombatDebouncedInput class.
 	
-	\param serialWombat a reference to the Serial Wombat on which the Debounced Input will exist
+	@param serialWombatChip a reference to the Serial Wombat Chip on which the Debounced Input will exist
 	*/
 	SerialWombatDebouncedInput(SerialWombatChip& serialWombatChip):SerialWombatAbstractButton(),SerialWombatPin(serialWombatChip){}
 
 
 	/*!
-	\brief Initialize a debounced input 
+	@brief Initialize a debounced input 
 	
-	\param pin  The Serial Wombat pin used for the debounced input
-	\param debounce_mS number of mS the pin must be stable to cause a transition
-	\param invert FALSE: pin reading is returned  TRUE: inverted pin reading is returned
-	\param usePullUp Whether the pin's weak pull up is enabled
+	@param pin  The Serial Wombat pin used for the debounced input
+	@param debounce_mS number of mS the pin must be stable to cause a transition
+	@param invert FALSE: pin reading is returned  TRUE: inverted pin reading is returned
+	@param usePullUp Whether the pin's weak pull up is enabled
 	*/
 	int16_t begin(uint8_t pin, uint16_t debounce_mS = 30, bool invert = true, bool usePullUp = true)
 	{
@@ -98,12 +98,12 @@ public:
 	}
 
 	/*!
-	\brief Returns the debounced state of the input
+	@brief Returns the debounced state of the input
 	
 	This function reads from the public data of the pin which 
 	indicates the debounced and invert adjusted state of the
 	input
-	\return TRUE or FALSE.  Meaning depends on inversion setting
+	@return TRUE or FALSE.  Meaning depends on inversion setting
 	*/
 	bool digitalRead()
 	{
@@ -111,11 +111,11 @@ public:
 	}
 
 	/*
-	\brief return the number of mS that the debounced input has been in true state
+	@brief return the number of mS that the debounced input has been in true state
 	
 	Note that this value starts incrementing after the debounce period, not after the physical pin transition.
 	
-	\return returns a value in mS which saturates at 65535.  Returns 0 if currently false.
+	@return returns a value in mS which saturates at 65535.  Returns 0 if currently false.
 	*/
 	uint16_t readDurationInTrueState_mS()
 	{
@@ -136,11 +136,11 @@ public:
 	}
 
 	/*
-	\brief return the number of mS that the debounced input has been in false state
+	@brief return the number of mS that the debounced input has been in false state
 	
 	Note that this value starts incrementing after the debounce period, not after the physical pin transition.
 	
-	\return returns a value in mS which saturates at 65535.  Returns 0 if currently true.
+	@return returns a value in mS which saturates at 65535.  Returns 0 if currently true.
 	*/
 	uint16_t readDurationInFalseState_mS()
 	{
@@ -162,13 +162,13 @@ public:
 	}
 
 	/*
-	\brief Queries the number of transistions that have occured on the debounced input
+	@brief Queries the number of transistions that have occured on the debounced input
 	
 	This function queries the debounced input for current state and transitions since last call.
 	transition count is put in the global member transitions.  The debounced input in the Serial
 	Wombat resets its count to zero after this call.
 	
-	\return TRUE or FALSE, current status of debounced input
+	@return TRUE or FALSE, current status of debounced input
 	*/
 	bool readTransitionsState(bool resetTransitionCounts = true)
 	{
@@ -183,7 +183,7 @@ private:
 };
 
 
-/*! \brief A class that runs on top of SerialWombaAbstractButton to increment or decrement a variable based on a button
+/*! @brief A class that runs on top of SerialWombaAbstractButton to increment or decrement a variable based on a button
 
 This class runs on top of a SerialWombaAbstractButton input.  It is passed a variable reference in its begin call.
 The update() method is then called periodically.  This method will look at how many times the debounced input has
@@ -207,8 +207,8 @@ class SerialWombatButtonCounter
 public:
 
 	/*!
-	\brief Constructor for SerialWombatButtonCounter
-	\param serialWombatDebouncedInput  A pointer to an already initialized SerialWombatDebouncedInput, SerialWombatMatrixButton or digitally configured SerialWombat18CapTouch
+	@brief Constructor for SerialWombatButtonCounter
+	@param serialWombatDebouncedInput  A pointer to an already initialized SerialWombatDebouncedInput, SerialWombatMatrixButton or digitally configured SerialWombat18CapTouch
 	*/
 	 SerialWombatButtonCounter( SerialWombatAbstractButton& serialWombatDebouncedInput):_debouncedInput(serialWombatDebouncedInput)
 	{
@@ -216,17 +216,17 @@ public:
 	}
 
 	 /*!
-	 Initializes the SerialWombatButtonCounter
+	 @brief Initializes the SerialWombatButtonCounter
 	 
-	 \param variableToIncrement  A pointer to a signed long integer
-	 \param slowIncrement the amount that the variable should increment (or decrement if negative) per increment
-	 \param slow_mS_betweenIncrements how often an increment should happen in slow mode
-	 \param slowToMediumTransition_mS how long to stay in slow mode before switching to medium mode
-	 \param mediumIncrement the amount that the variable should increment (or decrement if negative) per increment
-	 \param medium_mS_betweenIncrements how often an increment should happen in medium mode
-	 \param mediumToFastTransition_mS how long after the initail button press start until switching to Fast mode
-	 \param fastIncrement the amount that the variable should increment (or decrement if negative) per increment
-	 \param fast_mS_betweenIncrements how often an increment should happen in fast mode
+	 @param variableToIncrement  A pointer to a signed long integer
+	 @param slowIncrement the amount that the variable should increment (or decrement if negative) per increment
+	 @param slow_mS_betweenIncrements how often an increment should happen in slow mode
+	 @param slowToMediumTransition_mS how long to stay in slow mode before switching to medium mode
+	 @param mediumIncrement the amount that the variable should increment (or decrement if negative) per increment
+	 @param medium_mS_betweenIncrements how often an increment should happen in medium mode
+	 @param mediumToFastTransition_mS how long after the initail button press start until switching to Fast mode
+	 @param fastIncrement the amount that the variable should increment (or decrement if negative) per increment
+	 @param fast_mS_betweenIncrements how often an increment should happen in fast mode
 	 */
 	 void begin(int32_t* variableToIncrement,
 		 int32_t slowIncrement = 1, uint32_t slow_mS_betweenIncrements = 250,
@@ -253,7 +253,10 @@ public:
 		_lastPressDuration = 0;
 
 	}
-	 /// \brief  Called periodically to query the SerialWombatDebouncedInput and update the variable
+	/*!
+	 @brief  Called periodically to query the SerialWombatDebouncedInput and update the variable
+	 @return TRUE if the button is currently pressed, FALSE otherwise.
+	 */
 	bool update()
 	{
 		uint16_t pressDuration = _debouncedInput.readDurationInTrueState_mS();

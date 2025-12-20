@@ -77,6 +77,7 @@ public:
 	
 	@param i2cAddress The I2C address of the PCB
 	@param pin3IsVoltage Set this to true if the voltage measurement solder jumper has been soldered closed
+	@param pwmFrequency The PWM frequency for the H Bridge pins.  Default is 1000 Hz.  Higher frequencies give lower resolution
 	@return  Returns a negative number indicating an error code, or a non negative number indicating success
 	*/
 	int16_t begin(uint8_t i2cAddress,bool pin3IsVoltage = false, uint16_t pwmFrequency = 1000)

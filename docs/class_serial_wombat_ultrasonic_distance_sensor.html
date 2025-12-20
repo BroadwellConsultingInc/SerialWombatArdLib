@@ -419,12 +419,14 @@ Additional Inherited Members</h2></td></tr>
     <tr><td class="paramname">echoPin</td><td>Pin used to time input pulses. For 5V sensors, 5V tolerant pins 9,10,11,12, 14 and 15 are good choices </td></tr>
     <tr><td class="paramname">driver</td><td>Chip used for distance measurement. Currently only HC_SR04 is supported. </td></tr>
     <tr><td class="paramname">triggerPin</td><td>Pin used for triggering the sensor. If same as echo pin (e.g. 3 pin sensors) set equal to echoPin </td></tr>
+    <tr><td class="paramname">autoTrigger</td><td>If true, the sensor will be triggered automatically. If false, <a class="el" href="#a8f75d916a6b8144598e258f6cf3c1266" title="Manually trigger a distance reading.">manualTrigger()</a> must be called to trigger a reading. </td></tr>
+    <tr><td class="paramname">pullUp</td><td>If true, an internal pullup resistor will be used on the echo pin. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 or higher if successful, negative error code if not successful. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00071">71</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00073">73</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
 
 </div>
 </div>
@@ -482,7 +484,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Configure a Servo sweep of Ultrasonic Distance Sensor. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00113">113</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00115">115</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
 
 </div>
 </div>
@@ -509,7 +511,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00137">137</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00139">139</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
 
 </div>
 </div>
@@ -539,7 +541,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Manually trigger a distance reading. </p>
 <p>Use this interface to trigger a reading if begin was called with autoTrigger = false </p><dl class="section return"><dt>Returns</dt><dd>0 or higher if successful, negative error code if not successful. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00104">104</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00106">106</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
 
 </div>
 </div>
@@ -570,7 +572,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_serial_wombat_abstract_processed_input.html#a9a7b338494eae91f14bb2965fc843675">SerialWombatAbstractProcessedInput</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00157">157</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00159">159</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
 
 </div>
 </div>
@@ -600,7 +602,7 @@ Additional Inherited Members</h2></td></tr>
 <p>get the number of pulses that have been sent. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of pulses that have been sent. Rolls over at 65536 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00083">83</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00085">85</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
 
 </div>
 </div>
@@ -631,7 +633,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00150">150</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00152">152</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
 
 </div>
 </div>
@@ -658,7 +660,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00143">143</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00145">145</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
 
 </div>
 </div>
@@ -689,7 +691,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_serial_wombat_abstract_processed_input.html#abc6a028ff5841c91f9770bd4611c4527">SerialWombatAbstractProcessedInput</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00159">159</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00161">161</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
 
 </div>
 </div>
@@ -706,7 +708,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00161">161</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00163">163</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
 
 </div>
 </div>
@@ -722,7 +724,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00162">162</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html#l00164">164</a> of file <a class="el" href="us_serial_wombat_ultrasonic_distance_sensor_8h_source.html">SerialWombatUltrasonicDistanceSensor.h</a>.</p>
 
 </div>
 </div>

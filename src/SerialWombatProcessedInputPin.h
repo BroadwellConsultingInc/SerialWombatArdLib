@@ -47,7 +47,9 @@ public:
 	/// \brief Initialize by providing the pin or public data source to read data from.
 	/// 
 	/// This initialization takes a Serial Wombat pin as a parameter, sets units to uS and disables pull-ups
-	/// \param pin pin or public data source to read data from.
+	/// 
+	/// \param pin The Serial Wombat pin number on which the SerialWombatProcessedInput pinmode will be run
+	/// \param dataSourcePin pin or public data source to read data from.
 	///
 	///
 	int16_t begin(uint8_t pin, uint8_t dataSourcePin)

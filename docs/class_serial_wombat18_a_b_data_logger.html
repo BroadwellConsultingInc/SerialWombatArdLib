@@ -105,6 +105,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a339734d9597d0bd2bf4e2e0c99e61424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the Serial Wombat Data logger. It will create a queue with the given parameters / /.  <br /></td></tr>
 <tr class="separator:a339734d9597d0bd2bf4e2e0c99e61424"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab546c583a8f73a53bb8e2cd3e237c827" id="r_ab546c583a8f73a53bb8e2cd3e237c827"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab546c583a8f73a53bb8e2cd3e237c827">enable</a> (bool enable=true)</td></tr>
+<tr class="memdesc:ab546c583a8f73a53bb8e2cd3e237c827"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable the Data Logger.  <br /></td></tr>
 <tr class="separator:ab546c583a8f73a53bb8e2cd3e237c827"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add9da3aea7799f8152d2cf7dd3e949b6" id="r_add9da3aea7799f8152d2cf7dd3e949b6"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add9da3aea7799f8152d2cf7dd3e949b6">configurePin</a> (uint8_t pin, bool queueLowByte, bool queueHighByte)</td></tr>
 <tr class="separator:add9da3aea7799f8152d2cf7dd3e949b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -241,7 +242,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat18_a_b_data_logger_8h_source.html#l00098">98</a> of file <a class="el" href="us_serial_wombat18_a_b_data_logger_8h_source.html">SerialWombat18ABDataLogger.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat18_a_b_data_logger_8h_source.html#l00114">114</a> of file <a class="el" href="us_serial_wombat18_a_b_data_logger_8h_source.html">SerialWombat18ABDataLogger.h</a>.</p>
 
 </div>
 </div>
@@ -268,7 +269,17 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat18_a_b_data_logger_8h_source.html#l00089">89</a> of file <a class="el" href="us_serial_wombat18_a_b_data_logger_8h_source.html">SerialWombat18ABDataLogger.h</a>.</p>
+<p>Enable or disable the Data Logger. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enable</td><td>True to enable the Data Logger, False to disable it </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success or a negative number indicating an error code.</dd></dl>
+<p>This function enables or disables the Data Logger. Enable should be called after <a class="el" href="#a339734d9597d0bd2bf4e2e0c99e61424" title="Initialize the Serial Wombat Data logger. It will create a queue with the given parameters / /.">begin()</a> has been called to start logging data. </p>
+
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat18_a_b_data_logger_8h_source.html#l00098">98</a> of file <a class="el" href="us_serial_wombat18_a_b_data_logger_8h_source.html">SerialWombat18ABDataLogger.h</a>.</p>
 
 </div>
 </div>

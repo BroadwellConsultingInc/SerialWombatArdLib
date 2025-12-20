@@ -60,9 +60,9 @@ class SerialWombatQueuedPulseOutput :  public SerialWombatPin
 	public: 
 		/*!
 		  @brief Class constructor for SerialWombatQueuedPulseOutput pin mode 
-		  @param serialWombat The Serial Wombat chip on which the SerialWombatQueuedPulseOutput pin mode will run 
+		  @param serialWombatChip The Serial Wombat chip on which the SerialWombatQueuedPulseOutput pin mode will run 
 		 */
-		SerialWombatQueuedPulseOutput(SerialWombatChip &sw):SerialWombatPin(sw){}
+		SerialWombatQueuedPulseOutput(SerialWombatChip &serialWombatChip):SerialWombatPin(serialWombatChip){}
 
 		/*!
 		/// @brief Initialize a queued pulse output mode
