@@ -94,7 +94,7 @@ $(function(){ initResizable(false); });
 <p>A class to make analog measurements with the Serial Wombat.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="us_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SerialWombatAnalogInput:</div>
 <div class="dyncontent">
@@ -127,7 +127,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4232a29b1a1972a645c0e65b5c88bf53" id="r_a4232a29b1a1972a645c0e65b5c88bf53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4232a29b1a1972a645c0e65b5c88bf53">SerialWombatAnalogInput</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a>)</td></tr>
 <tr class="memdesc:a4232a29b1a1972a645c0e65b5c88bf53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_serial_wombat_analog_input.html" title="A class to make analog measurements with the Serial Wombat.">SerialWombatAnalogInput</a> class.  <br /></td></tr>
 <tr class="separator:a4232a29b1a1972a645c0e65b5c88bf53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa752bfa19ceee5ac9f0bb00f44488cc7" id="r_aa752bfa19ceee5ac9f0bb00f44488cc7"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa752bfa19ceee5ac9f0bb00f44488cc7">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, uint16_t averageSamples=64, uint16_t filterConstant=0xFF80, <a class="el" href="_serial_wombat_analog_input_8h.html#a3459e6989ad6d1a41f2d7a1edd81f6b5">AnalogInputPublicDataOutput</a> output=<a class="el" href="_serial_wombat_analog_input_8h.html#a3459e6989ad6d1a41f2d7a1edd81f6b5aa979d74dcf104792c572f6df84450e99">AnalogInputPublicDataOutput::AnalogInputPublicDataOutput_Raw</a>)</td></tr>
+<tr class="memitem:aa752bfa19ceee5ac9f0bb00f44488cc7" id="r_aa752bfa19ceee5ac9f0bb00f44488cc7"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa752bfa19ceee5ac9f0bb00f44488cc7">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, uint16_t averageSamples=64, uint16_t filterConstant=0xFF80, <a class="el" href="us_serial_wombat_analog_input_8h.html#a3459e6989ad6d1a41f2d7a1edd81f6b5">AnalogInputPublicDataOutput</a> output=<a class="el" href="us_serial_wombat_analog_input_8h.html#a3459e6989ad6d1a41f2d7a1edd81f6b5aa979d74dcf104792c572f6df84450e99">AnalogInputPublicDataOutput::AnalogInputPublicDataOutput_Raw</a>)</td></tr>
 <tr class="memdesc:aa752bfa19ceee5ac9f0bb00f44488cc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize an analog input on a given pin.  <br /></td></tr>
 <tr class="separator:aa752bfa19ceee5ac9f0bb00f44488cc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2c7a9154241e26805d0d36f77324a90" id="r_ab2c7a9154241e26805d0d36f77324a90"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2c7a9154241e26805d0d36f77324a90">readVoltage_mV</a> ()</td></tr>
@@ -210,6 +210,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin" id="r_a5a97a8c687f9f5ffb1c22679851d0372"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a5a97a8c687f9f5ffb1c22679851d0372">forceDMA</a> (bool enabled)</td></tr>
 <tr class="memdesc:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces use of DMA instead of hardware timing resources on SW18AB.  <br /></td></tr>
 <tr class="separator:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin" id="r_ab1623964d0840c58e2b69a178310f213"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#ab1623964d0840c58e2b69a178310f213">setPinNumberForTesting</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>)</td></tr>
+<tr class="memdesc:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function designed for testing only. May have unpredictable results if used in real time. Not intended for general use.  <br /></td></tr>
+<tr class="separator:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -244,7 +247,7 @@ Additional Inherited Members</h2></td></tr>
 </p>
 <p><a href="https://youtu.be/_EKlrEVaEhg">https://youtu.be/_EKlrEVaEhg</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_analog_input_8h_source.html#l00080">80</a> of file <a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_analog_input_8h_source.html#l00080">80</a> of file <a class="el" href="us_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4232a29b1a1972a645c0e65b5c88bf53" name="a4232a29b1a1972a645c0e65b5c88bf53"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4232a29b1a1972a645c0e65b5c88bf53">&#9670;&#160;</a></span>SerialWombatAnalogInput()</h2>
@@ -277,7 +280,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_analog_input_8h_source.html#l00088">88</a> of file <a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_analog_input_8h_source.html#l00088">88</a> of file <a class="el" href="us_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
 
 </div>
 </div>
@@ -309,7 +312,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_serial_wombat_analog_input_8h.html#a3459e6989ad6d1a41f2d7a1edd81f6b5">AnalogInputPublicDataOutput</a></td>          <td class="paramname"><span class="paramname"><em>output</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="_serial_wombat_analog_input_8h.html#a3459e6989ad6d1a41f2d7a1edd81f6b5aa979d74dcf104792c572f6df84450e99">AnalogInputPublicDataOutput::AnalogInputPublicDataOutput_Raw</a></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="us_serial_wombat_analog_input_8h.html#a3459e6989ad6d1a41f2d7a1edd81f6b5">AnalogInputPublicDataOutput</a></td>          <td class="paramname"><span class="paramname"><em>output</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="us_serial_wombat_analog_input_8h.html#a3459e6989ad6d1a41f2d7a1edd81f6b5aa979d74dcf104792c572f6df84450e99">AnalogInputPublicDataOutput::AnalogInputPublicDataOutput_Raw</a></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -331,7 +334,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a negative error code if initialization failed. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_analog_input_8h_source.html#l00105">105</a> of file <a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_analog_input_8h_source.html#l00105">105</a> of file <a class="el" href="us_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
 
 </div>
 </div>
@@ -362,7 +365,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Conversion is based on the most recent averaged A/D result taken by the Serial Wombat A/D at the command time and the last reference measurement made on the Serial Wombat chip using the <a class="el" href="class_serial_wombat_chip.html#a9a4b2a9a8ee2d00dd4dd7e34457f70ba" title="Measure the Serial Wombat chip&#39;s Supply voltage.">SerialWombatChip.readSupplyVoltage_mV()</a> method. <br  />
  </p><dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating measurement in mV </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_analog_input_8h_source.html#l00194">194</a> of file <a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_analog_input_8h_source.html#l00194">194</a> of file <a class="el" href="us_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
 
 </div>
 </div>
@@ -395,7 +398,7 @@ Additional Inherited Members</h2></td></tr>
 </p>
 <dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating the counts of the A/D conversion </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_analog_input_8h_source.html#l00214">214</a> of file <a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_analog_input_8h_source.html#l00214">214</a> of file <a class="el" href="us_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
 
 </div>
 </div>
@@ -427,7 +430,7 @@ Additional Inherited Members</h2></td></tr>
 <p>All Serial Wombat products will return a 16-bit value. However the SW4A and SW4B products only have 10-bit A/D converters, so the returned value moves by 64 counts at a time, except for the topmost value. For all Serial Wombat products, the highest possible reading (0xFFC0 for the SW4A/SW4B, 0xFFF0 for the SW18AB) is changed to 0xFFFF to indicate maximum possible hardware value.</p>
 <dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating the counts of the A/D conversion </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_analog_input_8h_source.html#l00147">147</a> of file <a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_analog_input_8h_source.html#l00147">147</a> of file <a class="el" href="us_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
 
 </div>
 </div>
@@ -458,7 +461,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Conversion is based on the most recent filtered A/D result taken by the Serial Wombat A/D at the command time and the last reference measurement made on the Serial Wombat chip using the <a class="el" href="class_serial_wombat_chip.html#a9a4b2a9a8ee2d00dd4dd7e34457f70ba" title="Measure the Serial Wombat chip&#39;s Supply voltage.">SerialWombatChip.readSupplyVoltage_mV()</a> method. <br  />
  </p><dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating measurement in mV </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_analog_input_8h_source.html#l00160">160</a> of file <a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_analog_input_8h_source.html#l00160">160</a> of file <a class="el" href="us_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
 
 </div>
 </div>
@@ -489,7 +492,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Conversion is based on the most recent filtered A/D value taken by the Serial Wombat A/D at the command time.</p>
 <dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating the filtered A/D result </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_analog_input_8h_source.html#l00176">176</a> of file <a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_analog_input_8h_source.html#l00176">176</a> of file <a class="el" href="us_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
 
 </div>
 </div>
@@ -526,7 +529,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating measurement in mV </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_analog_input_8h_source.html#l00238">238</a> of file <a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_analog_input_8h_source.html#l00238">238</a> of file <a class="el" href="us_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
 
 </div>
 </div>
@@ -563,7 +566,7 @@ The maximum value the Serial Wombat chip has seen on that pin since last reset o
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating maximum A/D Counts </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_analog_input_8h_source.html#l00260">260</a> of file <a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_analog_input_8h_source.html#l00260">260</a> of file <a class="el" href="us_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
 
 </div>
 </div>
@@ -600,7 +603,7 @@ The minimum value the Serial Wombat chip has seen on that pin since last reset o
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating measurement in mV </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_analog_input_8h_source.html#l00281">281</a> of file <a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_analog_input_8h_source.html#l00281">281</a> of file <a class="el" href="us_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
 
 </div>
 </div>
@@ -637,7 +640,7 @@ The minimum value the Serial Wombat chip has seen on that pin since last reset o
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating maximum A/D Counts </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_analog_input_8h_source.html#l00298">298</a> of file <a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_analog_input_8h_source.html#l00298">298</a> of file <a class="el" href="us_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
 
 </div>
 </div>
@@ -668,7 +671,7 @@ The minimum value the Serial Wombat chip has seen on that pin since last reset o
 <p>Conversion is based on the most recent A/D conversion taken by the Serial Wombat A/D at the command time and the last reference measurement made on the Serial Wombat chip using the <a class="el" href="class_serial_wombat_chip.html#a9a4b2a9a8ee2d00dd4dd7e34457f70ba" title="Measure the Serial Wombat chip&#39;s Supply voltage.">SerialWombatChip.readSupplyVoltage_mV()</a> method. <br  />
  </p><dl class="section return"><dt>Returns</dt><dd>A 16 bit unsigned value indicating measurement in mV </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_analog_input_8h_source.html#l00124">124</a> of file <a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_analog_input_8h_source.html#l00124">124</a> of file <a class="el" href="us_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
 
 </div>
 </div>
@@ -697,7 +700,7 @@ The minimum value the Serial Wombat chip has seen on that pin since last reset o
 
 <p>Provides a wrapper around the readSupplyVoltage_mV() method for the <a class="el" href="class_serial_wombat.html" title="This class name is depricated. Do not use for new development. Use SerialWombatChip instead.">SerialWombat</a> chip hosting this pin mode. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_analog_input_8h_source.html#l00223">223</a> of file <a class="el" href="_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_analog_input_8h_source.html#l00223">223</a> of file <a class="el" href="us_serial_wombat_analog_input_8h_source.html">SerialWombatAnalogInput.h</a>.</p>
 
 </div>
 </div>

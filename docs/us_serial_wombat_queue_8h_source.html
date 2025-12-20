@@ -325,7 +325,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        }</div>
 <div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        bytesWritten += rx[3];</div>
 <div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        delay(0);</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        <span class="keywordflow">if</span> (millis() &gt; startTime + _timeout)</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        <span class="keywordflow">if</span> ((rx[3] == 0) &amp;&amp; millis() &gt;= startTime + _timeout) <span class="comment">// Time out if couldn&#39;t write bytes and over timeout</span></div>
 <div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        {</div>
 <div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            <span class="keywordflow">return</span>(bytesWritten);</div>
 <div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        }</div>
@@ -342,167 +342,165 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>        {</div>
 <div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>            nextWriteSize = (uint8_t)(size - bytesWritten);</div>
 <div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        }</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        {</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>            uint8_t tx[] = { (uint8_t)<a class="code hl_enumvalue" href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a4d21e1bd55dc8c7ada159415e4710f05">SerialWombatCommands::COMMAND_BINARY_QUEUE_ADD_BYTES</a> ,<a class="code hl_define" href="us_serial_wombat_8h.html#a4396b9493edc62907e2678a594988bad">SW_LE16</a>(<a class="code hl_variable" href="class_serial_wombat_queue.html#a70367eb06f97fba801e5eb2d40afa9ac">startIndex</a>),0,0x55,0x55,0x55,0x55 };</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>            uint8_t i;</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>            <span class="keywordflow">for</span> (i = 0; i &lt; nextWriteSize; ++i)</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>            {</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>                tx[4 + i] = buffer[i + bytesWritten];</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>            }</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>            tx[3] = nextWriteSize;</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>            uint8_t rx[8];</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>            int16_t sendResult = _sw.sendPacket(tx, rx);</div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>            <span class="keywordflow">if</span> (sendResult &lt; 0)</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>            {</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>                <span class="keywordflow">return</span>(bytesWritten);</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>            }</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>            bytesWritten += rx[3];</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        }</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        <span class="keywordflow">if</span> (millis() &gt; startTime + _timeout)</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>        {</div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>            <span class="keywordflow">return</span>(bytesWritten);</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        }</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    }</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    <span class="keywordflow">return</span> (bytesWritten);</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>}</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        uint8_t tx[] = { (uint8_t)<a class="code hl_enumvalue" href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a4d21e1bd55dc8c7ada159415e4710f05">SerialWombatCommands::COMMAND_BINARY_QUEUE_ADD_BYTES</a> ,<a class="code hl_define" href="us_serial_wombat_8h.html#a4396b9493edc62907e2678a594988bad">SW_LE16</a>(<a class="code hl_variable" href="class_serial_wombat_queue.html#a70367eb06f97fba801e5eb2d40afa9ac">startIndex</a>),0,0x55,0x55,0x55,0x55 };</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        uint8_t i;</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        <span class="keywordflow">for</span> (i = 0; i &lt; nextWriteSize; ++i)</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        {</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>            tx[4 + i] = buffer[i + bytesWritten];</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>        }</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        tx[3] = nextWriteSize;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>        uint8_t rx[8];</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>        int16_t sendResult = _sw.sendPacket(tx, rx);</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>        <span class="keywordflow">if</span> (sendResult &lt; 0)</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>        {</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>            <span class="keywordflow">return</span>(bytesWritten);</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>        }</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>        bytesWritten += rx[3];</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>        <span class="keywordflow">if</span> ( (rx[3] == 0) &amp;&amp; millis() &gt;= startTime + _timeout)</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        {</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>            <span class="keywordflow">return</span>(bytesWritten);</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>        }</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    }</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    <span class="keywordflow">return</span> (bytesWritten);</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>}</div>
 </div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span></div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    */</div>
-<div class="foldopen" id="foldopen00315" data-start="{" data-end="}">
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno"><a class="line" href="class_serial_wombat_queue.html#a97ec0c4aa8155592b8ad8b2d8cbc36c1">  315</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_serial_wombat_queue.html#a97ec0c4aa8155592b8ad8b2d8cbc36c1">availableForWrite</a>()</div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>{</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    uint8_t tx[] = { (uint8_t)<a class="code hl_enumvalue" href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a09ca1c341116d0dddc52b0571b109591">SerialWombatCommands::COMMAND_BINARY_QUEUE_INFORMATION</a> ,<a class="code hl_define" href="us_serial_wombat_8h.html#a4396b9493edc62907e2678a594988bad">SW_LE16</a>(<a class="code hl_variable" href="class_serial_wombat_queue.html#a70367eb06f97fba801e5eb2d40afa9ac">startIndex</a>),0x55,0x55,0x55,0x55,0x55 };</div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    uint8_t rx[8];</div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    int16_t sendResult = _sw.sendPacket(tx, rx);</div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    <span class="keywordflow">if</span> (sendResult &gt;= 0)</div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    {</div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>        <span class="keywordflow">return</span> (rx[6] + 256 * rx[7]);</div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    }</div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    <span class="keywordflow">return</span> (0);</div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>}</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span></div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    */</div>
+<div class="foldopen" id="foldopen00313" data-start="{" data-end="}">
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno"><a class="line" href="class_serial_wombat_queue.html#a97ec0c4aa8155592b8ad8b2d8cbc36c1">  313</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_serial_wombat_queue.html#a97ec0c4aa8155592b8ad8b2d8cbc36c1">availableForWrite</a>()</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>{</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    uint8_t tx[] = { (uint8_t)<a class="code hl_enumvalue" href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a09ca1c341116d0dddc52b0571b109591">SerialWombatCommands::COMMAND_BINARY_QUEUE_INFORMATION</a> ,<a class="code hl_define" href="us_serial_wombat_8h.html#a4396b9493edc62907e2678a594988bad">SW_LE16</a>(<a class="code hl_variable" href="class_serial_wombat_queue.html#a70367eb06f97fba801e5eb2d40afa9ac">startIndex</a>),0x55,0x55,0x55,0x55,0x55 };</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    uint8_t rx[8];</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    int16_t sendResult = _sw.sendPacket(tx, rx);</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    <span class="keywordflow">if</span> (sendResult &gt;= 0)</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    {</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>        <span class="keywordflow">return</span> (rx[6] + 256 * rx[7]);</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    }</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    <span class="keywordflow">return</span> (0);</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>}</div>
 </div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span></div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>    */</div>
-<div class="foldopen" id="foldopen00337" data-start="{" data-end="}">
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno"><a class="line" href="class_serial_wombat_queue.html#a1e0f006771824e9d67a14356d5048840">  337</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_serial_wombat_queue.html#a1e0f006771824e9d67a14356d5048840">readBytes</a>(<span class="keywordtype">char</span>* buffer, <span class="keywordtype">size_t</span> <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a>)</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>{</div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    uint16_t bytesAvailable = 0;</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>    uint32_t startTime = millis();</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    {</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>        uint8_t tx[] = { (uint8_t)<a class="code hl_enumvalue" href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a09ca1c341116d0dddc52b0571b109591">SerialWombatCommands::COMMAND_BINARY_QUEUE_INFORMATION</a> ,<a class="code hl_define" href="us_serial_wombat_8h.html#a4396b9493edc62907e2678a594988bad">SW_LE16</a>(<a class="code hl_variable" href="class_serial_wombat_queue.html#a70367eb06f97fba801e5eb2d40afa9ac">startIndex</a>),0x55,0x55,0x55,0x55,0x55 };</div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        uint8_t rx[8];</div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>        int16_t sendResult = _sw.sendPacket(tx, rx);</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>        <span class="keywordflow">if</span> (sendResult &gt;= 0)</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        {</div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>            bytesAvailable = (rx[4] + 256 * rx[5]);</div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>        }</div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span> </div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>        <span class="keywordflow">if</span> (bytesAvailable &lt; <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a>)</div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>        {</div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>            <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a> = bytesAvailable;</div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>        }</div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    }</div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    uint16_t bytesRead = 0;</div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>    <span class="keywordflow">while</span> (bytesRead &lt; <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a>)</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    {</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>        yield();</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>        uint8_t bytesToRead =(uint8_t)( <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a> - bytesRead);</div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>        <span class="keywordflow">if</span> (bytesToRead &gt; 6)</div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>        {</div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>            bytesToRead = 6;</div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>        }</div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>        uint8_t tx[] = { (uint8_t)<a class="code hl_enumvalue" href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a84e31a4bf35b4b5aae64917446ab3044">SerialWombatCommands::COMMAND_BINARY_QUEUE_READ_BYTES</a> ,<a class="code hl_define" href="us_serial_wombat_8h.html#a4396b9493edc62907e2678a594988bad">SW_LE16</a>(<a class="code hl_variable" href="class_serial_wombat_queue.html#a70367eb06f97fba801e5eb2d40afa9ac">startIndex</a>),bytesToRead,0x55,0x55,0x55,0x55 };</div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>        uint8_t rx[8];</div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>        int16_t sendResult = _sw.sendPacket(tx, rx);</div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>        <span class="keywordflow">if</span> (sendResult &gt;= 0)</div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>        {</div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>            uint8_t i;</div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>                <span class="keywordflow">for</span> (i = 0; i &lt; rx[1] &amp;&amp; bytesRead &lt; <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a>; ++i)</div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>                {</div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>                    buffer[bytesRead] = rx[2 + i];</div>
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>                    ++bytesRead;</div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>                }</div>
-<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>            </div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>        }</div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>        {</div>
-<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>            <span class="keywordflow">return</span> (bytesRead);</div>
-<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>        }</div>
-<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>        <span class="keywordflow">if</span> (millis() &gt; startTime + _timeout)</div>
-<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>        {</div>
-<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>            <span class="keywordflow">return</span>(bytesRead);</div>
-<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>        }</div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span> </div>
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>    }</div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>    <span class="keywordflow">return</span> bytesRead;</div>
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>}</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span></div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    */</div>
+<div class="foldopen" id="foldopen00335" data-start="{" data-end="}">
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno"><a class="line" href="class_serial_wombat_queue.html#a1e0f006771824e9d67a14356d5048840">  335</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_serial_wombat_queue.html#a1e0f006771824e9d67a14356d5048840">readBytes</a>(<span class="keywordtype">char</span>* buffer, <span class="keywordtype">size_t</span> <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a>)</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>{</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>    uint16_t bytesAvailable = 0;</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>    uint32_t startTime = millis();</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>    {</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        uint8_t tx[] = { (uint8_t)<a class="code hl_enumvalue" href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a09ca1c341116d0dddc52b0571b109591">SerialWombatCommands::COMMAND_BINARY_QUEUE_INFORMATION</a> ,<a class="code hl_define" href="us_serial_wombat_8h.html#a4396b9493edc62907e2678a594988bad">SW_LE16</a>(<a class="code hl_variable" href="class_serial_wombat_queue.html#a70367eb06f97fba801e5eb2d40afa9ac">startIndex</a>),0x55,0x55,0x55,0x55,0x55 };</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        uint8_t rx[8];</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>        int16_t sendResult = _sw.sendPacket(tx, rx);</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        <span class="keywordflow">if</span> (sendResult &gt;= 0)</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>        {</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>            bytesAvailable = (rx[4] + 256 * rx[5]);</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        }</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>        <span class="keywordflow">if</span> (bytesAvailable &lt; <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a>)</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>        {</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>            <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a> = bytesAvailable;</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>        }</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    }</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>    uint16_t bytesRead = 0;</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    <span class="keywordflow">while</span> (bytesRead &lt; <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a>)</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    {</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>        yield();</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>        uint8_t bytesToRead =(uint8_t)( <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a> - bytesRead);</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>        <span class="keywordflow">if</span> (bytesToRead &gt; 6)</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>        {</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>            bytesToRead = 6;</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>        }</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>        uint8_t tx[] = { (uint8_t)<a class="code hl_enumvalue" href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a84e31a4bf35b4b5aae64917446ab3044">SerialWombatCommands::COMMAND_BINARY_QUEUE_READ_BYTES</a> ,<a class="code hl_define" href="us_serial_wombat_8h.html#a4396b9493edc62907e2678a594988bad">SW_LE16</a>(<a class="code hl_variable" href="class_serial_wombat_queue.html#a70367eb06f97fba801e5eb2d40afa9ac">startIndex</a>),bytesToRead,0x55,0x55,0x55,0x55 };</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>        uint8_t rx[8];</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>        int16_t sendResult = _sw.sendPacket(tx, rx);</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>        <span class="keywordflow">if</span> (sendResult &gt;= 0)</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>        {</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>            uint8_t i;</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>                <span class="keywordflow">for</span> (i = 0; i &lt; rx[1] &amp;&amp; bytesRead &lt; <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a>; ++i)</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>                {</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>                    buffer[bytesRead] = rx[2 + i];</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>                    ++bytesRead;</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>                }</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>            </div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>        }</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>        {</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>            <span class="keywordflow">return</span> (bytesRead);</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>        }</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>        <span class="keywordflow">if</span> (millis() &gt;= startTime + _timeout)</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>        {</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>            <span class="keywordflow">return</span>(bytesRead);</div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>        }</div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span> </div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>    }</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>    <span class="keywordflow">return</span> bytesRead;</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>}</div>
 </div>
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span> </div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span> </div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno"><a class="line" href="class_serial_wombat_queue.html#a70367eb06f97fba801e5eb2d40afa9ac">  392</a></span>    uint16_t <a class="code hl_variable" href="class_serial_wombat_queue.html#a70367eb06f97fba801e5eb2d40afa9ac">startIndex</a> = 0xFFFF;</div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno"><a class="line" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">  393</a></span>    uint16_t <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a> = 0;</div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span> </div>
-<div class="foldopen" id="foldopen00395" data-start="{" data-end="}">
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno"><a class="line" href="class_serial_wombat_queue.html#a6cfcb47fd923dd22c684d927f4a9bdc7">  395</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_wombat_queue.html#a6cfcb47fd923dd22c684d927f4a9bdc7">setTimeout</a>(<span class="keywordtype">long</span> timeout_mS)</div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>{</div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>    _timeout = timeout_mS;</div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>}</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span> </div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span> </div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno"><a class="line" href="class_serial_wombat_queue.html#a70367eb06f97fba801e5eb2d40afa9ac">  390</a></span>    uint16_t <a class="code hl_variable" href="class_serial_wombat_queue.html#a70367eb06f97fba801e5eb2d40afa9ac">startIndex</a> = 0xFFFF;</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno"><a class="line" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">  391</a></span>    uint16_t <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a> = 0;</div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span> </div>
+<div class="foldopen" id="foldopen00393" data-start="{" data-end="}">
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno"><a class="line" href="class_serial_wombat_queue.html#a6cfcb47fd923dd22c684d927f4a9bdc7">  393</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_serial_wombat_queue.html#a6cfcb47fd923dd22c684d927f4a9bdc7">setTimeout</a>(<span class="keywordtype">long</span> timeout_mS)</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>{</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>    _timeout = timeout_mS;</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>}</div>
 </div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span></div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>   */</div>
-<div class="foldopen" id="foldopen00410" data-start="{" data-end="}">
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno"><a class="line" href="class_serial_wombat_queue.html#a1b6c994cd60ea635aac33750bd3d6694">  410</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_serial_wombat_queue.html#a1b6c994cd60ea635aac33750bd3d6694">readUInt16</a>(uint16_t* buffer, <span class="keywordtype">size_t</span> <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a>)</div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>    {</div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>        uint16_t bytesAvailable = 0;</div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>    </div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>            uint8_t tx[] = { (uint8_t)<a class="code hl_enumvalue" href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a09ca1c341116d0dddc52b0571b109591">SerialWombatCommands::COMMAND_BINARY_QUEUE_INFORMATION</a> ,<a class="code hl_define" href="us_serial_wombat_8h.html#a4396b9493edc62907e2678a594988bad">SW_LE16</a>(<a class="code hl_variable" href="class_serial_wombat_queue.html#a70367eb06f97fba801e5eb2d40afa9ac">startIndex</a>),0x55,0x55,0x55,0x55,0x55 };</div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>            uint8_t rx[8];</div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>            int16_t sendResult = _sw.sendPacket(tx, rx);</div>
-<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>            <span class="keywordflow">if</span> (sendResult &gt;= 0)</div>
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>            {</div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>                bytesAvailable = (rx[4] + 256 * rx[5]);</div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>            }</div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>            uint16_t wordsAvailable = bytesAvailable /2;</div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>            <span class="keywordflow">if</span> (wordsAvailable &lt; <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a>)</div>
-<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>            {</div>
-<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>                <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a> = wordsAvailable ;</div>
-<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>            }</div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="class_serial_wombat_queue.html#a1e0f006771824e9d67a14356d5048840">readBytes</a>((<span class="keywordtype">char</span>*)buffer, <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a> * 2) / 2;</div>
-<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>    }</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span></div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>   */</div>
+<div class="foldopen" id="foldopen00408" data-start="{" data-end="}">
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno"><a class="line" href="class_serial_wombat_queue.html#a1b6c994cd60ea635aac33750bd3d6694">  408</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_serial_wombat_queue.html#a1b6c994cd60ea635aac33750bd3d6694">readUInt16</a>(uint16_t* buffer, <span class="keywordtype">size_t</span> <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a>)</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    {</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>        uint16_t bytesAvailable = 0;</div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>    </div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>            uint8_t tx[] = { (uint8_t)<a class="code hl_enumvalue" href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a09ca1c341116d0dddc52b0571b109591">SerialWombatCommands::COMMAND_BINARY_QUEUE_INFORMATION</a> ,<a class="code hl_define" href="us_serial_wombat_8h.html#a4396b9493edc62907e2678a594988bad">SW_LE16</a>(<a class="code hl_variable" href="class_serial_wombat_queue.html#a70367eb06f97fba801e5eb2d40afa9ac">startIndex</a>),0x55,0x55,0x55,0x55,0x55 };</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>            uint8_t rx[8];</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>            int16_t sendResult = _sw.sendPacket(tx, rx);</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>            <span class="keywordflow">if</span> (sendResult &gt;= 0)</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>            {</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>                bytesAvailable = (rx[4] + 256 * rx[5]);</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>            }</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>            uint16_t wordsAvailable = bytesAvailable /2;</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>            <span class="keywordflow">if</span> (wordsAvailable &lt; <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a>)</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>            {</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>                <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a> = wordsAvailable ;</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>            }</div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="class_serial_wombat_queue.html#a1e0f006771824e9d67a14356d5048840">readBytes</a>((<span class="keywordtype">char</span>*)buffer, <a class="code hl_variable" href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">length</a> * 2) / 2;</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>    }</div>
 </div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span> </div>
-<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>    <span class="comment">//TODO add copy interface</span></div>
-<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>    <a class="code hl_class" href="class_serial_wombat_chip.html">SerialWombatChip</a>&amp; _sw;</div>
-<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span> </div>
-<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>    </div>
-<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>    uint32_t _timeout = 500;</div>
-<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>};</div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span> </div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>    <span class="comment">//TODO add copy interface</span></div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>    <a class="code hl_class" href="class_serial_wombat_chip.html">SerialWombatChip</a>&amp; _sw;</div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span> </div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>    </div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>    uint32_t _timeout = 500;</div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>};</div>
 </div>
 <div class="ttc" id="a_serial_wombat_8h_html"><div class="ttname"><a href="us_serial_wombat_8h.html">SerialWombat.h</a></div></div>
-<div class="ttc" id="a_serial_wombat_8h_html_a4396b9493edc62907e2678a594988bad"><div class="ttname"><a href="us_serial_wombat_8h.html#a4396b9493edc62907e2678a594988bad">SW_LE16</a></div><div class="ttdeci">#define SW_LE16(_a)</div><div class="ttdoc">Convert a uint16_t to two bytes in little endian format for array initialization.</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_8h_source.html#l00041">SerialWombat.h:41</a></div></div>
-<div class="ttc" id="a_serial_wombat_8h_html_a4a7ddba5bce899934c59634db4be3656a09ca1c341116d0dddc52b0571b109591"><div class="ttname"><a href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a09ca1c341116d0dddc52b0571b109591">SerialWombatCommands::COMMAND_BINARY_QUEUE_INFORMATION</a></div><div class="ttdeci">@ COMMAND_BINARY_QUEUE_INFORMATION</div><div class="ttdoc">(0x94)</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_8h_source.html#l00206">SerialWombat.h:206</a></div></div>
-<div class="ttc" id="a_serial_wombat_8h_html_a4a7ddba5bce899934c59634db4be3656a0b7db709a3503e372118adef07797c50"><div class="ttname"><a href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a0b7db709a3503e372118adef07797c50">SerialWombatCommands::COMMAND_BINARY_QUEUE_INITIALIZE</a></div><div class="ttdeci">@ COMMAND_BINARY_QUEUE_INITIALIZE</div><div class="ttdoc">(0x90)</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_8h_source.html#l00202">SerialWombat.h:202</a></div></div>
-<div class="ttc" id="a_serial_wombat_8h_html_a4a7ddba5bce899934c59634db4be3656a4d21e1bd55dc8c7ada159415e4710f05"><div class="ttname"><a href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a4d21e1bd55dc8c7ada159415e4710f05">SerialWombatCommands::COMMAND_BINARY_QUEUE_ADD_BYTES</a></div><div class="ttdeci">@ COMMAND_BINARY_QUEUE_ADD_BYTES</div><div class="ttdoc">(0x91)</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_8h_source.html#l00203">SerialWombat.h:203</a></div></div>
-<div class="ttc" id="a_serial_wombat_8h_html_a4a7ddba5bce899934c59634db4be3656a69e65b64a1748b38cc7df7d83e6fee6d"><div class="ttname"><a href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a69e65b64a1748b38cc7df7d83e6fee6d">SerialWombatCommands::COMMAND_BINARY_QUEUE_ADD_7BYTES</a></div><div class="ttdeci">@ COMMAND_BINARY_QUEUE_ADD_7BYTES</div><div class="ttdoc">(0x92)</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_8h_source.html#l00204">SerialWombat.h:204</a></div></div>
-<div class="ttc" id="a_serial_wombat_8h_html_a4a7ddba5bce899934c59634db4be3656a84e31a4bf35b4b5aae64917446ab3044"><div class="ttname"><a href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a84e31a4bf35b4b5aae64917446ab3044">SerialWombatCommands::COMMAND_BINARY_QUEUE_READ_BYTES</a></div><div class="ttdeci">@ COMMAND_BINARY_QUEUE_READ_BYTES</div><div class="ttdoc">(0x93)</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_8h_source.html#l00205">SerialWombat.h:205</a></div></div>
+<div class="ttc" id="a_serial_wombat_8h_html_a4396b9493edc62907e2678a594988bad"><div class="ttname"><a href="us_serial_wombat_8h.html#a4396b9493edc62907e2678a594988bad">SW_LE16</a></div><div class="ttdeci">#define SW_LE16(_a)</div><div class="ttdoc">Convert a uint16_t to two bytes in little endian format for array initialization.</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_8h_source.html#l00046">SerialWombat.h:46</a></div></div>
+<div class="ttc" id="a_serial_wombat_8h_html_a4a7ddba5bce899934c59634db4be3656a09ca1c341116d0dddc52b0571b109591"><div class="ttname"><a href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a09ca1c341116d0dddc52b0571b109591">SerialWombatCommands::COMMAND_BINARY_QUEUE_INFORMATION</a></div><div class="ttdeci">@ COMMAND_BINARY_QUEUE_INFORMATION</div><div class="ttdoc">(0x94)</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_8h_source.html#l00215">SerialWombat.h:215</a></div></div>
+<div class="ttc" id="a_serial_wombat_8h_html_a4a7ddba5bce899934c59634db4be3656a0b7db709a3503e372118adef07797c50"><div class="ttname"><a href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a0b7db709a3503e372118adef07797c50">SerialWombatCommands::COMMAND_BINARY_QUEUE_INITIALIZE</a></div><div class="ttdeci">@ COMMAND_BINARY_QUEUE_INITIALIZE</div><div class="ttdoc">(0x90)</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_8h_source.html#l00211">SerialWombat.h:211</a></div></div>
+<div class="ttc" id="a_serial_wombat_8h_html_a4a7ddba5bce899934c59634db4be3656a4d21e1bd55dc8c7ada159415e4710f05"><div class="ttname"><a href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a4d21e1bd55dc8c7ada159415e4710f05">SerialWombatCommands::COMMAND_BINARY_QUEUE_ADD_BYTES</a></div><div class="ttdeci">@ COMMAND_BINARY_QUEUE_ADD_BYTES</div><div class="ttdoc">(0x91)</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_8h_source.html#l00212">SerialWombat.h:212</a></div></div>
+<div class="ttc" id="a_serial_wombat_8h_html_a4a7ddba5bce899934c59634db4be3656a69e65b64a1748b38cc7df7d83e6fee6d"><div class="ttname"><a href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a69e65b64a1748b38cc7df7d83e6fee6d">SerialWombatCommands::COMMAND_BINARY_QUEUE_ADD_7BYTES</a></div><div class="ttdeci">@ COMMAND_BINARY_QUEUE_ADD_7BYTES</div><div class="ttdoc">(0x92)</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_8h_source.html#l00213">SerialWombat.h:213</a></div></div>
+<div class="ttc" id="a_serial_wombat_8h_html_a4a7ddba5bce899934c59634db4be3656a84e31a4bf35b4b5aae64917446ab3044"><div class="ttname"><a href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a84e31a4bf35b4b5aae64917446ab3044">SerialWombatCommands::COMMAND_BINARY_QUEUE_READ_BYTES</a></div><div class="ttdeci">@ COMMAND_BINARY_QUEUE_READ_BYTES</div><div class="ttdoc">(0x93)</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_8h_source.html#l00214">SerialWombat.h:214</a></div></div>
 <div class="ttc" id="a_serial_wombat_queue_8h_html_ae590461897f6809b2b60297b96d7e46d"><div class="ttname"><a href="us_serial_wombat_queue_8h.html#ae590461897f6809b2b60297b96d7e46d">SerialWombatQueueType</a></div><div class="ttdeci">SerialWombatQueueType</div><div class="ttdef"><b>Definition</b> <a href="#l00031">SerialWombatQueue.h:31</a></div></div>
 <div class="ttc" id="a_serial_wombat_queue_8h_html_ae590461897f6809b2b60297b96d7e46da2f5417730a384e7d7c91db81f66681d8"><div class="ttname"><a href="us_serial_wombat_queue_8h.html#ae590461897f6809b2b60297b96d7e46da2f5417730a384e7d7c91db81f66681d8">SerialWombatQueueType::QUEUE_TYPE_RAM_BYTE_SHIFT</a></div><div class="ttdeci">@ QUEUE_TYPE_RAM_BYTE_SHIFT</div><div class="ttdoc">A queue that queues byte-sized data in a queue in the User RAM area.</div><div class="ttdef"><b>Definition</b> <a href="#l00033">SerialWombatQueue.h:33</a></div></div>
 <div class="ttc" id="a_serial_wombat_queue_8h_html_ae590461897f6809b2b60297b96d7e46dafe7f527b63d26ece5ec657006256b687"><div class="ttname"><a href="us_serial_wombat_queue_8h.html#ae590461897f6809b2b60297b96d7e46dafe7f527b63d26ece5ec657006256b687">SerialWombatQueueType::QUEUE_TYPE_RAM_BYTE</a></div><div class="ttdeci">@ QUEUE_TYPE_RAM_BYTE</div><div class="ttdoc">A queue that queues byte-sized data in a queue in the User RAM area.</div><div class="ttdef"><b>Definition</b> <a href="#l00032">SerialWombatQueue.h:32</a></div></div>
-<div class="ttc" id="aclass_serial_wombat_chip_html"><div class="ttname"><a href="class_serial_wombat_chip.html">SerialWombatChip</a></div><div class="ttdoc">Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_8h_source.html#l00296">SerialWombat.h:297</a></div></div>
+<div class="ttc" id="aclass_serial_wombat_chip_html"><div class="ttname"><a href="class_serial_wombat_chip.html">SerialWombatChip</a></div><div class="ttdoc">Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.</div><div class="ttdef"><b>Definition</b> <a href="us_serial_wombat_8h_source.html#l00308">SerialWombat.h:309</a></div></div>
 <div class="ttc" id="aclass_serial_wombat_queue_html_a1b6973c4f78e70b4c04943e785b8d4bb"><div class="ttname"><a href="class_serial_wombat_queue.html#a1b6973c4f78e70b4c04943e785b8d4bb">SerialWombatQueue::peek</a></div><div class="ttdeci">int peek()</div><div class="ttdoc">Query the Serial Wombat for the next avaialble byte, but don&#39;t remove it from the queue /.</div><div class="ttdef"><b>Definition</b> <a href="#l00120">SerialWombatQueue.h:120</a></div></div>
-<div class="ttc" id="aclass_serial_wombat_queue_html_a1b6c994cd60ea635aac33750bd3d6694"><div class="ttname"><a href="class_serial_wombat_queue.html#a1b6c994cd60ea635aac33750bd3d6694">SerialWombatQueue::readUInt16</a></div><div class="ttdeci">size_t readUInt16(uint16_t *buffer, size_t length)</div><div class="ttdoc">Reads a specified number of unsigned 16 bit words from the Serial Wombat Queue /.</div><div class="ttdef"><b>Definition</b> <a href="#l00410">SerialWombatQueue.h:410</a></div></div>
-<div class="ttc" id="aclass_serial_wombat_queue_html_a1e0f006771824e9d67a14356d5048840"><div class="ttname"><a href="class_serial_wombat_queue.html#a1e0f006771824e9d67a14356d5048840">SerialWombatQueue::readBytes</a></div><div class="ttdeci">size_t readBytes(char *buffer, size_t length)</div><div class="ttdoc">Reads a specified number of bytes from the Serial Wombat Queue /.</div><div class="ttdef"><b>Definition</b> <a href="#l00337">SerialWombatQueue.h:337</a></div></div>
+<div class="ttc" id="aclass_serial_wombat_queue_html_a1b6c994cd60ea635aac33750bd3d6694"><div class="ttname"><a href="class_serial_wombat_queue.html#a1b6c994cd60ea635aac33750bd3d6694">SerialWombatQueue::readUInt16</a></div><div class="ttdeci">size_t readUInt16(uint16_t *buffer, size_t length)</div><div class="ttdoc">Reads a specified number of unsigned 16 bit words from the Serial Wombat Queue /.</div><div class="ttdef"><b>Definition</b> <a href="#l00408">SerialWombatQueue.h:408</a></div></div>
+<div class="ttc" id="aclass_serial_wombat_queue_html_a1e0f006771824e9d67a14356d5048840"><div class="ttname"><a href="class_serial_wombat_queue.html#a1e0f006771824e9d67a14356d5048840">SerialWombatQueue::readBytes</a></div><div class="ttdeci">size_t readBytes(char *buffer, size_t length)</div><div class="ttdoc">Reads a specified number of bytes from the Serial Wombat Queue /.</div><div class="ttdef"><b>Definition</b> <a href="#l00335">SerialWombatQueue.h:335</a></div></div>
 <div class="ttc" id="aclass_serial_wombat_queue_html_a3703930fea8b5aa215f293fca11cdf7d"><div class="ttname"><a href="class_serial_wombat_queue.html#a3703930fea8b5aa215f293fca11cdf7d">SerialWombatQueue::write</a></div><div class="ttdeci">size_t write(const uint16_t *buffer, size_t size)</div><div class="ttdoc">Write unsigned words to the Serial Wombat Queue /.</div><div class="ttdef"><b>Definition</b> <a href="#l00202">SerialWombatQueue.h:202</a></div></div>
 <div class="ttc" id="aclass_serial_wombat_queue_html_a59465fb274ce59ffefed40d54e467e63"><div class="ttname"><a href="class_serial_wombat_queue.html#a59465fb274ce59ffefed40d54e467e63">SerialWombatQueue::available</a></div><div class="ttdeci">int available()</div><div class="ttdoc">Queries the Serial Wombat for number bytes available to read /.</div><div class="ttdef"><b>Definition</b> <a href="#l00082">SerialWombatQueue.h:82</a></div></div>
 <div class="ttc" id="aclass_serial_wombat_queue_html_a67752e4e8e86c8f76c0fe71158c5bdf0"><div class="ttname"><a href="class_serial_wombat_queue.html#a67752e4e8e86c8f76c0fe71158c5bdf0">SerialWombatQueue::write</a></div><div class="ttdeci">size_t write(uint8_t data)</div><div class="ttdoc">Write a byte to the Serial Wombat Queue /.</div><div class="ttdef"><b>Definition</b> <a href="#l00140">SerialWombatQueue.h:140</a></div></div>
 <div class="ttc" id="aclass_serial_wombat_queue_html_a6912bbfe81bbb93248a8d13d182f18fc"><div class="ttname"><a href="class_serial_wombat_queue.html#a6912bbfe81bbb93248a8d13d182f18fc">SerialWombatQueue::SerialWombatQueue</a></div><div class="ttdeci">SerialWombatQueue(SerialWombatChip &amp;serialWombat)</div><div class="ttdoc">Constructor for SerialWombatWS2812 class /.</div><div class="ttdef"><b>Definition</b> <a href="#l00048">SerialWombatQueue.h:48</a></div></div>
-<div class="ttc" id="aclass_serial_wombat_queue_html_a6cfcb47fd923dd22c684d927f4a9bdc7"><div class="ttname"><a href="class_serial_wombat_queue.html#a6cfcb47fd923dd22c684d927f4a9bdc7">SerialWombatQueue::setTimeout</a></div><div class="ttdeci">void setTimeout(long timeout_mS)</div><div class="ttdef"><b>Definition</b> <a href="#l00395">SerialWombatQueue.h:395</a></div></div>
-<div class="ttc" id="aclass_serial_wombat_queue_html_a6d492123cde341f10017980d67ae09f5"><div class="ttname"><a href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">SerialWombatQueue::length</a></div><div class="ttdeci">uint16_t length</div><div class="ttdef"><b>Definition</b> <a href="#l00393">SerialWombatQueue.h:393</a></div></div>
-<div class="ttc" id="aclass_serial_wombat_queue_html_a70367eb06f97fba801e5eb2d40afa9ac"><div class="ttname"><a href="class_serial_wombat_queue.html#a70367eb06f97fba801e5eb2d40afa9ac">SerialWombatQueue::startIndex</a></div><div class="ttdeci">uint16_t startIndex</div><div class="ttdef"><b>Definition</b> <a href="#l00392">SerialWombatQueue.h:392</a></div></div>
+<div class="ttc" id="aclass_serial_wombat_queue_html_a6cfcb47fd923dd22c684d927f4a9bdc7"><div class="ttname"><a href="class_serial_wombat_queue.html#a6cfcb47fd923dd22c684d927f4a9bdc7">SerialWombatQueue::setTimeout</a></div><div class="ttdeci">void setTimeout(long timeout_mS)</div><div class="ttdef"><b>Definition</b> <a href="#l00393">SerialWombatQueue.h:393</a></div></div>
+<div class="ttc" id="aclass_serial_wombat_queue_html_a6d492123cde341f10017980d67ae09f5"><div class="ttname"><a href="class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5">SerialWombatQueue::length</a></div><div class="ttdeci">uint16_t length</div><div class="ttdef"><b>Definition</b> <a href="#l00391">SerialWombatQueue.h:391</a></div></div>
+<div class="ttc" id="aclass_serial_wombat_queue_html_a70367eb06f97fba801e5eb2d40afa9ac"><div class="ttname"><a href="class_serial_wombat_queue.html#a70367eb06f97fba801e5eb2d40afa9ac">SerialWombatQueue::startIndex</a></div><div class="ttdeci">uint16_t startIndex</div><div class="ttdef"><b>Definition</b> <a href="#l00390">SerialWombatQueue.h:390</a></div></div>
 <div class="ttc" id="aclass_serial_wombat_queue_html_a751755d0a40e71af18c4def3c05d2c39"><div class="ttname"><a href="class_serial_wombat_queue.html#a751755d0a40e71af18c4def3c05d2c39">SerialWombatQueue::write</a></div><div class="ttdeci">size_t write(const uint8_t *buffer, size_t size)</div><div class="ttdoc">Write bytes to the Serial Wombat Queue /.</div><div class="ttdef"><b>Definition</b> <a href="#l00219">SerialWombatQueue.h:219</a></div></div>
-<div class="ttc" id="aclass_serial_wombat_queue_html_a97ec0c4aa8155592b8ad8b2d8cbc36c1"><div class="ttname"><a href="class_serial_wombat_queue.html#a97ec0c4aa8155592b8ad8b2d8cbc36c1">SerialWombatQueue::availableForWrite</a></div><div class="ttdeci">int availableForWrite()</div><div class="ttdoc">Queries the Serial Wombat for the amount of free queue space /.</div><div class="ttdef"><b>Definition</b> <a href="#l00315">SerialWombatQueue.h:315</a></div></div>
+<div class="ttc" id="aclass_serial_wombat_queue_html_a97ec0c4aa8155592b8ad8b2d8cbc36c1"><div class="ttname"><a href="class_serial_wombat_queue.html#a97ec0c4aa8155592b8ad8b2d8cbc36c1">SerialWombatQueue::availableForWrite</a></div><div class="ttdeci">int availableForWrite()</div><div class="ttdoc">Queries the Serial Wombat for the amount of free queue space /.</div><div class="ttdef"><b>Definition</b> <a href="#l00313">SerialWombatQueue.h:313</a></div></div>
 <div class="ttc" id="aclass_serial_wombat_queue_html_ab055a01da4a7bdf53f327a1673c3a897"><div class="ttname"><a href="class_serial_wombat_queue.html#ab055a01da4a7bdf53f327a1673c3a897">SerialWombatQueue::read</a></div><div class="ttdeci">int read()</div><div class="ttdoc">Reads a byte from the Serial Wombat /.</div><div class="ttdef"><b>Definition</b> <a href="#l00097">SerialWombatQueue.h:97</a></div></div>
 <div class="ttc" id="aclass_serial_wombat_queue_html_ac4fb277d4fa5999c986db2e251176499"><div class="ttname"><a href="class_serial_wombat_queue.html#ac4fb277d4fa5999c986db2e251176499">SerialWombatQueue::write</a></div><div class="ttdeci">size_t write(uint16_t buffer[], size_t size)</div><div class="ttdoc">Write unsigned words to the Serial Wombat Queue /.</div><div class="ttdef"><b>Definition</b> <a href="#l00185">SerialWombatQueue.h:185</a></div></div>
 <div class="ttc" id="aclass_serial_wombat_queue_html_ac92222237b9ed9805732b6a263c882e2"><div class="ttname"><a href="class_serial_wombat_queue.html#ac92222237b9ed9805732b6a263c882e2">SerialWombatQueue::flush</a></div><div class="ttdeci">void flush()</div><div class="ttdoc">Discard all received bytes.</div><div class="ttdef"><b>Definition</b> <a href="#l00112">SerialWombatQueue.h:112</a></div></div>

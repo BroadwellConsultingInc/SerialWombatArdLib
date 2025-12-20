@@ -1,7 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="5,31,135,57"/>
-<area shape="rect" id="Node000001" href="$class_p_c_b0031___grip.html" title="A class representing a PCB0031 Grip PCB." alt="" coords="183,5,291,32"/>
-<area shape="poly" id="edge61_Node000000_Node000001" title=" " alt="" coords="150,29,182,24,183,30,151,34"/>
-<area shape="rect" id="Node000002" href="$class_serial_wombat.html" title="This class name is depricated. Do not use for new development. Use SerialWombatChip instead." alt="" coords="186,56,288,83"/>
-<area shape="poly" id="edge62_Node000000_Node000002" title=" " alt="" coords="151,54,186,59,185,64,150,59"/>
+<area shape="rect" id="Node000000" href="$class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="5,56,135,83"/>
+<area shape="rect" id="Node000001" href="$class_p_c_b0030___bridge.html" title="A class representing a PCB0030 Bridge PCB." alt="" coords="183,5,304,32"/>
+<area shape="poly" id="edge62_Node000000_Node000001" title=" " alt="" coords="132,48,194,30,196,35,134,54"/>
+<area shape="rect" id="Node000002" href="$class_p_c_b0031___grip.html" title="A class representing a PCB0031 Grip PCB." alt="" coords="189,56,298,83"/>
+<area shape="poly" id="edge63_Node000000_Node000002" title=" " alt="" coords="150,67,189,67,189,72,150,72"/>
+<area shape="rect" id="Node000003" href="$class_serial_wombat.html" title="This class name is depricated. Do not use for new development. Use SerialWombatChip instead." alt="" coords="192,107,294,133"/>
+<area shape="poly" id="edge64_Node000000_Node000003" title=" " alt="" coords="134,85,196,104,194,109,132,90"/>
 </map>

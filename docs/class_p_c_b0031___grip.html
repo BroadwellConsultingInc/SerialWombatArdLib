@@ -95,7 +95,7 @@ $(function(){ initResizable(false); });
 <p>A class representing a PCB0031 Grip PCB.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for PCB0031_Grip:</div>
 <div class="dyncontent">
@@ -198,7 +198,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a56030bf411a9d0c5827ae48b1dec39f5 inherit pub_methods_class_serial_wombat_chip" id="r_a56030bf411a9d0c5827ae48b1dec39f5"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a56030bf411a9d0c5827ae48b1dec39f5">readPublicData</a> (uint8_t pin)</td></tr>
 <tr class="memdesc:a56030bf411a9d0c5827ae48b1dec39f5 inherit pub_methods_class_serial_wombat_chip"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the 16 Bit public data associated with a Serial Wombat Pin Mode.  <br /></td></tr>
 <tr class="separator:a56030bf411a9d0c5827ae48b1dec39f5 inherit pub_methods_class_serial_wombat_chip"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adad56fa5e2abe3a8636f96c6739b9f3a inherit pub_methods_class_serial_wombat_chip" id="r_adad56fa5e2abe3a8636f96c6739b9f3a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#adad56fa5e2abe3a8636f96c6739b9f3a">readPublicData</a> (<a class="el" href="_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6fa">SerialWombatDataSource</a> dataSource)</td></tr>
+<tr class="memitem:adad56fa5e2abe3a8636f96c6739b9f3a inherit pub_methods_class_serial_wombat_chip" id="r_adad56fa5e2abe3a8636f96c6739b9f3a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#adad56fa5e2abe3a8636f96c6739b9f3a">readPublicData</a> (<a class="el" href="us_serial_wombat_8h.html#aa93a00ab6275924ab4d521604780f6fa">SerialWombatDataSource</a> dataSource)</td></tr>
 <tr class="memdesc:adad56fa5e2abe3a8636f96c6739b9f3a inherit pub_methods_class_serial_wombat_chip"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the 16 Bit public data associated with a Serial Wombat Pin Mode.  <br /></td></tr>
 <tr class="separator:adad56fa5e2abe3a8636f96c6739b9f3a inherit pub_methods_class_serial_wombat_chip"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99bcf77ea4c2ff0ff5ffd773e85b8ec3 inherit pub_methods_class_serial_wombat_chip" id="r_a99bcf77ea4c2ff0ff5ffd773e85b8ec3"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a99bcf77ea4c2ff0ff5ffd773e85b8ec3">writePublicData</a> (uint8_t pin, uint16_t value)</td></tr>
@@ -260,12 +260,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a16a7f2685eb2e6cb24ff6b5dccd960be inherit pub_methods_class_serial_wombat_chip" id="r_a16a7f2685eb2e6cb24ff6b5dccd960be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a16a7f2685eb2e6cb24ff6b5dccd960be">wake</a> ()</td></tr>
 <tr class="memdesc:a16a7f2685eb2e6cb24ff6b5dccd960be inherit pub_methods_class_serial_wombat_chip"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to send a dummy packet to the Serial Wombat chip to wake it from sleep and ready it for other commands.  <br /></td></tr>
 <tr class="separator:a16a7f2685eb2e6cb24ff6b5dccd960be inherit pub_methods_class_serial_wombat_chip"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23debdb520c397d7dd9d91c9f72d557b inherit pub_methods_class_serial_wombat_chip" id="r_a23debdb520c397d7dd9d91c9f72d557b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a23debdb520c397d7dd9d91c9f72d557b">isSW04</a> ()</td></tr>
+<tr class="memdesc:a23debdb520c397d7dd9d91c9f72d557b inherit pub_methods_class_serial_wombat_chip"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the instance received a model number corresponding to the Serial Wombat 18 series of chips at begin.  <br /></td></tr>
+<tr class="separator:a23debdb520c397d7dd9d91c9f72d557b inherit pub_methods_class_serial_wombat_chip"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8095bb3b174d74a05fdc42bf6c9070c7 inherit pub_methods_class_serial_wombat_chip" id="r_a8095bb3b174d74a05fdc42bf6c9070c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a8095bb3b174d74a05fdc42bf6c9070c7">isSW18</a> ()</td></tr>
 <tr class="memdesc:a8095bb3b174d74a05fdc42bf6c9070c7 inherit pub_methods_class_serial_wombat_chip"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the instance received a model number corresponding to the Serial Wombat 18 series of chips at begin.  <br /></td></tr>
 <tr class="separator:a8095bb3b174d74a05fdc42bf6c9070c7 inherit pub_methods_class_serial_wombat_chip"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a973a607d58e933a25f61f325bddff0 inherit pub_methods_class_serial_wombat_chip" id="r_a3a973a607d58e933a25f61f325bddff0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a3a973a607d58e933a25f61f325bddff0">isSW08</a> ()</td></tr>
 <tr class="memdesc:a3a973a607d58e933a25f61f325bddff0 inherit pub_methods_class_serial_wombat_chip"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the instance received a model number corresponding to the Serial Wombat 08 series of chips at begin.  <br /></td></tr>
 <tr class="separator:a3a973a607d58e933a25f61f325bddff0 inherit pub_methods_class_serial_wombat_chip"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a370b517d898d670471cc320a5f4259da inherit pub_methods_class_serial_wombat_chip" id="r_a370b517d898d670471cc320a5f4259da"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a370b517d898d670471cc320a5f4259da">isPinModeSupported</a> (int <a class="el" href="class_serial_wombat_chip.html#a897cad23af7f233a82a154617ea4dca1">pinMode</a>)</td></tr>
+<tr class="separator:a370b517d898d670471cc320a5f4259da inherit pub_methods_class_serial_wombat_chip"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a395eddae9e8cd55be4094cc7ce4b1a0f inherit pub_methods_class_serial_wombat_chip" id="r_a395eddae9e8cd55be4094cc7ce4b1a0f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a395eddae9e8cd55be4094cc7ce4b1a0f">isPinModeSupported</a> (<a class="el" href="us_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8">SerialWombatPinMode_t</a> <a class="el" href="class_serial_wombat_chip.html#a897cad23af7f233a82a154617ea4dca1">pinMode</a>)</td></tr>
+<tr class="separator:a395eddae9e8cd55be4094cc7ce4b1a0f inherit pub_methods_class_serial_wombat_chip"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1fac59be55c43a658c0552df4061d3a inherit pub_methods_class_serial_wombat_chip" id="r_aa1fac59be55c43a658c0552df4061d3a"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#aa1fac59be55c43a658c0552df4061d3a">eraseFlashPage</a> (uint32_t <a class="el" href="class_serial_wombat_chip.html#a11041c4ff7e6bcc040ef11bbad83f758">address</a>)</td></tr>
 <tr class="memdesc:aa1fac59be55c43a658c0552df4061d3a inherit pub_methods_class_serial_wombat_chip"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases a page in flash. Intended for use with the Bootloader, not by end users outside of bootloading sketch.  <br /></td></tr>
 <tr class="separator:aa1fac59be55c43a658c0552df4061d3a inherit pub_methods_class_serial_wombat_chip"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -293,8 +300,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae60b33dc9fc1a52e97cdbe04581889ca inherit pub_methods_class_serial_wombat_chip" id="r_ae60b33dc9fc1a52e97cdbe04581889ca"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#ae60b33dc9fc1a52e97cdbe04581889ca">readLastErrorCommand</a> (uint8_t *cmd)</td></tr>
 <tr class="memdesc:ae60b33dc9fc1a52e97cdbe04581889ca inherit pub_methods_class_serial_wombat_chip"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last Serial Wombat command that produced a protocol error.  <br /></td></tr>
 <tr class="separator:ae60b33dc9fc1a52e97cdbe04581889ca inherit pub_methods_class_serial_wombat_chip"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9657776e3da2c820ea90adc80eb025d inherit pub_methods_class_serial_wombat_chip" id="r_ac9657776e3da2c820ea90adc80eb025d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#ac9657776e3da2c820ea90adc80eb025d">registerErrorHandler</a> (<a class="el" href="_serial_wombat_8h.html#ae40304ff81de28d6e227fd1834a00a57">SerialWombatErrorHandler_t</a> handler)</td></tr>
-<tr class="memdesc:ac9657776e3da2c820ea90adc80eb025d inherit pub_methods_class_serial_wombat_chip"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers an error handler that is called by the <a class="el" href="class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.">SerialWombatChip</a> <a class="el" href="class_serial_wombat_chip.html#a93a62e8cab628873742c0d608e4f2400" title="Send an 8 byte packet to the Serial Wombat chip and wait for 8 bytes back.">sendPacket()</a> command when a protocol error is returned by the Serial Wombat \handler A function pointer to a function of <a class="el" href="_serial_wombat_8h.html#ae40304ff81de28d6e227fd1834a00a57">SerialWombatErrorHandler_t</a> type.  <br /></td></tr>
+<tr class="memitem:ac9657776e3da2c820ea90adc80eb025d inherit pub_methods_class_serial_wombat_chip" id="r_ac9657776e3da2c820ea90adc80eb025d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#ac9657776e3da2c820ea90adc80eb025d">registerErrorHandler</a> (<a class="el" href="us_serial_wombat_8h.html#ae40304ff81de28d6e227fd1834a00a57">SerialWombatErrorHandler_t</a> handler)</td></tr>
+<tr class="memdesc:ac9657776e3da2c820ea90adc80eb025d inherit pub_methods_class_serial_wombat_chip"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers an error handler that is called by the <a class="el" href="class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.">SerialWombatChip</a> <a class="el" href="class_serial_wombat_chip.html#a93a62e8cab628873742c0d608e4f2400" title="Send an 8 byte packet to the Serial Wombat chip and wait for 8 bytes back.">sendPacket()</a> command when a protocol error is returned by the Serial Wombat \handler A function pointer to a function of <a class="el" href="us_serial_wombat_8h.html#ae40304ff81de28d6e227fd1834a00a57">SerialWombatErrorHandler_t</a> type.  <br /></td></tr>
 <tr class="separator:ac9657776e3da2c820ea90adc80eb025d inherit pub_methods_class_serial_wombat_chip"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c876ccbd5c9cd4c81df1a47e10b3117 inherit pub_methods_class_serial_wombat_chip" id="r_a2c876ccbd5c9cd4c81df1a47e10b3117"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a2c876ccbd5c9cd4c81df1a47e10b3117">echo</a> (uint8_t data[], uint8_t count=7)</td></tr>
 <tr class="separator:a2c876ccbd5c9cd4c81df1a47e10b3117 inherit pub_methods_class_serial_wombat_chip"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -374,7 +381,7 @@ Additional Inherited Members</h2></td></tr>
 </p>
 <p><a href="https://youtu.be/TODO">https://youtu.be/TODO</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00384">384</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00387">387</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad128d228414e1d938499cd077f1e5420" name="ad128d228414e1d938499cd077f1e5420"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad128d228414e1d938499cd077f1e5420">&#9670;&#160;</a></span>PCB0031_Grip()</h2>
@@ -399,7 +406,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00387">387</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00390">390</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
@@ -443,7 +450,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a negative number indicating an error code, or a non negative number indicating success </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00405">405</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00408">408</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
@@ -475,7 +482,7 @@ Additional Inherited Members</h2></td></tr>
 <p>this funciton calculates the value based on the 8200/2000 ohm voltage divider on the board</p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the servo voltage in millivolts </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00436">436</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00440">440</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
@@ -492,7 +499,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00390">390</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00393">393</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
@@ -508,7 +515,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00390">390</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00393">393</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
@@ -524,7 +531,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00390">390</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00393">393</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
@@ -540,7 +547,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00390">390</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00393">393</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
@@ -556,7 +563,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00393">393</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00396">396</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
@@ -572,7 +579,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00391">391</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00394">394</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>

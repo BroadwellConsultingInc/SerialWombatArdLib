@@ -95,7 +95,7 @@ $(function(){ initResizable(false); });
 <p>A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="us_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SerialWombatPulseTimer:</div>
 <div class="dyncontent">
@@ -126,7 +126,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a38c664a0b6f2490fa8fed5592fe1a3e5" id="r_a38c664a0b6f2490fa8fed5592fe1a3e5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38c664a0b6f2490fa8fed5592fe1a3e5">SerialWombatPulseTimer</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat)</td></tr>
 <tr class="memdesc:a38c664a0b6f2490fa8fed5592fe1a3e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor for <a class="el" href="class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time.">SerialWombatPulseTimer</a>.  <br /></td></tr>
 <tr class="separator:a38c664a0b6f2490fa8fed5592fe1a3e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e252a5348544c8fe5ab00b76b434b1a" id="r_a4e252a5348544c8fe5ab00b76b434b1a"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e252a5348544c8fe5ab00b76b434b1a">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, <a class="el" href="_serial_wombat_pulse_timer_8h.html#a91de844e5c122887a9c012cf16fb5961">SerialWombatPulseTimerUnits</a> units=<a class="el" href="_serial_wombat_pulse_timer_8h.html#a91de844e5c122887a9c012cf16fb5961abaf638c1bf988419aeef3981d04c4f03">SW_PULSETIMER_uS</a>, bool pullUpEnabled=false)</td></tr>
+<tr class="memitem:a4e252a5348544c8fe5ab00b76b434b1a" id="r_a4e252a5348544c8fe5ab00b76b434b1a"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e252a5348544c8fe5ab00b76b434b1a">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, <a class="el" href="us_serial_wombat_pulse_timer_8h.html#a91de844e5c122887a9c012cf16fb5961">SerialWombatPulseTimerUnits</a> units=<a class="el" href="us_serial_wombat_pulse_timer_8h.html#a91de844e5c122887a9c012cf16fb5961abaf638c1bf988419aeef3981d04c4f03">SW_PULSETIMER_uS</a>, bool pullUpEnabled=false)</td></tr>
 <tr class="memdesc:a4e252a5348544c8fe5ab00b76b434b1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization routine for <a class="el" href="class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time.">SerialWombatPulseTimer</a>.  <br /></td></tr>
 <tr class="separator:a4e252a5348544c8fe5ab00b76b434b1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1528974b4eef9ab9e0135d356551840e" id="r_a1528974b4eef9ab9e0135d356551840e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1528974b4eef9ab9e0135d356551840e">refresh</a> ()</td></tr>
@@ -192,6 +192,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin" id="r_a5a97a8c687f9f5ffb1c22679851d0372"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a5a97a8c687f9f5ffb1c22679851d0372">forceDMA</a> (bool enabled)</td></tr>
 <tr class="memdesc:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces use of DMA instead of hardware timing resources on SW18AB.  <br /></td></tr>
 <tr class="separator:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin" id="r_ab1623964d0840c58e2b69a178310f213"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#ab1623964d0840c58e2b69a178310f213">setPinNumberForTesting</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>)</td></tr>
+<tr class="memdesc:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function designed for testing only. May have unpredictable results if used in real time. Not intended for general use.  <br /></td></tr>
+<tr class="separator:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -231,7 +234,7 @@ Additional Inherited Members</h2></td></tr>
 <p>The number of pulses over time can be used for rough frequency measurements.</p>
 <p>Consecutive High and low periods can be used to calculate duty cycle, although there is no indication whether high or low was most recent. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_timer_8h_source.html#l00082">82</a> of file <a class="el" href="_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html#l00082">82</a> of file <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a38c664a0b6f2490fa8fed5592fe1a3e5" name="a38c664a0b6f2490fa8fed5592fe1a3e5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a38c664a0b6f2490fa8fed5592fe1a3e5">&#9670;&#160;</a></span>SerialWombatPulseTimer()</h2>
@@ -264,7 +267,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_timer_8h_source.html#l00089">89</a> of file <a class="el" href="_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html#l00089">89</a> of file <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
 
 </div>
 </div>
@@ -286,7 +289,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_serial_wombat_pulse_timer_8h.html#a91de844e5c122887a9c012cf16fb5961">SerialWombatPulseTimerUnits</a></td>          <td class="paramname"><span class="paramname"><em>units</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="_serial_wombat_pulse_timer_8h.html#a91de844e5c122887a9c012cf16fb5961abaf638c1bf988419aeef3981d04c4f03">SW_PULSETIMER_uS</a></span>, </td>
+          <td class="paramtype"><a class="el" href="us_serial_wombat_pulse_timer_8h.html#a91de844e5c122887a9c012cf16fb5961">SerialWombatPulseTimerUnits</a></td>          <td class="paramname"><span class="paramname"><em>units</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="us_serial_wombat_pulse_timer_8h.html#a91de844e5c122887a9c012cf16fb5961abaf638c1bf988419aeef3981d04c4f03">SW_PULSETIMER_uS</a></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -311,7 +314,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_timer_8h_source.html#l00100">100</a> of file <a class="el" href="_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html#l00101">101</a> of file <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
 
 </div>
 </div>
@@ -338,7 +341,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_timer_8h_source.html#l00160">160</a> of file <a class="el" href="_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html#l00160">160</a> of file <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
 
 </div>
 </div>
@@ -365,7 +368,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_timer_8h_source.html#l00172">172</a> of file <a class="el" href="_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html#l00172">172</a> of file <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
 
 </div>
 </div>
@@ -392,7 +395,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_timer_8h_source.html#l00186">186</a> of file <a class="el" href="_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html#l00186">186</a> of file <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
 
 </div>
 </div>
@@ -422,7 +425,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Retreive the latest values for HighCounts, LowCounts, Pulses, and MeasurementOverflowOccured. </p>
 <p>This happens in two packets to the Serial Wombat chip, so data may not be coherent </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_timer_8h_source.html#l00112">112</a> of file <a class="el" href="_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html#l00112">112</a> of file <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
 
 </div>
 </div>
@@ -452,7 +455,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Retreive the High and Low counts from the Serial Wombat chip in a single transaction. </p>
 <p>This command will retreive consecutive high and low periods from the Serial Wombat chip. It it not guaranteed which is the most recent. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_timer_8h_source.html#l00130">130</a> of file <a class="el" href="_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html#l00130">130</a> of file <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
 
 </div>
 </div>
@@ -479,7 +482,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_timer_8h_source.html#l00145">145</a> of file <a class="el" href="_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html#l00145">145</a> of file <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
 
 </div>
 </div>
@@ -496,7 +499,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_timer_8h_source.html#l00197">197</a> of file <a class="el" href="_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html#l00197">197</a> of file <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
 
 </div>
 </div>
@@ -512,7 +515,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_timer_8h_source.html#l00203">203</a> of file <a class="el" href="_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html#l00203">203</a> of file <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
 
 </div>
 </div>
@@ -528,7 +531,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_timer_8h_source.html#l00211">211</a> of file <a class="el" href="_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html#l00211">211</a> of file <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
 
 </div>
 </div>
@@ -544,7 +547,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_pulse_timer_8h_source.html#l00210">210</a> of file <a class="el" href="_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html#l00210">210</a> of file <a class="el" href="us_serial_wombat_pulse_timer_8h_source.html">SerialWombatPulseTimer.h</a>.</p>
 
 </div>
 </div>

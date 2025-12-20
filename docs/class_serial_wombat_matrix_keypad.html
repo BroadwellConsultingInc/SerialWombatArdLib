@@ -96,7 +96,7 @@ $(function(){ initResizable(false); });
 <p>A class for the Serial Wombat SW18AB chips which scans matrix keypads up to 4x4.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SerialWombatMatrixKeypad:</div>
 <div class="dyncontent">
@@ -161,9 +161,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a38663994a82ee2f5aad21cdf7183e642" id="r_a38663994a82ee2f5aad21cdf7183e642"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38663994a82ee2f5aad21cdf7183e642">setTimeout</a> (long timeout_mS)</td></tr>
 <tr class="memdesc:a38663994a82ee2f5aad21cdf7183e642"><td class="mdescLeft">&#160;</td><td class="mdescRight">implemented to fulfill Stream requirement.  <br /></td></tr>
 <tr class="separator:a38663994a82ee2f5aad21cdf7183e642"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93ec313b06ac99e972659241409a40c9" id="r_a93ec313b06ac99e972659241409a40c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_serial_wombat_matrix_keypad.html">SerialWombatMatrixKeypad</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93ec313b06ac99e972659241409a40c9">operator=</a> (<a class="el" href="class_serial_wombat_matrix_keypad.html">SerialWombatMatrixKeypad</a> &amp;kp)</td></tr>
-<tr class="memdesc:a93ec313b06ac99e972659241409a40c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">used to allow reference copy. Not for user use.  <br /></td></tr>
-<tr class="separator:a93ec313b06ac99e972659241409a40c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac502010555e97839d45fe47746fc3cbe" id="r_ac502010555e97839d45fe47746fc3cbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_serial_wombat_matrix_keypad.html">SerialWombatMatrixKeypad</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac502010555e97839d45fe47746fc3cbe">operator=</a> (<a class="el" href="class_serial_wombat_matrix_keypad.html">SerialWombatMatrixKeypad</a> &amp;kp)</td></tr>
+<tr class="memdesc:ac502010555e97839d45fe47746fc3cbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">used to allow reference copy. Not for user use.  <br /></td></tr>
+<tr class="separator:ac502010555e97839d45fe47746fc3cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -201,7 +201,7 @@ With 16 being used for no current press, depending on mode setting
 <p>The Serial Wombat 18AB firmware also keeps track of button transition counts and time since last transition for all 16 buttons. In this way each key of the keypad can be treated equivalently to a <a class="el" href="class_serial_wombat_debounced_input.html" title="A pin mode class that debounces inputs.">SerialWombatDebouncedInput</a> class when encapsulated in a SerialWombatMatrixInput class. See the documentation on this class and Arduino examples for details.</p>
 <p>The 16 Bit public data presented internally to other Serial Wombat pins and through the <a class="el" href="class_serial_wombat_chip.html#a56030bf411a9d0c5827ae48b1dec39f5" title="Read the 16 Bit public data associated with a Serial Wombat Pin Mode.">SerialWombatChip.readPublicData</a> method can be configured to present the binary state of 16 buttons, the last button index pressed, the last button index pressed or 16 if no button is pressed, or ASCII of last button pressed. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html#l00087">87</a> of file <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html#l00087">87</a> of file <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1eae48bf2d0282f287fe32ee738c32c9" name="a1eae48bf2d0282f287fe32ee738c32c9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1eae48bf2d0282f287fe32ee738c32c9">&#9670;&#160;</a></span>SerialWombatMatrixKeypad()</h2>
@@ -234,7 +234,7 @@ With 16 being used for no current press, depending on mode setting
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html#l00095">95</a> of file <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html#l00095">95</a> of file <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
 
 </div>
 </div>
@@ -265,7 +265,7 @@ With 16 being used for no current press, depending on mode setting
 <p>Queries the <a class="el" href="class_serial_wombat_matrix_keypad.html" title="A class for the Serial Wombat SW18AB chips which scans matrix keypads up to 4x4.">SerialWombatMatrixKeypad</a> for number bytes available to read. </p>
 <dl class="section return"><dt>Returns</dt><dd>Number of bytes available to read. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html#l00209">209</a> of file <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html#l00209">209</a> of file <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
 
 </div>
 </div>
@@ -295,7 +295,7 @@ With 16 being used for no current press, depending on mode setting
 <p>Number of bytes avaialble to write to <a class="el" href="class_serial_wombat_matrix_keypad.html" title="A class for the Serial Wombat SW18AB chips which scans matrix keypads up to 4x4.">SerialWombatMatrixKeypad</a> queue. Returns 0. </p>
 <dl class="section return"><dt>Returns</dt><dd>Zero. Writes are not suppored. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html#l00295">295</a> of file <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html#l00295">295</a> of file <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
 
 </div>
 </div>
@@ -395,7 +395,7 @@ With 16 being used for no current press, depending on mode setting
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html#l00114">114</a> of file <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html#l00114">114</a> of file <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
 
 </div>
 </div>
@@ -424,12 +424,12 @@ With 16 being used for no current press, depending on mode setting
 
 <p>Discard all bytes from the <a class="el" href="class_serial_wombat_matrix_keypad.html" title="A class for the Serial Wombat SW18AB chips which scans matrix keypads up to 4x4.">SerialWombatMatrixKeypad</a> queue. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html#l00240">240</a> of file <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html#l00240">240</a> of file <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
 
 </div>
 </div>
-<a id="a93ec313b06ac99e972659241409a40c9" name="a93ec313b06ac99e972659241409a40c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93ec313b06ac99e972659241409a40c9">&#9670;&#160;</a></span>operator=()</h2>
+<a id="ac502010555e97839d45fe47746fc3cbe" name="ac502010555e97839d45fe47746fc3cbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac502010555e97839d45fe47746fc3cbe">&#9670;&#160;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -438,7 +438,7 @@ With 16 being used for no current press, depending on mode setting
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_serial_wombat_matrix_keypad.html">SerialWombatMatrixKeypad</a> SerialWombatMatrixKeypad::operator= </td>
+          <td class="memname"><a class="el" href="class_serial_wombat_matrix_keypad.html">SerialWombatMatrixKeypad</a> &amp; SerialWombatMatrixKeypad::operator= </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_serial_wombat_matrix_keypad.html">SerialWombatMatrixKeypad</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>kp</em></span></td><td>)</td>
           <td></td>
@@ -453,7 +453,7 @@ With 16 being used for no current press, depending on mode setting
 
 <p>used to allow reference copy. Not for user use. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html#l00375">375</a> of file <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html#l00375">375</a> of file <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
 
 </div>
 </div>
@@ -483,7 +483,7 @@ With 16 being used for no current press, depending on mode setting
 <p>Query the <a class="el" href="class_serial_wombat_matrix_keypad.html" title="A class for the Serial Wombat SW18AB chips which scans matrix keypads up to 4x4.">SerialWombatMatrixKeypad</a> queue for the next avaialble byte, but don't remove it from the queue. </p>
 <dl class="section return"><dt>Returns</dt><dd>A byte from 0-255, or -1 if no bytes were avaialble </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html#l00248">248</a> of file <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html#l00248">248</a> of file <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
 
 </div>
 </div>
@@ -513,7 +513,7 @@ With 16 being used for no current press, depending on mode setting
 <p>Reads a byte from the <a class="el" href="class_serial_wombat_matrix_keypad.html" title="A class for the Serial Wombat SW18AB chips which scans matrix keypads up to 4x4.">SerialWombatMatrixKeypad</a> queue. </p>
 <dl class="section return"><dt>Returns</dt><dd>A byte from 0-255, or -1 if no bytes were avaialble </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html#l00221">221</a> of file <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html#l00221">221</a> of file <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
 
 </div>
 </div>
@@ -555,7 +555,7 @@ With 16 being used for no current press, depending on mode setting
 <dl class="section return"><dt>Returns</dt><dd>the number of bytes written to buffer</dd></dl>
 <p>This function will read bytes from the <a class="el" href="class_serial_wombat_matrix_keypad.html" title="A class for the Serial Wombat SW18AB chips which scans matrix keypads up to 4x4.">SerialWombatMatrixKeypad</a> queue into buffer. If 'length' characters are not available to read then the value returned will be less than length. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html#l00310">310</a> of file <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html#l00310">310</a> of file <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
 
 </div>
 </div>
@@ -584,7 +584,7 @@ With 16 being used for no current press, depending on mode setting
 
 <p>implemented to fulfill Stream requirement. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html#l00359">359</a> of file <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html#l00359">359</a> of file <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
 
 </div>
 </div>
@@ -626,7 +626,7 @@ With 16 being used for no current press, depending on mode setting
 <dl class="section return"><dt>Returns</dt><dd>the number of bytes sent</dd></dl>
 <p>This function exists to fully implement the Stream class. It throws away the bytes. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html#l00285">285</a> of file <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html#l00285">285</a> of file <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
 
 </div>
 </div>
@@ -663,7 +663,7 @@ With 16 being used for no current press, depending on mode setting
 <dl class="section return"><dt>Returns</dt><dd>Number of bytes written</dd></dl>
 <p>This function exists to fully implement the Stream class. It throws away the byte. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html#l00270">270</a> of file <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html#l00270">270</a> of file <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
 
 </div>
 </div>
@@ -706,7 +706,7 @@ With 16 being used for no current press, depending on mode setting
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns 0 or higher if successfully set or a negative error code otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html#l00198">198</a> of file <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html#l00198">198</a> of file <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
 
 </div>
 </div>
@@ -743,7 +743,7 @@ With 16 being used for no current press, depending on mode setting
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns 0 or higher if successfully set or a negative error code otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html#l00174">174</a> of file <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html#l00174">174</a> of file <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
 
 </div>
 </div>
@@ -760,7 +760,7 @@ With 16 being used for no current press, depending on mode setting
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html#l00382">382</a> of file <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html#l00382">382</a> of file <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
 
 </div>
 </div>
@@ -776,7 +776,7 @@ With 16 being used for no current press, depending on mode setting
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html#l00381">381</a> of file <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html#l00381">381</a> of file <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
 
 </div>
 </div>
@@ -800,7 +800,7 @@ With 16 being used for no current press, depending on mode setting
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html#l00384">384</a> of file <a class="el" href="_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html#l00384">384</a> of file <a class="el" href="us_serial_wombat_matrix_keypad_8h_source.html">SerialWombatMatrixKeypad.h</a>.</p>
 
 </div>
 </div>

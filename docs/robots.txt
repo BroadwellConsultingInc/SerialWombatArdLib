@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://broadwellconsultinginc.github.io/SerialWombatArdLib/sitemap.xml

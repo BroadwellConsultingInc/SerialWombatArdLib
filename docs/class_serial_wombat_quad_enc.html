@@ -94,7 +94,7 @@ $(function(){ initResizable(false); });
 <p>A class that uses two Serial Wombat input pins to read quadrature encoder input.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="us_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SerialWombatQuadEnc:</div>
 <div class="dyncontent">
@@ -125,7 +125,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a914eb31eca62497e1db07114ba6351a7" id="r_a914eb31eca62497e1db07114ba6351a7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a914eb31eca62497e1db07114ba6351a7">SerialWombatQuadEnc</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombatChip)</td></tr>
 <tr class="memdesc:a914eb31eca62497e1db07114ba6351a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input.">SerialWombatQuadEnc</a> class.  <br /></td></tr>
 <tr class="separator:a914eb31eca62497e1db07114ba6351a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cabef936e45817b3c4984f68965488e" id="r_a5cabef936e45817b3c4984f68965488e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5cabef936e45817b3c4984f68965488e">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, uint8_t secondPin, uint16_t debounce_mS=10, bool pullUpsEnabled=true, <a class="el" href="_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5db">QE_READ_MODE_t</a> readState=<a class="el" href="_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5dbaa30b8c6efac02c1e4449c0ef93f3db73">QE_ONBOTH_POLL</a>)</td></tr>
+<tr class="memitem:a5cabef936e45817b3c4984f68965488e" id="r_a5cabef936e45817b3c4984f68965488e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5cabef936e45817b3c4984f68965488e">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, uint8_t secondPin, uint16_t debounce_mS=10, bool pullUpsEnabled=true, <a class="el" href="us_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5db">QE_READ_MODE_t</a> readState=<a class="el" href="us_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5dbaa30b8c6efac02c1e4449c0ef93f3db73">QE_ONBOTH_POLL</a>)</td></tr>
 <tr class="memdesc:a5cabef936e45817b3c4984f68965488e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization for <a class="el" href="class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input.">SerialWombatQuadEnc</a> that allows configuration of debounce time, pullUps and transition detection mode.  <br /></td></tr>
 <tr class="separator:a5cabef936e45817b3c4984f68965488e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e70f5277e922b1f4e3590c2c189e9ee" id="r_a7e70f5277e922b1f4e3590c2c189e9ee"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e70f5277e922b1f4e3590c2c189e9ee">read</a> ()</td></tr>
@@ -186,6 +186,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin" id="r_a5a97a8c687f9f5ffb1c22679851d0372"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a5a97a8c687f9f5ffb1c22679851d0372">forceDMA</a> (bool enabled)</td></tr>
 <tr class="memdesc:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces use of DMA instead of hardware timing resources on SW18AB.  <br /></td></tr>
 <tr class="separator:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin" id="r_ab1623964d0840c58e2b69a178310f213"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#ab1623964d0840c58e2b69a178310f213">setPinNumberForTesting</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>)</td></tr>
+<tr class="memdesc:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function designed for testing only. May have unpredictable results if used in real time. Not intended for general use.  <br /></td></tr>
+<tr class="separator:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -219,7 +222,7 @@ Additional Inherited Members</h2></td></tr>
 <p>The Serial Wombat chip can be queried for overflow frames. If overflow frames are occuring, then the system is overloaded.</p>
 <p>The Serial Wombat 4A and 4B chips can measure a maxium of 8 transitions per mS across all pulse input pins. More frequent transitions than this may result pin mode malfunction. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_quad_enc_8h_source.html#l00104">104</a> of file <a class="el" href="_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_quad_enc_8h_source.html#l00104">104</a> of file <a class="el" href="us_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a914eb31eca62497e1db07114ba6351a7" name="a914eb31eca62497e1db07114ba6351a7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a914eb31eca62497e1db07114ba6351a7">&#9670;&#160;</a></span>SerialWombatQuadEnc()</h2>
@@ -252,7 +255,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_quad_enc_8h_source.html#l00112">112</a> of file <a class="el" href="_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_quad_enc_8h_source.html#l00112">112</a> of file <a class="el" href="us_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>.</p>
 
 </div>
 </div>
@@ -289,7 +292,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5db">QE_READ_MODE_t</a></td>          <td class="paramname"><span class="paramname"><em>readState</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5dbaa30b8c6efac02c1e4449c0ef93f3db73">QE_ONBOTH_POLL</a></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="us_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5db">QE_READ_MODE_t</a></td>          <td class="paramname"><span class="paramname"><em>readState</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="us_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5dbaa30b8c6efac02c1e4449c0ef93f3db73">QE_ONBOTH_POLL</a></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -306,13 +309,13 @@ Additional Inherited Members</h2></td></tr>
     <tr><td class="paramname">secondPin</td><td>The second pin to be used as a Quadrature Encoder input. All I/O pins on Serial Wombat chip may be used, except the first specified pin. </td></tr>
     <tr><td class="paramname">debounce_mS</td><td>The number of mS after a transition is detected and increment occurs before another increment is allowed. </td></tr>
     <tr><td class="paramname">pullUpsEnabled</td><td>TRUE: both pins have weak pull ups enabled. FALSE: Neither pin has weak pull up enabled. </td></tr>
-    <tr><td class="paramname">readState</td><td><a class="el" href="_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5db">QE_READ_MODE_t</a> determine if Polling or Interrupt/DMA mode is used, and which transitions cause increments.</td></tr>
+    <tr><td class="paramname">readState</td><td><a class="el" href="us_serial_wombat_quad_enc_8h.html#a1f1e6e3d4be96a2e24be8bb62fd8f5db">QE_READ_MODE_t</a> determine if Polling or Interrupt/DMA mode is used, and which transitions cause increments.</td></tr>
   </table>
   </dd>
 </dl>
 <p>Position is initialized to 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_quad_enc_8h_source.html#l00127">127</a> of file <a class="el" href="_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_quad_enc_8h_source.html#l00127">127</a> of file <a class="el" href="us_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>.</p>
 
 </div>
 </div>
@@ -342,7 +345,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Read the quadrature encoder position from the Serial Wombat chip. </p>
 <dl class="section return"><dt>Returns</dt><dd>a 16 bit unsigned value indicating position. Rolls from 0 to 65535 when decrementing below 0 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_quad_enc_8h_source.html#l00141">141</a> of file <a class="el" href="_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_quad_enc_8h_source.html#l00141">141</a> of file <a class="el" href="us_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>.</p>
 
 </div>
 </div>
@@ -379,7 +382,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <p>This method is useful when looking for relative change since last call. By setting the position to center (32768) after each read, the net postion change can easily be measured. This is conceptually simplier than using <a class="el" href="#a7e70f5277e922b1f4e3590c2c189e9ee" title="Read the quadrature encoder position from the Serial Wombat chip.">read()</a> and adjusting for rollover between 65535 and 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_quad_enc_8h_source.html#l00155">155</a> of file <a class="el" href="_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_quad_enc_8h_source.html#l00155">155</a> of file <a class="el" href="us_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>.</p>
 
 </div>
 </div>
@@ -414,7 +417,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_quad_enc_8h_source.html#l00164">164</a> of file <a class="el" href="_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_quad_enc_8h_source.html#l00164">164</a> of file <a class="el" href="us_serial_wombat_quad_enc_8h_source.html">SerialWombatQuadEnc.h</a>.</p>
 
 </div>
 </div>

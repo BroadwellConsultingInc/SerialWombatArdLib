@@ -12,6 +12,11 @@ SerialWombatButtonCounter greenCounter(greenButton);
 
 SerialWombatServo servo(sw);
 
+#define SERVO_PIN 2
+#define RED_BUTTON_PIN 0
+#define GREEN_BUTTON_PIN 1
+#define BLUE_BUTTON_PIN 3  // Set this to some other value on SW18AB, as 3 is an I2C pin
+
 // This example is explained in a video tutorial at: https://youtu.be/R1KM0J2Ug-M
 
 long int servoPosition = 90;
@@ -23,12 +28,14 @@ void setup() {
 	delay(500);
 	uint8_t i2cAddress = sw.find();
     sw.begin(Wire,i2cAddress);  //Initialize the Serial Wombat library to use the primary I2C port, This SerialWombat's address is 6C.
-	sw.registerErrorHandler(SerialWombatSerialErrorHandlerBrief); //Register an error handler that will print communication errors to Serial
+
+	// Check for proper Serial Wombat version and pin mode, set error handler.  Not necessary, but useful for debugging problems
+	errorChecking();  
 
   
-   redButton.begin(0);
-   greenButton.begin(1);
-   blueButton.begin(3); // Change this to some other pin (like 19) on the SW18AB since 3 is SDA.
+   redButton.begin(RED_BUTTON_PIN);
+   greenButton.begin(GREEN_BUTTON_PIN);
+   blueButton.begin(BLUE_BUTTON_PIN);
 
    redCounter.begin(&servoPosition, 1,500,2000,5,250,5000,10,100);
    redCounter.lowLimit = 0;
@@ -38,7 +45,7 @@ void setup() {
    greenCounter.lowLimit = 0;
    greenCounter.highLimit = 180;
 
-   servo.attach(2,true);  //Servo on serial wombat pin 2, reverse direction
+   servo.attach(SERVO_PIN,true);  //Servo on serial wombat pin 2, reverse direction
 }
 
 void loop() {
@@ -52,7 +59,30 @@ void loop() {
      servo.write(servoPosition);
     Serial.println(servoPosition);
 
-   
     delay(50);
  
 }
+
+int errorChecking()
+{
+	sw.registerErrorHandler(SerialWombatSerialErrorHandlerBrief); //Register an error handler that will print communication errors to Serial
+
+	if(!sw.isLatestFirmware()){Serial.println("Firmware version mismatch.  Download latest Serial Wombat Arduino Library and update Serial Wombat Firmware to latest version");}
+
+	if (!sw.isPinModeSupported(SerialWombatPinMode_t::PIN_MODE_ANALOGINPUT))
+	{
+		Serial.println("The Analog Pin mode didn't respond as expected.  Verify proper operation with Wombat Panel.");
+		if (sw.isSW08())
+		{
+			Serial.println("You may need to load a different firmware image to your SW8B board.");
+		}
+		while (1)
+		{
+			delay(100);
+		}
+
+	}
+
+	return(0);
+}
+

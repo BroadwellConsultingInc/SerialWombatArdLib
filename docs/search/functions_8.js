@@ -7,6 +7,8 @@ var searchData=
   ['isinsafestate_4',['isInSafeState',['../class_serial_wombat_protected_output.html#adb8e46e44dd34a8a652911c55377ddb2',1,'SerialWombatProtectedOutput']]],
   ['iskeypressed_5',['isKeyPressed',['../class_serial_wombat_p_s2_keyboard.html#a2b4928d35cea7f35e392cf3ed866baf8',1,'SerialWombatPS2Keyboard::isKeyPressed(uint8_t scanCode)'],['../class_serial_wombat_p_s2_keyboard.html#aa13698c6681340978078657743e61c80',1,'SerialWombatPS2Keyboard::isKeyPressed(PS2KeyboardScanCode scanCode)']]],
   ['islatestfirmware_6',['isLatestFirmware',['../class_serial_wombat_chip.html#a0f41d08e5ce9017d3e2dcee30e534af3',1,'SerialWombatChip']]],
-  ['issw08_7',['isSW08',['../class_serial_wombat_chip.html#a3a973a607d58e933a25f61f325bddff0',1,'SerialWombatChip']]],
-  ['issw18_8',['isSW18',['../class_serial_wombat_chip.html#a8095bb3b174d74a05fdc42bf6c9070c7',1,'SerialWombatChip']]]
+  ['ispinmodesupported_7',['isPinModeSupported',['../class_serial_wombat_chip.html#a370b517d898d670471cc320a5f4259da',1,'SerialWombatChip::isPinModeSupported(int pinMode)'],['../class_serial_wombat_chip.html#a395eddae9e8cd55be4094cc7ce4b1a0f',1,'SerialWombatChip::isPinModeSupported(SerialWombatPinMode_t pinMode)']]],
+  ['issw04_8',['isSW04',['../class_serial_wombat_chip.html#a23debdb520c397d7dd9d91c9f72d557b',1,'SerialWombatChip']]],
+  ['issw08_9',['isSW08',['../class_serial_wombat_chip.html#a3a973a607d58e933a25f61f325bddff0',1,'SerialWombatChip']]],
+  ['issw18_10',['isSW18',['../class_serial_wombat_chip.html#a8095bb3b174d74a05fdc42bf6c9070c7',1,'SerialWombatChip']]]
 ];

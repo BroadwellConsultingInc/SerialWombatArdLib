@@ -266,6 +266,7 @@ public:
 				return(result);
 			}
 		}
+		if (maximumDecrementCounts > 0)
 		{
 			uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
 				pin(),

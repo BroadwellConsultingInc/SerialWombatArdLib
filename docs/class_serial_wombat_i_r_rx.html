@@ -96,7 +96,7 @@ $(function(){ initResizable(false); });
 <p>A class for the Serial Wombat SW8B or SW18AB chips which received IR remote signals. Currently only NEC protocol is supported.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="us_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SerialWombatIRRx:</div>
 <div class="dyncontent">
@@ -137,7 +137,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae6d47483277b788898424eedc68dd77b" id="r_ae6d47483277b788898424eedc68dd77b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6d47483277b788898424eedc68dd77b">SerialWombatIRRx</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;sw)</td></tr>
 <tr class="memdesc:ae6d47483277b788898424eedc68dd77b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_serial_wombat_i_r_rx.html" title="A class for the Serial Wombat SW8B or SW18AB chips which received IR remote signals....">SerialWombatIRRx</a> class.  <br /></td></tr>
 <tr class="separator:ae6d47483277b788898424eedc68dd77b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe653196fbee8a61ceaad5f63275c9b5" id="r_abe653196fbee8a61ceaad5f63275c9b5"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe653196fbee8a61ceaad5f63275c9b5">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, uint8_t irMode=0, bool useRepeat=true, <a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a> activeState=<a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8ab22ed2957b068ad839e5f2d0f5de1eb0">SW_LOW</a>, uint16_t publicDataTimeoutPeriod_mS=1000, uint16_t publicDataTimeoutValue=0xFFFF, bool useAddressFilter=false, uint16_t addressFilterValue=0x1234, <a class="el" href="#a7dbe73a06d7c3d260805779400d60016">SerialWombatIRRx::publicDataOutput</a> dataOutput=<a class="el" href="#a7dbe73a06d7c3d260805779400d60016a76b1765039be0057bcdf66bdfe27e4f0">SerialWombatIRRx::publicDataOutput::COMMAND</a>)</td></tr>
+<tr class="memitem:abe653196fbee8a61ceaad5f63275c9b5" id="r_abe653196fbee8a61ceaad5f63275c9b5"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe653196fbee8a61ceaad5f63275c9b5">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, uint8_t irMode=0, bool useRepeat=true, <a class="el" href="us_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a> activeState=<a class="el" href="us_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8ab22ed2957b068ad839e5f2d0f5de1eb0">SW_LOW</a>, uint16_t publicDataTimeoutPeriod_mS=1000, uint16_t publicDataTimeoutValue=0xFFFF, bool useAddressFilter=false, uint16_t addressFilterValue=0x1234, <a class="el" href="#a7dbe73a06d7c3d260805779400d60016">SerialWombatIRRx::publicDataOutput</a> dataOutput=<a class="el" href="#a7dbe73a06d7c3d260805779400d60016a76b1765039be0057bcdf66bdfe27e4f0">SerialWombatIRRx::publicDataOutput::COMMAND</a>)</td></tr>
 <tr class="memdesc:abe653196fbee8a61ceaad5f63275c9b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalize the <a class="el" href="class_serial_wombat_i_r_rx.html" title="A class for the Serial Wombat SW8B or SW18AB chips which received IR remote signals....">SerialWombatIRRx</a>.  <br /></td></tr>
 <tr class="separator:abe653196fbee8a61ceaad5f63275c9b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5816f2113ef77c0688cc8d1e0c524176" id="r_a5816f2113ef77c0688cc8d1e0c524176"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5816f2113ef77c0688cc8d1e0c524176">available</a> ()</td></tr>
@@ -166,9 +166,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1b918f0678fae619d4d82e93b943fc4f" id="r_a1b918f0678fae619d4d82e93b943fc4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b918f0678fae619d4d82e93b943fc4f">setTimeout</a> (long timeout_mS)</td></tr>
 <tr class="memdesc:a1b918f0678fae619d4d82e93b943fc4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">implemented to fulfill Stream requirement.  <br /></td></tr>
 <tr class="separator:a1b918f0678fae619d4d82e93b943fc4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14e2e39fcd766a3451aee59e3f9de5db" id="r_a14e2e39fcd766a3451aee59e3f9de5db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_serial_wombat_i_r_rx.html">SerialWombatIRRx</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14e2e39fcd766a3451aee59e3f9de5db">operator=</a> (<a class="el" href="class_serial_wombat_i_r_rx.html">SerialWombatIRRx</a> &amp;irrx)</td></tr>
-<tr class="memdesc:a14e2e39fcd766a3451aee59e3f9de5db"><td class="mdescLeft">&#160;</td><td class="mdescRight">used to allow reference copy. Not for user use.  <br /></td></tr>
-<tr class="separator:a14e2e39fcd766a3451aee59e3f9de5db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d253b9f12c1ab43c2bae229ff4d3a74" id="r_a4d253b9f12c1ab43c2bae229ff4d3a74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_serial_wombat_i_r_rx.html">SerialWombatIRRx</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d253b9f12c1ab43c2bae229ff4d3a74">operator=</a> (<a class="el" href="class_serial_wombat_i_r_rx.html">SerialWombatIRRx</a> &amp;irrx)</td></tr>
+<tr class="memdesc:a4d253b9f12c1ab43c2bae229ff4d3a74"><td class="mdescLeft">&#160;</td><td class="mdescRight">used to allow reference copy. Not for user use.  <br /></td></tr>
+<tr class="separator:a4d253b9f12c1ab43c2bae229ff4d3a74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7c138c8314dba3649e032c032447b43" id="r_ae7c138c8314dba3649e032c032447b43"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7c138c8314dba3649e032c032447b43">readAddress</a> ()</td></tr>
 <tr class="separator:ae7c138c8314dba3649e032c032447b43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d50b32ac3aa729cecd07d595d8186ec" id="r_a8d50b32ac3aa729cecd07d595d8186ec"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d50b32ac3aa729cecd07d595d8186ec">readDataCount</a> ()</td></tr>
@@ -222,6 +222,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin" id="r_a5a97a8c687f9f5ffb1c22679851d0372"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a5a97a8c687f9f5ffb1c22679851d0372">forceDMA</a> (bool enabled)</td></tr>
 <tr class="memdesc:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces use of DMA instead of hardware timing resources on SW18AB.  <br /></td></tr>
 <tr class="separator:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin" id="r_ab1623964d0840c58e2b69a178310f213"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#ab1623964d0840c58e2b69a178310f213">setPinNumberForTesting</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>)</td></tr>
+<tr class="memdesc:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function designed for testing only. May have unpredictable results if used in real time. Not intended for general use.  <br /></td></tr>
+<tr class="separator:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -241,7 +244,7 @@ Protected Attributes</h2></td></tr>
 <p>COMING SOON</p>
 <p>The class inherits from the Arduino Stream class, so queued button presses can be read like a Serial port. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_i_r_rx_8h_source.html#l00047">47</a> of file <a class="el" href="_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html#l00047">47</a> of file <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a7dbe73a06d7c3d260805779400d60016" name="a7dbe73a06d7c3d260805779400d60016"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7dbe73a06d7c3d260805779400d60016">&#9670;&#160;</a></span>publicDataOutput</h2>
@@ -263,7 +266,7 @@ Protected Attributes</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_i_r_rx_8h_source.html#l00051">51</a> of file <a class="el" href="_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html#l00051">51</a> of file <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
 
 </div>
 </div>
@@ -299,7 +302,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_i_r_rx_8h_source.html#l00062">62</a> of file <a class="el" href="_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html#l00062">62</a> of file <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
 
 </div>
 </div>
@@ -327,7 +330,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_i_r_rx_8h_source.html#l00125">125</a> of file <a class="el" href="_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html#l00125">125</a> of file <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
 
 </div>
 </div>
@@ -357,7 +360,7 @@ Protected Attributes</h2></td></tr>
 <p>Number of bytes avaialble to write to <a class="el" href="class_serial_wombat_i_r_rx.html" title="A class for the Serial Wombat SW8B or SW18AB chips which received IR remote signals....">SerialWombatIRRx</a> queue. Returns 0. </p>
 <dl class="section return"><dt>Returns</dt><dd>Zero. Writes are not suppored. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_i_r_rx_8h_source.html#l00211">211</a> of file <a class="el" href="_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html#l00211">211</a> of file <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
 
 </div>
 </div>
@@ -388,7 +391,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a></td>          <td class="paramname"><span class="paramname"><em>activeState</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8ab22ed2957b068ad839e5f2d0f5de1eb0">SW_LOW</a></span>, </td>
+          <td class="paramtype"><a class="el" href="us_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8">SerialWombatPinState_t</a></td>          <td class="paramname"><span class="paramname"><em>activeState</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="us_serial_wombat_8h.html#ae7ce1d259b8322ef3c3d8ef1360c78c8ab22ed2957b068ad839e5f2d0f5de1eb0">SW_LOW</a></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -442,7 +445,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_i_r_rx_8h_source.html#l00080">80</a> of file <a class="el" href="_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html#l00080">80</a> of file <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
 
 </div>
 </div>
@@ -471,12 +474,12 @@ Protected Attributes</h2></td></tr>
 
 <p>Discard all bytes from the <a class="el" href="class_serial_wombat_i_r_rx.html" title="A class for the Serial Wombat SW8B or SW18AB chips which received IR remote signals....">SerialWombatIRRx</a> queue. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_i_r_rx_8h_source.html#l00156">156</a> of file <a class="el" href="_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html#l00156">156</a> of file <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
 
 </div>
 </div>
-<a id="a14e2e39fcd766a3451aee59e3f9de5db" name="a14e2e39fcd766a3451aee59e3f9de5db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14e2e39fcd766a3451aee59e3f9de5db">&#9670;&#160;</a></span>operator=()</h2>
+<a id="a4d253b9f12c1ab43c2bae229ff4d3a74" name="a4d253b9f12c1ab43c2bae229ff4d3a74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d253b9f12c1ab43c2bae229ff4d3a74">&#9670;&#160;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -485,7 +488,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_serial_wombat_i_r_rx.html">SerialWombatIRRx</a> SerialWombatIRRx::operator= </td>
+          <td class="memname"><a class="el" href="class_serial_wombat_i_r_rx.html">SerialWombatIRRx</a> &amp; SerialWombatIRRx::operator= </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_serial_wombat_i_r_rx.html">SerialWombatIRRx</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>irrx</em></span></td><td>)</td>
           <td></td>
@@ -500,7 +503,7 @@ Protected Attributes</h2></td></tr>
 
 <p>used to allow reference copy. Not for user use. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_i_r_rx_8h_source.html#l00291">291</a> of file <a class="el" href="_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html#l00291">291</a> of file <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
 
 </div>
 </div>
@@ -530,7 +533,7 @@ Protected Attributes</h2></td></tr>
 <p>Query the <a class="el" href="class_serial_wombat_i_r_rx.html" title="A class for the Serial Wombat SW8B or SW18AB chips which received IR remote signals....">SerialWombatIRRx</a> queue for the next avaialble byte, but don't remove it from the queue. </p>
 <dl class="section return"><dt>Returns</dt><dd>A byte from 0-255, or -1 if no bytes were avaialble </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_i_r_rx_8h_source.html#l00164">164</a> of file <a class="el" href="_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html#l00164">164</a> of file <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
 
 </div>
 </div>
@@ -560,7 +563,7 @@ Protected Attributes</h2></td></tr>
 <p>Reads a byte from the <a class="el" href="class_serial_wombat_i_r_rx.html" title="A class for the Serial Wombat SW8B or SW18AB chips which received IR remote signals....">SerialWombatIRRx</a> queue. </p>
 <dl class="section return"><dt>Returns</dt><dd>A byte from 0-255, or -1 if no bytes were avaialble </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_i_r_rx_8h_source.html#l00137">137</a> of file <a class="el" href="_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html#l00137">137</a> of file <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
 
 </div>
 </div>
@@ -587,7 +590,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_i_r_rx_8h_source.html#l00297">297</a> of file <a class="el" href="_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html#l00297">297</a> of file <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
 
 </div>
 </div>
@@ -629,7 +632,7 @@ Protected Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>the number of bytes written to buffer</dd></dl>
 <p>This function will read bytes from the <a class="el" href="class_serial_wombat_i_r_rx.html" title="A class for the Serial Wombat SW8B or SW18AB chips which received IR remote signals....">SerialWombatIRRx</a> queue into buffer. If 'length' characters are not available to read then the value returned will be less than length. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_i_r_rx_8h_source.html#l00226">226</a> of file <a class="el" href="_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html#l00226">226</a> of file <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
 
 </div>
 </div>
@@ -656,7 +659,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_i_r_rx_8h_source.html#l00308">308</a> of file <a class="el" href="_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html#l00308">308</a> of file <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
 
 </div>
 </div>
@@ -685,7 +688,7 @@ Protected Attributes</h2></td></tr>
 
 <p>implemented to fulfill Stream requirement. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_i_r_rx_8h_source.html#l00275">275</a> of file <a class="el" href="_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html#l00275">275</a> of file <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
 
 </div>
 </div>
@@ -727,7 +730,7 @@ Protected Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>the number of bytes sent</dd></dl>
 <p>This function exists to fully implement the Stream class. It throws away the bytes. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_i_r_rx_8h_source.html#l00201">201</a> of file <a class="el" href="_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html#l00201">201</a> of file <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
 
 </div>
 </div>
@@ -764,7 +767,7 @@ Protected Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Number of bytes written</dd></dl>
 <p>This function exists to fully implement the Stream class. It throws away the byte. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_i_r_rx_8h_source.html#l00186">186</a> of file <a class="el" href="_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html#l00186">186</a> of file <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
 
 </div>
 </div>
@@ -789,7 +792,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_i_r_rx_8h_source.html#l00319">319</a> of file <a class="el" href="_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html#l00319">319</a> of file <a class="el" href="us_serial_wombat_i_r_rx_8h_source.html">SerialWombatIRRx.h</a>.</p>
 
 </div>
 </div>

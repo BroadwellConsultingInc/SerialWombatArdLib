@@ -7,27 +7,35 @@ SerialWombatAnalogInput temperatureSensor(sw);
 
 // This example is explained in a video tutorial at: https://youtu.be/_EKlrEVaEhg
 
+#define LEFT_POT_PIN 2
+#define RIGHT_POT_PIN 1
+#define TEMPERATURE_SENSOR_PIN 0 // Set this pin to 3 if using SW4B, as 0 doesn't have Analog
 
 void setup() {
-  // put your setup code here, to run once:
+	// put your setup code here, to run once:
 
-    Serial.begin(115200);
-    Wire.begin();
+	Serial.begin(115200);  
+	Wire.begin();
 	delay(500);
 	uint8_t i2cAddress = sw.find();
-    sw.begin(Wire,i2cAddress);  //Initialize the Serial Wombat library to use the primary I2C port, This SerialWombat's address is 6C.
-	sw.registerErrorHandler(SerialWombatSerialErrorHandlerBrief); //Register an error handler that will print communication errors to Serial
 
-  leftPot.begin(3);
-  rightPot.begin(1);
-  temperatureSensor.begin(2,64,65417); // Wombat pin 2, average 64 samples, .5 Hz Low Pass filter.  Change pin 2 to pin 0 for the SW18AB, as pin 3 is the sda pin 
+	sw.begin(Wire,i2cAddress);  //Initialize the Serial Wombat library to use the primary I2C port
+
+
+  // Check for proper Serial Wombat version and pin mode, set error handler.  Not necessary, but useful for debugging problems
+	errorChecking(); 
+ 
+	leftPot.begin(LEFT_POT_PIN);
+	rightPot.begin(RIGHT_POT_PIN);
+
+	temperatureSensor.begin(TEMPERATURE_SENSOR_PIN,64,65417); //  average 64 samples, .5 Hz Low Pass filter.  
 }
 
 
 void loop() {
 
   Serial.print("Source V: ");
-  uint16_t supplyVoltage = sw6C.readSupplyVoltage_mV();
+  uint16_t supplyVoltage = sw.readSupplyVoltage_mV();
   Serial.print(supplyVoltage );
   Serial.print("mV      Left Pot: ");
   Serial.print(leftPot.readCounts());
@@ -62,3 +70,5 @@ void loop() {
   Serial.println();
   delay(200);
 }
+
+

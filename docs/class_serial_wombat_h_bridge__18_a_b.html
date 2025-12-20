@@ -94,7 +94,7 @@ $(function(){ initResizable(false); });
 <p>Extends the <a class="el" href="class_serial_wombat_h_bridge.html" title="A class representing a Serial Wombat H Bridge Output.">SerialWombatHBridge</a> class with SW18AB specific functionality, including <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class....">SerialWombatAbstractScaledOutput</a>.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_serial_wombat_h_bridge_8h_source.html">SerialWombatHBridge.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="us_serial_wombat_h_bridge_8h_source.html">SerialWombatHBridge.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SerialWombatHBridge_18AB:</div>
 <div class="dyncontent">
@@ -140,7 +140,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a66c14cb066d424bd4c5a85610bc80caf inherit pub_methods_class_serial_wombat_h_bridge" id="r_a66c14cb066d424bd4c5a85610bc80caf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_h_bridge.html#a66c14cb066d424bd4c5a85610bc80caf">SerialWombatHBridge</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat)</td></tr>
 <tr class="memdesc:a66c14cb066d424bd4c5a85610bc80caf inherit pub_methods_class_serial_wombat_h_bridge"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_serial_wombat_h_bridge.html" title="A class representing a Serial Wombat H Bridge Output.">SerialWombatHBridge</a> class.  <br /></td></tr>
 <tr class="separator:a66c14cb066d424bd4c5a85610bc80caf inherit pub_methods_class_serial_wombat_h_bridge"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1c5d872095b381ba10783a4ccd9220f inherit pub_methods_class_serial_wombat_h_bridge" id="r_ac1c5d872095b381ba10783a4ccd9220f"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_h_bridge.html#ac1c5d872095b381ba10783a4ccd9220f">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, uint8_t secondPin, uint16_t PWMPeriod_uS=1000, <a class="el" href="_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467fa">SerialWombatHBridgeDriverMode</a> driverMode=<a class="el" href="_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faa98e7c0c3810146120eb514cc8b751b60">HBRIDGE_OFF_BOTH_LOW</a>)</td></tr>
+<tr class="memitem:ac1c5d872095b381ba10783a4ccd9220f inherit pub_methods_class_serial_wombat_h_bridge" id="r_ac1c5d872095b381ba10783a4ccd9220f"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_h_bridge.html#ac1c5d872095b381ba10783a4ccd9220f">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, uint8_t secondPin, uint16_t PWMPeriod_uS=1000, <a class="el" href="us_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467fa">SerialWombatHBridgeDriverMode</a> driverMode=<a class="el" href="us_serial_wombat_h_bridge_8h.html#a0fc65e8ee1c1305c3309fa257c4467faa98e7c0c3810146120eb514cc8b751b60">HBRIDGE_OFF_BOTH_LOW</a>)</td></tr>
 <tr class="memdesc:ac1c5d872095b381ba10783a4ccd9220f inherit pub_methods_class_serial_wombat_h_bridge"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a pin that has been declared as HBridge.  <br /></td></tr>
 <tr class="separator:ac1c5d872095b381ba10783a4ccd9220f inherit pub_methods_class_serial_wombat_h_bridge"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_serial_wombat_pin"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_serial_wombat_pin')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_serial_wombat_pin.html">SerialWombatPin</a></td></tr>
@@ -192,6 +192,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin" id="r_a5a97a8c687f9f5ffb1c22679851d0372"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a5a97a8c687f9f5ffb1c22679851d0372">forceDMA</a> (bool enabled)</td></tr>
 <tr class="memdesc:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces use of DMA instead of hardware timing resources on SW18AB.  <br /></td></tr>
 <tr class="separator:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin" id="r_ab1623964d0840c58e2b69a178310f213"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#ab1623964d0840c58e2b69a178310f213">setPinNumberForTesting</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>)</td></tr>
+<tr class="memdesc:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function designed for testing only. May have unpredictable results if used in real time. Not intended for general use.  <br /></td></tr>
+<tr class="separator:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_serial_wombat_abstract_scaled_output"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_serial_wombat_abstract_scaled_output')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_serial_wombat_abstract_scaled_output.html">SerialWombatAbstractScaledOutput</a></td></tr>
 <tr class="memitem:a4a0d75669fab72c813db6f916ebd7303 inherit pub_methods_class_serial_wombat_abstract_scaled_output" id="r_a4a0d75669fab72c813db6f916ebd7303"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#a4a0d75669fab72c813db6f916ebd7303">SerialWombatAbstractScaledOutput</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;sw)</td></tr>
 <tr class="memdesc:a4a0d75669fab72c813db6f916ebd7303 inherit pub_methods_class_serial_wombat_abstract_scaled_output"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class....">SerialWombatAbstractScaledOutput</a> Class.  <br /></td></tr>
@@ -286,7 +289,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Extends the <a class="el" href="class_serial_wombat_h_bridge.html" title="A class representing a Serial Wombat H Bridge Output.">SerialWombatHBridge</a> class with SW18AB specific functionality, including <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class....">SerialWombatAbstractScaledOutput</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_h_bridge_8h_source.html#l00081">81</a> of file <a class="el" href="_serial_wombat_h_bridge_8h_source.html">SerialWombatHBridge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_h_bridge_8h_source.html#l00081">81</a> of file <a class="el" href="us_serial_wombat_h_bridge_8h_source.html">SerialWombatHBridge.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab95e3f6a246b0c89d1ba284a61b38e8c" name="ab95e3f6a246b0c89d1ba284a61b38e8c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab95e3f6a246b0c89d1ba284a61b38e8c">&#9670;&#160;</a></span>SerialWombatHBridge_18AB()</h2>
@@ -311,7 +314,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_h_bridge_8h_source.html#l00084">84</a> of file <a class="el" href="_serial_wombat_h_bridge_8h_source.html">SerialWombatHBridge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_h_bridge_8h_source.html#l00084">84</a> of file <a class="el" href="us_serial_wombat_h_bridge_8h_source.html">SerialWombatHBridge.h</a>.</p>
 
 </div>
 </div>
@@ -344,7 +347,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_serial_wombat_abstract_scaled_output.html#a70dbe9dfc661608efcb21214c0a881c9">SerialWombatAbstractScaledOutput</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_h_bridge_8h_source.html#l00092">92</a> of file <a class="el" href="_serial_wombat_h_bridge_8h_source.html">SerialWombatHBridge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_h_bridge_8h_source.html#l00092">92</a> of file <a class="el" href="us_serial_wombat_h_bridge_8h_source.html">SerialWombatHBridge.h</a>.</p>
 
 </div>
 </div>
@@ -376,7 +379,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_serial_wombat_abstract_scaled_output.html#afd93156ef9d71185e7f2de4a6e5fc2e5">SerialWombatAbstractScaledOutput</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_h_bridge_8h_source.html#l00100">100</a> of file <a class="el" href="_serial_wombat_h_bridge_8h_source.html">SerialWombatHBridge.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_h_bridge_8h_source.html#l00100">100</a> of file <a class="el" href="us_serial_wombat_h_bridge_8h_source.html">SerialWombatHBridge.h</a>.</p>
 
 </div>
 </div>

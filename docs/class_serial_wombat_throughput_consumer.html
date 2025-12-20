@@ -94,7 +94,7 @@ $(function(){ initResizable(false); });
 <p>A Class that consumes CPU time on the Serial Wombat chip in order to facilitate testing.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_serial_wombat_throughput_consumer_8h_source.html">SerialWombatThroughputConsumer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="us_serial_wombat_throughput_consumer_8h_source.html">SerialWombatThroughputConsumer.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SerialWombatThroughputConsumer:</div>
 <div class="dyncontent">
@@ -183,6 +183,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin" id="r_a5a97a8c687f9f5ffb1c22679851d0372"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a5a97a8c687f9f5ffb1c22679851d0372">forceDMA</a> (bool enabled)</td></tr>
 <tr class="memdesc:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces use of DMA instead of hardware timing resources on SW18AB.  <br /></td></tr>
 <tr class="separator:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin" id="r_ab1623964d0840c58e2b69a178310f213"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#ab1623964d0840c58e2b69a178310f213">setPinNumberForTesting</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>)</td></tr>
+<tr class="memdesc:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function designed for testing only. May have unpredictable results if used in real time. Not intended for general use.  <br /></td></tr>
+<tr class="separator:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -201,7 +204,7 @@ Additional Inherited Members</h2></td></tr>
 </p>
 <p>This class provides an array of 16 delays measured in uS. When each frame runs the cumulative frame counter is taken mod 16 to determine which delay to use. During this delay the pin goes high and waits in a loop for approximately the specified number of uS. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_throughput_consumer_8h_source.html#l00044">44</a> of file <a class="el" href="_serial_wombat_throughput_consumer_8h_source.html">SerialWombatThroughputConsumer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_throughput_consumer_8h_source.html#l00044">44</a> of file <a class="el" href="us_serial_wombat_throughput_consumer_8h_source.html">SerialWombatThroughputConsumer.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1c90b28d36e191e884006b89b827e162" name="a1c90b28d36e191e884006b89b827e162"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1c90b28d36e191e884006b89b827e162">&#9670;&#160;</a></span>SerialWombatThroughputConsumer()</h2>
@@ -234,7 +237,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_throughput_consumer_8h_source.html#l00051">51</a> of file <a class="el" href="_serial_wombat_throughput_consumer_8h_source.html">SerialWombatThroughputConsumer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_throughput_consumer_8h_source.html#l00051">51</a> of file <a class="el" href="us_serial_wombat_throughput_consumer_8h_source.html">SerialWombatThroughputConsumer.h</a>.</p>
 
 </div>
 </div>
@@ -262,7 +265,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_throughput_consumer_8h_source.html#l00057">57</a> of file <a class="el" href="_serial_wombat_throughput_consumer_8h_source.html">SerialWombatThroughputConsumer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_throughput_consumer_8h_source.html#l00057">57</a> of file <a class="el" href="us_serial_wombat_throughput_consumer_8h_source.html">SerialWombatThroughputConsumer.h</a>.</p>
 
 </div>
 </div>
@@ -298,7 +301,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a negative error code if errors occur during configuration </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_throughput_consumer_8h_source.html#l00117">117</a> of file <a class="el" href="_serial_wombat_throughput_consumer_8h_source.html">SerialWombatThroughputConsumer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_throughput_consumer_8h_source.html#l00117">117</a> of file <a class="el" href="us_serial_wombat_throughput_consumer_8h_source.html">SerialWombatThroughputConsumer.h</a>.</p>
 
 </div>
 </div>
@@ -339,7 +342,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a negative error code if errors occur during configuration </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_throughput_consumer_8h_source.html#l00099">99</a> of file <a class="el" href="_serial_wombat_throughput_consumer_8h_source.html">SerialWombatThroughputConsumer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_throughput_consumer_8h_source.html#l00099">99</a> of file <a class="el" href="us_serial_wombat_throughput_consumer_8h_source.html">SerialWombatThroughputConsumer.h</a>.</p>
 
 </div>
 </div>
@@ -375,7 +378,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a negative error code if errors occur during configuration </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_throughput_consumer_8h_source.html#l00073">73</a> of file <a class="el" href="_serial_wombat_throughput_consumer_8h_source.html">SerialWombatThroughputConsumer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_throughput_consumer_8h_source.html#l00073">73</a> of file <a class="el" href="us_serial_wombat_throughput_consumer_8h_source.html">SerialWombatThroughputConsumer.h</a>.</p>
 
 </div>
 </div>

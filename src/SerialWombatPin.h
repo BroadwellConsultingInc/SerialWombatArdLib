@@ -201,6 +201,15 @@ public:
             return (_sw.sendPacket(tx));
   }
 
+/*!
+ 
+  	\brief A function designed for testing only.  May have unpredictable results if used in real time.  Not intended for general use.
+*/
+  void setPinNumberForTesting(uint8_t pin)
+  {
+	  _pin = pin;
+  }
+
 protected:
 	uint8_t _pin = 255;
 	SerialWombatChip& _sw;

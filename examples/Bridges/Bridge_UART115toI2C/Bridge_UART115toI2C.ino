@@ -3,13 +3,15 @@
 /*
   This sketch is designed to allow UART communication with an I2C based Serial Wombat chip.
 
+ It accepts 9 bytes as a packet, and returns 8.   The first byte is an I2C address (or 0xFF for the first detected Serial Wombat chip on the bus).
+
   It discards any 0x55, ' ' or 'x' initial bytes, then waits until 8 bytes are received,
   sends that as an I2C packet, and then sends the response back to the UART.
 */
 
 SerialWombatChip SWC;
 uint8_t i2cAddress = 0;
-uint8_t tx[8], rx[8], count;
+uint8_t tx[9], rx[8], count;
 
 void setup() {
 
@@ -18,17 +20,16 @@ void setup() {
 #else
   Wire.begin();
 #endif
-
+Wire.setTimeout(1000);
   Serial.begin(115200);
 
   delay(100);
-
-  i2cAddress = SWC.find(true);
-  SWC.begin(Wire, i2cAddress);
   Serial.flush();
   count = 0;
 }
 
+uint32_t lastReceive = 0;
+#define RECEIVETIMEOUT 2000
 void loop() {
 
 
@@ -36,13 +37,34 @@ void loop() {
 
   while (x >= 0)
   {
+    lastReceive = millis();
     if (count > 0)
     {
       tx[count] = x;
       ++count;
-      if (count >= 8)
+      if (count >= 9)
       {
-        SWC.sendPacket(tx, rx);
+        Wire.beginTransmission(tx[0]);
+        Wire.write(&tx[1], 8);
+        Wire.endTransmission();
+        delayMicroseconds(100);
+        Wire.requestFrom(tx[0], (uint8_t)8);
+        count = 0;
+        int r = 0;
+        while (r >= 0 && count < 8)
+        {
+          r = Wire.read();
+
+          if (r >= 0)
+          {
+            rx[count] = (uint8_t) r;
+            ++count;
+          }
+          else
+          {
+            break;
+          }
+        }
         count = 0;
         Serial.write(rx, 8);
       }
@@ -56,5 +78,9 @@ void loop() {
       }
     }
     x = Serial.read();
+  }
+  if (millis() > lastReceive + RECEIVETIMEOUT)
+  {
+    count = 0;
   }
 }

@@ -8,16 +8,19 @@ SerialWombatAnalogInput Feedback(sw);
 // This example is explained in a video tutorial at: https://youtu.be/p8CO04C1q_Y
 
 void setup() {
-  // put your setup code here, to run once:
-Serial.begin(115200);
-    Wire.begin();
+	// put your setup code here, to run once:
+	Serial.begin(115200);
+	Wire.begin();
 	delay(500);
 	uint8_t i2cAddress = sw.find();
-    sw.begin(Wire,i2cAddress);  //Initialize the Serial Wombat library to use the primary I2C port
-	sw.registerErrorHandler(SerialWombatSerialErrorHandlerBrief); //Register an error handler that will print communication errors to Serial
+	sw.begin(Wire,i2cAddress);  //Initialize the Serial Wombat library to use the primary I2C port
 
-  swpo.begin(3,1);  // Controlling pin 3.   Feedback from pin 1.
-  Feedback.begin(1);  // Begin analog reading on pin 1
+	// Check for proper Serial Wombat version and pin mode, set error handler.  Not necessary, but useful for debugging problems
+	errorChecking();  
+
+
+	swpo.begin(3,1);  // Controlling pin 3.   Feedback from pin 1.
+	Feedback.begin(1);  // Begin analog reading on pin 1
 }
 
 

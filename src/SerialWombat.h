@@ -1,6 +1,6 @@
 #ifndef SERIAL_WOMBAT_H__
 #define SERIAL_WOMBAT_H__
-
+ 
 /*
 Copyright 2020-2025 Broadwell Consulting Inc.
 
@@ -38,6 +38,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 
 /*! \file SerialWombat.h
 */
+
+
+#include "SerialWombatErrors.h"
 
 /// Convert a uint16_t to two bytes in little endian format for array initialization
 #define SW_LE16(_a)  (uint8_t)((_a) & 0xFF), (uint8_t)((_a) >>8)  
@@ -137,7 +140,11 @@ enum class SerialWombatDataSource{
 	SW_DATA_SOURCE_SYSTEM_UTILIZATION = 74, ///< (74) A number between 0 and 65535 that scales to the average length of pin processing frames between 0 and 1000mS
 	SW_DATA_SOURCE_VCC_mVOLTS = 75, ///< (75) The system source voltage in mV
 	SW_DATA_SOURCE_VBG_COUNTS_VS_VREF = 76, ///< (76) A/D conversion of VBG against VRef .  Used for mfg calibration
-	SW_DATA_SOURCE_LFSR = 78, ///< (78) A  Linear Feedback Shift Register that produces a Pseudo random sequence of 16 bit values
+						
+ SW_DATA_SOURCE_RESET_REGISTER = 77, ///< Hardware dependent reset reason register contents
+            SW_DATA_SOURCE_LFSR = 78, ///< A Linear FeedBack Shift register (32,7,5,3,2,1) based pseudo-random number generator
+            SW_DATA_COM_ADDRESS_LOW = 79, ///< The Communications Address of the Device (Lower 16 bits) 
+            SW_DATA_COM_ADDRESS_HIGH = 80, ///< The Communications Address of the Device (HIGHER 16 bits) Anticipated for CAN ID
 	SW_DATA_SOURCE_0x55 = 85, ///< (85) 0x55 is a reserved value for resyncing.  Returns 0x55 0x55 
 	SW_DATA_SOURCE_PIN_0_MV = 100, ///< (100) Pin 0 public output expressed in mV (for analog modes only)
 	SW_DATA_SOURCE_PIN_1_MV = 101, ///< (101) Pin 1 public output expressed in mV (for analog modes only)
@@ -241,6 +248,7 @@ enum class SerialWombatCommands
 	CONFIGURE_PIN_OUTPUTSCALE = 210, ///< (210)
 	CONFIGURE_PIN_MODE_DISABLE = 219, ///< (219)
 	CONFIGURE_PIN_INPUTPROCESS = 211, ///< (211)
+	CONFIGURE_CHANNEL_MODE_CHECK_MODE_SUPPORTED = 218, ///< (218)
 	CONFIGURE_PIN_MODE_HW_0 = 220, ///< (220)
 	CONFIGURE_CHANNEL_MODE_HW_1 = 221, ///< (221)
 	CONFIGURE_CHANNEL_MODE_HW_2 = 222, ///< (222)
@@ -284,6 +292,7 @@ typedef enum {
 	PIN_MODE_QUEUED_PULSE_OUTPUT = 34, ///<(34)
 	PIN_MODE_FREQUENCY_OUTPUT = 36, ///<(36)
 	PIN_MODE_IRRX = 37, ///<(37)
+	PIN_MODE_BLINK = 40, ///<(40)
 	PIN_MODE_UNKNOWN = 255, ///< (0xFF)
 }SerialWombatPinMode_t;
 
@@ -1109,6 +1118,13 @@ public:
 	}
 
 	/// \brief Returns true if the instance received a model number corresponding to the Serial Wombat 18 series of chips at begin
+	bool isSW04()
+	{
+		return ( model[1] == '0' && model[2] == '4');
+	}
+
+
+	/// \brief Returns true if the instance received a model number corresponding to the Serial Wombat 18 series of chips at begin
 	bool isSW18()
 	{
 		return ( model[1] == '1' && model[2] == '8');
@@ -1118,6 +1134,42 @@ public:
 	{
 		return ( model[1] == '0' && model[2] == '8');
 	}
+
+	bool isPinModeSupported(int pinMode)
+	{
+		return isPinModeSupported((SerialWombatPinMode_t)pinMode);
+	}
+	bool isPinModeSupported(SerialWombatPinMode_t pinMode)
+	{
+		if (isSW04())
+		{
+			switch (pinMode)
+			{
+				case PIN_MODE_DIGITALIO:
+				case PIN_MODE_ANALOGINPUT:
+				case PIN_MODE_CONTROLLED:
+				case PIN_MODE_SERVO:
+				case PIN_MODE_PWM:
+				case PIN_MODE_DEBOUNCE:
+				case PIN_MODE_QUADRATUREENCODER:
+				case PIN_MODE_WATCHDOG:
+				case PIN_MODE_PULSETIMER:
+				case PIN_MODE_PROTECTED_OUTPUT:
+					return true;
+
+				default:
+					return false;
+			}
+		}
+
+		uint8_t tx[8] = {(uint8_t)SerialWombatCommands::CONFIGURE_CHANNEL_MODE_CHECK_MODE_SUPPORTED, 1, (uint8_t)pinMode, 0x55, 0x55, 0x55, 0x55, 0x55};
+            int16_t returnVal = sendPacket(tx);
+            returnVal *= -1;
+            return (returnVal != SW_ERROR_UNKNOWN_PIN_MODE);
+	}
+
+
+
 
 	/// \brief Erases a page in flash.  Intended for use with the Bootloader, not by end users outside of bootloading sketch
 	int16_t eraseFlashPage(uint32_t address)
@@ -1598,12 +1650,12 @@ void SerialWombatSerialErrorHandlerBrief(uint16_t error, SerialWombatChip* sw);
 void SerialWombatSerialErrorHandlerVerbose(uint16_t error, SerialWombatChip* sw);
 
 #include "SerialWombatPin.h"
-#include "SerialWombatErrors.h"
 #include "SerialWombatQueue.h"
 #include "SerialWombat18ABDataLogger.h"
 #include "SerialWombatAbstractButton.h"
 #include "SerialWombatAbstractProcessedInput.h"
 #include "SerialWombatAbstractScaledOutput.h"
+#include "SerialWombatBlink.h"
 #include "SerialWombat18CapTouch.h"
 #include "SerialWombat18ABVGA.h"
 #include "SerialWombatAnalogInput.h"
@@ -1631,6 +1683,7 @@ void SerialWombatSerialErrorHandlerVerbose(uint16_t error, SerialWombatChip* sw)
 #include "SerialWombatWatchdog.h"
 #include "SerialWombatWS2812.h"
 #include "SerialWombatThroughputConsumer.h"
+#include "PCB0030_Bridge.h"
 #include "PCB0031_Grip.h"
 
 #endif

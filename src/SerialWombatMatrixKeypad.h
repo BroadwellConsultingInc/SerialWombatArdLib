@@ -372,7 +372,7 @@ rowTiming,
     /*!
     @brief used to allow reference copy.  Not for user use.
     */
-    SerialWombatMatrixKeypad operator=(SerialWombatMatrixKeypad& kp)
+    SerialWombatMatrixKeypad& operator=(SerialWombatMatrixKeypad& kp)
 	{
 		return kp;
 	}
@@ -495,6 +495,7 @@ public:
     */
     bool readTransitionsState(bool resetTransitionCount = true)
 {
+	(void) resetTransitionCount; //Get rid of unused warning	
 	return digitalRead();
 }
 

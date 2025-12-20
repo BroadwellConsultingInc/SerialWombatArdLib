@@ -4,23 +4,28 @@ SerialWombatChip sw;    //Declare a Serial Wombat
 SerialWombatDebouncedInput redButton(sw);
 SerialWombatDebouncedInput greenButton(sw);
 
+#define RED_BUTTON_PIN 0
+#define GREEN_BUTTON_PIN 1
 
 // This example is explained in a video tutorial at: https://youtu.be/R1KM0J2Ug-M
 
-void setup() {
-  // put your setup code here, to run once:
+void setup() 
+{
+	// put your setup code here, to run once:
 
-    Serial.begin(115200);
-    Wire.begin();
+	Serial.begin(115200);
+	Wire.begin();
 	delay(500);
 	uint8_t i2cAddress = sw.find();
-    sw.begin(Wire,i2cAddress);  //Initialize the Serial Wombat library to use the primary I2C port, This SerialWombat's address is 6C.
-	sw.registerErrorHandler(SerialWombatSerialErrorHandlerBrief); //Register an error handler that will print communication errors to Serial
+	sw.begin(Wire,i2cAddress);  //Initialize the Serial Wombat library to use the primary I2C port, This SerialWombat's address is 6C.
 
-  
-   redButton.begin(0);
-   greenButton.begin(1);
-  
+	// Check for proper Serial Wombat version and pin mode, set error handler.  Not necessary, but useful for debugging problems
+	errorChecking();  
+
+
+	redButton.begin(RED_BUTTON_PIN);  // initialize with default settings, including internal pull up
+	greenButton.begin(GREEN_BUTTON_PIN);
+
 }
 
 void clearTerminal()
@@ -55,3 +60,4 @@ void loop() {
     delay(50);
  
 }
+

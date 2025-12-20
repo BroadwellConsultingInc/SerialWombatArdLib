@@ -1,4 +1,4 @@
-#ifdef BRUSHED_MOTOR
+#ifdef BRUSHED_MOTOR_FIRMWARE
 appImage[] =  //2.2.1
 {
 0x306F, // 00000000

@@ -88,6 +88,7 @@ public:
 	*/
 	SerialWombatPulseTimer(SerialWombatChip& serialWombat):SerialWombatPin(serialWombat)
 	{
+		_pinMode = PIN_MODE_PULSETIMER;
 	}
 
 	/*!	
@@ -100,7 +101,6 @@ public:
 	int16_t begin(uint8_t pin, SerialWombatPulseTimerUnits units = SW_PULSETIMER_uS, bool pullUpEnabled = false)
 	{
 		_pin = pin;
-		_pinMode = PIN_MODE_PULSETIMER;
 		return initPacketNoResponse(0,(uint8_t)pullUpEnabled,(uint8_t)units);
 	}
 

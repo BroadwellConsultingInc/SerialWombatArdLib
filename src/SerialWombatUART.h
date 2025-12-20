@@ -592,10 +592,61 @@ public:
 }
 
 	/*!
-    @brief This method can't be called for Software UART because it doens't initialize queues in User Data Area
+    @brief This method uses 32 byte buffers in pin memory rather than user ram
 	*/
-    int16_t begin(uint32_t baudRate, uint8_t pin, uint8_t rxPin, uint8_t txPin, uint8_t HWinterface) = delete;
+    int16_t begin(uint32_t baudRate, uint8_t pin, uint8_t rxPin, uint8_t txPin, uint8_t HWinterface = 1) 
+{
+	_rxPin = rxPin;
+	_txPin = txPin;
+	_pin = pin;
+	rxQueue.startIndex = 0xFFFF;
+	txQueue.startIndex = 0xFFFF;
+	
+	(void)HWinterface; // unused
+	_pinMode = PIN_MODE_SW_UART;
+	
+	switch (baudRate)
+	{
+	case 300:
+		_baudMarker = 0;
+		break;
+	case 1200:
+		_baudMarker = 1;
+		break;
 
+	case 2400:
+		_baudMarker = 2;
+		break;
+
+	case 4800:
+		_baudMarker = 3;
+		break;
+	case 9600:
+		_baudMarker = 4;
+		break;
+	case 19200:
+		_baudMarker = 5;
+		break;
+
+	case 38400:
+		_baudMarker = 6;
+		break;
+
+	case 57600:
+		_baudMarker = 7;
+		break;
+
+	default:
+	case 115200:
+		_baudMarker = 7;  // Limit to 57600
+		break;
+	}
+	uint8_t tx[8] = { 200, _pin,_pinMode, _baudMarker,_rxPin,_txPin,0x55, 0x55 };
+	uint8_t rx[8];
+
+	int16_t result = _sw.sendPacket(tx, rx);
+	return (result);
+}
 	/*!
     @brief Write bytes to the SerialWombatUART for Transmit
     @param buffer  An array of uint8_t bytes to send
@@ -610,7 +661,36 @@ public:
 	*/
     size_t write(const uint8_t* buffer, size_t size)
 {
+        if (txQueue.startIndex != 0xFFFF)
+{
 	return (txQueue.write(buffer, size));
+}
+        else
+	{
+		size_t sent = 0;
+          while (sent < size)
+          {
+                uint8_t bytesToSend = 4;
+                if ((size - sent) < bytesToSend)
+                {
+                     bytesToSend = size - sent;
+		}
+		uint8_t tx[8] = { 201, _pin,_pinMode, bytesToSend, 0x55,0x55,0x55,0x55};
+		uint8_t rx[8];
+                for (int i = 0; i < bytesToSend; ++i)
+                {
+                       tx[4 + i] = buffer[sent + i];
+                }
+		_sw.sendPacket(tx, rx);
+                sent += bytesToSend;
+                if (rx[3] < 4) // almost full
+                {
+                     return (sent);
+                }
+			delay(0);
+          }
+		return (sent);
+	}
 }
 
 /*
@@ -625,7 +705,39 @@ public:
     */
     size_t readBytes(char* buffer, size_t length)
 {
-	return (rxQueue.readBytes(buffer, length));
+	if (rxQueue.startIndex != 0xFFFF)
+	{
+		return (rxQueue.readBytes(buffer, length));
+	}
+	else
+	{
+		size_t bytesAvailable  = 1;
+		size_t bytesReceived = 0;
+		while (bytesAvailable && (bytesReceived < length))
+		{
+			uint8_t bytesRequested = 4;
+			if (length - bytesReceived < 4)
+			{
+				bytesRequested = length - bytesReceived;
+			}
+			uint8_t tx[8] = { 202, _pin,_pinMode, bytesRequested, 0x55,0x55,0x55,0x55};
+			uint8_t rx[8];
+			_sw.sendPacket(tx, rx);
+			if (rx[3] > 4)
+			{
+				rx[3] = 4;
+			}
+			for (int i = 0; i < rx[3]; ++i)
+			{
+				buffer[bytesReceived] = rx[4 + i];
+				++ bytesReceived;
+			}
+			bytesAvailable = rx[3];
+			delay(0);
+		}
+		return (bytesReceived);
+
+	}
 
 }
 
@@ -637,6 +749,17 @@ public:
     @brief SerialWombatQueue created on the Serial Wombat chip for data to be sent by the SerialWombatSWUART
 */
     SerialWombatQueue txQueue{ _sw };
+
+    uint8_t bytesToTransmit()
+	{
+		uint8_t tx[8] = { 203, _pin,_pinMode, 0x55, 0x55,0x55,0x55,0x55};
+			uint8_t rx[8];
+		if(	_sw.sendPacket(tx, rx) >= 0)
+{
+		return(rx[6]);
+}
+return 0;
+	}
 private:
     using SerialWombatUART::begin;    //make parent class begin unavaialble
 

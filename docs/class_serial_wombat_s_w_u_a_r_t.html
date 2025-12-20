@@ -95,7 +95,7 @@ $(function(){ initResizable(false); });
 <p>A class for the Serial Wombat 4B or SW18AB chips which creates a software based UART on the SW18AB.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SerialWombatSWUART:</div>
 <div class="dyncontent">
@@ -136,15 +136,17 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af6b57f4c101fdd4e58d7421ef338ff45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa295194eb815f656deeef023a06b0672" id="r_aa295194eb815f656deeef023a06b0672"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa295194eb815f656deeef023a06b0672">begin</a> (uint32_t baudRate, uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, uint8_t rxPin, uint8_t txPin, uint16_t userMemoryOffset, uint16_t rxLength, uint16_t txLength)</td></tr>
 <tr class="separator:aa295194eb815f656deeef023a06b0672"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad22e9964962083cfbb59186ed86c927" id="r_aad22e9964962083cfbb59186ed86c927"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad22e9964962083cfbb59186ed86c927">begin</a> (uint32_t baudRate, uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, uint8_t rxPin, uint8_t txPin, uint8_t HWinterface)=delete</td></tr>
-<tr class="memdesc:aad22e9964962083cfbb59186ed86c927"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method can't be called for Software UART because it doens't initialize queues in User Data Area.  <br /></td></tr>
-<tr class="separator:aad22e9964962083cfbb59186ed86c927"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af635a21b80e81101acf7c70cd13ead81" id="r_af635a21b80e81101acf7c70cd13ead81"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af635a21b80e81101acf7c70cd13ead81">begin</a> (uint32_t baudRate, uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, uint8_t rxPin, uint8_t txPin, uint8_t HWinterface=1)</td></tr>
+<tr class="memdesc:af635a21b80e81101acf7c70cd13ead81"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method uses 32 byte buffers in pin memory rather than user ram.  <br /></td></tr>
+<tr class="separator:af635a21b80e81101acf7c70cd13ead81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad370ccb5947a141ea40a851ba57e83e" id="r_aad370ccb5947a141ea40a851ba57e83e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad370ccb5947a141ea40a851ba57e83e">write</a> (const uint8_t *buffer, size_t size)</td></tr>
 <tr class="memdesc:aad370ccb5947a141ea40a851ba57e83e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write bytes to the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> for Transmit.  <br /></td></tr>
 <tr class="separator:aad370ccb5947a141ea40a851ba57e83e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d588d6b59d79c641720d723d86417ae" id="r_a3d588d6b59d79c641720d723d86417ae"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d588d6b59d79c641720d723d86417ae">readBytes</a> (char *buffer, size_t length)</td></tr>
 <tr class="memdesc:a3d588d6b59d79c641720d723d86417ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a specified number of bytes from the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> RX queue.  <br /></td></tr>
 <tr class="separator:a3d588d6b59d79c641720d723d86417ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36230d53e46e4d57375c10d036d2ee32" id="r_a36230d53e46e4d57375c10d036d2ee32"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36230d53e46e4d57375c10d036d2ee32">bytesToTransmit</a> ()</td></tr>
+<tr class="separator:a36230d53e46e4d57375c10d036d2ee32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_serial_wombat_u_a_r_t"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_serial_wombat_u_a_r_t')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_serial_wombat_u_a_r_t.html">SerialWombatUART</a></td></tr>
 <tr class="memitem:a3e41a3894e6393d0041d6ba8d96fbd4e inherit pub_methods_class_serial_wombat_u_a_r_t" id="r_a3e41a3894e6393d0041d6ba8d96fbd4e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a3e41a3894e6393d0041d6ba8d96fbd4e">SerialWombatUART</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat)</td></tr>
 <tr class="memdesc:a3e41a3894e6393d0041d6ba8d96fbd4e inherit pub_methods_class_serial_wombat_u_a_r_t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge.">SerialWombatUART</a> class. Only one instance is allowed per <a class="el" href="class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.">SerialWombatChip</a> 4B.  <br /></td></tr>
@@ -220,6 +222,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin" id="r_a5a97a8c687f9f5ffb1c22679851d0372"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a5a97a8c687f9f5ffb1c22679851d0372">forceDMA</a> (bool enabled)</td></tr>
 <tr class="memdesc:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces use of DMA instead of hardware timing resources on SW18AB.  <br /></td></tr>
 <tr class="separator:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin" id="r_ab1623964d0840c58e2b69a178310f213"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#ab1623964d0840c58e2b69a178310f213">setPinNumberForTesting</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>)</td></tr>
+<tr class="memdesc:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function designed for testing only. May have unpredictable results if used in real time. Not intended for general use.  <br /></td></tr>
+<tr class="separator:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -241,11 +246,11 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a8fd4a686a9abccf8513b8306176a2bb9 inherit pro_attribs_class_serial_wombat_u_a_r_t"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a103a64da0425bbf628da9a498a751fdc inherit pro_attribs_class_serial_wombat_u_a_r_t" id="r_a103a64da0425bbf628da9a498a751fdc"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a103a64da0425bbf628da9a498a751fdc">timeout</a> = 5000</td></tr>
 <tr class="separator:a103a64da0425bbf628da9a498a751fdc inherit pro_attribs_class_serial_wombat_u_a_r_t"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3a9248a6477dce41879c4f2a2a24399 inherit pro_attribs_class_serial_wombat_u_a_r_t" id="r_aa3a9248a6477dce41879c4f2a2a24399"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#aa3a9248a6477dce41879c4f2a2a24399">_pinMode</a> = <a class="el" href="_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a8d2d9f25291ed9e89a430ad6d0095154">PIN_MODE_UART_RX_TX</a></td></tr>
+<tr class="memitem:aa3a9248a6477dce41879c4f2a2a24399 inherit pro_attribs_class_serial_wombat_u_a_r_t" id="r_aa3a9248a6477dce41879c4f2a2a24399"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#aa3a9248a6477dce41879c4f2a2a24399">_pinMode</a> = <a class="el" href="us_serial_wombat_8h.html#a9278a533e9aa8dc988bbcdd76ff043b8a8d2d9f25291ed9e89a430ad6d0095154">PIN_MODE_UART_RX_TX</a></td></tr>
 <tr class="separator:aa3a9248a6477dce41879c4f2a2a24399 inherit pro_attribs_class_serial_wombat_u_a_r_t"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72c265f2374266ff8e4528b74f2daee4 inherit pro_attribs_class_serial_wombat_u_a_r_t" id="r_a72c265f2374266ff8e4528b74f2daee4"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a72c265f2374266ff8e4528b74f2daee4">_tx7Command</a> = (uint8_t)<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a804870d6054af17edf46f3c0d10d7635">SerialWombatCommands::COMMAND_UART0_TX_7BYTES</a></td></tr>
+<tr class="memitem:a72c265f2374266ff8e4528b74f2daee4 inherit pro_attribs_class_serial_wombat_u_a_r_t" id="r_a72c265f2374266ff8e4528b74f2daee4"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#a72c265f2374266ff8e4528b74f2daee4">_tx7Command</a> = (uint8_t)<a class="el" href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656a804870d6054af17edf46f3c0d10d7635">SerialWombatCommands::COMMAND_UART0_TX_7BYTES</a></td></tr>
 <tr class="separator:a72c265f2374266ff8e4528b74f2daee4 inherit pro_attribs_class_serial_wombat_u_a_r_t"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9bac383cb7df0093e30d5d96dea2787 inherit pro_attribs_class_serial_wombat_u_a_r_t" id="r_ac9bac383cb7df0093e30d5d96dea2787"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#ac9bac383cb7df0093e30d5d96dea2787">_rx7Command</a> = (uint8_t)<a class="el" href="_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac306a5279bb13ad23d91eede098b2359">SerialWombatCommands::COMMAND_UART0_RX_7BYTES</a></td></tr>
+<tr class="memitem:ac9bac383cb7df0093e30d5d96dea2787 inherit pro_attribs_class_serial_wombat_u_a_r_t" id="r_ac9bac383cb7df0093e30d5d96dea2787"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_u_a_r_t.html#ac9bac383cb7df0093e30d5d96dea2787">_rx7Command</a> = (uint8_t)<a class="el" href="us_serial_wombat_8h.html#a4a7ddba5bce899934c59634db4be3656ac306a5279bb13ad23d91eede098b2359">SerialWombatCommands::COMMAND_UART0_RX_7BYTES</a></td></tr>
 <tr class="separator:ac9bac383cb7df0093e30d5d96dea2787 inherit pro_attribs_class_serial_wombat_u_a_r_t"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_serial_wombat_pin"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_serial_wombat_pin')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_serial_wombat_pin.html">SerialWombatPin</a></td></tr>
 <tr class="memitem:ae0f093aeee3af077db30b038d625a00a inherit pro_attribs_class_serial_wombat_pin" id="r_ae0f093aeee3af077db30b038d625a00a"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#ae0f093aeee3af077db30b038d625a00a">_pin</a> = 255</td></tr>
@@ -285,7 +290,7 @@ Additional Inherited Members</h2></td></tr>
 <li>57600 (Transmit only, receive may be unreliable ) </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_u_a_r_t_8h_source.html#l00478">478</a> of file <a class="el" href="_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html#l00478">478</a> of file <a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af6b57f4c101fdd4e58d7421ef338ff45" name="af6b57f4c101fdd4e58d7421ef338ff45"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af6b57f4c101fdd4e58d7421ef338ff45">&#9670;&#160;</a></span>SerialWombatSWUART()</h2>
@@ -310,7 +315,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_u_a_r_t_8h_source.html#l00484">484</a> of file <a class="el" href="_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html#l00484">484</a> of file <a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>.</p>
 
 </div>
 </div>
@@ -380,12 +385,12 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_u_a_r_t_8h_source.html#l00494">494</a> of file <a class="el" href="_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html#l00494">494</a> of file <a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>.</p>
 
 </div>
 </div>
-<a id="aad22e9964962083cfbb59186ed86c927" name="aad22e9964962083cfbb59186ed86c927"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad22e9964962083cfbb59186ed86c927">&#9670;&#160;</a></span>begin() <span class="overload">[2/2]</span></h2>
+<a id="af635a21b80e81101acf7c70cd13ead81" name="af635a21b80e81101acf7c70cd13ead81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af635a21b80e81101acf7c70cd13ead81">&#9670;&#160;</a></span>begin() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -416,17 +421,46 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>HWinterface</em></span>&#160;)</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>HWinterface</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>This method can't be called for Software UART because it doens't initialize queues in User Data Area. </p>
+<p>This method uses 32 byte buffers in pin memory rather than user ram. </p>
+
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html#l00597">597</a> of file <a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>.</p>
+
+</div>
+</div>
+<a id="a36230d53e46e4d57375c10d036d2ee32" name="a36230d53e46e4d57375c10d036d2ee32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36230d53e46e4d57375c10d036d2ee32">&#9670;&#160;</a></span>bytesToTransmit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SerialWombatSWUART::bytesToTransmit </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html#l00753">753</a> of file <a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>.</p>
 
 </div>
 </div>
@@ -470,7 +504,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_serial_wombat_u_a_r_t.html#a975e8b2ecad866eb59962fd10399c7c7">SerialWombatUART</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_u_a_r_t_8h_source.html#l00626">626</a> of file <a class="el" href="_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html#l00706">706</a> of file <a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>.</p>
 
 </div>
 </div>
@@ -514,7 +548,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_serial_wombat_u_a_r_t.html#a0591b598989d9d28e88aff5676fd32ba">SerialWombatUART</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_u_a_r_t_8h_source.html#l00611">611</a> of file <a class="el" href="_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html#l00662">662</a> of file <a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>.</p>
 
 </div>
 </div>
@@ -533,7 +567,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p><a class="el" href="class_serial_wombat_queue.html" title="A Class representing a Queue in the User Ram area on the Serial Wombat Chip.">SerialWombatQueue</a> created on the Serial Wombat chip for data received by the <a class="el" href="class_serial_wombat_s_w_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates a software based UART on the SW18AB.">SerialWombatSWUART</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_u_a_r_t_8h_source.html#l00635">635</a> of file <a class="el" href="_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html#l00747">747</a> of file <a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>.</p>
 
 </div>
 </div>
@@ -551,7 +585,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p><a class="el" href="class_serial_wombat_queue.html" title="A Class representing a Queue in the User Ram area on the Serial Wombat Chip.">SerialWombatQueue</a> created on the Serial Wombat chip for data to be sent by the <a class="el" href="class_serial_wombat_s_w_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates a software based UART on the SW18AB.">SerialWombatSWUART</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_u_a_r_t_8h_source.html#l00639">639</a> of file <a class="el" href="_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html#l00751">751</a> of file <a class="el" href="us_serial_wombat_u_a_r_t_8h_source.html">SerialWombatUART.h</a>.</p>
 
 </div>
 </div>

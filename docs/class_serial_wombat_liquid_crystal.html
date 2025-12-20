@@ -94,7 +94,7 @@ $(function(){ initResizable(false); });
 <p>A Class which connects to HD44780 / 1602 / 4002 / 2004 or similar interface Character LCDs.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SerialWombatLiquidCrystal:</div>
 <div class="dyncontent">
@@ -251,6 +251,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin" id="r_a5a97a8c687f9f5ffb1c22679851d0372"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a5a97a8c687f9f5ffb1c22679851d0372">forceDMA</a> (bool enabled)</td></tr>
 <tr class="memdesc:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces use of DMA instead of hardware timing resources on SW18AB.  <br /></td></tr>
 <tr class="separator:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin" id="r_ab1623964d0840c58e2b69a178310f213"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#ab1623964d0840c58e2b69a178310f213">setPinNumberForTesting</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>)</td></tr>
+<tr class="memdesc:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function designed for testing only. May have unpredictable results if used in real time. Not intended for general use.  <br /></td></tr>
+<tr class="separator:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -265,7 +268,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A Class which connects to HD44780 / 1602 / 4002 / 2004 or similar interface Character LCDs. </p>
 <p>This pin mode has nearly identical interfaces to the classic Arduino LiquidCrystal library and can be used with similar parallel character LCDs. This pin mode is only intended for use with character LCDs that are connected in 4 bit parallel (E, RS, D4, D5, D6, D7) with the Serial Wombat chip. RW pin on the LCD must be grounded.</p>
-<p>In addition to the classic LiquidCrystal interfaces, this pin mode has a more advanced mode avaialble through the <a class="el" href="#af589bcf2fe64185d8844e99b6e569ebf" title="kicks off the Serial Wombat chip state machine that copies one character to the LCD each second from ...">initializeBufferCopy()</a> interface which allows displays to be updated from data stored in the Serial Wombat Chip's User Buffer. The Serial Wombat chip will handle getting the right data to the right location on the display. This is convenient for displays such as 20x4 displays which alternate lines when addressing. When combined with a shifting queue initialized with <a class="el" href="_serial_wombat_queue_8h.html#ae590461897f6809b2b60297b96d7e46da2f5417730a384e7d7c91db81f66681d8" title="A queue that queues byte-sized data in a queue in the User RAM area.">SerialWombatQueueType::QUEUE_TYPE_RAM_BYTE_SHIFT</a>, the display can be treated like any other Stream Class under Arduino. See the Arduino examples directory for an example of this.</p>
+<p>In addition to the classic LiquidCrystal interfaces, this pin mode has a more advanced mode avaialble through the <a class="el" href="#af589bcf2fe64185d8844e99b6e569ebf" title="kicks off the Serial Wombat chip state machine that copies one character to the LCD each second from ...">initializeBufferCopy()</a> interface which allows displays to be updated from data stored in the Serial Wombat Chip's User Buffer. The Serial Wombat chip will handle getting the right data to the right location on the display. This is convenient for displays such as 20x4 displays which alternate lines when addressing. When combined with a shifting queue initialized with <a class="el" href="us_serial_wombat_queue_8h.html#ae590461897f6809b2b60297b96d7e46da2f5417730a384e7d7c91db81f66681d8" title="A queue that queues byte-sized data in a queue in the User RAM area.">SerialWombatQueueType::QUEUE_TYPE_RAM_BYTE_SHIFT</a>, the display can be treated like any other Stream Class under Arduino. See the Arduino examples directory for an example of this.</p>
 <p>This class also supports buffer copying to large 40x4 character LCDs that have two E lines. These displays are essentially two 44780 controllers connected to a single piece of glass. See the example in the Arduino examples directory.</p>
 <p>E and E2 lines must be exclusive to a single LCD display. If multiple LCDs are attached to a single Serial Wombat Chip then RS, D4, D5, D6, and D7 can be shared by both displays.</p>
 <p>When in buffer mode the class updates one character per mS. <br  />
@@ -276,7 +279,7 @@ Additional Inherited Members</h2></td></tr>
 </p>
 <p>TODO <a href="https://youtu.be/">https://youtu.be/</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00068">68</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00068">68</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac619ca66800de701344e9fc56bab8b87" name="ac619ca66800de701344e9fc56bab8b87"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac619ca66800de701344e9fc56bab8b87">&#9670;&#160;</a></span>SerialWombatLiquidCrystal()</h2>
@@ -344,7 +347,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00082">82</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00082">82</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -375,7 +378,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Turn on autoscrolling mode on the LCD display (not in the Serial Wombat chip) </p>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00330">330</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00330">330</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -416,7 +419,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00101">101</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00101">101</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -448,7 +451,7 @@ Additional Inherited Members</h2></td></tr>
 <p>This is only used when using the <a class="el" href="#af589bcf2fe64185d8844e99b6e569ebf" title="kicks off the Serial Wombat chip state machine that copies one character to the LCD each second from ...">initializeBufferCopy()</a> mode of this pin mode. When this value is not set 80 bytes are copied to the display attached to the e pin. When this value is set, 80 bytes are copied to the display attached to the e pin, followed by an additional 80 bytes attached to the e2 pin.</p>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00644">644</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00644">644</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -478,7 +481,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Makes the cursor blink. </p>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00228">228</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00228">228</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -515,7 +518,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00136">136</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00136">136</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -551,7 +554,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00571">571</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00571">571</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -592,7 +595,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00506">506</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00506">506</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -622,7 +625,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Makes the cursor visible. </p>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00210">210</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00210">210</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -652,7 +655,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Enables LCD display. </p>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00267">267</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00267">267</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -689,7 +692,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00156">156</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00156">156</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -721,7 +724,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>kicks off the Serial Wombat chip state machine that copies one character to the LCD each second from a buffer </p>
-<p>This function extends the LiquidCrystal functionality by adding a state machine that runs on the Serial Wombat chip This state machine copies a byte every ms from an index into the User Buffer area to the LCD. It uses the offsets set using <a class="el" href="#a060d8554a7fd6f995575cb237d9a2571" title="Set the offsets in the LCD on-board memory for the beginning of each row.">setRowOffsets()</a> and the width parameter to automatically format the data from the User Buffer into lines in the proper order. When used with the <a class="el" href="_serial_wombat_queue_8h.html#ae590461897f6809b2b60297b96d7e46da2f5417730a384e7d7c91db81f66681d8" title="A queue that queues byte-sized data in a queue in the User RAM area.">SerialWombatQueueType::QUEUE_TYPE_RAM_BYTE_SHIFT</a> type queue to create a FIFO style display. <br  />
+<p>This function extends the LiquidCrystal functionality by adding a state machine that runs on the Serial Wombat chip This state machine copies a byte every ms from an index into the User Buffer area to the LCD. It uses the offsets set using <a class="el" href="#a060d8554a7fd6f995575cb237d9a2571" title="Set the offsets in the LCD on-board memory for the beginning of each row.">setRowOffsets()</a> and the width parameter to automatically format the data from the User Buffer into lines in the proper order. When used with the <a class="el" href="us_serial_wombat_queue_8h.html#ae590461897f6809b2b60297b96d7e46da2f5417730a384e7d7c91db81f66681d8" title="A queue that queues byte-sized data in a queue in the User RAM area.">SerialWombatQueueType::QUEUE_TYPE_RAM_BYTE_SHIFT</a> type queue to create a FIFO style display. <br  />
  </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">bufferIndex</td><td>Index into the User Buffer where data copy starts. When using a shifted Queue, this is the queue address + 8. </td></tr>
@@ -731,7 +734,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00612">612</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00612">612</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -762,7 +765,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Note that this command has no effect in <a class="el" href="#af589bcf2fe64185d8844e99b6e569ebf" title="kicks off the Serial Wombat chip state machine that copies one character to the LCD each second from ...">initializeBufferCopy()</a> mode.</p>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00370">370</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00370">370</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -792,7 +795,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Turn off autoscrolling mode on the LCD display (not in the Serial Wombat chip) </p>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00349">349</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00349">349</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -822,7 +825,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Makes the cursor not blink. </p>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00247">247</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00247">247</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -852,7 +855,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Makes the cursor invisible. </p>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00192">192</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00192">192</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -882,7 +885,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Disables LCD display. </p>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00286">286</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00286">286</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -912,7 +915,7 @@ Additional Inherited Members</h2></td></tr>
 <p>returns the e pin number. Override for use with classes that require this as a virtual function </p>
 <dl class="section return"><dt>Returns</dt><dd>Pin number of the e pin </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00590">590</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00590">590</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -943,7 +946,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Note that this command has no effect in <a class="el" href="#af589bcf2fe64185d8844e99b6e569ebf" title="kicks off the Serial Wombat chip state machine that copies one character to the LCD each second from ...">initializeBufferCopy()</a> mode.</p>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00390">390</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00390">390</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -974,7 +977,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Note that this command has no effect in <a class="el" href="#af589bcf2fe64185d8844e99b6e569ebf" title="kicks off the Serial Wombat chip state machine that copies one character to the LCD each second from ...">initializeBufferCopy()</a> mode.</p>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00307">307</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00307">307</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -1005,7 +1008,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Note that this command has no effect in <a class="el" href="#af589bcf2fe64185d8844e99b6e569ebf" title="kicks off the Serial Wombat chip state machine that copies one character to the LCD each second from ...">initializeBufferCopy()</a> mode.</p>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00320">320</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00320">320</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -1046,7 +1049,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00173">173</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00173">173</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -1101,7 +1104,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00543">543</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00543">543</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -1131,7 +1134,7 @@ Additional Inherited Members</h2></td></tr>
 <p>returns the pin mode number. Override for use with classes that require this as a virtual function </p>
 <dl class="section return"><dt>Returns</dt><dd>Pin mode of the current pin </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00597">597</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00597">597</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -1173,7 +1176,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00442">442</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00442">442</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>
@@ -1210,7 +1213,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns a number 0 or greater for success, negative numbers indicate an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html#l00413">413</a> of file <a class="el" href="_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html#l00413">413</a> of file <a class="el" href="us_serial_wombat_liquid_crystal_8h_source.html">SerialWombatLiquidCrystal.h</a>.</p>
 
 </div>
 </div>

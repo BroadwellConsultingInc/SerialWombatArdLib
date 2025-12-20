@@ -94,7 +94,7 @@ $(function(){ initResizable(false); });
 <p>A derived class that adds additional Servo Functionality for the Serial Wombat 18AB Chip.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="us_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SerialWombatServo_18AB:</div>
 <div class="dyncontent">
@@ -208,6 +208,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin" id="r_a5a97a8c687f9f5ffb1c22679851d0372"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a5a97a8c687f9f5ffb1c22679851d0372">forceDMA</a> (bool enabled)</td></tr>
 <tr class="memdesc:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces use of DMA instead of hardware timing resources on SW18AB.  <br /></td></tr>
 <tr class="separator:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin" id="r_ab1623964d0840c58e2b69a178310f213"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#ab1623964d0840c58e2b69a178310f213">setPinNumberForTesting</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>)</td></tr>
+<tr class="memdesc:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function designed for testing only. May have unpredictable results if used in real time. Not intended for general use.  <br /></td></tr>
+<tr class="separator:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_serial_wombat_abstract_scaled_output"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_serial_wombat_abstract_scaled_output')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_serial_wombat_abstract_scaled_output.html">SerialWombatAbstractScaledOutput</a></td></tr>
 <tr class="memitem:a4a0d75669fab72c813db6f916ebd7303 inherit pub_methods_class_serial_wombat_abstract_scaled_output" id="r_a4a0d75669fab72c813db6f916ebd7303"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#a4a0d75669fab72c813db6f916ebd7303">SerialWombatAbstractScaledOutput</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;sw)</td></tr>
 <tr class="memdesc:a4a0d75669fab72c813db6f916ebd7303 inherit pub_methods_class_serial_wombat_abstract_scaled_output"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class....">SerialWombatAbstractScaledOutput</a> Class.  <br /></td></tr>
@@ -320,7 +323,7 @@ Additional Inherited Members</h2></td></tr>
 <p>For SW18AB pins that are not enhanced, or if timing resources are not available the pin mode will degrade to using DMA based output with 17uS resolution. This equates to slightly better than 7 bit resolution for a 500-2500uS pulse range servo.</p>
 <p>This class uses "attach" rather than "begin" to initialize servos to be consistent with the Arduino Servo native API. </p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_servo_8h_source.html#l00208">208</a> of file <a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_servo_8h_source.html#l00208">208</a> of file <a class="el" href="us_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a77006c82b2457d8acf7e6301605bb76b" name="a77006c82b2457d8acf7e6301605bb76b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a77006c82b2457d8acf7e6301605bb76b">&#9670;&#160;</a></span>SerialWombatServo_18AB()</h2>
@@ -345,7 +348,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_servo_8h_source.html#l00211">211</a> of file <a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_servo_8h_source.html#l00211">211</a> of file <a class="el" href="us_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
 
 </div>
 </div>
@@ -377,7 +380,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_serial_wombat_abstract_scaled_output.html#a70dbe9dfc661608efcb21214c0a881c9">SerialWombatAbstractScaledOutput</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_servo_8h_source.html#l00214">214</a> of file <a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_servo_8h_source.html#l00214">214</a> of file <a class="el" href="us_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
 
 </div>
 </div>
@@ -408,7 +411,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_serial_wombat_abstract_scaled_output.html#afd93156ef9d71185e7f2de4a6e5fc2e5">SerialWombatAbstractScaledOutput</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_servo_8h_source.html#l00215">215</a> of file <a class="el" href="_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_servo_8h_source.html#l00215">215</a> of file <a class="el" href="us_serial_wombat_servo_8h_source.html">SerialWombatServo.h</a>.</p>
 
 </div>
 </div>

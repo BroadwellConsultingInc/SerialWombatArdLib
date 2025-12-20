@@ -9,8 +9,7 @@ typedef enum {
 	SIMQE_1ST_TRANSITION_1ST_PIN_COMPLETED,
 	SIMQE_1ST_TRANSITION_2ND_PIN_COMPLETED,
 	SIMQE_2ND_TRANSITION_1ST_PIN_COMPLETED,
-	SIMQE_2ND_TRANSITION_2ND_PIN_COMPLETED,
-	SIMQE_2ND_TRANSITION_COMPLETED
+	SIMQE_2ND_TRANSITION_2ND_PIN_COMPLETED
 }SIMQUE_STATE_t;
 /*! \brief A class for testing SerialWombatQuadEnc inputs.
 
@@ -29,7 +28,7 @@ public:
 		pin0 = _pin0;
 		pin1 = _pin1;
 		this->openDrain = openDrain;
-
+		this->doubleTransition = doubleTransition;
 		initialize();
 	}
 

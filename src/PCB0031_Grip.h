@@ -163,7 +163,7 @@ public:
 	int16_t begin(byte pin, bool reverse = false)
 	{
 		attach(pin, reverse);
-		sensor.begin(pin + 4);
+		return sensor.begin(pin + 4);
 	}
 
 	/*!
@@ -422,6 +422,7 @@ public:
 			pin3VoltageEnable = true;
 
 		}
+		return (0);
 	}
 
 

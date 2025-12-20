@@ -38,7 +38,7 @@ var searchData=
   ['readminimumcounts_35',['readMinimumCounts',['../class_serial_wombat_analog_input.html#ae68a13e4717024b9b636840472490964',1,'SerialWombatAnalogInput']]],
   ['readminimumohms_36',['readMinimumOhms',['../class_serial_wombat_resistance_input.html#ae7f48e9f3a50ed4516bba0287eb78eb8',1,'SerialWombatResistanceInput']]],
   ['readoverflowframes_37',['readOverflowFrames',['../class_serial_wombat_chip.html#a66cec9bbfa95b7c8ea1188c523e5902e',1,'SerialWombatChip']]],
-  ['readpowervoltage_5fmv_38',['readPowerVoltage_mv',['../class_p_c_b0031___grip.html#ad25e85f50f7d3ee5ef697467e6b95b23',1,'PCB0031_Grip']]],
+  ['readpowervoltage_5fmv_38',['readPowerVoltage_mv',['../class_p_c_b0030___bridge.html#a3481982db89d3aa2fb8c3d60e2e5f222',1,'PCB0030_Bridge::readPowerVoltage_mv()'],['../class_p_c_b0031___grip.html#ad25e85f50f7d3ee5ef697467e6b95b23',1,'PCB0031_Grip::readPowerVoltage_mv()']]],
   ['readpublicdata_39',['readPublicData',['../class_serial_wombat_chip.html#a56030bf411a9d0c5827ae48b1dec39f5',1,'SerialWombatChip::readPublicData(uint8_t pin)'],['../class_serial_wombat_chip.html#adad56fa5e2abe3a8636f96c6739b9f3a',1,'SerialWombatChip::readPublicData(SerialWombatDataSource dataSource)'],['../class_serial_wombat_pin.html#a60b32aa6eb6cbce89b5ea0b8114b8370',1,'SerialWombatPin::readPublicData()']]],
   ['readpulsecount_40',['readPulseCount',['../class_serial_wombat_ultrasonic_distance_sensor.html#a8ea7ffd1faca78082ba92d76612696f3',1,'SerialWombatUltrasonicDistanceSensor']]],
   ['readpulses_41',['readPulses',['../class_serial_wombat_pulse_timer.html#ab9a115d61abfe4837402dee38b28fcc5',1,'SerialWombatPulseTimer']]],

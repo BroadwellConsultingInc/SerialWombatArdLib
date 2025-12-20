@@ -267,7 +267,7 @@ public:
 		}
 		bytesWritten += rx[3];
 		delay(0);
-		if (millis() > startTime + _timeout)
+		if ((rx[3] == 0) && millis() >= startTime + _timeout) // Time out if couldn't write bytes and over timeout
 		{
 			return(bytesWritten);
 		}
@@ -284,23 +284,21 @@ public:
 		{
 			nextWriteSize = (uint8_t)(size - bytesWritten);
 		}
+		uint8_t tx[] = { (uint8_t)SerialWombatCommands::COMMAND_BINARY_QUEUE_ADD_BYTES ,SW_LE16(startIndex),0,0x55,0x55,0x55,0x55 };
+		uint8_t i;
+		for (i = 0; i < nextWriteSize; ++i)
 		{
-			uint8_t tx[] = { (uint8_t)SerialWombatCommands::COMMAND_BINARY_QUEUE_ADD_BYTES ,SW_LE16(startIndex),0,0x55,0x55,0x55,0x55 };
-			uint8_t i;
-			for (i = 0; i < nextWriteSize; ++i)
-			{
-				tx[4 + i] = buffer[i + bytesWritten];
-			}
-			tx[3] = nextWriteSize;
-			uint8_t rx[8];
-			int16_t sendResult = _sw.sendPacket(tx, rx);
-			if (sendResult < 0)
-			{
-				return(bytesWritten);
-			}
-			bytesWritten += rx[3];
+			tx[4 + i] = buffer[i + bytesWritten];
 		}
-		if (millis() > startTime + _timeout)
+		tx[3] = nextWriteSize;
+		uint8_t rx[8];
+		int16_t sendResult = _sw.sendPacket(tx, rx);
+		if (sendResult < 0)
+		{
+			return(bytesWritten);
+		}
+		bytesWritten += rx[3];
+		if ( (rx[3] == 0) && millis() >= startTime + _timeout)
 		{
 			return(bytesWritten);
 		}
@@ -379,7 +377,7 @@ public:
 		{
 			return (bytesRead);
 		}
-		if (millis() > startTime + _timeout)
+		if (millis() >= startTime + _timeout)
 		{
 			return(bytesRead);
 		}

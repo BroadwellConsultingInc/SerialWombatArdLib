@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['calibrategripper_0',['calibrateGripper',['../class_grip_servo.html#a196db27998f82be077e612bad9f01a17',1,'GripServo']]],
+  ['calibrategripper_0',['calibrateGripper',['../class_grip_servo.html#a9bfcaf4d52168dc633687ab76a64a028',1,'GripServo']]],
   ['calibrateidlecurrent_1',['calibrateIdleCurrent',['../class_grip_a_c_s712.html#a1d3874f2071f6880953ba26dab8fb9fd',1,'GripACS712']]],
   ['calibrateservorange_2',['calibrateServoRange',['../class_grip_servo.html#af4d09567ca23dd326fe78e1163cd0454',1,'GripServo']]],
   ['clear_3',['clear',['../class_serial_wombat_liquid_crystal.html#ab33d245bdc6ec579d509b983e9db7f6b',1,'SerialWombatLiquidCrystal']]],

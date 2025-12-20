@@ -1,0 +1,17 @@
+<map id="PCB0030_Bridge" name="PCB0030_Bridge">
+<area shape="rect" id="Node000001" title="A class representing a PCB0030 Bridge PCB." alt="" coords="67,385,188,412"/>
+<area shape="rect" id="Node000002" href="$class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="5,5,135,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,47,55,76,51,108,51,306,57,330,70,351,88,369,107,383,104,387,85,373,66,355,52,332,46,307,46,108,50,76,57,46"/>
+<area shape="rect" id="Node000004" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="87,96,208,123"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="93,42,138,94,134,97,89,45"/>
+<area shape="rect" id="Node000003" href="$class_serial_wombat_h_bridge.html" title="A class representing a Serial Wombat H Bridge Output." alt="" coords="69,239,218,265"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="142,281,141,290,131,385,126,384,136,289,137,281"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="149,138,146,238,141,238,144,138"/>
+<area shape="rect" id="Node000006" href="$class_serial_wombat_analog_input.html" title="A class to make analog measurements with the Serial Wombat." alt="" coords="180,180,352,207"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="179,129,249,177,246,182,176,134"/>
+<area shape="rect" id="Node000005" href="$class_serial_wombat_analog_input__18_a_b.html" title="This class extends SerialWombatAnalogInput with SW18AB specific capabilities." alt="" coords="213,292,423,319"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="279,328,155,387,152,382,277,323"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="281,220,315,290,310,293,276,222"/>
+<area shape="rect" id="Node000007" href="$class_serial_wombat_abstract_processed_input.html" title="SerialWombatAnalogInput, SerialWombatPulseTimer, SerialWombatResistanceInput and others inherit from ..." alt="" coords="375,172,589,215"/>
+<area shape="poly" id="edge8_Node000005_Node000007" title=" " alt="" coords="440,226,338,294,335,289,437,221"/>
+</map>

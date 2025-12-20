@@ -288,7 +288,7 @@ class SerialWombatIRRx :
 		/*!
 		  @brief used to allow reference copy.  Not for user use.
 		  */
-		SerialWombatIRRx operator=(SerialWombatIRRx& irrx)
+		SerialWombatIRRx& operator=(SerialWombatIRRx& irrx)
 		{
 			return irrx;
 		}

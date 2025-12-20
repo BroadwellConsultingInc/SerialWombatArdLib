@@ -95,7 +95,7 @@ $(function(){ initResizable(false); });
 <p>A class representing a servo output and an Allegro ACS712 5A current sensor connected to a SW8B Analog input on a PCB0031 Grip board.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GripServo:</div>
 <div class="dyncontent">
@@ -160,9 +160,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9f39636222669e235d6ab55f33685255" id="r_a9f39636222669e235d6ab55f33685255"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f39636222669e235d6ab55f33685255">objectPresent</a> (uint16_t divisor=50)</td></tr>
 <tr class="memdesc:a9f39636222669e235d6ab55f33685255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports if an object is in the gripper based on stop position of servo.  <br /></td></tr>
 <tr class="separator:a9f39636222669e235d6ab55f33685255"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a196db27998f82be077e612bad9f01a17" id="r_a196db27998f82be077e612bad9f01a17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a196db27998f82be077e612bad9f01a17">calibrateGripper</a> (bool reverse=false)</td></tr>
-<tr class="memdesc:a196db27998f82be077e612bad9f01a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single calibration call that will fully calibrate a gripper.  <br /></td></tr>
-<tr class="separator:a196db27998f82be077e612bad9f01a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bfcaf4d52168dc633687ab76a64a028" id="r_a9bfcaf4d52168dc633687ab76a64a028"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bfcaf4d52168dc633687ab76a64a028">calibrateGripper</a> (bool reverse=false, uint16_t rangeConstant=49152)</td></tr>
+<tr class="memdesc:a9bfcaf4d52168dc633687ab76a64a028"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single calibration call that will fully calibrate a gripper.  <br /></td></tr>
+<tr class="separator:a9bfcaf4d52168dc633687ab76a64a028"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_serial_wombat_servo__18_a_b"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_serial_wombat_servo__18_a_b')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_serial_wombat_servo__18_a_b.html">SerialWombatServo_18AB</a></td></tr>
 <tr class="memitem:a77006c82b2457d8acf7e6301605bb76b inherit pub_methods_class_serial_wombat_servo__18_a_b" id="r_a77006c82b2457d8acf7e6301605bb76b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_servo__18_a_b.html#a77006c82b2457d8acf7e6301605bb76b">SerialWombatServo_18AB</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat)</td></tr>
 <tr class="separator:a77006c82b2457d8acf7e6301605bb76b inherit pub_methods_class_serial_wombat_servo__18_a_b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -240,6 +240,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin" id="r_a5a97a8c687f9f5ffb1c22679851d0372"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a5a97a8c687f9f5ffb1c22679851d0372">forceDMA</a> (bool enabled)</td></tr>
 <tr class="memdesc:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces use of DMA instead of hardware timing resources on SW18AB.  <br /></td></tr>
 <tr class="separator:a5a97a8c687f9f5ffb1c22679851d0372 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin" id="r_ab1623964d0840c58e2b69a178310f213"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#ab1623964d0840c58e2b69a178310f213">setPinNumberForTesting</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>)</td></tr>
+<tr class="memdesc:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function designed for testing only. May have unpredictable results if used in real time. Not intended for general use.  <br /></td></tr>
+<tr class="separator:ab1623964d0840c58e2b69a178310f213 inherit pub_methods_class_serial_wombat_pin"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_serial_wombat_abstract_scaled_output"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_serial_wombat_abstract_scaled_output')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_serial_wombat_abstract_scaled_output.html">SerialWombatAbstractScaledOutput</a></td></tr>
 <tr class="memitem:a4a0d75669fab72c813db6f916ebd7303 inherit pub_methods_class_serial_wombat_abstract_scaled_output" id="r_a4a0d75669fab72c813db6f916ebd7303"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_abstract_scaled_output.html#a4a0d75669fab72c813db6f916ebd7303">SerialWombatAbstractScaledOutput</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;sw)</td></tr>
 <tr class="memdesc:a4a0d75669fab72c813db6f916ebd7303 inherit pub_methods_class_serial_wombat_abstract_scaled_output"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class....">SerialWombatAbstractScaledOutput</a> Class.  <br /></td></tr>
@@ -370,7 +373,7 @@ Additional Inherited Members</h2></td></tr>
 </p>
 <p><a href="https://youtu.be/TODO">https://youtu.be/TODO</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00139">139</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00139">139</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a711718d58fa0cea6c135d2b39b7bd64e" name="a711718d58fa0cea6c135d2b39b7bd64e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a711718d58fa0cea6c135d2b39b7bd64e">&#9670;&#160;</a></span>GripServo()</h2>
@@ -403,7 +406,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00147">147</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00147">147</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
@@ -446,12 +449,12 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a negative number indicating an error code, or a non negative number indicating success </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00163">163</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00163">163</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
-<a id="a196db27998f82be077e612bad9f01a17" name="a196db27998f82be077e612bad9f01a17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a196db27998f82be077e612bad9f01a17">&#9670;&#160;</a></span>calibrateGripper()</h2>
+<a id="a9bfcaf4d52168dc633687ab76a64a028" name="a9bfcaf4d52168dc633687ab76a64a028"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bfcaf4d52168dc633687ab76a64a028">&#9670;&#160;</a></span>calibrateGripper()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -462,8 +465,12 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void GripServo::calibrateGripper </td>
           <td>(</td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>reverse</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>reverse</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>rangeConstant</em></span><span class="paramdefsep"> = </span><span class="paramdefval">49152</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -485,7 +492,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <p>This is a blocking function that takes a few seconds to complete. </p>
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00328">328</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00328">328</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
@@ -527,7 +534,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00195">195</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00195">195</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
@@ -581,7 +588,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00241">241</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00241">241</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
@@ -620,7 +627,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Sufficent time must be given after grip is called to allow the gripper to reach steady state. True will be returned if the gripper is still converging on its endpoint.</p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if an object is detected. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00308">308</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00308">308</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
@@ -650,7 +657,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Disable the grip control algorithm and move the servo to the smallest non-stall position. </p>
 <p>This function must be called after the begin call for the <a class="el" href="class_grip_servo.html" title="A class representing a servo output and an Allegro ACS712 5A current sensor connected to a SW8B Analo...">GripServo</a> is called and after calibration </p>
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00274">274</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00274">274</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
@@ -669,7 +676,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>The highest observed current during calibration. </p>
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00184">184</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00184">184</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
@@ -687,7 +694,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>The highest position at which relatively low current was pulled during calibration. </p>
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00176">176</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00176">176</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
@@ -705,7 +712,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>The lowest observed current during calibration. </p>
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00180">180</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00180">180</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
@@ -723,7 +730,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>The position at which the least current was pulled during calibration. </p>
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00172">172</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00172">172</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
@@ -739,7 +746,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_p_c_b0031___grip_8h_source.html#l00150">150</a> of file <a class="el" href="_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0031___grip_8h_source.html#l00150">150</a> of file <a class="el" href="us_p_c_b0031___grip_8h_source.html">PCB0031_Grip.h</a>.</p>
 
 </div>
 </div>
