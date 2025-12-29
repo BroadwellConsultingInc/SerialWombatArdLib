@@ -36,6 +36,7 @@ void hBridgeTest(SerialWombatChip &sw, uint8_t hBridgeFirstPin, uint8_t hBridgeS
   }
   {
     HBridge->writePublicData(0x0000); // One high, one low, no PWM
+    delay(100);
     uint16_t firstPinCounts = pulseCounts(sw,hBridgeFirstPin);
     uint16_t secondPinCounts = pulseCounts(sw,hBridgeSecondPin);
     delay(1000);
@@ -45,6 +46,7 @@ void hBridgeTest(SerialWombatChip &sw, uint8_t hBridgeFirstPin, uint8_t hBridgeS
   }
   {
     HBridge->writePublicData(0xFFFF); // One high, one low, no PWM
+    delay(100);
     uint16_t firstPinCounts = pulseCounts(sw,hBridgeFirstPin);
     uint16_t secondPinCounts = pulseCounts(sw,hBridgeSecondPin);
     delay(1000);
@@ -54,6 +56,7 @@ void hBridgeTest(SerialWombatChip &sw, uint8_t hBridgeFirstPin, uint8_t hBridgeS
   }
   {
     HBridge->writePublicData(0xC000); // One PWM, one low
+    delay(100);
     uint16_t firstPinCounts = pulseCounts(sw,hBridgeFirstPin);
     uint16_t secondPinCounts = pulseCounts(sw,hBridgeSecondPin);
     delay(1000);
@@ -65,6 +68,7 @@ void hBridgeTest(SerialWombatChip &sw, uint8_t hBridgeFirstPin, uint8_t hBridgeS
 
   {
     HBridge->writePublicData(0xE000); // One PWM, one low
+    delay(100);
     uint16_t firstPinCounts = pulseCounts(sw,hBridgeFirstPin);
     uint16_t secondPinCounts = pulseCounts(sw,hBridgeSecondPin);
     delay(1000);
@@ -76,6 +80,7 @@ void hBridgeTest(SerialWombatChip &sw, uint8_t hBridgeFirstPin, uint8_t hBridgeS
 
   {
     HBridge->writePublicData(0xA000); // One PWM, one low
+    delay(100);
     uint16_t firstPinCounts = pulseCounts(sw,hBridgeFirstPin);
     uint16_t secondPinCounts = pulseCounts(sw,hBridgeSecondPin);
     delay(1000);
@@ -87,6 +92,7 @@ void hBridgeTest(SerialWombatChip &sw, uint8_t hBridgeFirstPin, uint8_t hBridgeS
 
   {
     HBridge->writePublicData(0x4000); // One PWM, one low
+    delay(100);
     uint16_t firstPinCounts = pulseCounts(sw,hBridgeFirstPin);
     uint16_t secondPinCounts = pulseCounts(sw,hBridgeSecondPin);
     delay(1000);
@@ -97,6 +103,7 @@ void hBridgeTest(SerialWombatChip &sw, uint8_t hBridgeFirstPin, uint8_t hBridgeS
   }
   {
     HBridge->writePublicData(0x2000); // One PWM, one low
+    delay(100);
     uint16_t firstPinCounts = pulseCounts(sw,hBridgeFirstPin);
     uint16_t secondPinCounts = pulseCounts(sw,hBridgeSecondPin);
     delay(1000);
@@ -108,6 +115,7 @@ void hBridgeTest(SerialWombatChip &sw, uint8_t hBridgeFirstPin, uint8_t hBridgeS
 
    {
     HBridge->writePublicData(0x6000); // One PWM, one low
+    delay(100);
     uint16_t firstPinCounts = pulseCounts(sw,hBridgeFirstPin);
     uint16_t secondPinCounts = pulseCounts(sw,hBridgeSecondPin);
     delay(1000);

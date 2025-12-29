@@ -1,6 +1,6 @@
 #include <SerialWombat.h>
 
-const PROGMEM  char pinModeArray[][40] = {
+const PROGMEM  char pinModeArray[][41] = {
   "DIGITAL_IO",
   "CONTROLLED",
   "ANALOGINPUT",
@@ -41,6 +41,7 @@ const PROGMEM  char pinModeArray[][40] = {
   "IR_RX",
   "IR_TX",
   "RC_PPM", // 39
+  "BLINK", //40
 };
 
 // A video tutorial on this example is available at:
@@ -162,7 +163,7 @@ void loop() {
       Serial.println();
     }
   }
-  delay(30000);  // Wait 30 seconds and do it again.
+  delay(10000);  // Wait 10 seconds and do it again.
   Serial.println("Serial Wombat chip Finder");
   Serial.println("=======================================================");
   Serial.println();

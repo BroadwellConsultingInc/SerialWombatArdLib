@@ -18,7 +18,7 @@ void publicDataTest(SerialWombatChip &sw)
       }
     }
   }
-  test("SW_DATA_SOURCE_1024mvCounts test not implemented",0);
+  Serial.println("SW_DATA_SOURCE_1024mvCounts test not implemented");
   
   {
     
@@ -128,7 +128,7 @@ if (&sw == &SW18AB_6B)
         fail(1);
       }
   }
-  test("SW_DATA_SOURCE_TEMPERATURE  test not implemented",0);
+  Serial.println("SW_DATA_SOURCE_TEMPERATURE  test not implemented");
   {
     uint16_t number = sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_PACKETS_RECEIVED);
 
@@ -170,7 +170,7 @@ if (&sw == &SW18AB_6B)
     
   }
 
-  test("SW_DATA_SOURCE_LFSR  test not implemented",0);
+  Serial.println("SW_DATA_SOURCE_LFSR  test not implemented");
   if (&sw == &SW18AB_6B)
   {
     uint16_t a = sw.readPublicData(SerialWombatDataSource::SW_DATA_COM_ADDRESS_LOW);
@@ -183,8 +183,8 @@ if (&sw == &SW18AB_6B)
     test("SW_DATA_COM_ADDRESS_LOW SW18AB ",a,0x68);
 
   }
-  test("SW_DATA_SOURCE_1024mvCounts test not implemented",0);
-  test("SW_DATA_SOURCE_2HZ_SQUARE and similar  test not implemented",0);
+  Serial.println("SW_DATA_SOURCE_1024mvCounts test not implemented");
+  Serial.println("SW_DATA_SOURCE_2HZ_SQUARE and similar  test not implemented");
 
   
   

@@ -84,9 +84,10 @@ class SerialWombatQueuedPulseOutput :  public SerialWombatPin
 		/// @brief Add a pulse or two pulses to the queue
 		/// @param  firstPulse A number from 1 to 32767 logical ored with 0x8000 or 0x0000 to indicate a high or low pulse of a given duration (controlled by units in begin command).  0 indicates do nothing.  
 		/// @param  secondPulse A number from 1 to 32767 logical ored with 0x8000 or 0x0000 to indicate a high or low pulse of a given duration (controlled by units in begin command).  0 indicates do nothing.
+		/// @param  emptyQueueFirst If true, the queue will be emptied before adding new pulses
 		/// @return number of pulses successfully queued or a negative number if an error occured.
 		 */
-		int16_t queuePulses(uint16_t firstPulse, uint16_t secondPulse = 0)
+		int16_t queuePulses(uint16_t firstPulse, uint16_t secondPulse = 0, bool emptyQueueFirst = false)
 		{
 			uint8_t tx[] =
 			{
@@ -97,6 +98,10 @@ class SerialWombatQueuedPulseOutput :  public SerialWombatPin
 				SW_LE16(secondPulse),
 				0x55
 			};
+			if (emptyQueueFirst)
+			{
+				tx[7] = 0x01;
+			}
 			uint8_t rx[8];
 			int16_t result = _sw.sendPacket(tx, rx);
 			if (result < 0)
@@ -118,4 +123,51 @@ class SerialWombatQueuedPulseOutput :  public SerialWombatPin
 		{
 			return (initPacketNoResponse(2,(uint8_t) paused));
 		}
+		
+		int16_t queueEntriesFilled()
+		{
+			uint8_t tx[] =
+			{
+				(uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE1,
+				_pin,
+				_pinMode,
+				SW_LE16(0),
+				SW_LE16(0),
+				0x55
+			};
+			uint8_t rx[8];
+			int16_t result = _sw.sendPacket(tx, rx);
+			if (result < 0)
+			{
+				return (result);
+			}
+			else
+			{
+				return (rx[4]);
+			}
+		}
+
+		int16_t queueEntriesFree()
+		{
+			uint8_t tx[] =
+			{
+				(uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE1,
+				_pin,
+				_pinMode,
+				SW_LE16(0),
+				SW_LE16(0),
+				0x55
+			};
+			uint8_t rx[8];
+			int16_t result = _sw.sendPacket(tx, rx);
+			if (result < 0)
+			{
+				return (result);
+			}
+			else
+			{
+				return (rx[5]);
+			}
+		}
+		
 };

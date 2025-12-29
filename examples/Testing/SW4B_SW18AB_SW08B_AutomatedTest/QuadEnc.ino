@@ -288,8 +288,8 @@ void QuadEncTest(SerialWombatChip& sw)
 
   { // Target Pin testing
 
-    SerialWombatServo servo(sw);
-    servo.attach(0);
+    SerialWombatPin servo(sw,0);
+    servo.pinMode(OUTPUT);
     servo.writePublicData(30000);
     uint16_t increment =  10;
     qeSimB->initialize();

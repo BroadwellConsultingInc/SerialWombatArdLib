@@ -49,8 +49,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #define SW_LE32(_a)  (uint8_t)((_a) & 0xFF), (uint8_t)((_a) >>8) , (uint8_t)((_a) >>16), (uint8_t)((_a) >>24)
 
 #define ARRAY_UINT32(_array,_index) ((((uint32_t) _array[_index +3])<<24) + (((uint32_t) _array[_index +2])<<16) + (((uint32_t) _array[_index +1])<<8) + _array[_index])
-#define SW18AB_LATEST_FIRMWARE 221
-#define SW08B_LATEST_FIRMWARE 221
+#define SW18AB_LATEST_FIRMWARE 222
+#define SW08B_LATEST_FIRMWARE 222
 #define SW4B_LATEST_FIRMWARE 203
 
 typedef enum

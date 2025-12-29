@@ -1,18 +1,18 @@
 
-SerialWombatPWM_18AB pocInput1_18(SW18AB_6B);
-SerialWombatPWM_18AB pocInput2_18(SW18AB_6B);
-SerialWombatPulseOnChange pocPin18(SW18AB_6B);
 #define POC_IN_PIN2 7
 #define POC_IN_PIN1 6
 #define POC_OUT_PIN 0
 
-SerialWombatPWM_18AB *pocInput1, *pocInput2;
+SerialWombatPin *pocInput1, *pocInput2;
 SerialWombatPulseOnChange *pocPointer;
 
 void pulseOnChangeTest(SerialWombatChip &sw)
 {
   resetAll();
-
+  
+  SerialWombatPin pocInput1_18(sw,POC_IN_PIN1);
+  SerialWombatPin pocInput2_18(sw,POC_IN_PIN2);
+  SerialWombatPulseOnChange pocPin18(sw);
   pocPointer = &pocPin18;
   pocInput1 = &pocInput1_18;
   pocInput2 = &pocInput2_18;
@@ -25,14 +25,17 @@ void pulseOnChangeTest(SerialWombatChip &sw)
      pocPulseOnNotEqualValue(sw);
      pocPulseOnPinsEqual(sw);
      pocPulseOnPinsNotEqual(sw);
-
+  pocInput1->readPublicData();
+  pocInput2->readPublicData();
+  pocPointer->readPublicData();
   
 }
 
 void pocPulseOnChange(SerialWombatChip &sw)
 {
   resetAll();
-  pocInput1->begin(POC_IN_PIN1);
+  //pocInput1->begin(POC_IN_PIN1);
+  pocInput1->pinMode(OUTPUT);
   pocInput1->writePublicData(0x8000);
   pocPointer->begin(POC_OUT_PIN);
   initializePulseReaduS(sw,POC_OUT_PIN);
@@ -49,8 +52,9 @@ void pocPulseOnIncrease(SerialWombatChip &sw)
 {
 
   pocPointer->begin(POC_OUT_PIN);
-    pocInput1->begin(POC_IN_PIN1);
+   // pocInput1->begin(POC_IN_PIN1);
   pocInput1->writePublicData(0x8000);
+  pocInput1->pinMode(OUTPUT);
   initializePulseReaduS(sw,POC_OUT_PIN);
   delay(1000);
   test("POC_INC_01", pulseCounts(sw,POC_OUT_PIN), 0);  // No Pulses So far
@@ -71,7 +75,8 @@ void pocPulseOnDecrease(SerialWombatChip &sw)
 {
 
   pocPointer->begin(POC_OUT_PIN,SW_HIGH,SW_LOW,20);
-    pocInput1->begin(POC_IN_PIN1);
+    //pocInput1->begin(POC_IN_PIN1);
+    pocInput1->pinMode(OUTPUT);
   pocInput1->writePublicData(0x8000);
   initializePulseReaduS(sw,POC_OUT_PIN);
   delay(1000);
@@ -94,7 +99,8 @@ void pocPulseOnEqualValue(SerialWombatChip &sw)
 {
 
   pocPointer->begin(POC_OUT_PIN);
-    pocInput1->begin(POC_IN_PIN1);
+    //pocInput1->begin(POC_IN_PIN1);
+    pocInput1->pinMode(OUTPUT);
   pocInput1->writePublicData(0x8000);
   initializePulseReaduS(sw,POC_OUT_PIN);
   delay(1000);
@@ -120,7 +126,8 @@ void pocPulseOnLessThanValue(SerialWombatChip &sw)
 {
 
   pocPointer->begin(POC_OUT_PIN);
-    pocInput1->begin(POC_IN_PIN1);
+    //pocInput1->begin(POC_IN_PIN1);
+    pocInput1->pinMode(OUTPUT);
   pocInput1->writePublicData(0x8000);
   initializePulseReaduS(sw,POC_OUT_PIN);
   delay(1000);
@@ -152,7 +159,8 @@ void pocPulseOnGreaterThanValue(SerialWombatChip &sw)
 {
 
   pocPointer->begin(POC_OUT_PIN);
-    pocInput1->begin(POC_IN_PIN1);
+    //pocInput1->begin(POC_IN_PIN1);
+    pocInput1->pinMode(OUTPUT);
   pocInput1->writePublicData(0x0000);
   initializePulseReaduS(sw,POC_OUT_PIN);
   delay(1000);
@@ -183,7 +191,8 @@ void pocPulseOnNotEqualValue(SerialWombatChip &sw)
 {
 
   pocPointer->begin(POC_OUT_PIN);
-    pocInput1->begin(POC_IN_PIN1);
+  pocInput1->pinMode(OUTPUT);
+    //pocInput1->begin(POC_IN_PIN1);
   pocInput1->writePublicData(0x1234);
   initializePulseReaduS(sw,POC_OUT_PIN);
   delay(1000);
@@ -208,8 +217,10 @@ void pocPulseOnPinsEqual(SerialWombatChip &sw)
 {
 
   pocPointer->begin(POC_OUT_PIN);
-    pocInput1->begin(POC_IN_PIN1);
-    pocInput2->begin(POC_IN_PIN2);
+   //pocInput1->begin(POC_IN_PIN1);
+   pocInput1->pinMode(OUTPUT);
+    //pocInput2->begin(POC_IN_PIN2);
+    pocInput2->pinMode(OUTPUT);
 
   pocInput1->writePublicData(0x1234);
   pocInput2->writePublicData(0x1235);
@@ -236,8 +247,10 @@ void pocPulseOnPinsNotEqual(SerialWombatChip &sw)
 {
 
   pocPointer->begin(POC_OUT_PIN);
-    pocInput1->begin(POC_IN_PIN1);
-    pocInput2->begin(POC_IN_PIN2);
+  pocInput1->pinMode(OUTPUT);
+  pocInput2->pinMode(OUTPUT);
+    //pocInput1->begin(POC_IN_PIN1);
+    //pocInput2->begin(POC_IN_PIN2);
 
   pocInput1->writePublicData(0x1234);
   pocInput2->writePublicData(0x1234);

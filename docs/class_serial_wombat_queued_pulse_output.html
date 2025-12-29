@@ -126,12 +126,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adf20d6c7665f47eb1c2821a295ed638d" id="r_adf20d6c7665f47eb1c2821a295ed638d"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf20d6c7665f47eb1c2821a295ed638d">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, bool initialState=0, bool idleState=0, bool unitsMs=0, uint16_t QueueIndex=0xFFFF)</td></tr>
 <tr class="memdesc:adf20d6c7665f47eb1c2821a295ed638d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a queued pulse output mode /.  <br /></td></tr>
 <tr class="separator:adf20d6c7665f47eb1c2821a295ed638d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85bfb2f9fda0760dedca86730426f8d5" id="r_a85bfb2f9fda0760dedca86730426f8d5"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85bfb2f9fda0760dedca86730426f8d5">queuePulses</a> (uint16_t firstPulse, uint16_t secondPulse=0)</td></tr>
-<tr class="memdesc:a85bfb2f9fda0760dedca86730426f8d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a pulse or two pulses to the queue /.  <br /></td></tr>
-<tr class="separator:a85bfb2f9fda0760dedca86730426f8d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c776d98389394da3b04650dae9ed1e6" id="r_a9c776d98389394da3b04650dae9ed1e6"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c776d98389394da3b04650dae9ed1e6">queuePulses</a> (uint16_t firstPulse, uint16_t secondPulse=0, bool emptyQueueFirst=false)</td></tr>
+<tr class="memdesc:a9c776d98389394da3b04650dae9ed1e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a pulse or two pulses to the queue /.  <br /></td></tr>
+<tr class="separator:a9c776d98389394da3b04650dae9ed1e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac58f3b395978f62093982026111eb620" id="r_ac58f3b395978f62093982026111eb620"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac58f3b395978f62093982026111eb620">pause</a> (bool paused)</td></tr>
 <tr class="memdesc:ac58f3b395978f62093982026111eb620"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pause or unpause the generation of new pulses /.  <br /></td></tr>
 <tr class="separator:ac58f3b395978f62093982026111eb620"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae83b5396056beba816f847ad260cf845" id="r_ae83b5396056beba816f847ad260cf845"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae83b5396056beba816f847ad260cf845">queueEntriesFilled</a> ()</td></tr>
+<tr class="separator:ae83b5396056beba816f847ad260cf845"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18c212d14dee4f0fa82b10b4d9ffc164" id="r_a18c212d14dee4f0fa82b10b4d9ffc164"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18c212d14dee4f0fa82b10b4d9ffc164">queueEntriesFree</a> ()</td></tr>
+<tr class="separator:a18c212d14dee4f0fa82b10b4d9ffc164"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_serial_wombat_pin"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_serial_wombat_pin')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_serial_wombat_pin.html">SerialWombatPin</a></td></tr>
 <tr class="memitem:a83837099ac8f30c8aa194a91ed5cd7a4 inherit pub_methods_class_serial_wombat_pin" id="r_a83837099ac8f30c8aa194a91ed5cd7a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_pin.html#a83837099ac8f30c8aa194a91ed5cd7a4">SerialWombatPin</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombatChip)</td></tr>
 <tr class="memdesc:a83837099ac8f30c8aa194a91ed5cd7a4 inherit pub_methods_class_serial_wombat_pin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates a Serial Wombat Pin.  <br /></td></tr>
@@ -335,12 +339,66 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>negative number if an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_queued_pulse_output_8h_source.html#l00117">117</a> of file <a class="el" href="us_serial_wombat_queued_pulse_output_8h_source.html">SerialWombatQueuedPulseOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_queued_pulse_output_8h_source.html#l00122">122</a> of file <a class="el" href="us_serial_wombat_queued_pulse_output_8h_source.html">SerialWombatQueuedPulseOutput.h</a>.</p>
 
 </div>
 </div>
-<a id="a85bfb2f9fda0760dedca86730426f8d5" name="a85bfb2f9fda0760dedca86730426f8d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85bfb2f9fda0760dedca86730426f8d5">&#9670;&#160;</a></span>queuePulses()</h2>
+<a id="ae83b5396056beba816f847ad260cf845" name="ae83b5396056beba816f847ad260cf845"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae83b5396056beba816f847ad260cf845">&#9670;&#160;</a></span>queueEntriesFilled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatQueuedPulseOutput::queueEntriesFilled </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_queued_pulse_output_8h_source.html#l00127">127</a> of file <a class="el" href="us_serial_wombat_queued_pulse_output_8h_source.html">SerialWombatQueuedPulseOutput.h</a>.</p>
+
+</div>
+</div>
+<a id="a18c212d14dee4f0fa82b10b4d9ffc164" name="a18c212d14dee4f0fa82b10b4d9ffc164"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18c212d14dee4f0fa82b10b4d9ffc164">&#9670;&#160;</a></span>queueEntriesFree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatQueuedPulseOutput::queueEntriesFree </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_queued_pulse_output_8h_source.html#l00150">150</a> of file <a class="el" href="us_serial_wombat_queued_pulse_output_8h_source.html">SerialWombatQueuedPulseOutput.h</a>.</p>
+
+</div>
+</div>
+<a id="a9c776d98389394da3b04650dae9ed1e6" name="a9c776d98389394da3b04650dae9ed1e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c776d98389394da3b04650dae9ed1e6">&#9670;&#160;</a></span>queuePulses()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -356,7 +414,12 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>secondPulse</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>secondPulse</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>emptyQueueFirst</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -371,13 +434,14 @@ Additional Inherited Members</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">firstPulse</td><td>A number from 1 to 32767 logical ored with 0x8000 or 0x0000 to indicate a high or low pulse of a given duration (controlled by units in begin command). 0 indicates do nothing. <br  />
  /</td></tr>
-    <tr><td class="paramname">secondPulse</td><td>A number from 1 to 32767 logical ored with 0x8000 or 0x0000 to indicate a high or low pulse of a given duration (controlled by units in begin command). 0 indicates do nothing. / </td></tr>
+    <tr><td class="paramname">secondPulse</td><td>A number from 1 to 32767 logical ored with 0x8000 or 0x0000 to indicate a high or low pulse of a given duration (controlled by units in begin command). 0 indicates do nothing. /</td></tr>
+    <tr><td class="paramname">emptyQueueFirst</td><td>If true, the queue will be emptied before adding new pulses / </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>number of pulses successfully queued or a negative number if an error occured. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_queued_pulse_output_8h_source.html#l00089">89</a> of file <a class="el" href="us_serial_wombat_queued_pulse_output_8h_source.html">SerialWombatQueuedPulseOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_queued_pulse_output_8h_source.html#l00090">90</a> of file <a class="el" href="us_serial_wombat_queued_pulse_output_8h_source.html">SerialWombatQueuedPulseOutput.h</a>.</p>
 
 </div>
 </div>

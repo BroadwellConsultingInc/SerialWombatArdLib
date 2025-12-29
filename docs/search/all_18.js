@@ -10,5 +10,7 @@ var searchData=
   ['queryversion_7',['queryVersion',['../class_serial_wombat_chip.html#adb573e75fa99a67ba18b79801a449797',1,'SerialWombatChip']]],
   ['queue_5ftype_5fram_5fbyte_8',['QUEUE_TYPE_RAM_BYTE',['../us_serial_wombat_queue_8h.html#ae590461897f6809b2b60297b96d7e46dafe7f527b63d26ece5ec657006256b687',1,'SerialWombatQueue.h']]],
   ['queue_5ftype_5fram_5fbyte_5fshift_9',['QUEUE_TYPE_RAM_BYTE_SHIFT',['../us_serial_wombat_queue_8h.html#ae590461897f6809b2b60297b96d7e46da2f5417730a384e7d7c91db81f66681d8',1,'SerialWombatQueue.h']]],
-  ['queuepulses_10',['queuePulses',['../class_serial_wombat_queued_pulse_output.html#a85bfb2f9fda0760dedca86730426f8d5',1,'SerialWombatQueuedPulseOutput']]]
+  ['queueentriesfilled_10',['queueEntriesFilled',['../class_serial_wombat_queued_pulse_output.html#ae83b5396056beba816f847ad260cf845',1,'SerialWombatQueuedPulseOutput']]],
+  ['queueentriesfree_11',['queueEntriesFree',['../class_serial_wombat_queued_pulse_output.html#a18c212d14dee4f0fa82b10b4d9ffc164',1,'SerialWombatQueuedPulseOutput']]],
+  ['queuepulses_12',['queuePulses',['../class_serial_wombat_queued_pulse_output.html#a9c776d98389394da3b04650dae9ed1e6',1,'SerialWombatQueuedPulseOutput']]]
 ];

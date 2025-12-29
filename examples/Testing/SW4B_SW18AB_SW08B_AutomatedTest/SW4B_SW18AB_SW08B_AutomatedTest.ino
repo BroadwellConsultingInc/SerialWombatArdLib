@@ -29,11 +29,11 @@ SW18AB  SW4B  SW8B  DAC
 #define FAILUREPIN 8
 //#define LOAD_REQUIRED_FIRMWARE
 
-#define TEST_SW18AB
+//#define TEST_SW18AB
 #define TEST_SW8B
-#define TEST_SW4B
+//#define TEST_SW4B
 
-//#define UNIT_TEST_QUEUE
+#define UNIT_TEST_QUEUE
 #define UNIT_TEST_USDSENSOR
 #define UNIT_TEST_HSCLOCK
 #define UNIT_TEST_HSCOUNTER
@@ -56,6 +56,7 @@ SW18AB  SW4B  SW8B  DAC
 #define UNIT_TEST_PUBLIC_DATA
 #define UNIT_TEST_DEBOUNCED_INPUT
 #define UNIT_TEST_QUAD_ENC
+
 #define UNIT_TEST_PULSE_ON_CHANGE
 
 #define UNIT_TEST_PULSE_TIMER
@@ -440,7 +441,9 @@ void loop() {
     dioTest();
     Serial.print(millis() / 1000); Serial.print (": Digital I/O test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
   */
-
+Serial.println("****************************************************");
+Serial.println("TOP OF TEST LOOP");
+Serial.println("****************************************************");
 #ifdef UNIT_TEST_COMMUNICATION_ERROR
 #ifdef TEST_SW18AB
   Serial.println ("Starting SW18AB communication error test.  This test takes less than a minute");
@@ -493,15 +496,18 @@ void loop() {
   Serial.print ("Servo test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
   #endif
 #ifdef TEST_SW8B
+if (SW8B_68.isPinModeSupported(PIN_MODE_SERVO))
+  {
   Serial.println ("Starting SW8B Servo Test.  This test takes about 1 hour 15 minutes.");
   resetAll();
   servoTest(SW8B_68,0,7);
   Serial.print ("Servo test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
+  }
+  else
+  {
+    Serial.println("Servo not supported on this SW8B Build");
+  }
   #endif
-
-
-
-
 #endif
 
 #ifdef UNIT_TEST_QUEUE
@@ -513,10 +519,17 @@ Serial.println ("Starting SW18AB Queue Test.  This test takes about 50 minutes."
 #endif
 
 #ifdef TEST_SW8B
+ if (SW8B_68.isPinModeSupported(PIN_MODE_SW_UART))
+  {
 Serial.println ("Starting SW8B Queue Test.  This test takes about 6 minutes.");
   resetAll();
   queueTest(SW8B_68); 
   Serial.print ("Queue test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
+  }
+  else
+  {
+    Serial.println("Queues not tested unless SW UART is present on SW8B");
+  }
 #endif
 #endif
 
@@ -528,10 +541,17 @@ Serial.println ("Starting SW8B Queue Test.  This test takes about 6 minutes.");
   Serial.print ("PWM test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
   #endif
 #ifdef TEST_SW8B
+ if (SW8B_68.isPinModeSupported(PIN_MODE_PWM))
+  {
   Serial.println ("Starting SW8B PWM Test.  This test takes about 1 hour 15 minutes.");
   resetAll();
   pwmTest(SW8B_68,6,6);  //TODO expand pin range
   Serial.print ("PWM test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
+  }
+  else
+  {
+    Serial.println ("PWM Pin Mode Not Available in this build of SW8B");
+  }
   #endif
 #endif
 
@@ -582,10 +602,17 @@ Serial.println ("Starting SW8B Queue Test.  This test takes about 6 minutes.");
 #endif
 
 #ifdef UNIT_TEST_SW_UART
+if (SW8B_68.isPinModeSupported(PIN_MODE_SW_UART))
+{
   Serial.println ("Starting SW UART Test.  This test takes about 25 minutes.");
   resetAll();
   uartSWTest();
   Serial.print ("UART SW test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
+}
+else
+{
+  Serial.println("SW UART not avaialble on SW8B.  Skipped on both platforms");
+}
 #endif
 
 #ifdef UNIT_TEST_DEBOUNCED_INPUT
@@ -596,10 +623,17 @@ Serial.println ("Starting SW8B Queue Test.  This test takes about 6 minutes.");
   Serial.print (": Debounce test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
   #endif
 #ifdef TEST_SW8B
+if (SW8B_68.isPinModeSupported(PIN_MODE_DEBOUNCE))
+{
   Serial.println ("Starting 8B Debounced Input Test.  This test takes less than a minute");
   resetAll();
   debounceTest(SW8B_68);
   Serial.print ("Debounce test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
+}
+else
+{
+  Serial.println("Debounced Input not supported on SW8B");
+}
   #endif
 #ifdef TEST_SW4B
   Serial.println ("Starting 4B Debounced Input Test.  This test takes less than a minute");
@@ -715,10 +749,18 @@ Serial.println ("Starting SW8B Queue Test.  This test takes about 6 minutes.");
   Serial.print ("4B Analog Input test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
 #endif
 #ifdef TEST_SW8B
+
+if (SW8B_68.isPinModeSupported(PIN_MODE_ANALOGINPUT))
+  {
   Serial.println ("Starting 8B Analog Input Test.  This test takes less than 2 minutes");
   resetAll();
   analogInputTest(SW8B_68);
   Serial.print ("8B Analog Input test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
+}
+else
+  {
+    Serial.println ("Analog Pin Mode Not Available in SW8B");
+  }
 #endif
   
 #endif
@@ -741,7 +783,7 @@ Serial.println ("Starting SW8B Queue Test.  This test takes about 6 minutes.");
 
 
 #ifdef UNIT_TEST_SCALING
-  Serial.println ("Starting Scaling Test.  This test takes less than 7 minutes");
+  Serial.println ("Starting Scaling Test.  This test takes less than 10 minutes");
   resetAll();
   scalingTest();
   Serial.print ("Scaling complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
@@ -755,10 +797,18 @@ Serial.println ("Starting SW8B Queue Test.  This test takes about 6 minutes.");
   Serial.print ("Input Processor Test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
   #endif
 #ifdef TEST_SW8B
+if (SW8B_68.isPinModeSupported(PIN_MODE_INPUT_PROCESSOR))
+  {
+
   Serial.println ("Starting 8B Input Processor Test.  This test takes less than 5 minutes");
   resetAll();
   inputProcessorTest(SW8B_68,4);
   Serial.print ("Input Processor Test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
+  }
+  else
+  {
+    Serial.println ("Input Processor Pin Mode Not Available in SW8B");
+  }
   #endif
 
 
@@ -805,9 +855,16 @@ Serial.println ("Starting SW8B Queue Test.  This test takes about 6 minutes.");
 #endif
 
 #ifdef TEST_SW8B
+if (SW8B_68.isPinModeSupported(PIN_MODE_FREQUENCY_OUTPUT))
+  {
   Serial.println ("Starting 8B Frequency Output Test.  This test takes less than 1 minute");
   frequencyOutputTest(SW8B_68,4);  
   Serial.print ("Frequency Output   complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
+  }
+   else
+  {
+    Serial.println ("Frequency Output Not Available in SW8B");
+  }
 #endif
 #endif
 
@@ -821,12 +878,12 @@ Serial.println ("Starting SW8B Queue Test.  This test takes about 6 minutes.");
  if (SW8B_68.isPinModeSupported(PIN_MODE_HBRIDGE))
   {
   Serial.println ("Starting 8B H Bridge  Test.  This test takes less than 13 minutes");
-  hBridgeTest(SW8B_68,2,3);
+  hBridgeTest(SW8B_68,5,6);
   Serial.print ("H Bridge Test   complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
   }
   else
   {
-    Serial.println ("Pulse On Change not supported in this build of SW8B");
+    Serial.println ("H Bridge not supported in this build of SW8B");
   }
   #endif
 
@@ -1095,7 +1152,7 @@ uint16_t dutyCycleRead(SerialWombatChip& sw,int pin)
          
         PulseTimerArray08B[pin]->refreshHighCountsLowCounts();
       uint32_t result = 65536*PulseTimerArray08B[pin]->HighCounts;
-      result /= (PulseTimerArray18AB[pin]->HighCounts + PulseTimerArray08B[pin]->LowCounts);
+      result /= (PulseTimerArray08B[pin]->HighCounts + PulseTimerArray08B[pin]->LowCounts);
       return result;
 
       }
