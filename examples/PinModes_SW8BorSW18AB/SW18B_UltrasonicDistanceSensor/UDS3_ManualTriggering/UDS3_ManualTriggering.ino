@@ -8,18 +8,30 @@ and one for reverse.
 
 The host will trigger each sensor in succession and print the name of the sensor if an object is near (less than 100mm)
 
-An HC_SR04 sensor needs to be powered by 5V, and outputs a 5V signal.
-Pins will be allocated so that the echo pins are on 5V tolerant pins (9,10,11,12, 14 and 15)
-and trigger pins are on other pins.
+This sketch assumes an 18AB chip due to the number of pins required, but could be adapted to use 4 sensors on a Serial Wombat 8B
 
-Serial Wombat 18AB Firmware 2.1 or later is needed to use this example.
+This sketch was last tested with version 2.2.2 of the firmware.
+
+The Serial Wombat 8B must be loaded with the UltrasonicDistanceSensor firmware build, or other build that includes
+ultrasonic distance sensor and servo pin modes.
+
+An HC_SR04 sensor needs to be powered by 5V, and outputs a 5V signal.  The echo pin should be connected to one of the 
+Serial Wombat 18AB chip's 5V tolerant pins (9,10,11,12, 14 and 15).  The trigger pin can be any pin.  
+
+A Serial Wombat 8B chip should be powered by 5V to accomodate the 5V input.
+
+See this video on combining 5V SW8B's with 3.3V logic (such as ESP32):
+https://www.youtube.com/watch?v=kaUU5FH0hvc
 
 
 A video demonstrating the use of the UltrasonicDistanceSensor pin mode on the Serial Wombat 18AB chip is available at:
-TODO
+https://youtu.be/Mv7zrP8mtjo
 
 Documentation for the SerialWombatUltrasonicDistanceSensor class is available at:
 https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_ultrasonic_distance_sensor.html
+
+For reference, the source code to the firmware (looking at this isn't required, but is interesting) is available here:
+https://github.com/BroadwellConsultingInc/SerialWombat/blob/main/SerialWombatPinModes/ultrasonicDistance.c
 */
 
 SerialWombatChip sw;
@@ -32,15 +44,10 @@ void setup() {
   Serial.begin(115200);
   delay(500);
 
-  //Find the Serial Wombat Chip on the I2C bus and display its firmware version
-  uint8_t i2cAddress = sw.find();
-  if (i2cAddress == 0) {showNotFoundError();} // see showErrorNotFound tab
-  sw.begin(Wire,i2cAddress); 
-  sw.queryVersion();
-  Serial.println();
-  Serial.print("Version "); Serial.println((char*)sw.fwVersion);
-  versionCheck(); //see showErrorNotFound tab
-  Serial.println("SW18AB Found.");
+ //Find the Serial Wombat Chip on the I2C bus and display its firmware version
+  sw.begin(Wire, sw.find(true));
+  sw.registerErrorHandler(SerialWombatSerialErrorHandlerBrief); //Register an error handler that will print communication errors to Serial
+  if(!sw.isLatestFirmware()){Serial.println("Firmware version mismatch.  Download latest Serial Wombat Arduino Library and update Serial Wombat Firmware to latest version");}
    
   //Initialize all the sensors without autotrigger
   leftSensor.begin(10, // Echo pin is on pin 10

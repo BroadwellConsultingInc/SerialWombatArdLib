@@ -2,22 +2,46 @@
 /*
 This example builds on Example 1.  It sets the Serial Wombat Input Processor to average 100 pulses, and return that average.
 
-Serial Wombat 18AB Firmware 2.1 or later is needed to use this example.
+This sketch was last tested with version 2.2.2 of the firmware.
+
+The Serial Wombat 8B must be loaded with the UltrasonicDistanceSensor firmware build, or other build that includes
+ultrasonic distance sensor and servo pin modes.
 
 An HC_SR04 sensor needs to be powered by 5V, and outputs a 5V signal.  The echo pin should be connected to one of the 
-Serial Wombat 18AB chip's 5V tolerant pins (9,10,11,12, 14 and 15)
+Serial Wombat 18AB chip's 5V tolerant pins (9,10,11,12, 14 and 15).  The trigger pin can be any pin.  
+
+A Serial Wombat 8B chip should be powered by 5V to accomodate the 5V input.
+
+See this video on combining 5V SW8B's with 3.3V logic (such as ESP32):
+https://www.youtube.com/watch?v=kaUU5FH0hvc
 
 
 A video demonstrating the use of the UltrasonicDistanceSensor pin mode on the Serial Wombat 18AB chip is available at:
-TODO
+https://youtu.be/Mv7zrP8mtjo
 
 Documentation for the SerialWombatUltrasonicDistanceSensor class is available at:
 https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_ultrasonic_distance_sensor.html
+
+For reference, the source code to the firmware (looking at this isn't required, but is interesting) is available here:
+https://github.com/BroadwellConsultingInc/SerialWombat/blob/main/SerialWombatPinModes/ultrasonicDistance.c
+
 */
 
 SerialWombatChip sw;
 SerialWombatUltrasonicDistanceSensor distanceSensor(sw);
   
+//Comment the following in for SW18AB  (you can use most pins, but be careful with 5V ones)
+
+//#define UDS_ECHO_PIN 10 //On SW18AB this should be a 5V capable pin
+//#define UDS_TRIGGER_PIN 11 //  Can be 5 or 3.3V pin
+
+//Comment the following in for SW8B (Run the chip on 5V, since there's a 5V input).  
+// Any pin can be used for any function, but the 50k pull down on pin 0 may 
+// be problematic if the echo pin has a weak pull up, so suggest using 0 for 
+// trigger rather than Echo.
+
+#define UDS_ECHO_PIN 4 // Probably best not to use pin 0 for this one
+#define UDS_TRIGGER_PIN 5 
 
 void setup() {
   // put your setup code here, to run once:
@@ -26,20 +50,16 @@ void setup() {
   delay(500);
 
   //Find the Serial Wombat Chip on the I2C bus and display its firmware version
-  uint8_t i2cAddress = sw.find();
-  if (i2cAddress == 0) {showNotFoundError();} // see showErrorNotFound tab
-  sw.begin(Wire,i2cAddress); 
-  sw.queryVersion();
-  Serial.println();
-  Serial.print("Version "); Serial.println((char*)sw.fwVersion);
-  versionCheck(); //see showErrorNotFound tab
-  Serial.println("SW18AB Found.");
+  sw.begin(Wire, sw.find(true));
+  sw.registerErrorHandler(SerialWombatSerialErrorHandlerBrief); //Register an error handler that will print communication errors to Serial
+  if(!sw.isLatestFirmware()){Serial.println("Firmware version mismatch.  Download latest Serial Wombat Arduino Library and update Serial Wombat Firmware to latest version");}
+
+
    
 
-  distanceSensor.begin(10, // Echo pin is on pin 10
-		       SerialWombatUltrasonicDistanceSensor::HC_SR04,  // HC_SR04 driver
-			11); // Trigger pin on pin 11.    no parameters for autoTrigger (true) and pullUp (false)
-
+  distanceSensor.begin(UDS_ECHO_PIN,
+           SerialWombatUltrasonicDistanceSensor::HC_SR04,  // HC_SR04 driver
+      UDS_TRIGGER_PIN); //    no parameters for autoTrigger (true) and pullUp (false)
   distanceSensor.writeAveragingNumberOfSamples(100); //Inherited from SerialWombatAbstractProcessedInput
 }
 
