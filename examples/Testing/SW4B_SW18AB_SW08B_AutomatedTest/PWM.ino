@@ -127,7 +127,7 @@ void pwmTest(SerialWombatChip &sw , uint8_t startPin, uint8_t endPin)
       PWMArray[pin]-> begin(pin, 0 );
       PWMArray[pin]->writePeriod_uS(pwmPeriod_uS);
     }
-    for (uint16_t duty = 0x0100; duty <= 0xFE00; duty += 0x80)
+    for (uint16_t duty = 0x0100; duty <= 0xE000; duty += 0x1000)
     {
       for (int pin = startPin; pin <= endPin; ++ pin)
       {

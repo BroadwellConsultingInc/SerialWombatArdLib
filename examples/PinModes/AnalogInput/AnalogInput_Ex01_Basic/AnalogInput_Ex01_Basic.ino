@@ -1,0 +1,82 @@
+#include <SerialWombat.h>
+
+SerialWombatChip sw;    //Declare a Serial Wombat
+SerialWombatAnalogInput leftPot(sw);  //5k linear Pot
+SerialWombatAnalogInput rightPot(sw); //5k linear Pot      
+SerialWombatAnalogInput temperatureSensor(sw);
+
+// This example is explained in a video tutorial at: https://youtu.be/_EKlrEVaEhg
+
+#define LEFT_POT_PIN 2
+#define RIGHT_POT_PIN 1
+#define TEMPERATURE_SENSOR_PIN 0 // Set this pin to 3 if using SW4B, as 0 doesn't have Analog
+
+void setup() {
+	// put your setup code here, to run once:
+	Wire.begin();   //Initialize the I2C Bus on default pins
+
+	Serial.begin(115200);
+	delay(3000);
+	Serial.println("1Hz Blink Example");
+
+
+	sw.begin(Wire, sw.find(true));  // Scan the bus for Serial Wombat chips, and initialize the first one found
+
+	//Optional Error handling code begin:
+	if(!sw.isLatestFirmware()){Serial.println("Firmware version mismatch.  Download latest Serial Wombat Arduino Library and update Serial Wombat Firmware to latest version");}
+	if(sw.isSW08() && !sw.isPinModeSupported(PIN_MODE_ANALOGINPUT))
+	{
+		Serial.println("The required pin mode does not appear to be supported in this firmware build.  Do you need to download a different firmware?");
+		while(1){delay(100);}
+	}
+	sw.registerErrorHandler(SerialWombatSerialErrorHandlerBrief); //Register an error handler that will print communication errors to Serial
+								      //Optional Error handling code end 
+
+ 
+	leftPot.begin(LEFT_POT_PIN);
+	rightPot.begin(RIGHT_POT_PIN);
+
+	temperatureSensor.begin(TEMPERATURE_SENSOR_PIN,64,65417); //  average 64 samples, .5 Hz Low Pass filter.  
+}
+
+
+void loop() {
+
+  Serial.print("Source V: ");
+  uint16_t supplyVoltage = sw.readSupplyVoltage_mV();
+  Serial.print(supplyVoltage );
+  Serial.print("mV      Left Pot: ");
+  Serial.print(leftPot.readCounts());
+  Serial.print(" ");
+
+  uint16_t leftVoltage = leftPot.readVoltage_mV();
+  Serial.print(leftVoltage);
+  Serial.print("mV      Right Pot:");
+ 
+  Serial.print(rightPot.readCounts());
+  Serial.print(" ");
+   uint16_t rightVoltage = rightPot.readVoltage_mV();
+   Serial.print(rightVoltage);
+   
+  Serial.print("mV      T:");
+
+  Serial.print(temperatureSensor.readCounts());
+  Serial.print(" ");
+  Serial.print(temperatureSensor.readVoltage_mV());
+  Serial.print("mV ");
+
+  
+  float tempSensor_mV = temperatureSensor.readAveraged_mV();
+
+  //See datasheet for TMP36 Temperature sensor for conversion
+   float temperature = (tempSensor_mV - 750) / 10.0 + 25;
+  
+  Serial.print(temperature);
+  Serial.print(" deg C ");
+
+  
+  Serial.println();
+  delay(200);
+}
+
+

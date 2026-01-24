@@ -18,13 +18,13 @@
 
    --- THIS SKETCH HAS ONLY BEEN TESTED ON THE Arduino UNO, ESP8266, ESP32 and SEEDUINO XIAO AT THIS TIME ---
 
- */
+*/
 
 //#define I2C_ADDRESS 0x60 // Comment me in and set your I2C address
 SerialWombatChip sw;
 
 uint32_t appStartAddress = 0x00000000;
-const 
+const
 
 uint16_t
 #ifdef ESP8266
@@ -40,7 +40,6 @@ PROGMEM
 //#define COMMUNICATIONS_FIRMWARE
 //#define FRONT_PANEL_FIRMWARE
 //#define KEYPAD_FIRMWARE
-//#define MOTOR_CONTROL_FIRMWARE
 //#define TM1637_FIRMWARE
 //#define ULTRASONIC_FIRMWARE
 
@@ -53,7 +52,7 @@ PROGMEM
 #include "ultrasonic_fw.c"
 #include "keypad_fw.c"
 
-
+ bool mismatch = false;
 void setup() {
   // put your setup code here, to run once:
   Wire.begin();
@@ -144,24 +143,24 @@ void setup() {
   for (address = 0; address < (0x1000); address += 16)
   {
     uint32_t page[16];
- //   Serial.printf("Loading words starting with 0x%X  :  ", address * 4);
+    //   Serial.printf("Loading words starting with 0x%X  :  ", address * 4);
     for (uint32_t i = 0; i < 16; ++i)
     {
-#if defined(ESP8266) 
+#if defined(ESP8266)
       page[i] = pgm_read_byte(((uint8_t*)appImage) + 4 * (i + address));
       page[i] += pgm_read_byte(((uint8_t*)appImage) + 4 * (i + address) + 1) << 8;
-      page[i] +=((uint32_t) pgm_read_byte(((uint8_t*)appImage) + 4 * (i + address) + 2)) << 16;
+      page[i] += ((uint32_t) pgm_read_byte(((uint8_t*)appImage) + 4 * (i + address) + 2)) << 16;
       page[i] += ((uint32_t) pgm_read_byte(((uint8_t*)appImage) + 4 * (i + address) + 3)) << 24;
 #elif defined(ARDUINO_AVR_UNO)
       page[i] = pgm_read_word(&appImage[(address + i) * 2]);  // 16 bit words on UNO
       page[i] += ((uint32_t)pgm_read_word(&appImage[(address + i) * 2 + 1])) << 16;
 
 #else
-      page[i] = appImage[(address + i) * 2];  
+      page[i] = appImage[(address + i) * 2];
       page[i] += ((uint32_t)(appImage[(address + i) * 2 + 1])) << 16;
-      
+
 #endif
-        
+
     }
     bool dirty = false;
     for (int i = 0; i < 16;  i ++)
@@ -172,64 +171,66 @@ void setup() {
     {
       sw.writeUserBuffer(0, (uint8_t*)page, 64);
       sw.writeFlashRow(address * 4 + 0x08000000);
-       char s[50];
-          sprintf(s,"Programming address: 0x%X", address);
-          Serial.println(s);
+      char s[50];
+      sprintf(s, "Programming address: 0x%X", address);
+      Serial.println(s);
       delay(10);
     }
     else
     {
-       char s[50];
-          sprintf(s,"Skipping blank Row  0x%X", address);
-          Serial.print(s);
-      
+      char s[50];
+      sprintf(s, "Skipping blank Row  0x%X", address);
+      Serial.println(s);
+
     }
 
   }
 
   //Verify step
-  bool mismatch = false;
-#ifdef DOVERIFY
-  for (address = 0; address < (0x4000); address += 64)
+
+  Serial.println("Beginning 100% verification...");
+  int successes = 0;
+  int tries = 0;
+  for (address = 0; address < (0x1000); address += 16)
   {
-    byte[] page = new byte[64];
-
-    for (int i = 0; i < 64; i += 4)
+    uint32_t page[16];
+    
+    for (uint32_t i = 0; i < 16; ++i)
     {
+      ++tries;
+#if defined(ESP8266)
+      page[i] = pgm_read_byte(((uint8_t*)appImage) + 4 * (i + address));
+      page[i] += pgm_read_byte(((uint8_t*)appImage) + 4 * (i + address) + 1) << 8;
+      page[i] += ((uint32_t) pgm_read_byte(((uint8_t*)appImage) + 4 * (i + address) + 2)) << 16;
+      page[i] += ((uint32_t) pgm_read_byte(((uint8_t*)appImage) + 4 * (i + address) + 3)) << 24;
+#elif defined(ARDUINO_AVR_UNO)
+      page[i] = pgm_read_word(&appImage[(address + i) * 2]);  // 16 bit words on UNO
+      page[i] += ((uint32_t)pgm_read_word(&appImage[(address + i) * 2 + 1])) << 16;
 
-      byte[] tx = {161,// Read flash
-                   0, 0, 0, 0, // Address
-                   0x55, 0x55, 0x55
-                  };
-      byte[] a = BitConverter.GetBytes((UInt32)(address + i + 0x08000000));
-      a.CopyTo(tx, 1);
-      byte[] rx = new byte[8];
-      SerialWombatChip.sendPacket(tx, out rx);
+#else
+      page[i] = appImage[(address + i) * 2];
+      page[i] += ((uint32_t)(appImage[(address + i) * 2 + 1])) << 16;
 
-      page[i] = rx[4];
-      page[i + 1] = rx[5];
-      page[i + 2] = rx[6];
-      page[i + 3] = rx[7];
-    }
 
-    for (int i = 0; i < 64; i += 1)
-    {
-      byte b = (byte)hexData.Memory[(UInt32)(i + address)];
-      if (page[i] != b)
+#endif
+      uint32_t readback = sw.readFlashAddress((address + i) * 4 + 0x08000000);
+      if (readback != page[i])
       {
         mismatch = true;
+        char s[50];
+      sprintf(s, "Verify fail at address: 0x%X", address + i);
+      Serial.println(s);
+      sprintf(s, "Expected: 0x%X  Got: 0x%X", page[i],readback);
       }
-    }
-    if (mismatch)
-    {
+      else
+      {
+        ++successes;
+      }
 
-      status = $"Programming verify failed at: line 0x{address:X8}";
-      Thread.Sleep(10);
     }
 
-    PercentDone = ((double)(address - baseAddr)) / length;
   }
-#endif
+  Serial.print (successes); Serial.print(" of ");Serial.print(tries);Serial.println(" words verified");
   if (!mismatch)
   {
     uint8_t tx[] = { 164, 4, 0, 0, 0, 0, 0, 0 }; // Set boot flag
@@ -257,7 +258,15 @@ void loop() {
   WombatFinder();
 
   Serial.println();
+  if (mismatch)
+  {
+  Serial.println("Update failed.");
+    
+  }
+  else
+  {
   Serial.println("Update complete.  Load a new sketch such as the SerialWombatChipFinder sketch, then power cycle the Arduino and Serial Wombat chip.");
+  }
   Serial.println();
   Serial.println("Resetting or power cycling without loading a new sketch will cause the flash download to happen again.");
   Serial.println();

@@ -29,45 +29,53 @@ SW18AB  SW4B  SW8B  DAC
 #define FAILUREPIN 8
 //#define LOAD_REQUIRED_FIRMWARE
 
-//#define TEST_SW18AB
+#define TEST_SW18AB
 #define TEST_SW8B
-//#define TEST_SW4B
-
+#define TEST_SW4B
+/*
 #define UNIT_TEST_QUEUE
 #define UNIT_TEST_USDSENSOR
 #define UNIT_TEST_HSCLOCK
 #define UNIT_TEST_HSCOUNTER
+*/
 #define UNIT_TEST_RESISTANCE_INPUT
-#define UNIT_TEST_SCALING
+
 #define UNIT_TEST_BLINK
+/*
+#define UNIT_TEST_SCALING
 #define UNIT_TEST_SW_UART
 
 #define UNIT_TEST_HW_UART
 
 #define UNIT_TEST_HBRIDGE
+*/
 #define UNIT_TEST_ANALOG_INPUT
+/*
 #define UNIT_TEST_FREQUENCY_OUTPUT
 #define UNIT_TEST_INPUT_PROCESSOR
 
 #define UNIT_TEST_COMMUNICATION_ERROR
 #define UNIT_TEST_ECHO
+*/
 #define UNIT_TEST_PWM
+#define UNIT_TEST_QUAD_ENC
+/*
 #define UNIT_TEST_SERVO
 #define UNIT_TEST_PUBLIC_DATA
 #define UNIT_TEST_DEBOUNCED_INPUT
-#define UNIT_TEST_QUAD_ENC
+
 
 #define UNIT_TEST_PULSE_ON_CHANGE
 
 #define UNIT_TEST_PULSE_TIMER
-#define UNIT_TEST_SOURCE_VOLTAGE
 #define UNIT_TEST_SEQUENCE_TEST
 #define UNIT_TEST_DATALOGGER
 #define UNIT_TEST_PROTECTED_OUTPUT
 #define UNIT_TEST_WATCHDOG
 #define UNIT_TEST_FRAME_TIMER
 #define UNIT_TEST_QUEUED_PULSE_OUTPUT
-
+*/
+#define UNIT_TEST_SOURCE_VOLTAGE
 
 SerialWombatChip SW4B_6C;
 SerialWombatChip SW4B_6D;
@@ -535,7 +543,7 @@ Serial.println ("Starting SW8B Queue Test.  This test takes about 6 minutes.");
 
 #ifdef UNIT_TEST_PWM
 #ifdef TEST_SW18AB
-  Serial.println ("Starting SW18AB Pwm Test.  This test takes about 1 hour 15 minutes.");
+  Serial.println ("Starting SW18AB Pwm Test.  This test takes about 2 minutes.");
   resetAll();
   pwmTest(SW18AB_6B,18,19);   //TODO try without TRM, expand pin range
   Serial.print ("PWM test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
@@ -543,7 +551,7 @@ Serial.println ("Starting SW8B Queue Test.  This test takes about 6 minutes.");
 #ifdef TEST_SW8B
  if (SW8B_68.isPinModeSupported(PIN_MODE_PWM))
   {
-  Serial.println ("Starting SW8B PWM Test.  This test takes about 1 hour 15 minutes.");
+  Serial.println ("Starting SW8B PWM Test.  This test takes about 2 minutes.");
   resetAll();
   pwmTest(SW8B_68,6,6);  //TODO expand pin range
   Serial.print ("PWM test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);

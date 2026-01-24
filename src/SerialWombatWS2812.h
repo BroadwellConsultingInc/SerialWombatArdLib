@@ -1,6 +1,6 @@
 #pragma once
 /*
-Copyright 2021-2025 Broadwell Consulting Inc.
+Copyright 2021-2026 Broadwell Consulting Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -153,6 +153,12 @@ public:
 		return write(led, (uint32_t)color);
 	}
 
+	/// \brief An overload for Write in case write(x,0); is interpreted as an int32_t rather than uint32_t
+	int16_t write(int led, int color)
+	{
+		return write((uint8_t)led, (uint32_t)color);
+	}
+
 	/*
 	\brief Set a number of LEDs to colors based on an array of uint32_t colors
 	
@@ -166,7 +172,7 @@ public:
 		for (int i = 0; i < length; ++i)
 		{
 			int16_t result = 
-			write(led + i, colors[i]);
+			write((uint8_t)(led + i),(uint32_t) colors[i]);
 
 			if (result < 0)
 			{
@@ -298,8 +304,8 @@ public:
 		uint8_t tx[8] = { 206,_pin,12,3,sourcePin,0x55,0x55,0x55 };
 		int16_t result = 0;
 		result = _sw.sendPacket(tx);  if (result < 0) { return result; }
-		result = write(0, offRGB); if (result < 0) { return result; }
-		result = write(1, onRGB);  if (result < 0) { return result; }
+		result = write((uint8_t)0,(uint32_t) offRGB); if (result < 0) { return result; }
+		result = write((uint8_t)1, (uint32_t)onRGB);  if (result < 0) { return result; }
 
 		uint8_t minMax[8] = { 207,_pin,12,SW_LE16(min), SW_LE16(max),0x55 };
 		return _sw.sendPacket(minMax);
@@ -307,7 +313,20 @@ public:
 		
 	}
 
-	/*!
+			/*!
+	\brief Display a bargraph using the configured ws2812 class
+	
+	\param sourcePin  The data source to use for the bargraph
+	\param offRGB The color to use for LEDs beyond the bargraph level
+	\param onRGB The color to use for LEDs lit by the bargraph
+	\param min The public data value (or below) to be treated as the beginning of the bargraph
+	\param max The public data value (or above) to be treated as the end of the bargraph
+	*/
+	int16_t barGraph(SerialWombatDataSource sourcePin, uint32_t offRGB, uint32_t onRGB, uint16_t min, uint16_t max)
+		{
+			barGraph((uint8_t) sourcePin, offRGB, onRGB, min, max);
+		}
+/*!
 	\brief Swap the Red and Green byte values.  Set this to true for WS2811 chips which reverse the red and green byte order.
 	*/
 	bool swapRG = false;
