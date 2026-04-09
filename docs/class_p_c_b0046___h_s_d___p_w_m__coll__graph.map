@@ -1,0 +1,29 @@
+<map id="PCB0046_HSD_PWM" name="PCB0046_HSD_PWM">
+<area shape="rect" id="Node000001" title="A class representing a PCB0046 HSD Eight Channel HSD High Side Driver board." alt="" coords="1045,155,1199,181"/>
+<area shape="rect" id="Node000002" href="$class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="5,113,135,140"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,101,133,80,174,58,221,41,270,35,754,35,892,30,952,39,1023,66,1052,85,1078,108,1114,152,1110,156,1074,112,1049,89,1020,70,950,44,892,36,754,40,270,40,222,47,176,63,135,84,103,106"/>
+<area shape="rect" id="Node000005" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="211,205,332,232"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="116,145,241,202,239,207,114,149"/>
+<area shape="rect" id="Node000003" href="$class_serial_wombat_analog_input__18_a_b.html" title="This class extends SerialWombatAnalogInput with SW18AB specific capabilities." alt="" coords="648,373,858,400"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="796,404,845,423,904,436,934,438,965,436,993,429,1020,415,1047,391,1069,362,1086,328,1098,294,1113,228,1118,181,1123,182,1118,229,1103,295,1091,331,1074,364,1051,395,1023,420,995,434,965,441,934,444,903,441,844,428,794,409"/>
+<area shape="rect" id="Node000004" href="$class_serial_wombat_analog_input.html" title="A class to make analog measurements with the Serial Wombat." alt="" coords="402,373,574,400"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="589,384,647,384,647,389,589,389"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="288,244,326,303,352,334,383,359,406,370,403,375,380,364,348,338,321,307,284,247"/>
+<area shape="rect" id="Node000007" href="$class_serial_wombat_digital_output__18_a_b.html" title=" " alt="" coords="644,92,861,119"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="292,192,330,155,354,138,380,124,446,104,515,94,582,90,643,91,643,97,582,95,515,99,447,110,382,129,357,142,333,159,295,196"/>
+<area shape="rect" id="Node000009" href="$class_serial_wombat_digital_input__18_a_b.html" title=" " alt="" coords="649,205,856,232"/>
+<area shape="poly" id="edge11_Node000009_Node000005" title=" " alt="" coords="347,216,648,216,648,221,347,221"/>
+<area shape="rect" id="Node000011" href="$class_serial_wombat_p_w_m.html" title="A class representing a Serial Wombat PWM output." alt="" coords="420,256,556,283"/>
+<area shape="poly" id="edge15_Node000011_Node000005" title=" " alt="" coords="347,234,428,253,427,258,346,239"/>
+<area shape="rect" id="Node000006" href="$class_serial_wombat_abstract_processed_input.html" title="SerialWombatAnalogInput, SerialWombatPulseTimer, SerialWombatResistanceInput and others inherit from ..." alt="" coords="381,307,595,349"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="603,351,689,370,688,375,602,356"/>
+<area shape="poly" id="edge12_Node000009_Node000006" title=" " alt="" coords="581,298,593,292,618,275,643,258,707,230,709,235,645,262,621,280,596,297,583,303"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="877,117,1022,140,1071,151,1070,157,1021,145,877,122"/>
+<area shape="rect" id="Node000008" href="$class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class...." alt="" coords="392,139,584,181"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="599,134,684,117,685,122,600,140"/>
+<area shape="rect" id="Node000010" href="$class_serial_wombat_p_w_m__18_a_b.html" title="Extends the SerialWombatPWM class with SW18AB specific functionality, including SerialWombatAbstractS..." alt="" coords="666,272,840,299"/>
+<area shape="poly" id="edge16_Node000010_Node000008" title=" " alt="" coords="540,187,645,242,713,269,711,274,643,246,538,192"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="851,200,885,195,1044,174,1045,179,886,200,852,205"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="788,305,837,331,896,353,928,360,960,361,991,357,1020,344,1041,328,1060,309,1088,262,1106,216,1115,181,1121,182,1111,218,1093,264,1064,312,1045,332,1023,349,992,362,960,367,928,365,895,358,834,336,786,310"/>
+<area shape="poly" id="edge14_Node000010_Node000011" title=" " alt="" coords="571,272,665,277,665,283,571,277"/>
+</map>

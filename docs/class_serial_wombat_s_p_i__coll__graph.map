@@ -1,0 +1,7 @@
+<map id="SerialWombatSPI" name="SerialWombatSPI">
+<area shape="rect" id="Node000001" title="A pin mode for the Serial Wombat 8B or SW18AB chips which allows SPI communication over I2C." alt="" coords="8,172,132,199"/>
+<area shape="rect" id="Node000002" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="9,96,131,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,138,73,172,67,172,67,138"/>
+<area shape="rect" id="Node000003" href="$class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="5,5,135,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="73,48,73,95,67,95,67,48"/>
+</map>

@@ -7,5 +7,7 @@ var searchData=
   ['enablepulldown_4',['enablePulldown',['../class_serial_wombat_pin.html#a2a3f1ac8c6b708f1858eafee254ae7b7',1,'SerialWombatPin']]],
   ['enablepullup_5',['enablePullup',['../class_serial_wombat_pin.html#a024e347ecb01f1acba1e63332647dfe7',1,'SerialWombatPin']]],
   ['enableservosweep_6',['enableServoSweep',['../class_serial_wombat_ultrasonic_distance_sensor.html#a5358b2530213272b643e5618e73ac40b',1,'SerialWombatUltrasonicDistanceSensor']]],
-  ['eraseflashpage_7',['eraseFlashPage',['../class_serial_wombat_chip.html#aa1fac59be55c43a658c0552df4061d3a',1,'SerialWombatChip']]]
+  ['enablesw8b38khzwp6_7',['enableSW8b38KHzWP6',['../class_serial_wombat_i_r_tx.html#ad8f1271abf09428c23424eac1530a889',1,'SerialWombatIRTx']]],
+  ['end_8',['end',['../class_serial_wombat_s_p_i.html#a36cc51648c4041d88e5558ded276c4a0',1,'SerialWombatSPI']]],
+  ['eraseflashpage_9',['eraseFlashPage',['../class_serial_wombat_chip.html#aa1fac59be55c43a658c0552df4061d3a',1,'SerialWombatChip']]]
 ];

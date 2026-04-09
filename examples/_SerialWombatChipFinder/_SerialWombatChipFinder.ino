@@ -42,6 +42,7 @@ const PROGMEM  char pinModeArray[][41] = {
   "IR_TX",
   "RC_PPM", // 39
   "BLINK", //40
+  "SPI", //41
 };
 
 // A video tutorial on this example is available at:
@@ -119,7 +120,7 @@ void loop() {
           Serial.println("Supported Pin Modes: ");
           for (int pinModeNumber = 1; pinModeNumber < 256; ++ pinModeNumber)
           {
-            uint8_t tx[8] = {201, 1, pinModeNumber, 0x55, 0x55, 0x55, 0x55, 0x55};
+            uint8_t tx[8] = {201, 1,(uint8_t) pinModeNumber, 0x55, 0x55, 0x55, 0x55, 0x55};
             int16_t returnVal = sw.sendPacket(tx);
             returnVal *= -1;
             if (returnVal == SW_ERROR_PIN_CONFIG_WRONG_ORDER)

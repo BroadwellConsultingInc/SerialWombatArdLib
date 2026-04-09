@@ -324,7 +324,7 @@ public:
 	*/
 	int16_t barGraph(SerialWombatDataSource sourcePin, uint32_t offRGB, uint32_t onRGB, uint16_t min, uint16_t max)
 		{
-			barGraph((uint8_t) sourcePin, offRGB, onRGB, min, max);
+			return barGraph((uint8_t) sourcePin, offRGB, onRGB, min, max);
 		}
 /*!
 	\brief Swap the Red and Green byte values.  Set this to true for WS2811 chips which reverse the red and green byte order.

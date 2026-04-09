@@ -6,5 +6,6 @@ var searchData=
   ['delayaftersecondpinsecondtransition_5fms_3',['delayAfterSecondPinSecondTransition_mS',['../class_serial_wombat_simulated_quad_enc.html#a08c266cd12604e621c39065fb0bf2920',1,'SerialWombatSimulatedQuadEnc']]],
   ['deviceidentifier_4',['deviceIdentifier',['../class_serial_wombat_chip.html#ab8b2fd8fc519e4f1c5494fdecfd4990b',1,'SerialWombatChip']]],
   ['devicerevision_5',['deviceRevision',['../class_serial_wombat_chip.html#a12d6ae67993a66e678ac44a8dbd78c5f',1,'SerialWombatChip']]],
-  ['doubletransition_6',['doubleTransition',['../class_serial_wombat_simulated_quad_enc.html#af95fbcd959cfa32b2593c4be15038e74',1,'SerialWombatSimulatedQuadEnc']]]
+  ['diagen_6',['diagEn',['../class_p_c_b0046___h_s_d___p_w_m.html#ab3b4dc1069ef360b0b66497e239ddc04',1,'PCB0046_HSD_PWM']]],
+  ['doubletransition_7',['doubleTransition',['../class_serial_wombat_simulated_quad_enc.html#af95fbcd959cfa32b2593c4be15038e74',1,'SerialWombatSimulatedQuadEnc']]]
 ];

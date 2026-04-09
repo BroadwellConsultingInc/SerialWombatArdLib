@@ -44,8 +44,8 @@ void pocPulseOnChange(SerialWombatChip &sw)
   pocPointer->setEntryOnChange(0,POC_IN_PIN1);
    pocInput1->writePublicData(0x8001);
    delay(1000);
-     test("POC_POC_02", pulseCounts(sw,POC_OUT_PIN), 1);  // 1 change
-      test("POC_POC_02", pulseRead(sw,POC_OUT_PIN), 50000,10000);  // Should be a 50 mS pulse
+     test("POC_POC_02A", pulseCounts(sw,POC_OUT_PIN), 1);  // 1 change
+      test("POC_POC_02B", pulseRead(sw,POC_OUT_PIN), 50000,10000);  // Should be a 50 mS pulse
 }
 
 void pocPulseOnIncrease(SerialWombatChip &sw)

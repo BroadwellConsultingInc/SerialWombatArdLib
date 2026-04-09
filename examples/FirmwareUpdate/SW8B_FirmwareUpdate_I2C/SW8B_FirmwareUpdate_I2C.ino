@@ -46,7 +46,6 @@ PROGMEM
 #include "default_fw.c"
 #include "brushedMotor_fw.c"
 #include "frontpanel_fw.c"
-#include "motorcontrol_fw.c"
 #include "communications_fw.c"
 #include "tm1637_fw.c"
 #include "ultrasonic_fw.c"

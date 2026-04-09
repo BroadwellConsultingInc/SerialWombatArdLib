@@ -5,5 +5,7 @@ var searchData=
   ['calibratedmincurrent_2',['calibratedMinCurrent',['../class_grip_servo.html#a87b41d748b6d8e2b6b4f9b369ab7a967',1,'GripServo']]],
   ['calibratedminposition_3',['calibratedMinPosition',['../class_grip_servo.html#a6237ba637a6deb6340c6d0d649a5dac1',1,'GripServo']]],
   ['communicationerrorretries_4',['communicationErrorRetries',['../class_serial_wombat_chip.html#a5f4aa4a9b06d677abd17453a1ead3e45',1,'SerialWombatChip']]],
-  ['currentposition_5',['currentPosition',['../class_serial_wombat_simulated_quad_enc.html#a4e407603bf8c91eb780e5135d8e99357',1,'SerialWombatSimulatedQuadEnc']]]
+  ['currentposition_5',['currentPosition',['../class_serial_wombat_simulated_quad_enc.html#a4e407603bf8c91eb780e5135d8e99357',1,'SerialWombatSimulatedQuadEnc']]],
+  ['currentsenseselector1_6',['currentSenseSelector1',['../class_p_c_b0046___h_s_d___p_w_m.html#a991e65c00ca30a69cbc26135b8663beb',1,'PCB0046_HSD_PWM']]],
+  ['currentsenseselector2_7',['currentSenseSelector2',['../class_p_c_b0046___h_s_d___p_w_m.html#a53c9085a1d3816095ba7a8af1012e946',1,'PCB0046_HSD_PWM']]]
 ];

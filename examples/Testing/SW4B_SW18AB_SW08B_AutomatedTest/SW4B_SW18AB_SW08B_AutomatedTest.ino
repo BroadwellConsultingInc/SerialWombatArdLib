@@ -29,37 +29,38 @@ SW18AB  SW4B  SW8B  DAC
 #define FAILUREPIN 8
 //#define LOAD_REQUIRED_FIRMWARE
 
-#define TEST_SW18AB
+//#define TEST_SW18AB
 #define TEST_SW8B
-#define TEST_SW4B
-/*
+//#define TEST_SW4B
+
+
 #define UNIT_TEST_QUEUE
 #define UNIT_TEST_USDSENSOR
 #define UNIT_TEST_HSCLOCK
 #define UNIT_TEST_HSCOUNTER
-*/
+
 #define UNIT_TEST_RESISTANCE_INPUT
 
 #define UNIT_TEST_BLINK
-/*
+
 #define UNIT_TEST_SCALING
 #define UNIT_TEST_SW_UART
 
 #define UNIT_TEST_HW_UART
 
 #define UNIT_TEST_HBRIDGE
-*/
+
 #define UNIT_TEST_ANALOG_INPUT
-/*
+
 #define UNIT_TEST_FREQUENCY_OUTPUT
 #define UNIT_TEST_INPUT_PROCESSOR
 
 #define UNIT_TEST_COMMUNICATION_ERROR
 #define UNIT_TEST_ECHO
-*/
+
 #define UNIT_TEST_PWM
 #define UNIT_TEST_QUAD_ENC
-/*
+
 #define UNIT_TEST_SERVO
 #define UNIT_TEST_PUBLIC_DATA
 #define UNIT_TEST_DEBOUNCED_INPUT
@@ -74,8 +75,8 @@ SW18AB  SW4B  SW8B  DAC
 #define UNIT_TEST_WATCHDOG
 #define UNIT_TEST_FRAME_TIMER
 #define UNIT_TEST_QUEUED_PULSE_OUTPUT
-*/
 #define UNIT_TEST_SOURCE_VOLTAGE
+#define UNIT_TEST_IR_TX_RX
 
 SerialWombatChip SW4B_6C;
 SerialWombatChip SW4B_6D;
@@ -584,6 +585,21 @@ Serial.println ("Starting SW8B Queue Test.  This test takes about 6 minutes.");
     Serial.println ("Quadrature Encoder Pin Mode Not Available in SW8B");
   }
   #endif
+#endif
+
+#ifdef UNIT_TEST_IR_TX_RX
+  if (SW8B_68.isPinModeSupported(PIN_MODE_IRRX))
+  {
+  Serial.println ("Starting IR RX TX Test.  This test takes about 7 minutes.");
+  resetAll();
+  irTxRxTest();
+  Serial.print ("IR RX TX test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
+  }
+  else
+  {
+    Serial.println ("IR RX Pin Mode Not Available in SW8B");
+  }
+
 #endif
 
 #ifdef UNIT_TEST_HW_UART

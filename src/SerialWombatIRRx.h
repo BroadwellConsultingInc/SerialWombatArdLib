@@ -1,7 +1,7 @@
 #pragma once
 
 /*
-Copyright 2025 Broadwell Consulting Inc.
+Copyright 2025-26 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -31,6 +31,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 */
 /*! @brief A class for the Serial Wombat SW8B or SW18AB chips which received IR remote signals.  Currently only NEC protocol is supported.
 
+This class supports IR Receive of NEC protocol.   It assumes 16 bit addressing, and supports repeat codes.
+
+The pin public data can represent the last received command, last received address, or number of messages received.  This allows
+pin to pin interaction to either drive outputs (address or command) or drive the blink or pulse on change pin modes when the count
+changes.  For commands the public data also allows a timeout value to set a default value if no input has been received in a given time.
+
+This class inherits from the Arduino stream class, so incoming commands can be read as a stream.
+
+The pin mode can receive all commands, or can filter for a specific device address.  Feeding the same demodulator to multiple pins
+running this pin mode allows multiple addresses to be decoded into different streams.
 
 
 A Tutorial video is avaialble:
@@ -64,7 +74,7 @@ class SerialWombatIRRx :
 	}
 		/*!
 		  @brief Initalize the SerialWombatIRRx.  
-		  @param pin The Serial Wombat pin number to use for the IR receiver
+		  @param pin The Serial Wombat pin number to use for the IR receiver.  For the REMCON board this should be 3
 		  @param irMode 0 for NEC protocol, other values reserved for future protocols
 		  @param useRepeat If true, queue value on repeat commands
 		  @param activeState The state of the pin which indicates an active IR signal (SW_LOW or SW_HIGH)
@@ -78,7 +88,7 @@ class SerialWombatIRRx :
 		int16_t begin(
 				uint8_t pin, uint8_t irMode = 0, bool useRepeat = true, SerialWombatPinState_t activeState = SW_LOW,
 				uint16_t publicDataTimeoutPeriod_mS = 1000, uint16_t publicDataTimeoutValue = 0xFFFF, bool useAddressFilter = false, uint16_t addressFilterValue = 0x1234,
-				SerialWombatIRRx::publicDataOutput dataOutput = SerialWombatIRRx::publicDataOutput::COMMAND )
+				SerialWombatIRRx::publicDataOutput dataOutput = SerialWombatIRRx::publicDataOutput::DATACOUNT )
 		{
 			_pinMode = (uint8_t)PIN_MODE_IRRX;
 			_pin = pin;

@@ -6,7 +6,8 @@ var searchData=
   ['length_3',['length',['../class_serial_wombat_queue.html#a6d492123cde341f10017980d67ae09f5',1,'SerialWombatQueue']]],
   ['library_4',['Serial Wombat Arduino Library',['../index.html',1,'']]],
   ['linear_5fmxb_5',['LINEAR_MXB',['../class_serial_wombat_abstract_processed_input.html#a79e5cf98e48c2e2dfba01962435535c0ac93e5a6a726588d09122350ffa8a7d8d',1,'SerialWombatAbstractProcessedInput']]],
-  ['low_5ftime_6',['LOW_TIME',['../class_serial_wombat_pulse_timer__18_a_b.html#a486e3029fae457e18763e324dbc47084a04de18dd6e286852547a35856ad76a3e',1,'SerialWombatPulseTimer_18AB']]],
-  ['lowcounts_7',['LowCounts',['../class_serial_wombat_pulse_timer.html#aca08404791dc6a5afa31fa64656b366f',1,'SerialWombatPulseTimer']]],
-  ['lowlimit_8',['lowLimit',['../class_serial_wombat_button_counter.html#abf25f340281f375589badde02a9d0ee7',1,'SerialWombatButtonCounter']]]
+  ['low_6',['low',['../class_serial_wombat_digital_output__18_a_b.html#a774ff08f26f0f93561aca3267e8ca1bf',1,'SerialWombatDigitalOutput_18AB']]],
+  ['low_5ftime_7',['LOW_TIME',['../class_serial_wombat_pulse_timer__18_a_b.html#a486e3029fae457e18763e324dbc47084a04de18dd6e286852547a35856ad76a3e',1,'SerialWombatPulseTimer_18AB']]],
+  ['lowcounts_8',['LowCounts',['../class_serial_wombat_pulse_timer.html#aca08404791dc6a5afa31fa64656b366f',1,'SerialWombatPulseTimer']]],
+  ['lowlimit_9',['lowLimit',['../class_serial_wombat_button_counter.html#abf25f340281f375589badde02a9d0ee7',1,'SerialWombatButtonCounter']]]
 ];

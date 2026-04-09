@@ -2,7 +2,7 @@
 #define SERIAL_WOMBAT_H__
 
 /*
-Copyright 2020-2025 Broadwell Consulting Inc.
+Copyright 2020-2026 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -292,7 +292,9 @@ typedef enum {
 	PIN_MODE_QUEUED_PULSE_OUTPUT = 34, ///<(34)
 	PIN_MODE_FREQUENCY_OUTPUT = 36, ///<(36)
 	PIN_MODE_IRRX = 37, ///<(37)
+	PIN_MODE_IRTX = 38, ///<(38)
 	PIN_MODE_BLINK = 40, ///<(40)
+	PIN_MODE_SPI = 41, ///<(41)
 	PIN_MODE_UNKNOWN = 255, ///< (0xFF)
 }SerialWombatPinMode_t;
 
@@ -1146,23 +1148,51 @@ public:
 		return (bytesRead);
 	}
 /*!
-	\brief Shuts down most functions of the Serial Wombat chip reducing power consumption
+	\brief Shuts down most functions of the Serial Wombat 4B chip reducing power consumption
 	
 	This command stops the Serial Wombat chip's internal clock, greatly reducing power consumption.
 	The host is responsible for configuring outputs to a safe state prior to calling sleep.
+
+	Sending an I2C Packet to the Serial Wombat 4B chip will wake it up.
 	
 	\warning This command does not cause any sort of shutdown routine to run.  The chip just stops.
 	Outputs, including PWM, Servo and Protected Outputs, may retain their logic levels 
 	at the moment the sleep command is processed.  In other words, they may stay high or low as long as the chip is in sleep.
 */
-	void sleep()
+	void sleep4B()
 	{
 		uint8_t tx[8] = { 'S','l','E','e','P','!','#','*'};
 		sendPacket(tx);
 		_asleep = true;
 	}
 
-	/// \brief Called to send a dummy packet to the Serial Wombat chip to wake it from sleep and ready it for other commands
+	/*!
+	\brief Shuts down the Serial Wombat 8B chip reducing power consumption as low as 10uA
+	
+	This command stops the Serial Wombat chip's internal clock, greatly reducing power consumption.
+	The host is responsible for configuring outputs to a safe state prior to calling sleep.  Inputs
+	should not be left floating as this will greatly increase sleep current.
+
+	The chip will stay asleep until the next high-to-low SCL transition for any device after the specified delay time.
+	The chip resets after waking up.  Appropriate pin mode begin calls must be made to reconfigure the 
+	Serial Wombat 8B chip as if it were a power-up reset.
+
+	\param delay Number of mS after call to go to sleep.  This allows other chips to be configured over I2C after
+	this call without waking up this chip.	
+	
+	\warning This command does not cause any sort of shutdown routine to run.  The chip just stops.
+	Outputs, including PWM, Servo and Protected Outputs, may retain their logic levels 
+	at the moment the sleep command is processed.  In other words, they may stay high or low as long as the chip is in sleep.
+*/
+	void sleep8B(uint16_t delay)
+	{
+		uint8_t tx[8] = { 'S','l','E','e','P','!',SW_LE16(delay)};
+
+		sendPacket(tx);
+		_asleep = true;
+	}
+
+	/// \brief Called to send a dummy packet to the Serial Wombat 8B chip to wake it from sleep and ready it for other commands
 	void wake()
 	{
 		uint8_t tx[8] = { '!','!','!','!','!','!','!','!' };
@@ -1747,11 +1777,14 @@ void SerialWombatSerialErrorHandlerVerbose(uint16_t error, SerialWombatChip* sw)
 #include "SerialWombat18ABVGA.h"
 #include "SerialWombatAnalogInput.h"
 #include "SerialWombatDebouncedInput.h"
+#include "SerialWombatDigitalInput.h"
+#include "SerialWombatDigitalOutput.h"
 #include "SerialWombatFrequencyOutput.h"
 #include "SerialWombatHBridge.h"
 #include "SerialWombatHSClock.h"
 #include "SerialWombatHSCounter.h"
 #include "SerialWombatIRRx.h"
+#include "SerialWombatIRTx.h"
 #include "SerialWombatLiquidCrystal.h"
 #include "SerialWombatMatrixKeypad.h"
 #include "SerialWombatProcessedInputPin.h"
@@ -1764,6 +1797,7 @@ void SerialWombatSerialErrorHandlerVerbose(uint16_t error, SerialWombatChip* sw)
 #include "SerialWombatQueuedPulseOutput.h"
 #include "SerialWombatResistanceInput.h"
 #include "SerialWombatServo.h"
+#include "SerialWombatSPI.h"
 #include "SerialWombatTM1637.h"
 #include "SerialWombatUART.h"
 #include "SerialWombatUltrasonicDistanceSensor.h"
@@ -1772,5 +1806,6 @@ void SerialWombatSerialErrorHandlerVerbose(uint16_t error, SerialWombatChip* sw)
 #include "SerialWombatThroughputConsumer.h"
 #include "PCB0030_Bridge.h"
 #include "PCB0031_Grip.h"
+#include "PCB0046_HSD.h"
 
 #endif
