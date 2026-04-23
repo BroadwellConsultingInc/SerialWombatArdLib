@@ -1,0 +1,22 @@
+<map id="PCB0042_LSD_PWM" name="PCB0042_LSD_PWM">
+<area shape="rect" id="Node000001" title="A class representing a PCB0042 HSD Eight Channel LSD Low Side Driver board." alt="" coords="969,64,1120,91"/>
+<area shape="rect" id="Node000002" href="$class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="5,45,135,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,37,187,14,229,6,270,3,751,3,806,5,850,11,946,37,1012,61,1011,66,945,43,849,16,806,10,750,8,270,8,229,11,189,19,118,42"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="150,56,270,56,751,56,865,60,969,67,968,73,865,65,750,61,270,61,150,61"/>
+<area shape="rect" id="Node000005" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="211,107,332,133"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="118,76,159,91,211,105,209,110,158,96,117,81"/>
+<area shape="rect" id="Node000003" href="$class_serial_wombat_analog_input__18_a_b.html" title="This class extends SerialWombatAnalogInput with SW18AB specific capabilities." alt="" coords="644,107,854,133"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="869,102,945,91,969,87,969,92,946,96,870,107"/>
+<area shape="rect" id="Node000004" href="$class_serial_wombat_analog_input.html" title="A class to make analog measurements with the Serial Wombat." alt="" coords="402,107,574,133"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="589,117,644,117,644,123,589,123"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="347,117,402,117,402,123,347,123"/>
+<area shape="rect" id="Node000008" href="$class_serial_wombat_p_w_m.html" title="A class representing a Serial Wombat PWM output." alt="" coords="420,291,556,317"/>
+<area shape="poly" id="edge10_Node000008_Node000005" title=" " alt="" coords="286,146,323,213,350,247,383,276,421,293,419,298,380,281,346,251,318,216,282,149"/>
+<area shape="rect" id="Node000006" href="$class_serial_wombat_abstract_processed_input.html" title="SerialWombatAnalogInput, SerialWombatPulseTimer, SerialWombatResistanceInput and others inherit from ..." alt="" coords="381,157,595,200"/>
+<area shape="poly" id="edge7_Node000003_Node000006" title=" " alt="" coords="600,151,686,131,687,137,601,156"/>
+<area shape="rect" id="Node000007" href="$class_serial_wombat_p_w_m__18_a_b.html" title="Extends the SerialWombatPWM class with SW18AB specific functionality, including SerialWombatAbstractS..." alt="" coords="662,256,836,283"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="851,276,900,269,923,261,944,250,964,233,982,214,1009,169,1028,124,1038,91,1043,92,1033,126,1014,171,986,217,968,237,947,254,925,266,901,274,852,281"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="571,290,661,278,662,284,572,296"/>
+<area shape="rect" id="Node000009" href="$class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class...." alt="" coords="392,224,584,267"/>
+<area shape="poly" id="edge11_Node000007_Node000009" title=" " alt="" coords="599,253,662,259,661,264,599,258"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="PCB0048_Mux" name="PCB0048_Mux">
+<area shape="rect" id="Node000001" title="A class representing a PCB0048 Mux PCB." alt="" coords="15,327,125,353"/>
+<area shape="rect" id="Node000002" href="$class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="5,5,135,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,48,73,326,67,326,67,48"/>
+<area shape="rect" id="Node000004" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="87,104,208,131"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="92,43,140,102,135,105,88,46"/>
+<area shape="rect" id="Node000003" href="$class_serial_wombat_digital_output__18_a_b.html" title=" " alt="" coords="87,188,304,215"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,228,83,328,80,324,172,225"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="165,143,190,186,186,189,160,145"/>
+<area shape="rect" id="Node000005" href="$class_serial_wombat_abstract_scaled_output.html" title="SerialWombatServo, SerialWombatPWM and other proportional ouptut classes inherit from this class...." alt="" coords="232,96,423,139"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="283,149,217,190,214,185,280,145"/>
+</map>

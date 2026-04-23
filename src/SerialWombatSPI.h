@@ -333,6 +333,13 @@ public:
 	}
 	return 40;
 };
+
+  int16_t setCSHigh() { // this will not be supported until 2.2.4
+	
+	uint8_t tx[8] = { 205, _pin, _pinMode, 0x55, 0x55, 0x55, 0x55, 0x55 };
+	int16_t result = _sw.sendPacket(tx);
+	return result;
+};
 };
 
 

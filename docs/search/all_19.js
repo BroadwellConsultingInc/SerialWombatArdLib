@@ -62,7 +62,7 @@ var searchData=
   ['readuserbuffer_59',['readUserBuffer',['../class_serial_wombat_chip.html#a7af4ff6238b21c34f4ce2450d1155c02',1,'SerialWombatChip']]],
   ['readversion_60',['readVersion',['../class_serial_wombat_chip.html#a4497f098ad2074a5bec90f2affbaafcb',1,'SerialWombatChip']]],
   ['readversion_5fuint32_61',['readVersion_uint32',['../class_serial_wombat_chip.html#a99303ae424de2b27b9dbaf2b1bfa971c',1,'SerialWombatChip']]],
-  ['readvin_5fmv_62',['readVin_mV',['../class_p_c_b0046___h_s_d___p_w_m.html#aa5bd3d9ac28bb936d0b0bfc84807ac43',1,'PCB0046_HSD_PWM']]],
+  ['readvin_5fmv_62',['readVin_mV',['../class_p_c_b0042___l_s_d___p_w_m.html#adf79b3dc5725c0377569e6a38d06747d',1,'PCB0042_LSD_PWM::readVin_mV()'],['../class_p_c_b0046___h_s_d___p_w_m.html#aa5bd3d9ac28bb936d0b0bfc84807ac43',1,'PCB0046_HSD_PWM::readVin_mV()']]],
   ['readvoltage_5fmv_63',['readVoltage_mV',['../class_serial_wombat_analog_input.html#ab2c7a9154241e26805d0d36f77324a90',1,'SerialWombatAnalogInput']]],
   ['refresh_64',['refresh',['../class_serial_wombat_pulse_timer.html#a1528974b4eef9ab9e0135d356551840e',1,'SerialWombatPulseTimer']]],
   ['refreshhighcountslowcounts_65',['refreshHighCountsLowCounts',['../class_serial_wombat_pulse_timer.html#a5550f518772f8fc8c9a2909131637585',1,'SerialWombatPulseTimer']]],

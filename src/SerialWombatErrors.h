@@ -72,6 +72,9 @@ typedef enum {
     SW_ERROR_PULSE_ON_CHANGE_UNKNOWN_MODE = 47, ///< (#47) The pulse on change Mode requested is unknown
     SW_ERROR_LESS_THAN_8_BYTES_RETURNED = 48, ///< (#48) The Serial Wombat Chip returned less than 8 bytes (Used at host level, not firmware)
     SW_ERROR_REENTRANCY_NOT_SUPPORTED = 49, ///<(#49) The library was used in an unsupported manner, such as calling a communication command from an interrupt when communication was in progress
+    SW_ERROR_CLASS_INIITALIZATION_ERROR = 50, ///<(#50) An error occured during initalization of a class on the host 
+    SW_ERROR_WRONG_CHIP_TYPE = 51, ///<(#51) The chip type (04, 08, 18, etc) wasn't what was expected
+    SW_ERROR_WRONG_CHIP_FIRMWARE_VERSION = 52, ///<(#52) The Firmware version of the firmware didn't match what was expected by the host.
 }SW_ERROR_t;
 
 #endif

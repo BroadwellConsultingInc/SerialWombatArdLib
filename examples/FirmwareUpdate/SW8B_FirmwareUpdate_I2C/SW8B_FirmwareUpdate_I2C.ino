@@ -42,6 +42,7 @@ PROGMEM
 //#define KEYPAD_FIRMWARE
 //#define TM1637_FIRMWARE
 //#define ULTRASONIC_FIRMWARE
+//#define IR_FIRMWARE
 
 #include "default_fw.c"
 #include "brushedMotor_fw.c"
@@ -50,8 +51,17 @@ PROGMEM
 #include "tm1637_fw.c"
 #include "ultrasonic_fw.c"
 #include "keypad_fw.c"
+#include "ir_fw.c"
 
- bool mismatch = false;
+
+#ifndef I2C_ADDRESS
+#error I2C Address is not defined.  Comment in and set the I2C address on line 23 of this sketch.
+#endif
+#ifndef FIRMWARE_INCLUDED
+#error You must pick a firmware image to download.  Comment in one of the #defines ending in _FIRMWARE
+#endif
+
+bool mismatch = false;
 void setup() {
   // put your setup code here, to run once:
   Wire.begin();
@@ -61,6 +71,7 @@ void setup() {
 
   delay(500);
   Serial.println(F("Serial Wombat SW8B I2C Firmware Update"));
+  Serial.println(F("Delaying 10 seconds to allow user to open terminal..."));
 
   delay(10000);
 #if (defined(ESP8266)  || defined(ARDUINO_ARCH_SAMD)  || defined(ESP32)  |defined (ARDUINO_AVR_UNO ) )

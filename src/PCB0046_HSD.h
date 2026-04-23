@@ -74,6 +74,23 @@ public:
 	{
 		sw0.begin(Wire, i2cAddress, false);
 		sw1.begin(Wire, i2cAddress + 1, false);
+
+		if (!sw0.isSW08())
+		{
+			return SW_ERROR_WRONG_CHIP_TYPE;
+		}
+
+		if (!sw0.isLatestFirmware()  || !sw1.isLatestFirmware()) {
+			return SW_ERROR_WRONG_CHIP_FIRMWARE_VERSION;
+		}
+		if (!sw0.isPinModeSupported(PIN_MODE_PWM))
+		{
+			return SW_ERROR_UNKNOWN_PIN_MODE;
+		}
+		if (!sw1.isPinModeSupported(PIN_MODE_ANALOGINPUT))
+		{
+			return SW_ERROR_UNKNOWN_PIN_MODE;
+		}
 		vinMeas.begin(1);
 		currentSenseSelector1.begin(4);
 		currentSenseSelector2.begin(3);
@@ -129,6 +146,7 @@ public:
 		}
 
 		selectedFeedbackChannel = ch;
+		return 0;
 	}
 
 	uint16_t readCurrentFeedbackAverage_mA()

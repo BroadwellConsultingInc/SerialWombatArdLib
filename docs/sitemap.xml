@@ -11,7 +11,16 @@
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/_p_c_b0031___grip_8h_source.html</loc>
   </url>
   <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/_p_c_b0041___remcon_8h_source.html</loc>
+  </url>
+  <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/_p_c_b0042___l_s_d_8h_source.html</loc>
+  </url>
+  <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/_p_c_b0046___h_s_d_8h_source.html</loc>
+  </url>
+  <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/_p_c_b0048___mux_8h_source.html</loc>
   </url>
   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/_serial_wombat_8cpp_source.html</loc>
@@ -152,7 +161,16 @@
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/_p_c_b0031___grip_8h.html</loc>
   </url>
   <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/_p_c_b0041___remcon_8h.html</loc>
+  </url>
+  <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/_p_c_b0042___l_s_d_8h.html</loc>
+  </url>
+  <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/_p_c_b0046___h_s_d_8h.html</loc>
+  </url>
+  <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/_p_c_b0048___mux_8h.html</loc>
   </url>
   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/_serial_wombat_8cpp.html</loc>
@@ -311,10 +329,28 @@
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_p_c_b0031___grip-members.html</loc>
   </url>
   <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_p_c_b0041___remcon.html</loc>
+  </url>
+  <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_p_c_b0041___remcon-members.html</loc>
+  </url>
+  <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_p_c_b0042___l_s_d___p_w_m.html</loc>
+  </url>
+  <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_p_c_b0042___l_s_d___p_w_m-members.html</loc>
+  </url>
+  <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_p_c_b0046___h_s_d___p_w_m.html</loc>
   </url>
   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_p_c_b0046___h_s_d___p_w_m-members.html</loc>
+  </url>
+  <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_p_c_b0048___mux.html</loc>
+  </url>
+  <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_p_c_b0048___mux-members.html</loc>
   </url>
   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat.html</loc>
@@ -813,6 +849,9 @@
   </url>
   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_func_~.html</loc>
+  </url>
+  <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_vars.html</loc>
   </url>
   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/functions_vars.html</loc>

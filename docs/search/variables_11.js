@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['vinmeas_0',['vinMeas',['../class_p_c_b0046___h_s_d___p_w_m.html#ad24ce0829f26d05449461b636f6f3ea8',1,'PCB0046_HSD_PWM']]]
+  ['uniqueidentifier_0',['uniqueIdentifier',['../class_serial_wombat_chip.html#a0ca6427a754019bc1ae4859bb9680e93',1,'SerialWombatChip']]],
+  ['uniqueidentifierlength_1',['uniqueIdentifierLength',['../class_serial_wombat_chip.html#a219b3cbf939f89eee7f73069925ea0d1',1,'SerialWombatChip']]]
 ];

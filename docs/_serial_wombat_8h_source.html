@@ -138,8 +138,8 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="_serial_wombat_8h.html#a709a1620a50e4672605e50d74f3d7dab">   49</a></span><span class="preprocessor">#define SW_LE32(_a)  (uint8_t)((_a) &amp; 0xFF), (uint8_t)((_a) &gt;&gt;8) , (uint8_t)((_a) &gt;&gt;16), (uint8_t)((_a) &gt;&gt;24)</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="_serial_wombat_8h.html#aae2309fb1db8c01cab21ab82ddf1cc26">   51</a></span><span class="preprocessor">#define ARRAY_UINT32(_array,_index) ((((uint32_t) _array[_index +3])&lt;&lt;24) + (((uint32_t) _array[_index +2])&lt;&lt;16) + (((uint32_t) _array[_index +1])&lt;&lt;8) + _array[_index])</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="_serial_wombat_8h.html#a2a6d92291a7662efee418ecc1636dbc9">   52</a></span><span class="preprocessor">#define SW18AB_LATEST_FIRMWARE 222</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="_serial_wombat_8h.html#a5c790f612fb4b640df494e21ba31bcc2">   53</a></span><span class="preprocessor">#define SW08B_LATEST_FIRMWARE 222</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="_serial_wombat_8h.html#a2a6d92291a7662efee418ecc1636dbc9">   52</a></span><span class="preprocessor">#define SW18AB_LATEST_FIRMWARE 223</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="_serial_wombat_8h.html#a5c790f612fb4b640df494e21ba31bcc2">   53</a></span><span class="preprocessor">#define SW08B_LATEST_FIRMWARE 223</span></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="_serial_wombat_8h.html#a80a9eb07eb298ba7dc5d5d2ece07fa14">   54</a></span><span class="preprocessor">#define SW4B_LATEST_FIRMWARE 203</span></div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="foldopen" id="foldopen00056" data-start="{" data-end="};">
@@ -1491,12 +1491,18 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l01806" name="l01806"></a><span class="lineno"> 1806</span><span class="preprocessor">#include &quot;<a class="code" href="_serial_wombat_throughput_consumer_8h.html">SerialWombatThroughputConsumer.h</a>&quot;</span></div>
 <div class="line"><a id="l01807" name="l01807"></a><span class="lineno"> 1807</span><span class="preprocessor">#include &quot;<a class="code" href="_p_c_b0030___bridge_8h.html">PCB0030_Bridge.h</a>&quot;</span></div>
 <div class="line"><a id="l01808" name="l01808"></a><span class="lineno"> 1808</span><span class="preprocessor">#include &quot;<a class="code" href="_p_c_b0031___grip_8h.html">PCB0031_Grip.h</a>&quot;</span></div>
-<div class="line"><a id="l01809" name="l01809"></a><span class="lineno"> 1809</span><span class="preprocessor">#include &quot;<a class="code" href="_p_c_b0046___h_s_d_8h.html">PCB0046_HSD.h</a>&quot;</span></div>
-<div class="line"><a id="l01810" name="l01810"></a><span class="lineno"> 1810</span> </div>
-<div class="line"><a id="l01811" name="l01811"></a><span class="lineno"> 1811</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l01809" name="l01809"></a><span class="lineno"> 1809</span><span class="preprocessor">#include &quot;<a class="code" href="_p_c_b0041___remcon_8h.html">PCB0041_Remcon.h</a>&quot;</span></div>
+<div class="line"><a id="l01810" name="l01810"></a><span class="lineno"> 1810</span><span class="preprocessor">#include &quot;<a class="code" href="_p_c_b0042___l_s_d_8h.html">PCB0042_LSD.h</a>&quot;</span></div>
+<div class="line"><a id="l01811" name="l01811"></a><span class="lineno"> 1811</span><span class="preprocessor">#include &quot;<a class="code" href="_p_c_b0046___h_s_d_8h.html">PCB0046_HSD.h</a>&quot;</span></div>
+<div class="line"><a id="l01812" name="l01812"></a><span class="lineno"> 1812</span><span class="preprocessor">#include &quot;<a class="code" href="_p_c_b0048___mux_8h.html">PCB0048_Mux.h</a>&quot;</span></div>
+<div class="line"><a id="l01813" name="l01813"></a><span class="lineno"> 1813</span> </div>
+<div class="line"><a id="l01814" name="l01814"></a><span class="lineno"> 1814</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="a_p_c_b0030___bridge_8h_html"><div class="ttname"><a href="_p_c_b0030___bridge_8h.html">PCB0030_Bridge.h</a></div></div>
 <div class="ttc" id="a_p_c_b0031___grip_8h_html"><div class="ttname"><a href="_p_c_b0031___grip_8h.html">PCB0031_Grip.h</a></div></div>
+<div class="ttc" id="a_p_c_b0041___remcon_8h_html"><div class="ttname"><a href="_p_c_b0041___remcon_8h.html">PCB0041_Remcon.h</a></div></div>
+<div class="ttc" id="a_p_c_b0042___l_s_d_8h_html"><div class="ttname"><a href="_p_c_b0042___l_s_d_8h.html">PCB0042_LSD.h</a></div></div>
 <div class="ttc" id="a_p_c_b0046___h_s_d_8h_html"><div class="ttname"><a href="_p_c_b0046___h_s_d_8h.html">PCB0046_HSD.h</a></div></div>
+<div class="ttc" id="a_p_c_b0048___mux_8h_html"><div class="ttname"><a href="_p_c_b0048___mux_8h.html">PCB0048_Mux.h</a></div></div>
 <div class="ttc" id="a_serial_wombat18_a_b_data_logger_8h_html"><div class="ttname"><a href="_serial_wombat18_a_b_data_logger_8h.html">SerialWombat18ABDataLogger.h</a></div></div>
 <div class="ttc" id="a_serial_wombat18_a_b_v_g_a_8h_html"><div class="ttname"><a href="_serial_wombat18_a_b_v_g_a_8h.html">SerialWombat18ABVGA.h</a></div></div>
 <div class="ttc" id="a_serial_wombat18_cap_touch_8h_html"><div class="ttname"><a href="_serial_wombat18_cap_touch_8h.html">SerialWombat18CapTouch.h</a></div></div>

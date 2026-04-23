@@ -126,7 +126,7 @@ void loop() {
             if (returnVal == SW_ERROR_PIN_CONFIG_WRONG_ORDER)
             {
              
-              if (pinModeNumber <= 39)
+              if (pinModeNumber <= 41)
               {
                 Serial.print((const __FlashStringHelper *)(&pinModeArray[pinModeNumber][0]));
               }

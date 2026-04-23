@@ -68,6 +68,7 @@ void setup() {
   sw.registerErrorHandler(SerialWombatSerialErrorHandlerBrief); //Register an error handler that will print communication errors to Serial
   //Optional Error handling code end
   irrx1.begin(IRRX_FIRST_REMOTE_PIN,
+              SerialWombatIRRx::publicDataOutput::DATACOUNT,// Make data count the output
               0,//Mode 0 : NEC
               true, // Use repeat
               SW_LOW,// Active Low
@@ -77,6 +78,7 @@ void setup() {
               0xEF00); // Filter to address 0xEF00  (This value was determined for a given remote using example 2
 //irrx1.enablePullup(true);   //Comment in this line if your receiver is open drain type without pullup .  Only one pin needs its pull up enabled
               irrx2.begin(IRRX_SECOND_REMOTE_PIN,
+              SerialWombatIRRx::publicDataOutput::DATACOUNT,// Make data count the output
               0,//Mode 0 : NEC
               true, // Use repeat
               SW_LOW,// Active Low

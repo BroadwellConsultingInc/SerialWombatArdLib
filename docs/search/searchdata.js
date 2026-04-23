@@ -4,7 +4,7 @@ var indexSectionsWithContent =
   1: "gps",
   2: "ips",
   3: "abcdefghijlmnopqrstuw~",
-  4: "_acdefghilmoprstuvz",
+  4: "_abcdefghilmoprstuvz",
   5: "s",
   6: "adopqrstw",
   7: "acdfhlnpqrstw",

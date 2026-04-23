@@ -1,0 +1,19 @@
+<map id="PCB0041_Remcon" name="PCB0041_Remcon">
+<area shape="rect" id="Node000001" title="A class representing a PCB0041 Remcon PCB." alt="" coords="163,263,297,289"/>
+<area shape="rect" id="Node000002" href="$class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="5,5,135,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="65,48,59,81,57,120,61,160,76,197,95,219,119,237,172,260,170,264,116,241,92,223,72,200,56,161,51,120,54,80,60,47"/>
+<area shape="rect" id="Node000005" href="$class_serial_wombat_pin.html" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="236,96,357,123"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="118,36,265,93,263,98,116,41"/>
+<area shape="rect" id="Node000003" href="$class_serial_wombat_i_r_rx.html" title="A class for the Serial Wombat SW8B or SW18AB chips which received IR remote signals...." alt="" coords="86,172,219,199"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,209,221,260,217,264,171,212"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="129,96,192,123"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="160,138,157,172,151,171,155,137"/>
+<area shape="rect" id="Node000006" href="$class_serial_wombat_i_r_tx.html" title="A class for the Serial Wombat 8B or SW18AB chips which allows sending NEC IR Commands." alt="" coords="244,172,374,199"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="201,128,285,169,282,174,198,132"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="260,132,178,174,176,169,258,128"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="304,137,309,171,304,172,298,138"/>
+<area shape="rect" id="Node000007" href="$class_serial_wombat_blink.html" title="A class representing a Serial Wombat Blink Output." alt="" coords="398,172,529,199"/>
+<area shape="poly" id="edge10_Node000007_Node000005" title=" " alt="" coords="340,127,436,169,434,174,338,132"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="289,212,243,264,239,260,286,209"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="417,207,264,265,262,260,415,202"/>
+</map>

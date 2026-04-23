@@ -66,14 +66,15 @@ void setup() {
   sw.registerErrorHandler(SerialWombatSerialErrorHandlerBrief); //Register an error handler that will print communication errors to Serial
   //Optional Error handling code end
   irrx.begin(IRRX_PIN,
+             SerialWombatIRRx::publicDataOutput::DATACOUNT,// Make data count the output
              0,//Mode 0 : NEC
              true, // Use repeat
              SW_LOW,// Active Low
              1000, // 1000 ms Public Data Timeout
              0xFFFF, // Default public data
              false,   // Use Address Filtering
-             0x0000, // Transmitter Address (not used)
-             SerialWombatIRRx::publicDataOutput::DATACOUNT); // Make data count the output
+             0x0000 // Transmitter Address (not used)
+             ); 
 
   //irrx.enablePullup(true);   //Comment in this line if your receiver is open drain type without pullup
 

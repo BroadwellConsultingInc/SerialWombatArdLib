@@ -1,0 +1,5 @@
+<map id="PCB0041_Remcon" name="PCB0041_Remcon">
+<area shape="rect" id="Node000001" title="A class representing a PCB0041 Remcon PCB." alt="" coords="5,80,139,107"/>
+<area shape="rect" id="Node000002" href="$class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance." alt="" coords="7,5,137,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,48,75,80,69,80,69,48"/>
+</map>

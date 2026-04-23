@@ -65,6 +65,7 @@ void setup() {
   
   irrx.begin(IRRX_PIN,
               0,//Mode 0 : NEC
+              SerialWombatIRRx::publicDataOutput::DATACOUNT,// Make data count the output
               true, // Use repeat
               SW_LOW,// Active Low
               1000, // 1000 ms Public Data Timeout

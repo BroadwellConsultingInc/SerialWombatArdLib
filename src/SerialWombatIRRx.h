@@ -75,6 +75,7 @@ class SerialWombatIRRx :
 		/*!
 		  @brief Initalize the SerialWombatIRRx.  
 		  @param pin The Serial Wombat pin number to use for the IR receiver.  For the REMCON board this should be 3
+		  @param dataOutput The type of data to output (COMMAND, ADDRESS, or DATACOUNT)
 		  @param irMode 0 for NEC protocol, other values reserved for future protocols
 		  @param useRepeat If true, queue value on repeat commands
 		  @param activeState The state of the pin which indicates an active IR signal (SW_LOW or SW_HIGH)
@@ -82,13 +83,11 @@ class SerialWombatIRRx :
 		  @param publicDataTimeoutValue The value to return when a timeout occurs
 		  @param useAddressFilter If true, only queue commands from the specified address
 		  @param addressFilterValue The address to filter on if useAddressFilter is true
-		  @param dataOutput The type of data to output (COMMAND, ADDRESS, or DATACOUNT)
 		  @return 0 on success, negative value on error
 		  */
 		int16_t begin(
-				uint8_t pin, uint8_t irMode = 0, bool useRepeat = true, SerialWombatPinState_t activeState = SW_LOW,
-				uint16_t publicDataTimeoutPeriod_mS = 1000, uint16_t publicDataTimeoutValue = 0xFFFF, bool useAddressFilter = false, uint16_t addressFilterValue = 0x1234,
-				SerialWombatIRRx::publicDataOutput dataOutput = SerialWombatIRRx::publicDataOutput::DATACOUNT )
+				uint8_t pin, SerialWombatIRRx::publicDataOutput dataOutput = SerialWombatIRRx::publicDataOutput::DATACOUNT , uint8_t irMode = 0, bool useRepeat = true, 
+				 SerialWombatPinState_t activeState=SW_LOW, uint16_t publicDataTimeoutPeriod_mS = 1000, uint16_t publicDataTimeoutValue = 0xFFFF, bool useAddressFilter = false, uint16_t addressFilterValue = 0x1234)
 		{
 			_pinMode = (uint8_t)PIN_MODE_IRRX;
 			_pin = pin;

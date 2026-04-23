@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['delayafterfirstpinfirsttransition_5fms_0',['delayAfterFirstPinFirstTransition_mS',['../class_serial_wombat_simulated_quad_enc.html#a71d3821b07892d3f9460ea89a1dd50cb',1,'SerialWombatSimulatedQuadEnc']]],
-  ['delayafterfirstpinsecondtransition_5fms_1',['delayAfterFirstPinSecondTransition_mS',['../class_serial_wombat_simulated_quad_enc.html#ab07d4ecc6dad867aa8fab1fb4741dc49',1,'SerialWombatSimulatedQuadEnc']]],
-  ['delayaftersecondpinfirsttransition_5fms_2',['delayAfterSecondPinFirstTransition_mS',['../class_serial_wombat_simulated_quad_enc.html#a4916149feae4047db1c9117919cce5e4',1,'SerialWombatSimulatedQuadEnc']]],
-  ['delayaftersecondpinsecondtransition_5fms_3',['delayAfterSecondPinSecondTransition_mS',['../class_serial_wombat_simulated_quad_enc.html#a08c266cd12604e621c39065fb0bf2920',1,'SerialWombatSimulatedQuadEnc']]],
-  ['deviceidentifier_4',['deviceIdentifier',['../class_serial_wombat_chip.html#ab8b2fd8fc519e4f1c5494fdecfd4990b',1,'SerialWombatChip']]],
-  ['devicerevision_5',['deviceRevision',['../class_serial_wombat_chip.html#a12d6ae67993a66e678ac44a8dbd78c5f',1,'SerialWombatChip']]],
-  ['diagen_6',['diagEn',['../class_p_c_b0046___h_s_d___p_w_m.html#ab3b4dc1069ef360b0b66497e239ddc04',1,'PCB0046_HSD_PWM']]],
-  ['doubletransition_7',['doubleTransition',['../class_serial_wombat_simulated_quad_enc.html#af95fbcd959cfa32b2593c4be15038e74',1,'SerialWombatSimulatedQuadEnc']]]
+  ['calibratedmaxcurrent_0',['calibratedMaxCurrent',['../class_grip_servo.html#ab796dcf916ffab1964d191f7311cafb5',1,'GripServo']]],
+  ['calibratedmaxposition_1',['calibratedMaxPosition',['../class_grip_servo.html#a3d07a0b9b5bf2c3ffaeaeae0b91be449',1,'GripServo']]],
+  ['calibratedmincurrent_2',['calibratedMinCurrent',['../class_grip_servo.html#a87b41d748b6d8e2b6b4f9b369ab7a967',1,'GripServo']]],
+  ['calibratedminposition_3',['calibratedMinPosition',['../class_grip_servo.html#a6237ba637a6deb6340c6d0d649a5dac1',1,'GripServo']]],
+  ['communicationerrorretries_4',['communicationErrorRetries',['../class_serial_wombat_chip.html#a5f4aa4a9b06d677abd17453a1ead3e45',1,'SerialWombatChip']]],
+  ['currentposition_5',['currentPosition',['../class_serial_wombat_simulated_quad_enc.html#a4e407603bf8c91eb780e5135d8e99357',1,'SerialWombatSimulatedQuadEnc']]],
+  ['currentsenseselector1_6',['currentSenseSelector1',['../class_p_c_b0046___h_s_d___p_w_m.html#a991e65c00ca30a69cbc26135b8663beb',1,'PCB0046_HSD_PWM']]],
+  ['currentsenseselector2_7',['currentSenseSelector2',['../class_p_c_b0046___h_s_d___p_w_m.html#a53c9085a1d3816095ba7a8af1012e946',1,'PCB0046_HSD_PWM']]]
 ];
