@@ -30,23 +30,23 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 
 // Define values the same as in Arduino SPI.
 
-#ifndef MSBFIRST
-#define MSBFIRST 1
+#ifndef SW_MSBFIRST
+#define SW_MSBFIRST 1
 #endif
 // Don't define LSB first because it's not supported.  
 
 
-#ifndef SPI_MODE0
-#define SPI_MODE0 0x00
-#define SPI_MODE1 0x04
-#define SPI_MODE3 0x0C
+#ifndef SW_SPI_MODE0
+#define SW_SPI_MODE0 0x00
+#define SW_SPI_MODE1 0x04
+#define SW_SPI_MODE3 0x0C
 #endif
 
 
 /*! @brief A class for storing SPI settings.  This isn't actually used, but included for congruency with Arduino */
 class SerialWombatSPISettings {
 public:
-  SerialWombatSPISettings(uint32_t clock = 0, uint8_t bitOrder = MSBFIRST, uint8_t dataMode = SPI_MODE0) {
+  SerialWombatSPISettings(uint32_t clock = 0, uint8_t bitOrder = SW_MSBFIRST, uint8_t dataMode = SW_SPI_MODE0) {
 	(void)clock; // Clock is not configurable, so ignore this parameter.
 	(void)bitOrder; // Bit order is not configurable, so ignore this parameter.		
 	(void)dataMode;
@@ -113,25 +113,29 @@ public:
 @param CSpin Optional pin number for Chip Select.  Set to 255 to not use a chip select pin.  
 @return negative error code or positive success
 */
-    int16_t begin( uint8_t pin,uint8_t SPIMode, uint8_t MOSIpin = 255, uint8_t MISOpin = 255, uint8_t CSpin = 255) 
+    int16_t begin( uint8_t pin,uint8_t SPIModeparam, uint8_t MOSIpin = 255, uint8_t MISOpin = 255, uint8_t CSpin = 255) 
 	{
 		
 		_pin = pin;
 			_pinMode = PIN_MODE_SPI;
-		if (SPIMode == SPI_MODE1)
+#ifdef SPI_MODE1
+		if (SPIModeparam == SPI_MODE1)
 		{
-			SPIMode = 1;
+			SPIModeparam = 1;
 		}
-		else if (SPIMode == SPI_MODE3)
+#endif
+#ifdef SPI_MODE3
+		if (SPIModeparam == SPI_MODE3)
 		{
-			SPIMode = 3;
+			SPIModeparam = 3;
 		}
+#endif
 
-		if (SPIMode != 0 && SPIMode != 1 && SPIMode != 3)
+		if (SPIModeparam != 0 && SPIModeparam != 1 && SPIModeparam != 3)
 		{
 			return -1 * SW_ERROR_INVALID_PARAMETER_3;
 		}
-		uint8_t tx[8] = { 200, _pin,_pinMode, SPIMode,MOSIpin,MISOpin, CSpin, 0x55 };
+		uint8_t tx[8] = { 200, _pin,_pinMode, SPIModeparam,MOSIpin,MISOpin, CSpin, 0x55 };
 		uint8_t rx[8];
 		return _sw.sendPacket(tx, rx);
 
