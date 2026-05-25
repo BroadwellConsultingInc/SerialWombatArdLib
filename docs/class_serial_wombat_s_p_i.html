@@ -95,7 +95,7 @@ $(function(){ initResizable(false); });
 <p>A pin mode for the Serial Wombat 8B or SW18AB chips which allows SPI communication over I2C.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="us_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SerialWombatSPI:</div>
 <div class="dyncontent">
@@ -124,8 +124,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a472a727810c09b06529b1b89a623f001" id="r_a472a727810c09b06529b1b89a623f001"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a472a727810c09b06529b1b89a623f001">SerialWombatSPI</a> (<a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a> &amp;serialWombat)</td></tr>
 <tr class="memdesc:a472a727810c09b06529b1b89a623f001"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_serial_wombat_s_p_i.html" title="A pin mode for the Serial Wombat 8B or SW18AB chips which allows SPI communication over I2C.">SerialWombatSPI</a> class.  <br /></td></tr>
 <tr class="separator:a472a727810c09b06529b1b89a623f001"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a064a2c980b45ad3d7edfb841b7809413" id="r_a064a2c980b45ad3d7edfb841b7809413"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a064a2c980b45ad3d7edfb841b7809413">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, uint8_t SPIMode, uint8_t MOSIpin=255, uint8_t MISOpin=255, uint8_t CSpin=255)</td></tr>
-<tr class="separator:a064a2c980b45ad3d7edfb841b7809413"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bc16538e160fc8aab94c698bde14acd" id="r_a6bc16538e160fc8aab94c698bde14acd"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bc16538e160fc8aab94c698bde14acd">begin</a> (uint8_t <a class="el" href="class_serial_wombat_pin.html#ae6de209447153d55145f26553aae2c4a">pin</a>, uint8_t SPIModeparam, uint8_t MOSIpin=255, uint8_t MISOpin=255, uint8_t CSpin=255)</td></tr>
+<tr class="separator:a6bc16538e160fc8aab94c698bde14acd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19ed8a1233d4ec4654219b9d515ecf06" id="r_a19ed8a1233d4ec4654219b9d515ecf06"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19ed8a1233d4ec4654219b9d515ecf06">transfer</a> (uint8_t data, bool csSaysStayLow=false)</td></tr>
 <tr class="separator:a19ed8a1233d4ec4654219b9d515ecf06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a105126a92c0aa83fb9623a5e283c101d" id="r_a105126a92c0aa83fb9623a5e283c101d"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a105126a92c0aa83fb9623a5e283c101d">transfer</a> (uint16_t data, bool csSaysStayLow=false)</td></tr>
@@ -222,12 +222,15 @@ Additional Inherited Members</h2></td></tr>
 <p>See the Examples in the examples area for usage.</p>
 <p>A Tutorial video is avaialble:</p>
 <p> 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TODO" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TPwNbclAd5s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
-<p><a href="https://youtu.be/TODO">https://youtu.be/TODO</a></p>
-<p>The class inherits from the Arduino Sream class, so functions such as write can be used once the class is initialized. </p>
-
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_s_p_i_8h_source.html#l00097">97</a> of file <a class="el" href="_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
+<p><a href="https://youtu.be/TPwNbclAd5s">https://youtu.be/TPwNbclAd5s</a></p>
+<div class="image">
+<img src="serialWombatSPI_v233_v1.jpg" alt=""/>
+<div class="caption">
+SerialWombatSPI overview</div></div>
+ 
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_s_p_i_8h_source.html#l00097">97</a> of file <a class="el" href="us_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a472a727810c09b06529b1b89a623f001" name="a472a727810c09b06529b1b89a623f001"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a472a727810c09b06529b1b89a623f001">&#9670;&#160;</a></span>SerialWombatSPI()</h2>
@@ -260,13 +263,13 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_s_p_i_8h_source.html#l00104">104</a> of file <a class="el" href="_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_s_p_i_8h_source.html#l00104">104</a> of file <a class="el" href="us_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a064a2c980b45ad3d7edfb841b7809413" name="a064a2c980b45ad3d7edfb841b7809413"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a064a2c980b45ad3d7edfb841b7809413">&#9670;&#160;</a></span>begin()</h2>
+<a id="a6bc16538e160fc8aab94c698bde14acd" name="a6bc16538e160fc8aab94c698bde14acd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bc16538e160fc8aab94c698bde14acd">&#9670;&#160;</a></span>begin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -282,7 +285,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>SPIMode</em></span>, </td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>SPIModeparam</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -323,7 +326,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>negative error code or positive success </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_s_p_i_8h_source.html#l00116">116</a> of file <a class="el" href="_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_s_p_i_8h_source.html#l00116">116</a> of file <a class="el" href="us_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
 
 </div>
 </div>
@@ -350,7 +353,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_s_p_i_8h_source.html#l00143">143</a> of file <a class="el" href="_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_s_p_i_8h_source.html#l00147">147</a> of file <a class="el" href="us_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
 
 </div>
 </div>
@@ -377,7 +380,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_s_p_i_8h_source.html#l00150">150</a> of file <a class="el" href="_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_s_p_i_8h_source.html#l00154">154</a> of file <a class="el" href="us_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
 
 </div>
 </div>
@@ -404,7 +407,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_s_p_i_8h_source.html#l00337">337</a> of file <a class="el" href="_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_s_p_i_8h_source.html#l00341">341</a> of file <a class="el" href="us_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
 
 </div>
 </div>
@@ -435,7 +438,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_s_p_i_8h_source.html#l00182">182</a> of file <a class="el" href="_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_s_p_i_8h_source.html#l00186">186</a> of file <a class="el" href="us_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
 
 </div>
 </div>
@@ -466,7 +469,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_s_p_i_8h_source.html#l00158">158</a> of file <a class="el" href="_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_s_p_i_8h_source.html#l00162">162</a> of file <a class="el" href="us_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
 
 </div>
 </div>
@@ -502,7 +505,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_s_p_i_8h_source.html#l00205">205</a> of file <a class="el" href="_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_s_p_i_8h_source.html#l00209">209</a> of file <a class="el" href="us_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
 
 </div>
 </div>
@@ -538,7 +541,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_s_p_i_8h_source.html#l00311">311</a> of file <a class="el" href="_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_s_p_i_8h_source.html#l00315">315</a> of file <a class="el" href="us_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
 
 </div>
 </div>
@@ -579,7 +582,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_serial_wombat_s_p_i_8h_source.html#l00277">277</a> of file <a class="el" href="_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_s_p_i_8h_source.html#l00281">281</a> of file <a class="el" href="us_serial_wombat_s_p_i_8h_source.html">SerialWombatSPI.h</a>.</p>
 
 </div>
 </div>

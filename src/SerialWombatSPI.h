@@ -83,14 +83,14 @@ See the Examples in the examples area for usage.
 A Tutorial video is avaialble:
 
 @htmlonly
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TODO" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TPwNbclAd5s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 @endhtmlonly
 
-https://youtu.be/TODO
+https://youtu.be/TPwNbclAd5s
 
 
-The class inherits from the Arduino Sream class, so functions such as write 
-can be used once the class is initialized.
+
+\image html serialWombatSPI_v233_v1.jpg "SerialWombatSPI overview"
 
 */
 

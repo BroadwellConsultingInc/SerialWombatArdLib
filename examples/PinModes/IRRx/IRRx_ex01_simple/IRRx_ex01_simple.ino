@@ -14,7 +14,7 @@
  * 
  *   SerialWombatIRRx pin mode documentation:
  *   
- *   TODO
+ *   https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_i_r_rx.html
  */
 
 #include <SerialWombat.h>
@@ -22,7 +22,7 @@
 SerialWombatChip sw;
 SerialWombatIRRx irrx(sw);
 
-#define IRRX_PIN 7
+#define IRRX_PIN 18
 void setup() {
   // put your setup code here, to run once:
   Wire.begin();   //Initialize the I2C Bus on default pins
@@ -55,7 +55,9 @@ void setup() {
   sw.registerErrorHandler(SerialWombatSerialErrorHandlerBrief); //Register an error handler that will print communication errors to Serial
   //Optional Error handling code end
   irrx.begin(IRRX_PIN); // Default parameters:  NEC Mode, queue repeats, active low, 1000ms public data timeout, 0xFFFF public data default, no address filtering
-  //irrx.enablePullup(true);   //Comment in this line if your receiver is open drain type without pullup 
+  irrx.enablePullup(true);   //Comment in this line if your receiver is open drain type without pullup 
+
+  Serial.println("Press a key on the remote.  If you get no result, ensure the remote is NEC compatible, and that a pull up resistor is in place or enabled if required.");
 
 }
 
@@ -64,7 +66,13 @@ void loop() {
 
   if (receivedData >=0)
   {
-    Serial.println(receivedData);
+    Serial.println();
+    Serial.print(receivedData);
+  }
+  else
+  {
+    Serial.print('.');
+    delay(500);
   }
   
 }

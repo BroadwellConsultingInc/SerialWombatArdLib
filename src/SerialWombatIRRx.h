@@ -29,9 +29,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #include "SerialWombat.h"
 /*! @file SerialWombatIRRx.h
 */
-/*! @brief A class for the Serial Wombat SW8B or SW18AB chips which received IR remote signals.  Currently only NEC protocol is supported.
+/*! @brief A class for the Serial Wombat SW8B or SW18AB chips which received IR remote signals.  Currently only NEC / Samsung protocol is supported.
 
-This class supports IR Receive of NEC protocol.   It assumes 16 bit addressing, and supports repeat codes.
+This class supports IR Receive of NEC protocol, and also supports most Samsung remotes as of V2.2.4.   It assumes 16 bit addressing, and supports repeat codes.
 
 The pin public data can represent the last received command, last received address, or number of messages received.  This allows
 pin to pin interaction to either drive outputs (address or command) or drive the blink or pulse on change pin modes when the count
@@ -44,13 +44,17 @@ running this pin mode allows multiple addresses to be decoded into different str
 
 
 A Tutorial video is avaialble:
+@htmlonly
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9rq4D5acLpw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+@endhtmlonly
 
-COMING SOON
+https://youtu.be/9rq4D5acLpw
 
 
 The class inherits from the Arduino Stream class, so queued button presses can be read like a
 Serial port.
 
+\image html serialWombatIRRx_v233_v1.jpg "SerialWombatIRRx overview"
 
 */
 
@@ -76,7 +80,7 @@ class SerialWombatIRRx :
 		  @brief Initalize the SerialWombatIRRx.  
 		  @param pin The Serial Wombat pin number to use for the IR receiver.  For the REMCON board this should be 3
 		  @param dataOutput The type of data to output (COMMAND, ADDRESS, or DATACOUNT)
-		  @param irMode 0 for NEC protocol, other values reserved for future protocols
+		  @param irMode 0 for NEC / Samsung protocol, other values reserved for future protocols
 		  @param useRepeat If true, queue value on repeat commands
 		  @param activeState The state of the pin which indicates an active IR signal (SW_LOW or SW_HIGH)
 		  @param publicDataTimeoutPeriod_mS The number of milliseconds to wait for the next byte to be received before timing out

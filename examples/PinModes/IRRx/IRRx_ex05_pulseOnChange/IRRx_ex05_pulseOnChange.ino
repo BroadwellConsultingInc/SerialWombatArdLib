@@ -21,7 +21,7 @@
 
      SerialWombatIRRx pin mode documentation:
 
-     TODO
+     https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_i_r_rx.html
 */
 
 #include <SerialWombat.h>

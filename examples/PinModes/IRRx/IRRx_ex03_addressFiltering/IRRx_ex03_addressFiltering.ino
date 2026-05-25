@@ -19,7 +19,7 @@
  * 
  *   SerialWombatIRRx pin mode documentation:
  *   
- *   TODO
+ *   https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_i_r_rx.html
  */
  
 #include <SerialWombat.h>
@@ -27,7 +27,7 @@
 SerialWombatChip sw;
 SerialWombatIRRx irrx(sw);
 
-#define IRRX_PIN 7
+#define IRRX_PIN 3
 #define TRANSMITTER_ADDRESS 0xEF00
 
 void setup() {
@@ -64,8 +64,8 @@ void setup() {
 
   
   irrx.begin(IRRX_PIN,
-              0,//Mode 0 : NEC
               SerialWombatIRRx::publicDataOutput::DATACOUNT,// Make data count the output
+              0,//Mode 0 : NEC
               true, // Use repeat
               SW_LOW,// Active Low
               1000, // 1000 ms Public Data Timeout
@@ -74,6 +74,10 @@ void setup() {
               TRANSMITTER_ADDRESS); // Filter to address TRANSMITTER_ADDRESS  (This value was determined for a given remote using example 2
               
 //irrx.enablePullup(true);   //Comment in this line if your receiver is open drain type without pullup 
+
+
+  Serial.println("Press a key on the remote to see it's 8 bit.");
+  Serial.println("If you get no result, ensure the remote is NEC compatible, and that a pull up resistor is in place or enabled if required.");
 
 }
 

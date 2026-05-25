@@ -2,7 +2,7 @@ var searchData=
 [
   ['data_20and_20pin_20modes_0',['Public Data and Pin Modes',['../index.html#autotoc_md11',1,'']]],
   ['datacount_1',['DATACOUNT',['../class_serial_wombat_i_r_rx.html#a7dbe73a06d7c3d260805779400d60016ab977c461d32e1070f70f98ed34b377c8',1,'SerialWombatIRRx']]],
-  ['dataloggerperiod_2',['DataLoggerPeriod',['../_serial_wombat18_a_b_data_logger_8h.html#aa6cc160fac5034f58dbb315235774769',1,'SerialWombat18ABDataLogger.h']]],
+  ['dataloggerperiod_2',['DataLoggerPeriod',['../us_serial_wombat18_a_b_data_logger_8h.html#aa6cc160fac5034f58dbb315235774769',1,'SerialWombat18ABDataLogger.h']]],
   ['delayafterfirstpinfirsttransition_5fms_3',['delayAfterFirstPinFirstTransition_mS',['../class_serial_wombat_simulated_quad_enc.html#a71d3821b07892d3f9460ea89a1dd50cb',1,'SerialWombatSimulatedQuadEnc']]],
   ['delayafterfirstpinsecondtransition_5fms_4',['delayAfterFirstPinSecondTransition_mS',['../class_serial_wombat_simulated_quad_enc.html#ab07d4ecc6dad867aa8fab1fb4741dc49',1,'SerialWombatSimulatedQuadEnc']]],
   ['delayaftersecondpinfirsttransition_5fms_5',['delayAfterSecondPinFirstTransition_mS',['../class_serial_wombat_simulated_quad_enc.html#a4916149feae4047db1c9117919cce5e4',1,'SerialWombatSimulatedQuadEnc']]],
