@@ -118,12 +118,12 @@ void loop() {
         if (sw.isSW18() || sw.isSW08())
         {
           Serial.println("Supported Pin Modes: ");
-          for (int pinModeNumber = 1; pinModeNumber < 256; ++ pinModeNumber)
+          for (int pinModeNumber = 0; pinModeNumber < 256; ++ pinModeNumber)
           {
             uint8_t tx[8] = {201, 1,(uint8_t) pinModeNumber, 0x55, 0x55, 0x55, 0x55, 0x55};
             int16_t returnVal = sw.sendPacket(tx);
             returnVal *= -1;
-            if (returnVal == SW_ERROR_PIN_CONFIG_WRONG_ORDER)
+            if (returnVal == SW_ERROR_PIN_CONFIG_WRONG_ORDER || returnVal == SW_ERROR_INVALID_PIN_COMMAND)
             {
              
               if (pinModeNumber <= 41)

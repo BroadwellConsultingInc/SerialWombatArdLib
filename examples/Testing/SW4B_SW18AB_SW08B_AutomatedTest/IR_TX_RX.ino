@@ -5,6 +5,7 @@ void irTxRxTest()
   // Basic test using stream functions
   {
     irRx18.begin(19,
+    SerialWombatIRRx::publicDataOutput::DATACOUNT,
                  0, //Mode
                  true, //Use Repeat
                  SW_HIGH //Active
@@ -15,6 +16,7 @@ void irTxRxTest()
                  0x2345 //Address
                 );
     irRx8.begin(SW18ABPinTo8BPin(18),
+    SerialWombatIRRx::publicDataOutput::DATACOUNT,
                 0, //Mode
                 true, //Use Repeat
                 SW_HIGH //Active
@@ -38,6 +40,7 @@ void irTxRxTest()
   //Test Repeat
   { 
     irRx18.begin(19,
+    SerialWombatIRRx::publicDataOutput::DATACOUNT,
                  0, //Mode
                  true, //Use Repeat
                  SW_HIGH //Active
@@ -48,6 +51,7 @@ void irTxRxTest()
                  0x2345 //Address
                 );
     irRx8.begin(SW18ABPinTo8BPin(18),
+    SerialWombatIRRx::publicDataOutput::DATACOUNT,
                 0, //Mode
                 true, //Use Repeat
                 SW_HIGH //Active
@@ -81,11 +85,12 @@ void irTxRxTest()
   //Test Addressing
   { 
     irRx18.begin(19,
+    SerialWombatIRRx::publicDataOutput::DATACOUNT,
                  0, //Mode
                  true, //Use Repeat
                  SW_HIGH, //Active
                  1000, //Timeout period
-                 0x65535, // timeoutValue
+                 65535, // timeoutValue
                  true, //Use Address Filter
                  0x1234 //Address
                 );
@@ -95,11 +100,12 @@ void irTxRxTest()
                  0x2345 //Address
                 );
     irRx8.begin(SW18ABPinTo8BPin(18),
+    SerialWombatIRRx::publicDataOutput::DATACOUNT,
                  0, //Mode
                  true, //Use Repeat
                  SW_HIGH, //Active
                  1000, //Timeout period
-                 0x65535, // timeoutValue
+                 65535, // timeoutValue
                  true, //Use Address Filter
                  0x2345 //Address
                );
@@ -135,14 +141,15 @@ void irTxRxTest()
   //Test  public data Address
   { 
     irRx18.begin(19,
+                     SerialWombatIRRx::publicDataOutput::ADDRESS,
                  0, //Mode
                  true, //Use Repeat
                  SW_HIGH, //Active
                  1000, //Timeout period
-                 0x65535, // timeoutValue
+                 65535, // timeoutValue
                  true, //Use Address Filter
-                 0x1234, //Address
-                 SerialWombatIRRx::publicDataOutput::ADDRESS
+                 0x1234 //Address
+
                 );
     irTx8.begin(SW18ABPinTo8BPin(19), 0x1234);
 
@@ -150,11 +157,12 @@ void irTxRxTest()
                  0x2345 //Address
                 );
     irRx8.begin(SW18ABPinTo8BPin(18),
+                     SerialWombatIRRx::publicDataOutput::ADDRESS,
                  0, //Mode
                  true, //Use Repeat
                  SW_HIGH, //Active
                  1000, //Timeout period
-                 0x65535, // timeoutValue
+                 65535, // timeoutValue
                  true, //Use Address Filter
                  0x2345 //Address
                );
@@ -164,6 +172,9 @@ void irTxRxTest()
 
     irTx8.sendMessage(80, 0x1234, 14);
     irTx18.sendMessage(180, 0x2345, 14);
+    delay(10000);
+        test ("irRx8 addressed repeat public data address A1 ",irRx8.readPublicData(),0x2345);
+    test ("irRx18 addressed repeat public data address B1 ",irRx18.readPublicData(), 0x1234);
     irTx8.sendMessage(80, 0x89AB, 14);
     irTx18.sendMessage(180, 0x89AB, 14);
 
@@ -182,23 +193,23 @@ void irTxRxTest()
 
       }
     }
-    test ("irRx8 addressed repeat public data address ",irRx8.readPublicData(),0x2345);
-    test ("irRx18 addressed repeat public data address ",irRx18.readPublicData(),0x1234);
+    test ("irRx8 addressed repeat public data address A1 ",irRx8.readPublicData(),0x89AB);
+    test ("irRx18 addressed repeat public data address B1 ",irRx18.readPublicData(),0x89AB);
 
 
   }
 
-  //Test  public data Address
+  //Test  public data Command
   { 
     irRx18.begin(19,
+                SerialWombatIRRx::publicDataOutput::COMMAND,
                  0, //Mode
                  true, //Use Repeat
                  SW_HIGH, //Active
                  1000, //Timeout period
-                 0x65535, // timeoutValue
+                 65535, // timeoutValue
                  true, //Use Address Filter
-                 0x1234, //Address
-                 SerialWombatIRRx::publicDataOutput::COMMAND
+                 0x1234 //Address
                 );
     irTx8.begin(SW18ABPinTo8BPin(19), 0x1234);
 
@@ -206,11 +217,12 @@ void irTxRxTest()
                  0x2345 //Address
                 );
     irRx8.begin(SW18ABPinTo8BPin(18),
+                  SerialWombatIRRx::publicDataOutput::COMMAND,
                  0, //Mode
                  true, //Use Repeat
                  SW_HIGH, //Active
                  1000, //Timeout period
-                 0x65535, // timeoutValue
+                 65535, // timeoutValue
                  true, //Use Address Filter
                  0x2345 //Address
                );
@@ -220,6 +232,9 @@ void irTxRxTest()
 
     irTx8.sendMessage(80, 0x1234, 14);
     irTx18.sendMessage(180, 0x2345, 14);
+    delay(250);
+    test ("irRx8 addressed repeat public data addressed C1",irRx8.readPublicData(),180);
+    test ("irRx18 addressed repeat public data addressed D1",irRx18.readPublicData(),80);
     irTx8.sendMessage(80, 0x89AB, 14);
     irTx18.sendMessage(180, 0x89AB, 14);
 
@@ -238,8 +253,8 @@ void irTxRxTest()
 
       }
     }
-    test ("irRx8 addressed repeat public data address ",irRx8.readPublicData(),180);
-    test ("irRx18 addressed repeat public data address ",irRx18.readPublicData(),80);
+    test ("irRx8 addressed repeat public data addressed C",irRx8.readPublicData(),65535); //Timeout
+    test ("irRx18 addressed repeat public data addressed D",irRx18.readPublicData(),65535); //Timeout
 
 
   }
