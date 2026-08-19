@@ -295,6 +295,8 @@ typedef enum {
 	PIN_MODE_IRTX = 38, ///<(38)
 	PIN_MODE_BLINK = 40, ///<(40)
 	PIN_MODE_SPI = 41, ///<(41)
+	PIN_MODE_RANDOMBLINK = 42, ///<(42)
+	PIN_MODE_CHARLIEPLEX = 43, ///<(43)
 	PIN_MODE_UNKNOWN = 255, ///< (0xFF)
 }SerialWombatPinMode_t;
 
@@ -479,8 +481,19 @@ public:
 			}
 		}
 		else if (isSW08())
-		{
-			//TODO
+		{ //CH32V003
+			for (uint32_t address = 0x1FFFF7E8; address <= 0x1FFFF7F0; address += 4)
+			{
+				uint32_t data = readFlashAddress(address);
+				uniqueIdentifier[uniqueIdentifierLength] = (uint8_t)data;
+				++uniqueIdentifierLength;
+				uniqueIdentifier[uniqueIdentifierLength] = (uint8_t)(data >> 8);
+				++uniqueIdentifierLength;
+				uniqueIdentifier[uniqueIdentifierLength] = (uint8_t)(data >> 16);
+				++uniqueIdentifierLength;
+				uniqueIdentifier[uniqueIdentifierLength] = (uint8_t)(data >> 24);
+				++uniqueIdentifierLength;
+			}
 		}
 		
 	}
@@ -784,6 +797,19 @@ public:
 	uint16_t writePublicData(uint8_t pin, uint16_t value)
 	{
 		uint8_t tx[] = { 0x82,pin,(uint8_t)(value & 0xFF),(uint8_t)(value >> 8) ,255,0x55,0x55,0x55 };
+		uint8_t rx[8];
+		sendPacket(tx, rx);
+		return (rx[2] + rx[3] * 256);
+	}
+
+/*!
+	\brief Write a 16 bit value to a Serial Wombat pin Mode
+	\param pin The pin number to which to write
+	\param value The 16 bit value to write
+*/
+	uint16_t writePublicData(uint8_t firstPin, uint16_t firstValue, uint8_t secondPin,uint16_t secondValue)
+	{
+		uint8_t tx[] = { 0x82,firstPin,(uint8_t)(firstValue & 0xFF),(uint8_t)(firstValue >> 8) ,secondPin,(uint8_t)(secondValue & 0xFF),(uint8_t)(secondValue >> 8) ,0x55 };
 		uint8_t rx[8];
 		sendPacket(tx, rx);
 		return (rx[2] + rx[3] * 256);
@@ -1272,7 +1298,13 @@ public:
 			0, //Erase Page
 			SW_LE32(address),
 			0x55,0x55 };
+		  #ifdef ESP32 // ESP32 times out early, even if you set the I2C timeout command.
+		sendPacketNoResponse(tx);
+		delay(40);
+		return(8);
+#else
 		return sendPacket(tx);
+		   #endif
 	}
 
 
@@ -1738,6 +1770,126 @@ public:
 	
 };
 
+
+/*! 
+	@brief A class which tunes the oscillator on a CH32V003 based Serial Wombat 8B chip
+	
+	This class is designed to be called periodically in the program main loop.  It compares
+	the 1mS execution frame count to the millis() funciton provided by the host.  When
+	at least 10 seconds of execution have occured the class compares the counts and
+	adjusts the CH32V003 HSI oscillator trim value slightly slower or faster.
+	This can reduce the error in the Serial Wombat's nominal clock. Simply call update()
+	periodically and the class will take care of the rest.  Allow up to 10 calls at least
+	10 seconds apart each to reach optimal timing.
+	See the example sketch for an example.
+	*/
+class SerialWombat8BOscillatorTuner
+{
+private:
+	SerialWombatChip& _sw;
+	uint32_t lastMillis = 0;
+	uint32_t lastFrames = 0;
+
+	// CH32V003 RCC_CTLR low byte.  The Serial Wombat 8B firmware RAM read/write
+	// commands use 16-bit addresses for memory-mapped register access.
+	static const uint16_t CH32V003_RCC_CTLR_LOW = 0x1000;
+	static const uint8_t CH32V003_HSITRIM_MASK = 0xF8;
+	static const uint8_t CH32V003_HSITRIM_SHIFT = 3;
+
+	uint8_t readTrim()
+	{
+		return ((_sw.readRamAddress(CH32V003_RCC_CTLR_LOW) & CH32V003_HSITRIM_MASK) >> CH32V003_HSITRIM_SHIFT);
+	}
+
+	void writeTrim(uint8_t trim)
+	{
+		uint8_t rccCtlrLow = _sw.readRamAddress(CH32V003_RCC_CTLR_LOW);
+		rccCtlrLow &= ~CH32V003_HSITRIM_MASK;
+		rccCtlrLow |= (uint8_t)((trim & 0x1F) << CH32V003_HSITRIM_SHIFT);
+		_sw.writeRamAddress(CH32V003_RCC_CTLR_LOW, rccCtlrLow);
+	}
+
+public:
+	/*!
+	@brief Class constructor for SerialWombat8BOscillatorTuner
+	@param serialWombatChip The Serial Wombat chip on which the Oscillator will be tuned;
+	*/
+	SerialWombat8BOscillatorTuner(SerialWombatChip& serialWombatChip) : _sw(serialWombatChip) { }
+
+	/*!
+	@brief   Call periodically to tune the SW8B oscillator to reported millis
+	*/
+	void update() {
+		uint32_t m = millis();
+		if (lastMillis == 0)
+		{
+			lastMillis = m;
+			uint32_t frames = _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_MSW);
+			uint16_t frameslsb = _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_LSW);
+			if (frames != _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_MSW))
+			{
+				frameslsb = _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_LSW);
+				frames = _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_MSW);
+			}
+			frames <<= 16;
+			frames += frameslsb;
+			lastFrames = frames;
+
+		}
+		else if ((m - lastMillis) < 10000)
+		{
+			//Do nothing
+		}
+		else if (m < lastMillis)
+		{
+			//Has it been 47 days already?
+			lastMillis = 0;
+		}
+		else
+		{
+			uint32_t diff = m - lastMillis;
+
+			uint32_t frames = _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_MSW);
+			uint16_t frameslsb = _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_LSW);
+			
+			if (frames != _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_MSW))
+			{
+				frameslsb = _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_LSW);
+				frames = _sw.readPublicData(SerialWombatDataSource::SW_DATA_SOURCE_FRAMES_RUN_MSW);
+			}
+			frames <<= 16;
+			frames += frameslsb;
+			uint32_t framesDif = frames - lastFrames;
+
+			if (diff > framesDif )
+			{
+				// Running slow
+				uint8_t trim = readTrim();
+				if (trim < 31)
+				{
+					writeTrim(trim + 1);
+				}
+			}
+			else if (diff < framesDif)
+			{
+				// Running fast
+				uint8_t trim = readTrim();
+				if (trim > 0)
+				{
+					writeTrim(trim - 1);
+				}
+
+			}
+
+			lastMillis = m;
+			lastFrames = frames;
+
+		}
+		
+	}
+	
+};
+
 /*
 End of cross platform code synchronization.  Random string to help the compare tool sync lines:
 asdkj38vjn1nasdnvuwlamafdjiivnowalskive
@@ -1778,6 +1930,7 @@ void SerialWombatSerialErrorHandlerVerbose(uint16_t error, SerialWombatChip* sw)
 #include "SerialWombat18CapTouch.h"
 #include "SerialWombat18ABVGA.h"
 #include "SerialWombatAnalogInput.h"
+#include "SerialWombatCharliePlex.h"
 #include "SerialWombatDebouncedInput.h"
 #include "SerialWombatDigitalInput.h"
 #include "SerialWombatDigitalOutput.h"
@@ -1797,6 +1950,7 @@ void SerialWombatSerialErrorHandlerVerbose(uint16_t error, SerialWombatChip* sw)
 #include "SerialWombatPWM.h"
 #include "SerialWombatQuadEnc.h"
 #include "SerialWombatQueuedPulseOutput.h"
+#include "SerialWombatRandomBlink.h"
 #include "SerialWombatResistanceInput.h"
 #include "SerialWombatServo.h"
 #include "SerialWombatSPI.h"

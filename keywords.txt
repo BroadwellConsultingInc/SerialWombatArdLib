@@ -334,6 +334,8 @@ SerialWombatUltrasonicDistanceSensor	KEYWORD1
 HC_SR04	LITERAL2
 manualTrigger	KEYWORD1
 
+SerialWombatRandomBlink	KEYWORD1
+
 SerialWombat18ABOscillatorTuner	KEYWORD1
 
 SerialWombatHSCounter	KEYWORD1

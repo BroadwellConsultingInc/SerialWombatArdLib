@@ -68,8 +68,7 @@ public:
 	    int16_t result = initPacketNoResponse(0,secondPin,(uint8_t) driverMode);
 	    if (result < 0) return result;
             uint8_t tx2[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_MODE_HW_0,_pin,PIN_MODE_HBRIDGE,SW_LE16(PWMPeriod_uS),0x55,0x55,0x55 };
-            _sw.sendPacket(tx2);
-	    return initPacketNoResponse(20,PWMPeriod_uS);
+            return _sw.sendPacket(tx2);
 	}
 
 

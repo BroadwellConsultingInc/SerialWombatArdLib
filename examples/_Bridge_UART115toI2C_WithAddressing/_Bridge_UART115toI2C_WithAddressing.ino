@@ -11,6 +11,12 @@ SerialWombatChip SWC;
 uint8_t i2cAddress = 0;
 uint8_t tx[9], rx[8], count;
 
+
+
+//#define SW_FAILURE_PIN 8  // If this #define is enabled, this pin will toggle when a 0x40 unit test failure packet is sent
+                          // This is designed for internal unit testing with a specialized PCB board.
+
+
 void setup() {
 
 #ifdef ARDUINO_ESP8266_GENERIC
@@ -25,10 +31,21 @@ void setup() {
   Serial.flush();
   count = 0;
   i2cAddress = SWC.find(true);
+
+#ifdef SW_FAILURE_PIN
+#warning FAILURE PIN IS ENABLED
+  pinMode(SW_FAILURE_PIN,OUTPUT);
+#endif
+
+
+
 }
 
 uint32_t lastReceive = 0;
 #define RECEIVETIMEOUT 2000
+
+
+                          
 void loop() {
 
 
@@ -45,6 +62,12 @@ void loop() {
       {
         if (tx[1] != 0x55 && tx[1] != 'x' && tx[1] != ' ')
         {
+          #ifdef SW_FAILURE_PIN
+          if (tx[1] == 0x40) 
+          {
+            digitalWrite(SW_FAILURE_PIN,!digitalRead(SW_FAILURE_PIN));            
+          }
+          #endif
           if (tx[0] != 0xFF)
           {
             Wire.beginTransmission(tx[0]);

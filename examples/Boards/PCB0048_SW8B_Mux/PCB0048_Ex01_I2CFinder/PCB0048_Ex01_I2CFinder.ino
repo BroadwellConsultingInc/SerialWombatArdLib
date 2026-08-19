@@ -1,4 +1,22 @@
-#include <SerialWombat.h>
+/*  This example shows how to use the Serial Wombat PCB0048 Mux board to attach or detacth I2C device 
+ *   from different bus segements.  It disconnects all segments then does a scan.  Any
+ *   devices found (including the MUX board itself) are on the main trunk attached to the host.
+ *   
+ *   The example then enables each segment in order and scans again for devices.
+ *   
+ *   This example shows turning each segment on and off individually.  However,
+ *   there are also convenient functions that disable all segments and enable one
+ *   with a single call.  See PCB0048_Ex02 for an example.
+ *   
+ *   Video on the PCB0048 MUX:
+ *   
+ *   TODO coming soon
+ * 
+ *   PCB0048 Mux documentation:
+ *   
+ *   https://serwom.com/p48
+ */
+ #include <SerialWombat.h>
 
 
 
@@ -10,7 +28,7 @@ void setup() {
   // put your setup code here, to run once:
   Wire.begin(); //Initialize I2C
   Serial.begin(115200);  //Initialize Serial
-  while (!Serial); // Wait for initialization
+
   delay(200);
   swMux.begin(MUX_I2C_ADDRESS);
 
@@ -29,10 +47,8 @@ void scanI2C(){
 
     if (error == 0)
     {
-      //Got an Ack. Does it behave like a Serial Wombat Chip?
       Serial.print("I2C Device found at address 0x");
-      Serial.println(i2cAddress, HEX);
-      
+      Serial.println(i2cAddress, HEX);     
     }
   }
 }

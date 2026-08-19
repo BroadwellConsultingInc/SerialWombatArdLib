@@ -53,6 +53,7 @@ Each bus segment is enabled by writing 0xFFFF to the appropriate bus pin, and di
 For example:
 bus3.writePublicData(0x0000); //Disable bus segment 3
 bus2.writePublicData(0xFFFF);  // Enable bus segment bus2
+There are additional calls that enable a single segment.			       
 
 See full documentation for this board at 
 https://serialwombat.com/p48
@@ -95,8 +96,45 @@ public:
 		bus7.begin(7);	
 		return (0);
 	}
+	/*!	
+	@brief Disable bus 2, 3, and 7 then enable bus 1
+	*/
+	void enableBus1Only()
+	{
+		writePublicData(2,0,3,0);
+		writePublicData(7,0);
+		writePublicData(1,0xFFFF);
+	}
 
+	/*!	
+	@brief Disable bus 1, 3, and 7 then enable bus 2
+	*/
+	void enableBus2Only()
+	{
+		writePublicData(1,0,3,0);
+		writePublicData(7,0);
+		writePublicData(2,0xFFFF);
+	}
 
+	/*!	
+	@brief Disable bus 1, 2, and 7 then enable bus 3
+	*/
+	void enableBus3Only()
+	{
+		writePublicData(1,0,2,0);
+		writePublicData(7,0);
+		writePublicData(3,0xFFFF);
+	}
+
+	/*!	
+	@brief Disable bus 1, 2, and 3 then enable bus 7
+	*/
+	void enableBus7Only()
+	{
+		writePublicData(1,0,2,0);
+		writePublicData(3,0);
+		writePublicData(7,0xFFFF);
+	}
 
 private:
 };
