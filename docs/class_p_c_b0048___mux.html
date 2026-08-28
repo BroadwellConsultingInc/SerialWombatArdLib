@@ -131,6 +131,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9bf0fb9de6812dab2cf3db067e3b8e94" id="r_a9bf0fb9de6812dab2cf3db067e3b8e94"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bf0fb9de6812dab2cf3db067e3b8e94">begin</a> (uint8_t i2cAddress)</td></tr>
 <tr class="memdesc:a9bf0fb9de6812dab2cf3db067e3b8e94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a <a class="el" href="class_p_c_b0048___mux.html" title="A class representing a PCB0048 Mux PCB.">PCB0048_Mux</a> pcb on a given I2C address.  <br /></td></tr>
 <tr class="separator:a9bf0fb9de6812dab2cf3db067e3b8e94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e0ccee33943c3dd2fb17196741c08c7" id="r_a0e0ccee33943c3dd2fb17196741c08c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e0ccee33943c3dd2fb17196741c08c7">enableBus1Only</a> ()</td></tr>
+<tr class="memdesc:a0e0ccee33943c3dd2fb17196741c08c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable bus 2, 3, and 7 then enable bus 1.  <br /></td></tr>
+<tr class="separator:a0e0ccee33943c3dd2fb17196741c08c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f4412e1c2efbf8dfd1119b6607cf8b9" id="r_a2f4412e1c2efbf8dfd1119b6607cf8b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f4412e1c2efbf8dfd1119b6607cf8b9">enableBus2Only</a> ()</td></tr>
+<tr class="memdesc:a2f4412e1c2efbf8dfd1119b6607cf8b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable bus 1, 3, and 7 then enable bus 2.  <br /></td></tr>
+<tr class="separator:a2f4412e1c2efbf8dfd1119b6607cf8b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24498b4b30c04fa6aad1937f60636148" id="r_a24498b4b30c04fa6aad1937f60636148"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24498b4b30c04fa6aad1937f60636148">enableBus3Only</a> ()</td></tr>
+<tr class="memdesc:a24498b4b30c04fa6aad1937f60636148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable bus 1, 2, and 7 then enable bus 3.  <br /></td></tr>
+<tr class="separator:a24498b4b30c04fa6aad1937f60636148"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b86c1662376277ff39f3963aaf543c1" id="r_a3b86c1662376277ff39f3963aaf543c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b86c1662376277ff39f3963aaf543c1">enableBus7Only</a> ()</td></tr>
+<tr class="memdesc:a3b86c1662376277ff39f3963aaf543c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable bus 1, 2, and 3 then enable bus 7.  <br /></td></tr>
+<tr class="separator:a3b86c1662376277ff39f3963aaf543c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_serial_wombat_chip"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_serial_wombat_chip')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_serial_wombat_chip.html">SerialWombatChip</a></td></tr>
 <tr class="memitem:a475990a0bb4fdf3884cd60f30a63dadf inherit pub_methods_class_serial_wombat_chip" id="r_a475990a0bb4fdf3884cd60f30a63dadf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a475990a0bb4fdf3884cd60f30a63dadf">configureDigitalPin</a> (uint8_t pin, uint8_t highLow)</td></tr>
 <tr class="memdesc:a475990a0bb4fdf3884cd60f30a63dadf inherit pub_methods_class_serial_wombat_chip"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure a pin to a digital state with the same parameters as Arduino's <a class="el" href="class_serial_wombat_chip.html#a2e25c58f541b5215aafac0f599cc528f" title="Set an output pin High or Low.">digitalWrite()</a> function.  <br /></td></tr>
@@ -193,6 +205,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a99bcf77ea4c2ff0ff5ffd773e85b8ec3 inherit pub_methods_class_serial_wombat_chip" id="r_a99bcf77ea4c2ff0ff5ffd773e85b8ec3"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a99bcf77ea4c2ff0ff5ffd773e85b8ec3">writePublicData</a> (uint8_t pin, uint16_t value)</td></tr>
 <tr class="memdesc:a99bcf77ea4c2ff0ff5ffd773e85b8ec3 inherit pub_methods_class_serial_wombat_chip"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a 16 bit value to a Serial Wombat pin Mode.  <br /></td></tr>
 <tr class="separator:a99bcf77ea4c2ff0ff5ffd773e85b8ec3 inherit pub_methods_class_serial_wombat_chip"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67e4a92532a3b708d930805ea83eb180 inherit pub_methods_class_serial_wombat_chip" id="r_a67e4a92532a3b708d930805ea83eb180"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a67e4a92532a3b708d930805ea83eb180">writePublicData</a> (uint8_t firstPin, uint16_t firstValue, uint8_t secondPin, uint16_t secondValue)</td></tr>
+<tr class="memdesc:a67e4a92532a3b708d930805ea83eb180 inherit pub_methods_class_serial_wombat_chip"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a 16 bit value to a Serial Wombat pin Mode.  <br /></td></tr>
+<tr class="separator:a67e4a92532a3b708d930805ea83eb180 inherit pub_methods_class_serial_wombat_chip"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b05ab4c8153b6b4b2dd1f47819642bd inherit pub_methods_class_serial_wombat_chip" id="r_a2b05ab4c8153b6b4b2dd1f47819642bd"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a2b05ab4c8153b6b4b2dd1f47819642bd">comparePublicDataToThreshold</a> (uint16_t threshold=0)</td></tr>
 <tr class="separator:a2b05ab4c8153b6b4b2dd1f47819642bd inherit pub_methods_class_serial_wombat_chip"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a4b2a9a8ee2d00dd4dd7e34457f70ba inherit pub_methods_class_serial_wombat_chip" id="r_a9a4b2a9a8ee2d00dd4dd7e34457f70ba"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial_wombat_chip.html#a9a4b2a9a8ee2d00dd4dd7e34457f70ba">readSupplyVoltage_mV</a> (void)</td></tr>
@@ -368,7 +383,8 @@ Additional Inherited Members</h2></td></tr>
 <p>The <a class="el" href="class_p_c_b0048___mux.html" title="A class representing a PCB0048 Mux PCB.">PCB0048_Mux</a> class is a child class of <a class="el" href="class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.">SerialWombatChip</a>. It initializes all I2C bridge digital I/Os to disabled and provides methods for them.</p>
 <p>Pins 1,2,3 and 7 are used to control the Pins 0, 4, 5, and 6 are accessed like any othe Serial Wombat Pin. The Default firmware image loaded on this board at manufacturing supports the following pin modes: Digital I/O Analog Input Quadrature Encoder Input PWM Output H Bridge Frequency Output</p>
 <p>Other images can be loaded via the bootloader. The pins selected for Mux control were chosen so that the hardware UART pins remain free for use with the communications firmware build.</p>
-<p>Each bus segment is enabled by writing 0xFFFF to the appropriate bus pin, and disabled by writing 0x0000 For example: bus3.writePublicData(0x0000); //Disable bus segment 3 bus2.writePublicData(0xFFFF); // Enable bus segment bus2</p>
+<p>Each bus segment is enabled by writing 0xFFFF to the appropriate bus pin, and disabled by writing 0x0000 For example: bus3.writePublicData(0x0000); //Disable bus segment 3 bus2.writePublicData(0xFFFF); // Enable bus segment bus2 There are additional calls that enable a single segment. <br  />
+</p>
 <p>See full documentation for this board at <a href="https://serialwombat.com/p48">https://serialwombat.com/p48</a></p>
 <p>A Tutorial video is also avaialble:</p>
 <p> 
@@ -376,7 +392,7 @@ Additional Inherited Members</h2></td></tr>
 </p>
 <p><a href="https://youtu.be/TODO">https://youtu.be/TODO</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="us_p_c_b0048___mux_8h_source.html#l00070">70</a> of file <a class="el" href="us_p_c_b0048___mux_8h_source.html">PCB0048_Mux.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0048___mux_8h_source.html#l00071">71</a> of file <a class="el" href="us_p_c_b0048___mux_8h_source.html">PCB0048_Mux.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a92db8786dcb5684eafa028f4135b2efe" name="a92db8786dcb5684eafa028f4135b2efe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a92db8786dcb5684eafa028f4135b2efe">&#9670;&#160;</a></span>PCB0048_Mux()</h2>
@@ -401,7 +417,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_p_c_b0048___mux_8h_source.html#l00073">73</a> of file <a class="el" href="us_p_c_b0048___mux_8h_source.html">PCB0048_Mux.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0048___mux_8h_source.html#l00074">74</a> of file <a class="el" href="us_p_c_b0048___mux_8h_source.html">PCB0048_Mux.h</a>.</p>
 
 </div>
 </div>
@@ -440,7 +456,123 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a negative number indicating an error code, or a non negative number indicating success </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_p_c_b0048___mux_8h_source.html#l00089">89</a> of file <a class="el" href="us_p_c_b0048___mux_8h_source.html">PCB0048_Mux.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0048___mux_8h_source.html#l00090">90</a> of file <a class="el" href="us_p_c_b0048___mux_8h_source.html">PCB0048_Mux.h</a>.</p>
+
+</div>
+</div>
+<a id="a0e0ccee33943c3dd2fb17196741c08c7" name="a0e0ccee33943c3dd2fb17196741c08c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e0ccee33943c3dd2fb17196741c08c7">&#9670;&#160;</a></span>enableBus1Only()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PCB0048_Mux::enableBus1Only </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Disable bus 2, 3, and 7 then enable bus 1. </p>
+
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0048___mux_8h_source.html#l00102">102</a> of file <a class="el" href="us_p_c_b0048___mux_8h_source.html">PCB0048_Mux.h</a>.</p>
+
+</div>
+</div>
+<a id="a2f4412e1c2efbf8dfd1119b6607cf8b9" name="a2f4412e1c2efbf8dfd1119b6607cf8b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f4412e1c2efbf8dfd1119b6607cf8b9">&#9670;&#160;</a></span>enableBus2Only()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PCB0048_Mux::enableBus2Only </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Disable bus 1, 3, and 7 then enable bus 2. </p>
+
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0048___mux_8h_source.html#l00112">112</a> of file <a class="el" href="us_p_c_b0048___mux_8h_source.html">PCB0048_Mux.h</a>.</p>
+
+</div>
+</div>
+<a id="a24498b4b30c04fa6aad1937f60636148" name="a24498b4b30c04fa6aad1937f60636148"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24498b4b30c04fa6aad1937f60636148">&#9670;&#160;</a></span>enableBus3Only()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PCB0048_Mux::enableBus3Only </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Disable bus 1, 2, and 7 then enable bus 3. </p>
+
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0048___mux_8h_source.html#l00122">122</a> of file <a class="el" href="us_p_c_b0048___mux_8h_source.html">PCB0048_Mux.h</a>.</p>
+
+</div>
+</div>
+<a id="a3b86c1662376277ff39f3963aaf543c1" name="a3b86c1662376277ff39f3963aaf543c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b86c1662376277ff39f3963aaf543c1">&#9670;&#160;</a></span>enableBus7Only()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PCB0048_Mux::enableBus7Only </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Disable bus 1, 2, and 3 then enable bus 7. </p>
+
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0048___mux_8h_source.html#l00132">132</a> of file <a class="el" href="us_p_c_b0048___mux_8h_source.html">PCB0048_Mux.h</a>.</p>
 
 </div>
 </div>
@@ -457,7 +589,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_p_c_b0048___mux_8h_source.html#l00076">76</a> of file <a class="el" href="us_p_c_b0048___mux_8h_source.html">PCB0048_Mux.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0048___mux_8h_source.html#l00077">77</a> of file <a class="el" href="us_p_c_b0048___mux_8h_source.html">PCB0048_Mux.h</a>.</p>
 
 </div>
 </div>
@@ -473,7 +605,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_p_c_b0048___mux_8h_source.html#l00076">76</a> of file <a class="el" href="us_p_c_b0048___mux_8h_source.html">PCB0048_Mux.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0048___mux_8h_source.html#l00077">77</a> of file <a class="el" href="us_p_c_b0048___mux_8h_source.html">PCB0048_Mux.h</a>.</p>
 
 </div>
 </div>
@@ -489,7 +621,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_p_c_b0048___mux_8h_source.html#l00076">76</a> of file <a class="el" href="us_p_c_b0048___mux_8h_source.html">PCB0048_Mux.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0048___mux_8h_source.html#l00077">77</a> of file <a class="el" href="us_p_c_b0048___mux_8h_source.html">PCB0048_Mux.h</a>.</p>
 
 </div>
 </div>
@@ -505,7 +637,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_p_c_b0048___mux_8h_source.html#l00076">76</a> of file <a class="el" href="us_p_c_b0048___mux_8h_source.html">PCB0048_Mux.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_p_c_b0048___mux_8h_source.html#l00077">77</a> of file <a class="el" href="us_p_c_b0048___mux_8h_source.html">PCB0048_Mux.h</a>.</p>
 
 </div>
 </div>

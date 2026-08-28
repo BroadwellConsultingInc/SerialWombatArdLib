@@ -1,89 +1,93 @@
 <map id="SerialWombatPin" name="SerialWombatPin">
-<area shape="rect" id="Node000001" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="5,765,127,792"/>
+<area shape="rect" id="Node000001" title="Describes a Serial Wombat Pin. Is base class for other pin modes." alt="" coords="5,816,127,843"/>
 <area shape="rect" id="Node000002" href="$class_serial_wombat18_a_b_v_g_a.html" title="A class for the Serial Wombat SW18AB chip VGA Driver." alt="" coords="207,5,370,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="65,750,68,603,82,390,95,281,114,181,140,99,155,67,173,42,188,30,206,22,208,27,191,34,177,46,160,69,145,101,119,182,101,282,87,391,73,603,70,750"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="64,800,66,644,79,416,92,299,111,191,138,103,154,68,173,42,188,30,206,22,208,27,191,34,177,46,159,71,143,105,116,193,97,300,84,417,72,644,70,800"/>
 <area shape="rect" id="Node000003" href="$class_serial_wombat18_cap_touch.html" title="A class that controls a Cap Touch Pin on the Serial Wombat 18AB chip." alt="" coords="201,56,376,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="65,750,70,611,85,414,99,313,117,221,142,145,156,115,173,93,199,75,202,80,177,97,161,118,147,147,122,222,104,314,91,415,75,612,70,750"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="65,801,68,654,82,441,95,332,114,232,140,149,155,117,173,93,199,75,202,80,177,97,160,120,145,151,119,233,101,333,87,442,73,654,70,801"/>
 <area shape="rect" id="Node000004" href="$class_serial_wombat_analog_input.html" title="A class to make analog measurements with the Serial Wombat." alt="" coords="203,107,374,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="65,750,72,621,88,439,102,346,120,261,144,191,157,164,173,143,201,125,204,130,176,147,162,167,148,193,126,262,107,347,94,439,77,621,71,750"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="65,800,70,662,85,465,99,364,117,272,142,196,156,166,173,144,186,133,201,125,204,130,189,137,177,147,161,169,147,198,122,273,104,365,91,466,75,662,70,801"/>
 <area shape="rect" id="Node000007" href="$class_serial_wombat_blink.html" title="A class representing a Serial Wombat Blink Output." alt="" coords="223,157,354,184"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="66,750,74,630,92,463,106,378,123,301,146,238,158,213,173,194,195,178,221,170,223,175,198,183,177,198,163,216,150,240,129,303,111,379,97,464,79,630,71,750"/>
-<area shape="rect" id="Node000008" href="$class_serial_wombat_debounced_input.html" title="A pin mode class that debounces inputs." alt="" coords="190,208,387,235"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="66,750,76,639,95,488,109,411,127,341,148,284,173,245,188,233,191,237,177,248,152,286,132,343,114,412,100,488,81,639,72,750"/>
-<area shape="rect" id="Node000009" href="$class_serial_wombat_digital_input__18_a_b.html" title=" " alt="" coords="185,259,392,285"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="67,750,78,649,98,513,113,444,130,382,150,330,173,296,188,284,191,288,177,299,154,333,135,383,118,445,104,514,83,649,72,750"/>
-<area shape="rect" id="Node000010" href="$class_serial_wombat_digital_output__18_a_b.html" title=" " alt="" coords="180,309,397,336"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="68,749,80,658,102,537,133,422,152,377,173,346,188,334,192,339,177,350,156,379,138,423,107,538,86,659,73,750"/>
-<area shape="rect" id="Node000011" href="$class_serial_wombat_frequency_output.html" title="A class representing a Serial Wombat Frequency Output." alt="" coords="187,360,390,387"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="64,750,66,678,79,583,93,532,112,483,139,437,173,397,189,385,192,389,176,401,143,440,117,485,98,534,85,584,71,679,69,750"/>
-<area shape="rect" id="Node000013" href="$class_serial_wombat_h_bridge.html" title="A class representing a Serial Wombat H Bridge Output." alt="" coords="214,411,363,437"/>
-<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="65,749,70,687,86,605,100,562,119,520,143,481,173,447,192,435,212,427,214,432,194,439,176,451,147,484,123,523,105,564,91,606,76,687,70,750"/>
-<area shape="rect" id="Node000015" href="$class_serial_wombat_h_s_clock.html" title="A Class which outputs a high speed clock signal suitable for clocking other devices." alt="" coords="211,461,366,488"/>
-<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="67,749,75,696,93,628,107,592,125,558,146,526,173,498,190,487,209,479,211,484,193,491,176,502,151,529,129,560,112,594,98,629,81,697,72,750"/>
-<area shape="rect" id="Node000016" href="$class_serial_wombat_h_s_counter.html" title="This class is used to measure the frequency or cycles of a high speed input. On the Serial Wombat 18A..." alt="" coords="205,512,372,539"/>
-<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="70,749,81,704,101,650,131,595,150,570,173,549,203,532,206,537,176,553,154,574,135,598,106,652,86,706,75,750"/>
-<area shape="rect" id="Node000017" href="$class_serial_wombat_i_r_rx.html" title="A class for the Serial Wombat SW8B or SW18AB chips which received IR remote signals...." alt="" coords="222,563,355,589"/>
-<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="74,750,88,715,109,674,137,633,173,599,196,587,221,579,222,584,198,592,176,603,141,637,114,677,93,717,79,752"/>
-<area shape="rect" id="Node000018" href="$class_serial_wombat_i_r_tx.html" title="A class for the Serial Wombat 8B or SW18AB chips which allows sending NEC IR Commands." alt="" coords="223,613,354,640"/>
-<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="81,750,118,699,144,672,173,650,197,638,222,631,224,636,199,643,176,654,147,676,122,702,85,753"/>
-<area shape="rect" id="Node000019" href="$class_serial_wombat_liquid_crystal.html" title="A Class which connects to HD44780 / 1602 / 4002 / 2004 or similar interface Character LCDs." alt="" coords="199,664,378,691"/>
-<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="92,753,129,725,174,700,206,689,208,694,176,705,132,730,96,757"/>
-<area shape="rect" id="Node000020" href="$class_serial_wombat_p_s2_keyboard.html" title="A class for the Serial Wombat SW18AB chips which recieves input from IBM PS2 Keyboards." alt="" coords="197,715,380,741"/>
-<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="140,759,174,751,224,739,225,745,175,756,141,764"/>
-<area shape="rect" id="Node000021" href="$class_serial_wombat_p_w_m.html" title="A class representing a Serial Wombat PWM output." alt="" coords="221,765,356,792"/>
-<area shape="poly" id="edge20_Node000001_Node000021" title=" " alt="" coords="142,776,220,776,220,781,142,781"/>
-<area shape="rect" id="Node000024" href="$class_serial_wombat_processed_input_pin.html" title="A Class which reads data from another pin&#39;s public data and runs it through SerialWombatAbstractInput..." alt="" coords="182,816,394,843"/>
-<area shape="poly" id="edge23_Node000001_Node000024" title=" " alt="" coords="141,793,175,801,225,813,224,818,174,807,140,799"/>
-<area shape="rect" id="Node000025" href="$class_serial_wombat_protected_output.html" title="Combine and input and output pin for a protected output." alt="" coords="190,867,387,893"/>
-<area shape="poly" id="edge24_Node000001_Node000025" title=" " alt="" coords="96,800,132,828,176,852,208,864,206,869,174,857,129,832,92,804"/>
-<area shape="rect" id="Node000026" href="$class_serial_wombat_pulse_on_change.html" title="Monitors other pin(s) or public data in the Serial Wombat chip and generates a pin pulse on change." alt="" coords="190,917,387,944"/>
-<area shape="poly" id="edge25_Node000001_Node000026" title=" " alt="" coords="85,804,122,855,147,881,176,903,200,914,198,919,173,908,144,885,118,859,81,807"/>
-<area shape="rect" id="Node000027" href="$class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time." alt="" coords="204,968,372,995"/>
-<area shape="poly" id="edge26_Node000001_Node000027" title=" " alt="" coords="79,806,93,840,114,881,141,921,176,954,205,968,203,973,173,958,137,924,109,883,88,843,74,808"/>
-<area shape="rect" id="Node000029" href="$class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input." alt="" coords="210,1019,366,1045"/>
-<area shape="poly" id="edge28_Node000001_Node000029" title=" " alt="" coords="75,807,86,851,106,905,135,959,154,984,176,1005,192,1015,211,1022,209,1027,190,1019,173,1009,150,987,131,962,101,907,81,853,70,808"/>
-<area shape="rect" id="Node000031" href="$class_serial_wombat_queued_pulse_output.html" title="A Class which outputs pulses of a duration stored in a queue." alt="" coords="179,1069,398,1096"/>
-<area shape="poly" id="edge30_Node000001_Node000031" title=" " alt="" coords="72,807,81,861,98,928,112,963,129,997,151,1028,176,1055,194,1067,191,1071,173,1059,146,1032,125,1000,107,965,93,930,75,862,67,808"/>
-<area shape="rect" id="Node000032" href="$class_serial_wombat_resistance_input.html" title="A class to make resistance measurements with the Serial Wombat 18AB chip." alt="" coords="190,1120,387,1147"/>
-<area shape="poly" id="edge31_Node000001_Node000032" title=" " alt="" coords="70,807,76,870,91,951,105,993,123,1035,147,1073,176,1106,193,1117,190,1122,173,1110,143,1076,119,1037,100,995,86,952,70,871,65,808"/>
-<area shape="rect" id="Node000033" href="$class_serial_wombat_s_p_i.html" title="A pin mode for the Serial Wombat 8B or SW18AB chips which allows SPI communication over I2C." alt="" coords="226,1171,350,1197"/>
-<area shape="poly" id="edge32_Node000001_Node000033" title=" " alt="" coords="69,808,71,879,85,973,98,1023,117,1072,143,1117,176,1157,200,1172,227,1179,225,1185,197,1176,173,1161,139,1120,112,1074,93,1025,79,974,66,879,64,808"/>
-<area shape="rect" id="Node000034" href="$class_serial_wombat_servo.html" title="A class to control Servos attached to the Serial Wombat chip." alt="" coords="220,1221,356,1248"/>
-<area shape="poly" id="edge33_Node000001_Node000034" title=" " alt="" coords="73,807,86,899,107,1019,138,1134,156,1178,177,1207,197,1221,221,1229,219,1234,194,1226,173,1211,152,1181,133,1136,102,1020,80,899,68,808"/>
-<area shape="rect" id="Node000038" href="$class_serial_wombat_t_m1637.html" title="A Class representing a TM1637 Seven&#45;Segment Display connected to two Serial Wombat pins." alt="" coords="214,1272,363,1299"/>
-<area shape="poly" id="edge37_Node000001_Node000038" title=" " alt="" coords="72,807,83,908,104,1044,118,1112,135,1174,154,1224,177,1258,194,1271,214,1279,212,1283,191,1275,173,1262,150,1227,130,1176,113,1113,98,1045,78,909,67,807"/>
-<area shape="rect" id="Node000039" href="$class_serial_wombat_throughput_consumer.html" title="A Class that consumes CPU time on the Serial Wombat chip in order to facilitate testing." alt="" coords="175,1323,402,1349"/>
-<area shape="poly" id="edge38_Node000001_Node000039" title=" " alt="" coords="72,807,81,918,100,1069,114,1145,132,1215,152,1271,177,1309,191,1320,188,1324,173,1312,148,1273,127,1216,109,1146,95,1070,76,918,66,808"/>
-<area shape="rect" id="Node000040" href="$class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge." alt="" coords="219,1373,358,1400"/>
-<area shape="poly" id="edge39_Node000001_Node000040" title=" " alt="" coords="71,807,79,927,97,1094,111,1178,129,1255,150,1318,163,1342,177,1359,196,1373,220,1382,218,1387,194,1378,173,1363,158,1344,146,1320,123,1256,106,1179,92,1094,74,928,66,808"/>
-<area shape="rect" id="Node000042" href="$class_serial_wombat_ultrasonic_distance_sensor.html" title="A Class which uses one or two Serial Wombat 18AB pins to measure distance using an Ultrasonic distanc..." alt="" coords="182,1424,395,1467"/>
-<area shape="poly" id="edge41_Node000001_Node000042" title=" " alt="" coords="71,807,78,936,95,1117,109,1209,127,1294,149,1363,162,1390,177,1410,190,1422,186,1426,173,1414,158,1393,144,1365,122,1295,104,1210,90,1117,73,936,66,807"/>
-<area shape="rect" id="Node000043" href="$class_serial_wombat_w_s2812.html" title="A Class representing a WS2812 or compatible RGB LED string connected to a Serial Wombat pin." alt="" coords="212,1491,364,1517"/>
-<area shape="poly" id="edge42_Node000001_Node000043" title=" " alt="" coords="70,808,75,949,90,1150,103,1254,122,1348,146,1425,160,1455,177,1477,193,1489,213,1497,211,1502,190,1494,173,1481,156,1457,141,1427,116,1349,98,1255,84,1151,69,949,65,808"/>
-<area shape="rect" id="Node000044" href="$class_serial_wombat_watchdog.html" title="A class to wrap around a Serial Wombat Watchdog Pin." alt="" coords="208,1541,368,1568"/>
-<area shape="poly" id="edge43_Node000001_Node000044" title=" " alt="" coords="70,807,73,957,86,1174,100,1286,119,1388,144,1471,159,1503,177,1527,191,1539,209,1547,207,1552,189,1544,173,1531,155,1506,139,1473,113,1389,94,1287,81,1175,67,958,65,808"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="65,800,72,671,88,489,102,396,120,312,144,242,157,215,173,194,195,178,221,170,223,175,198,183,177,198,162,218,148,244,126,313,107,397,94,490,77,672,71,801"/>
+<area shape="rect" id="Node000008" href="$class_serial_wombat_charlieplex.html" title="A class representing a Serial Wombat Charlieplexed LED display." alt="" coords="205,208,372,235"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="66,800,74,680,92,514,106,429,123,352,146,288,158,264,173,245,187,233,203,226,205,231,190,238,177,249,163,266,150,290,129,353,111,430,97,514,79,681,71,801"/>
+<area shape="rect" id="Node000009" href="$class_serial_wombat_debounced_input.html" title="A pin mode class that debounces inputs." alt="" coords="190,259,387,285"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="66,800,76,690,95,538,109,462,127,392,148,335,173,296,188,284,191,288,177,299,152,337,132,393,114,463,100,539,81,690,72,801"/>
+<area shape="rect" id="Node000010" href="$class_serial_wombat_digital_input__18_a_b.html" title=" " alt="" coords="185,309,392,336"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="67,801,78,699,98,563,113,495,130,432,150,381,173,346,188,334,191,339,177,350,154,384,135,434,118,496,104,564,83,700,72,801"/>
+<area shape="rect" id="Node000011" href="$class_serial_wombat_digital_output__18_a_b.html" title=" " alt="" coords="180,360,397,387"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="68,800,80,709,102,588,133,472,152,427,173,397,188,385,192,389,177,401,156,430,138,474,107,589,86,709,73,801"/>
+<area shape="rect" id="Node000012" href="$class_serial_wombat_frequency_output.html" title="A class representing a Serial Wombat Frequency Output." alt="" coords="187,411,390,437"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="64,800,66,729,79,634,93,583,112,534,139,488,173,447,189,436,192,440,176,451,143,491,117,536,98,585,85,635,71,729,69,800"/>
+<area shape="rect" id="Node000014" href="$class_serial_wombat_h_bridge.html" title="A class representing a Serial Wombat H Bridge Output." alt="" coords="214,461,363,488"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="65,800,70,737,86,656,100,613,119,571,143,532,173,498,192,485,212,477,214,482,194,490,176,502,147,535,123,573,105,615,91,657,76,738,70,801"/>
+<area shape="rect" id="Node000016" href="$class_serial_wombat_h_s_clock.html" title="A Class which outputs a high speed clock signal suitable for clocking other devices." alt="" coords="211,512,366,539"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="67,800,75,746,93,678,107,643,125,608,146,576,173,549,190,537,209,530,211,535,193,542,176,553,151,580,129,611,112,645,98,680,81,747,72,801"/>
+<area shape="rect" id="Node000017" href="$class_serial_wombat_h_s_counter.html" title="This class is used to measure the frequency or cycles of a high speed input. On the Serial Wombat 18A..." alt="" coords="205,563,372,589"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="70,800,81,755,101,701,131,646,150,621,173,599,203,583,206,588,176,603,154,624,135,649,106,703,86,757,75,801"/>
+<area shape="rect" id="Node000018" href="$class_serial_wombat_i_r_rx.html" title="A class for the Serial Wombat SW8B or SW18AB chips which received IR remote signals...." alt="" coords="222,613,355,640"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="74,800,88,765,109,725,137,684,173,650,196,637,221,630,222,635,198,642,176,654,141,687,114,727,93,768,79,802"/>
+<area shape="rect" id="Node000019" href="$class_serial_wombat_i_r_tx.html" title="A class for the Serial Wombat 8B or SW18AB chips which allows sending NEC IR Commands." alt="" coords="223,664,354,691"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="81,801,118,749,144,723,173,700,197,689,222,682,224,687,199,694,176,705,147,727,122,753,85,804"/>
+<area shape="rect" id="Node000020" href="$class_serial_wombat_liquid_crystal.html" title="A Class which connects to HD44780 / 1602 / 4002 / 2004 or similar interface Character LCDs." alt="" coords="199,715,378,741"/>
+<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="92,804,129,776,174,751,206,739,208,744,176,756,132,780,96,808"/>
+<area shape="rect" id="Node000021" href="$class_serial_wombat_p_s2_keyboard.html" title="A class for the Serial Wombat SW18AB chips which recieves input from IBM PS2 Keyboards." alt="" coords="197,765,380,792"/>
+<area shape="poly" id="edge20_Node000001_Node000021" title=" " alt="" coords="140,809,174,801,224,790,225,795,175,807,141,815"/>
+<area shape="rect" id="Node000022" href="$class_serial_wombat_p_w_m.html" title="A class representing a Serial Wombat PWM output." alt="" coords="221,816,356,843"/>
+<area shape="poly" id="edge21_Node000001_Node000022" title=" " alt="" coords="142,827,220,827,220,832,142,832"/>
+<area shape="rect" id="Node000025" href="$class_serial_wombat_processed_input_pin.html" title="A Class which reads data from another pin&#39;s public data and runs it through SerialWombatAbstractInput..." alt="" coords="182,867,394,893"/>
+<area shape="poly" id="edge24_Node000001_Node000025" title=" " alt="" coords="141,844,175,852,225,863,224,869,174,857,140,849"/>
+<area shape="rect" id="Node000026" href="$class_serial_wombat_protected_output.html" title="Combine and input and output pin for a protected output." alt="" coords="190,917,387,944"/>
+<area shape="poly" id="edge25_Node000001_Node000026" title=" " alt="" coords="96,851,132,878,176,903,208,914,206,919,174,908,129,883,92,855"/>
+<area shape="rect" id="Node000027" href="$class_serial_wombat_pulse_on_change.html" title="Monitors other pin(s) or public data in the Serial Wombat chip and generates a pin pulse on change." alt="" coords="190,968,387,995"/>
+<area shape="poly" id="edge26_Node000001_Node000027" title=" " alt="" coords="85,855,122,906,147,932,176,954,200,965,198,970,173,958,144,936,118,909,81,858"/>
+<area shape="rect" id="Node000028" href="$class_serial_wombat_pulse_timer.html" title="A Class which uses a Serial Wombat pin to measure the length of a pulse high and low time." alt="" coords="204,1019,372,1045"/>
+<area shape="poly" id="edge27_Node000001_Node000028" title=" " alt="" coords="79,856,93,891,114,931,141,971,176,1004,205,1019,203,1024,173,1009,137,975,109,934,88,893,74,858"/>
+<area shape="rect" id="Node000030" href="$class_serial_wombat_quad_enc.html" title="A class that uses two Serial Wombat input pins to read quadrature encoder input." alt="" coords="210,1069,366,1096"/>
+<area shape="poly" id="edge29_Node000001_Node000030" title=" " alt="" coords="75,858,86,902,106,956,135,1010,154,1034,176,1055,192,1065,211,1073,209,1077,190,1070,173,1059,150,1038,131,1013,101,958,81,904,70,859"/>
+<area shape="rect" id="Node000032" href="$class_serial_wombat_queued_pulse_output.html" title="A Class which outputs pulses of a duration stored in a queue." alt="" coords="179,1120,398,1147"/>
+<area shape="poly" id="edge31_Node000001_Node000032" title=" " alt="" coords="72,858,81,911,98,979,112,1014,129,1048,151,1079,176,1106,194,1117,191,1122,173,1110,146,1082,125,1050,107,1016,93,980,75,912,67,859"/>
+<area shape="rect" id="Node000033" href="$class_serial_wombat_random_blink.html" title="A class representing a Serial Wombat Random Blink output." alt="" coords="198,1171,378,1197"/>
+<area shape="poly" id="edge32_Node000001_Node000033" title=" " alt="" coords="70,858,76,921,91,1002,105,1044,123,1085,147,1124,176,1157,199,1171,197,1176,173,1161,143,1127,119,1088,100,1046,86,1003,70,921,65,859"/>
+<area shape="rect" id="Node000034" href="$class_serial_wombat_resistance_input.html" title="A class to make resistance measurements with the Serial Wombat 18AB chip." alt="" coords="190,1221,387,1248"/>
+<area shape="poly" id="edge33_Node000001_Node000034" title=" " alt="" coords="69,858,71,929,85,1024,98,1074,117,1123,143,1168,176,1207,192,1219,189,1223,173,1211,139,1171,112,1125,93,1076,79,1025,66,930,64,858"/>
+<area shape="rect" id="Node000035" href="$class_serial_wombat_s_p_i.html" title="A pin mode for the Serial Wombat 8B or SW18AB chips which allows SPI communication over I2C." alt="" coords="226,1272,350,1299"/>
+<area shape="poly" id="edge34_Node000001_Node000035" title=" " alt="" coords="73,858,86,949,107,1070,138,1185,156,1229,177,1258,199,1273,226,1281,225,1286,197,1278,173,1262,152,1231,133,1186,102,1071,80,950,68,859"/>
+<area shape="rect" id="Node000036" href="$class_serial_wombat_servo.html" title="A class to control Servos attached to the Serial Wombat chip." alt="" coords="220,1323,356,1349"/>
+<area shape="poly" id="edge35_Node000001_Node000036" title=" " alt="" coords="72,858,83,959,104,1094,118,1163,135,1225,154,1275,177,1309,197,1323,221,1331,219,1336,194,1327,173,1313,150,1278,130,1226,113,1164,98,1095,78,959,67,858"/>
+<area shape="rect" id="Node000040" href="$class_serial_wombat_t_m1637.html" title="A Class representing a TM1637 Seven&#45;Segment Display connected to two Serial Wombat pins." alt="" coords="214,1373,363,1400"/>
+<area shape="poly" id="edge39_Node000001_Node000040" title=" " alt="" coords="72,858,81,969,100,1120,114,1196,132,1265,152,1322,177,1360,194,1372,214,1380,212,1385,191,1377,173,1363,148,1324,127,1267,109,1197,95,1120,76,969,66,858"/>
+<area shape="rect" id="Node000041" href="$class_serial_wombat_throughput_consumer.html" title="A Class that consumes CPU time on the Serial Wombat chip in order to facilitate testing." alt="" coords="175,1424,402,1451"/>
+<area shape="poly" id="edge40_Node000001_Node000041" title=" " alt="" coords="71,858,79,978,97,1144,111,1229,129,1305,150,1368,163,1392,177,1410,191,1421,188,1425,173,1414,158,1395,146,1370,123,1307,106,1230,92,1145,74,978,66,858"/>
+<area shape="rect" id="Node000042" href="$class_serial_wombat_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates an I2C to UART Bridge." alt="" coords="219,1475,358,1501"/>
+<area shape="poly" id="edge41_Node000001_Node000042" title=" " alt="" coords="71,858,77,987,94,1169,107,1261,126,1346,148,1415,162,1441,177,1461,196,1475,220,1483,218,1488,194,1480,173,1465,157,1444,144,1417,120,1347,102,1262,88,1169,72,987,65,858"/>
+<area shape="rect" id="Node000044" href="$class_serial_wombat_ultrasonic_distance_sensor.html" title="A Class which uses one or two Serial Wombat 18AB pins to measure distance using an Ultrasonic distanc..." alt="" coords="182,1525,395,1568"/>
+<area shape="poly" id="edge43_Node000001_Node000044" title=" " alt="" coords="71,858,76,995,92,1192,106,1292,124,1384,148,1460,161,1489,177,1512,190,1523,186,1527,173,1515,157,1492,143,1462,119,1386,100,1293,87,1192,71,996,65,858"/>
+<area shape="rect" id="Node000045" href="$class_serial_wombat_w_s2812.html" title="A Class representing a WS2812 or compatible RGB LED string connected to a Serial Wombat pin." alt="" coords="212,1592,364,1619"/>
+<area shape="poly" id="edge44_Node000001_Node000045" title=" " alt="" coords="70,858,73,1008,86,1225,100,1337,119,1439,144,1522,159,1554,177,1578,193,1591,213,1599,211,1604,190,1596,173,1582,155,1557,139,1524,113,1440,94,1337,81,1226,67,1008,65,858"/>
+<area shape="rect" id="Node000046" href="$class_serial_wombat_watchdog.html" title="A class to wrap around a Serial Wombat Watchdog Pin." alt="" coords="208,1643,368,1669"/>
+<area shape="poly" id="edge45_Node000001_Node000046" title=" " alt="" coords="70,858,71,1017,83,1249,96,1369,115,1479,142,1568,158,1603,177,1629,191,1641,209,1649,207,1653,189,1645,173,1632,154,1606,137,1570,110,1480,91,1370,78,1249,66,1017,64,858"/>
 <area shape="rect" id="Node000005" href="$class_serial_wombat_analog_input__18_a_b.html" title="This class extends SerialWombatAnalogInput with SW18AB specific capabilities." alt="" coords="466,107,676,133"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="389,117,465,117,465,123,389,123"/>
 <area shape="rect" id="Node000006" href="$class_grip_a_c_s712.html" title="A class representing an Allegro ACS712 5A current sensor connected to a SW8B Analog input on a PCB003..." alt="" coords="787,107,882,133"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="691,117,787,117,787,123,691,123"/>
-<area shape="rect" id="Node000012" href="$class_serial_wombat_frequency_output__18_a_b.html" title="Extends the SerialWombatFrequencyOutput class with SW18AB specific functionality, including SerialWom..." alt="" coords="450,360,691,387"/>
-<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="405,371,450,371,450,376,405,376"/>
-<area shape="rect" id="Node000014" href="$class_serial_wombat_h_bridge__18_a_b.html" title="Extends the SerialWombatHBridge class with SW18AB specific functionality, including SerialWombatAbstr..." alt="" coords="476,411,665,437"/>
-<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="379,421,476,421,476,427,379,427"/>
-<area shape="rect" id="Node000022" href="$class_serial_wombat_p_w_m__18_a_b.html" title="Extends the SerialWombatPWM class with SW18AB specific functionality, including SerialWombatAbstractS..." alt="" coords="484,740,658,767"/>
-<area shape="poly" id="edge21_Node000021_Node000022" title=" " alt="" coords="372,769,483,758,484,764,372,774"/>
-<area shape="rect" id="Node000023" href="$class_serial_wombat_p_w_m__4_a_b.html" title="Extends the SerialWombatPWM class with SW4A/SW4B specific functionality." alt="" coords="487,791,654,817"/>
-<area shape="poly" id="edge22_Node000021_Node000023" title=" " alt="" coords="372,783,487,794,486,799,371,789"/>
-<area shape="rect" id="Node000028" href="$class_serial_wombat_pulse_timer__18_a_b.html" title="extends the SerialWombatPulseTimer class with SW18AB specific functionality / This class adds functio..." alt="" coords="467,968,674,995"/>
-<area shape="poly" id="edge27_Node000027_Node000028" title=" " alt="" coords="388,979,467,979,467,984,388,984"/>
-<area shape="rect" id="Node000030" href="$class_serial_wombat_quad_enc__18_a_b.html" title="Extends the SerialWombatPWM class with SW18AB specific functionality, including frequency measurement..." alt="" coords="473,1019,668,1045"/>
-<area shape="poly" id="edge29_Node000029_Node000030" title=" " alt="" coords="382,1029,472,1029,472,1035,382,1035"/>
-<area shape="rect" id="Node000035" href="$class_serial_wombat_servo__18_a_b.html" title="A derived class that adds additional Servo Functionality for the Serial Wombat 18AB Chip." alt="" coords="483,1221,658,1248"/>
-<area shape="poly" id="edge34_Node000034_Node000035" title=" " alt="" coords="372,1232,482,1232,482,1237,372,1237"/>
-<area shape="rect" id="Node000036" href="$class_grip_servo.html" title="A class representing a servo output and an Allegro ACS712 5A current sensor connected to a SW8B Analo..." alt="" coords="795,1192,874,1219"/>
-<area shape="poly" id="edge35_Node000035_Node000036" title=" " alt="" coords="673,1221,794,1207,795,1212,674,1226"/>
-<area shape="rect" id="Node000037" href="$class_serial_wombat_high_frequency_servo.html" title="A class for the Serial Wombat 18AB Chip that adds support for high frequency hobby Servos(200 Hz,..." alt="" coords="739,1243,930,1285"/>
-<area shape="poly" id="edge36_Node000035_Node000037" title=" " alt="" coords="674,1243,739,1251,739,1256,673,1249"/>
-<area shape="rect" id="Node000041" href="$class_serial_wombat_s_w_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates a software based UART on the SW18AB." alt="" coords="490,1373,651,1400"/>
-<area shape="poly" id="edge40_Node000040_Node000041" title=" " alt="" coords="373,1384,490,1384,490,1389,373,1389"/>
+<area shape="rect" id="Node000013" href="$class_serial_wombat_frequency_output__18_a_b.html" title="Extends the SerialWombatFrequencyOutput class with SW18AB specific functionality, including SerialWom..." alt="" coords="450,411,691,437"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="405,421,450,421,450,427,405,427"/>
+<area shape="rect" id="Node000015" href="$class_serial_wombat_h_bridge__18_a_b.html" title="Extends the SerialWombatHBridge class with SW18AB specific functionality, including SerialWombatAbstr..." alt="" coords="476,461,665,488"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="379,472,476,472,476,477,379,477"/>
+<area shape="rect" id="Node000023" href="$class_serial_wombat_p_w_m__18_a_b.html" title="Extends the SerialWombatPWM class with SW18AB specific functionality, including SerialWombatAbstractS..." alt="" coords="484,791,658,817"/>
+<area shape="poly" id="edge22_Node000022_Node000023" title=" " alt="" coords="372,819,483,809,484,814,372,825"/>
+<area shape="rect" id="Node000024" href="$class_serial_wombat_p_w_m__4_a_b.html" title="Extends the SerialWombatPWM class with SW4A/SW4B specific functionality." alt="" coords="487,841,654,868"/>
+<area shape="poly" id="edge23_Node000022_Node000024" title=" " alt="" coords="372,834,487,844,486,850,371,839"/>
+<area shape="rect" id="Node000029" href="$class_serial_wombat_pulse_timer__18_a_b.html" title="extends the SerialWombatPulseTimer class with SW18AB specific functionality / This class adds functio..." alt="" coords="467,1019,674,1045"/>
+<area shape="poly" id="edge28_Node000028_Node000029" title=" " alt="" coords="388,1029,467,1029,467,1035,388,1035"/>
+<area shape="rect" id="Node000031" href="$class_serial_wombat_quad_enc__18_a_b.html" title="Extends the SerialWombatPWM class with SW18AB specific functionality, including frequency measurement..." alt="" coords="473,1069,668,1096"/>
+<area shape="poly" id="edge30_Node000030_Node000031" title=" " alt="" coords="382,1080,472,1080,472,1085,382,1085"/>
+<area shape="rect" id="Node000037" href="$class_serial_wombat_servo__18_a_b.html" title="A derived class that adds additional Servo Functionality for the Serial Wombat 18AB Chip." alt="" coords="483,1323,658,1349"/>
+<area shape="poly" id="edge36_Node000036_Node000037" title=" " alt="" coords="372,1333,482,1333,482,1339,372,1339"/>
+<area shape="rect" id="Node000038" href="$class_grip_servo.html" title="A class representing a servo output and an Allegro ACS712 5A current sensor connected to a SW8B Analo..." alt="" coords="795,1293,874,1320"/>
+<area shape="poly" id="edge37_Node000037_Node000038" title=" " alt="" coords="673,1322,794,1308,795,1314,674,1327"/>
+<area shape="rect" id="Node000039" href="$class_serial_wombat_high_frequency_servo.html" title="A class for the Serial Wombat 18AB Chip that adds support for high frequency hobby Servos(200 Hz,..." alt="" coords="739,1344,930,1387"/>
+<area shape="poly" id="edge38_Node000037_Node000039" title=" " alt="" coords="674,1345,739,1352,739,1357,673,1350"/>
+<area shape="rect" id="Node000043" href="$class_serial_wombat_s_w_u_a_r_t.html" title="A class for the Serial Wombat 4B or SW18AB chips which creates a software based UART on the SW18AB." alt="" coords="490,1475,651,1501"/>
+<area shape="poly" id="edge42_Node000042_Node000043" title=" " alt="" coords="373,1485,490,1485,490,1491,373,1491"/>
 </map>

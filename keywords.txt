@@ -1,40 +1,27 @@
 SerialWombatChip	KEYWORD1
 SerialWombatPin	KEYWORD1
-begin	KEYWORD2
-sendPacket	KEYWORD2
-readVersion	KEYWORD2
+SerialWombatAbstractButton	KEYWORD1
+SerialWombatAbstractProcessedInput	KEYWORD1
+SerialWombatAbstractScaledOutput	KEYWORD1
 readPublicData	KEYWORD2
 writePublicData	KEYWORD2
 readSupplyVoltage_mV	KEYWORD2
 readTemperature_100thsDegC	KEYWORD2
-hardwareReset	KEYWORD2
-pinMode	KEYWORD2
-digitalWrite	KEYWORD2
-digitalRead	KEYWORD2
-analogRead	KEYWORD2
-analogWrite	KEYWORD2
 queryVersion	KEYWORD2
 writeRamAddress	KEYWORD2
 readRamAddress	KEYWORD2
 readFlashAddress	KEYWORD2
-sleep	KEYWORD2
-wake	KEYWORD2
 readFramesExecuted	KEYWORD2
 readOverflowFrames	KEYWORD2
 isSW18	KEYWORD2
-uniqueIdentifier	KEYWORD2
-uniqueIdentifierLength	KEYWORD2
-fwVersion	KEYWORD2
-deviceIdentifier	KEYWORD2
-deviceRevision	KEYWORD2
+isSW04	KEYWORD2
+isSW08	KEYWORD2
 setThroughputPin	KEYWORD2
 readUserBuffer	KEYWORD2
 writeUserBuffer	KEYWORD2
-enable2ndCommandInterface	KEYWORD2
 readLastErrorCommand	KEYWORD2
 readBirthday	KEYWORD2
 readBrand	KEYWORD2
-
 
 
 SW_LOW	LITERAL1
@@ -56,13 +43,12 @@ readFilteredCounts	KEYWORD2
 readFiltered_mV	KEYWORD2
 readAveraged_mV	KEYWORD2
 readAveragedCounts	KEYWORD2
-updateSupplyVoltage	KEYWORD2
+updateSupplyVoltage_mV	KEYWORD2
 readMinimumCounts	KEYWORD2
 readMaximumCounts	KEYWORD2
 
 SerialWombatPulseTimer	KEYWORD1
 SerialWombatPulseTimer_18AB	KEYWORD1
-refresh	KEYWORD2
 refreshHighCountsLowCounts	KEYWORD2
 refreshHighCountsPulses	KEYWORD2
 readHighCounts	KEYWORD2
@@ -100,17 +86,15 @@ SerialWombatUART	KEYWORD1
 SerialWombatSWUART	KEYWORD1
 
 SerialWombatProtectedOutput	KEYWORD1
-isInSafeState	KEYWORD2
-configure	KEYWORD2
-makeInput	KEYWORD2
 PO_FAULT_IF_NOT_EQUAL	LITERAL1
 PO_FAULT_IF_FEEDBACK_LESS_THAN_EXPECTED	LITERAL1
 PO_FAULT_IF_FEEDBACK_GREATER_THAN_EXPECTED	LITERAL1
 
 SerialWombatDebouncedInput	KEYWORD1
-readTimeInTrueState	KEYWORD2
-readTimeInFalseState	KEYWORD2
-transitions	KEYWORD2
+SerialWombatDigitalInput_18AB	KEYWORD1
+SerialWombatDigitalOutput_18AB	KEYWORD1
+readDurationInTrueState_mS	KEYWORD2
+readDurationInFalseState_mS	KEYWORD2
 readTransitionsState	KEYWORD2
 
 SerialWombatWatchdog	KEYWORD1
@@ -120,6 +104,7 @@ SerialWombatButtonCounter	KEYWORD1
 
 SerialWombatQuadEnc	KEYWORD1
 SerialWombatQuadEnc_18AB	KEYWORD1
+SerialWombatSimulatedQuadEnc	KEYWORD1
 QE_ONLOW_INT	LITERAL1
 QE_ONHIGH_INT	LITERAL1
 QE_ONBOTH_INT	LITERAL1
@@ -129,7 +114,7 @@ QE_ONBOTH_POLL	LITERAL1
 writeMinMaxIncrementTargetPin	KEYWORD2
 
 SerialWombatLiquidCrystal	KEYWORD1
-initializeBufferCopy	KEYWORD1
+initializeBufferCopy	KEYWORD2
 
 
 SerialWombatMatrixKeypad	KEYWORD1
@@ -163,11 +148,17 @@ writeExcludeBelowAbove	KEYWORD2
 writeAveragingNumberOfSamples	KEYWORD2
 readAverage	KEYWORD2
 writeTransformLinearMXB	KEYWORD2
-writeTransformScaleRange KEYWORD2
+writeTransformScaleRange	KEYWORD2
 
 SerialWombatThroughputConsumer	KEYWORD1
 SerialWombatTM1637	KEYWORD1
 writeDigitOrder	KEYWORD2
+writeArray	KEYWORD2
+writeDecimalBitmap	KEYWORD2
+writeBrightness	KEYWORD2
+writeAnimation	KEYWORD2
+suppressLeadingZeros	KEYWORD2
+writeBlinkBitmap	KEYWORD2
 
 SerialWombatResistanceInput	KEYWORD1
 readAveragedOhms	KEYWORD2
@@ -177,7 +168,6 @@ readMinimumOhms	KEYWORD2
 
 SerialWombat18CapTouch	KEYWORD1
 makeDigital	KEYWORD2
-SerialWombat18CapTouchCounter	KEYWORD1
 
 SerialWombatWS2812	KEYWORD1
 ws2812ModeChase	LITERAL1
@@ -188,12 +178,9 @@ writeAnimationFrame	KEYWORD2
 writeAnimationFrameDelay	KEYWORD2
 ws2812ModeAnimation	LITERAL1
 ws2812ModeBuffered	LITERAL1
-ws2812ModeChase	LITERAL1
 writeAnimationLED	KEYWORD2
-barGraph	KEYWORD2
 
 registerErrorHandler	KEYWORD2
-errorCount	KEYWORD2
 
 SerialWombatDataSource	LITERAL1
 SW_DATA_SOURCE_PIN_0	LITERAL2
@@ -312,18 +299,10 @@ write1stOrderFiltering	KEYWORD2
 writeHysteresis	KEYWORD2
 writePID	KEYWORD2
 
-QEUUE_TYPE_RAM_BYTE	LITERAL2
-QEUUE_TYPE_RAM_BYTE_SHIFT	LITERAL2
+QUEUE_TYPE_RAM_BYTE	LITERAL2
+QUEUE_TYPE_RAM_BYTE_SHIFT	LITERAL2
 SerialWombatQueue	KEYWORD1
 
-SerialWombatTM1637	KEYWORD1
-writeDigitOrder	KEYWORD1
-writeArray	KEYWORD1
-writeDecimalBitmap	KEYWORD1
-writeBrightness	KEYWORD1
-writeAnimation	KEYWORD1
-writeSurpressLeadingZeros	KEYWORD1
-writeBlinkBitmap	KEYWORD1
 tm1637Decimal16	LITERAL2
 tm1637Hex16	LITERAL2
 tm1637CharArray	LITERAL2
@@ -332,11 +311,14 @@ tm1637Animation	LITERAL2
 
 SerialWombatUltrasonicDistanceSensor	KEYWORD1
 HC_SR04	LITERAL2
-manualTrigger	KEYWORD1
+manualTrigger	KEYWORD2
 
 SerialWombatRandomBlink	KEYWORD1
+SerialWombatBlink	KEYWORD1
+SerialWombatCharlieplex	KEYWORD1
 
 SerialWombat18ABOscillatorTuner	KEYWORD1
+SerialWombat8BOscillatorTuner	KEYWORD1
 
 SerialWombatHSCounter	KEYWORD1
 SerialWombatHSClock	KEYWORD1
@@ -349,14 +331,21 @@ SerialWombatFrequencyOutput	KEYWORD1
 SerialWombatFrequencyOutput_18AB	KEYWORD1
 
 SerialWombat18ABDataLogger	KEYWORD1
+SerialWombat18ABVGA	KEYWORD1
 
 SerialWombatIRRx	KEYWORD1
 SerialWombatIRTx	KEYWORD1
+SerialWombatPS2Keyboard	KEYWORD1
 SerialWombatSPI	KEYWORD1
+SerialWombatSPISettings	KEYWORD1
 
 
 PCB0030_Bridge	KEYWORD1
 PCB0031_Grip	KEYWORD1
-PCB0041_REMCON	KEYWORD1
+GripACS712	KEYWORD1
+GripServo	KEYWORD1
+PCB0041_Remcon	KEYWORD1
+PCB0042_LSD_PWM	KEYWORD1
 
 PCB0046_HSD_PWM	KEYWORD1
+PCB0048_Mux	KEYWORD1

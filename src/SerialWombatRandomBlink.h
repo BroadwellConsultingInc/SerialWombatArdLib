@@ -103,17 +103,28 @@ public:
         }
 
        
-        result = initPacketNoResponse(1, SW_LE16(onPWMMin), SW_LE16(onPWMMax));
-        if (result < 0)
-        {
-            return result;
-        }
-        result =  initPacketNoResponse(2, SW_LE16(offPWMMin), SW_LE16(offPWMMax));
-        if (result < 0)
-        {
-            return result;
-        }
-        return initPacketNoResponse(3, SW_LE16(onTimeMin), SW_LE16(offTimeMin));;
+	if (onPWMMin != 0xFFFF || onPWMMax != 0xFFFF)
+	{
+		result = initPacketNoResponse(1, SW_LE16(onPWMMin), SW_LE16(onPWMMax));
+		if (result < 0)
+		{
+			return result;
+		}
+	}
+	if (offPWMMin != 0 || offTimeMax != 0)
+	{
+		result =  initPacketNoResponse(2, SW_LE16(offPWMMin), SW_LE16(offPWMMax));
+
+		if (result < 0)
+		{
+			return result;
+		}
+	}
+	if (onTimeMin != 0 || offTimeMin  != 0)
+	{
+          result =  initPacketNoResponse(3, SW_LE16(onTimeMin), SW_LE16(offTimeMin));;
+	}
+	return result;
     }
 
    

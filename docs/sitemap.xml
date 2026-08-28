@@ -53,6 +53,9 @@
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/us_serial_wombat_blink_8h_source.html</loc>
   </url>
   <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/us_serial_wombat_charlieplex_8h_source.html</loc>
+  </url>
+  <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/us_serial_wombat_debounced_input_8h_source.html</loc>
   </url>
   <url>
@@ -117,6 +120,9 @@
   </url>
   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/us_serial_wombat_queued_pulse_output_8h_source.html</loc>
+  </url>
+  <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/us_serial_wombat_random_blink_8h_source.html</loc>
   </url>
   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/us_serial_wombat_resistance_input_8h_source.html</loc>
@@ -203,6 +209,9 @@
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/us_serial_wombat_blink_8h.html</loc>
   </url>
   <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/us_serial_wombat_charlieplex_8h.html</loc>
+  </url>
+  <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/us_serial_wombat_debounced_input_8h.html</loc>
   </url>
   <url>
@@ -267,6 +276,9 @@
   </url>
   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/us_serial_wombat_queued_pulse_output_8h.html</loc>
+  </url>
+  <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/us_serial_wombat_random_blink_8h.html</loc>
   </url>
   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/us_serial_wombat_resistance_input_8h.html</loc>
@@ -383,6 +395,12 @@
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat18_cap_touch-members.html</loc>
   </url>
   <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat8_b_oscillator_tuner.html</loc>
+  </url>
+  <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat8_b_oscillator_tuner-members.html</loc>
+  </url>
+  <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_abstract_button.html</loc>
   </url>
   <url>
@@ -423,6 +441,12 @@
   </url>
   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_button_counter-members.html</loc>
+  </url>
+  <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_charlieplex.html</loc>
+  </url>
+  <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_charlieplex-members.html</loc>
   </url>
   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_chip.html</loc>
@@ -603,6 +627,12 @@
   </url>
   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_queued_pulse_output-members.html</loc>
+  </url>
+  <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_random_blink.html</loc>
+  </url>
+  <url>
+    <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_random_blink-members.html</loc>
   </url>
   <url>
     <loc>https://broadwellconsultinginc.github.io/SerialWombatArdLib/class_serial_wombat_resistance_input.html</loc>

@@ -1,6 +1,17 @@
 #include <stdint.h>
 void echoTest(SerialWombatChip& sw)
 {
+  if (sw.isPinModeSupported(PIN_MODE_THROUGHPUT_CONSUMER))  
+  {
+    // Push the clock stretching....
+    SerialWombatThroughputConsumer swtc(sw);
+    swtc.begin(0);
+    for (int i = 0; i < 16; ++i)
+    {
+      swtc.write(i,i * 40);
+    }
+    
+  }
   uint32_t seed = 1;
   for (int i = 0; i < 5000; ++i)
   {

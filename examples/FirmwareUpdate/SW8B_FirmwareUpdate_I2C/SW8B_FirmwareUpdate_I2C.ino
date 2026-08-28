@@ -12,7 +12,8 @@
 
    Open a serial terminal at 115200 to monitor progress.
 
-   The user is required to send a Capital Y and Enter to confirm desire to update firmware.
+   If the firmware matches the current version
+The user is required to send a Capital Y and Enter to confirm desire to update firmware.
    In arduino this can be done at the top of the terminal window.
 
 
@@ -102,7 +103,7 @@ void setup() {
   Serial.println("detected.");
   if (sw.isLatestFirmware())
   {
-    Serial.println(F("Firmware is already the latest version.  Update?  Send 'Y' to update"));
+    Serial.println(F("Loaded image  is already the latest version.  Update?  Send 'Y' to update"));
     int i = -1;
     while (i == -1)
     {

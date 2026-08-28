@@ -134,7 +134,7 @@ void servoTest(SerialWombatChip &sw , uint8_t startPin, uint8_t endPin)
     {
       for (int reverse = 0; reverse < 2; ++ reverse)
       {
-        for (int i = 0; i < SERVO_TEST_INCREMENTS; ++i)
+        for (int i = 0; i < (SERVO_TEST_INCREMENTS / TestDurationDivisor); ++i)
         {
 
           for (int pin = startPin; pin <= endPin; ++ pin)

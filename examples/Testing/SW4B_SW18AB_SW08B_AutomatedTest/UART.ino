@@ -85,7 +85,7 @@ for (; baudIteration < 9; ++ baudIteration)  // TODO return to 0
   hwUART2->begin(baudArray[baudIteration], rxPin1, rxPin1, txPin1, 2);
   UART2Match->begin(baudArray[baudIteration], 3, 3, 1);
   }
-  for (int iteration = 0; iteration < 500; ++ iteration)
+  for (int iteration = 0; iteration < (500 / TestDurationDivisor) ; ++ iteration)
   {
     txcount = wrandom(&countSeed) % 32;
 

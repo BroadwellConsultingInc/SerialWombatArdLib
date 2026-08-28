@@ -181,6 +181,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a99bcf77ea4c2ff0ff5ffd773e85b8ec3" id="r_a99bcf77ea4c2ff0ff5ffd773e85b8ec3"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99bcf77ea4c2ff0ff5ffd773e85b8ec3">writePublicData</a> (uint8_t pin, uint16_t value)</td></tr>
 <tr class="memdesc:a99bcf77ea4c2ff0ff5ffd773e85b8ec3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a 16 bit value to a Serial Wombat pin Mode.  <br /></td></tr>
 <tr class="separator:a99bcf77ea4c2ff0ff5ffd773e85b8ec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67e4a92532a3b708d930805ea83eb180" id="r_a67e4a92532a3b708d930805ea83eb180"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67e4a92532a3b708d930805ea83eb180">writePublicData</a> (uint8_t firstPin, uint16_t firstValue, uint8_t secondPin, uint16_t secondValue)</td></tr>
+<tr class="memdesc:a67e4a92532a3b708d930805ea83eb180"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a 16 bit value to a Serial Wombat pin Mode.  <br /></td></tr>
+<tr class="separator:a67e4a92532a3b708d930805ea83eb180"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b05ab4c8153b6b4b2dd1f47819642bd" id="r_a2b05ab4c8153b6b4b2dd1f47819642bd"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b05ab4c8153b6b4b2dd1f47819642bd">comparePublicDataToThreshold</a> (uint16_t threshold=0)</td></tr>
 <tr class="separator:a2b05ab4c8153b6b4b2dd1f47819642bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a4b2a9a8ee2d00dd4dd7e34457f70ba" id="r_a9a4b2a9a8ee2d00dd4dd7e34457f70ba"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a4b2a9a8ee2d00dd4dd7e34457f70ba">readSupplyVoltage_mV</a> (void)</td></tr>
@@ -346,7 +349,7 @@ Public Attributes</h2></td></tr>
 <p>This class describes the capabilties of a Serial Wombat Chip that are not Pin Mode functionalities. This class is used for all variety of Serial Wombat chips and is the parent class for Serial Wombat Boards such as PCB0030, PCB0031, etc.</p>
 <p>Certain features may not be available on all models of Serial Wombat chips. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00314">314</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00316">316</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1a715682d0bb31179ec9d3540599fe8d" name="a1a715682d0bb31179ec9d3540599fe8d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1a715682d0bb31179ec9d3540599fe8d">&#9670;&#160;</a></span>SerialWombatChip()</h2>
@@ -420,7 +423,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>An Analog to Digital conversion ranging from 0 to 1023 (10-bit) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00928">928</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00956">956</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -461,7 +464,7 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00947">947</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00975">975</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -502,7 +505,7 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00550">550</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00563">563</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -549,7 +552,7 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00596">596</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00609">609</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -604,7 +607,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00790">790</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00818">818</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -646,7 +649,7 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00385">385</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00387">387</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -676,7 +679,7 @@ Public Attributes</h2></td></tr>
 <p>Reads the state of a Pin. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns LOW if pin is low or public data is 0. Returns HIGH if pin is high or public data is &gt; 0 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00907">907</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00935">935</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -716,7 +719,7 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00897">897</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00925">925</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -752,7 +755,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 for success or negative error code. Success is successful transmit, not echo verification. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01575">1575</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01609">1609</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -793,7 +796,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 for success or negative error code. Success is successful transmit, not echo verification. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01559">1559</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01593">1593</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -822,7 +825,7 @@ Public Attributes</h2></td></tr>
 
 <p>Erases a page in flash. Intended for use with the Bootloader, not by end users outside of bootloading sketch. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01267">1267</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01295">1295</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -858,7 +861,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>I2C address of first found Seirla Wombat chip or 0 if none found </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01468">1468</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01502">1502</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -888,7 +891,7 @@ Public Attributes</h2></td></tr>
 <p>Send a reset command to the Serial Wombat chip. </p>
 <p>Sends a reset command to the Serial Wombat chip. The calling function should wait 500mS before sending additional commands. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00864">864</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00892">892</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -917,7 +920,7 @@ Public Attributes</h2></td></tr>
 
 <p>An internal function used to set up the Serial Wombat chip and this class. Call <a class="el" href="#a8e8bbf0b6d51f4cabc64413b80979043" title="initialize a Serial Wombat chip to use a Serial Interface.">begin()</a> instead of this function. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00436">436</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00438">438</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -947,7 +950,7 @@ Public Attributes</h2></td></tr>
 <p>Check if the firmware is the latest version (or more precisely, if the firmware matches this verison of the Library) </p>
 <dl class="section return"><dt>Returns</dt><dd>true if the firmware matches the library. False if the firmware is newer or older than the library </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00728">728</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00741">741</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -983,7 +986,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the pin mode is supported, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01225">1225</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01253">1253</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1019,7 +1022,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the pin mode is supported, false otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01234">1234</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01262">1262</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1048,7 +1051,7 @@ Public Attributes</h2></td></tr>
 
 <p>Returns true if the instance received a model number corresponding to the Serial Wombat 18 series of chips at begin. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01203">1203</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01231">1231</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1077,7 +1080,7 @@ Public Attributes</h2></td></tr>
 
 <p>Returns true if the instance received a model number corresponding to the Serial Wombat 08 series of chips at begin. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01215">1215</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01243">1243</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1106,7 +1109,7 @@ Public Attributes</h2></td></tr>
 
 <p>Returns true if the instance received a model number corresponding to the Serial Wombat 18 series of chips at begin. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01210">1210</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01238">1238</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1136,7 +1139,7 @@ Public Attributes</h2></td></tr>
 <p>Jump to Bootloader and wait for a UART download of new firmware. </p>
 <p>This function causes a reset of the Serial Wombat chip and causes it to remain in the bootloader until a power-cycle occurs. This allows loading new firmware via a UART connection to the bottom two pins (DIP pins 4 (RX) and 5(TX)) on the SW4A/SW4B. When jumping to boot the TX pin will go high. All other communication or functional pins will become inputs (i.e. PWMS, etc will stop). </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01028">1028</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01056">1056</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1188,7 +1191,7 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00878">878</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00906">906</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1219,7 +1222,7 @@ Public Attributes</h2></td></tr>
 <p>This function queries the Serial Wombat chip for its model and version and stores the result in the public members model and fwVersion as zero terminated strings. Returns true if the response is likely a proper version response and false otherwise.</p>
 <dl class="section return"><dt>Returns</dt><dd>TRUE if response was likely a valid version, FALSE otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00969">969</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00997">997</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1249,7 +1252,7 @@ Public Attributes</h2></td></tr>
 <p>Read the birthday of the Serial Wombat 18AB chip. </p>
 <dl class="section return"><dt>Returns</dt><dd>The birthday as a 32 bit value, or 0 if not a SW18AB chip </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01590">1590</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01624">1624</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1279,7 +1282,7 @@ Public Attributes</h2></td></tr>
 <p>Read the brand of the Serial Wombat 18AB chip. </p>
 <dl class="section return"><dt>Returns</dt><dd>The brand as a string, or empty string if not a SW18AB chip </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01610">1610</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01644">1644</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1309,7 +1312,7 @@ Public Attributes</h2></td></tr>
 <p>Read the device identifier from the Serial Wombat chip and store it in deviceIdentifier. </p>
 <p>This function makes various chip identification (such as mask revision) available to the user. See the datasheet for the specific Serial Wombat chip's microcontroller for details on what this identifier means. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00495">495</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00508">508</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1348,7 +1351,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>An 32 bit value returned from the Serial Wombat chip. 32 bits are used to accomodate different chips. The SW18 series has a 24 bit flash word, whereas the SW4A and SW4B have a 14 bit word. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01103">1103</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01131">1131</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1378,7 +1381,7 @@ Public Attributes</h2></td></tr>
 <p>Get the number of 1mS frames that have been executed since Serial Wombat chip reset. </p>
 <p>This value should be roughly equal to the mS since reset. It will vary based on the Serial Wombat chip's internal oscillator variation, and may run slow if Overflow frames are occuring. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00997">997</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01025">1025</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1414,7 +1417,7 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01514">1514</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01548">1548</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1444,7 +1447,7 @@ Public Attributes</h2></td></tr>
 <p>Get the number of times an overflow Frame has occured. </p>
 <p>This value increments each time the Serial Wombat firmware determines it is time to start a new 1 mS frame, but the previous frame is still executing. Indicates processor loading over 100% of real-time. Overflows back to 0 when incremented from 65535. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01014">1014</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01042">1042</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1480,7 +1483,7 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00772">772</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00787">787</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1516,7 +1519,7 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00755">755</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00770">770</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1556,7 +1559,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>An 8 bit value returned from the Serial Wombat chip. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01054">1054</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01082">1082</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1587,7 +1590,7 @@ Public Attributes</h2></td></tr>
 <p>Causes the Serial Wombat chip to measure the counts for the internal reference voltage. The Arduino library then converts these counts to a Source votlage in mV</p>
 <dl class="section return"><dt>Returns</dt><dd>The Serial Wombat chip's source voltage in mV </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00808">808</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00836">836</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1619,7 +1622,7 @@ Public Attributes</h2></td></tr>
 <p>This value is low accuracy unless a calibration has been performed</p>
 <dl class="section return"><dt>Returns</dt><dd>The Serial Wombat chip's temperature in 100ths deg C </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00841">841</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00869">869</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1649,7 +1652,7 @@ Public Attributes</h2></td></tr>
 <p>Read the unique identifier from the Serial Wombat chip and store it in uniqueIdentifier. </p>
 <p>Each Serial Wombat Chip has a unique identifier stored in its flash memory at manufacturing. The length of this identifier varies by model. See the public value uniqueIdentifierLength to determine the length of the identifier. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00452">452</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00454">454</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1696,7 +1699,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Number of bytes read, or negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01122">1122</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01150">1150</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1726,7 +1729,7 @@ Public Attributes</h2></td></tr>
 <p>Request version string (combined model and firmware) and return pointer to it. </p>
 <p>This queries the Serial Wombat chip for the 7 characters: product line (1 character) Model (3 characters) and firmware version (3 characters) This is stored in a string in the Serial Wombat object. A pointer to this string is returned. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00694">694</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00707">707</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1756,7 +1759,7 @@ Public Attributes</h2></td></tr>
 <p>Request version as a uint32. </p>
 <p>This queries the Serial Wombat chip for its version information, and returns the firmware version as a uint32 0x0XYZ where X,Y,and Z represent firmwre version X.Y.Z </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00715">715</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00728">728</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1791,7 +1794,7 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01542">1542</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01576">1576</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -1827,7 +1830,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The integer error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00519">519</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00532">532</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2042,7 +2045,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Number of bytes written or error code. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01317">1317</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01351">1351</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2072,7 +2075,7 @@ Public Attributes</h2></td></tr>
 <p>Set a pin to be a throughput monitoring pin. </p>
 <p>This pin goes high when pin processing begins in each 1mS frame, and goes low after pin processing is complete. This allows the CPU utilization of the Serial Wombat chip to be measured using a logic analyzer. This function can only be applied to one pin, and is only disabled by resetting the chip. This function is supported on the SW18AB chip. It is not supported on the SW4 series of chips. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01298">1298</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01332">1332</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2104,7 +2107,7 @@ Public Attributes</h2></td></tr>
 <p>Sending an I2C Packet to the Serial Wombat 4B chip will wake it up.</p>
 <dl class="section warning"><dt>Warning</dt><dd>This command does not cause any sort of shutdown routine to run. The chip just stops. Outputs, including PWM, Servo and Protected Outputs, may retain their logic levels at the moment the sleep command is processed. In other words, they may stay high or low as long as the chip is in sleep. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01162">1162</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01190">1190</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2143,7 +2146,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>This command does not cause any sort of shutdown routine to run. The chip just stops. Outputs, including PWM, Servo and Protected Outputs, may retain their logic levels at the moment the sleep command is processed. In other words, they may stay high or low as long as the chip is in sleep. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01187">1187</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01215">1215</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2172,7 +2175,7 @@ Public Attributes</h2></td></tr>
 
 <p>Called to send a dummy packet to the Serial Wombat 8B chip to wake it from sleep and ready it for other commands. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01196">1196</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01224">1224</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2201,7 +2204,7 @@ Public Attributes</h2></td></tr>
 
 <p>Writes a row in flash. Intended for use with the Bootloader, not by end users outside of bootloading sketc. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01278">1278</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01312">1312</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2232,12 +2235,62 @@ Public Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>0 or positive for success or negative error code</dd></dl>
 <p>This command configures a Serial Wombat 18AB Pin to be a frame timer. This frame goes high at the beginning of pin processing, and low after all pins have been serviced. The duty cycle of this pin is an indicator of the Serial Wombat Chip's CPU utilization. This pin has a frequency of 1kHz corresponding to the 1000 frames per second executive. Most multimeters will filter this pin to a voltage, so the CPU utilization can be seen as a fraction of the system voltage. Only one pin can be the Frame Timer pin at a time. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01454">1454</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01488">1488</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+
+</div>
+</div>
+<a id="a67e4a92532a3b708d930805ea83eb180" name="a67e4a92532a3b708d930805ea83eb180"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67e4a92532a3b708d930805ea83eb180">&#9670;&#160;</a></span>writePublicData() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t SerialWombatChip::writePublicData </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>firstPin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>firstValue</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>secondPin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>secondValue</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write a 16 bit value to a Serial Wombat pin Mode. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>The pin number to which to write </td></tr>
+    <tr><td class="paramname">value</td><td>The 16 bit value to write </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00810">810</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
 <a id="a99bcf77ea4c2ff0ff5ffd773e85b8ec3" name="a99bcf77ea4c2ff0ff5ffd773e85b8ec3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99bcf77ea4c2ff0ff5ffd773e85b8ec3">&#9670;&#160;</a></span>writePublicData()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a99bcf77ea4c2ff0ff5ffd773e85b8ec3">&#9670;&#160;</a></span>writePublicData() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2272,7 +2325,7 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00782">782</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00797">797</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2316,7 +2369,7 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01082">1082</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01110">1110</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2357,7 +2410,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Number of bytes written or error code. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01425">1425</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01459">1459</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2398,7 +2451,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Number of bytes written or error code. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01436">1436</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01470">1470</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2445,7 +2498,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Number of bytes written or error code. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01330">1330</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01364">1364</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2463,7 +2516,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Stores the last value retreived by <a class="el" href="#a9a4b2a9a8ee2d00dd4dd7e34457f70ba" title="Measure the Serial Wombat chip&#39;s Supply voltage.">readSupplyVoltage_mV()</a>. Used by <a class="el" href="class_serial_wombat_analog_input.html" title="A class to make analog measurements with the Serial Wombat.">SerialWombatAnalogInput</a> class to calculate mV outputs from retreived A/D counts. Don't access this member, as it may become private and SerialWombatAnalog input be made a friend of <a class="el" href="class_serial_wombat.html" title="This class name is depricated. Do not use for new development. Use SerialWombatChip instead.">SerialWombat</a> in the future. Call readSupplyVoltage_mV instead. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00335">335</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00337">337</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2481,7 +2534,7 @@ Public Attributes</h2></td></tr>
 
 <p>The I2C address of the <a class="el" href="class_serial_wombat_chip.html" title="Class for a Serial Wombat chip. Each Serial Wombat chip on a project should have its own instance.">SerialWombatChip</a> instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01548">1548</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01582">1582</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2499,7 +2552,7 @@ Public Attributes</h2></td></tr>
 
 <p>How many times to retry a packet if communcation bus (such as I2C) error. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01551">1551</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01585">1585</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2516,7 +2569,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Contains a Microchip device identifier for Microchip based Serial Wombat Models. Call <a class="el" href="#adb573e75fa99a67ba18b79801a449797" title="Send a version request to the Serial Wombat chip.">queryVersion()</a> to populate this value. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00360">360</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00362">362</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2533,7 +2586,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Contains a Microchip device revision for Microchip based Serial Wombat Models. Call <a class="el" href="#adb573e75fa99a67ba18b79801a449797" title="Send a version request to the Serial Wombat chip.">queryVersion()</a> to populate this value. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00366">366</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00368">368</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2551,7 +2604,7 @@ Public Attributes</h2></td></tr>
 
 <p>Incremented every time a communication or command error is detected. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00368">368</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00370">370</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2569,7 +2622,7 @@ Public Attributes</h2></td></tr>
 
 <p>Contains the last firmware Version retreived by <a class="el" href="#adb573e75fa99a67ba18b79801a449797" title="Send a version request to the Serial Wombat chip.">queryVersion()</a> as a zero-terminated string. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00341">341</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00343">343</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2587,7 +2640,7 @@ Public Attributes</h2></td></tr>
 
 <p>Set to true if boot mode is indicated by a version query. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00371">371</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00373">373</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2605,7 +2658,7 @@ Public Attributes</h2></td></tr>
 
 <p>The last error code returned as part of a protocol error message expressed as a positive integer. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00374">374</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00376">376</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2623,7 +2676,7 @@ Public Attributes</h2></td></tr>
 
 <p>Contains the last model retreived by <a class="el" href="#adb573e75fa99a67ba18b79801a449797" title="Send a version request to the Serial Wombat chip.">queryVersion()</a> as a zero-terminated string. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00338">338</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00340">340</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2641,7 +2694,7 @@ Public Attributes</h2></td></tr>
 
 <p>Used as a countdown after a reset command is issued. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00431">431</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00433">433</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2660,7 +2713,7 @@ Public Attributes</h2></td></tr>
  Length and format vary by model. uniqueIdentifier holds the length in bytes. <br  />
  Call <a class="el" href="#adb573e75fa99a67ba18b79801a449797" title="Send a version request to the Serial Wombat chip.">queryVersion()</a> to populate this value. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00348">348</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00350">350</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -2677,7 +2730,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Contains the unique identifier length in bytes. This value varies by model. Call <a class="el" href="#adb573e75fa99a67ba18b79801a449797" title="Send a version request to the Serial Wombat chip.">queryVersion()</a> to populate this value. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00354">354</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l00356">356</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>

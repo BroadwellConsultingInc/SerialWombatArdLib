@@ -16,8 +16,13 @@ var searchData=
   ['digitalwrite_13',['digitalWrite',['../class_serial_wombat_chip.html#a2e25c58f541b5215aafac0f599cc528f',1,'SerialWombatChip::digitalWrite()'],['../class_serial_wombat_pin.html#a65687a37ab977c08185b8b1269065d2d',1,'SerialWombatPin::digitalWrite()'],['../class_serial_wombat_protected_output.html#a4f42b1ded9869c7f971887afa9ba10d4',1,'SerialWombatProtectedOutput::digitalWrite()']]],
   ['disable_14',['disable',['../class_serial_wombat_h_s_counter.html#a34cce72dc419610e62f5dbac896589d0',1,'SerialWombatHSCounter::disable()'],['../class_serial_wombat_pin.html#aa5d1dce19c16fad8669795ff798dd30d',1,'SerialWombatPin::disable()']]],
   ['display_15',['display',['../class_serial_wombat_liquid_crystal.html#a29acc503c120e6822fff6c5b9321e6a8',1,'SerialWombatLiquidCrystal']]],
-  ['doubletransition_16',['doubleTransition',['../class_serial_wombat_simulated_quad_enc.html#af95fbcd959cfa32b2593c4be15038e74',1,'SerialWombatSimulatedQuadEnc']]],
-  ['driver_17',['driver',['../class_serial_wombat_ultrasonic_distance_sensor.html#a23427ed7fec2f894cdd0c3d0d12b3630',1,'SerialWombatUltrasonicDistanceSensor']]],
-  ['dutycycle_5fon_5fhtl_5ftransition_18',['DUTYCYCLE_ON_HTL_TRANSITION',['../class_serial_wombat_pulse_timer__18_a_b.html#a486e3029fae457e18763e324dbc47084a1df4629557562605a82606c68f8cdf03',1,'SerialWombatPulseTimer_18AB']]],
-  ['dutycycle_5fon_5flth_5ftransition_19',['DUTYCYCLE_ON_LTH_TRANSITION',['../class_serial_wombat_pulse_timer__18_a_b.html#a486e3029fae457e18763e324dbc47084a5b23e7f6376ead5a1d83e2ea633b7007',1,'SerialWombatPulseTimer_18AB']]]
+  ['display_5fmode_5fbitmap_16',['DISPLAY_MODE_BITMAP',['../class_serial_wombat_charlieplex.html#a086671f1d6fc9e0ac039e95263bb2d83af0dc3662788bc1e054ddc6e23cad3ced',1,'SerialWombatCharlieplex']]],
+  ['display_5fmode_5fpublic_5fdata_5fbitmap_17',['DISPLAY_MODE_PUBLIC_DATA_BITMAP',['../class_serial_wombat_charlieplex.html#a086671f1d6fc9e0ac039e95263bb2d83a48188905732b976cade2370fa0fd4963',1,'SerialWombatCharlieplex']]],
+  ['display_5fmode_5fscaled_5fbargraph_18',['DISPLAY_MODE_SCALED_BARGRAPH',['../class_serial_wombat_charlieplex.html#a086671f1d6fc9e0ac039e95263bb2d83a6e262ba8539c34715ddb617c085518ce',1,'SerialWombatCharlieplex']]],
+  ['display_5fmode_5fscaled_5fsingle_5fled_19',['DISPLAY_MODE_SCALED_SINGLE_LED',['../class_serial_wombat_charlieplex.html#a086671f1d6fc9e0ac039e95263bb2d83a1a79cd4b787e464f7aa64b9648cdcb8e',1,'SerialWombatCharlieplex']]],
+  ['displaymode_5ft_20',['displayMode_t',['../class_serial_wombat_charlieplex.html#a086671f1d6fc9e0ac039e95263bb2d83',1,'SerialWombatCharlieplex']]],
+  ['doubletransition_21',['doubleTransition',['../class_serial_wombat_simulated_quad_enc.html#af95fbcd959cfa32b2593c4be15038e74',1,'SerialWombatSimulatedQuadEnc']]],
+  ['driver_22',['driver',['../class_serial_wombat_ultrasonic_distance_sensor.html#a23427ed7fec2f894cdd0c3d0d12b3630',1,'SerialWombatUltrasonicDistanceSensor']]],
+  ['dutycycle_5fon_5fhtl_5ftransition_23',['DUTYCYCLE_ON_HTL_TRANSITION',['../class_serial_wombat_pulse_timer__18_a_b.html#a486e3029fae457e18763e324dbc47084a1df4629557562605a82606c68f8cdf03',1,'SerialWombatPulseTimer_18AB']]],
+  ['dutycycle_5fon_5flth_5ftransition_24',['DUTYCYCLE_ON_LTH_TRANSITION',['../class_serial_wombat_pulse_timer__18_a_b.html#a486e3029fae457e18763e324dbc47084a5b23e7f6376ead5a1d83e2ea633b7007',1,'SerialWombatPulseTimer_18AB']]]
 ];

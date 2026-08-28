@@ -29,10 +29,11 @@ SW18AB  SW4B  SW8B  DAC
 #define FAILUREPIN 8
 //#define LOAD_REQUIRED_FIRMWARE
 
-//#define TEST_SW18AB
+#define TEST_SW18AB
 #define TEST_SW8B
 //#define TEST_SW4B
 
+int TestDurationDivisor = 20;  // Make this bigger to speed up long tests.
 
 #define UNIT_TEST_QUEUE
 #define UNIT_TEST_USDSENSOR
@@ -42,6 +43,7 @@ SW18AB  SW4B  SW8B  DAC
 #define UNIT_TEST_RESISTANCE_INPUT
 
 #define UNIT_TEST_BLINK
+#define UNIT_TEST_RANDOM_BLINK
 
 #define UNIT_TEST_SCALING
 #define UNIT_TEST_SW_UART
@@ -387,6 +389,8 @@ void setup() {
   Serial.println("Setting Wire Clock");
   delay(1000);
   Wire.setClock(100000);
+
+  Serial.print ("Test divisor is "); Serial.println(TestDurationDivisor);
 
   SW18AB_6B.registerErrorHandler(SerialWombatSerialErrorHandlerBrief);
 
@@ -805,6 +809,37 @@ else
   
 #endif
 
+
+
+#ifdef UNIT_TEST_RANDOM_BLINK
+#ifdef TEST_SW18AB
+  if (SW18AB_6B.isPinModeSupported(PIN_MODE_RANDOMBLINK))
+  {
+    Serial.println ("Starting 18AB Random Blink Test.  This test takes less than 1 minute");
+    resetAll();
+    randomBlinkTest(SW18AB_6B,18);
+    Serial.print ("18AB Random Blink test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
+  }
+  else
+  {
+    Serial.println ("Random Blink Pin Mode Not Available in SW18AB");
+  }
+  #endif
+#ifdef TEST_SW8B
+  if (SW8B_68.isPinModeSupported(PIN_MODE_RANDOMBLINK))
+  {
+    Serial.println ("Starting 8B Random Blink Test.  This test takes less than 1 minute");
+    resetAll();
+    randomBlinkTest(SW8B_68,6);
+    Serial.print ("8B Random Blink test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
+  }
+  else
+  {
+    Serial.println ("Random Blink Pin Mode Not Available in this build of SW8B");
+  }
+#endif
+  
+#endif
 
 #ifdef UNIT_TEST_SCALING
   Serial.println ("Starting Scaling Test.  This test takes less than 10 minutes");

@@ -70,7 +70,7 @@ void swUARTLoop()
    }
 
   
-  for (int iteration = 0; iteration < 200; ++ iteration)
+  for (int iteration = 0; iteration < (200 / TestDurationDivisor); ++ iteration)
   {
     
     uint8_t txCount18[4];

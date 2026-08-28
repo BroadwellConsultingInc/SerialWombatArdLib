@@ -33,7 +33,7 @@ void queueTest(SerialWombatChip& sw)
     }
     swq.begin(queueOffset, queueSize) ;
     swq.setTimeout(0);
-    for (int iteration = 0; iteration < QUEUE_TEST_NUMBER_ITERATIONS; ++iteration)
+    for (int iteration = 0; iteration < (QUEUE_TEST_NUMBER_ITERATIONS / TestDurationDivisor); ++iteration)
     {
       uint16_t action = wrandom(&lfsrSeed);
       switch (action >> 30)
