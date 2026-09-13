@@ -168,19 +168,13 @@ void servoTest(SerialWombatChip &sw , uint8_t startPin, uint8_t endPin)
               setting = (65535 - setting);
             }
             int32_t expected = (variable) * (uint32_t)setting / 65536 + base;
-
+            char c[80];
+            sprintf(c,"Servo test pin %d  reverse %d  base %d  variable %d  setting %d  ", pin, reverse, base, variable, setting);
+            test(c, result, expected,30,5);
+            /*
             if ((result < (expected + (expected / 20)) + 20) && (result > (expected - (expected / 20) - 20))) // 2% clock error on receiver, 2% error on sender, worst case 4% either way plus a little round off error, +/- 20 for quant. error in DMA.
             {
-              /*
-                Serial.print(pin);
-                Serial.print(" ");
-                Serial.print(result);
-                Serial.print(" ");
-                Serial.print(expected);
-                Serial.print(" ");
-                Serial.print ("Pass");
-                Serial.println();
-              */
+              
               pass(i);
             }
             else
@@ -193,6 +187,7 @@ void servoTest(SerialWombatChip &sw , uint8_t startPin, uint8_t endPin)
               
               fail(i);
             }
+            */
 
 
           }

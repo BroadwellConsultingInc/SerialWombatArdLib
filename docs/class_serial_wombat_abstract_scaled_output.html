@@ -156,6 +156,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a05117e5116d65afc07df4912d2e0b070" id="r_a05117e5116d65afc07df4912d2e0b070"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05117e5116d65afc07df4912d2e0b070">writeTimeout</a> (uint16_t timeout_mS, uint16_t timeoutOutputValue)</td></tr>
 <tr class="memdesc:a05117e5116d65afc07df4912d2e0b070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a timeout value which will cause the output to go to a default value if not updated.  <br /></td></tr>
 <tr class="separator:a05117e5116d65afc07df4912d2e0b070"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1490f3cc43798a09af2be13432bbf796" id="r_a1490f3cc43798a09af2be13432bbf796"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1490f3cc43798a09af2be13432bbf796">writeEndstops</a> (uint8_t endstop0Pin=0xFF, uint16_t endstop0TriggerValue=0x0000, uint16_t endstop0OutputValue=0x0000, bool endstop0GreaterThanOrEqual=false, uint8_t endstop1Pin=0xFF, uint16_t endstop1TriggerValue=0x0000, uint16_t endstop1OutputValue=0x0000, bool endstop1GreaterThanOrEqual=false)</td></tr>
+<tr class="memdesc:a1490f3cc43798a09af2be13432bbf796"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure up to two endstop inputs which can override the Scaled Output value.  <br /></td></tr>
+<tr class="separator:a1490f3cc43798a09af2be13432bbf796"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a014d42b447b5cb6b4a804d4b713b9540" id="r_a014d42b447b5cb6b4a804d4b713b9540"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a014d42b447b5cb6b4a804d4b713b9540">writeScalingEnabled</a> (bool enabled, uint8_t sourcePin)</td></tr>
 <tr class="memdesc:a014d42b447b5cb6b4a804d4b713b9540"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable scaling and set which pin or public data is used as the input source.  <br /></td></tr>
 <tr class="separator:a014d42b447b5cb6b4a804d4b713b9540"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -232,13 +235,14 @@ Public Member Functions</h2></td></tr>
 <li>Invert if configured by subtracting the scaled value from 65535</li>
 <li>Pass the input value to the specified control algorithm (PID, Hysteresis or PassThrough) to determine the output value</li>
 <li>Check to see if a communication timeout has occurred if configured. If so, substitute the default output value</li>
+<li>Check the two optional endstop inputs. If an endstop condition is active, substitute its configured output value</li>
 <li>Perform output filtering if configured to smooth transitions in the output value</li>
 <li>Scale the output value from 0-65535 to some other range if configured. This is useful for example if a servo is physically limited to a portion of its normal rotation.</li>
 <li>Write the output data to the output pin's publc data (unless the pin is configured to use its own public data as an input source)</li>
 <li>Write the output data to the underlying pin mode (Servo, PWM, etc) so that the physical output is updated </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00062">62</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00063">63</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="ae98e5ae800e55696f88a067dab46266e" name="ae98e5ae800e55696f88a067dab46266e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae98e5ae800e55696f88a067dab46266e">&#9670;&#160;</a></span>Period</h2>
@@ -265,7 +269,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="ae98e5ae800e55696f88a067dab46266eadc8ec96b47c83c6a7762cb14642dba9f" name="ae98e5ae800e55696f88a067dab46266eadc8ec96b47c83c6a7762cb14642dba9f"></a>PERIOD_1024mS&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00072">72</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00073">73</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -286,7 +290,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="aa80b59d9db954557d37e733b328d4902a361526fa828bd4e2031ce46619ea0117" name="aa80b59d9db954557d37e733b328d4902a361526fa828bd4e2031ce46619ea0117"></a>RAMP_MODE_DECREMENT&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00086">86</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00087">87</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -322,7 +326,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00070">70</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00071">71</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -360,7 +364,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00703">703</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00786">786</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -387,7 +391,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00643">643</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00726">726</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -414,7 +418,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00660">660</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00743">743</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -441,7 +445,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00574">574</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00657">657</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -468,7 +472,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00592">592</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00675">675</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -495,7 +499,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00609">609</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00692">692</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -522,7 +526,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00626">626</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00709">709</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -581,7 +585,7 @@ Public Member Functions</h2></td></tr>
 <p>Request Last Output Value. </p>
 <p>This function is useful to see intermediate output values when the scaled output is using its same pin's public data for input (so the output value is not written back to public data) </p><dl class="section return"><dt>Returns</dt><dd>Last 16 bit value output to hardware </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00544">544</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00627">627</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -608,7 +612,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00677">677</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00760">760</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -679,7 +683,87 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00309">309</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00392">392</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+
+</div>
+</div>
+<a id="a1490f3cc43798a09af2be13432bbf796" name="a1490f3cc43798a09af2be13432bbf796"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1490f3cc43798a09af2be13432bbf796">&#9670;&#160;</a></span>writeEndstops()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t SerialWombatAbstractScaledOutput::writeEndstops </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>endstop0Pin</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0xFF</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>endstop0TriggerValue</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0x0000</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>endstop0OutputValue</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0x0000</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>endstop0GreaterThanOrEqual</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>endstop1Pin</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0xFF</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>endstop1TriggerValue</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0x0000</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>endstop1OutputValue</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0x0000</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>endstop1GreaterThanOrEqual</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Configure up to two endstop inputs which can override the Scaled Output value. </p>
+<p>Each endstop monitors the public data value of another Serial Wombat pin or public data source. When the configured comparison becomes true, the normal Scaled Output value is replaced with the configured endstop output value. The endstop check occurs after the communications timeout check and before output filtering. This means an active endstop overrides a communication-timeout value, but the resulting endstop output value is still processed by any configured output filter.</p>
+<p>Endstop pin 0xFF disables that endstop. If both endstops are active at the same time, endstop 0 has priority.</p>
+<p>This function sends three Scaled Output configuration packets. Subcommand 0x0B configures the two monitored pins and comparison directions. Subcommands 0x0C and 0x0D configure the trigger and output values for endstops 0 and 1 respectively.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">endstop0Pin</td><td>Pin or public data source monitored by endstop 0. 0xFF disables endstop 0. </td></tr>
+    <tr><td class="paramname">endstop0TriggerValue</td><td>Public data value used as the comparison threshold for endstop 0. </td></tr>
+    <tr><td class="paramname">endstop0OutputValue</td><td>16-bit Scaled Output value substituted when endstop 0 is active. </td></tr>
+    <tr><td class="paramname">endstop0GreaterThanOrEqual</td><td>False activates when public data is less than or equal to the trigger value; true activates when it is greater than or equal to the trigger value. </td></tr>
+    <tr><td class="paramname">endstop1Pin</td><td>Pin or public data source monitored by endstop 1. 0xFF disables endstop 1. </td></tr>
+    <tr><td class="paramname">endstop1TriggerValue</td><td>Public data value used as the comparison threshold for endstop 1. </td></tr>
+    <tr><td class="paramname">endstop1OutputValue</td><td>16-bit Scaled Output value substituted when endstop 1 is active. </td></tr>
+    <tr><td class="paramname">endstop1GreaterThanOrEqual</td><td>False activates when public data is less than or equal to the trigger value; true activates when it is greater than or equal to the trigger value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00152">152</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -740,7 +824,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00351">351</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00434">434</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -783,7 +867,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00159">159</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00242">242</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -826,7 +910,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00186">186</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00269">269</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -905,7 +989,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00479">479</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00562">562</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -971,7 +1055,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00407">407</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00490">490</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -1019,7 +1103,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00254">254</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00337">337</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -1060,7 +1144,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00133">133</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00216">216</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -1096,7 +1180,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00205">205</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00288">288</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -1133,7 +1217,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00229">229</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00312">312</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -1160,7 +1244,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00564">564</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00647">647</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>
@@ -1202,7 +1286,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns 0 or higher if success, or a negative error code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00108">108</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html#l00109">109</a> of file <a class="el" href="us_serial_wombat_abstract_scaled_output_8h_source.html">SerialWombatAbstractScaledOutput.h</a>.</p>
 
 </div>
 </div>

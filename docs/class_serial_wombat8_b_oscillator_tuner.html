@@ -109,7 +109,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>A class which tunes the oscillator on a CH32V003 based Serial Wombat 8B chip. </p>
 <p>This class is designed to be called periodically in the program main loop. It compares the 1mS execution frame count to the millis() funciton provided by the host. When at least 10 seconds of execution have occured the class compares the counts and adjusts the CH32V003 HSI oscillator trim value slightly slower or faster. This can reduce the error in the Serial Wombat's nominal clock. Simply call <a class="el" href="#a612ce729df800f682c610b5b23ac9c8e" title="Call periodically to tune the SW8B oscillator to reported millis.">update()</a> periodically and the class will take care of the rest. Allow up to 10 calls at least 10 seconds apart each to reach optimal timing. See the example sketch for an example. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01786">1786</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01830">1830</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9d5f32535ad1e258efc145efa4a0d1eb" name="a9d5f32535ad1e258efc145efa4a0d1eb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9d5f32535ad1e258efc145efa4a0d1eb">&#9670;&#160;</a></span>SerialWombat8BOscillatorTuner()</h2>
@@ -142,7 +142,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01817">1817</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01861">1861</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>
@@ -172,7 +172,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Call periodically to tune the SW8B oscillator to reported millis. </p>
 
-<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01822">1822</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="us_serial_wombat_8h_source.html#l01866">1866</a> of file <a class="el" href="us_serial_wombat_8h_source.html">SerialWombat.h</a>.</p>
 
 </div>
 </div>

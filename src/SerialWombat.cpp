@@ -126,22 +126,22 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 		initialize(); 
 	}
 
-	if (Serial != NULL)
+	if (SerialInstance != NULL)
 	{
 		if (_currentlyCommunicating)
 		{
 			//TODO return (-1 * SW_ERROR_REENTRANCY_NOT_SUPPORTED);
 		}
 		_currentlyCommunicating = true;
-		while (Serial->read() >= 0);
-		Serial->write(tx, 8);  //TODO add addressing, CRC
+		while (SerialInstance->read() >= 0);
+		SerialInstance->write(tx, 8);  //TODO add addressing, CRC
 		uint32_t millisWrite = millis();
 		int bytesRx = 0;
 
 		uint32_t timenow = millis();
 		while (bytesRx < 8 && timenow <= (millisWrite + 50))
 		{
-			int32_t data = Serial->read();
+			int32_t data = SerialInstance->read();
 			if (data >= 0)
 			{
 				rx[bytesRx] = data;
@@ -280,9 +280,9 @@ int SerialWombatChip::sendPacket(uint8_t tx[], uint8_t rx[])
 int SerialWombatChip::sendPacketNoResponse(uint8_t tx[])
 {
 
-	if (Serial != NULL)
+	if (SerialInstance != NULL)
 	{
-		Serial->write(tx, 8);  //TODO add addressing, CRC
+		SerialInstance->write(tx, 8);  //TODO add addressing, CRC
 		return (8);
 	}
 
@@ -322,9 +322,9 @@ int SerialWombatChip::sendPacket(uint8_t tx[])
 		initialize();
 	}
 
-	if (Serial != NULL)
+	if (SerialInstance != NULL)
 	{
-		return Serial->write(tx, 8);  //TODO add addressing, CRC		
+		return SerialInstance->write(tx, 8);  //TODO add addressing, CRC		
 	}
 
 	if (i2cInterface != NULL)

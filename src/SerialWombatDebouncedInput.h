@@ -1,6 +1,6 @@
 #pragma once
 /*
-Copyright 2020-2024 Broadwell Consulting Inc.
+Copyright 2020-2026 Broadwell Consulting Inc.
 
 "Serial Wombat" is a registered trademark of Broadwell Consulting Inc. in
 the United States.  See SerialWombat.com for usage guidance.
@@ -62,6 +62,11 @@ button has been held.
 The Debounced Input mode keeps track of how many transitions have occured.
 This can be used to poll the Debounced Input infrequently for status, but
 still process all button presses/releases that occured since the last poll.
+
+On supported firmware the Debounced Input mode can also detect double clicks,
+provide a count of detected double clicks, write values to another pin when a
+debounced transition or double click occurs, and simulate a toggle switch in
+its public data output.
 
 The pin mode has weak pull-up circuitry availble, and the ability to report 
 inverted values.  These are both enabled when the simpliest begin() call is
@@ -177,6 +182,86 @@ public:
 		_sw.sendPacket(tx, rx);
 		transitions = (256 * rx[5] + rx[4]);
 		return (rx[3] > 0);
+	}
+
+	/*!
+	@brief Configure the maximum period used to recognize a double click
+
+	A double click is recognized when two releases occur within this period and
+	no third press occurs during the following period.  The firmware waits for
+	the following period to expire before incrementing the double click count.
+
+	Setting the period to 0 disables double click detection.  Calling this method
+	also clears any double click sequence currently in progress.
+	
+	Only supported on the Serial Wombat 18AB, and 8B TM1637 and Front Panel builds.
+
+	@param doubleClickPeriod_mS double click timing period in mS
+	@return The result returned by SerialWombatChip::sendPacket()
+	*/
+	int16_t setDoubleClickPeriod(uint16_t doubleClickPeriod_mS)
+	{
+		return(initPacketNoResponse(2, doubleClickPeriod_mS));
+	}
+
+	/*!
+	@brief Configure another Serial Wombat pin to receive values on button events
+
+	The output pin's public data buffer is written with transitionOutputValue
+	whenever a debounced transition occurs.  If a double click is subsequently
+	recognized, the output pin is written with doubleClickOutputValue.
+
+	Use an output pin value of 255 to disable this feature.
+	
+		
+	Only supported on the Serial Wombat 18AB, and 8B TM1637 and Front Panel builds.
+
+	@param outputPin Serial Wombat pin whose public data buffer will be written
+	@param transitionOutputValue Value written when a debounced transition occurs
+	@param doubleClickOutputValue Value written when a double click is recognized
+	@return The result returned by SerialWombatChip::sendPacket()
+	*/
+	int16_t setOutputPin(uint8_t outputPin, uint16_t transitionOutputValue, uint16_t doubleClickOutputValue)
+	{
+		uint8_t tx[8] = { 203,_pin,_pinMode,outputPin,SW_LE16(transitionOutputValue),SW_LE16(doubleClickOutputValue) };
+		return(_sw.sendPacket(tx));
+	}
+
+	/*!
+	@brief Read the number of double clicks detected by the firmware
+
+	
+	Only supported on the Serial Wombat 18AB, and 8B TM1637 and Front Panel builds.
+	
+	@param resetDoubleClickCount If true, reset the firmware double click count after reading it
+	@return Number of double clicks currently accumulated by the firmware
+	*/
+	uint16_t readDoubleClickCount(bool resetDoubleClickCount = true)
+	{
+		uint8_t tx[8] = { 204,_pin,_pinMode,(uint8_t)resetDoubleClickCount,0x55,0x55,0x55,0x55 };
+		uint8_t rx[8];
+		_sw.sendPacket(tx, rx);
+		return(256 * rx[4] + rx[3]);
+	}
+
+	/*!
+	@brief Enable or disable toggle-switch simulation in the pin's public data
+
+	When enabled, the public data output toggles between 0 and 65535 after each
+	complete debounced press/release cycle.  This command also sets the firmware
+	transition counter.  A transitionCount of 0 starts the toggle output low; a
+	transitionCount of 2 starts it high.
+	
+		
+	Only supported on the Serial Wombat 18AB, and 8B TM1637 and Front Panel builds.
+
+	@param enabled TRUE to enable toggle simulation, FALSE for normal debounced output
+	@param transitionCount Value loaded into the firmware transition counter
+	@return The result returned by SerialWombatChip::sendPacket()
+	*/
+	int16_t setToggleSimulation(bool enabled, uint16_t transitionCount = 0)
+	{
+		return(initPacketNoResponse(5, (uint8_t)enabled, (uint8_t)(transitionCount & 0xFF), (uint8_t)(transitionCount >> 8)));
 	}
 
 private:

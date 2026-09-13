@@ -54,6 +54,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  - Invert if configured by subtracting the scaled value from 65535
  - Pass the input value to the specified control algorithm (PID, Hysteresis or PassThrough) to determine the output value
  - Check to see if a communication timeout has occurred if configured.  If so, substitute the default output value
+ - Check the two optional endstop inputs.  If an endstop condition is active, substitute its configured output value
  - Perform output filtering if configured to smooth transitions in the output value
  - Scale the output value from 0-65535 to some other range if configured.  This is useful for example if a servo is physically limited to a portion of its normal rotation.
  - Write the output data to the output pin's publc data (unless the pin is configured to use its own public data as an input source)
@@ -119,6 +120,88 @@ public:
 		int16_t result = _asosw.sendPacket(tx);
 
 		return(result);
+
+	}
+
+	/*!
+	 \brief Configure up to two endstop inputs which can override the Scaled Output value
+
+	 Each endstop monitors the public data value of another Serial Wombat pin or public data source.
+	 When the configured comparison becomes true, the normal Scaled Output value is replaced with the
+	 configured endstop output value.  The endstop check occurs after the communications timeout check
+	 and before output filtering.  This means an active endstop overrides a communication-timeout value,
+	 but the resulting endstop output value is still processed by any configured output filter.
+
+	 Endstop pin 0xFF disables that endstop.  If both endstops are active at the same time, endstop 0
+	 has priority.
+
+	 This function sends three Scaled Output configuration packets.  Subcommand 0x0B configures the two
+	 monitored pins and comparison directions.  Subcommands 0x0C and 0x0D configure the trigger and
+	 output values for endstops 0 and 1 respectively.
+
+	 \param endstop0Pin Pin or public data source monitored by endstop 0.  0xFF disables endstop 0.
+	 \param endstop0TriggerValue Public data value used as the comparison threshold for endstop 0.
+	 \param endstop0OutputValue 16-bit Scaled Output value substituted when endstop 0 is active.
+	 \param endstop0GreaterThanOrEqual False activates when public data is less than or equal to the trigger value; true activates when it is greater than or equal to the trigger value.
+	 \param endstop1Pin Pin or public data source monitored by endstop 1.  0xFF disables endstop 1.
+	 \param endstop1TriggerValue Public data value used as the comparison threshold for endstop 1.
+	 \param endstop1OutputValue 16-bit Scaled Output value substituted when endstop 1 is active.
+	 \param endstop1GreaterThanOrEqual False activates when public data is less than or equal to the trigger value; true activates when it is greater than or equal to the trigger value.
+	 \return returns 0 or higher if success, or a negative error code
+	*/
+	int16_t writeEndstops(
+		uint8_t endstop0Pin = 0xFF,
+		uint16_t endstop0TriggerValue = 0x0000,
+		uint16_t endstop0OutputValue = 0x0000,
+		bool endstop0GreaterThanOrEqual = false,
+		uint8_t endstop1Pin = 0xFF,
+		uint16_t endstop1TriggerValue = 0x0000,
+		uint16_t endstop1OutputValue = 0x0000,
+		bool endstop1GreaterThanOrEqual = false)
+	{
+		
+		{
+			uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
+				pin(),
+				swPinModeNumber(),
+				0x0C, // Set endstop 0 trigger and output values
+				SW_LE16(endstop0TriggerValue),
+				SW_LE16(endstop0OutputValue)
+			};
+			int16_t result = _asosw.sendPacket(tx);
+			if (result < 0)
+			{
+				return(result);
+			}
+		}
+
+		{
+			uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
+				pin(),
+				swPinModeNumber(),
+				0x0D, // Set endstop 1 trigger and output values
+				SW_LE16(endstop1TriggerValue),
+				SW_LE16(endstop1OutputValue)
+			};
+				int16_t result = _asosw.sendPacket(tx);
+			if (result < 0)
+			{
+				return(result);
+			}
+		}
+		{
+			uint8_t tx[] = { (uint8_t)SerialWombatCommands::CONFIGURE_PIN_OUTPUTSCALE,
+				pin(),
+				swPinModeNumber(),
+				0x0B, // Set endstop pins and comparison modes
+				endstop0Pin,
+				(uint8_t)(endstop0GreaterThanOrEqual ? 1 : 0),
+				endstop1Pin,
+				(uint8_t)(endstop1GreaterThanOrEqual ? 1 : 0)
+			};
+			return(_asosw.sendPacket(tx));
+		
+		}
 
 	}
 

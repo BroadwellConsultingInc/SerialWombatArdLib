@@ -58,10 +58,7 @@ void setup() {
   Serial.println("Serial Wombat chip Finder");
   Serial.println();
 
-  Serial.println();
-  Serial.println("Special Thanks to SW8B Kickstarter Backers Joshua Sefchek and Joshua De Yonge");
-  Serial.println("=======================================================");
-  Serial.println();
+  
 
 
 }
@@ -153,6 +150,11 @@ void loop() {
           Serial.println(brand);
 
 
+        }
+        if (sw.isConfiguredWithStartupCommands())
+        {
+          Serial.println("*****  NOTE:  STARTUP COMMANDS ARE CONFIGURED SO PIN BEHAVIOR MAY VARY FROM DEFAULT.   *****");
+          Serial.println("*****  STARTUP COMMANDS CAN BE ERASED BY REDOWNLOADING FIRMWARE.   *****");
         }
       }
       else

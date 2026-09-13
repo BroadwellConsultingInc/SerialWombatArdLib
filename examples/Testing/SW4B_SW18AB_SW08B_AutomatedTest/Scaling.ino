@@ -1,14 +1,29 @@
-SerialWombatPWM_18AB scalingInput18AB(SW18AB_6B), scalingOutput18AB(SW18AB_6B);
+SerialWombatPWM_18AB scalingInput18AB(SW18AB_6B), scalingOutput18AB(SW18AB_6B), scalingInput8B(SW8B_68), scalingOutput8B(SW8B_68);
+
 
 #define SCALING_INPUT_PIN 5 //18
 #define SCALING_OUTPUT_PIN 6 //19
+#define SCALING_ENDSTOP0_PIN 7
+#define SCALING_ENDSTOP1_PIN 0
 
 SerialWombatPWM_18AB  *scalingInput, *scalingOutput;
-void scalingTest()
+SerialWombatChip* scalingSWC;
+void scalingTest(SerialWombatChip &sw)
 {
+  scalingSWC = &sw;
+   if (&sw ==  &SW18AB_6B)
+   {
    scalingInput = &scalingInput18AB;
    scalingOutput = &scalingOutput18AB;
+   
+   }
+   else
+   {
+       scalingInput = &scalingInput8B;
+   scalingOutput = &scalingOutput8B;
+   }
     scalingTimeoutTest();
+    scalingEndstopTest();
 
     scalingInputScalingTest();
     scalingInvertScalingTest();
@@ -69,7 +84,7 @@ void scalingTimeoutTest()
   scalingOutput->writeScalingEnabled(false, SCALING_INPUT_PIN);
   scalingOutput->writeScalingEnabled(false, SCALING_OUTPUT_PIN);
   scalingOutput->writeScalingEnabled(true, SCALING_OUTPUT_PIN);
-  SW18AB_6B.writePublicData(SCALING_OUTPUT_PIN, 0x0000);
+  scalingSWC->writePublicData(SCALING_OUTPUT_PIN, 0x0000);
   scalingOutput->writeTimeout(1000, 0x8000);
   uint32_t startTime = millis();
   while (millis() < startTime + 900)
@@ -101,6 +116,116 @@ void scalingTimeoutTest()
 
 }
 
+void scalingEndstopTest()
+{
+  // Endstop tests.  Endstop processing occurs after communication timeout
+  // processing and before output filtering.
+  resetAll();
+
+  scalingInput->begin(SCALING_ENDSTOP0_PIN);
+  scalingInput->begin(SCALING_ENDSTOP1_PIN);
+  scalingInput->begin(SCALING_INPUT_PIN);
+  scalingOutput->begin(SCALING_OUTPUT_PIN);
+  scalingOutput->writeScalingEnabled(false, SCALING_INPUT_PIN);
+
+  const uint16_t normalOutput = 0x3456;
+  const uint16_t endstop0Trigger = 10000;
+  const uint16_t endstop0Output = 0x1111;
+  const uint16_t endstop1Trigger = 50000;
+  const uint16_t endstop1Output = 0xEEEE;
+
+  scalingInput->writePublicData(normalOutput);
+  scalingSWC->writePublicData(SCALING_ENDSTOP0_PIN, endstop0Trigger + 1); // Inactive for <= comparison
+  scalingSWC->writePublicData(SCALING_ENDSTOP1_PIN, endstop1Trigger - 1); // Inactive for >= comparison
+
+  scalingOutput->writeEndstops(
+    SCALING_ENDSTOP0_PIN, endstop0Trigger, endstop0Output, false,
+    SCALING_ENDSTOP1_PIN, endstop1Trigger, endstop1Output, true);
+  scalingOutput->writeScalingEnabled(true, SCALING_INPUT_PIN);
+
+  // Neither endstop active: normal scaled output passes through.
+  test("SCALE_END_01", scalingOutput->readPublicData(), normalOutput);
+
+  // Endstop 0 uses <= comparison.  Test both below and exactly equal to the threshold.
+  scalingSWC->writePublicData(SCALING_ENDSTOP0_PIN, endstop0Trigger - 1);
+  test("SCALE_END_02", scalingOutput->readPublicData(), endstop0Output);
+
+  scalingSWC->writePublicData(SCALING_ENDSTOP0_PIN, endstop0Trigger);
+  test("SCALE_END_03", scalingOutput->readPublicData(), endstop0Output);
+
+  scalingSWC->writePublicData(SCALING_ENDSTOP0_PIN, endstop0Trigger + 1);
+  test("SCALE_END_04", scalingOutput->readPublicData(), normalOutput);
+
+  // Endstop 1 uses >= comparison.  Test both above and exactly equal to the threshold.
+  scalingSWC->writePublicData(SCALING_ENDSTOP1_PIN, endstop1Trigger + 1);
+  test("SCALE_END_05", scalingOutput->readPublicData(), endstop1Output);
+
+  scalingSWC->writePublicData(SCALING_ENDSTOP1_PIN, endstop1Trigger);
+  test("SCALE_END_06", scalingOutput->readPublicData(), endstop1Output);
+
+  scalingSWC->writePublicData(SCALING_ENDSTOP1_PIN, endstop1Trigger - 1);
+  test("SCALE_END_07", scalingOutput->readPublicData(), normalOutput);
+
+  // If both endstops are active, endstop 0 has priority.
+  scalingSWC->writePublicData(SCALING_ENDSTOP0_PIN, endstop0Trigger);
+  scalingSWC->writePublicData(SCALING_ENDSTOP1_PIN, endstop1Trigger);
+  test("SCALE_END_08", scalingOutput->readPublicData(), endstop0Output);
+
+  // The default 0xFF pin disables both endstops even when the old monitored
+  // pins still contain values which would have activated them.
+  scalingOutput->writeEndstops();
+  test("SCALE_END_09", scalingOutput->readPublicData(), normalOutput);
+
+  // Verify ordering relative to the communication timeout.  Once the timeout
+  // expires its output is used, but an active endstop must override it because
+  // endstop processing occurs after timeout processing.
+  resetAll();
+  scalingInput->begin(SCALING_ENDSTOP0_PIN);
+  scalingInput->begin(SCALING_ENDSTOP1_PIN);
+  scalingInput->begin(SCALING_INPUT_PIN);
+  scalingOutput->begin(SCALING_OUTPUT_PIN);
+  scalingOutput->writeScalingEnabled(false, SCALING_INPUT_PIN);
+
+  const uint16_t timeoutNormalOutput = 0x2222;
+  const uint16_t timeoutValue = 0x4444;
+  const uint16_t timeoutEndstopTrigger = 0x0800;
+  const uint16_t timeoutEndstopOutput = 0x3333;
+   
+  scalingSWC->writePublicData(SCALING_ENDSTOP0_PIN, timeoutEndstopTrigger + 1);
+  scalingOutput->writeEndstops(
+    SCALING_ENDSTOP0_PIN, timeoutEndstopTrigger, timeoutEndstopOutput, false);
+  scalingOutput->writeTimeout(20, timeoutValue);
+  scalingOutput->writeScalingEnabled(true, SCALING_INPUT_PIN);
+  scalingInput->writePublicData(timeoutNormalOutput);
+  delay(30);
+  test("SCALE_END_10", scalingOutput->readPublicData(), timeoutValue);
+
+  scalingSWC->writePublicData(SCALING_ENDSTOP0_PIN, timeoutEndstopTrigger);
+  test("SCALE_END_11", scalingOutput->readPublicData(), timeoutEndstopOutput);
+
+  // Verify ordering relative to output filtering.  The endstop substitutes a
+  // value before filtering, so rate limiting should ramp toward the endstop
+  // output instead of jumping directly to it.
+  resetAll();
+  scalingInput->begin(SCALING_ENDSTOP0_PIN);
+  scalingInput->begin(SCALING_ENDSTOP1_PIN);
+  scalingInput->begin(SCALING_INPUT_PIN);
+  scalingOutput->begin(SCALING_OUTPUT_PIN);
+  scalingOutput->writeScalingEnabled(false, SCALING_INPUT_PIN);
+  scalingInput->writePublicData(0);
+  scalingSWC->writePublicData(SCALING_ENDSTOP0_PIN, 0xFFFF); // Inactive
+  scalingOutput->writeRateControl(SerialWombatAbstractScaledOutput::Period::PERIOD_64mS, 100);
+  scalingOutput->writeEndstops(SCALING_ENDSTOP0_PIN, 0x1000, 1000, false);
+  scalingOutput->writeScalingEnabled(true, SCALING_INPUT_PIN);
+
+  scalingSWC->writePublicData(SCALING_ENDSTOP0_PIN, 0x1000); // Activate at equality
+  uint32_t timeout = millis() + 10000;
+  while (scalingOutput->readPublicData() == 0 && millis() < timeout);
+  test("SCALE_END_12", scalingOutput->readPublicData(), 100);
+  delay(64);
+  test("SCALE_END_13", scalingOutput->readPublicData(), 200);
+}
+
 void scalingInputScalingTest()
 { //Input Scaling Test
   resetAll();
@@ -116,7 +241,7 @@ void scalingInputScalingTest()
   for (uint32_t i = 0; i < 65536; i += 10)
   {
 
-    SW18AB_6B.writePublicData(SCALING_INPUT_PIN, i);
+    scalingSWC->writePublicData(SCALING_INPUT_PIN, i);
     scalingOutput->writeInputScaling(lowLimit, highLimit);
     delay(10);
     uint16_t expected = 0;
@@ -159,7 +284,7 @@ void scalingInvertScalingTest()
   for (uint32_t i = 0; i < 65536; i += 10)
   {
 
-    SW18AB_6B.writePublicData(SCALING_INPUT_PIN, i);
+    scalingSWC->writePublicData(SCALING_INPUT_PIN, i);
     scalingOutput->writeOutputScaling(lowLimit, highLimit);
     delay(10);
     uint16_t expected = 0;
@@ -193,7 +318,7 @@ void scalingOutputScalingTest()
   for (uint32_t i = 0; i < 65536; i += 10)
   {
 
-    SW18AB_6B.writePublicData(SCALING_INPUT_PIN, i);
+    scalingSWC->writePublicData(SCALING_INPUT_PIN, i);
     scalingOutput->writeOutputScaling(lowLimit, highLimit);
     delay(10);
     uint16_t expected = 0;
@@ -219,14 +344,15 @@ void scalingRateControl16HzTest()
 { //Rate Control Test 16 Hz, dual pin
   scalingInput->begin(SCALING_INPUT_PIN);
   scalingOutput->begin(SCALING_OUTPUT_PIN);
-  SW18AB_6B.writePublicData(SCALING_OUTPUT_PIN, 0);
+  scalingSWC->writePublicData(SCALING_OUTPUT_PIN, 0);
 
   scalingOutput->writeScalingEnabled(false, SCALING_INPUT_PIN);
 
   scalingOutput->writeRateControl(SerialWombatAbstractScaledOutput::Period::PERIOD_64mS, 100);
   scalingOutput->writeScalingEnabled(true, SCALING_INPUT_PIN);
-  SW18AB_6B.writePublicData(SCALING_INPUT_PIN, 1000);
-  while (scalingOutput->readPublicData() == 0);
+  scalingSWC->writePublicData(SCALING_INPUT_PIN, 1000);
+  uint32_t endTime = millis() + 10000;
+  while (scalingOutput->readPublicData() == 0 && millis() < endTime);
 
   for (uint32_t i = 1; i < 10; i += 1)
   {
@@ -239,7 +365,7 @@ void scalingRateControl16HzTest()
     else
     {
       fail(1);
-      Serial.print("F8. i: "); Serial.print(i); Serial.print(" V: "); Serial.print(value); Serial.print(" X:"); Serial.println(i * 100);
+      Serial.print("Rate Control 1. i: "); Serial.print(i); Serial.print(" V: "); Serial.print(value); Serial.print(" X:"); Serial.println(i * 100);
     }
     delay(64);
   }
@@ -255,11 +381,11 @@ void scalingRateControl16HzTest()
     else
     {
       fail(1);
-      Serial.print("F9. i: "); Serial.print(i); Serial.print(" V: "); Serial.print(value); Serial.print(" X:"); Serial.println(1000);
+      Serial.print("Rate Control 2. i: "); Serial.print(i); Serial.print(" V: "); Serial.print(value); Serial.print(" X:"); Serial.println(1000);
     }
     delay(64);
   }
-  SW18AB_6B.writePublicData(SCALING_INPUT_PIN, 500);
+  scalingSWC->writePublicData(SCALING_INPUT_PIN, 500);
   uint16_t expected = 1000;
   for (uint32_t i = 0; i < 5; i += 1)
   {
@@ -272,7 +398,7 @@ void scalingRateControl16HzTest()
     else
     {
       fail(1);
-      Serial.print("F10. i: "); Serial.print(i); Serial.print(" V: "); Serial.print(value); Serial.print(" X:"); Serial.println(expected);
+      Serial.print("Rate Control 3. i: "); Serial.print(i); Serial.print(" V: "); Serial.print(value); Serial.print(" X:"); Serial.println(expected);
     }
 
     expected -= 100;
@@ -289,7 +415,7 @@ void scalingRateControl16HzTest()
     else
     {
       fail(1);
-      Serial.print("F11. i: "); Serial.print(i); Serial.print(" V: "); Serial.print(value); Serial.print(" X:"); Serial.println(500);
+      Serial.print("Rate Control 4. i: "); Serial.print(i); Serial.print(" V: "); Serial.print(value); Serial.print(" X:"); Serial.println(500);
     }
     delay(64);
   }
@@ -299,17 +425,18 @@ void scaling1stOrderTest()
 { //1stOrderFiltering, different pins
   scalingInput->begin(SCALING_INPUT_PIN);
   scalingOutput->begin(SCALING_OUTPUT_PIN);
-  SW18AB_6B.writePublicData(SCALING_OUTPUT_PIN, 0);
+  scalingSWC->writePublicData(SCALING_OUTPUT_PIN, 0);
 
   scalingOutput->writeScalingEnabled(false, SCALING_INPUT_PIN);
   scalingOutput->write1stOrderFiltering(SerialWombatAbstractScaledOutput::Period::PERIOD_8mS, 65000);
   scalingOutput->writeScalingEnabled(true, SCALING_INPUT_PIN);
-  SW18AB_6B.writePublicData(SCALING_INPUT_PIN, 10000);
+  scalingSWC->writePublicData(SCALING_INPUT_PIN, 10000);
 
 
   uint16_t value = scalingOutput->readPublicData();
   uint32_t startTime = millis();
-  while (value < 9700)
+   uint32_t timeout = millis() + 10000;
+  while (value < 9700 && millis() < timeout)
   {
     //Serial.println(value);
     value = scalingOutput->readPublicData();
@@ -326,7 +453,7 @@ void scaling1stOrderTest()
   else
   {
     fail(1);
-    Serial.print("F12.  Critical! ");  Serial.print(" V: "); Serial.print(elapsed); Serial.print(" X:"); Serial.println(3400);
+    Serial.print("Scaling1stOrder 1.  Critical! ");  Serial.print(" V: "); Serial.print(elapsed); Serial.print(" X:"); Serial.println(3400);
   }
 
 }
@@ -386,7 +513,7 @@ void scalingSOLinearInterpolationTest()
  //TODO SW18AB_6B.writeUserBuffer(0x220, (uint8_t*)table, sizeof(table));
 
  uint16_t bufferAddr = 0x20; // Was 220 on 6B test
-  SW18AB_6B.writeUserBuffer(bufferAddr, (uint8_t*)table, sizeof(table));
+  scalingSWC->writeUserBuffer(bufferAddr, (uint8_t*)table, sizeof(table));
 
   scalingInput->begin(SCALING_INPUT_PIN);
   scalingOutput->begin(SCALING_OUTPUT_PIN);

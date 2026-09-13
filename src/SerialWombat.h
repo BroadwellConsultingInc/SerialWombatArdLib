@@ -49,8 +49,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 #define SW_LE32(_a)  (uint8_t)((_a) & 0xFF), (uint8_t)((_a) >>8) , (uint8_t)((_a) >>16), (uint8_t)((_a) >>24)
 
 #define ARRAY_UINT32(_array,_index) ((((uint32_t) _array[_index +3])<<24) + (((uint32_t) _array[_index +2])<<16) + (((uint32_t) _array[_index +1])<<8) + _array[_index])
-#define SW18AB_LATEST_FIRMWARE 225
-#define SW08B_LATEST_FIRMWARE 225
+#define SW18AB_LATEST_FIRMWARE 226
+#define SW08B_LATEST_FIRMWARE 226
 #define SW4B_LATEST_FIRMWARE 203
 
 typedef enum
@@ -318,7 +318,7 @@ class SerialWombatChip
 private:
 
 	char version[8] = { 0 };
-	HardwareSerial * Serial = NULL;
+	HardwareSerial * SerialInstance = NULL;
 	TwoWire* i2cInterface = NULL;
 	uint8_t _pinmode[WOMBAT_MAXIMUM_PINS]={}; // Includes Pullup
 	bool _pullDown[WOMBAT_MAXIMUM_PINS]={};
@@ -562,12 +562,12 @@ public:
 */
 	int16_t begin(HardwareSerial& serial, bool reset = true)
 	{
-		Serial = &serial;
-		Serial->begin(115200);
-		Serial->setTimeout(2);
-		Serial->write((uint8_t*)"UUUUUUUU", 8);
+		SerialInstance = &serial;
+		SerialInstance->begin(115200);
+		SerialInstance->setTimeout(2);
+		SerialInstance->write((uint8_t*)"UUUUUUUU", 8);
 		delay(5);
-		while (Serial->read() >= 0);
+		while (SerialInstance->read() >= 0);
 		if (reset)
 		{
 			hardwareReset();
@@ -1246,13 +1246,52 @@ public:
 	}
 
 	/*!
+	@brief Returns true if startup commands have been configured in the Serial Wombat chip.
+
+	For the Serial Wombat 8B this checks flash addresses 0x4FF0 through 0x4FFB.
+	If any byte in that range is not 0xFF, startup commands are considered configured.
+
+	@return true if startup commands are configured, false otherwise.
+	*/
+	bool isConfiguredWithStartupCommands()
+	{
+		if (isSW08())
+		{
+			for (uint32_t address = 0x08003F00; address < 0x08003FC0; address += 4)
+			{
+				uint32_t flashData = readFlashAddress(address);
+				if (flashData != 0xFFFFFFFF)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+		else if (isSW18())
+		{
+			// TODO: Implement startup command detection for Serial Wombat 18AB.
+			return false;
+		}
+		return false;
+	}
+
+	/*!
 	@brief Check if a specific pin mode is supported by the firmware in the Serial Wombat chip. (8B and 18AB only)
 	@param pinMode The pin mode to check
+	@param supressErrorReporting If true, suppresses error reporting  while checking for unsupported pin modes. Default is true.
 	@return true if the pin mode is supported, false otherwise.
 	*/
-	bool isPinModeSupported(int pinMode)
+	bool isPinModeSupported(int pinMode, bool supressErrorReporting = true)
 	{
-		return isPinModeSupported((SerialWombatPinMode_t)pinMode);
+		SerialWombatErrorHandler_t tempErrorHandler =  errorHandler;
+		if (supressErrorReporting)
+		{
+		registerErrorHandler(NULL);
+		}
+		bool result =  isPinModeSupported((SerialWombatPinMode_t)pinMode);
+		registerErrorHandler(tempErrorHandler);
+
+		return result;
 	}
 	/*!
 	@brief Check if a specific pin mode is supported by the firmware in the Serial Wombat chip. (8B and 18AB only)
@@ -1314,7 +1353,12 @@ public:
 		uint8_t tx[8] = { (uint8_t)SerialWombatCommands::COMMAND_BINARY_WRITE_FLASH,
 			1, // Write entire row
 			SW_LE32(address),0x55,0x55 };
+#ifdef ESP32
+		return sendPacketNoResponse(tx);
+
+#else
 		return sendPacket(tx);
+#endif
 	}
 
 

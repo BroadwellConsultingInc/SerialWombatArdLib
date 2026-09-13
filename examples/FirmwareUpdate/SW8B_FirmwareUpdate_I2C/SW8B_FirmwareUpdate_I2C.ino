@@ -36,8 +36,8 @@ PROGMEM
 #endif
 
 // comment in one of the firmware defines below or else appimage will be undefined at compile
-//#define DEFAULT_FIRMWARE
-//#define BRUSHED_MOTOR_FIRMWARE
+//#define DEFAULT_FIRMWARE   // - Use this for PCB0031 Grip, PCB0042 LSD, PCB0046 HSD,
+//#define BRUSHED_MOTOR_FIRMWARE  // Use this for PCB0030 Bridge
 //#define COMMUNICATIONS_FIRMWARE
 //#define FRONT_PANEL_FIRMWARE
 //#define KEYPAD_FIRMWARE
@@ -66,6 +66,10 @@ bool mismatch = false;
 void setup() {
   // put your setup code here, to run once:
   Wire.begin();
+
+#ifdef ESP32
+      Wire.setTimeout(50000);
+#endif
   Serial.begin(115200);
   while (!Serial); // Wait for initialization
 
@@ -186,6 +190,9 @@ void setup() {
       sprintf(s, "Programming address: 0x%X", address);
       Serial.println(s);
       delay(10);
+      #ifdef ESP32
+      delay (5); // Extra, since clock stretch times out.
+      #endif
     }
     else
     {

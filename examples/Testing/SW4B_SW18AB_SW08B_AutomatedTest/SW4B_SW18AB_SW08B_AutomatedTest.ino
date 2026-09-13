@@ -45,6 +45,8 @@ int TestDurationDivisor = 20;  // Make this bigger to speed up long tests.
 #define UNIT_TEST_BLINK
 #define UNIT_TEST_RANDOM_BLINK
 
+#define UNIT_TEST_IMAGE_CHECK
+
 #define UNIT_TEST_SCALING
 #define UNIT_TEST_SW_UART
 
@@ -64,6 +66,7 @@ int TestDurationDivisor = 20;  // Make this bigger to speed up long tests.
 #define UNIT_TEST_QUAD_ENC
 
 #define UNIT_TEST_SERVO
+
 #define UNIT_TEST_PUBLIC_DATA
 #define UNIT_TEST_DEBOUNCED_INPUT
 
@@ -393,6 +396,7 @@ void setup() {
   Serial.print ("Test divisor is "); Serial.println(TestDurationDivisor);
 
   SW18AB_6B.registerErrorHandler(SerialWombatSerialErrorHandlerBrief);
+  SW8B_68.registerErrorHandler(SerialWombatSerialErrorHandlerBrief);
 
 }
 
@@ -457,6 +461,22 @@ void loop() {
 Serial.println("****************************************************");
 Serial.println("TOP OF TEST LOOP");
 Serial.println("****************************************************");
+
+#ifdef UNIT_TEST_IMAGE_CHECK
+#ifdef TEST_SW8B
+  Serial.println ("Starting SW8B Image Build Test.");
+  resetAll();
+  imageCheckTest(SW8B_68);
+  Serial.print ("SW8B Image Build test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
+#endif
+#ifdef TEST_SW18AB
+  Serial.println ("Starting SW18AB Image Build Test.");
+  resetAll();
+  imageCheckTest(SW18AB_6B);
+  Serial.print ("SW18AB Image Build test complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
+#endif
+#endif
+
 #ifdef UNIT_TEST_COMMUNICATION_ERROR
 #ifdef TEST_SW18AB
   Serial.println ("Starting SW18AB communication error test.  This test takes less than a minute");
@@ -842,10 +862,25 @@ else
 #endif
 
 #ifdef UNIT_TEST_SCALING
-  Serial.println ("Starting Scaling Test.  This test takes less than 10 minutes");
+#ifdef TEST_SW18AB
+  
+  {
+  Serial.println ("Starting 18AB Scaling Test.  This test takes less than 10 minutes");
   resetAll();
-  scalingTest();
+  scalingTest(SW18AB_6B);
   Serial.print ("Scaling complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
+  }
+#endif
+#ifdef TEST_SW8B
+  if (SW8B_68.isPinModeSupported(PIN_MODE_PWM))
+  {
+Serial.println ("Starting 8B Scaling Test.  This test takes less than 10 minutes");
+  resetAll();
+  scalingTest(SW8B_68);
+  Serial.print ("Scaling complete.  Pass: "); Serial.print(passCount); Serial.print(" Fail: "); Serial.println(failCount);
+    
+  }
+#endif
 #endif
 
 #ifdef UNIT_TEST_INPUT_PROCESSOR
